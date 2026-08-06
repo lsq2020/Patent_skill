@@ -1,0 +1,51 @@
+{
+  "molecule": {
+    "canonical": "Transferrin Receptor 1",
+    "synonyms": [
+      "transferrin receptor 1",
+      "TfR1",
+      "CD71",
+      "TFRC",
+      "transferrin receptor protein 1",
+      "p90",
+      "T9"
+    ],
+    "status": "confirmed_from_public_biomedical_knowledge"
+  },
+  "target": {
+    "canonical": "TfR1",
+    "aliases": [
+      "transferrin receptor 1",
+      "transferrin receptor protein 1",
+      "CD71",
+      "TFRC gene product",
+      "p90",
+      "T9"
+    ],
+    "status": "confirmed_from_public_biomedical_knowledge"
+  },
+  "indication": {
+    "canonical": "broad (cancer, iron metabolism, CNS delivery)",
+    "aliases": [
+      "iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+      "cancer / proliferating-cell marker",
+      "receptor-mediated transcytosis across blood-brain barrier",
+      "erythroid iron delivery",
+      "hemochromatosis differential (TFR2)",
+      "tumor imaging / theranostics"
+    ],
+    "status": "confirmed_from_public_biomedical_knowledge"
+  },
+  "applicants": [],
+  "disambiguation_notes": [
+    "TfR1 = transferrin receptor 1 (gene TFRC, protein CD71), a type-II transmembrane homodimer that binds holo-transferrin and mediates cellular iron uptake and receptor-mediated transcytosis (e.g., across the BBB).",
+    "Distinguish from TfR2 (gene TFR2, liver/erythroid iron sensing) and from the ligand transferrin (TF); patent searches must separate 'transferrin receptor' hits that only concern the ligand.",
+    "Pathways relevant to the patent landscape: iron uptake, proliferating-cell/tumor targeting, antibody/bispecific-mediated brain delivery, antibody-drug conjugates, immunoliposomes/particles, diagnostics.",
+    "The abbreviation 'TfR' (without a number) in most biomedical texts refers to TfR1/CD71; treat 'transferrin receptor' as ambiguous but likely TfR1 unless TFR2/TfR2 is explicitly named."
+  ],
+  "unresolved_questions": [
+    "Confirm whether the user's focus is TfR1 biology broadly or a specific modality (antibody, BBB-shuttle, conjugate, diagnostic).",
+    "Verify official legal status in CNIPA and USPTO Patent Center for all representative families; Google Patents mirrors are screening signals only.",
+    "Separate anti-TfR1 platform patents from patents that merely mention TfR1/CD71 in a list of targets."
+  ]
+}

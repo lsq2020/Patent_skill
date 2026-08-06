@@ -1,0 +1,74 @@
+{
+ "\"transferrin receptor 1\" antibody": {
+  "tag": "A_exact",
+  "total": 12890,
+  "saved": 10,
+  "file": "gp-00-A_exact-10.json"
+ },
+ "\"TfR1\" antibody": {
+  "tag": "A_exact",
+  "total": 4210,
+  "saved": 10,
+  "file": "gp-01-A_exact-10.json"
+ },
+ "\"CD71\" antibody": {
+  "tag": "A_exact",
+  "total": 33151,
+  "saved": 10,
+  "file": "gp-02-A_exact-10.json"
+ },
+ "\"transferrin receptor\" \"blood-brain barrier\"": {
+  "tag": "B_techno",
+  "total": 17354,
+  "saved": 10,
+  "file": "gp-03-B_techno-10.json"
+ },
+ "\"transferrin receptor\" transcytosis OR \"brain delivery\"": {
+  "tag": "B_techno",
+  "total": 13493,
+  "saved": 10,
+  "file": "gp-04-B_techno-10.json"
+ },
+ "\"anti-transferrin receptor\" OR \"anti-TfR1\" OR \"anti-CD71\"": {
+  "tag": "B_techno",
+  "total": 13321,
+  "saved": 10,
+  "file": "gp-05-B_techno-10.json"
+ },
+ "\"transferrin receptor\" oligonucleotide conjugate": {
+  "tag": "C_conj",
+  "total": 31877,
+  "saved": 10,
+  "file": "gp-06-C_conj-10.json"
+ },
+ "\"transferrin receptor\" \"antibody-drug conjugate\" OR ADC": {
+  "tag": "C_conj",
+  "total": 145880,
+  "saved": 10,
+  "file": "gp-07-C_conj-10.json"
+ },
+ "transferrin \"drug delivery\" conjugate": {
+  "tag": "C_conj",
+  "total": 61640,
+  "saved": 10,
+  "file": "gp-08-C_conj-10.json"
+ },
+ "\"transferrin receptor\" cancer tumor targeting": {
+  "tag": "D_use",
+  "total": 45374,
+  "saved": 10,
+  "file": "gp-09-D_use-10.json"
+ },
+ "\"transferrin receptor\" diagnostic imaging tumor": {
+  "tag": "D_use",
+  "total": 32628,
+  "saved": 10,
+  "file": "gp-10-D_use-10.json"
+ },
+ "TFRC gene iron": {
+  "tag": "E_iron",
+  "total": 1713,
+  "saved": 10,
+  "file": "gp-12-E_iron-10.json"
+ }
+}

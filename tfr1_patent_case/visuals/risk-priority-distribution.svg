@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-label="FTO 复核优先级">
+<title>FTO 复核优先级</title>
+<rect width="760" height="190" rx="16" fill="#ffffff"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">FTO 复核优先级</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">按 fto-candidate-ranking.csv 的 review_priority 统计；是复核队列，不是侵权概率。</text>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">LOW</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="77" width="466.0" height="18" rx="9" fill="#6d7892"/>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">12</text>
+</svg>

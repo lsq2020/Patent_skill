@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "project_dir": "/data/siqing/2026_workpalce/20260731/tfr1_patent_case",
+  "current_stage": "delivery",
+  "completed_stages": [
+    "scope",
+    "entity_disambiguation",
+    "query_matrix",
+    "multi_path_search",
+    "family_grouping",
+    "claim_extraction",
+    "status_snapshot",
+    "fto_screening",
+    "roadmap",
+    "risk_innovation",
+    "modular_reports",
+    "visuals",
+    "context_background",
+    "delivery"
+  ],
+  "created_at": "2026-08-06T05:02:10.312393+00:00",
+  "updated_at": "2026-08-06T06:10:00+00:00",
+  "reports": {
+    "summary": "complete",
+    "extraction": "complete",
+    "family_map": "complete",
+    "technology_roadmap": "complete",
+    "risk_fto": "complete",
+    "innovation_space": "complete",
+    "evidence_chain": "complete",
+    "source_catalog": "complete",
+    "index": "complete",
+    "visuals": "complete",
+    "html_pages": "complete",
+    "main_report": "complete",
+    "roadmap": "complete",
+    "fto": "complete",
+    "context": "complete"
+  },
+  "reports_generated_at": "2026-08-06T05:47:44.783064+00:00"
+}

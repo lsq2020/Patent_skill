@@ -1,0 +1,3823 @@
+{
+  "generated_at": "2026-08-06T05:02:27.823892+00:00",
+  "scope": {
+    "molecule": "Transferrin Receptor 1",
+    "target": "TfR1",
+    "indication": "broad (cancer, iron metabolism, CNS delivery)",
+    "jurisdictions": [
+      "CN",
+      "US"
+    ],
+    "related_jurisdictions": [
+      "WO",
+      "EP"
+    ],
+    "as_of": "2026-08-06"
+  },
+  "entity_resolution": {
+    "molecule": {
+      "canonical": "Transferrin Receptor 1",
+      "synonyms": [
+        "transferrin receptor 1",
+        "TfR1",
+        "CD71",
+        "TFRC",
+        "transferrin receptor protein 1",
+        "p90",
+        "T9"
+      ],
+      "status": "confirmed_from_public_biomedical_knowledge"
+    },
+    "target": {
+      "canonical": "TfR1",
+      "aliases": [
+        "transferrin receptor 1",
+        "transferrin receptor protein 1",
+        "CD71",
+        "TFRC gene product",
+        "p90",
+        "T9"
+      ],
+      "status": "confirmed_from_public_biomedical_knowledge"
+    },
+    "indication": {
+      "canonical": "broad (cancer, iron metabolism, CNS delivery)",
+      "aliases": [
+        "iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "cancer / proliferating-cell marker",
+        "receptor-mediated transcytosis across blood-brain barrier",
+        "erythroid iron delivery",
+        "hemochromatosis differential (TFR2)",
+        "tumor imaging / theranostics"
+      ],
+      "status": "confirmed_from_public_biomedical_knowledge"
+    },
+    "applicants": [],
+    "disambiguation_notes": [
+      "TfR1 = transferrin receptor 1 (gene TFRC, protein CD71), a type-II transmembrane homodimer that binds holo-transferrin and mediates cellular iron uptake and receptor-mediated transcytosis (e.g., across the BBB).",
+      "Distinguish from TfR2 (gene TFR2, liver/erythroid iron sensing) and from the ligand transferrin (TF); patent searches must separate 'transferrin receptor' hits that only concern the ligand.",
+      "Pathways relevant to the patent landscape: iron uptake, proliferating-cell/tumor targeting, antibody/bispecific-mediated brain delivery, antibody-drug conjugates, immunoliposomes/particles, diagnostics.",
+      "The abbreviation 'TfR' (without a number) in most biomedical texts refers to TfR1/CD71; treat 'transferrin receptor' as ambiguous but likely TfR1 unless TFR2/TfR2 is explicitly named."
+    ],
+    "unresolved_questions": [
+      "Confirm whether the user's focus is TfR1 biology broadly or a specific modality (antibody, BBB-shuttle, conjugate, diagnostic).",
+      "Verify official legal status in CNIPA and USPTO Patent Center for all representative families; Google Patents mirrors are screening signals only.",
+      "Separate anti-TfR1 platform patents from patents that merely mention TfR1/CD71 in a list of targets."
+    ]
+  },
+  "source_catalog": {
+    "upstream_repo": "https://github.com/CNIPA/PatentDatabases",
+    "upstream_readme": "https://raw.githubusercontent.com/CNIPA/PatentDatabases/master/README.md",
+    "upstream_readme_sha256": "51dc7ed174d1ae4d23ba9d1b8ebd8ae340aae330f8787d0c42ea2588b19b95c2",
+    "snapshot_at": "2026-08-06T03:14:21.301746+00:00",
+    "counts": {
+      "upstream_listings": 143,
+      "unique_urls": 140,
+      "by_section": {
+        "domestic": 25,
+        "international": 113,
+        "classification": 5
+      },
+      "by_source_kind": {
+        "official_or_authority": 33,
+        "public_or_national_database": 64,
+        "commercial_or_aggregator": 33,
+        "literature_or_context": 5,
+        "classification_authority_or_navigator": 4,
+        "classification_navigator": 1
+      }
+    },
+    "source_policy": {
+      "description": "This is a source directory, not an endorsement and not proof that every URL is current or accessible.",
+      "official_or_authority": "Use for primary publication, prosecution or legal-status verification when the target jurisdiction is covered.",
+      "commercial_or_aggregator": "Use for discovery, normalization, family/citation expansion and cross-checking; do not use alone for legal status.",
+      "public_or_national_database": "Use for discovery and jurisdiction-specific cross-checking; verify scope and update date.",
+      "literature_or_context": "Use for technical, clinical or background context; it does not establish patent claim coverage.",
+      "classification_navigation": "Use to interpret or expand IPC/CPC/FI/ECLA/ICO classifications; confirm the classification definition and version."
+    },
+    "sources": [
+      {
+        "source_id": "src-001",
+        "name": "国家知识产权局专利公布公告系统",
+        "url": "http://epub.cnipa.gov.cn",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "国家知识产权局专利公布公告系统"
+          }
+        ],
+        "upstream_indices": [
+          1
+        ]
+      },
+      {
+        "source_id": "src-002",
+        "name": "国家知识产权局专利审查查询系统",
+        "url": "https://cpquery.cponline.cnipa.gov.cn",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "国家知识产权局专利审查查询系统"
+          }
+        ],
+        "upstream_indices": [
+          2
+        ]
+      },
+      {
+        "source_id": "src-003",
+        "name": "中国知识产权网 CNIPR",
+        "url": "http://search.cnipr.com/pages!advSearch.action",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "中国知识产权网 CNIPR"
+          }
+        ],
+        "upstream_indices": [
+          3
+        ]
+      },
+      {
+        "source_id": "src-004",
+        "name": "香港知识产权署检索系统",
+        "url": "https://esearch.ipd.gov.hk/nis-pos-view/pt",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "香港知识产权署检索系统"
+          }
+        ],
+        "upstream_indices": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-005",
+        "name": "台湾专利资讯检索系统",
+        "url": "https://tiponet.tipo.gov.tw",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "台湾专利资讯检索系统"
+          }
+        ],
+        "upstream_indices": [
+          5
+        ]
+      },
+      {
+        "source_id": "src-006",
+        "name": "澳门特别行政区经济局",
+        "url": "https://www.economia.gov.mo",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "澳门特别行政区经济局"
+          }
+        ],
+        "upstream_indices": [
+          6
+        ]
+      },
+      {
+        "source_id": "src-007",
+        "name": "incoPat",
+        "url": "http://www.incopat.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "incoPat"
+          }
+        ],
+        "upstream_indices": [
+          7
+        ]
+      },
+      {
+        "source_id": "src-008",
+        "name": "Patentics",
+        "url": "http://www.patentics.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "Patentics"
+          }
+        ],
+        "upstream_indices": [
+          8
+        ]
+      },
+      {
+        "source_id": "src-009",
+        "name": "智慧芽",
+        "url": "https://www.zhihuiya.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "智慧芽"
+          }
+        ],
+        "upstream_indices": [
+          9
+        ]
+      },
+      {
+        "source_id": "src-010",
+        "name": "HimmPat",
+        "url": "https://www.himmpat.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "HimmPat"
+          }
+        ],
+        "upstream_indices": [
+          10
+        ]
+      },
+      {
+        "source_id": "src-011",
+        "name": "Innojoy",
+        "url": "http://www.innojoy.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "Innojoy"
+          }
+        ],
+        "upstream_indices": [
+          11
+        ]
+      },
+      {
+        "source_id": "src-012",
+        "name": "专利汇",
+        "url": "https://www.patenthub.cn",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "专利汇"
+          }
+        ],
+        "upstream_indices": [
+          12
+        ]
+      },
+      {
+        "source_id": "src-013",
+        "name": "度衍",
+        "url": "http://www.uyanip.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "度衍"
+          }
+        ],
+        "upstream_indices": [
+          13
+        ]
+      },
+      {
+        "source_id": "src-014",
+        "name": "润桐",
+        "url": "https://www.rainpat.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "润桐"
+          }
+        ],
+        "upstream_indices": [
+          14
+        ]
+      },
+      {
+        "source_id": "src-015",
+        "name": "佰腾",
+        "url": "http://so.baiten.cn",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "佰腾"
+          }
+        ],
+        "upstream_indices": [
+          15
+        ]
+      },
+      {
+        "source_id": "src-016",
+        "name": "中国知网",
+        "url": "https://kns.cnki.net/kns8s/?classid=VUDIXAIY",
+        "source_kind": "literature_or_context",
+        "default_use": "context_only",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "中国知网"
+          }
+        ],
+        "upstream_indices": [
+          16
+        ]
+      },
+      {
+        "source_id": "src-017",
+        "name": "万方数据",
+        "url": "https://c.wanfangdata.com.cn/patent",
+        "source_kind": "literature_or_context",
+        "default_use": "context_only",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "万方数据"
+          }
+        ],
+        "upstream_indices": [
+          17
+        ]
+      },
+      {
+        "source_id": "src-018",
+        "name": "超星独秀",
+        "url": "http://www.duxiu.com/?channel=searchPatent",
+        "source_kind": "literature_or_context",
+        "default_use": "context_only",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "超星独秀"
+          }
+        ],
+        "upstream_indices": [
+          18
+        ]
+      },
+      {
+        "source_id": "src-019",
+        "name": "壹专利",
+        "url": "http://patyee.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "壹专利"
+          }
+        ],
+        "upstream_indices": [
+          19
+        ]
+      },
+      {
+        "source_id": "src-020",
+        "name": "SooPat",
+        "url": "http://www.soopat.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "SooPat"
+          }
+        ],
+        "upstream_indices": [
+          20
+        ]
+      },
+      {
+        "source_id": "src-021",
+        "name": "专利之星",
+        "url": "https://www.patentstar.com.cn",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "专利之星"
+          }
+        ],
+        "upstream_indices": [
+          21
+        ]
+      },
+      {
+        "source_id": "src-022",
+        "name": "北京市知识产权公共信息平台",
+        "url": "http://www.beijingip.cn/jopm_ww/website/index.do",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "北京市知识产权公共信息平台"
+          }
+        ],
+        "upstream_indices": [
+          22
+        ]
+      },
+      {
+        "source_id": "src-023",
+        "name": "国家重点产业专利信息服务平台",
+        "url": "http://chinaip.cnipa.gov.cn",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "国家重点产业专利信息服务平台"
+          }
+        ],
+        "upstream_indices": [
+          23
+        ]
+      },
+      {
+        "source_id": "src-024",
+        "name": "中国专利网",
+        "url": "http://www.cnpatent.com",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "中国专利网"
+          }
+        ],
+        "upstream_indices": [
+          24
+        ]
+      },
+      {
+        "source_id": "src-025",
+        "name": "国家科技数字图书馆",
+        "url": "https://www.nstl.gov.cn/search.html",
+        "source_kind": "literature_or_context",
+        "default_use": "context_only",
+        "listed_in": [
+          {
+            "section": "domestic",
+            "name": "国家科技数字图书馆"
+          }
+        ],
+        "upstream_indices": [
+          25
+        ]
+      },
+      {
+        "source_id": "src-026",
+        "name": "欧洲专利局",
+        "url": "http://ep.espacenet.com",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "欧洲专利局"
+          }
+        ],
+        "upstream_indices": [
+          26
+        ]
+      },
+      {
+        "source_id": "src-027",
+        "name": "欧盟知识产权局",
+        "url": "https://euipo.europa.eu",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "欧盟知识产权局"
+          }
+        ],
+        "upstream_indices": [
+          27
+        ]
+      },
+      {
+        "source_id": "src-028",
+        "name": "美国专利商标局",
+        "url": "http://www.uspto.gov/patents/process/search/index.jsp",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "美国专利商标局"
+          }
+        ],
+        "upstream_indices": [
+          28
+        ]
+      },
+      {
+        "source_id": "src-029",
+        "name": "药物在线",
+        "url": "http://www.drugfuture.com",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "药物在线"
+          }
+        ],
+        "upstream_indices": [
+          29
+        ]
+      },
+      {
+        "source_id": "src-030",
+        "name": "欧亚专利组织",
+        "url": "https://www.eapo.org",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "欧亚专利组织"
+          }
+        ],
+        "upstream_indices": [
+          30
+        ]
+      },
+      {
+        "source_id": "src-031",
+        "name": "非洲知识产权组织",
+        "url": "http://www.aripo.org",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "非洲知识产权组织"
+          }
+        ],
+        "upstream_indices": [
+          31
+        ]
+      },
+      {
+        "source_id": "src-032",
+        "name": "Patentscope",
+        "url": "https://patentscope.wipo.int/search/zh/search.jsf",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "Patentscope"
+          }
+        ],
+        "upstream_indices": [
+          32
+        ]
+      },
+      {
+        "source_id": "src-033",
+        "name": "韩国 KIPRIS 系统",
+        "url": "http://www.kipris.or.kr/enghome/main.jsp",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "韩国 KIPRIS 系统"
+          }
+        ],
+        "upstream_indices": [
+          33
+        ]
+      },
+      {
+        "source_id": "src-034",
+        "name": "日本特许厅专利数据库",
+        "url": "https://www.j-platpat.inpit.go.jp/web/all/top/BTmTopEnglishPage",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "日本特许厅专利数据库"
+          }
+        ],
+        "upstream_indices": [
+          34
+        ]
+      },
+      {
+        "source_id": "src-035",
+        "name": "ThomsonInnovation",
+        "url": "http://www.thomsoninnovate.org",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "ThomsonInnovation"
+          }
+        ],
+        "upstream_indices": [
+          35
+        ]
+      },
+      {
+        "source_id": "src-036",
+        "name": "DerwentInnovation",
+        "url": "https://www.derwentinnovation.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "DerwentInnovation"
+          }
+        ],
+        "upstream_indices": [
+          36
+        ]
+      },
+      {
+        "source_id": "src-037",
+        "name": "Questel",
+        "url": "http://www.questel.orbit.com/index.php/en",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "Questel"
+          }
+        ],
+        "upstream_indices": [
+          37
+        ]
+      },
+      {
+        "source_id": "src-038",
+        "name": "TotalPatent",
+        "url": "https://www.lexisnexis.com/totalpatent",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "TotalPatent"
+          }
+        ],
+        "upstream_indices": [
+          38
+        ]
+      },
+      {
+        "source_id": "src-039",
+        "name": "Patbase",
+        "url": "http://www.patbase.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "Patbase"
+          }
+        ],
+        "upstream_indices": [
+          39
+        ]
+      },
+      {
+        "source_id": "src-040",
+        "name": "PatentCloud",
+        "url": "https://www.inquartik.com/patentcloud",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "PatentCloud"
+          }
+        ],
+        "upstream_indices": [
+          40
+        ]
+      },
+      {
+        "source_id": "src-041",
+        "name": "WIPS",
+        "url": "http://www.wipsglobal.com/service/mai/main.wips",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "WIPS"
+          }
+        ],
+        "upstream_indices": [
+          41
+        ]
+      },
+      {
+        "source_id": "src-042",
+        "name": "DELPHION",
+        "url": "http://www.delphion.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "DELPHION"
+          }
+        ],
+        "upstream_indices": [
+          42
+        ]
+      },
+      {
+        "source_id": "src-043",
+        "name": "DIALOG",
+        "url": "http://search.proquest.com/professional",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "DIALOG"
+          }
+        ],
+        "upstream_indices": [
+          43
+        ]
+      },
+      {
+        "source_id": "src-044",
+        "name": "免费专利在线",
+        "url": "http://www.freepatentsonline.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "免费专利在线"
+          }
+        ],
+        "upstream_indices": [
+          44
+        ]
+      },
+      {
+        "source_id": "src-045",
+        "name": "谷歌专利",
+        "url": "http://www.google.com/patents",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "谷歌专利"
+          }
+        ],
+        "upstream_indices": [
+          45
+        ]
+      },
+      {
+        "source_id": "src-046",
+        "name": "INSPEC",
+        "url": "http://www.theiet.org/resources/inspec",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "INSPEC"
+          }
+        ],
+        "upstream_indices": [
+          46
+        ]
+      },
+      {
+        "source_id": "src-047",
+        "name": "IP.com",
+        "url": "https://priorart.ip.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "IP.com"
+          }
+        ],
+        "upstream_indices": [
+          47
+        ]
+      },
+      {
+        "source_id": "src-048",
+        "name": "RPX Insight",
+        "url": "https://insight.rpxcorp.com/advanced_search",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "RPX Insight"
+          }
+        ],
+        "upstream_indices": [
+          48
+        ]
+      },
+      {
+        "source_id": "src-049",
+        "name": "JP-net",
+        "url": "http://www.jpds.co.jp/english/jpnete.html",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "JP-net"
+          }
+        ],
+        "upstream_indices": [
+          49
+        ]
+      },
+      {
+        "source_id": "src-050",
+        "name": "STN",
+        "url": "https://www.stn.org/stn",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "STN"
+          }
+        ],
+        "upstream_indices": [
+          50
+        ]
+      },
+      {
+        "source_id": "src-051",
+        "name": "美国化学文摘社",
+        "url": "https://www.cas.org",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "美国化学文摘社"
+          }
+        ],
+        "upstream_indices": [
+          51
+        ]
+      },
+      {
+        "source_id": "src-052",
+        "name": "Pubmed",
+        "url": "https://www.ncbi.nlm.nih.gov/pubmed",
+        "source_kind": "literature_or_context",
+        "default_use": "context_only",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "Pubmed"
+          }
+        ],
+        "upstream_indices": [
+          52
+        ]
+      },
+      {
+        "source_id": "src-053",
+        "name": "MicroPatent",
+        "url": "http://www.micropat.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "MicroPatent"
+          }
+        ],
+        "upstream_indices": [
+          53
+        ]
+      },
+      {
+        "source_id": "src-054",
+        "name": "Patseer",
+        "url": "http://patseer.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "Patseer"
+          }
+        ],
+        "upstream_indices": [
+          54
+        ]
+      },
+      {
+        "source_id": "src-055",
+        "name": "Patanalyse",
+        "url": "http://www.patanalyse.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "Patanalyse"
+          }
+        ],
+        "upstream_indices": [
+          55
+        ]
+      },
+      {
+        "source_id": "src-056",
+        "name": "Patentlens",
+        "url": "http://www.lens.org/lens",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "Patentlens"
+          }
+        ],
+        "upstream_indices": [
+          56
+        ]
+      },
+      {
+        "source_id": "src-057",
+        "name": "Sumobrain",
+        "url": "http://www.sumobrain.com",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "Sumobrain"
+          }
+        ],
+        "upstream_indices": [
+          57
+        ]
+      },
+      {
+        "source_id": "src-058",
+        "name": "Surechem",
+        "url": "http://www.surechem.org",
+        "source_kind": "commercial_or_aggregator",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "Surechem"
+          }
+        ],
+        "upstream_indices": [
+          58
+        ]
+      },
+      {
+        "source_id": "src-059",
+        "name": "阿尔巴尼亚检索系统",
+        "url": "http://www.alpto.gov.al",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "阿尔巴尼亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          59
+        ]
+      },
+      {
+        "source_id": "src-060",
+        "name": "阿尔及利亚检索系统",
+        "url": "http://www.inapi.org",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "阿尔及利亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          60
+        ]
+      },
+      {
+        "source_id": "src-061",
+        "name": "亚美尼亚检索系统",
+        "url": "http://www.aipa.am",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "亚美尼亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          61
+        ]
+      },
+      {
+        "source_id": "src-062",
+        "name": "格鲁吉亚检索系统",
+        "url": "http://www.sakpatenti.org.ge",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "格鲁吉亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          62
+        ]
+      },
+      {
+        "source_id": "src-063",
+        "name": "德国检索系统",
+        "url": "http://www.dpma.de",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "德国检索系统"
+          }
+        ],
+        "upstream_indices": [
+          63
+        ]
+      },
+      {
+        "source_id": "src-064",
+        "name": "希腊检索系统",
+        "url": "http://www.obi.gr/obi/Default.aspx?tabid=71",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "希腊检索系统"
+          }
+        ],
+        "upstream_indices": [
+          64
+        ]
+      },
+      {
+        "source_id": "src-065",
+        "name": "危地马拉检索系统",
+        "url": "https://www.rpi.gob.gt",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "危地马拉检索系统"
+          }
+        ],
+        "upstream_indices": [
+          65
+        ]
+      },
+      {
+        "source_id": "src-066",
+        "name": "洪都拉斯检索系统",
+        "url": "http://www.digepih.webs.com",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "洪都拉斯检索系统"
+          }
+        ],
+        "upstream_indices": [
+          66
+        ]
+      },
+      {
+        "source_id": "src-067",
+        "name": "匈牙利检索系统",
+        "url": "http://www.hipo.gov.hu",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "匈牙利检索系统"
+          }
+        ],
+        "upstream_indices": [
+          67
+        ]
+      },
+      {
+        "source_id": "src-068",
+        "name": "冰岛检索系统",
+        "url": "http://www.patent.is",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "冰岛检索系统"
+          }
+        ],
+        "upstream_indices": [
+          68
+        ]
+      },
+      {
+        "source_id": "src-069",
+        "name": "印度检索系统",
+        "url": "http://www.ipindia.nic.in",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "印度检索系统"
+          }
+        ],
+        "upstream_indices": [
+          69
+        ]
+      },
+      {
+        "source_id": "src-070",
+        "name": "印尼检索系统",
+        "url": "http://www.dgip.go.id/statistik-djhki",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "印尼检索系统"
+          }
+        ],
+        "upstream_indices": [
+          70
+        ]
+      },
+      {
+        "source_id": "src-071",
+        "name": "爱尔兰检索系统",
+        "url": "http://www.patentsoffice.ie/en/publications_download.aspx",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "爱尔兰检索系统"
+          }
+        ],
+        "upstream_indices": [
+          71
+        ]
+      },
+      {
+        "source_id": "src-072",
+        "name": "以色列检索系统",
+        "url": "http://www.patent.justice.gov.il/MojHeb/RashamHaPtentim",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "以色列检索系统"
+          }
+        ],
+        "upstream_indices": [
+          72
+        ]
+      },
+      {
+        "source_id": "src-073",
+        "name": "意大利检索系统",
+        "url": "http://www.uibm.gov.it",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "意大利检索系统"
+          }
+        ],
+        "upstream_indices": [
+          73
+        ]
+      },
+      {
+        "source_id": "src-074",
+        "name": "哈萨克斯坦检索系统",
+        "url": "http://www.kazpatent.kz",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "哈萨克斯坦检索系统"
+          }
+        ],
+        "upstream_indices": [
+          74
+        ]
+      },
+      {
+        "source_id": "src-075",
+        "name": "肯尼亚检索系统",
+        "url": "http://www.kipi.go.ke/index.php/past-ip-journals",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "肯尼亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          75
+        ]
+      },
+      {
+        "source_id": "src-076",
+        "name": "科威特检索系统",
+        "url": "http://www.gccpo.org",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "科威特检索系统"
+          },
+          {
+            "section": "international",
+            "name": "卡塔尔检索系统"
+          },
+          {
+            "section": "international",
+            "name": "沙特阿拉伯检索系统"
+          },
+          {
+            "section": "international",
+            "name": "阿拉伯联合酋长国检索系统"
+          }
+        ],
+        "upstream_indices": [
+          76,
+          99,
+          104,
+          124
+        ]
+      },
+      {
+        "source_id": "src-077",
+        "name": "拉脱维亚检索系统",
+        "url": "http://www.lrpv.gov.lv/lv",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "拉脱维亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          77
+        ]
+      },
+      {
+        "source_id": "src-078",
+        "name": "立陶宛检索系统",
+        "url": "http://www.vpb.lt",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "立陶宛检索系统"
+          }
+        ],
+        "upstream_indices": [
+          78
+        ]
+      },
+      {
+        "source_id": "src-079",
+        "name": "卢森堡检索系统",
+        "url": "http://www.eco.public.lu",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "卢森堡检索系统"
+          }
+        ],
+        "upstream_indices": [
+          79
+        ]
+      },
+      {
+        "source_id": "src-080",
+        "name": "马来西亚检索系统",
+        "url": "https://iponline.myipo.gov.my/ipo/main/search.cfm",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "马来西亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          80
+        ]
+      },
+      {
+        "source_id": "src-081",
+        "name": "马耳他检索系统",
+        "url": "https://secure2.gov.mt/IPO/default.aspx?ct=1",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "马耳他检索系统"
+          }
+        ],
+        "upstream_indices": [
+          81
+        ]
+      },
+      {
+        "source_id": "src-082",
+        "name": "蒙古检索系统",
+        "url": "http://www.ipom.mn",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "蒙古检索系统"
+          }
+        ],
+        "upstream_indices": [
+          82
+        ]
+      },
+      {
+        "source_id": "src-083",
+        "name": "摩洛哥检索系统",
+        "url": "http://www.ompic.org.ma/index_en.htm",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "摩洛哥检索系统"
+          }
+        ],
+        "upstream_indices": [
+          83
+        ]
+      },
+      {
+        "source_id": "src-084",
+        "name": "荷兰检索系统",
+        "url": "http://www.agentschapnl.nl/en/node/108069",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "荷兰检索系统"
+          }
+        ],
+        "upstream_indices": [
+          84
+        ]
+      },
+      {
+        "source_id": "src-085",
+        "name": "新西兰检索系统",
+        "url": "http://www.iponz.govt.n",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "新西兰检索系统"
+          }
+        ],
+        "upstream_indices": [
+          85
+        ]
+      },
+      {
+        "source_id": "src-086",
+        "name": "挪威检索系统",
+        "url": "http://www.patentstyret.no",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "挪威检索系统"
+          }
+        ],
+        "upstream_indices": [
+          86
+        ]
+      },
+      {
+        "source_id": "src-087",
+        "name": "澳大利亚检索系统",
+        "url": "http://www.ipaustralia.gov.au",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "澳大利亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          87
+        ]
+      },
+      {
+        "source_id": "src-088",
+        "name": "奥地利检索系统",
+        "url": "http://www.patentamt.at",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "奥地利检索系统"
+          }
+        ],
+        "upstream_indices": [
+          88
+        ]
+      },
+      {
+        "source_id": "src-089",
+        "name": "阿塞拜疆检索系统",
+        "url": "http://www.azstand.gov.az",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "阿塞拜疆检索系统"
+          }
+        ],
+        "upstream_indices": [
+          89
+        ]
+      },
+      {
+        "source_id": "src-090",
+        "name": "巴林检索系统",
+        "url": "http://www.moic.gov.bh/moic/en",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "巴林检索系统"
+          }
+        ],
+        "upstream_indices": [
+          90
+        ]
+      },
+      {
+        "source_id": "src-091",
+        "name": "白俄罗斯检索系统",
+        "url": "http://www.belgospatent.org.by",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "白俄罗斯检索系统"
+          }
+        ],
+        "upstream_indices": [
+          91
+        ]
+      },
+      {
+        "source_id": "src-092",
+        "name": "比利时检索系统",
+        "url": "http://economie.fgov.be/opri-die.jsp",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "比利时检索系统"
+          }
+        ],
+        "upstream_indices": [
+          92
+        ]
+      },
+      {
+        "source_id": "src-093",
+        "name": "伯利兹检索系统",
+        "url": "http://www.belipo.bz",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "伯利兹检索系统"
+          }
+        ],
+        "upstream_indices": [
+          93
+        ]
+      },
+      {
+        "source_id": "src-094",
+        "name": "阿曼检索系统",
+        "url": "http://www.mocioman.gov.om",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "阿曼检索系统"
+          }
+        ],
+        "upstream_indices": [
+          94
+        ]
+      },
+      {
+        "source_id": "src-095",
+        "name": "巴基斯坦检索系统",
+        "url": "http://www.ipo.gov.pk",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "巴基斯坦检索系统"
+          }
+        ],
+        "upstream_indices": [
+          95
+        ]
+      },
+      {
+        "source_id": "src-096",
+        "name": "菲律宾检索系统",
+        "url": "http://www.ipophil.gov.ph/index.php",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "菲律宾检索系统"
+          }
+        ],
+        "upstream_indices": [
+          96
+        ]
+      },
+      {
+        "source_id": "src-097",
+        "name": "波兰检索系统",
+        "url": "http://www.uprp.pl/strona-glowna/Menu01,9,0,index,pl",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "波兰检索系统"
+          }
+        ],
+        "upstream_indices": [
+          97
+        ]
+      },
+      {
+        "source_id": "src-098",
+        "name": "葡萄牙检索系统",
+        "url": "http://www.marcasepatentesNaN/index.php?section=80",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "葡萄牙检索系统"
+          }
+        ],
+        "upstream_indices": [
+          98
+        ]
+      },
+      {
+        "source_id": "src-099",
+        "name": "摩尔多瓦共和国检索系统",
+        "url": "http://agepi.gov.md/md",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "摩尔多瓦共和国检索系统"
+          }
+        ],
+        "upstream_indices": [
+          100
+        ]
+      },
+      {
+        "source_id": "src-100",
+        "name": "罗马尼亚检索系统",
+        "url": "http://www.osim.ro",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "罗马尼亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          101
+        ]
+      },
+      {
+        "source_id": "src-101",
+        "name": "俄罗斯联邦检索系统",
+        "url": "http://www.rupto.ru/en_site/index_en.htm",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "俄罗斯联邦检索系统"
+          }
+        ],
+        "upstream_indices": [
+          102
+        ]
+      },
+      {
+        "source_id": "src-102",
+        "name": "卢旺达检索系统",
+        "url": "http://org.rdb.rw",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "卢旺达检索系统"
+          }
+        ],
+        "upstream_indices": [
+          103
+        ]
+      },
+      {
+        "source_id": "src-103",
+        "name": "瑞典检索系统",
+        "url": "http://www.prv.se",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "瑞典检索系统"
+          }
+        ],
+        "upstream_indices": [
+          105
+        ]
+      },
+      {
+        "source_id": "src-104",
+        "name": "瑞士检索系统",
+        "url": "https://www.ige.ch",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "瑞士检索系统"
+          }
+        ],
+        "upstream_indices": [
+          106
+        ]
+      },
+      {
+        "source_id": "src-105",
+        "name": "阿拉伯叙利亚共和国检索系统",
+        "url": "http://www.spo.gov.sy/en",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "阿拉伯叙利亚共和国检索系统"
+          }
+        ],
+        "upstream_indices": [
+          107
+        ]
+      },
+      {
+        "source_id": "src-106",
+        "name": "巴西检索系统",
+        "url": "http://www.inpi.gov.br",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "巴西检索系统"
+          }
+        ],
+        "upstream_indices": [
+          108
+        ]
+      },
+      {
+        "source_id": "src-107",
+        "name": "加拿大检索系统",
+        "url": "http://www.cipo.ic.gc.ca",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "加拿大检索系统"
+          }
+        ],
+        "upstream_indices": [
+          109
+        ]
+      },
+      {
+        "source_id": "src-108",
+        "name": "智利检索系统",
+        "url": "http://www.inapi.cl",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "智利检索系统"
+          }
+        ],
+        "upstream_indices": [
+          110
+        ]
+      },
+      {
+        "source_id": "src-109",
+        "name": "哥伦比亚检索系统",
+        "url": "http://www.sic.gov.co/es/banco-patentes",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "哥伦比亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          111
+        ]
+      },
+      {
+        "source_id": "src-110",
+        "name": "克罗地亚检索系统",
+        "url": "http://www.dziv.hr",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "克罗地亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          112
+        ]
+      },
+      {
+        "source_id": "src-111",
+        "name": "古巴检索系统",
+        "url": "http://www.ocpi.cu",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "古巴检索系统"
+          }
+        ],
+        "upstream_indices": [
+          113
+        ]
+      },
+      {
+        "source_id": "src-112",
+        "name": "捷克共和国检索系统",
+        "url": "http://www.upv.cz",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "捷克共和国检索系统"
+          }
+        ],
+        "upstream_indices": [
+          114
+        ]
+      },
+      {
+        "source_id": "src-113",
+        "name": "丹麦检索系统",
+        "url": "http://www.dkpto.org",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "丹麦检索系统"
+          }
+        ],
+        "upstream_indices": [
+          115
+        ]
+      },
+      {
+        "source_id": "src-114",
+        "name": "埃及检索系统",
+        "url": "http://www.egypo.gov.eg/Search.aspx",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "埃及检索系统"
+          }
+        ],
+        "upstream_indices": [
+          116
+        ]
+      },
+      {
+        "source_id": "src-115",
+        "name": "爱沙尼亚检索系统",
+        "url": "http://www.epa.ee",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "爱沙尼亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          117
+        ]
+      },
+      {
+        "source_id": "src-116",
+        "name": "法国检索系统",
+        "url": "http://www.inpi.fr",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "法国检索系统"
+          }
+        ],
+        "upstream_indices": [
+          118
+        ]
+      },
+      {
+        "source_id": "src-117",
+        "name": "泰国检索系统",
+        "url": "http://www.ipthailand.go.th/ipthailand/index.php?lang=en",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "泰国检索系统"
+          }
+        ],
+        "upstream_indices": [
+          119
+        ]
+      },
+      {
+        "source_id": "src-118",
+        "name": "前南斯拉夫的马其顿共和国检索系统",
+        "url": "http://www.ippo.gov.mk",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "前南斯拉夫的马其顿共和国检索系统"
+          }
+        ],
+        "upstream_indices": [
+          120
+        ]
+      },
+      {
+        "source_id": "src-119",
+        "name": "突尼斯检索系统",
+        "url": "http://www.innorpi.tn",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "突尼斯检索系统"
+          }
+        ],
+        "upstream_indices": [
+          121
+        ]
+      },
+      {
+        "source_id": "src-120",
+        "name": "土耳其检索系统",
+        "url": "http://www.turkpatent.gov.tr",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "土耳其检索系统"
+          }
+        ],
+        "upstream_indices": [
+          122
+        ]
+      },
+      {
+        "source_id": "src-121",
+        "name": "乌克兰检索系统",
+        "url": "http://www.sips.gov.ua/en/index.html",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "乌克兰检索系统"
+          }
+        ],
+        "upstream_indices": [
+          123
+        ]
+      },
+      {
+        "source_id": "src-122",
+        "name": "英国检索系统",
+        "url": "http://www.ipo.gov.uk",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "英国检索系统"
+          }
+        ],
+        "upstream_indices": [
+          125
+        ]
+      },
+      {
+        "source_id": "src-123",
+        "name": "越南检索系统",
+        "url": "http://www.noip.gov.vn",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "越南检索系统"
+          }
+        ],
+        "upstream_indices": [
+          126
+        ]
+      },
+      {
+        "source_id": "src-124",
+        "name": "新加坡检索系统",
+        "url": "http://www.ipos.gov.sg",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "新加坡检索系统"
+          }
+        ],
+        "upstream_indices": [
+          127
+        ]
+      },
+      {
+        "source_id": "src-125",
+        "name": "斯洛伐克检索系统",
+        "url": "http://www.upv.sk",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "斯洛伐克检索系统"
+          }
+        ],
+        "upstream_indices": [
+          128
+        ]
+      },
+      {
+        "source_id": "src-126",
+        "name": "斯洛文尼亚检索系统",
+        "url": "http://www.uil-cnipa.si",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "斯洛文尼亚检索系统"
+          }
+        ],
+        "upstream_indices": [
+          129
+        ]
+      },
+      {
+        "source_id": "src-127",
+        "name": "南非检索系统",
+        "url": "http://www.cipc.co.za",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "南非检索系统"
+          }
+        ],
+        "upstream_indices": [
+          130
+        ]
+      },
+      {
+        "source_id": "src-128",
+        "name": "西班牙检索系统",
+        "url": "http://www.oepm.es",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "西班牙检索系统"
+          }
+        ],
+        "upstream_indices": [
+          131
+        ]
+      },
+      {
+        "source_id": "src-129",
+        "name": "荷兰专利局",
+        "url": "https://www.prh.fi",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "荷兰专利局"
+          }
+        ],
+        "upstream_indices": [
+          132
+        ]
+      },
+      {
+        "source_id": "src-130",
+        "name": "比荷卢知识产权组织(BOIP)",
+        "url": "https://www.boip.int",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "比荷卢知识产权组织(BOIP)"
+          }
+        ],
+        "upstream_indices": [
+          133
+        ]
+      },
+      {
+        "source_id": "src-131",
+        "name": "墨西哥",
+        "url": "https://www.gob.mx",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "墨西哥"
+          }
+        ],
+        "upstream_indices": [
+          134
+        ]
+      },
+      {
+        "source_id": "src-132",
+        "name": "乌拉圭",
+        "url": "http://www.miem.gub.uy",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "乌拉圭"
+          }
+        ],
+        "upstream_indices": [
+          135
+        ]
+      },
+      {
+        "source_id": "src-133",
+        "name": "乌兹别克",
+        "url": "http://ima.uz",
+        "source_kind": "public_or_national_database",
+        "default_use": "discovery_and_cross_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "乌兹别克"
+          }
+        ],
+        "upstream_indices": [
+          136
+        ]
+      },
+      {
+        "source_id": "src-134",
+        "name": "也门专利局",
+        "url": "http://www.yipo.gov.ye",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "也门专利局"
+          }
+        ],
+        "upstream_indices": [
+          137
+        ]
+      },
+      {
+        "source_id": "src-135",
+        "name": "特立尼达和多马哥专利局",
+        "url": "http://www.ipo.gov.tt",
+        "source_kind": "official_or_authority",
+        "default_use": "primary_or_status_check",
+        "listed_in": [
+          {
+            "section": "international",
+            "name": "特立尼达和多马哥专利局"
+          }
+        ],
+        "upstream_indices": [
+          138
+        ]
+      },
+      {
+        "source_id": "src-136",
+        "name": "日本特许厅的分类对照工具",
+        "url": "https://www.jpo.go.jp/cgi/cgi-bin/search-portal/narabe_tool/narabe.cgi",
+        "source_kind": "classification_authority_or_navigator",
+        "default_use": "classification_navigation",
+        "listed_in": [
+          {
+            "section": "classification",
+            "name": "日本特许厅的分类对照工具"
+          }
+        ],
+        "upstream_indices": [
+          139
+        ]
+      },
+      {
+        "source_id": "src-137",
+        "name": "incoPat 专利数据库提供的 IPC 分类查询",
+        "url": "http://ipc.incopat.com",
+        "source_kind": "classification_authority_or_navigator",
+        "default_use": "classification_navigation",
+        "listed_in": [
+          {
+            "section": "classification",
+            "name": "incoPat 专利数据库提供的 IPC 分类查询"
+          }
+        ],
+        "upstream_indices": [
+          140
+        ]
+      },
+      {
+        "source_id": "src-138",
+        "name": "广东省知识产权公共信息综合服务平台的 IPC 分类导航",
+        "url": "https://s.gpic.gd.cn/access/hostingplatform/nav/route/showNav?industryFlag=0",
+        "source_kind": "classification_navigator",
+        "default_use": "classification_navigation",
+        "listed_in": [
+          {
+            "section": "classification",
+            "name": "广东省知识产权公共信息综合服务平台的 IPC 分类导航"
+          }
+        ],
+        "upstream_indices": [
+          141
+        ]
+      },
+      {
+        "source_id": "src-139",
+        "name": "国家知识产权局 IPC 分类查询",
+        "url": "http://epub.cnipa.gov.cn/ipc",
+        "source_kind": "classification_authority_or_navigator",
+        "default_use": "classification_navigation",
+        "listed_in": [
+          {
+            "section": "classification",
+            "name": "国家知识产权局 IPC 分类查询"
+          }
+        ],
+        "upstream_indices": [
+          142
+        ]
+      },
+      {
+        "source_id": "src-140",
+        "name": "欧洲专利局的分类检索",
+        "url": "https://worldwide.espacenet.com/classification?locale=cn_EP",
+        "source_kind": "classification_authority_or_navigator",
+        "default_use": "classification_navigation",
+        "listed_in": [
+          {
+            "section": "classification",
+            "name": "欧洲专利局的分类检索"
+          }
+        ],
+        "upstream_indices": [
+          143
+        ]
+      }
+    ]
+  },
+  "instructions": [
+    "Run high-precision paths before high-recall expansion.",
+    "Record database, query, date, result count and inclusion/exclusion decision.",
+    "Treat pathway, clinical, news and literature results as context until linked to a patent family or finding."
+  ],
+  "paths": [
+    {
+      "id": "A_exact_entity",
+      "tier": "high_precision",
+      "objective": "Find documents naming the molecule, target and indication together.",
+      "queries": [
+        "\"Transferrin Receptor 1\" \"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"Transferrin Receptor 1\" \"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"Transferrin Receptor 1\" \"TfR1\" \"cancer / proliferating-cell marker\"",
+        "\"Transferrin Receptor 1\" \"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"Transferrin Receptor 1\" \"TfR1\" \"erythroid iron delivery\"",
+        "\"Transferrin Receptor 1\" \"TfR1\" \"hemochromatosis differential (TFR2)\"",
+        "\"Transferrin Receptor 1\" \"TfR1\" \"tumor imaging / theranostics\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor 1\" \"cancer / proliferating-cell marker\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor 1\" \"erythroid iron delivery\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor 1\" \"tumor imaging / theranostics\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor protein 1\" \"erythroid iron delivery\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"Transferrin Receptor 1\" \"transferrin receptor protein 1\" \"tumor imaging / theranostics\"",
+        "\"Transferrin Receptor 1\" \"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"Transferrin Receptor 1\" \"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"Transferrin Receptor 1\" \"CD71\" \"cancer / proliferating-cell marker\"",
+        "\"Transferrin Receptor 1\" \"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"Transferrin Receptor 1\" \"CD71\" \"erythroid iron delivery\"",
+        "\"Transferrin Receptor 1\" \"CD71\" \"hemochromatosis differential (TFR2)\"",
+        "\"Transferrin Receptor 1\" \"CD71\" \"tumor imaging / theranostics\"",
+        "\"Transferrin Receptor 1\" \"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"Transferrin Receptor 1\" \"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"Transferrin Receptor 1\" \"TFRC gene product\" \"cancer / proliferating-cell marker\"",
+        "\"Transferrin Receptor 1\" \"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"Transferrin Receptor 1\" \"TFRC gene product\" \"erythroid iron delivery\"",
+        "\"Transferrin Receptor 1\" \"TFRC gene product\" \"hemochromatosis differential (TFR2)\"",
+        "\"Transferrin Receptor 1\" \"TFRC gene product\" \"tumor imaging / theranostics\"",
+        "\"Transferrin Receptor 1\" \"p90\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"Transferrin Receptor 1\" \"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"Transferrin Receptor 1\" \"p90\" \"cancer / proliferating-cell marker\"",
+        "\"Transferrin Receptor 1\" \"p90\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"Transferrin Receptor 1\" \"p90\" \"erythroid iron delivery\"",
+        "\"Transferrin Receptor 1\" \"p90\" \"hemochromatosis differential (TFR2)\"",
+        "\"Transferrin Receptor 1\" \"p90\" \"tumor imaging / theranostics\"",
+        "\"Transferrin Receptor 1\" \"T9\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"Transferrin Receptor 1\" \"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"Transferrin Receptor 1\" \"T9\" \"cancer / proliferating-cell marker\"",
+        "\"Transferrin Receptor 1\" \"T9\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"Transferrin Receptor 1\" \"T9\" \"erythroid iron delivery\"",
+        "\"Transferrin Receptor 1\" \"T9\" \"hemochromatosis differential (TFR2)\"",
+        "\"Transferrin Receptor 1\" \"T9\" \"tumor imaging / theranostics\"",
+        "\"TfR1\" \"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TfR1\" \"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TfR1\" \"TfR1\" \"cancer / proliferating-cell marker\"",
+        "\"TfR1\" \"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TfR1\" \"TfR1\" \"erythroid iron delivery\"",
+        "\"TfR1\" \"TfR1\" \"hemochromatosis differential (TFR2)\"",
+        "\"TfR1\" \"TfR1\" \"tumor imaging / theranostics\"",
+        "\"TfR1\" \"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TfR1\" \"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TfR1\" \"transferrin receptor 1\" \"cancer / proliferating-cell marker\"",
+        "\"TfR1\" \"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TfR1\" \"transferrin receptor 1\" \"erythroid iron delivery\"",
+        "\"TfR1\" \"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"TfR1\" \"transferrin receptor 1\" \"tumor imaging / theranostics\"",
+        "\"TfR1\" \"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TfR1\" \"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TfR1\" \"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\"",
+        "\"TfR1\" \"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TfR1\" \"transferrin receptor protein 1\" \"erythroid iron delivery\"",
+        "\"TfR1\" \"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"TfR1\" \"transferrin receptor protein 1\" \"tumor imaging / theranostics\"",
+        "\"TfR1\" \"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TfR1\" \"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TfR1\" \"CD71\" \"cancer / proliferating-cell marker\"",
+        "\"TfR1\" \"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TfR1\" \"CD71\" \"erythroid iron delivery\"",
+        "\"TfR1\" \"CD71\" \"hemochromatosis differential (TFR2)\"",
+        "\"TfR1\" \"CD71\" \"tumor imaging / theranostics\"",
+        "\"TfR1\" \"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TfR1\" \"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TfR1\" \"TFRC gene product\" \"cancer / proliferating-cell marker\"",
+        "\"TfR1\" \"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TfR1\" \"TFRC gene product\" \"erythroid iron delivery\"",
+        "\"TfR1\" \"TFRC gene product\" \"hemochromatosis differential (TFR2)\"",
+        "\"TfR1\" \"TFRC gene product\" \"tumor imaging / theranostics\"",
+        "\"TfR1\" \"p90\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TfR1\" \"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TfR1\" \"p90\" \"cancer / proliferating-cell marker\"",
+        "\"TfR1\" \"p90\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TfR1\" \"p90\" \"erythroid iron delivery\"",
+        "\"TfR1\" \"p90\" \"hemochromatosis differential (TFR2)\"",
+        "\"TfR1\" \"p90\" \"tumor imaging / theranostics\"",
+        "\"TfR1\" \"T9\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TfR1\" \"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TfR1\" \"T9\" \"cancer / proliferating-cell marker\"",
+        "\"TfR1\" \"T9\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TfR1\" \"T9\" \"erythroid iron delivery\"",
+        "\"TfR1\" \"T9\" \"hemochromatosis differential (TFR2)\"",
+        "\"TfR1\" \"T9\" \"tumor imaging / theranostics\"",
+        "\"CD71\" \"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"CD71\" \"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"CD71\" \"TfR1\" \"cancer / proliferating-cell marker\"",
+        "\"CD71\" \"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"CD71\" \"TfR1\" \"erythroid iron delivery\"",
+        "\"CD71\" \"TfR1\" \"hemochromatosis differential (TFR2)\"",
+        "\"CD71\" \"TfR1\" \"tumor imaging / theranostics\"",
+        "\"CD71\" \"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"CD71\" \"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"CD71\" \"transferrin receptor 1\" \"cancer / proliferating-cell marker\"",
+        "\"CD71\" \"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"CD71\" \"transferrin receptor 1\" \"erythroid iron delivery\"",
+        "\"CD71\" \"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"CD71\" \"transferrin receptor 1\" \"tumor imaging / theranostics\"",
+        "\"CD71\" \"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"CD71\" \"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"CD71\" \"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\"",
+        "\"CD71\" \"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"CD71\" \"transferrin receptor protein 1\" \"erythroid iron delivery\"",
+        "\"CD71\" \"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"CD71\" \"transferrin receptor protein 1\" \"tumor imaging / theranostics\"",
+        "\"CD71\" \"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"CD71\" \"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"CD71\" \"CD71\" \"cancer / proliferating-cell marker\"",
+        "\"CD71\" \"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"CD71\" \"CD71\" \"erythroid iron delivery\"",
+        "\"CD71\" \"CD71\" \"hemochromatosis differential (TFR2)\"",
+        "\"CD71\" \"CD71\" \"tumor imaging / theranostics\"",
+        "\"CD71\" \"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"CD71\" \"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"CD71\" \"TFRC gene product\" \"cancer / proliferating-cell marker\"",
+        "\"CD71\" \"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"CD71\" \"TFRC gene product\" \"erythroid iron delivery\"",
+        "\"CD71\" \"TFRC gene product\" \"hemochromatosis differential (TFR2)\"",
+        "\"CD71\" \"TFRC gene product\" \"tumor imaging / theranostics\"",
+        "\"CD71\" \"p90\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"CD71\" \"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"CD71\" \"p90\" \"cancer / proliferating-cell marker\"",
+        "\"CD71\" \"p90\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"CD71\" \"p90\" \"erythroid iron delivery\"",
+        "\"CD71\" \"p90\" \"hemochromatosis differential (TFR2)\"",
+        "\"CD71\" \"p90\" \"tumor imaging / theranostics\"",
+        "\"CD71\" \"T9\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"CD71\" \"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"CD71\" \"T9\" \"cancer / proliferating-cell marker\"",
+        "\"CD71\" \"T9\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"CD71\" \"T9\" \"erythroid iron delivery\"",
+        "\"CD71\" \"T9\" \"hemochromatosis differential (TFR2)\"",
+        "\"CD71\" \"T9\" \"tumor imaging / theranostics\"",
+        "\"TFRC\" \"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TFRC\" \"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TFRC\" \"TfR1\" \"cancer / proliferating-cell marker\"",
+        "\"TFRC\" \"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TFRC\" \"TfR1\" \"erythroid iron delivery\"",
+        "\"TFRC\" \"TfR1\" \"hemochromatosis differential (TFR2)\"",
+        "\"TFRC\" \"TfR1\" \"tumor imaging / theranostics\"",
+        "\"TFRC\" \"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TFRC\" \"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TFRC\" \"transferrin receptor 1\" \"cancer / proliferating-cell marker\"",
+        "\"TFRC\" \"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TFRC\" \"transferrin receptor 1\" \"erythroid iron delivery\"",
+        "\"TFRC\" \"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"TFRC\" \"transferrin receptor 1\" \"tumor imaging / theranostics\"",
+        "\"TFRC\" \"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TFRC\" \"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TFRC\" \"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\"",
+        "\"TFRC\" \"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TFRC\" \"transferrin receptor protein 1\" \"erythroid iron delivery\"",
+        "\"TFRC\" \"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"TFRC\" \"transferrin receptor protein 1\" \"tumor imaging / theranostics\"",
+        "\"TFRC\" \"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TFRC\" \"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TFRC\" \"CD71\" \"cancer / proliferating-cell marker\"",
+        "\"TFRC\" \"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TFRC\" \"CD71\" \"erythroid iron delivery\"",
+        "\"TFRC\" \"CD71\" \"hemochromatosis differential (TFR2)\"",
+        "\"TFRC\" \"CD71\" \"tumor imaging / theranostics\"",
+        "\"TFRC\" \"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TFRC\" \"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TFRC\" \"TFRC gene product\" \"cancer / proliferating-cell marker\"",
+        "\"TFRC\" \"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TFRC\" \"TFRC gene product\" \"erythroid iron delivery\"",
+        "\"TFRC\" \"TFRC gene product\" \"hemochromatosis differential (TFR2)\"",
+        "\"TFRC\" \"TFRC gene product\" \"tumor imaging / theranostics\"",
+        "\"TFRC\" \"p90\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TFRC\" \"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TFRC\" \"p90\" \"cancer / proliferating-cell marker\"",
+        "\"TFRC\" \"p90\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TFRC\" \"p90\" \"erythroid iron delivery\"",
+        "\"TFRC\" \"p90\" \"hemochromatosis differential (TFR2)\"",
+        "\"TFRC\" \"p90\" \"tumor imaging / theranostics\"",
+        "\"TFRC\" \"T9\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TFRC\" \"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TFRC\" \"T9\" \"cancer / proliferating-cell marker\"",
+        "\"TFRC\" \"T9\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TFRC\" \"T9\" \"erythroid iron delivery\"",
+        "\"TFRC\" \"T9\" \"hemochromatosis differential (TFR2)\"",
+        "\"TFRC\" \"T9\" \"tumor imaging / theranostics\"",
+        "\"transferrin receptor protein 1\" \"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"transferrin receptor protein 1\" \"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"transferrin receptor protein 1\" \"TfR1\" \"cancer / proliferating-cell marker\"",
+        "\"transferrin receptor protein 1\" \"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"transferrin receptor protein 1\" \"TfR1\" \"erythroid iron delivery\"",
+        "\"transferrin receptor protein 1\" \"TfR1\" \"hemochromatosis differential (TFR2)\"",
+        "\"transferrin receptor protein 1\" \"TfR1\" \"tumor imaging / theranostics\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor 1\" \"cancer / proliferating-cell marker\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor 1\" \"erythroid iron delivery\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor 1\" \"tumor imaging / theranostics\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor protein 1\" \"erythroid iron delivery\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"transferrin receptor protein 1\" \"transferrin receptor protein 1\" \"tumor imaging / theranostics\"",
+        "\"transferrin receptor protein 1\" \"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"transferrin receptor protein 1\" \"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"transferrin receptor protein 1\" \"CD71\" \"cancer / proliferating-cell marker\"",
+        "\"transferrin receptor protein 1\" \"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"transferrin receptor protein 1\" \"CD71\" \"erythroid iron delivery\"",
+        "\"transferrin receptor protein 1\" \"CD71\" \"hemochromatosis differential (TFR2)\"",
+        "\"transferrin receptor protein 1\" \"CD71\" \"tumor imaging / theranostics\"",
+        "\"transferrin receptor protein 1\" \"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"transferrin receptor protein 1\" \"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"transferrin receptor protein 1\" \"TFRC gene product\" \"cancer / proliferating-cell marker\"",
+        "\"transferrin receptor protein 1\" \"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"transferrin receptor protein 1\" \"TFRC gene product\" \"erythroid iron delivery\"",
+        "\"transferrin receptor protein 1\" \"TFRC gene product\" \"hemochromatosis differential (TFR2)\"",
+        "\"transferrin receptor protein 1\" \"TFRC gene product\" \"tumor imaging / theranostics\"",
+        "\"transferrin receptor protein 1\" \"p90\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"transferrin receptor protein 1\" \"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"transferrin receptor protein 1\" \"p90\" \"cancer / proliferating-cell marker\"",
+        "\"transferrin receptor protein 1\" \"p90\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"transferrin receptor protein 1\" \"p90\" \"erythroid iron delivery\"",
+        "\"transferrin receptor protein 1\" \"p90\" \"hemochromatosis differential (TFR2)\"",
+        "\"transferrin receptor protein 1\" \"p90\" \"tumor imaging / theranostics\"",
+        "\"transferrin receptor protein 1\" \"T9\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"transferrin receptor protein 1\" \"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"transferrin receptor protein 1\" \"T9\" \"cancer / proliferating-cell marker\"",
+        "\"transferrin receptor protein 1\" \"T9\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"transferrin receptor protein 1\" \"T9\" \"erythroid iron delivery\"",
+        "\"transferrin receptor protein 1\" \"T9\" \"hemochromatosis differential (TFR2)\"",
+        "\"transferrin receptor protein 1\" \"T9\" \"tumor imaging / theranostics\"",
+        "\"p90\" \"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"p90\" \"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"p90\" \"TfR1\" \"cancer / proliferating-cell marker\"",
+        "\"p90\" \"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"p90\" \"TfR1\" \"erythroid iron delivery\"",
+        "\"p90\" \"TfR1\" \"hemochromatosis differential (TFR2)\"",
+        "\"p90\" \"TfR1\" \"tumor imaging / theranostics\"",
+        "\"p90\" \"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"p90\" \"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"p90\" \"transferrin receptor 1\" \"cancer / proliferating-cell marker\"",
+        "\"p90\" \"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"p90\" \"transferrin receptor 1\" \"erythroid iron delivery\"",
+        "\"p90\" \"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"p90\" \"transferrin receptor 1\" \"tumor imaging / theranostics\"",
+        "\"p90\" \"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"p90\" \"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"p90\" \"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\"",
+        "\"p90\" \"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"p90\" \"transferrin receptor protein 1\" \"erythroid iron delivery\"",
+        "\"p90\" \"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"p90\" \"transferrin receptor protein 1\" \"tumor imaging / theranostics\"",
+        "\"p90\" \"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"p90\" \"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"p90\" \"CD71\" \"cancer / proliferating-cell marker\"",
+        "\"p90\" \"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"p90\" \"CD71\" \"erythroid iron delivery\"",
+        "\"p90\" \"CD71\" \"hemochromatosis differential (TFR2)\"",
+        "\"p90\" \"CD71\" \"tumor imaging / theranostics\"",
+        "\"p90\" \"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"p90\" \"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"p90\" \"TFRC gene product\" \"cancer / proliferating-cell marker\"",
+        "\"p90\" \"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"p90\" \"TFRC gene product\" \"erythroid iron delivery\"",
+        "\"p90\" \"TFRC gene product\" \"hemochromatosis differential (TFR2)\"",
+        "\"p90\" \"TFRC gene product\" \"tumor imaging / theranostics\"",
+        "\"p90\" \"p90\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"p90\" \"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"p90\" \"p90\" \"cancer / proliferating-cell marker\"",
+        "\"p90\" \"p90\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"p90\" \"p90\" \"erythroid iron delivery\"",
+        "\"p90\" \"p90\" \"hemochromatosis differential (TFR2)\"",
+        "\"p90\" \"p90\" \"tumor imaging / theranostics\"",
+        "\"p90\" \"T9\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"p90\" \"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"p90\" \"T9\" \"cancer / proliferating-cell marker\"",
+        "\"p90\" \"T9\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"p90\" \"T9\" \"erythroid iron delivery\"",
+        "\"p90\" \"T9\" \"hemochromatosis differential (TFR2)\"",
+        "\"p90\" \"T9\" \"tumor imaging / theranostics\"",
+        "\"T9\" \"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"T9\" \"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"T9\" \"TfR1\" \"cancer / proliferating-cell marker\"",
+        "\"T9\" \"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"T9\" \"TfR1\" \"erythroid iron delivery\"",
+        "\"T9\" \"TfR1\" \"hemochromatosis differential (TFR2)\"",
+        "\"T9\" \"TfR1\" \"tumor imaging / theranostics\"",
+        "\"T9\" \"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"T9\" \"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"T9\" \"transferrin receptor 1\" \"cancer / proliferating-cell marker\"",
+        "\"T9\" \"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"T9\" \"transferrin receptor 1\" \"erythroid iron delivery\"",
+        "\"T9\" \"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"T9\" \"transferrin receptor 1\" \"tumor imaging / theranostics\"",
+        "\"T9\" \"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"T9\" \"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"T9\" \"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\"",
+        "\"T9\" \"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"T9\" \"transferrin receptor protein 1\" \"erythroid iron delivery\"",
+        "\"T9\" \"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"T9\" \"transferrin receptor protein 1\" \"tumor imaging / theranostics\"",
+        "\"T9\" \"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"T9\" \"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"T9\" \"CD71\" \"cancer / proliferating-cell marker\"",
+        "\"T9\" \"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"T9\" \"CD71\" \"erythroid iron delivery\"",
+        "\"T9\" \"CD71\" \"hemochromatosis differential (TFR2)\"",
+        "\"T9\" \"CD71\" \"tumor imaging / theranostics\"",
+        "\"T9\" \"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"T9\" \"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"T9\" \"TFRC gene product\" \"cancer / proliferating-cell marker\"",
+        "\"T9\" \"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"T9\" \"TFRC gene product\" \"erythroid iron delivery\"",
+        "\"T9\" \"TFRC gene product\" \"hemochromatosis differential (TFR2)\"",
+        "\"T9\" \"TFRC gene product\" \"tumor imaging / theranostics\"",
+        "\"T9\" \"p90\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"T9\" \"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"T9\" \"p90\" \"cancer / proliferating-cell marker\"",
+        "\"T9\" \"p90\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"T9\" \"p90\" \"erythroid iron delivery\"",
+        "\"T9\" \"p90\" \"hemochromatosis differential (TFR2)\"",
+        "\"T9\" \"p90\" \"tumor imaging / theranostics\"",
+        "\"T9\" \"T9\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"T9\" \"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"T9\" \"T9\" \"cancer / proliferating-cell marker\"",
+        "\"T9\" \"T9\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"T9\" \"T9\" \"erythroid iron delivery\"",
+        "\"T9\" \"T9\" \"hemochromatosis differential (TFR2)\"",
+        "\"T9\" \"T9\" \"tumor imaging / theranostics\""
+      ],
+      "expansion": "title/abstract/claims",
+      "source_hint": "CNIPA, USPTO Patent Center, WIPO PATENTSCOPE, EPO Espacenet",
+      "status": "planned"
+    },
+    {
+      "id": "B_synonym_technical_form",
+      "tier": "high_recall",
+      "objective": "Expand aliases and claim categories without relying on one product name.",
+      "queries": [
+        "\"Transferrin Receptor 1\" composition of matter",
+        "\"Transferrin Receptor 1\" salt",
+        "\"Transferrin Receptor 1\" polymorph",
+        "\"Transferrin Receptor 1\" crystal",
+        "\"Transferrin Receptor 1\" prodrug",
+        "\"Transferrin Receptor 1\" formulation",
+        "\"Transferrin Receptor 1\" process",
+        "\"Transferrin Receptor 1\" method of treatment",
+        "\"Transferrin Receptor 1\" combination",
+        "\"Transferrin Receptor 1\" regimen",
+        "\"Transferrin Receptor 1\" biomarker",
+        "\"Transferrin Receptor 1\" diagnostic",
+        "\"Transferrin Receptor 1\" resistance",
+        "\"Transferrin Receptor 1\" mutation",
+        "\"TfR1\" composition of matter",
+        "\"TfR1\" salt",
+        "\"TfR1\" polymorph",
+        "\"TfR1\" crystal",
+        "\"TfR1\" prodrug",
+        "\"TfR1\" formulation",
+        "\"TfR1\" process",
+        "\"TfR1\" method of treatment",
+        "\"TfR1\" combination",
+        "\"TfR1\" regimen",
+        "\"TfR1\" biomarker",
+        "\"TfR1\" diagnostic",
+        "\"TfR1\" resistance",
+        "\"TfR1\" mutation",
+        "\"CD71\" composition of matter",
+        "\"CD71\" salt",
+        "\"CD71\" polymorph",
+        "\"CD71\" crystal",
+        "\"CD71\" prodrug",
+        "\"CD71\" formulation",
+        "\"CD71\" process",
+        "\"CD71\" method of treatment",
+        "\"CD71\" combination",
+        "\"CD71\" regimen",
+        "\"CD71\" biomarker",
+        "\"CD71\" diagnostic",
+        "\"CD71\" resistance",
+        "\"CD71\" mutation",
+        "\"TFRC\" composition of matter",
+        "\"TFRC\" salt",
+        "\"TFRC\" polymorph",
+        "\"TFRC\" crystal",
+        "\"TFRC\" prodrug",
+        "\"TFRC\" formulation",
+        "\"TFRC\" process",
+        "\"TFRC\" method of treatment",
+        "\"TFRC\" combination",
+        "\"TFRC\" regimen",
+        "\"TFRC\" biomarker",
+        "\"TFRC\" diagnostic",
+        "\"TFRC\" resistance",
+        "\"TFRC\" mutation",
+        "\"transferrin receptor protein 1\" composition of matter",
+        "\"transferrin receptor protein 1\" salt",
+        "\"transferrin receptor protein 1\" polymorph",
+        "\"transferrin receptor protein 1\" crystal",
+        "\"transferrin receptor protein 1\" prodrug",
+        "\"transferrin receptor protein 1\" formulation",
+        "\"transferrin receptor protein 1\" process",
+        "\"transferrin receptor protein 1\" method of treatment",
+        "\"transferrin receptor protein 1\" combination",
+        "\"transferrin receptor protein 1\" regimen",
+        "\"transferrin receptor protein 1\" biomarker",
+        "\"transferrin receptor protein 1\" diagnostic",
+        "\"transferrin receptor protein 1\" resistance",
+        "\"transferrin receptor protein 1\" mutation",
+        "\"p90\" composition of matter",
+        "\"p90\" salt",
+        "\"p90\" polymorph",
+        "\"p90\" crystal",
+        "\"p90\" prodrug",
+        "\"p90\" formulation",
+        "\"p90\" process",
+        "\"p90\" method of treatment",
+        "\"p90\" combination",
+        "\"p90\" regimen",
+        "\"p90\" biomarker",
+        "\"p90\" diagnostic",
+        "\"p90\" resistance",
+        "\"p90\" mutation",
+        "\"T9\" composition of matter",
+        "\"T9\" salt",
+        "\"T9\" polymorph",
+        "\"T9\" crystal",
+        "\"T9\" prodrug",
+        "\"T9\" formulation",
+        "\"T9\" process",
+        "\"T9\" method of treatment",
+        "\"T9\" combination",
+        "\"T9\" regimen",
+        "\"T9\" biomarker",
+        "\"T9\" diagnostic",
+        "\"T9\" resistance",
+        "\"T9\" mutation",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" composition of matter",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" salt",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" polymorph",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" crystal",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" prodrug",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" formulation",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" process",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" method of treatment",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" combination",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" regimen",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" biomarker",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" diagnostic",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" resistance",
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\" mutation",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" composition of matter",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" salt",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" polymorph",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" crystal",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" prodrug",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" formulation",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" process",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" method of treatment",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" combination",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" regimen",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" biomarker",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" diagnostic",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" resistance",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" mutation",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" composition of matter",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" salt",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" polymorph",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" crystal",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" prodrug",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" formulation",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" process",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" method of treatment",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" combination",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" regimen",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" biomarker",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" diagnostic",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" resistance",
+        "\"TfR1\" \"cancer / proliferating-cell marker\" mutation",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" composition of matter",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" salt",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" polymorph",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" crystal",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" prodrug",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" formulation",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" process",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" method of treatment",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" combination",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" regimen",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" biomarker",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" diagnostic",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" resistance",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\" mutation",
+        "\"TfR1\" \"erythroid iron delivery\" composition of matter",
+        "\"TfR1\" \"erythroid iron delivery\" salt",
+        "\"TfR1\" \"erythroid iron delivery\" polymorph",
+        "\"TfR1\" \"erythroid iron delivery\" crystal",
+        "\"TfR1\" \"erythroid iron delivery\" prodrug",
+        "\"TfR1\" \"erythroid iron delivery\" formulation",
+        "\"TfR1\" \"erythroid iron delivery\" process",
+        "\"TfR1\" \"erythroid iron delivery\" method of treatment",
+        "\"TfR1\" \"erythroid iron delivery\" combination",
+        "\"TfR1\" \"erythroid iron delivery\" regimen",
+        "\"TfR1\" \"erythroid iron delivery\" biomarker",
+        "\"TfR1\" \"erythroid iron delivery\" diagnostic",
+        "\"TfR1\" \"erythroid iron delivery\" resistance",
+        "\"TfR1\" \"erythroid iron delivery\" mutation",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" composition of matter",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" salt",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" polymorph",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" crystal",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" prodrug",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" formulation",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" process",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" method of treatment",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" combination",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" regimen",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" biomarker",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" diagnostic",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" resistance",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\" mutation",
+        "\"TfR1\" \"tumor imaging / theranostics\" composition of matter",
+        "\"TfR1\" \"tumor imaging / theranostics\" salt",
+        "\"TfR1\" \"tumor imaging / theranostics\" polymorph",
+        "\"TfR1\" \"tumor imaging / theranostics\" crystal",
+        "\"TfR1\" \"tumor imaging / theranostics\" prodrug",
+        "\"TfR1\" \"tumor imaging / theranostics\" formulation",
+        "\"TfR1\" \"tumor imaging / theranostics\" process",
+        "\"TfR1\" \"tumor imaging / theranostics\" method of treatment",
+        "\"TfR1\" \"tumor imaging / theranostics\" combination",
+        "\"TfR1\" \"tumor imaging / theranostics\" regimen",
+        "\"TfR1\" \"tumor imaging / theranostics\" biomarker",
+        "\"TfR1\" \"tumor imaging / theranostics\" diagnostic",
+        "\"TfR1\" \"tumor imaging / theranostics\" resistance",
+        "\"TfR1\" \"tumor imaging / theranostics\" mutation",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" composition of matter",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" salt",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" polymorph",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" crystal",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" prodrug",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" formulation",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" process",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" method of treatment",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" combination",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" regimen",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" biomarker",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" diagnostic",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" resistance",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\" mutation",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" composition of matter",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" salt",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" polymorph",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" crystal",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" prodrug",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" formulation",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" process",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" method of treatment",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" combination",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" regimen",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" biomarker",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" diagnostic",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" resistance",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" mutation",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" composition of matter",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" salt",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" polymorph",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" crystal",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" prodrug",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" formulation",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" process",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" method of treatment",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" combination",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" regimen",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" biomarker",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" diagnostic",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" resistance",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\" mutation",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" composition of matter",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" salt",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" polymorph",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" crystal",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" prodrug",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" formulation",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" process",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" method of treatment",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" combination",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" regimen",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" biomarker",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" diagnostic",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" resistance",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\" mutation",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" composition of matter",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" salt",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" polymorph",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" crystal",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" prodrug",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" formulation",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" process",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" method of treatment",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" combination",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" regimen",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" biomarker",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" diagnostic",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" resistance",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\" mutation",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" composition of matter",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" salt",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" polymorph",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" crystal",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" prodrug",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" formulation",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" process",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" method of treatment",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" combination",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" regimen",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" biomarker",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" diagnostic",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" resistance",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\" mutation",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" composition of matter",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" salt",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" polymorph",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" crystal",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" prodrug",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" formulation",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" process",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" method of treatment",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" combination",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" regimen",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" biomarker",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" diagnostic",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" resistance",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\" mutation",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" composition of matter",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" salt",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" polymorph",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" crystal",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" prodrug",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" formulation",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" process",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" method of treatment",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" combination",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" regimen",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" biomarker",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" diagnostic",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" resistance",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\" mutation",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" composition of matter",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" salt",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" polymorph",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" crystal",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" prodrug",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" formulation",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" process",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" method of treatment",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" combination",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" regimen",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" biomarker",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" diagnostic",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" resistance",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" mutation",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" composition of matter",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" salt",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" polymorph",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" crystal",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" prodrug",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" formulation",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" process",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" method of treatment",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" combination",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" regimen",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" biomarker",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" diagnostic",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" resistance",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\" mutation",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" composition of matter",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" salt",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" polymorph",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" crystal",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" prodrug",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" formulation",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" process",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" method of treatment",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" combination",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" regimen",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" biomarker",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" diagnostic",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" resistance",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\" mutation",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" composition of matter",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" salt",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" polymorph",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" crystal",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" prodrug",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" formulation",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" process",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" method of treatment",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" combination",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" regimen",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" biomarker",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" diagnostic",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" resistance",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\" mutation",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" composition of matter",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" salt",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" polymorph",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" crystal",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" prodrug",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" formulation",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" process",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" method of treatment",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" combination",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" regimen",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" biomarker",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" diagnostic",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" resistance",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\" mutation",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" composition of matter",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" salt",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" polymorph",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" crystal",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" prodrug",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" formulation",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" process",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" method of treatment",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" combination",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" regimen",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" biomarker",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" diagnostic",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" resistance",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\" mutation",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" composition of matter",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" salt",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" polymorph",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" crystal",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" prodrug",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" formulation",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" process",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" method of treatment",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" combination",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" regimen",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" biomarker",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" diagnostic",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" resistance",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\" mutation",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" composition of matter",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" salt",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" polymorph",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" crystal",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" prodrug",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" formulation",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" process",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" method of treatment",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" combination",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" regimen",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" biomarker",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" diagnostic",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" resistance",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" mutation",
+        "\"CD71\" \"cancer / proliferating-cell marker\" composition of matter",
+        "\"CD71\" \"cancer / proliferating-cell marker\" salt",
+        "\"CD71\" \"cancer / proliferating-cell marker\" polymorph",
+        "\"CD71\" \"cancer / proliferating-cell marker\" crystal",
+        "\"CD71\" \"cancer / proliferating-cell marker\" prodrug",
+        "\"CD71\" \"cancer / proliferating-cell marker\" formulation",
+        "\"CD71\" \"cancer / proliferating-cell marker\" process",
+        "\"CD71\" \"cancer / proliferating-cell marker\" method of treatment",
+        "\"CD71\" \"cancer / proliferating-cell marker\" combination",
+        "\"CD71\" \"cancer / proliferating-cell marker\" regimen",
+        "\"CD71\" \"cancer / proliferating-cell marker\" biomarker",
+        "\"CD71\" \"cancer / proliferating-cell marker\" diagnostic",
+        "\"CD71\" \"cancer / proliferating-cell marker\" resistance",
+        "\"CD71\" \"cancer / proliferating-cell marker\" mutation",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" composition of matter",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" salt",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" polymorph",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" crystal",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" prodrug",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" formulation",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" process",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" method of treatment",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" combination",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" regimen",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" biomarker",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" diagnostic",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" resistance",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\" mutation",
+        "\"CD71\" \"erythroid iron delivery\" composition of matter",
+        "\"CD71\" \"erythroid iron delivery\" salt",
+        "\"CD71\" \"erythroid iron delivery\" polymorph",
+        "\"CD71\" \"erythroid iron delivery\" crystal",
+        "\"CD71\" \"erythroid iron delivery\" prodrug",
+        "\"CD71\" \"erythroid iron delivery\" formulation",
+        "\"CD71\" \"erythroid iron delivery\" process",
+        "\"CD71\" \"erythroid iron delivery\" method of treatment",
+        "\"CD71\" \"erythroid iron delivery\" combination",
+        "\"CD71\" \"erythroid iron delivery\" regimen",
+        "\"CD71\" \"erythroid iron delivery\" biomarker",
+        "\"CD71\" \"erythroid iron delivery\" diagnostic",
+        "\"CD71\" \"erythroid iron delivery\" resistance",
+        "\"CD71\" \"erythroid iron delivery\" mutation",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" composition of matter",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" salt",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" polymorph",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" crystal",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" prodrug",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" formulation",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" process",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" method of treatment",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" combination",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" regimen",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" biomarker",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" diagnostic",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" resistance",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\" mutation",
+        "\"CD71\" \"tumor imaging / theranostics\" composition of matter",
+        "\"CD71\" \"tumor imaging / theranostics\" salt",
+        "\"CD71\" \"tumor imaging / theranostics\" polymorph",
+        "\"CD71\" \"tumor imaging / theranostics\" crystal",
+        "\"CD71\" \"tumor imaging / theranostics\" prodrug",
+        "\"CD71\" \"tumor imaging / theranostics\" formulation",
+        "\"CD71\" \"tumor imaging / theranostics\" process",
+        "\"CD71\" \"tumor imaging / theranostics\" method of treatment",
+        "\"CD71\" \"tumor imaging / theranostics\" combination",
+        "\"CD71\" \"tumor imaging / theranostics\" regimen",
+        "\"CD71\" \"tumor imaging / theranostics\" biomarker",
+        "\"CD71\" \"tumor imaging / theranostics\" diagnostic",
+        "\"CD71\" \"tumor imaging / theranostics\" resistance",
+        "\"CD71\" \"tumor imaging / theranostics\" mutation",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" composition of matter",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" salt",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" polymorph",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" crystal",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" prodrug",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" formulation",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" process",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" method of treatment",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" combination",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" regimen",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" biomarker",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" diagnostic",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" resistance",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\" mutation",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" composition of matter",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" salt",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" polymorph",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" crystal",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" prodrug",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" formulation",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" process",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" method of treatment",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" combination",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" regimen",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" biomarker",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" diagnostic",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" resistance",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" mutation",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" composition of matter",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" salt",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" polymorph",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" crystal",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" prodrug",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" formulation",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" process",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" method of treatment",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" combination",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" regimen",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" biomarker",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" diagnostic",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" resistance",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\" mutation",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" composition of matter",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" salt",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" polymorph",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" crystal",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" prodrug",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" formulation",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" process",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" method of treatment",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" combination",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" regimen",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" biomarker",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" diagnostic",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" resistance",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\" mutation",
+        "\"TFRC gene product\" \"erythroid iron delivery\" composition of matter",
+        "\"TFRC gene product\" \"erythroid iron delivery\" salt",
+        "\"TFRC gene product\" \"erythroid iron delivery\" polymorph",
+        "\"TFRC gene product\" \"erythroid iron delivery\" crystal",
+        "\"TFRC gene product\" \"erythroid iron delivery\" prodrug",
+        "\"TFRC gene product\" \"erythroid iron delivery\" formulation",
+        "\"TFRC gene product\" \"erythroid iron delivery\" process",
+        "\"TFRC gene product\" \"erythroid iron delivery\" method of treatment",
+        "\"TFRC gene product\" \"erythroid iron delivery\" combination",
+        "\"TFRC gene product\" \"erythroid iron delivery\" regimen",
+        "\"TFRC gene product\" \"erythroid iron delivery\" biomarker",
+        "\"TFRC gene product\" \"erythroid iron delivery\" diagnostic",
+        "\"TFRC gene product\" \"erythroid iron delivery\" resistance",
+        "\"TFRC gene product\" \"erythroid iron delivery\" mutation",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" composition of matter",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" salt",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" polymorph",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" crystal",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" prodrug",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" formulation",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" process",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" method of treatment",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" combination",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" regimen",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" biomarker",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" diagnostic",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" resistance",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\" mutation",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" composition of matter",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" salt",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" polymorph",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" crystal",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" prodrug",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" formulation",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" process",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" method of treatment",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" combination",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" regimen",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" biomarker",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" diagnostic",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" resistance",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\" mutation",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" composition of matter",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" salt",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" polymorph",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" crystal",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" prodrug",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" formulation",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" process",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" method of treatment",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" combination",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" regimen",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" biomarker",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" diagnostic",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" resistance",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\" mutation",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" composition of matter",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" salt",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" polymorph",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" crystal",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" prodrug",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" formulation",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" process",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" method of treatment",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" combination",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" regimen",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" biomarker",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" diagnostic",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" resistance",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" mutation",
+        "\"p90\" \"cancer / proliferating-cell marker\" composition of matter",
+        "\"p90\" \"cancer / proliferating-cell marker\" salt",
+        "\"p90\" \"cancer / proliferating-cell marker\" polymorph",
+        "\"p90\" \"cancer / proliferating-cell marker\" crystal",
+        "\"p90\" \"cancer / proliferating-cell marker\" prodrug",
+        "\"p90\" \"cancer / proliferating-cell marker\" formulation",
+        "\"p90\" \"cancer / proliferating-cell marker\" process",
+        "\"p90\" \"cancer / proliferating-cell marker\" method of treatment",
+        "\"p90\" \"cancer / proliferating-cell marker\" combination",
+        "\"p90\" \"cancer / proliferating-cell marker\" regimen",
+        "\"p90\" \"cancer / proliferating-cell marker\" biomarker",
+        "\"p90\" \"cancer / proliferating-cell marker\" diagnostic",
+        "\"p90\" \"cancer / proliferating-cell marker\" resistance",
+        "\"p90\" \"cancer / proliferating-cell marker\" mutation",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" composition of matter",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" salt",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" polymorph",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" crystal",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" prodrug",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" formulation",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" process",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" method of treatment",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" combination",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" regimen",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" biomarker",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" diagnostic",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" resistance",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\" mutation",
+        "\"p90\" \"erythroid iron delivery\" composition of matter",
+        "\"p90\" \"erythroid iron delivery\" salt",
+        "\"p90\" \"erythroid iron delivery\" polymorph",
+        "\"p90\" \"erythroid iron delivery\" crystal",
+        "\"p90\" \"erythroid iron delivery\" prodrug",
+        "\"p90\" \"erythroid iron delivery\" formulation",
+        "\"p90\" \"erythroid iron delivery\" process",
+        "\"p90\" \"erythroid iron delivery\" method of treatment",
+        "\"p90\" \"erythroid iron delivery\" combination",
+        "\"p90\" \"erythroid iron delivery\" regimen",
+        "\"p90\" \"erythroid iron delivery\" biomarker",
+        "\"p90\" \"erythroid iron delivery\" diagnostic",
+        "\"p90\" \"erythroid iron delivery\" resistance",
+        "\"p90\" \"erythroid iron delivery\" mutation",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" composition of matter",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" salt",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" polymorph",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" crystal",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" prodrug",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" formulation",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" process",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" method of treatment",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" combination",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" regimen",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" biomarker",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" diagnostic",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" resistance",
+        "\"p90\" \"hemochromatosis differential (TFR2)\" mutation",
+        "\"p90\" \"tumor imaging / theranostics\" composition of matter",
+        "\"p90\" \"tumor imaging / theranostics\" salt",
+        "\"p90\" \"tumor imaging / theranostics\" polymorph",
+        "\"p90\" \"tumor imaging / theranostics\" crystal",
+        "\"p90\" \"tumor imaging / theranostics\" prodrug",
+        "\"p90\" \"tumor imaging / theranostics\" formulation",
+        "\"p90\" \"tumor imaging / theranostics\" process",
+        "\"p90\" \"tumor imaging / theranostics\" method of treatment",
+        "\"p90\" \"tumor imaging / theranostics\" combination",
+        "\"p90\" \"tumor imaging / theranostics\" regimen",
+        "\"p90\" \"tumor imaging / theranostics\" biomarker",
+        "\"p90\" \"tumor imaging / theranostics\" diagnostic",
+        "\"p90\" \"tumor imaging / theranostics\" resistance",
+        "\"p90\" \"tumor imaging / theranostics\" mutation",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" composition of matter",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" salt",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" polymorph",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" crystal",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" prodrug",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" formulation",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" process",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" method of treatment",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" combination",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" regimen",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" biomarker",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" diagnostic",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" resistance",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\" mutation",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" composition of matter",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" salt",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" polymorph",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" crystal",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" prodrug",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" formulation",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" process",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" method of treatment",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" combination",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" regimen",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" biomarker",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" diagnostic",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" resistance",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\" mutation",
+        "\"T9\" \"cancer / proliferating-cell marker\" composition of matter",
+        "\"T9\" \"cancer / proliferating-cell marker\" salt",
+        "\"T9\" \"cancer / proliferating-cell marker\" polymorph",
+        "\"T9\" \"cancer / proliferating-cell marker\" crystal",
+        "\"T9\" \"cancer / proliferating-cell marker\" prodrug",
+        "\"T9\" \"cancer / proliferating-cell marker\" formulation",
+        "\"T9\" \"cancer / proliferating-cell marker\" process",
+        "\"T9\" \"cancer / proliferating-cell marker\" method of treatment",
+        "\"T9\" \"cancer / proliferating-cell marker\" combination",
+        "\"T9\" \"cancer / proliferating-cell marker\" regimen",
+        "\"T9\" \"cancer / proliferating-cell marker\" biomarker",
+        "\"T9\" \"cancer / proliferating-cell marker\" diagnostic",
+        "\"T9\" \"cancer / proliferating-cell marker\" resistance",
+        "\"T9\" \"cancer / proliferating-cell marker\" mutation",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" composition of matter",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" salt",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" polymorph",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" crystal",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" prodrug",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" formulation",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" process",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" method of treatment",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" combination",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" regimen",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" biomarker",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" diagnostic",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" resistance",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\" mutation",
+        "\"T9\" \"erythroid iron delivery\" composition of matter",
+        "\"T9\" \"erythroid iron delivery\" salt",
+        "\"T9\" \"erythroid iron delivery\" polymorph",
+        "\"T9\" \"erythroid iron delivery\" crystal",
+        "\"T9\" \"erythroid iron delivery\" prodrug",
+        "\"T9\" \"erythroid iron delivery\" formulation",
+        "\"T9\" \"erythroid iron delivery\" process",
+        "\"T9\" \"erythroid iron delivery\" method of treatment",
+        "\"T9\" \"erythroid iron delivery\" combination",
+        "\"T9\" \"erythroid iron delivery\" regimen",
+        "\"T9\" \"erythroid iron delivery\" biomarker",
+        "\"T9\" \"erythroid iron delivery\" diagnostic",
+        "\"T9\" \"erythroid iron delivery\" resistance",
+        "\"T9\" \"erythroid iron delivery\" mutation",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" composition of matter",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" salt",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" polymorph",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" crystal",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" prodrug",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" formulation",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" process",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" method of treatment",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" combination",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" regimen",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" biomarker",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" diagnostic",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" resistance",
+        "\"T9\" \"hemochromatosis differential (TFR2)\" mutation",
+        "\"T9\" \"tumor imaging / theranostics\" composition of matter",
+        "\"T9\" \"tumor imaging / theranostics\" salt",
+        "\"T9\" \"tumor imaging / theranostics\" polymorph",
+        "\"T9\" \"tumor imaging / theranostics\" crystal",
+        "\"T9\" \"tumor imaging / theranostics\" prodrug",
+        "\"T9\" \"tumor imaging / theranostics\" formulation",
+        "\"T9\" \"tumor imaging / theranostics\" process",
+        "\"T9\" \"tumor imaging / theranostics\" method of treatment",
+        "\"T9\" \"tumor imaging / theranostics\" combination",
+        "\"T9\" \"tumor imaging / theranostics\" regimen",
+        "\"T9\" \"tumor imaging / theranostics\" biomarker",
+        "\"T9\" \"tumor imaging / theranostics\" diagnostic",
+        "\"T9\" \"tumor imaging / theranostics\" resistance",
+        "\"T9\" \"tumor imaging / theranostics\" mutation"
+      ],
+      "expansion": "full_text/claims/classification",
+      "source_hint": "CNIPA, USPTO, WIPO, EPO",
+      "status": "planned"
+    },
+    {
+      "id": "C_target_indication",
+      "tier": "mechanism_and_use",
+      "objective": "Find adjacent mechanism, patient-selection and treatment-use families.",
+      "queries": [
+        "\"TfR1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TfR1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TfR1\" \"cancer / proliferating-cell marker\"",
+        "\"TfR1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TfR1\" \"erythroid iron delivery\"",
+        "\"TfR1\" \"hemochromatosis differential (TFR2)\"",
+        "\"TfR1\" \"tumor imaging / theranostics\"",
+        "\"transferrin receptor 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"transferrin receptor 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"transferrin receptor 1\" \"cancer / proliferating-cell marker\"",
+        "\"transferrin receptor 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"transferrin receptor 1\" \"erythroid iron delivery\"",
+        "\"transferrin receptor 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"transferrin receptor 1\" \"tumor imaging / theranostics\"",
+        "\"transferrin receptor protein 1\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"transferrin receptor protein 1\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"transferrin receptor protein 1\" \"cancer / proliferating-cell marker\"",
+        "\"transferrin receptor protein 1\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"transferrin receptor protein 1\" \"erythroid iron delivery\"",
+        "\"transferrin receptor protein 1\" \"hemochromatosis differential (TFR2)\"",
+        "\"transferrin receptor protein 1\" \"tumor imaging / theranostics\"",
+        "\"CD71\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"CD71\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"CD71\" \"cancer / proliferating-cell marker\"",
+        "\"CD71\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"CD71\" \"erythroid iron delivery\"",
+        "\"CD71\" \"hemochromatosis differential (TFR2)\"",
+        "\"CD71\" \"tumor imaging / theranostics\"",
+        "\"TFRC gene product\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"TFRC gene product\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"TFRC gene product\" \"cancer / proliferating-cell marker\"",
+        "\"TFRC gene product\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"TFRC gene product\" \"erythroid iron delivery\"",
+        "\"TFRC gene product\" \"hemochromatosis differential (TFR2)\"",
+        "\"TFRC gene product\" \"tumor imaging / theranostics\"",
+        "\"p90\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"p90\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"p90\" \"cancer / proliferating-cell marker\"",
+        "\"p90\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"p90\" \"erythroid iron delivery\"",
+        "\"p90\" \"hemochromatosis differential (TFR2)\"",
+        "\"p90\" \"tumor imaging / theranostics\"",
+        "\"T9\" \"broad (cancer, iron metabolism, CNS delivery)\"",
+        "\"T9\" \"iron-refractory iron deficiency anemia (IRIDA) TFRC context\"",
+        "\"T9\" \"cancer / proliferating-cell marker\"",
+        "\"T9\" \"receptor-mediated transcytosis across blood-brain barrier\"",
+        "\"T9\" \"erythroid iron delivery\"",
+        "\"T9\" \"hemochromatosis differential (TFR2)\"",
+        "\"T9\" \"tumor imaging / theranostics\"",
+        "\"TfR1\" pathway broad (cancer, iron metabolism, CNS delivery)",
+        "\"TfR1\" pathway iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"TfR1\" pathway cancer / proliferating-cell marker",
+        "\"TfR1\" pathway receptor-mediated transcytosis across blood-brain barrier",
+        "\"TfR1\" pathway erythroid iron delivery",
+        "\"TfR1\" pathway hemochromatosis differential (TFR2)",
+        "\"TfR1\" pathway tumor imaging / theranostics",
+        "\"transferrin receptor 1\" pathway broad (cancer, iron metabolism, CNS delivery)",
+        "\"transferrin receptor 1\" pathway iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"transferrin receptor 1\" pathway cancer / proliferating-cell marker",
+        "\"transferrin receptor 1\" pathway receptor-mediated transcytosis across blood-brain barrier",
+        "\"transferrin receptor 1\" pathway erythroid iron delivery",
+        "\"transferrin receptor 1\" pathway hemochromatosis differential (TFR2)",
+        "\"transferrin receptor 1\" pathway tumor imaging / theranostics",
+        "\"transferrin receptor protein 1\" pathway broad (cancer, iron metabolism, CNS delivery)",
+        "\"transferrin receptor protein 1\" pathway iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"transferrin receptor protein 1\" pathway cancer / proliferating-cell marker",
+        "\"transferrin receptor protein 1\" pathway receptor-mediated transcytosis across blood-brain barrier",
+        "\"transferrin receptor protein 1\" pathway erythroid iron delivery",
+        "\"transferrin receptor protein 1\" pathway hemochromatosis differential (TFR2)",
+        "\"transferrin receptor protein 1\" pathway tumor imaging / theranostics",
+        "\"CD71\" pathway broad (cancer, iron metabolism, CNS delivery)",
+        "\"CD71\" pathway iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"CD71\" pathway cancer / proliferating-cell marker",
+        "\"CD71\" pathway receptor-mediated transcytosis across blood-brain barrier",
+        "\"CD71\" pathway erythroid iron delivery",
+        "\"CD71\" pathway hemochromatosis differential (TFR2)",
+        "\"CD71\" pathway tumor imaging / theranostics",
+        "\"TFRC gene product\" pathway broad (cancer, iron metabolism, CNS delivery)",
+        "\"TFRC gene product\" pathway iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"TFRC gene product\" pathway cancer / proliferating-cell marker",
+        "\"TFRC gene product\" pathway receptor-mediated transcytosis across blood-brain barrier",
+        "\"TFRC gene product\" pathway erythroid iron delivery",
+        "\"TFRC gene product\" pathway hemochromatosis differential (TFR2)",
+        "\"TFRC gene product\" pathway tumor imaging / theranostics",
+        "\"p90\" pathway broad (cancer, iron metabolism, CNS delivery)",
+        "\"p90\" pathway iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"p90\" pathway cancer / proliferating-cell marker",
+        "\"p90\" pathway receptor-mediated transcytosis across blood-brain barrier",
+        "\"p90\" pathway erythroid iron delivery",
+        "\"p90\" pathway hemochromatosis differential (TFR2)",
+        "\"p90\" pathway tumor imaging / theranostics",
+        "\"T9\" pathway broad (cancer, iron metabolism, CNS delivery)",
+        "\"T9\" pathway iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"T9\" pathway cancer / proliferating-cell marker",
+        "\"T9\" pathway receptor-mediated transcytosis across blood-brain barrier",
+        "\"T9\" pathway erythroid iron delivery",
+        "\"T9\" pathway hemochromatosis differential (TFR2)",
+        "\"T9\" pathway tumor imaging / theranostics"
+      ],
+      "expansion": "CPC/IPC, cited and citing documents",
+      "source_hint": "WIPO IPC, EPO Espacenet, official registers",
+      "status": "planned"
+    },
+    {
+      "id": "D_family_and_continuity",
+      "tier": "relationship_expansion",
+      "objective": "Normalize PCT, national-phase, divisional and continuation branches.",
+      "queries": [
+        "\"Transferrin Receptor 1\" PCT",
+        "\"TfR1\" PCT",
+        "\"CD71\" PCT",
+        "\"TFRC\" PCT",
+        "\"transferrin receptor protein 1\" PCT",
+        "\"p90\" PCT",
+        "\"T9\" PCT",
+        "\"Transferrin Receptor 1\" continuation divisional",
+        "\"TfR1\" continuation divisional",
+        "\"CD71\" continuation divisional",
+        "\"TFRC\" continuation divisional",
+        "\"transferrin receptor protein 1\" continuation divisional",
+        "\"p90\" continuation divisional",
+        "\"T9\" continuation divisional"
+      ],
+      "expansion": "priority chain, family members, legal events",
+      "source_hint": "WIPO PATENTSCOPE, EPO family data, USPTO Patent Center",
+      "status": "planned"
+    },
+    {
+      "id": "E_applicant_competitor",
+      "tier": "competitive_landscape",
+      "objective": "Search by known applicant, inventor and competing approach.",
+      "queries": [
+        "\"Transferrin Receptor 1\" applicant",
+        "\"TfR1\" applicant",
+        "\"CD71\" applicant",
+        "\"TFRC\" applicant",
+        "\"transferrin receptor protein 1\" applicant",
+        "\"p90\" applicant",
+        "\"T9\" applicant",
+        "\"TfR1\" competitor broad (cancer, iron metabolism, CNS delivery)",
+        "\"TfR1\" competitor iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"TfR1\" competitor cancer / proliferating-cell marker",
+        "\"TfR1\" competitor receptor-mediated transcytosis across blood-brain barrier",
+        "\"TfR1\" competitor erythroid iron delivery",
+        "\"TfR1\" competitor hemochromatosis differential (TFR2)",
+        "\"TfR1\" competitor tumor imaging / theranostics",
+        "\"transferrin receptor 1\" competitor broad (cancer, iron metabolism, CNS delivery)",
+        "\"transferrin receptor 1\" competitor iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"transferrin receptor 1\" competitor cancer / proliferating-cell marker",
+        "\"transferrin receptor 1\" competitor receptor-mediated transcytosis across blood-brain barrier",
+        "\"transferrin receptor 1\" competitor erythroid iron delivery",
+        "\"transferrin receptor 1\" competitor hemochromatosis differential (TFR2)",
+        "\"transferrin receptor 1\" competitor tumor imaging / theranostics",
+        "\"transferrin receptor protein 1\" competitor broad (cancer, iron metabolism, CNS delivery)",
+        "\"transferrin receptor protein 1\" competitor iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"transferrin receptor protein 1\" competitor cancer / proliferating-cell marker",
+        "\"transferrin receptor protein 1\" competitor receptor-mediated transcytosis across blood-brain barrier",
+        "\"transferrin receptor protein 1\" competitor erythroid iron delivery",
+        "\"transferrin receptor protein 1\" competitor hemochromatosis differential (TFR2)",
+        "\"transferrin receptor protein 1\" competitor tumor imaging / theranostics",
+        "\"CD71\" competitor broad (cancer, iron metabolism, CNS delivery)",
+        "\"CD71\" competitor iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"CD71\" competitor cancer / proliferating-cell marker",
+        "\"CD71\" competitor receptor-mediated transcytosis across blood-brain barrier",
+        "\"CD71\" competitor erythroid iron delivery",
+        "\"CD71\" competitor hemochromatosis differential (TFR2)",
+        "\"CD71\" competitor tumor imaging / theranostics",
+        "\"TFRC gene product\" competitor broad (cancer, iron metabolism, CNS delivery)",
+        "\"TFRC gene product\" competitor iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"TFRC gene product\" competitor cancer / proliferating-cell marker",
+        "\"TFRC gene product\" competitor receptor-mediated transcytosis across blood-brain barrier",
+        "\"TFRC gene product\" competitor erythroid iron delivery",
+        "\"TFRC gene product\" competitor hemochromatosis differential (TFR2)",
+        "\"TFRC gene product\" competitor tumor imaging / theranostics",
+        "\"p90\" competitor broad (cancer, iron metabolism, CNS delivery)",
+        "\"p90\" competitor iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"p90\" competitor cancer / proliferating-cell marker",
+        "\"p90\" competitor receptor-mediated transcytosis across blood-brain barrier",
+        "\"p90\" competitor erythroid iron delivery",
+        "\"p90\" competitor hemochromatosis differential (TFR2)",
+        "\"p90\" competitor tumor imaging / theranostics",
+        "\"T9\" competitor broad (cancer, iron metabolism, CNS delivery)",
+        "\"T9\" competitor iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"T9\" competitor cancer / proliferating-cell marker",
+        "\"T9\" competitor receptor-mediated transcytosis across blood-brain barrier",
+        "\"T9\" competitor erythroid iron delivery",
+        "\"T9\" competitor hemochromatosis differential (TFR2)",
+        "\"T9\" competitor tumor imaging / theranostics"
+      ],
+      "expansion": "assignee history, citations, four-tier competitors",
+      "source_hint": "Official registers and public company disclosures",
+      "status": "planned"
+    },
+    {
+      "id": "F_resistance_biomarker",
+      "tier": "gap_follow_up",
+      "objective": "Cross-check resistance biology and biomarker claims; do not assume a mutation is a patent claim.",
+      "queries": [
+        "\"Transferrin Receptor 1\" resistance mutation",
+        "\"TfR1\" resistance mutation",
+        "\"CD71\" resistance mutation",
+        "\"TFRC\" resistance mutation",
+        "\"transferrin receptor protein 1\" resistance mutation",
+        "\"p90\" resistance mutation",
+        "\"T9\" resistance mutation",
+        "\"TfR1\" resistance broad (cancer, iron metabolism, CNS delivery)",
+        "\"TfR1\" resistance iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"TfR1\" resistance cancer / proliferating-cell marker",
+        "\"TfR1\" resistance receptor-mediated transcytosis across blood-brain barrier",
+        "\"TfR1\" resistance erythroid iron delivery",
+        "\"TfR1\" resistance hemochromatosis differential (TFR2)",
+        "\"TfR1\" resistance tumor imaging / theranostics",
+        "\"transferrin receptor 1\" resistance broad (cancer, iron metabolism, CNS delivery)",
+        "\"transferrin receptor 1\" resistance iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"transferrin receptor 1\" resistance cancer / proliferating-cell marker",
+        "\"transferrin receptor 1\" resistance receptor-mediated transcytosis across blood-brain barrier",
+        "\"transferrin receptor 1\" resistance erythroid iron delivery",
+        "\"transferrin receptor 1\" resistance hemochromatosis differential (TFR2)",
+        "\"transferrin receptor 1\" resistance tumor imaging / theranostics",
+        "\"transferrin receptor protein 1\" resistance broad (cancer, iron metabolism, CNS delivery)",
+        "\"transferrin receptor protein 1\" resistance iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"transferrin receptor protein 1\" resistance cancer / proliferating-cell marker",
+        "\"transferrin receptor protein 1\" resistance receptor-mediated transcytosis across blood-brain barrier",
+        "\"transferrin receptor protein 1\" resistance erythroid iron delivery",
+        "\"transferrin receptor protein 1\" resistance hemochromatosis differential (TFR2)",
+        "\"transferrin receptor protein 1\" resistance tumor imaging / theranostics",
+        "\"CD71\" resistance broad (cancer, iron metabolism, CNS delivery)",
+        "\"CD71\" resistance iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"CD71\" resistance cancer / proliferating-cell marker",
+        "\"CD71\" resistance receptor-mediated transcytosis across blood-brain barrier",
+        "\"CD71\" resistance erythroid iron delivery",
+        "\"CD71\" resistance hemochromatosis differential (TFR2)",
+        "\"CD71\" resistance tumor imaging / theranostics",
+        "\"TFRC gene product\" resistance broad (cancer, iron metabolism, CNS delivery)",
+        "\"TFRC gene product\" resistance iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"TFRC gene product\" resistance cancer / proliferating-cell marker",
+        "\"TFRC gene product\" resistance receptor-mediated transcytosis across blood-brain barrier",
+        "\"TFRC gene product\" resistance erythroid iron delivery",
+        "\"TFRC gene product\" resistance hemochromatosis differential (TFR2)",
+        "\"TFRC gene product\" resistance tumor imaging / theranostics",
+        "\"p90\" resistance broad (cancer, iron metabolism, CNS delivery)",
+        "\"p90\" resistance iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"p90\" resistance cancer / proliferating-cell marker",
+        "\"p90\" resistance receptor-mediated transcytosis across blood-brain barrier",
+        "\"p90\" resistance erythroid iron delivery",
+        "\"p90\" resistance hemochromatosis differential (TFR2)",
+        "\"p90\" resistance tumor imaging / theranostics",
+        "\"T9\" resistance broad (cancer, iron metabolism, CNS delivery)",
+        "\"T9\" resistance iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"T9\" resistance cancer / proliferating-cell marker",
+        "\"T9\" resistance receptor-mediated transcytosis across blood-brain barrier",
+        "\"T9\" resistance erythroid iron delivery",
+        "\"T9\" resistance hemochromatosis differential (TFR2)",
+        "\"T9\" resistance tumor imaging / theranostics",
+        "\"TfR1\" biomarker broad (cancer, iron metabolism, CNS delivery)",
+        "\"TfR1\" biomarker iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"TfR1\" biomarker cancer / proliferating-cell marker",
+        "\"TfR1\" biomarker receptor-mediated transcytosis across blood-brain barrier",
+        "\"TfR1\" biomarker erythroid iron delivery",
+        "\"TfR1\" biomarker hemochromatosis differential (TFR2)",
+        "\"TfR1\" biomarker tumor imaging / theranostics",
+        "\"transferrin receptor 1\" biomarker broad (cancer, iron metabolism, CNS delivery)",
+        "\"transferrin receptor 1\" biomarker iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"transferrin receptor 1\" biomarker cancer / proliferating-cell marker",
+        "\"transferrin receptor 1\" biomarker receptor-mediated transcytosis across blood-brain barrier",
+        "\"transferrin receptor 1\" biomarker erythroid iron delivery",
+        "\"transferrin receptor 1\" biomarker hemochromatosis differential (TFR2)",
+        "\"transferrin receptor 1\" biomarker tumor imaging / theranostics",
+        "\"transferrin receptor protein 1\" biomarker broad (cancer, iron metabolism, CNS delivery)",
+        "\"transferrin receptor protein 1\" biomarker iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"transferrin receptor protein 1\" biomarker cancer / proliferating-cell marker",
+        "\"transferrin receptor protein 1\" biomarker receptor-mediated transcytosis across blood-brain barrier",
+        "\"transferrin receptor protein 1\" biomarker erythroid iron delivery",
+        "\"transferrin receptor protein 1\" biomarker hemochromatosis differential (TFR2)",
+        "\"transferrin receptor protein 1\" biomarker tumor imaging / theranostics",
+        "\"CD71\" biomarker broad (cancer, iron metabolism, CNS delivery)",
+        "\"CD71\" biomarker iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"CD71\" biomarker cancer / proliferating-cell marker",
+        "\"CD71\" biomarker receptor-mediated transcytosis across blood-brain barrier",
+        "\"CD71\" biomarker erythroid iron delivery",
+        "\"CD71\" biomarker hemochromatosis differential (TFR2)",
+        "\"CD71\" biomarker tumor imaging / theranostics",
+        "\"TFRC gene product\" biomarker broad (cancer, iron metabolism, CNS delivery)",
+        "\"TFRC gene product\" biomarker iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"TFRC gene product\" biomarker cancer / proliferating-cell marker",
+        "\"TFRC gene product\" biomarker receptor-mediated transcytosis across blood-brain barrier",
+        "\"TFRC gene product\" biomarker erythroid iron delivery",
+        "\"TFRC gene product\" biomarker hemochromatosis differential (TFR2)",
+        "\"TFRC gene product\" biomarker tumor imaging / theranostics",
+        "\"p90\" biomarker broad (cancer, iron metabolism, CNS delivery)",
+        "\"p90\" biomarker iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"p90\" biomarker cancer / proliferating-cell marker",
+        "\"p90\" biomarker receptor-mediated transcytosis across blood-brain barrier",
+        "\"p90\" biomarker erythroid iron delivery",
+        "\"p90\" biomarker hemochromatosis differential (TFR2)",
+        "\"p90\" biomarker tumor imaging / theranostics",
+        "\"T9\" biomarker broad (cancer, iron metabolism, CNS delivery)",
+        "\"T9\" biomarker iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "\"T9\" biomarker cancer / proliferating-cell marker",
+        "\"T9\" biomarker receptor-mediated transcytosis across blood-brain barrier",
+        "\"T9\" biomarker erythroid iron delivery",
+        "\"T9\" biomarker hemochromatosis differential (TFR2)",
+        "\"T9\" biomarker tumor imaging / theranostics"
+      ],
+      "expansion": "literature, clinical registries, claims and diagnostics",
+      "source_hint": "PubMed/clinical registries plus official patent sources",
+      "status": "planned"
+    }
+  ]
+}

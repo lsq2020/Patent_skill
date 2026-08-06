@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 416" role="img" aria-label="最早优先权年度分布">
+<title>最早优先权年度分布</title>
+<rect width="760" height="416" rx="16" fill="#ffffff"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">最早优先权年度分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">按族级 earliest_priority 的年份统计。</text>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">2006</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="77" width="93.2" height="18" rx="9" fill="#3c8eea"/>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">1</text>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">2009</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="111" width="93.2" height="18" rx="9" fill="#72b7f5"/>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">1</text>
+<text x="28" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">2012</text>
+<rect x="210" y="145" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="145" width="186.4" height="18" rx="9" fill="#9bd4f7"/>
+<text x="706" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">2</text>
+<text x="28" y="192" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">2013</text>
+<rect x="210" y="179" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="179" width="186.4" height="18" rx="9" fill="#f2a93b"/>
+<text x="706" y="192" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">2</text>
+<text x="28" y="226" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">2014</text>
+<rect x="210" y="213" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="213" width="279.6" height="18" rx="9" fill="#e3655b"/>
+<text x="706" y="226" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">3</text>
+<text x="28" y="260" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">2015</text>
+<rect x="210" y="247" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="247" width="466.0" height="18" rx="9" fill="#6d7892"/>
+<text x="706" y="260" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">5</text>
+<text x="28" y="294" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">2016</text>
+<rect x="210" y="281" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="281" width="372.8" height="18" rx="9" fill="#4ab39a"/>
+<text x="706" y="294" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">4</text>
+<text x="28" y="328" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">2017</text>
+<rect x="210" y="315" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="315" width="279.6" height="18" rx="9" fill="#1264d9"/>
+<text x="706" y="328" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">3</text>
+<text x="28" y="362" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">2018</text>
+<rect x="210" y="349" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="349" width="372.8" height="18" rx="9" fill="#3c8eea"/>
+<text x="706" y="362" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">4</text>
+</svg>

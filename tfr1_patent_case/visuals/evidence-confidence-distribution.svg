@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-label="证据置信度分布">
+<title>证据置信度分布</title>
+<rect width="760" height="190" rx="16" fill="#ffffff"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">证据置信度分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">按 evidence.csv 的 confidence 字段统计。</text>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">high</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="77" width="466.0" height="18" rx="9" fill="#4ab39a"/>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">9</text>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">medium</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="111" width="310.7" height="18" rx="9" fill="#1264d9"/>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">6</text>
+</svg>

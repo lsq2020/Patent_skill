@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-08-06T05:48:28.046649+00:00",
+  "project_dir": "/data/siqing/2026_workpalce/20260731/tfr1_patent_case",
+  "tasks": [
+    {
+      "id": "official_status_review",
+      "priority": "HIGH",
+      "category": "Legal status",
+      "objective": "Verify official status for 21 family records",
+      "suggested_queries": [
+        "CNIPA patent status",
+        "USPTO Patent Center",
+        "EPO Register"
+      ],
+      "output_file": "status-review.md"
+    },
+    {
+      "id": "competitor_pathway_expansion",
+      "priority": "MEDIUM",
+      "category": "Competitors",
+      "objective": "Expand direct/class/pathway/standard-of-care competitors around TfR1",
+      "suggested_queries": [
+        "TfR1 competitors broad (cancer, iron metabolism, CNS delivery)",
+        "TfR1 pathway inhibitors",
+        "broad (cancer, iron metabolism, CNS delivery) standard of care"
+      ],
+      "output_file": "context/competitors.md"
+    }
+  ]
+}
