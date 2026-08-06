@@ -1,0 +1,2289 @@
+{
+  "schema_version": "1.0",
+  "upstream_repo": "https://github.com/CNIPA/PatentDatabases",
+  "upstream_readme": "https://raw.githubusercontent.com/CNIPA/PatentDatabases/master/README.md",
+  "upstream_readme_sha256": "51dc7ed174d1ae4d23ba9d1b8ebd8ae340aae330f8787d0c42ea2588b19b95c2",
+  "snapshot_at": "2026-08-06T03:14:21.301746+00:00",
+  "source_policy": {
+    "description": "This is a source directory, not an endorsement and not proof that every URL is current or accessible.",
+    "official_or_authority": "Use for primary publication, prosecution or legal-status verification when the target jurisdiction is covered.",
+    "commercial_or_aggregator": "Use for discovery, normalization, family/citation expansion and cross-checking; do not use alone for legal status.",
+    "public_or_national_database": "Use for discovery and jurisdiction-specific cross-checking; verify scope and update date.",
+    "literature_or_context": "Use for technical, clinical or background context; it does not establish patent claim coverage.",
+    "classification_navigation": "Use to interpret or expand IPC/CPC/FI/ECLA/ICO classifications; confirm the classification definition and version."
+  },
+  "counts": {
+    "upstream_listings": 143,
+    "unique_urls": 140,
+    "by_section": {
+      "domestic": 25,
+      "international": 113,
+      "classification": 5
+    },
+    "by_source_kind": {
+      "official_or_authority": 33,
+      "public_or_national_database": 64,
+      "commercial_or_aggregator": 33,
+      "literature_or_context": 5,
+      "classification_authority_or_navigator": 4,
+      "classification_navigator": 1
+    }
+  },
+  "sources": [
+    {
+      "source_id": "src-001",
+      "name": "国家知识产权局专利公布公告系统",
+      "url": "http://epub.cnipa.gov.cn",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "国家知识产权局专利公布公告系统"
+        }
+      ],
+      "upstream_indices": [
+        1
+      ]
+    },
+    {
+      "source_id": "src-002",
+      "name": "国家知识产权局专利审查查询系统",
+      "url": "https://cpquery.cponline.cnipa.gov.cn",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "国家知识产权局专利审查查询系统"
+        }
+      ],
+      "upstream_indices": [
+        2
+      ]
+    },
+    {
+      "source_id": "src-003",
+      "name": "中国知识产权网 CNIPR",
+      "url": "http://search.cnipr.com/pages!advSearch.action",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "中国知识产权网 CNIPR"
+        }
+      ],
+      "upstream_indices": [
+        3
+      ]
+    },
+    {
+      "source_id": "src-004",
+      "name": "香港知识产权署检索系统",
+      "url": "https://esearch.ipd.gov.hk/nis-pos-view/pt",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "香港知识产权署检索系统"
+        }
+      ],
+      "upstream_indices": [
+        4
+      ]
+    },
+    {
+      "source_id": "src-005",
+      "name": "台湾专利资讯检索系统",
+      "url": "https://tiponet.tipo.gov.tw",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "台湾专利资讯检索系统"
+        }
+      ],
+      "upstream_indices": [
+        5
+      ]
+    },
+    {
+      "source_id": "src-006",
+      "name": "澳门特别行政区经济局",
+      "url": "https://www.economia.gov.mo",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "澳门特别行政区经济局"
+        }
+      ],
+      "upstream_indices": [
+        6
+      ]
+    },
+    {
+      "source_id": "src-007",
+      "name": "incoPat",
+      "url": "http://www.incopat.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "incoPat"
+        }
+      ],
+      "upstream_indices": [
+        7
+      ]
+    },
+    {
+      "source_id": "src-008",
+      "name": "Patentics",
+      "url": "http://www.patentics.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "Patentics"
+        }
+      ],
+      "upstream_indices": [
+        8
+      ]
+    },
+    {
+      "source_id": "src-009",
+      "name": "智慧芽",
+      "url": "https://www.zhihuiya.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "智慧芽"
+        }
+      ],
+      "upstream_indices": [
+        9
+      ]
+    },
+    {
+      "source_id": "src-010",
+      "name": "HimmPat",
+      "url": "https://www.himmpat.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "HimmPat"
+        }
+      ],
+      "upstream_indices": [
+        10
+      ]
+    },
+    {
+      "source_id": "src-011",
+      "name": "Innojoy",
+      "url": "http://www.innojoy.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "Innojoy"
+        }
+      ],
+      "upstream_indices": [
+        11
+      ]
+    },
+    {
+      "source_id": "src-012",
+      "name": "专利汇",
+      "url": "https://www.patenthub.cn",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "专利汇"
+        }
+      ],
+      "upstream_indices": [
+        12
+      ]
+    },
+    {
+      "source_id": "src-013",
+      "name": "度衍",
+      "url": "http://www.uyanip.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "度衍"
+        }
+      ],
+      "upstream_indices": [
+        13
+      ]
+    },
+    {
+      "source_id": "src-014",
+      "name": "润桐",
+      "url": "https://www.rainpat.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "润桐"
+        }
+      ],
+      "upstream_indices": [
+        14
+      ]
+    },
+    {
+      "source_id": "src-015",
+      "name": "佰腾",
+      "url": "http://so.baiten.cn",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "佰腾"
+        }
+      ],
+      "upstream_indices": [
+        15
+      ]
+    },
+    {
+      "source_id": "src-016",
+      "name": "中国知网",
+      "url": "https://kns.cnki.net/kns8s/?classid=VUDIXAIY",
+      "source_kind": "literature_or_context",
+      "default_use": "context_only",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "中国知网"
+        }
+      ],
+      "upstream_indices": [
+        16
+      ]
+    },
+    {
+      "source_id": "src-017",
+      "name": "万方数据",
+      "url": "https://c.wanfangdata.com.cn/patent",
+      "source_kind": "literature_or_context",
+      "default_use": "context_only",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "万方数据"
+        }
+      ],
+      "upstream_indices": [
+        17
+      ]
+    },
+    {
+      "source_id": "src-018",
+      "name": "超星独秀",
+      "url": "http://www.duxiu.com/?channel=searchPatent",
+      "source_kind": "literature_or_context",
+      "default_use": "context_only",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "超星独秀"
+        }
+      ],
+      "upstream_indices": [
+        18
+      ]
+    },
+    {
+      "source_id": "src-019",
+      "name": "壹专利",
+      "url": "http://patyee.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "壹专利"
+        }
+      ],
+      "upstream_indices": [
+        19
+      ]
+    },
+    {
+      "source_id": "src-020",
+      "name": "SooPat",
+      "url": "http://www.soopat.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "SooPat"
+        }
+      ],
+      "upstream_indices": [
+        20
+      ]
+    },
+    {
+      "source_id": "src-021",
+      "name": "专利之星",
+      "url": "https://www.patentstar.com.cn",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "专利之星"
+        }
+      ],
+      "upstream_indices": [
+        21
+      ]
+    },
+    {
+      "source_id": "src-022",
+      "name": "北京市知识产权公共信息平台",
+      "url": "http://www.beijingip.cn/jopm_ww/website/index.do",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "北京市知识产权公共信息平台"
+        }
+      ],
+      "upstream_indices": [
+        22
+      ]
+    },
+    {
+      "source_id": "src-023",
+      "name": "国家重点产业专利信息服务平台",
+      "url": "http://chinaip.cnipa.gov.cn",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "国家重点产业专利信息服务平台"
+        }
+      ],
+      "upstream_indices": [
+        23
+      ]
+    },
+    {
+      "source_id": "src-024",
+      "name": "中国专利网",
+      "url": "http://www.cnpatent.com",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "中国专利网"
+        }
+      ],
+      "upstream_indices": [
+        24
+      ]
+    },
+    {
+      "source_id": "src-025",
+      "name": "国家科技数字图书馆",
+      "url": "https://www.nstl.gov.cn/search.html",
+      "source_kind": "literature_or_context",
+      "default_use": "context_only",
+      "listed_in": [
+        {
+          "section": "domestic",
+          "name": "国家科技数字图书馆"
+        }
+      ],
+      "upstream_indices": [
+        25
+      ]
+    },
+    {
+      "source_id": "src-026",
+      "name": "欧洲专利局",
+      "url": "http://ep.espacenet.com",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "欧洲专利局"
+        }
+      ],
+      "upstream_indices": [
+        26
+      ]
+    },
+    {
+      "source_id": "src-027",
+      "name": "欧盟知识产权局",
+      "url": "https://euipo.europa.eu",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "欧盟知识产权局"
+        }
+      ],
+      "upstream_indices": [
+        27
+      ]
+    },
+    {
+      "source_id": "src-028",
+      "name": "美国专利商标局",
+      "url": "http://www.uspto.gov/patents/process/search/index.jsp",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "美国专利商标局"
+        }
+      ],
+      "upstream_indices": [
+        28
+      ]
+    },
+    {
+      "source_id": "src-029",
+      "name": "药物在线",
+      "url": "http://www.drugfuture.com",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "药物在线"
+        }
+      ],
+      "upstream_indices": [
+        29
+      ]
+    },
+    {
+      "source_id": "src-030",
+      "name": "欧亚专利组织",
+      "url": "https://www.eapo.org",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "欧亚专利组织"
+        }
+      ],
+      "upstream_indices": [
+        30
+      ]
+    },
+    {
+      "source_id": "src-031",
+      "name": "非洲知识产权组织",
+      "url": "http://www.aripo.org",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "非洲知识产权组织"
+        }
+      ],
+      "upstream_indices": [
+        31
+      ]
+    },
+    {
+      "source_id": "src-032",
+      "name": "Patentscope",
+      "url": "https://patentscope.wipo.int/search/zh/search.jsf",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "Patentscope"
+        }
+      ],
+      "upstream_indices": [
+        32
+      ]
+    },
+    {
+      "source_id": "src-033",
+      "name": "韩国 KIPRIS 系统",
+      "url": "http://www.kipris.or.kr/enghome/main.jsp",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "韩国 KIPRIS 系统"
+        }
+      ],
+      "upstream_indices": [
+        33
+      ]
+    },
+    {
+      "source_id": "src-034",
+      "name": "日本特许厅专利数据库",
+      "url": "https://www.j-platpat.inpit.go.jp/web/all/top/BTmTopEnglishPage",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "日本特许厅专利数据库"
+        }
+      ],
+      "upstream_indices": [
+        34
+      ]
+    },
+    {
+      "source_id": "src-035",
+      "name": "ThomsonInnovation",
+      "url": "http://www.thomsoninnovate.org",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "ThomsonInnovation"
+        }
+      ],
+      "upstream_indices": [
+        35
+      ]
+    },
+    {
+      "source_id": "src-036",
+      "name": "DerwentInnovation",
+      "url": "https://www.derwentinnovation.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "DerwentInnovation"
+        }
+      ],
+      "upstream_indices": [
+        36
+      ]
+    },
+    {
+      "source_id": "src-037",
+      "name": "Questel",
+      "url": "http://www.questel.orbit.com/index.php/en",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "Questel"
+        }
+      ],
+      "upstream_indices": [
+        37
+      ]
+    },
+    {
+      "source_id": "src-038",
+      "name": "TotalPatent",
+      "url": "https://www.lexisnexis.com/totalpatent",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "TotalPatent"
+        }
+      ],
+      "upstream_indices": [
+        38
+      ]
+    },
+    {
+      "source_id": "src-039",
+      "name": "Patbase",
+      "url": "http://www.patbase.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "Patbase"
+        }
+      ],
+      "upstream_indices": [
+        39
+      ]
+    },
+    {
+      "source_id": "src-040",
+      "name": "PatentCloud",
+      "url": "https://www.inquartik.com/patentcloud",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "PatentCloud"
+        }
+      ],
+      "upstream_indices": [
+        40
+      ]
+    },
+    {
+      "source_id": "src-041",
+      "name": "WIPS",
+      "url": "http://www.wipsglobal.com/service/mai/main.wips",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "WIPS"
+        }
+      ],
+      "upstream_indices": [
+        41
+      ]
+    },
+    {
+      "source_id": "src-042",
+      "name": "DELPHION",
+      "url": "http://www.delphion.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "DELPHION"
+        }
+      ],
+      "upstream_indices": [
+        42
+      ]
+    },
+    {
+      "source_id": "src-043",
+      "name": "DIALOG",
+      "url": "http://search.proquest.com/professional",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "DIALOG"
+        }
+      ],
+      "upstream_indices": [
+        43
+      ]
+    },
+    {
+      "source_id": "src-044",
+      "name": "免费专利在线",
+      "url": "http://www.freepatentsonline.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "免费专利在线"
+        }
+      ],
+      "upstream_indices": [
+        44
+      ]
+    },
+    {
+      "source_id": "src-045",
+      "name": "谷歌专利",
+      "url": "http://www.google.com/patents",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "谷歌专利"
+        }
+      ],
+      "upstream_indices": [
+        45
+      ]
+    },
+    {
+      "source_id": "src-046",
+      "name": "INSPEC",
+      "url": "http://www.theiet.org/resources/inspec",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "INSPEC"
+        }
+      ],
+      "upstream_indices": [
+        46
+      ]
+    },
+    {
+      "source_id": "src-047",
+      "name": "IP.com",
+      "url": "https://priorart.ip.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "IP.com"
+        }
+      ],
+      "upstream_indices": [
+        47
+      ]
+    },
+    {
+      "source_id": "src-048",
+      "name": "RPX Insight",
+      "url": "https://insight.rpxcorp.com/advanced_search",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "RPX Insight"
+        }
+      ],
+      "upstream_indices": [
+        48
+      ]
+    },
+    {
+      "source_id": "src-049",
+      "name": "JP-net",
+      "url": "http://www.jpds.co.jp/english/jpnete.html",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "JP-net"
+        }
+      ],
+      "upstream_indices": [
+        49
+      ]
+    },
+    {
+      "source_id": "src-050",
+      "name": "STN",
+      "url": "https://www.stn.org/stn",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "STN"
+        }
+      ],
+      "upstream_indices": [
+        50
+      ]
+    },
+    {
+      "source_id": "src-051",
+      "name": "美国化学文摘社",
+      "url": "https://www.cas.org",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "美国化学文摘社"
+        }
+      ],
+      "upstream_indices": [
+        51
+      ]
+    },
+    {
+      "source_id": "src-052",
+      "name": "Pubmed",
+      "url": "https://www.ncbi.nlm.nih.gov/pubmed",
+      "source_kind": "literature_or_context",
+      "default_use": "context_only",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "Pubmed"
+        }
+      ],
+      "upstream_indices": [
+        52
+      ]
+    },
+    {
+      "source_id": "src-053",
+      "name": "MicroPatent",
+      "url": "http://www.micropat.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "MicroPatent"
+        }
+      ],
+      "upstream_indices": [
+        53
+      ]
+    },
+    {
+      "source_id": "src-054",
+      "name": "Patseer",
+      "url": "http://patseer.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "Patseer"
+        }
+      ],
+      "upstream_indices": [
+        54
+      ]
+    },
+    {
+      "source_id": "src-055",
+      "name": "Patanalyse",
+      "url": "http://www.patanalyse.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "Patanalyse"
+        }
+      ],
+      "upstream_indices": [
+        55
+      ]
+    },
+    {
+      "source_id": "src-056",
+      "name": "Patentlens",
+      "url": "http://www.lens.org/lens",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "Patentlens"
+        }
+      ],
+      "upstream_indices": [
+        56
+      ]
+    },
+    {
+      "source_id": "src-057",
+      "name": "Sumobrain",
+      "url": "http://www.sumobrain.com",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "Sumobrain"
+        }
+      ],
+      "upstream_indices": [
+        57
+      ]
+    },
+    {
+      "source_id": "src-058",
+      "name": "Surechem",
+      "url": "http://www.surechem.org",
+      "source_kind": "commercial_or_aggregator",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "Surechem"
+        }
+      ],
+      "upstream_indices": [
+        58
+      ]
+    },
+    {
+      "source_id": "src-059",
+      "name": "阿尔巴尼亚检索系统",
+      "url": "http://www.alpto.gov.al",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "阿尔巴尼亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        59
+      ]
+    },
+    {
+      "source_id": "src-060",
+      "name": "阿尔及利亚检索系统",
+      "url": "http://www.inapi.org",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "阿尔及利亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        60
+      ]
+    },
+    {
+      "source_id": "src-061",
+      "name": "亚美尼亚检索系统",
+      "url": "http://www.aipa.am",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "亚美尼亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        61
+      ]
+    },
+    {
+      "source_id": "src-062",
+      "name": "格鲁吉亚检索系统",
+      "url": "http://www.sakpatenti.org.ge",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "格鲁吉亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        62
+      ]
+    },
+    {
+      "source_id": "src-063",
+      "name": "德国检索系统",
+      "url": "http://www.dpma.de",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "德国检索系统"
+        }
+      ],
+      "upstream_indices": [
+        63
+      ]
+    },
+    {
+      "source_id": "src-064",
+      "name": "希腊检索系统",
+      "url": "http://www.obi.gr/obi/Default.aspx?tabid=71",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "希腊检索系统"
+        }
+      ],
+      "upstream_indices": [
+        64
+      ]
+    },
+    {
+      "source_id": "src-065",
+      "name": "危地马拉检索系统",
+      "url": "https://www.rpi.gob.gt",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "危地马拉检索系统"
+        }
+      ],
+      "upstream_indices": [
+        65
+      ]
+    },
+    {
+      "source_id": "src-066",
+      "name": "洪都拉斯检索系统",
+      "url": "http://www.digepih.webs.com",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "洪都拉斯检索系统"
+        }
+      ],
+      "upstream_indices": [
+        66
+      ]
+    },
+    {
+      "source_id": "src-067",
+      "name": "匈牙利检索系统",
+      "url": "http://www.hipo.gov.hu",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "匈牙利检索系统"
+        }
+      ],
+      "upstream_indices": [
+        67
+      ]
+    },
+    {
+      "source_id": "src-068",
+      "name": "冰岛检索系统",
+      "url": "http://www.patent.is",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "冰岛检索系统"
+        }
+      ],
+      "upstream_indices": [
+        68
+      ]
+    },
+    {
+      "source_id": "src-069",
+      "name": "印度检索系统",
+      "url": "http://www.ipindia.nic.in",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "印度检索系统"
+        }
+      ],
+      "upstream_indices": [
+        69
+      ]
+    },
+    {
+      "source_id": "src-070",
+      "name": "印尼检索系统",
+      "url": "http://www.dgip.go.id/statistik-djhki",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "印尼检索系统"
+        }
+      ],
+      "upstream_indices": [
+        70
+      ]
+    },
+    {
+      "source_id": "src-071",
+      "name": "爱尔兰检索系统",
+      "url": "http://www.patentsoffice.ie/en/publications_download.aspx",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "爱尔兰检索系统"
+        }
+      ],
+      "upstream_indices": [
+        71
+      ]
+    },
+    {
+      "source_id": "src-072",
+      "name": "以色列检索系统",
+      "url": "http://www.patent.justice.gov.il/MojHeb/RashamHaPtentim",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "以色列检索系统"
+        }
+      ],
+      "upstream_indices": [
+        72
+      ]
+    },
+    {
+      "source_id": "src-073",
+      "name": "意大利检索系统",
+      "url": "http://www.uibm.gov.it",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "意大利检索系统"
+        }
+      ],
+      "upstream_indices": [
+        73
+      ]
+    },
+    {
+      "source_id": "src-074",
+      "name": "哈萨克斯坦检索系统",
+      "url": "http://www.kazpatent.kz",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "哈萨克斯坦检索系统"
+        }
+      ],
+      "upstream_indices": [
+        74
+      ]
+    },
+    {
+      "source_id": "src-075",
+      "name": "肯尼亚检索系统",
+      "url": "http://www.kipi.go.ke/index.php/past-ip-journals",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "肯尼亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        75
+      ]
+    },
+    {
+      "source_id": "src-076",
+      "name": "科威特检索系统",
+      "url": "http://www.gccpo.org",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "科威特检索系统"
+        },
+        {
+          "section": "international",
+          "name": "卡塔尔检索系统"
+        },
+        {
+          "section": "international",
+          "name": "沙特阿拉伯检索系统"
+        },
+        {
+          "section": "international",
+          "name": "阿拉伯联合酋长国检索系统"
+        }
+      ],
+      "upstream_indices": [
+        76,
+        99,
+        104,
+        124
+      ]
+    },
+    {
+      "source_id": "src-077",
+      "name": "拉脱维亚检索系统",
+      "url": "http://www.lrpv.gov.lv/lv",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "拉脱维亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        77
+      ]
+    },
+    {
+      "source_id": "src-078",
+      "name": "立陶宛检索系统",
+      "url": "http://www.vpb.lt",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "立陶宛检索系统"
+        }
+      ],
+      "upstream_indices": [
+        78
+      ]
+    },
+    {
+      "source_id": "src-079",
+      "name": "卢森堡检索系统",
+      "url": "http://www.eco.public.lu",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "卢森堡检索系统"
+        }
+      ],
+      "upstream_indices": [
+        79
+      ]
+    },
+    {
+      "source_id": "src-080",
+      "name": "马来西亚检索系统",
+      "url": "https://iponline.myipo.gov.my/ipo/main/search.cfm",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "马来西亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        80
+      ]
+    },
+    {
+      "source_id": "src-081",
+      "name": "马耳他检索系统",
+      "url": "https://secure2.gov.mt/IPO/default.aspx?ct=1",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "马耳他检索系统"
+        }
+      ],
+      "upstream_indices": [
+        81
+      ]
+    },
+    {
+      "source_id": "src-082",
+      "name": "蒙古检索系统",
+      "url": "http://www.ipom.mn",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "蒙古检索系统"
+        }
+      ],
+      "upstream_indices": [
+        82
+      ]
+    },
+    {
+      "source_id": "src-083",
+      "name": "摩洛哥检索系统",
+      "url": "http://www.ompic.org.ma/index_en.htm",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "摩洛哥检索系统"
+        }
+      ],
+      "upstream_indices": [
+        83
+      ]
+    },
+    {
+      "source_id": "src-084",
+      "name": "荷兰检索系统",
+      "url": "http://www.agentschapnl.nl/en/node/108069",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "荷兰检索系统"
+        }
+      ],
+      "upstream_indices": [
+        84
+      ]
+    },
+    {
+      "source_id": "src-085",
+      "name": "新西兰检索系统",
+      "url": "http://www.iponz.govt.n",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "新西兰检索系统"
+        }
+      ],
+      "upstream_indices": [
+        85
+      ]
+    },
+    {
+      "source_id": "src-086",
+      "name": "挪威检索系统",
+      "url": "http://www.patentstyret.no",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "挪威检索系统"
+        }
+      ],
+      "upstream_indices": [
+        86
+      ]
+    },
+    {
+      "source_id": "src-087",
+      "name": "澳大利亚检索系统",
+      "url": "http://www.ipaustralia.gov.au",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "澳大利亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        87
+      ]
+    },
+    {
+      "source_id": "src-088",
+      "name": "奥地利检索系统",
+      "url": "http://www.patentamt.at",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "奥地利检索系统"
+        }
+      ],
+      "upstream_indices": [
+        88
+      ]
+    },
+    {
+      "source_id": "src-089",
+      "name": "阿塞拜疆检索系统",
+      "url": "http://www.azstand.gov.az",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "阿塞拜疆检索系统"
+        }
+      ],
+      "upstream_indices": [
+        89
+      ]
+    },
+    {
+      "source_id": "src-090",
+      "name": "巴林检索系统",
+      "url": "http://www.moic.gov.bh/moic/en",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "巴林检索系统"
+        }
+      ],
+      "upstream_indices": [
+        90
+      ]
+    },
+    {
+      "source_id": "src-091",
+      "name": "白俄罗斯检索系统",
+      "url": "http://www.belgospatent.org.by",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "白俄罗斯检索系统"
+        }
+      ],
+      "upstream_indices": [
+        91
+      ]
+    },
+    {
+      "source_id": "src-092",
+      "name": "比利时检索系统",
+      "url": "http://economie.fgov.be/opri-die.jsp",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "比利时检索系统"
+        }
+      ],
+      "upstream_indices": [
+        92
+      ]
+    },
+    {
+      "source_id": "src-093",
+      "name": "伯利兹检索系统",
+      "url": "http://www.belipo.bz",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "伯利兹检索系统"
+        }
+      ],
+      "upstream_indices": [
+        93
+      ]
+    },
+    {
+      "source_id": "src-094",
+      "name": "阿曼检索系统",
+      "url": "http://www.mocioman.gov.om",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "阿曼检索系统"
+        }
+      ],
+      "upstream_indices": [
+        94
+      ]
+    },
+    {
+      "source_id": "src-095",
+      "name": "巴基斯坦检索系统",
+      "url": "http://www.ipo.gov.pk",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "巴基斯坦检索系统"
+        }
+      ],
+      "upstream_indices": [
+        95
+      ]
+    },
+    {
+      "source_id": "src-096",
+      "name": "菲律宾检索系统",
+      "url": "http://www.ipophil.gov.ph/index.php",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "菲律宾检索系统"
+        }
+      ],
+      "upstream_indices": [
+        96
+      ]
+    },
+    {
+      "source_id": "src-097",
+      "name": "波兰检索系统",
+      "url": "http://www.uprp.pl/strona-glowna/Menu01,9,0,index,pl",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "波兰检索系统"
+        }
+      ],
+      "upstream_indices": [
+        97
+      ]
+    },
+    {
+      "source_id": "src-098",
+      "name": "葡萄牙检索系统",
+      "url": "http://www.marcasepatentesNaN/index.php?section=80",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "葡萄牙检索系统"
+        }
+      ],
+      "upstream_indices": [
+        98
+      ]
+    },
+    {
+      "source_id": "src-099",
+      "name": "摩尔多瓦共和国检索系统",
+      "url": "http://agepi.gov.md/md",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "摩尔多瓦共和国检索系统"
+        }
+      ],
+      "upstream_indices": [
+        100
+      ]
+    },
+    {
+      "source_id": "src-100",
+      "name": "罗马尼亚检索系统",
+      "url": "http://www.osim.ro",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "罗马尼亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        101
+      ]
+    },
+    {
+      "source_id": "src-101",
+      "name": "俄罗斯联邦检索系统",
+      "url": "http://www.rupto.ru/en_site/index_en.htm",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "俄罗斯联邦检索系统"
+        }
+      ],
+      "upstream_indices": [
+        102
+      ]
+    },
+    {
+      "source_id": "src-102",
+      "name": "卢旺达检索系统",
+      "url": "http://org.rdb.rw",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "卢旺达检索系统"
+        }
+      ],
+      "upstream_indices": [
+        103
+      ]
+    },
+    {
+      "source_id": "src-103",
+      "name": "瑞典检索系统",
+      "url": "http://www.prv.se",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "瑞典检索系统"
+        }
+      ],
+      "upstream_indices": [
+        105
+      ]
+    },
+    {
+      "source_id": "src-104",
+      "name": "瑞士检索系统",
+      "url": "https://www.ige.ch",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "瑞士检索系统"
+        }
+      ],
+      "upstream_indices": [
+        106
+      ]
+    },
+    {
+      "source_id": "src-105",
+      "name": "阿拉伯叙利亚共和国检索系统",
+      "url": "http://www.spo.gov.sy/en",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "阿拉伯叙利亚共和国检索系统"
+        }
+      ],
+      "upstream_indices": [
+        107
+      ]
+    },
+    {
+      "source_id": "src-106",
+      "name": "巴西检索系统",
+      "url": "http://www.inpi.gov.br",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "巴西检索系统"
+        }
+      ],
+      "upstream_indices": [
+        108
+      ]
+    },
+    {
+      "source_id": "src-107",
+      "name": "加拿大检索系统",
+      "url": "http://www.cipo.ic.gc.ca",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "加拿大检索系统"
+        }
+      ],
+      "upstream_indices": [
+        109
+      ]
+    },
+    {
+      "source_id": "src-108",
+      "name": "智利检索系统",
+      "url": "http://www.inapi.cl",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "智利检索系统"
+        }
+      ],
+      "upstream_indices": [
+        110
+      ]
+    },
+    {
+      "source_id": "src-109",
+      "name": "哥伦比亚检索系统",
+      "url": "http://www.sic.gov.co/es/banco-patentes",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "哥伦比亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        111
+      ]
+    },
+    {
+      "source_id": "src-110",
+      "name": "克罗地亚检索系统",
+      "url": "http://www.dziv.hr",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "克罗地亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        112
+      ]
+    },
+    {
+      "source_id": "src-111",
+      "name": "古巴检索系统",
+      "url": "http://www.ocpi.cu",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "古巴检索系统"
+        }
+      ],
+      "upstream_indices": [
+        113
+      ]
+    },
+    {
+      "source_id": "src-112",
+      "name": "捷克共和国检索系统",
+      "url": "http://www.upv.cz",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "捷克共和国检索系统"
+        }
+      ],
+      "upstream_indices": [
+        114
+      ]
+    },
+    {
+      "source_id": "src-113",
+      "name": "丹麦检索系统",
+      "url": "http://www.dkpto.org",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "丹麦检索系统"
+        }
+      ],
+      "upstream_indices": [
+        115
+      ]
+    },
+    {
+      "source_id": "src-114",
+      "name": "埃及检索系统",
+      "url": "http://www.egypo.gov.eg/Search.aspx",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "埃及检索系统"
+        }
+      ],
+      "upstream_indices": [
+        116
+      ]
+    },
+    {
+      "source_id": "src-115",
+      "name": "爱沙尼亚检索系统",
+      "url": "http://www.epa.ee",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "爱沙尼亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        117
+      ]
+    },
+    {
+      "source_id": "src-116",
+      "name": "法国检索系统",
+      "url": "http://www.inpi.fr",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "法国检索系统"
+        }
+      ],
+      "upstream_indices": [
+        118
+      ]
+    },
+    {
+      "source_id": "src-117",
+      "name": "泰国检索系统",
+      "url": "http://www.ipthailand.go.th/ipthailand/index.php?lang=en",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "泰国检索系统"
+        }
+      ],
+      "upstream_indices": [
+        119
+      ]
+    },
+    {
+      "source_id": "src-118",
+      "name": "前南斯拉夫的马其顿共和国检索系统",
+      "url": "http://www.ippo.gov.mk",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "前南斯拉夫的马其顿共和国检索系统"
+        }
+      ],
+      "upstream_indices": [
+        120
+      ]
+    },
+    {
+      "source_id": "src-119",
+      "name": "突尼斯检索系统",
+      "url": "http://www.innorpi.tn",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "突尼斯检索系统"
+        }
+      ],
+      "upstream_indices": [
+        121
+      ]
+    },
+    {
+      "source_id": "src-120",
+      "name": "土耳其检索系统",
+      "url": "http://www.turkpatent.gov.tr",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "土耳其检索系统"
+        }
+      ],
+      "upstream_indices": [
+        122
+      ]
+    },
+    {
+      "source_id": "src-121",
+      "name": "乌克兰检索系统",
+      "url": "http://www.sips.gov.ua/en/index.html",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "乌克兰检索系统"
+        }
+      ],
+      "upstream_indices": [
+        123
+      ]
+    },
+    {
+      "source_id": "src-122",
+      "name": "英国检索系统",
+      "url": "http://www.ipo.gov.uk",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "英国检索系统"
+        }
+      ],
+      "upstream_indices": [
+        125
+      ]
+    },
+    {
+      "source_id": "src-123",
+      "name": "越南检索系统",
+      "url": "http://www.noip.gov.vn",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "越南检索系统"
+        }
+      ],
+      "upstream_indices": [
+        126
+      ]
+    },
+    {
+      "source_id": "src-124",
+      "name": "新加坡检索系统",
+      "url": "http://www.ipos.gov.sg",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "新加坡检索系统"
+        }
+      ],
+      "upstream_indices": [
+        127
+      ]
+    },
+    {
+      "source_id": "src-125",
+      "name": "斯洛伐克检索系统",
+      "url": "http://www.upv.sk",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "斯洛伐克检索系统"
+        }
+      ],
+      "upstream_indices": [
+        128
+      ]
+    },
+    {
+      "source_id": "src-126",
+      "name": "斯洛文尼亚检索系统",
+      "url": "http://www.uil-cnipa.si",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "斯洛文尼亚检索系统"
+        }
+      ],
+      "upstream_indices": [
+        129
+      ]
+    },
+    {
+      "source_id": "src-127",
+      "name": "南非检索系统",
+      "url": "http://www.cipc.co.za",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "南非检索系统"
+        }
+      ],
+      "upstream_indices": [
+        130
+      ]
+    },
+    {
+      "source_id": "src-128",
+      "name": "西班牙检索系统",
+      "url": "http://www.oepm.es",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "西班牙检索系统"
+        }
+      ],
+      "upstream_indices": [
+        131
+      ]
+    },
+    {
+      "source_id": "src-129",
+      "name": "荷兰专利局",
+      "url": "https://www.prh.fi",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "荷兰专利局"
+        }
+      ],
+      "upstream_indices": [
+        132
+      ]
+    },
+    {
+      "source_id": "src-130",
+      "name": "比荷卢知识产权组织(BOIP)",
+      "url": "https://www.boip.int",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "比荷卢知识产权组织(BOIP)"
+        }
+      ],
+      "upstream_indices": [
+        133
+      ]
+    },
+    {
+      "source_id": "src-131",
+      "name": "墨西哥",
+      "url": "https://www.gob.mx",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "墨西哥"
+        }
+      ],
+      "upstream_indices": [
+        134
+      ]
+    },
+    {
+      "source_id": "src-132",
+      "name": "乌拉圭",
+      "url": "http://www.miem.gub.uy",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "乌拉圭"
+        }
+      ],
+      "upstream_indices": [
+        135
+      ]
+    },
+    {
+      "source_id": "src-133",
+      "name": "乌兹别克",
+      "url": "http://ima.uz",
+      "source_kind": "public_or_national_database",
+      "default_use": "discovery_and_cross_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "乌兹别克"
+        }
+      ],
+      "upstream_indices": [
+        136
+      ]
+    },
+    {
+      "source_id": "src-134",
+      "name": "也门专利局",
+      "url": "http://www.yipo.gov.ye",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "也门专利局"
+        }
+      ],
+      "upstream_indices": [
+        137
+      ]
+    },
+    {
+      "source_id": "src-135",
+      "name": "特立尼达和多马哥专利局",
+      "url": "http://www.ipo.gov.tt",
+      "source_kind": "official_or_authority",
+      "default_use": "primary_or_status_check",
+      "listed_in": [
+        {
+          "section": "international",
+          "name": "特立尼达和多马哥专利局"
+        }
+      ],
+      "upstream_indices": [
+        138
+      ]
+    },
+    {
+      "source_id": "src-136",
+      "name": "日本特许厅的分类对照工具",
+      "url": "https://www.jpo.go.jp/cgi/cgi-bin/search-portal/narabe_tool/narabe.cgi",
+      "source_kind": "classification_authority_or_navigator",
+      "default_use": "classification_navigation",
+      "listed_in": [
+        {
+          "section": "classification",
+          "name": "日本特许厅的分类对照工具"
+        }
+      ],
+      "upstream_indices": [
+        139
+      ]
+    },
+    {
+      "source_id": "src-137",
+      "name": "incoPat 专利数据库提供的 IPC 分类查询",
+      "url": "http://ipc.incopat.com",
+      "source_kind": "classification_authority_or_navigator",
+      "default_use": "classification_navigation",
+      "listed_in": [
+        {
+          "section": "classification",
+          "name": "incoPat 专利数据库提供的 IPC 分类查询"
+        }
+      ],
+      "upstream_indices": [
+        140
+      ]
+    },
+    {
+      "source_id": "src-138",
+      "name": "广东省知识产权公共信息综合服务平台的 IPC 分类导航",
+      "url": "https://s.gpic.gd.cn/access/hostingplatform/nav/route/showNav?industryFlag=0",
+      "source_kind": "classification_navigator",
+      "default_use": "classification_navigation",
+      "listed_in": [
+        {
+          "section": "classification",
+          "name": "广东省知识产权公共信息综合服务平台的 IPC 分类导航"
+        }
+      ],
+      "upstream_indices": [
+        141
+      ]
+    },
+    {
+      "source_id": "src-139",
+      "name": "国家知识产权局 IPC 分类查询",
+      "url": "http://epub.cnipa.gov.cn/ipc",
+      "source_kind": "classification_authority_or_navigator",
+      "default_use": "classification_navigation",
+      "listed_in": [
+        {
+          "section": "classification",
+          "name": "国家知识产权局 IPC 分类查询"
+        }
+      ],
+      "upstream_indices": [
+        142
+      ]
+    },
+    {
+      "source_id": "src-140",
+      "name": "欧洲专利局的分类检索",
+      "url": "https://worldwide.espacenet.com/classification?locale=cn_EP",
+      "source_kind": "classification_authority_or_navigator",
+      "default_use": "classification_navigation",
+      "listed_in": [
+        {
+          "section": "classification",
+          "name": "欧洲专利局的分类检索"
+        }
+      ],
+      "upstream_indices": [
+        143
+      ]
+    }
+  ]
+}
