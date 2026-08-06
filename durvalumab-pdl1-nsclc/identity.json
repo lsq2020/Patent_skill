@@ -1,0 +1,28 @@
+{
+  "molecule": {
+    "canonical": "Durvalumab",
+    "synonyms": [
+      "MEDI4736",
+      "MEDI-4736",
+      "Imfinzi",
+      "度伐利尤单抗"
+    ],
+    "status": "unconfirmed"
+  },
+  "target": {
+    "canonical": "PD-L1",
+    "aliases": ["B7-H1", "CD274", "programmed death-ligand 1"],
+    "status": "confirmed_from_public_patent_text"
+  },
+  "indication": {
+    "canonical": "non-small cell lung cancer (NSCLC)",
+    "aliases": ["non-small-cell lung cancer", "R-NSCLC", "stage III unresectable NSCLC", "LUAD", "LUSC"],
+    "status": "confirmed_from_public_patent_text"
+  },
+  "applicants": [],
+  "unresolved_questions": [
+    "Confirm national-phase members and post-grant status in CNIPA and USPTO Patent Center.",
+    "Separate patents naming durvalumab from broad anti-PD-L1 platform patents that only mention it as an example.",
+    "Cross-check immune-checkpoint resistance biology against primary literature; do not equate a resistance biomarker with a patent claim."
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "technical_solution": "肿瘤免疫治疗监测，具体涉及 PD-L1 抑制剂度伐利尤单抗在非小细胞肺癌中的免疫相关不良反应风险评估。度伐利尤单抗与 PD-L1 结合并阻断 PD-1/PD-L1 通路，结合肺部体征、血液生化、胸部影像和腹泻分级监测，识别器官特异性免疫毒性并在结肠炎进展时启动皮质类固醇治疗。",
+  "features": [
+    {
+      "id": "F01",
+      "feature_type": "technical_domain",
+      "importance": "context",
+      "text": "肿瘤免疫治疗监测，具体涉及 PD-L1 抑制剂度伐利尤单抗在非小细胞肺癌中的免疫相关不良反应风险评估。",
+      "keyword_clusters": ["drug", "indication", "irae"],
+      "classifications": ["A61P11/00", "A61P43/00", "A61K39/395", "C07K16/28", "A61P37/04", "G16H50/30", "A61P35/00", "C07K16/2818"]
+    },
+    {
+      "id": "F02",
+      "feature_type": "core",
+      "importance": "core",
+      "text": "度伐利尤单抗与 PD-L1 结合并阻断 PD-1/PD-L1 通路，以触发免疫相关不良反应的风险识别。",
+      "keyword_clusters": ["drug", "target", "blockade"],
+      "classifications": ["A61K39/395", "C07K16/28", "G01N33/68", "A61P35/02", "A61P35/00", "C07K16/2818", "A61P37/02"]
+    },
+    {
+      "id": "F03",
+      "feature_type": "core",
+      "importance": "core",
+      "text": "免疫系统在 PD-1/PD-L1 通路被阻断后对肺部正常组织、肠道黏膜或实质器官产生异常攻击，用于判定器官特异性毒性机制。",
+      "keyword_clusters": ["target", "blockade", "irae", "organ"],
+      "classifications": ["A61P11/00", "A61P1/00", "A61K39/395", "G01N33/50", "C07K16/28", "A61K45/06", "G01N33/68", "G01N33/5091", "A61P35/00", "A61P37/02"]
+    },
+    {
+      "id": "F04",
+      "feature_type": "necessary",
+      "importance": "necessary",
+      "text": "治疗期间对肺部体征进行连续监测，以识别免疫相关性肺炎的呼吸系统异常表现。",
+      "keyword_clusters": ["drug", "indication", "pneumonitis", "monitoring"],
+      "classifications": ["A61B5/00", "G16H30/40", "G16H30/20", "A61B6/00", "A61B5/08", "G16H50/20", "A61B5/4848", "A61B6/03"]
+    },
+    {
+      "id": "F05",
+      "feature_type": "necessary",
+      "importance": "necessary",
+      "text": "基线及治疗期间对 ALT、AST、肌酐、TSH、游离 T4 及血糖进行生化检测，以评估肝脏、肾脏及内分泌腺体受累状态。",
+      "keyword_clusters": ["biochemical", "analyte", "drug", "indication"],
+      "classifications": ["G01N33/50", "G01N33/68", "G01N33/573", "G16H50/30", "A61P1/16", "G01N33/74", "A61P13/12", "G01N33/53", "A61P3/10", "G01N33/70"]
+    },
+    {
+      "id": "F06",
+      "feature_type": "support",
+      "importance": "support",
+      "text": "胸部影像学检查显示磨玻璃样影或斑片状浸润影，用于辅助判定免疫相关性肺炎。",
+      "keyword_clusters": ["imaging", "ggo", "pneumonitis", "monitoring"],
+      "classifications": ["A61B5/00", "G16H30/40", "A61B6/00", "G16H30/20", "G16H50/20", "A61B6/03", "A61B6/032", "G06T7/0012"]
+    },
+    {
+      "id": "F07",
+      "feature_type": "support",
+      "importance": "support",
+      "text": "根据腹泻分级启动皮质类固醇治疗，用于控制免疫相关性结肠炎进展。",
+      "keyword_clusters": ["colitis", "steroid", "irae"],
+      "classifications": ["A61K31/573", "A61P1/00", "A61P1/04", "A61P37/00", "A61P37/06", "A61K45/06", "A61P29/00"]
+    }
+  ],
+  "keyword_clusters": [
+    {"id": "drug", "label": "度伐利尤单抗", "base_terms": ["度伐利尤单抗", "durvalumab"], "expanded_terms": ["德瓦鲁单抗", "度伐鲁单抗", "PD-L1抑制剂", "Imfinzi", "MEDI4736", "MEDI-4736", "PD-L1 inhibitor"], "source": "user-provided aliases + product/development code"},
+    {"id": "indication", "label": "非小细胞肺癌", "base_terms": ["非小细胞肺癌", "NSCLC", "non small cell lung cancer"], "expanded_terms": ["肺腺癌", "肺鳞癌", "肺癌", "lung adenocarcinoma", "lung carcinoma", "non-small-cell lung cancer"], "source": "user-provided disease aliases"},
+    {"id": "target", "label": "PD-L1", "base_terms": ["PD-L1", "程序性死亡配体1"], "expanded_terms": ["CD274", "B7-H1", "programmed death ligand 1", "programmed death-ligand 1"], "source": "target/protein/gene aliases"},
+    {"id": "blockade", "label": "阻断", "base_terms": ["阻断", "blockade"], "expanded_terms": ["拮抗", "结合抑制", "通路阻断", "block", "inhibit", "antagonize"], "source": "mechanism/action terms"},
+    {"id": "irae", "label": "免疫相关不良反应", "base_terms": ["免疫相关不良反应", "irAE", "immune related adverse event"], "expanded_terms": ["自身免疫反应", "免疫毒性", "autoimmune reaction", "immunotoxicity", "immune-related adverse event"], "source": "clinical safety terminology"},
+    {"id": "organ", "label": "器官受损", "base_terms": ["器官受损", "组织损伤", "organ toxicity"], "expanded_terms": ["靶器官毒性", "实质器官攻击", "tissue damage", "organ injury", "adverse effect"], "source": "organ toxicity terminology"},
+    {"id": "pneumonitis", "label": "肺炎/肺毒性", "base_terms": ["肺炎", "pneumonitis"], "expanded_terms": ["间质性肺病", "肺部炎症", "肺毒性", "interstitial lung disease", "pneumonia", "pulmonary toxicity"], "source": "pulmonary irAE terminology"},
+    {"id": "monitoring", "label": "体征监测", "base_terms": ["体征监测", "monitoring"], "expanded_terms": ["呼吸监测", "肺部听诊", "连续监护", "respiratory monitoring", "physical sign tracking", "surveillance"], "source": "monitoring workflow terminology"},
+    {"id": "biochemical", "label": "生化检测", "base_terms": ["生化检测", "biochemical test"], "expanded_terms": ["生化筛查", "血液生化", "生化分析", "biochemical assay", "blood chemistry", "serum analysis"], "source": "diagnostic/test terminology"},
+    {"id": "analyte", "label": "生化指标", "base_terms": ["ALT", "AST", "肌酐", "TSH", "游离T4", "血糖"], "expanded_terms": ["transaminase", "creatinine", "free T4", "blood glucose", "alanine aminotransferase", "aspartate aminotransferase", "thyroid stimulating hormone"], "source": "user-provided analytes + standard English names"},
+    {"id": "imaging", "label": "胸部影像", "base_terms": ["胸部影像", "胸部CT", "chest imaging"], "expanded_terms": ["肺部影像", "胸片", "chest CT", "thoracic imaging", "chest radiograph"], "source": "imaging modality terminology"},
+    {"id": "ggo", "label": "磨玻璃影", "base_terms": ["磨玻璃影", "GGO", "ground glass opacity"], "expanded_terms": ["斑片状浸润", "磨玻璃样密度影", "patchy infiltrates", "ground glass density"], "source": "radiology terminology"},
+    {"id": "colitis", "label": "结肠炎/腹泻", "base_terms": ["结肠炎", "colitis"], "expanded_terms": ["肠道炎症", "腹泻", "肠毒性", "diarrhea", "bowel inflammation", "enterocolitis"], "source": "gastrointestinal irAE terminology"},
+    {"id": "steroid", "label": "皮质类固醇", "base_terms": ["皮质类固醇", "corticosteroid"], "expanded_terms": ["糖皮质激素", "激素治疗", "类固醇", "glucocorticoid", "steroid", "prednisone"], "source": "irAE management terminology"}
+  ],
+  "notes": [
+    "用户给出的 IPC/CPC 作为候选分类号导入；正式检索前应按目标法域分类版本和命中文献反向确认。",
+    "“风险评估”与“发生机制”是技术特征候选，不代表所有相关专利都以风险评估为独立权利要求。",
+    "irAE 监测与处置方案需要单独核对诊断/监测方法、治疗方法、给药方案和组合物权利要求。"
+  ]
+}

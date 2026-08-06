@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 348" role="img" aria-label="检索轮次覆盖">
+<title>检索轮次覆盖</title>
+<rect width="760" height="348" rx="16" fill="#ffffff"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">检索轮次覆盖</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">按 FTO 搜索计划的 search_rounds 统计每轮主题的任务数量。</text>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">R1</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="77" width="466.0" height="18" rx="9" fill="#72b7f5"/>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">1</text>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">R2</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="111" width="466.0" height="18" rx="9" fill="#9bd4f7"/>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">1</text>
+<text x="28" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">R3</text>
+<rect x="210" y="145" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="145" width="466.0" height="18" rx="9" fill="#f2a93b"/>
+<text x="706" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">1</text>
+<text x="28" y="192" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">R4</text>
+<rect x="210" y="179" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="179" width="466.0" height="18" rx="9" fill="#e3655b"/>
+<text x="706" y="192" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">1</text>
+<text x="28" y="226" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">R5</text>
+<rect x="210" y="213" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="213" width="466.0" height="18" rx="9" fill="#6d7892"/>
+<text x="706" y="226" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">1</text>
+<text x="28" y="260" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">R6</text>
+<rect x="210" y="247" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="247" width="466.0" height="18" rx="9" fill="#4ab39a"/>
+<text x="706" y="260" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">1</text>
+<text x="28" y="294" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">R7</text>
+<rect x="210" y="281" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="281" width="466.0" height="18" rx="9" fill="#1264d9"/>
+<text x="706" y="294" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">1</text>
+</svg>

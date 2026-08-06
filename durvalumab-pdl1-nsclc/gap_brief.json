@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-08-05T16:15:24.135424+00:00",
+  "project_dir": "/Users/wangyuze/Documents/Codex/2026-08-05/ru-he/outputs/medtech-patent-roadmap/durvalumab-pdl1-nsclc",
+  "tasks": [
+    {
+      "id": "official_status_review",
+      "priority": "HIGH",
+      "category": "Legal status",
+      "objective": "Verify official status for 7 family records",
+      "suggested_queries": [
+        "CNIPA patent status",
+        "USPTO Patent Center",
+        "EPO Register"
+      ],
+      "output_file": "status-review.md"
+    },
+    {
+      "id": "resistance_biology_context",
+      "priority": "MEDIUM",
+      "category": "Literature",
+      "objective": "Cross-check resistance/biomarker biology for PD-L1 in non-small cell lung cancer (NSCLC)",
+      "suggested_queries": [
+        "PD-L1 resistance review",
+        "Durvalumab resistance mechanism",
+        "PD-L1 biomarker non-small cell lung cancer (NSCLC)"
+      ],
+      "output_file": "context/literature.md"
+    }
+  ]
+}

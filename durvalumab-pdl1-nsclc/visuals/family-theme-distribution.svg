@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 246" role="img" aria-label="专利族技术主题分布">
+<title>专利族技术主题分布</title>
+<rect width="760" height="246" rx="16" fill="#ffffff"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">专利族技术主题分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">按 family_id 统计，每族归入一个主技术阶段。</text>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">治疗用途/方案</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="77" width="466.0" height="18" rx="9" fill="#1264d9"/>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">3</text>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">结构/组成</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="111" width="310.7" height="18" rx="9" fill="#3c8eea"/>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">2</text>
+<text x="28" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">标志物/诊断</text>
+<rect x="210" y="145" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="145" width="155.3" height="18" rx="9" fill="#72b7f5"/>
+<text x="706" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">1</text>
+<text x="28" y="192" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">联合/患者分层</text>
+<rect x="210" y="179" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="179" width="155.3" height="18" rx="9" fill="#9bd4f7"/>
+<text x="706" y="192" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">1</text>
+</svg>
