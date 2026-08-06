@@ -39,6 +39,9 @@ durvalumab-pdl1-nsclc/           # 已完成的示例案例和报告
 agents/openai.yaml               # Agent 界面元数据
 ```
 
+> [!IMPORTANT]
+> **外网访问是完整专利检索的前提。** 请先配置可用的 VPN 或网络代理，以访问 Google Patents、WIPO、EPO、USPTO 等外部数据库；未配置或网络受限时，可能无法打开、下载或检索专利全文，导致结果存在漏检。若 Google Patents 无法直接访问，可通过 Jina Reader 的只读镜像获取公开页面文本，例如将原始 URL 包装为 `https://r.jina.ai/http://patents.google.com/patent/<document>/en`；镜像内容仅用于发现和文本提取，法律状态及关键权利要求仍须以官方来源或原始公开文本复核。
+
 ## 快速开始
 
 以下示例创建一个新的案例目录。案例目录可以放在仓库外，也可以放在 `cases/` 下；本文用 `cases/demo` 表示。

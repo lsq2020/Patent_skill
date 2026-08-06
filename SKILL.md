@@ -95,6 +95,12 @@ description: 对小分子、靶点、适应症及其组合开展可复核的医�
 
 目录只解决“有哪些来源、分别适合做什么”的问题，不代表所有链接仍然可用，也不代表来源之间证据等级相同。执行时按 `primary_or_status_check`、`discovery_and_cross_check`、`context_only`、`classification_navigation` 路由；对需要登录、验证码、订阅、人工操作、无法检全库或仅显示著录项的来源标为 `pending/manual`。正式法律状态优先回到目标法域官方登记簿，论文/临床/新闻只作为研发上下文。
 
+### 网络访问与 Google Patents 备用路径
+
+开始检索前，确认环境已配置可用的 VPN 或网络代理。Google Patents、WIPO、EPO、USPTO 等外部来源在受限网络中可能无法访问全文、下载页面或返回完整结果；无法连通时必须在报告中标记为检索盲区，不能把“未检到”写成“不存在”。
+
+当 Google Patents 无法直接访问时，可使用 Jina Reader 的只读文本镜像作为**发现与文本提取备用路径**：将原始公开页 URL 包装为 `https://r.jina.ai/http://patents.google.com/patent/<document>/en`（HTTPS 原始 URL 同理包装）。记录原始 URL、Jina Reader URL、访问日期、文献号和获取结果；镜像文本可用于定位公开页面的摘要、权利要求和书目信息，但不得单独作为法律状态、授权有效性、完整档案或权利要求最终范围的证据。对关键结论仍须回到官方登记簿、原始公开文本或其他独立来源复核，并遵守相关服务条款与访问限制。
+
 优先使用官方源：
 
 - 中国：国家知识产权局专利检索及分析系统，支持检索、浏览、分析和下载；
