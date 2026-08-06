@@ -1,0 +1,4 @@
+interface:
+  display_name: "医药专利与技术路线分析"
+  short_description: "检索专利、归并族群并生成可复现评估报告"
+  default_prompt: "Use $medtech-patent-roadmap to analyze a molecule, target, or indication across specified jurisdictions with patent families, claim elements, legal-status snapshots, landscape visuals, risks, evidence chains, uncertainty/failure records, and a machine-readable case-output.json."
