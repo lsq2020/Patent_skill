@@ -1,0 +1,349 @@
+{
+  "schema_version": "1.1",
+  "case": "trem2-atherosclerosis",
+  "generated_at": "2026-08-07T02:40:54.172557+00:00",
+  "metrics": {
+    "families": 9,
+    "claims": 12,
+    "evidence": 10,
+    "fto_candidates": 0,
+    "search_rounds": 0,
+    "source_urls": "—",
+    "source_records": "—",
+    "source_log_entries": 15
+  },
+  "charts": [
+    {
+      "id": "family-theme",
+      "title": "专利族技术主题分布",
+      "filename": "family-theme-distribution.svg",
+      "form": "bar",
+      "metric_definition": "按 family_id 统计，每族归入一个主技术阶段。",
+      "source_fields": [
+        "claim_theme",
+        "claim_categories",
+        "key_claim_elements",
+        "mutation_or_biomarker"
+      ],
+      "values": [
+        [
+          "结构/组成",
+          8
+        ],
+        [
+          "治疗用途/方案",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "priority-year",
+      "title": "最早优先权年度分布",
+      "filename": "priority-year-distribution.svg",
+      "form": "line",
+      "metric_definition": "按族级 earliest_priority 的年份统计（趋势折线）。",
+      "source_fields": [
+        "earliest_priority"
+      ],
+      "values": [
+        [
+          "2014",
+          1
+        ],
+        [
+          "2018",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "applicant",
+      "title": "申请人/受让人分布",
+      "filename": "applicant-distribution.svg",
+      "form": "bar",
+      "metric_definition": "按当前族 CSV 的 applicant_or_assignee 字段统计；未做集团级消歧。",
+      "source_fields": [
+        "applicant_or_assignee"
+      ],
+      "values": [
+        [
+          "Amgen Inc.",
+          2
+        ],
+        [
+          "Denali Therapeutics Inc.",
+          2
+        ],
+        [
+          "Alector LLC",
+          1
+        ],
+        [
+          "Alector LLC(推断",
+          1
+        ],
+        [
+          "Amgen Inc.(推断",
+          1
+        ],
+        [
+          "Inc.(该项目自Amgen分拆予Vigil",
+          1
+        ],
+        [
+          "Vigil Neuroscience",
+          1
+        ],
+        [
+          "iTeos Therapeutics(推断",
+          1
+        ],
+        [
+          "具体各件申请受让人字段未逐一核实)",
+          1
+        ],
+        [
+          "基于同业专利背景引用",
+          1
+        ],
+        [
+          "基于同项目其他专利同名发明人模式，未见本篇受让人字段直接确认)",
+          1
+        ],
+        [
+          "待核验(检索片段未提供受让人字段)",
+          1
+        ],
+        [
+          "未直接核实本篇受让人字段)",
+          1
+        ],
+        [
+          "未见搜索片段直接确认受让人字段)",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "jurisdiction",
+      "title": "法域覆盖",
+      "filename": "jurisdiction-distribution.svg",
+      "form": "map",
+      "metric_definition": "按族 CSV 的 jurisdictions 字段统计存在成员记录的族数。",
+      "source_fields": [
+        "jurisdictions"
+      ],
+      "values": [
+        [
+          "WO",
+          8
+        ],
+        [
+          "US",
+          4
+        ],
+        [
+          "CN",
+          2
+        ],
+        [
+          "AU",
+          1
+        ],
+        [
+          "CA",
+          1
+        ],
+        [
+          "JP",
+          1
+        ],
+        [
+          "MX",
+          1
+        ],
+        [
+          "NZ",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "claim-category",
+      "title": "权利要求类别分布",
+      "filename": "claim-category-distribution.svg",
+      "form": "bar",
+      "metric_definition": "按 claim-elements.csv 的 claim_category 记录数统计。",
+      "source_fields": [
+        "claim_category"
+      ],
+      "values": [
+        [
+          "composition",
+          5
+        ],
+        [
+          "use",
+          3
+        ],
+        [
+          "method of treatment",
+          2
+        ],
+        [
+          "background",
+          1
+        ],
+        [
+          "mechanism",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "status",
+      "title": "状态信号分布",
+      "filename": "status-distribution.svg",
+      "form": "status",
+      "metric_definition": "把官方状态和状态来源文字归入研究阶段信号（状态色板），不替代官方法律状态。",
+      "source_fields": [
+        "official_status",
+        "status_source",
+        "official_status_signal"
+      ],
+      "values": [
+        [
+          "待官方核验",
+          7
+        ],
+        [
+          "公开/待审查",
+          1
+        ],
+        [
+          "授权/状态较强",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "risk-priority",
+      "title": "FTO 复核优先级",
+      "filename": "risk-priority-distribution.svg",
+      "form": "status",
+      "metric_definition": "按 fto-candidate-ranking.csv 的 review_priority 统计（状态色板）；是复核队列，不是侵权概率。",
+      "source_fields": [
+        "review_priority"
+      ],
+      "values": []
+    },
+    {
+      "id": "evidence-confidence",
+      "title": "证据置信度分布",
+      "filename": "evidence-confidence-distribution.svg",
+      "form": "status",
+      "metric_definition": "按 evidence.csv 的 confidence 字段统计（状态色板）。",
+      "source_fields": [
+        "confidence"
+      ],
+      "values": [
+        [
+          "low",
+          7
+        ],
+        [
+          "medium",
+          2
+        ],
+        [
+          "high",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "evidence-type",
+      "title": "证据类型分布",
+      "filename": "evidence-type-distribution.svg",
+      "form": "bar",
+      "metric_definition": "按 evidence.csv 的 evidence_type 字段统计。",
+      "source_fields": [
+        "evidence_type"
+      ],
+      "values": [
+        [
+          "aggregator_metadata_screen(WebSearch摘要片段",
+          1
+        ],
+        [
+          "aggregator_metadata_screen(WebSearch摘要片段)",
+          1
+        ],
+        [
+          "aggregator_metadata_screen(WebSearch摘要片段引用Google Patents字段)",
+          1
+        ],
+        [
+          "news_and_literature_cross_check",
+          1
+        ],
+        [
+          "patent_abstract_and_claim_screen + company_disclosure_cross_check",
+          1
+        ],
+        [
+          "patent_abstract_and_claim_screen(WebSearch摘要片段)",
+          1
+        ],
+        [
+          "patent_abstract_screen(WebSearch摘要片段)",
+          1
+        ],
+        [
+          "peer_reviewed_literature",
+          1
+        ],
+        [
+          "secondary_aggregator_and_news_cross_check",
+          1
+        ],
+        [
+          "tooling_limitation_disclosure",
+          1
+        ],
+        [
+          "及后续专利对本篇的背景引用)",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "source-kind",
+      "title": "来源角色分布",
+      "filename": "source-kind-distribution.svg",
+      "form": "bar",
+      "metric_definition": "按 CNIPA/PatentDatabases 来源目录中的 source_kind 统计。",
+      "source_fields": [
+        "source_catalog.sources[].source_kind"
+      ],
+      "values": []
+    },
+    {
+      "id": "search-round",
+      "title": "检索轮次覆盖",
+      "filename": "search-round-distribution.svg",
+      "form": "bar",
+      "metric_definition": "按 FTO 搜索计划的 search_rounds 统计每轮主题的任务数量。",
+      "source_fields": [
+        "fto-search-plan.search_rounds"
+      ],
+      "values": []
+    }
+  ],
+  "limitations": [
+    "统计单位依图表说明而异：族图通常按 family_id，claim 图按要素记录，证据图按 evidence.csv 条目。",
+    "状态图是文本信号分类，必须回到目标法域官方登记簿核验。",
+    "来源图是 CNIPA/PatentDatabases 目录快照，不等于本案已访问结果集。",
+    "图表形式按数据类型分配（趋势/量级/状态），颜色取自已验证的 dataviz 参考色板，不逐图手工调色。"
+  ]
+}

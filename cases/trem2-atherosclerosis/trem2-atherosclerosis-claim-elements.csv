@@ -1,0 +1,13 @@
+family_id,document,claim_category,element,coverage,claim_location,evidence_url,confidence,notes
+TA-FAM-001,WO2020112889A2,method of treatment,"对哺乳动物施用有效量的激动性抗TREM2抗体,治疗脂质代谢紊乱和/或动脉粥样硬化相关疾病或病症","明确披露(基于WebSearch摘要片段引用的说明书/权利要求语言,未见claim编号原文)",独立权利要求(具体编号未核实);说明书背景,https://patents.google.com/patent/WO2020112889A2/en,low,"这是本案检索到的唯一明确以""治疗动脉粥样硬化""为权利要求对象的族;摘要片段转述而非claim原文逐字复制,claim编号、从属限定和确切保护范围需人工核实。"
+TA-FAM-001,WO2020112889A2,mechanism,TREM2表达于动脉粥样硬化病灶内的巨噬细胞亚群(动脉、脂肪组织、肝脏、骨骼肌等CNS外髓系细胞),明确披露,说明书背景,https://patents.google.com/patent/WO2020112889A2/en,low,"机制/背景描述,用于支持治疗方法权利要求的可专利性论证,非独立保护范围本身。"
+TA-FAM-002,WO2016023019A2,composition,结合并激动人TREM2的分离抗体(结合TREM2胞外域),明确披露,独立权利要求(具体编号未核实),https://patents.google.com/patent/WO2016023019A2/en,low,AL002/AL002a同源基础组合物族;未见动脉粥样硬化相关限定。
+TA-FAM-002,WO2016023019A2,use,用于治疗与TREM2功能丧失相关的疾病(阿尔茨海默病、多发性硬化)的方法,明确披露,独立权利要求(具体编号未核实),https://patents.google.com/patent/WO2016023019A2/en,low,"适应症限定为神经系统疾病,未见动脉粥样硬化;与本案指征的联系仅存在于非专利学术文献(ATVB 2024, AL002a研究)。"
+TA-FAM-003,US11186636B2,composition,特异性结合并激活人TREM2的抗原结合蛋白(不依赖Fc介导交联),明确披露,独立权利要求(具体编号未核实),https://patents.google.com/patent/US11186636B2/en,low,Amgen独立基础组合物族。
+TA-FAM-003,US11186636B2,use,用于治疗或预防与TREM2功能丧失相关的病症(阿尔茨海默病、多发性硬化)的方法,明确披露,独立权利要求(具体编号未核实),https://patents.google.com/patent/US11186636B2/en,low,未见动脉粥样硬化相关限定。
+TA-FAM-004,WO2018195506A1,composition,特异性结合并激活人TREM2的抗原结合蛋白,明确披露,独立权利要求(具体编号未核实),https://patents.google.com/patent/WO2018195506A1/en,low,Denali基础激动性抗体平台族。
+TA-FAM-005,US11124567B2,composition,"抗TREM2抗体,Fc域含单价转铁蛋白受体结合位点(抗体转运载体ATV),用于血脑屏障转胞吞",明确披露,独立权利要求(具体编号未核实),https://patents.google.com/patent/US11124567B2/en,low,"BBB递送工程化分支;未见动脉粥样硬化相关限定,适应症导向阿尔茨海默病。"
+TA-FAM-007,WO2025136936A1,composition,TREM2激动性小分子化合物(通式/取代基范围未获取),不确定(摘要片段未提供Markush结构或具体claim语言),独立权利要求(具体编号未核实),https://patents.google.com/patent/WO2025136936A1/en,very_low,"仅确认标题与适应症方向(神经退行性疾病),结构信息与是否提及动脉粥样硬化均未核实,标注为不确定,待后续人工检索claim原文补充。"
+TA-FAM-008,WO2025046298A2,use,使用抗TREM2抗体(拮抗/阻断TREM2多聚化及efferocytosis)治疗癌症的方法,明确披露(claims 聚焦癌症),独立权利要求(具体编号未核实),https://patents.google.com/patent/WO2025046298A2/en,low,"抗TREM2机制为拮抗而非激动,与本案研究方向相反。"
+TA-FAM-008,WO2025046298A2,background,说明书背景提及TREM2激活程序与神经退行性疾病、动脉粥样硬化、肥胖、癌症相关,"未见披露(背景描述,非权利要求限定)",说明书背景章节,https://patents.google.com/patent/WO2025046298A2/en,medium,"明确区分:背景提及不等于权利要求覆盖;本行标注为""未见披露""以避免与claim覆盖混淆。"
+TA-FAM-009,CN114010658A,method of treatment,"分离TREM2hi巨噬细胞并心包腔内注射,用于治疗脓毒症/心肌梗死/心力衰竭相关心脏功能障碍","不适用(排除项,非本案技术形态/适应症)",独立权利要求(具体编号未核实),https://patents.google.com/patent/CN114010658A/zh,low,"排除记录:细胞治疗而非TREM2调节药物,适应症为心脏功能障碍而非动脉粥样硬化。"

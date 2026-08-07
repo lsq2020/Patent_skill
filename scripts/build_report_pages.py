@@ -5,7 +5,11 @@ import argparse
 import html
 import json
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import _report_theme as theme
 
 
 REPORTS = [
@@ -35,6 +39,34 @@ def inline(text):
     return text
 
 
+# Small controlled vocabulary -> status-pill color, so a wall of repeated coverage
+# labels (明确披露/可能覆盖/未见披露/待核验...) reads as scannable colored badges
+# instead of prefix text on every row. Longer explanatory text after the label
+# (e.g. "不确定(摘要片段未提供...)") stays as plain text after the pill.
+COVERAGE_WORDS = {
+    "明确披露": "good", "可能覆盖": "warning", "未见披露": "serious",
+    "待核验": "warning", "不适用": "serious", "不确定": "warning",
+}
+
+
+def render_cell(text, header):
+    text = text.strip()
+    if text == "✓":  # checkmark used by presence/absence matrices (jurisdiction, gap matrix)
+        return f'<span class="mx-dot yes" title="{html.escape(header)}：有记录">✓</span>'
+    if text in ("–", "-", "—") and header:
+        return f'<span class="mx-dot no" title="{html.escape(header)}：未见记录">–</span>'
+    for word, status in COVERAGE_WORDS.items():
+        if text.startswith(word):
+            rest = text[len(word):].strip()
+            pill = f'<span class="status-pill {status}"><i></i>{html.escape(word)}</span>'
+            return pill + (f" {inline(rest)}" if rest else "")
+    if "类别" in header and re.search(r"[;,]", text):
+        parts = [p.strip() for p in re.split(r"[;,]", text) if p.strip()]
+        if len(parts) > 1:
+            return "".join(f'<span class="chip small">{html.escape(p)}</span>' for p in parts)
+    return inline(text)
+
+
 def table_html(lines):
     rows = []
     for line in lines:
@@ -50,7 +82,9 @@ def table_html(lines):
     out.append("</tr></thead><tbody>")
     for row in body:
         out.append("<tr>")
-        out.extend(f"<td>{inline(cell)}</td>" for cell in row)
+        for idx, cell in enumerate(row):
+            header = head[idx] if idx < len(head) else ""
+            out.append(f"<td>{render_cell(cell, header)}</td>")
         out.append("</tr>")
     out.append("</tbody></table>")
     return "".join(out)
@@ -61,7 +95,8 @@ def markdown_html(text):
     out = []
     i = 0
     paragraph = []
-    in_list = False
+    in_list = False  # False | True (<ul>) | "chips" (<div class="scope-chips">)
+    current_heading = ""
 
     def flush_paragraph():
         nonlocal paragraph
@@ -71,9 +106,11 @@ def markdown_html(text):
 
     def close_list():
         nonlocal in_list
-        if in_list:
+        if in_list == "chips":
+            out.append("</div>")
+        elif in_list:
             out.append("</ul>")
-            in_list = False
+        in_list = False
 
     while i < len(lines):
         line = lines[i]
@@ -85,12 +122,21 @@ def markdown_html(text):
         if line.startswith("```"):
             flush_paragraph()
             close_list()
+            lang = line.strip("`").strip().lower()
             code = []
             i += 1
             while i < len(lines) and not lines[i].startswith("```"):
                 code.append(lines[i])
                 i += 1
-            out.append(f'<pre class="code">{html.escape(chr(10).join(code))}</pre>')
+            code_text = chr(10).join(code)
+            if lang == "mermaid":
+                # Rendered client-side by Mermaid.js (see MERMAID_BOOTSTRAP in shell()).
+                # The raw definition stays available in a collapsed fallback in case the
+                # CDN script cannot load (offline / blocked network) so content is never lost.
+                out.append(f'<div class="mermaid">{html.escape(code_text)}</div>')
+                out.append(f'<details class="mermaid-fallback"><summary>图未渲染时查看原始定义（需要网络加载 Mermaid.js）</summary><pre>{html.escape(code_text)}</pre></details>')
+            else:
+                out.append(f'<pre class="code">{html.escape(code_text)}</pre>')
             i += 1
             continue
         heading = re.match(r"^(#{1,4})\s+(.*)$", line)
@@ -98,6 +144,7 @@ def markdown_html(text):
             flush_paragraph()
             close_list()
             level = min(4, len(heading.group(1)) + 1)
+            current_heading = re.sub(r"^\d+\.\s*", "", heading.group(2)).strip()
             out.append(f"<h{level}>{inline(heading.group(2))}</h{level}>")
             i += 1
             continue
@@ -114,10 +161,21 @@ def markdown_html(text):
         bullet = re.match(r"^\s*-\s+(.*)$", line)
         if bullet:
             flush_paragraph()
-            if not in_list:
-                out.append("<ul>")
-                in_list = True
-            out.append(f"<li>{inline(bullet.group(1))}</li>")
+            if current_heading == "研究范围":
+                # Render as a row of compact tag chips instead of a paragraph of
+                # bullet sentences - the same handful of facts repeat on every
+                # module page, so a scannable tag row beats prose here.
+                if in_list != "chips":
+                    close_list()
+                    out.append('<div class="scope-chips">')
+                    in_list = "chips"
+                out.append(f'<span class="chip">{inline(bullet.group(1))}</span>')
+            else:
+                if in_list is not True:
+                    close_list()
+                    out.append("<ul>")
+                    in_list = True
+                out.append(f"<li>{inline(bullet.group(1))}</li>")
             i += 1
             continue
         if line.startswith(">"):
@@ -144,9 +202,10 @@ def metric(value, label, hint):
 
 
 def css():
-    return """
-:root{--blue:#1264d9;--ink:#17233b;--muted:#71809a;--line:#dce6f2;--bg:#f5f8fc;--panel:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.layout{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}.side{padding:26px 16px;background:#fff;border-right:1px solid var(--line);position:sticky;top:0;height:100vh}.brand{color:var(--blue);font-size:13px;font-weight:800;letter-spacing:.07em;margin:4px 10px 24px}.side h3{font-size:13px;color:var(--muted);margin:18px 10px 10px}.side a{display:flex;align-items:center;gap:9px;color:var(--ink);text-decoration:none;padding:10px;border-radius:10px;font-size:13px}.side a:hover,.side a.active{background:#eaf4ff;color:var(--blue);font-weight:700}.side i{font-style:normal;color:var(--blue);font-size:11px;font-weight:800;width:22px}.main{max-width:1220px;width:100%;padding:30px 42px 56px;margin:0 auto}.hero{background:linear-gradient(135deg,#f8fbff,#eaf4ff);border:1px solid #d4e6fb;border-radius:20px;padding:26px 30px;margin-bottom:18px}.eyebrow{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.08em}.hero h1{margin:9px 0 7px;font-size:29px}.hero p{margin:0;color:var(--muted);line-height:1.7}.metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:18px 0}.metric{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}.metric b{display:block;color:var(--blue);font-size:23px}.metric span{display:block;margin-top:5px;font-size:13px;font-weight:700}.metric small{display:block;color:var(--muted);margin-top:5px;font-size:11px}.notice{background:#fff8e8;border:1px solid #f4d993;border-radius:12px;padding:13px 16px;color:#71531b;font-size:12px;line-height:1.7;margin:18px 0}.report-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 32px;box-shadow:0 6px 20px rgba(25,63,115,.04)}.report-card h2{font-size:22px;border-bottom:1px solid #edf1f7;padding-bottom:10px;margin:24px 0 13px}.report-card h3{font-size:17px;margin:22px 0 10px;color:#233754}.report-card p,.report-card li{line-height:1.75;font-size:14px}.report-card a{color:var(--blue)}.report-card code{background:#edf2fa;border-radius:5px;padding:1px 4px;font-size:12px}.report-card blockquote{margin:12px 0;padding:11px 15px;background:#f6f9fd;border-left:3px solid #8cc5f2;color:var(--muted)}.report-card table{width:100%;border-collapse:collapse;display:block;overflow:auto;margin:12px 0 18px;font-size:12px}.report-card th,.report-card td{border:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top;min-width:90px}.report-card th{background:#f5f8fc;color:#44536c}.report-card img{max-width:100%;height:auto;border:1px solid #edf1f7;border-radius:12px}.figure{margin:15px 0}.code{white-space:pre-wrap;background:#f5f8fc;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:12px}.index-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.index-card{display:block;color:var(--ink);text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.index-card:hover{border-color:var(--blue);box-shadow:0 4px 14px rgba(18,100,217,.1)}.index-card b{display:block;font-size:16px}.index-card span{display:block;color:var(--muted);margin-top:7px;font-size:12px}.footer{color:var(--muted);font-size:12px;margin-top:18px;line-height:1.7}@media(max-width:900px){.layout{display:block}.side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}.side nav{display:flex;flex-wrap:wrap;gap:4px}.main{padding:20px 14px 40px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.report-card{padding:20px 16px}.index-grid{grid-template-columns:1fr}}
+    return f"""
+{theme.css_tokens()}
+{theme.shared_component_css()}
+.layout{{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}}.side{{padding:26px 16px;background:var(--surface);border-right:1px solid var(--line);position:sticky;top:0;height:100vh}}.brand{{color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.07em;margin:4px 10px 24px}}.side h3{{font-size:13px;color:var(--muted);margin:18px 10px 10px}}.side a{{display:flex;align-items:center;gap:9px;color:var(--ink);text-decoration:none;padding:10px;border-radius:10px;font-size:13px}}.side a:hover,.side a.active{{background:var(--accent-soft);color:var(--accent);font-weight:700}}.side i{{font-style:normal;color:var(--accent);font-size:11px;font-weight:800;width:22px}}.main{{max-width:1220px;width:100%;padding:30px 42px 56px;margin:0 auto}}.hero{{margin-bottom:18px}}.metrics{{grid-template-columns:repeat(5,minmax(0,1fr))}}.report-card{{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 32px;box-shadow:0 6px 20px rgba(11,11,11,.04)}}.report-card h2{{font-size:22px;border-bottom:1px solid var(--line);padding-bottom:10px;margin:24px 0 13px}}.report-card h3{{font-size:17px;margin:22px 0 10px;color:var(--ink)}}.report-card p,.report-card li{{line-height:1.75;font-size:14px}}.report-card a{{color:var(--accent)}}.report-card code{{background:var(--accent-soft);border-radius:5px;padding:1px 4px;font-size:12px}}.report-card blockquote{{margin:12px 0;padding:11px 15px;background:var(--bg);border-left:3px solid var(--seq-300);color:var(--muted)}}.report-card table{{width:100%;border-collapse:collapse;display:block;overflow:auto;margin:12px 0 18px;font-size:12px}}.report-card th,.report-card td{{border:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top;min-width:90px}}.report-card th{{background:var(--bg);color:var(--secondary,var(--muted))}}.report-card img{{max-width:100%;height:auto;border:1px solid var(--line);border-radius:12px}}.figure{{margin:15px 0}}.code{{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:12px}}.index-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}.index-card{{display:block;color:var(--ink);text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}}.index-card:hover{{border-color:var(--accent);box-shadow:0 4px 14px rgba(11,11,11,.1)}}.index-card b{{display:block;font-size:16px}}.index-card span{{display:block;color:var(--muted);margin-top:7px;font-size:12px}}.footer{{color:var(--muted);font-size:12px;margin-top:18px;line-height:1.7}}@media(max-width:900px){{.layout{{display:block}}.side{{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}}.side nav{{display:flex;flex-wrap:wrap;gap:4px}}.main{{padding:20px 14px 40px}}.metrics{{grid-template-columns:repeat(2,minmax(0,1fr))}}.report-card{{padding:20px 16px}}.index-grid{{grid-template-columns:1fr}}}}
 """
 
 
@@ -159,7 +218,7 @@ def shell(project, current, body, scope, manifest, is_index=False):
         links.append(f'<a class="{"active" if stem == current else ""}" href="{stem}.html"><i>{idx:02d}</i>{html.escape(label)}</a>')
     links.append('<a href="report-visuals.html"><i>V</i>统计总览</a>')
     title = "模块化报告索引" if is_index else next((label for stem, label in REPORTS if stem == current), current)
-    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(case_title)} · {html.escape(title)}</title><style>{css()}</style></head><body><div class="layout"><aside class="side"><div class="brand">MEDTECH PATENT ROADMAP</div><h3>模块报告</h3><nav>{"".join(links)}</nav><h3>案例</h3><a href="report-visuals.html"><i>↗</i>FTO 风格统计看板</a><a href="report-index.md"><i>MD</i>Markdown 索引</a></aside><main class="main"><header class="hero"><div class="eyebrow">FTO-STYLE MODULAR REPORT</div><h1>{html.escape(case_title)} · {html.escape(title)}</h1><p>研究对象：{html.escape(case_title)} · 靶点：{html.escape(obj.get('target','未指定'))} · 适应症：{html.escape(obj.get('indication','未指定'))}<br>统计口径和图表均来自案例结构化数据；本报告为研究资料，不构成法律意见。</p></header><div class="metrics">{metric(metrics.get('families','—'),'专利族','family_id')}{metric(metrics.get('claims','—'),'claim 要素','逐条记录')}{metric(metrics.get('evidence','—'),'证据条目','可回溯链条')}{metric(metrics.get('fto_candidates','—'),'FTO 候选','复核优先队列')}{metric(metrics.get('source_urls','—'),'来源 URL','目录快照')}</div><div class="notice">状态信号、族关系、FTO 排序和统计图用于复核导航。进入许可、开发或诉讼决策前，仍需核对目标法域官方文本、完整独立权利要求、审查档案及法律事件。</div><article class="report-card">{body}</article><div class="footer">生成目录：<a href="report-visuals.html">统计总览</a> · <a href="visuals/manifest.json">图表数据清单</a> · <a href="report-index.md">Markdown 版本</a></div></main></div></body></html>'''
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(case_title)} · {html.escape(title)}</title><style>{css()}</style>{theme.MERMAID_BOOTSTRAP}</head><body><div class="layout"><aside class="side"><div class="brand">MEDTECH PATENT ROADMAP</div><h3>模块报告</h3><nav>{"".join(links)}</nav><h3>案例</h3><a href="report-visuals.html"><i>↗</i>FTO 风格统计看板</a><a href="report-index.md"><i>MD</i>Markdown 索引</a></aside><main class="main"><header class="hero"><div class="eyebrow">FTO-STYLE MODULAR REPORT</div><h1>{html.escape(case_title)} · {html.escape(title)}</h1><p>研究对象：{html.escape(case_title)} · 靶点：{html.escape(obj.get('target','未指定'))} · 适应症：{html.escape(obj.get('indication','未指定'))}<br>统计口径和图表均来自案例结构化数据；本报告为研究资料，不构成法律意见。</p></header><div class="metrics">{metric(metrics.get('families','—'),'专利族','family_id')}{metric(metrics.get('claims','—'),'claim 要素','逐条记录')}{metric(metrics.get('evidence','—'),'证据条目','可回溯链条')}{metric(metrics.get('fto_candidates','—'),'FTO 候选','复核优先队列')}{metric(metrics.get('source_urls','—'),'来源 URL','目录快照')}</div><div class="notice">状态信号、族关系、FTO 排序和统计图用于复核导航。进入许可、开发或诉讼决策前，仍需核对目标法域官方文本、完整独立权利要求、审查档案及法律事件。</div><article class="report-card">{body}</article><div class="footer">生成目录：<a href="report-visuals.html">统计总览</a> · <a href="visuals/manifest.json">图表数据清单</a> · <a href="report-index.md">Markdown 版本</a></div></main></div></body></html>'''
 
 
 def build_pages(project):

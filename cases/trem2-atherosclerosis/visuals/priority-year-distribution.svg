@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" role="img" aria-label="最早优先权年度分布" class="rv-svg">
+<title>最早优先权年度分布</title>
+<rect width="760" height="260" rx="16" fill="var(--surface,#fff)"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">最早优先权年度分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">按族级 earliest_priority 的年份统计（趋势折线）。</text>
+<line x1="46" y1="218" x2="720" y2="218" stroke="var(--axis,#c3c2b7)" stroke-width="1"/>
+<path d="M46.0,70.0 L720.0,70.0 L720.0,218 L46.0,218 Z" fill="#b7d3f6" opacity=".55"/>
+<path d="M46.0,70.0 L720.0,70.0" fill="none" stroke="#2a78d6" stroke-width="2.5"/>
+<g class="rv-row"><title>2014: 1</title><circle cx="46.0" cy="70.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="46.0" y="58.0" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="var(--ink,#17233b)">1</text>
+<text x="46.0" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2014</text>
+<g class="rv-row"><title>2018: 1</title><circle cx="720.0" cy="70.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="720.0" y="58.0" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="var(--ink,#17233b)">1</text>
+<text x="720.0" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2018</text>
+</svg>

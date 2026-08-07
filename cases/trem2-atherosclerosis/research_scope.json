@@ -1,0 +1,28 @@
+{
+  "research_object": {
+    "molecule": "TREM2-targeted therapeutics (agonist antibodies, small molecules; no single lead molecule specified)",
+    "synonyms": [],
+    "target": "TREM2",
+    "indication": "atherosclerosis"
+  },
+  "jurisdictions": [
+    "CN",
+    "US"
+  ],
+  "related_jurisdictions": [
+    "WO",
+    "EP"
+  ],
+  "as_of": "2026-08-06",
+  "focus": [
+    "compound",
+    "formulation",
+    "indication",
+    "combination",
+    "resistance",
+    "biomarker"
+  ],
+  "depth": "standard_analysis",
+  "report_language": "zh",
+  "created_at": "2026-08-06T08:04:07.000218+00:00"
+}
