@@ -33,8 +33,8 @@
     ]
   },
   "run": {
-    "run_id": "durvalumab-pdl1-nsclc-20260807T064522Z",
-    "generated_at": "2026-08-07T06:45:22.492841+00:00",
+    "run_id": "durvalumab-pdl1-nsclc-20260807T094933Z",
+    "generated_at": "2026-08-07T09:49:33.152224+00:00",
     "skill_version": "repository",
     "pipeline": [
       "scope",
@@ -3027,11 +3027,11 @@
         "family_id": "DVL-FAM-004",
         "representative_document": "WO2022248478A1",
         "relevance": "core",
-        "review_priority": "MEDIUM",
-        "screen_score": "0.7933",
+        "review_priority": "HIGH",
+        "screen_score": "0.8733",
         "feature_coverage": "0.5333",
-        "matched_features": "F01, F02",
-        "partial_features": "F03, F04, F05",
+        "matched_features": "F01, F02, F03, F04, F05",
+        "partial_features": "",
         "matched_feature_coverage": "F01=0.67 (度伐利尤单抗, 非小细胞肺癌); F02=1.00 (度伐利尤单抗, PD-L1, 阻断); F03=0.50 (PD-L1, 阻断); F04=0.50 (度伐利尤单抗, 非小细胞肺癌); F05=0.50 (度伐利尤单抗, 非小细胞肺癌)",
         "matched_terms": "F01: durvalumab, PD-L1 inhibitor, NSCLC; F02: durvalumab, PD-L1 inhibitor, PD-L1, inhibit; F03: PD-L1, inhibit; F04: durvalumab, PD-L1 inhibitor, NSCLC; F05: durvalumab, PD-L1 inhibitor, NSCLC",
         "claim_categories": "indication",
@@ -3044,11 +3044,11 @@
         "family_id": "DVL-FAM-002",
         "representative_document": "US20190256603A1",
         "relevance": "core",
-        "review_priority": "LOW",
-        "screen_score": "0.51",
+        "review_priority": "HIGH",
+        "screen_score": "0.74",
         "feature_coverage": "0.4",
-        "matched_features": "F01",
-        "partial_features": "F02, F03, F04, F05",
+        "matched_features": "F01, F02, F04, F05",
+        "partial_features": "F03",
         "matched_feature_coverage": "F01=0.67 (度伐利尤单抗, 非小细胞肺癌); F02=0.67 (度伐利尤单抗, PD-L1); F03=0.25 (PD-L1); F04=0.50 (度伐利尤单抗, 非小细胞肺癌); F05=0.50 (度伐利尤单抗, 非小细胞肺癌)",
         "matched_terms": "F01: durvalumab, NSCLC; F02: durvalumab, PD-L1; F03: PD-L1; F04: durvalumab, NSCLC; F05: durvalumab, NSCLC",
         "claim_categories": "combination; patient-selection",
@@ -3058,31 +3058,14 @@
         "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
       },
       {
-        "family_id": "DVL-FAM-001",
-        "representative_document": "US9493565B2",
-        "relevance": "core",
-        "review_priority": "LOW",
-        "screen_score": "0.4148",
-        "feature_coverage": "0.3048",
-        "matched_features": "",
-        "partial_features": "F01, F02, F03, F04, F05",
-        "matched_feature_coverage": "F01=0.33 (度伐利尤单抗); F02=0.67 (度伐利尤单抗, PD-L1); F03=0.25 (PD-L1); F04=0.25 (度伐利尤单抗); F05=0.25 (度伐利尤单抗)",
-        "matched_terms": "F01: durvalumab, MEDI4736; F02: durvalumab, MEDI4736, PD-L1, B7-H1; F03: PD-L1, B7-H1; F04: durvalumab, MEDI4736; F05: durvalumab, MEDI4736",
-        "claim_categories": "composition; use",
-        "official_status_signal": "US public mirror shows active; CN and other national members require official-register review",
-        "status_source": "Google Patents public mirror; USPTO link available on record",
-        "source_url": "https://patents.google.com/patent/US9493565B2/en",
-        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
-      },
-      {
         "family_id": "DVL-FAM-007",
         "representative_document": "WO2024234348A1",
         "relevance": "boundary",
-        "review_priority": "LOW",
-        "screen_score": "0.4",
+        "review_priority": "HIGH",
+        "screen_score": "0.63",
         "feature_coverage": "0.4",
-        "matched_features": "F01",
-        "partial_features": "F02, F03, F04, F05",
+        "matched_features": "F01, F02, F04, F05",
+        "partial_features": "F03",
         "matched_feature_coverage": "F01=0.67 (度伐利尤单抗, 非小细胞肺癌); F02=0.67 (度伐利尤单抗, 阻断); F03=0.25 (阻断); F04=0.50 (度伐利尤单抗, 非小细胞肺癌); F05=0.50 (度伐利尤单抗, 非小细胞肺癌)",
         "matched_terms": "F01: durvalumab, NSCLC; F02: durvalumab, blockade, block; F03: blockade, block; F04: durvalumab, NSCLC; F05: durvalumab, NSCLC",
         "claim_categories": "biomarker",
@@ -3092,14 +3075,31 @@
         "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
       },
       {
+        "family_id": "DVL-FAM-001",
+        "representative_document": "US9493565B2",
+        "relevance": "core",
+        "review_priority": "MEDIUM",
+        "screen_score": "0.5648",
+        "feature_coverage": "0.3048",
+        "matched_features": "F02",
+        "partial_features": "F01, F03, F04, F05",
+        "matched_feature_coverage": "F01=0.33 (度伐利尤单抗); F02=0.67 (度伐利尤单抗, PD-L1); F03=0.25 (PD-L1); F04=0.25 (度伐利尤单抗); F05=0.25 (度伐利尤单抗)",
+        "matched_terms": "F01: durvalumab, MEDI4736, MEDI-4736; F02: durvalumab, MEDI4736, MEDI-4736, PD-L1, B7-H1; F03: PD-L1, B7-H1; F04: durvalumab, MEDI4736, MEDI-4736; F05: durvalumab, MEDI4736, MEDI-4736",
+        "claim_categories": "composition; use",
+        "official_status_signal": "US public mirror shows active; CN and other national members require official-register review",
+        "status_source": "Google Patents public mirror; USPTO link available on record",
+        "source_url": "https://patents.google.com/patent/US9493565B2/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
         "family_id": "DVL-FAM-005",
         "representative_document": "US20210054079A1",
         "relevance": "core",
-        "review_priority": "LOW",
-        "screen_score": "0.3848",
+        "review_priority": "MEDIUM",
+        "screen_score": "0.5348",
         "feature_coverage": "0.3048",
-        "matched_features": "",
-        "partial_features": "F01, F02, F03, F04, F05",
+        "matched_features": "F02",
+        "partial_features": "F01, F03, F04, F05",
         "matched_feature_coverage": "F01=0.33 (度伐利尤单抗); F02=0.67 (度伐利尤单抗, PD-L1); F03=0.25 (PD-L1); F04=0.25 (度伐利尤单抗); F05=0.25 (度伐利尤单抗)",
         "matched_terms": "F01: durvalumab; F02: durvalumab, PD-L1; F03: PD-L1; F04: durvalumab; F05: durvalumab",
         "claim_categories": "formulation",
@@ -3109,37 +3109,37 @@
         "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
       },
       {
-        "family_id": "DVL-FAM-003",
-        "representative_document": "WO2024213696A1",
-        "relevance": "core",
-        "review_priority": "LOW",
-        "screen_score": "0.3467",
-        "feature_coverage": "0.2667",
-        "matched_features": "F01",
-        "partial_features": "F02, F04, F05",
-        "matched_feature_coverage": "F01=0.67 (度伐利尤单抗, 非小细胞肺癌); F02=0.33 (度伐利尤单抗); F04=0.50 (度伐利尤单抗, 非小细胞肺癌); F05=0.50 (度伐利尤单抗, 非小细胞肺癌)",
-        "matched_terms": "F01: durvalumab, NSCLC; F02: durvalumab; F04: durvalumab, NSCLC; F05: durvalumab, NSCLC",
-        "claim_categories": "regimen",
-        "official_status_signal": "WO PCT record shown ceased; AU/CN/EP/KR/IL national or regional members identified on public mirror; live status requires official-register confirmation",
-        "status_source": "Google Patents public mirror; national register follow-up required",
-        "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
-        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
-      },
-      {
         "family_id": "DVL-FAM-006",
         "representative_document": "WO2019165434A1",
         "relevance": "boundary",
-        "review_priority": "LOW",
-        "screen_score": "0.3048",
+        "review_priority": "MEDIUM",
+        "screen_score": "0.4548",
         "feature_coverage": "0.3048",
-        "matched_features": "",
-        "partial_features": "F01, F02, F03, F04, F05",
+        "matched_features": "F02",
+        "partial_features": "F01, F03, F04, F05",
         "matched_feature_coverage": "F01=0.33 (度伐利尤单抗); F02=0.67 (度伐利尤单抗, PD-L1); F03=0.25 (PD-L1); F04=0.25 (度伐利尤单抗); F05=0.25 (度伐利尤单抗)",
         "matched_terms": "F01: durvalumab; F02: durvalumab, PD-L1; F03: PD-L1; F04: durvalumab; F05: durvalumab",
         "claim_categories": "combination",
         "official_status_signal": "WO record shown ceased; national status differs by jurisdiction",
         "status_source": "Google Patents public mirror; official register review required",
         "source_url": "https://patents.google.com/patent/WO2019165434A1/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "DVL-FAM-003",
+        "representative_document": "WO2024213696A1",
+        "relevance": "core",
+        "review_priority": "MEDIUM",
+        "screen_score": "0.4267",
+        "feature_coverage": "0.2667",
+        "matched_features": "F01, F04, F05",
+        "partial_features": "F02",
+        "matched_feature_coverage": "F01=0.67 (度伐利尤单抗, 非小细胞肺癌); F02=0.33 (度伐利尤单抗); F04=0.50 (度伐利尤单抗, 非小细胞肺癌); F05=0.50 (度伐利尤单抗, 非小细胞肺癌)",
+        "matched_terms": "F01: durvalumab, NSCLC; F02: durvalumab; F04: durvalumab, NSCLC; F05: durvalumab, NSCLC",
+        "claim_categories": "regimen",
+        "official_status_signal": "WO PCT record shown ceased; AU/CN/EP/KR/IL national or regional members identified on public mirror; live status requires official-register confirmation",
+        "status_source": "Google Patents public mirror; national register follow-up required",
+        "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
         "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
       }
     ]
@@ -3283,7 +3283,7 @@
     "inputs": [
       {
         "path": "causal-relationships.json",
-        "sha256": "4ba606cd852bca4142548ffca76a6244948d71775bb9a54f595ffc76e63b8ed7"
+        "sha256": "67cccb5c62f6f6da394400295e02884c05742bc57a89c2927ef227ca58146191"
       },
       {
         "path": "durvalumab-pdl1-nsclc-claim-elements.csv",
@@ -3295,15 +3295,15 @@
       },
       {
         "path": "durvalumab-pdl1-nsclc-patent-families.csv",
-        "sha256": "59a687c1788824756cf38cb54da2dc25e1e73113ee58341fbd872e8c547d110e"
+        "sha256": "698cccc55189bdf3e914f1ee28da873d0022643d786556b5bf9e0b99d53d50b8"
       },
       {
         "path": "fto-candidate-ranking.csv",
-        "sha256": "6e785a8b52ccd494ec91ff17d74db1bba6955f882d7684663a61b21f57a833b2"
+        "sha256": "f5539a97106faef92ca69f39dc2a80a17e5cadc7737f600b16c68b0f8412701e"
       },
       {
         "path": "fto-search-plan.json",
-        "sha256": "56482065e7f8c5be9d64d241958af91f4ba12242b7aed535946c50783102ebfa"
+        "sha256": "8fe32c1965cfbf297e17e1fe324c220af556fbb0ba08ac1c96c16a93d9072cfe"
       },
       {
         "path": "identity.json",
@@ -3311,7 +3311,7 @@
       },
       {
         "path": "research_scope.json",
-        "sha256": "9fdcf393bb51807f654af72d0ad72dadca7f11a98693fbc997ae40f215c229e7"
+        "sha256": "06682f0116506b1dc64e8f2b8bb6ea3f5eedb18ac3ce5dc41e27747062efd3b9"
       },
       {
         "path": "source-log.jsonl",
@@ -3319,20 +3319,20 @@
       }
     ],
     "output_hashes": {
-      "00-executive-summary.md": "a3db09b628280e5ba5c65a669ee1a13c92d65a341ebbb62d429731ad0e6ea9c7",
-      "01-extraction-report.md": "b28486feb61d9193882b4ba38bf233290be66cb92b2c8f78ee07819e046fe47f",
-      "02-patent-family-map-report.md": "8a8f2506e29c293b36482115c0f83ac3c43187a5e510b09aed41eca943785af3",
-      "03-technology-roadmap-report.md": "8421bcd15041aa88881736e1db56eaa04f0cce3ec8303e15fced67ce38d9b7da",
-      "04-risk-and-fto-report.md": "7e62fd51262ad8bcdc3c8f82556cdae76d67712ceb3f821068232e1161d676d2",
-      "05-innovation-space-report.md": "e8dd5ac16f8aa0f7036f3346d286f5bdd92c9255760afccb6ee0598fe2a548a1",
-      "06-evidence-chain-report.md": "e8e69f0b38a9bf1a467cd22b75e2127f0a23c9a5eb3b138387adaf3b08fd186f",
-      "07-source-catalog-report.md": "a2f2a5376a54356985598405bd75edb9cf8645bf8fbf0520395c0c4b6c4b9956",
-      "report-index.md": "2d4a12866b4a289f25839fbc7499c0048af75e9604ded8b49500819388c75bf3",
-      "report-index.html": "619a6b151026d6fbe31af5595fcd85e402a389c929701c1ed90cdaf00df10bb6",
+      "00-executive-summary.md": "635ba25deb2d62489c73b2dea074b141ea10df5aaa9f0cb9e3927ac055b12751",
+      "01-extraction-report.md": "0b648192a3daedb9003f5fec95ab7db4afda083674be62b23000a3adc7f820cc",
+      "02-patent-family-map-report.md": "f3b766f34ee76be7cbae4c7b88df935a273c09217afec32cdc3a339f0420bdde",
+      "03-technology-roadmap-report.md": "3de7f56cbf45d80b6b884211e98581c70bcbc6b4427c4d1e00119594140a6097",
+      "04-risk-and-fto-report.md": "f8ad0359aa0788f358d7ba40d35ed3d6477836781b996e6ee2a86f4acdd60197",
+      "05-innovation-space-report.md": "3c6e35279572378119abf1ee12aef1584b00563a7a189e911ed8ae566a27c49a",
+      "06-evidence-chain-report.md": "a1600bf5080c26f2fc032a4a6dd76107de2c4305ed1efa8f922ec8d61b9827a8",
+      "07-source-catalog-report.md": "7f72bb69d9f0bace36ee591ac357978d74e7674692997930ab79c419ea37c77f",
+      "report-index.md": "192c78cfd61e7e30bc7ffa04ae99f905b3286d7f747c6ef1e07008df242082af",
+      "report-index.html": "92383d85edcf7c71d11b238edc6304b9f7a848ff7b6efe932d371cc4d81c375f",
       "report-visuals.html": "a7b0514a8259c21f5af40a22640143957a206fa12c9fe4bacdcc3b748277fd76",
-      "knowledge-graph.html": "a47aae19b35c10d150c0abbd039cf3c893c86698dccbde78ec21330bcc2b4b04",
-      "graph-data.json": "e5320e92d29c3c364384568f0ff71a7eddd8a9838bb10e373c8c86ff91e27cd7",
-      "graph-quality.json": "b65ce449f501c72ab41cf570e987b774add45a42c0ca961271b447585ee6b568"
+      "knowledge-graph.html": "cd2d6ef1af8f62c0a22d07c518ced0fa3918f47e70d3f2552c689deb35bec770",
+      "graph-data.json": "9202dc6b16597d73fb159df66a53cd52676d6b736927ed09bab4d4835c2d98ef",
+      "graph-quality.json": "fdfdfe707b67a47f9b01586e479aeb74dc59ce11a72d9dd799baca7722f3f4e0"
     }
   },
   "contract": {

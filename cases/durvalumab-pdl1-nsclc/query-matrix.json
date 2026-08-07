@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T03:31:25.128330+00:00",
+  "generated_at": "2026-08-07T09:49:06.309586+00:00",
   "scope": {
     "molecule": "Durvalumab",
     "target": "PD-L1",
@@ -12,7 +12,7 @@
       "WO",
       "EP"
     ],
-    "as_of": "2026-08-06"
+    "as_of": "2026-08-07"
   },
   "entity_resolution": {
     "molecule": {
@@ -56,7 +56,7 @@
     "upstream_repo": "https://github.com/CNIPA/PatentDatabases",
     "upstream_readme": "https://raw.githubusercontent.com/CNIPA/PatentDatabases/master/README.md",
     "upstream_readme_sha256": "51dc7ed174d1ae4d23ba9d1b8ebd8ae340aae330f8787d0c42ea2588b19b95c2",
-    "snapshot_at": "2026-08-06T03:14:21.301746+00:00",
+    "snapshot_at": "2026-08-07T09:48:55.570125+00:00",
     "counts": {
       "upstream_listings": 143,
       "unique_urls": 140,

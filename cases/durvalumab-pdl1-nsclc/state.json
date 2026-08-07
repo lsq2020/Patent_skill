@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "project_dir": "/Users/wangyuze/Documents/Codex/2026-08-05/ru-he/outputs/medtech-patent-roadmap/durvalumab-pdl1-nsclc",
+  "project_dir": "C:\\Users\\14245\\Documents\\MOF\\tmp\\Patent_skill-review\\cases\\durvalumab-pdl1-nsclc",
   "current_stage": "finalize",
   "completed_stages": [
     "scope",
@@ -32,5 +32,5 @@
     "knowledge_graph": "complete"
   },
   "graph_quality": "warning",
-  "reports_generated_at": "2026-08-07T04:20:55.032248+00:00"
+  "reports_generated_at": "2026-08-07T09:49:32.719627+00:00"
 }

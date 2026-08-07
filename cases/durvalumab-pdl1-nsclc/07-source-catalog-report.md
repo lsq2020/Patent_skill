@@ -1,17 +1,17 @@
 # 来源目录报告
 
-> 案例：`durvalumab-pdl1-nsclc` · 生成时间：2026-08-07T04:20:55.032248+00:00 · 本报告为研究资料，不构成法律意见。
+> 案例：`durvalumab-pdl1-nsclc` · 生成时间：2026-08-07T09:49:32.719627+00:00 · 本报告为研究资料，不构成法律意见。
 
 ## 研究范围
 
-- **研究对象**：Durvalumab；别名：MEDI4736, MEDI-4736, Imfinzi, 度伐利尤单抗
-- **靶点/机制**：PD-L1
+- **研究对象**：Durvalumab
+- **靶点**：PD-L1
 - **适应症**：non-small cell lung cancer (NSCLC)
-- **法域**：目标法域 CN, US；关联扩展法域 WO, EP
-- **截至日期**：2026-08-07
-- **深度**：standard_analysis；报告语言：zh
-- **来源目录**：上游记录 143 条，去重 URL 140 个；目录不是已访问结果集。
-- **申请人消歧**：未提供；需从族记录反向归一化
+- **目标法域**：CN, US
+- **关联法域**：WO, EP
+- **截至**：2026-08-07
+- **深度**：standard_analysis
+- **主要申请人**：未提供（详情见[执行摘要](00-executive-summary.md)）
 
 ## 1. 目录说明
 
@@ -25,8 +25,6 @@
 | 上游 README 哈希 | 51dc7ed174d1ae4d23ba9d1b8ebd8ae340aae330f8787d0c42ea2588b19b95c2 |
 | 上游记录数 | 143 |
 | 去重 URL 数 | 140 |
-| 分组 | {"domestic": 25, "international": 113, "classification": 5} |
-| 来源角色 | {"official_or_authority": 33, "public_or_national_database": 64, "commercial_or_aggregator": 33, "literature_or_context": 5, "classification_authority_or_navigator": 4, "classification_navigator": 1} |
 
 ## 3. 使用原则
 
