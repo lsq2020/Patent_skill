@@ -38,7 +38,7 @@
   --entity-target: #8f84b7;
   --entity-indication: #b56f86;
   --entity-theme: #899f68;
-  --font-editorial: "Baskerville Old Face", Garamond, "Noto Serif SC", "STSong", SimSun, serif;
+  --font-obsidian: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --header-height: 96px;
   --rail-width: 56px;
   --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.22);
@@ -53,10 +53,15 @@ body {
   margin: 0;
   background: var(--canvas);
   color: var(--ink);
-  font-family: var(--font-editorial);
-  font-optical-sizing: auto;
+  font-family: var(--font-obsidian);
+  letter-spacing: -0.01em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+code,
+output {
+  letter-spacing: normal;
 }
 
 button, input, select { font: inherit; }
@@ -2523,14 +2528,15 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
           shape: "ellipse",
           color: "#d9dde1",
           label: "data(displayLabel)",
-          "font-family": "'Baskerville Old Face', Garamond, 'Noto Serif SC', STSong, SimSun, serif",
+          "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif",
           "font-size": 9,
           "font-weight": 500,
+          "line-height": 1.22,
           "min-zoomed-font-size": GRAPH_LABEL_MIN_RENDERED_SIZE,
           "text-background-color": "#1a1c1e",
           "text-background-opacity": 0,
           "text-background-padding": 2,
-          "text-margin-y": 6,
+          "text-margin-y": 7,
           "text-max-width": 112,
           "text-valign": "bottom",
           "text-wrap": "ellipsis",

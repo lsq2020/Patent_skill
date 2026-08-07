@@ -115,14 +115,17 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn('"target-arrow-shape": "none"', html)
         self.assertIn("html[data-theme=\"dark\"] .graph-panel", html)
 
-    def test_uses_song_and_classical_serif_typefaces_offline(self):
+    def test_uses_obsidian_system_type_and_compact_label_spacing(self):
         build_knowledge_graph(self.case_dir, output_path=self.output)
         html = self.output.read_text(encoding="utf-8")
 
-        self.assertIn('--font-editorial: "Baskerville Old Face", Garamond, "Noto Serif SC", "STSong", SimSun, serif;', html)
-        self.assertIn("font-family: var(--font-editorial);", html)
-        self.assertIn("font-optical-sizing: auto;", html)
-        self.assertIn('"font-family": "\'Baskerville Old Face\', Garamond, \'Noto Serif SC\', STSong, SimSun, serif"', html)
+        self.assertIn('--font-obsidian: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;', html)
+        self.assertIn("font-family: var(--font-obsidian);", html)
+        self.assertIn("letter-spacing: -0.01em;", html)
+        self.assertIn('"font-family": "-apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Inter, \'Noto Sans SC\', \'PingFang SC\', \'Microsoft YaHei\', sans-serif"', html)
+        self.assertIn('"line-height": 1.22,', html)
+        self.assertIn('"text-margin-y": 7,', html)
+        self.assertNotIn("--font-editorial", html)
 
     def test_builds_a_galaxy_visual_lab_with_editorial_presets(self):
         build_knowledge_graph(self.case_dir, output_path=self.output)

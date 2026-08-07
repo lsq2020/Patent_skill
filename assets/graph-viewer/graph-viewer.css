@@ -31,7 +31,7 @@
   --entity-target: #8f84b7;
   --entity-indication: #b56f86;
   --entity-theme: #899f68;
-  --font-editorial: "Baskerville Old Face", Garamond, "Noto Serif SC", "STSong", SimSun, serif;
+  --font-obsidian: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --header-height: 96px;
   --rail-width: 56px;
   --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.22);
@@ -46,10 +46,15 @@ body {
   margin: 0;
   background: var(--canvas);
   color: var(--ink);
-  font-family: var(--font-editorial);
-  font-optical-sizing: auto;
+  font-family: var(--font-obsidian);
+  letter-spacing: -0.01em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+code,
+output {
+  letter-spacing: normal;
 }
 
 button, input, select { font: inherit; }
