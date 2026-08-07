@@ -50,11 +50,11 @@ def build_knowledge_graph(
     vendor = vendor_path.read_text(encoding="utf-8")
     app_js = js_path.read_text(encoding="utf-8")
     document = f'''<!doctype html>
-<html lang="zh-CN" data-theme="dark" data-cytoscape-version="{CYTOSCAPE_VERSION}">
+<html lang="zh-CN" data-theme="light" data-cytoscape-version="{CYTOSCAPE_VERSION}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="color-scheme" content="dark">
+  <meta name="color-scheme" content="light">
   <title>{html.escape(title)} · 专利证据双链图</title>
   <script>
     if (new URLSearchParams(window.location.search).get("embed") === "report") {{
@@ -257,7 +257,7 @@ def build_knowledge_graph(
       </section>
     </aside>
 
-    <main id="main-content" class="graph-panel" data-galaxy-mode="atlas" data-starfield="true" data-twinkle="true">
+    <main id="main-content" class="graph-panel" data-galaxy-mode="minimal" data-starfield="false" data-twinkle="false">
       <div class="graph-depth-field" aria-hidden="true">
         <span class="depth-plane depth-plane-far"></span>
         <span class="depth-plane depth-plane-mid"></span>

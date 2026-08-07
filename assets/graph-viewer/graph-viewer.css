@@ -1,28 +1,28 @@
 :root {
-  --ink: #dde1e5;
-  --ink-soft: #b3bac2;
-  --muted: #8e969f;
-  --muted-light: #6f777f;
-  --line: #34393e;
-  --line-strong: #474d53;
-  --canvas: #1a1c1e;
-  --surface: #222529;
-  --surface-soft: #272b2f;
-  --navy: #151719;
-  --navy-soft: #202327;
-  --blue: #7c9ac4;
-  --blue-strong: #9bb2d0;
-  --blue-soft: #29323d;
-  --amber: #c49a5a;
-  --amber-soft: #342f27;
-  --red: #c97264;
-  --red-soft: #352726;
-  --green: #5f9e92;
-  --green-soft: #24332f;
-  --graph-bg: #1a1c1e;
-  --graph-bg-center: #202326;
-  --graph-line: #555b61;
-  --graph-label: #d9dde1;
+  --ink: #182235;
+  --ink-soft: #41516a;
+  --muted: #71809a;
+  --muted-light: #8a98ad;
+  --line: #dfe7f2;
+  --line-strong: #c8d5e6;
+  --canvas: #f7f9fc;
+  --surface: #ffffff;
+  --surface-soft: #f2f7ff;
+  --navy: #ffffff;
+  --navy-soft: #f6f9ff;
+  --blue: #1261d6;
+  --blue-strong: #2b78e4;
+  --blue-soft: #eaf3ff;
+  --amber: #bf7b18;
+  --amber-soft: #fff5df;
+  --red: #c55c58;
+  --red-soft: #fff0ef;
+  --green: #18866d;
+  --green-soft: #e9f8f2;
+  --graph-bg: #f7f9fc;
+  --graph-bg-center: #eef5ff;
+  --graph-line: #b7cae3;
+  --graph-label: #25354d;
   --entity-research: #d6d0c4;
   --entity-family: #6f8fb9;
   --entity-document: #5f9e92;
@@ -34,8 +34,8 @@
   --font-obsidian: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --header-height: 96px;
   --rail-width: 56px;
-  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.22);
-  --shadow-md: 0 24px 56px rgba(0, 0, 0, 0.38);
+  --shadow-sm: 0 8px 24px rgba(24, 34, 53, 0.08);
+  --shadow-md: 0 24px 56px rgba(24, 34, 53, 0.14);
 }
 
 * { box-sizing: border-box; }
@@ -95,7 +95,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   z-index: 20;
   top: 0;
   height: var(--header-height);
-  color: #fff;
+  color: var(--ink);
   box-shadow: 0 1px 0 rgba(16, 26, 45, 0.12);
 }
 
@@ -106,7 +106,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   align-items: center;
   height: 58px;
   padding: 8px 16px;
-  background: var(--navy);
+  background: linear-gradient(135deg, #ffffff 0%, #eef5ff 100%);
+  border-bottom: 1px solid var(--line);
 }
 
 .brand {
@@ -122,10 +123,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   width: 32px;
   height: 32px;
   place-items: center;
-  border: 1px solid #3d5577;
+  border: 1px solid #a9c8f3;
   border-radius: 7px;
-  background: #1d2c46;
-  color: #dce7fa;
+  background: #e5f0ff;
+  color: var(--blue);
   font-size: 11px;
   font-weight: 850;
   letter-spacing: 0.08em;
@@ -135,7 +136,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 .brand-kicker, .section-eyebrow {
   display: block;
-  color: #9fb3d5;
+  color: var(--blue);
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.15em;
@@ -186,22 +187,22 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   width: 100%;
   height: 38px;
   padding: 0 64px 0 40px;
-  border: 1px solid #3b4b66;
+  border: 1px solid var(--line-strong);
   border-radius: 8px;
   background: var(--navy-soft);
-  color: #fff;
+  color: var(--ink);
   transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
 }
 
-.search-wrap input:hover { border-color: #596d8d; }
+.search-wrap input:hover { border-color: #93b9ec; }
 
 .search-wrap input:focus {
-  border-color: #789ce0;
-  background: #1d2c46;
+  border-color: var(--blue);
+  background: #fff;
   box-shadow: 0 0 0 3px rgba(93, 137, 222, 0.14);
 }
 
-.search-wrap input::placeholder { color: #9cabc1; }
+.search-wrap input::placeholder { color: #92a0b4; }
 
 .search-key {
   position: absolute;
@@ -271,10 +272,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 .control-field select, .app-actions button, .canvas-tools button, .small-button {
   min-height: 34px;
-  border: 1px solid #42516a;
+  border: 1px solid var(--line-strong);
   border-radius: 7px;
   background: var(--navy-soft);
-  color: #fff;
+  color: var(--ink);
   cursor: pointer;
 }
 
@@ -397,8 +398,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   flex-direction: column;
   gap: 4px;
   padding: 12px 8px;
-  border-right: 1px solid #263244;
-  background: #151e2d;
+  border-right: 1px solid var(--line);
+  background: #ffffff;
 }
 
 .rail-action {
@@ -411,20 +412,20 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   border: 1px solid transparent;
   border-radius: 6px;
   background: transparent;
-  color: #aeb9ca;
+  color: var(--muted);
   font-size: 8px;
   cursor: pointer;
 }
 
 .rail-action:hover, .rail-action[aria-expanded="true"], .rail-action[aria-pressed="true"] {
-  border-color: #3b4b62;
-  background: #202c3e;
-  color: #f7f9fc;
+  border-color: #b8d0f4;
+  background: #eef5ff;
+  color: var(--blue);
 }
 
 .rail-action:disabled { opacity: 0.32; cursor: default; }
 .rail-spacer { flex: 1; }
-.rail-divider { width: 24px; height: 1px; margin: 4px 0; background: #303c4f; }
+.rail-divider { width: 24px; height: 1px; margin: 4px 0; background: var(--line); }
 
 .rail-glyph {
   position: relative;
@@ -867,7 +868,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   min-height: 700px;
   overflow: hidden;
   background-color: var(--canvas);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ccircle cx='1' cy='1' r='.7' fill='%2398a2b3' fill-opacity='.28'/%3E%3C/svg%3E");
+  background-image: radial-gradient(circle at 14% 8%, rgba(43, 120, 228, .10), transparent 26%), radial-gradient(circle at 84% 18%, rgba(57, 182, 151, .08), transparent 24%), linear-gradient(180deg, #f9fbff 0%, #f3f7fd 100%);
 }
 
 .canvas-toolbar {
@@ -1793,7 +1794,7 @@ html[data-theme="dark"] .graph-panel::after {
     radial-gradient(circle at 31% 71%, rgba(214, 208, 196, 0.15) 0 0.7px, transparent 1.5px);
   background-position: 0 0, 28px 18px, 12px 43px, 61px 9px;
   background-size: 132px 118px, 188px 164px, 226px 196px, 274px 238px;
-  opacity: 0.48;
+  opacity: 0.20;
   transform: translate3d(var(--depth-x-far), var(--depth-y-far), -160px) scale(1.18);
 }
 
@@ -1801,15 +1802,14 @@ html[data-theme="dark"] .graph-panel::after {
   background-image:
     radial-gradient(circle at var(--depth-light-x) var(--depth-light-y), rgba(111, 143, 185, 0.09) 0, rgba(95, 158, 146, 0.035) 26%, transparent 54%),
     radial-gradient(ellipse at 24% 58%, rgba(214, 208, 196, 0.035) 0, transparent 34%);
-  opacity: 0.88;
+  opacity: 0.38;
   transform: translate3d(var(--depth-x-mid), var(--depth-y-mid), -60px) scale(1.08);
 }
 
 .depth-plane-near {
   background-image:
-    radial-gradient(ellipse at 50% 46%, transparent 28%, rgba(11, 13, 14, 0.2) 68%, rgba(7, 8, 9, 0.62) 100%),
-    linear-gradient(108deg, transparent 18%, rgba(255, 255, 255, 0.012) 48%, transparent 76%);
-  opacity: 0.92;
+    radial-gradient(ellipse at 50% 46%, transparent 34%, rgba(164, 196, 235, 0.08) 78%, rgba(164, 196, 235, 0.16) 100%);
+  opacity: 0.62;
   transform: translate3d(var(--depth-x-near), var(--depth-y-near), 36px) scale(1.015);
 }
 
