@@ -89,6 +89,7 @@ def build_presets():
             "id": "technology",
             "label": "技术保护视图",
             "description": "从研究对象、靶点和适应症查看技术主题及其专利保护。",
+            "default_depth": 2,
             "node_types": [
                 "research_object",
                 "target",
@@ -98,7 +99,14 @@ def build_presets():
                 "claim",
             ],
             "relation_types": ["IN_SCOPE", "PROTECTS", "HAS_CLAIM"],
-            "layout": "breadthfirst",
+            "layout": "semantic",
+            "lanes": [
+                {"id": "research", "label": "研究对象", "node_types": ["research_object"]},
+                {"id": "scope", "label": "靶点 / 适应症", "node_types": ["target", "indication"]},
+                {"id": "families", "label": "专利族", "node_types": ["patent_family"]},
+                {"id": "themes", "label": "技术主题", "node_types": ["technology_theme"]},
+                {"id": "claims", "label": "Claims", "node_types": ["claim"]},
+            ],
         },
         {
             "id": "evidence",

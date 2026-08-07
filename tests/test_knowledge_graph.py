@@ -43,10 +43,14 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn('id="inspector-tabs"', html)
         self.assertIn('id="inspector-outgoing-count"', html)
         self.assertIn('id="canvas-focus-label"', html)
+        self.assertIn('id="technology-lanes"', html)
         self.assertIn('data-tab="backlinks"', html)
         self.assertIn('id="relation-table-body"', html)
         self.assertIn("history.replaceState", html)
         self.assertIn("collectNeighborhood", html)
+        self.assertIn("semanticPositions", html)
+        self.assertIn('preset?.layout === "semantic"', html)
+        self.assertIn("edge-active", html)
 
     def test_embedded_json_cannot_terminate_its_script_tag(self):
         payload = {"label": "</script><script>alert(1)</script>"}

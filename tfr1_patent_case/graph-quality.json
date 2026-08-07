@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "status": "warning",
-  "generated_at": "2026-08-07T03:26:10.915560+00:00",
+  "generated_at": "2026-08-07T03:53:41.914972+00:00",
   "metrics": {
     "node_count": 168,
     "edge_count": 442,

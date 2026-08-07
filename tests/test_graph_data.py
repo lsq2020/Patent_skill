@@ -63,6 +63,14 @@ class GraphDataTests(unittest.TestCase):
             {"family", "technology", "evidence", "applicant"},
             {preset["id"] for preset in graph["presets"]},
         )
+        technology = next(preset for preset in graph["presets"] if preset["id"] == "technology")
+        self.assertEqual(2, technology["default_depth"])
+        self.assertEqual("semantic", technology["layout"])
+        self.assertEqual(
+            ["research", "scope", "families", "themes", "claims"],
+            [lane["id"] for lane in technology["lanes"]],
+        )
+        self.assertEqual(["patent_family"], technology["lanes"][2]["node_types"])
         self.assertEqual(len(graph["nodes"]), graph["meta"]["node_count"])
         self.assertEqual(len(graph["edges"]), graph["meta"]["edge_count"])
         self.assertEqual("warning", quality["status"])

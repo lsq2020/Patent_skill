@@ -730,7 +730,58 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .canvas-tools button:last-child { border-right: 0; }
 .canvas-tools button:hover { background: var(--blue-soft); color: var(--blue); }
 
+.technology-lanes {
+  position: absolute;
+  z-index: 2;
+  top: 82px;
+  right: 30px;
+  bottom: 42px;
+  left: 30px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  pointer-events: none;
+}
+
+.technology-lanes[hidden] { display: none; }
+
+.technology-lanes > span {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+  color: #536176;
+  text-align: center;
+}
+
+.technology-lanes > span::after {
+  position: absolute;
+  top: 30px;
+  bottom: 0;
+  left: 50%;
+  border-left: 1px dashed rgba(148, 163, 184, 0.22);
+  content: "";
+}
+
+.technology-lanes b {
+  overflow: hidden;
+  max-width: 100%;
+  font-size: 9px;
+  font-weight: 760;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.technology-lanes small {
+  color: #8a96a8;
+  font-size: 8px;
+}
+
 .graph-canvas {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: calc(100vh - var(--header-height));
   min-height: 700px;
@@ -1119,6 +1170,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   .canvas-tools { flex-direction: column; align-items: flex-end; }
   .visible-count { order: 2; }
   .canvas-hint { right: 10px; bottom: 10px; left: 10px; justify-content: center; }
+  .technology-lanes { right: 4px; left: 4px; }
+  .technology-lanes b { font-size: 7px; }
+  .technology-lanes small { display: none; }
   .graph-panel, .graph-canvas { min-height: 560px; }
   .relation-ledger { padding: 18px 12px 22px; }
   .ledger-head { align-items: flex-start; flex-direction: column; }

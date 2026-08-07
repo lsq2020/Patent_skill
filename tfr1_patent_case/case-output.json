@@ -33,8 +33,8 @@
     ]
   },
   "run": {
-    "run_id": "tfr1_patent_case-20260807T034154Z",
-    "generated_at": "2026-08-07T03:41:53.778170+00:00",
+    "run_id": "tfr1_patent_case-20260807T035609Z",
+    "generated_at": "2026-08-07T03:56:09.042580+00:00",
     "skill_version": "repository",
     "pipeline": [
       "scope",
@@ -4431,9 +4431,9 @@
       "report-index.md": "db365395443ee1470159a75aa3e63b02ae33094c2261da84877862b930f3d8d9",
       "report-index.html": "33ff69d872eaab39ccb7eb12b2eef135b82fdb383a1e52b5641e8b620c306eec",
       "report-visuals.html": "b15da6ab75ca01229c88290d29c0c71190c208f38a7f232d35370fc50d510fbb",
-      "knowledge-graph.html": "b03f364c923c57300bf3fa6dd1da534f39ab7f1ff477193e822dd2a3b79e27f5",
-      "graph-data.json": "24a0db120ea40dbf453515e8e5aa4324cc43001a86fa1a8491e971d53c788e2c",
-      "graph-quality.json": "9f4e4e6250dcfd571d714ad35d61b7215413ac23991ee565871e88fdc792d525"
+      "knowledge-graph.html": "b19746c5bdca056681fffc7d0eef2a2d1b6d952ddbf702098fbc9d213d15a53f",
+      "graph-data.json": "e282218b62b98c3ed64f244d986028dd2eb6b9048e85a86a2f797ce24b9305d4",
+      "graph-quality.json": "d6770383b9e81986848b50b417dc469ceaf6b55d20dcebc134a81baffd0de4b8"
     }
   },
   "contract": {

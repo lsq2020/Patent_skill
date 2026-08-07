@@ -155,6 +155,7 @@ def build_knowledge_graph(
           </div>
         </div>
       </div>
+      <div id="technology-lanes" class="technology-lanes" aria-hidden="true" hidden></div>
       <div id="graph-canvas" class="graph-canvas" role="img" aria-label="专利证据关系图" tabindex="0"></div>
       <div class="canvas-hint" aria-hidden="true"><b>操作提示</b><span>拖动画布 · 滚轮缩放 · 点击节点查看双链</span></div>
       <div id="empty-state" class="empty-state" hidden>

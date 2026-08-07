@@ -4,7 +4,7 @@
     "case_id": "tfr1_patent_case",
     "title": "Transferrin Receptor 1",
     "as_of": "2026-08-06",
-    "generated_at": "2026-08-07T03:26:10.915829+00:00",
+    "generated_at": "2026-08-07T03:53:41.915470+00:00",
     "source_schema_version": "1.1",
     "node_count": 168,
     "edge_count": 442,
@@ -10216,6 +10216,7 @@
       "id": "technology",
       "label": "技术保护视图",
       "description": "从研究对象、靶点和适应症查看技术主题及其专利保护。",
+      "default_depth": 2,
       "node_types": [
         "research_object",
         "target",
@@ -10229,7 +10230,45 @@
         "PROTECTS",
         "HAS_CLAIM"
       ],
-      "layout": "breadthfirst"
+      "layout": "semantic",
+      "lanes": [
+        {
+          "id": "research",
+          "label": "研究对象",
+          "node_types": [
+            "research_object"
+          ]
+        },
+        {
+          "id": "scope",
+          "label": "靶点 / 适应症",
+          "node_types": [
+            "target",
+            "indication"
+          ]
+        },
+        {
+          "id": "families",
+          "label": "专利族",
+          "node_types": [
+            "patent_family"
+          ]
+        },
+        {
+          "id": "themes",
+          "label": "技术主题",
+          "node_types": [
+            "technology_theme"
+          ]
+        },
+        {
+          "id": "claims",
+          "label": "Claims",
+          "node_types": [
+            "claim"
+          ]
+        }
+      ]
     },
     {
       "id": "evidence",

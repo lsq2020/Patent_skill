@@ -8,7 +8,13 @@
   const presetById = new Map(DATA.presets.map((preset) => [preset.id, preset]));
   const params = new URLSearchParams(window.location.search);
   const initialPreset = presetById.has(params.get("view")) ? params.get("view") : "technology";
-  const initialDepth = ["1", "2", "3"].includes(params.get("depth")) ? Number(params.get("depth")) : DATA.meta.default_depth;
+  const presetDefaultDepth = (presetId) => {
+    const value = Number(presetById.get(presetId)?.default_depth ?? DATA.meta.default_depth ?? 1);
+    return [1, 2, 3].includes(value) ? value : 1;
+  };
+  const initialDepth = ["1", "2", "3"].includes(params.get("depth"))
+    ? Number(params.get("depth"))
+    : presetDefaultDepth(initialPreset);
 
   const state = {
     preset: initialPreset,
@@ -36,6 +42,19 @@
     return String(value ?? "");
   };
   const safeUrl = (value) => /^https?:\/\//i.test(String(value || "")) ? value : "";
+  const compactLabel = (value, limit = 20) => {
+    const text = String(value || "").trim();
+    return text.length > limit ? `${text.slice(0, limit - 1)}…` : text;
+  };
+  const nodeDisplayLabel = (node) => {
+    if (node.type !== "patent_family") return node.label;
+    const properties = node.properties || {};
+    const document = properties.representative_document || properties.representative_application || "";
+    const priorityYear = String(properties.earliest_priority || "").slice(0, 4);
+    const applicant = compactLabel(String(properties.applicant_or_assignee || "").split("/")[0], 22);
+    const detail = [document, priorityYear ? `优先权 ${priorityYear}` : ""].filter(Boolean).join(" · ");
+    return [node.label, detail, applicant].filter(Boolean).join("\n");
+  };
 
   const cy = cytoscape({
     container: byId("graph-canvas"),
@@ -52,11 +71,11 @@
           "border-color": "#ffffff",
           "border-width": 2.5,
           color: "#24324a",
-          label: "data(label)",
+          label: "data(displayLabel)",
           "font-family": "Inter, Segoe UI, PingFang SC, sans-serif",
           "font-size": 9.5,
           "font-weight": 650,
-          "min-zoomed-font-size": 7,
+          "min-zoomed-font-size": 3.5,
           "text-background-color": "#ffffff",
           "text-background-opacity": 0.94,
           "text-background-padding": 4,
@@ -68,16 +87,16 @@
           width: 28,
         },
       },
-      { selector: 'node[type = "research_object"]', style: { "background-color": "#101a2d", shape: "round-rectangle", width: 54, height: 36, color: "#101a2d" } },
-      { selector: 'node[type = "target"]', style: { "background-color": "#7650c7", shape: "diamond", width: 35, height: 35 } },
-      { selector: 'node[type = "indication"]', style: { "background-color": "#c84f7f", shape: "round-hexagon", width: 37, height: 33 } },
-      { selector: 'node[type = "patent_family"]', style: { "background-color": "#2f66d0", shape: "round-rectangle", width: 46, height: 31, "font-size": 10 } },
+      { selector: 'node[type = "research_object"]', style: { "background-color": "#101a2d", shape: "round-rectangle", width: 98, height: 44, color: "#ffffff", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0, "font-size": 10.5 } },
+      { selector: 'node[type = "target"]', style: { "background-color": "#f6f1ff", "border-color": "#7650c7", shape: "round-rectangle", width: 76, height: 38, color: "#573a98", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0 } },
+      { selector: 'node[type = "indication"]', style: { "background-color": "#fff1f5", "border-color": "#c84f7f", shape: "round-rectangle", width: 82, height: 38, color: "#9f315d", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0 } },
+      { selector: 'node[type = "patent_family"]', style: { "background-color": "#f7faff", "border-color": "#2f66d0", "border-width": 2.2, shape: "round-rectangle", width: 112, height: 54, color: "#17345f", "font-size": 8.3, "font-weight": 680, "text-valign": "center", "text-wrap": "wrap", "text-max-width": 100, "text-background-opacity": 0, "text-margin-y": 0 } },
       { selector: 'node[type = "patent_document"]', style: { "background-color": "#178176", shape: "hexagon" } },
-      { selector: 'node[type = "claim"]', style: { "background-color": "#d9962d", shape: "rectangle", width: 32, height: 25 } },
+      { selector: 'node[type = "claim"]', style: { "background-color": "#fff8e9", "border-color": "#d9962d", shape: "round-rectangle", width: 88, height: 38, color: "#805014", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0, "text-max-width": 78 } },
       { selector: 'node[type = "evidence"]', style: { "background-color": "#d14b63", shape: "diamond", width: 31, height: 31 } },
       { selector: 'node[type = "applicant"]', style: { "background-color": "#334155", shape: "round-rectangle", width: 36, height: 27 } },
       { selector: 'node[type = "jurisdiction"]', style: { "background-color": "#0891b2", shape: "ellipse", width: 26, height: 26 } },
-      { selector: 'node[type = "technology_theme"]', style: { "background-color": "#65a30d", shape: "tag", width: 32, height: 27 } },
+      { selector: 'node[type = "technology_theme"]', style: { "background-color": "#f4f8e9", "border-color": "#70952e", shape: "tag", width: 84, height: 34, color: "#4f6f1e", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0, "text-max-width": 72 } },
       { selector: 'node[type = "source"]', style: { "background-color": "#94a3b8", shape: "vee", width: 27, height: 27 } },
       {
         selector: "edge",
@@ -96,15 +115,20 @@
       { selector: 'edge[type = "SUPPORTED_BY"]', style: { "line-color": "#d14b63", "target-arrow-color": "#d14b63" } },
       { selector: 'edge[type = "PROTECTS"]', style: { "line-color": "#6d932f", "target-arrow-color": "#6d932f" } },
       { selector: 'edge[type = "FILED_BY"]', style: { "line-color": "#475569", "target-arrow-color": "#475569" } },
+      { selector: "edge.edge-active", style: { label: "data(label)", width: 2.1, opacity: 1, color: "#344054", "font-size": 8, "font-weight": 650, "text-rotation": "autorotate", "text-background-color": "#ffffff", "text-background-opacity": 0.96, "text-background-padding": 2, "text-margin-y": -7, "z-index": 8 } },
       { selector: "node:selected", style: { "border-color": "#101a2d", "border-width": 4, "underlay-color": "#2f66d0", "underlay-opacity": 0.16, "underlay-padding": 7 } },
       { selector: "edge:selected", style: { width: 2.4, opacity: 1, "overlay-color": "#2f66d0", "overlay-opacity": 0.08 } },
       { selector: ".faded", style: { opacity: 0.11, "text-opacity": 0.08 } },
     ],
   });
 
-  function configurePreset(presetId) {
+  function configurePreset(presetId, useDefaultDepth = false) {
     const preset = presetById.get(presetId) || DATA.presets[0];
     state.preset = preset.id;
+    if (useDefaultDepth) {
+      state.depth = presetDefaultDepth(preset.id);
+      byId("depth-control").value = String(state.depth);
+    }
     state.nodeTypes = new Set(preset.node_types);
     state.relationTypes = new Set(preset.relation_types);
     byId("view-preset").value = preset.id;
@@ -183,6 +207,7 @@
         data: {
           id: node.id,
           label: node.label,
+          displayLabel: nodeDisplayLabel(node),
           type: node.type,
           summary: node.summary,
           properties: node.properties,
@@ -205,13 +230,82 @@
     ];
   }
 
+  function semanticPositions(preset) {
+    const lanes = preset?.lanes || [];
+    const width = Math.max(cy.width(), 640);
+    const height = Math.max(cy.height(), 600);
+    const maxRows = Math.max(6, Math.floor((height - 180) / 54));
+    const columnGap = 126;
+    const laneGap = 54;
+    const top = 124;
+    const positions = new Map();
+    let cursorX = 72;
+
+    lanes.forEach((lane) => {
+      const laneTypes = new Set(lane.node_types || []);
+      const laneNodes = cy.nodes()
+        .filter((node) => laneTypes.has(node.data("type")))
+        .sort((left, right) => String(left.data("label")).localeCompare(String(right.data("label"))));
+      const columnCount = Math.max(1, Math.ceil(laneNodes.length / maxRows));
+      laneNodes.forEach((node, nodeIndex) => {
+        const column = Math.floor(nodeIndex / maxRows);
+        const row = nodeIndex % maxRows;
+        const rowsInColumn = Math.min(maxRows, laneNodes.length - column * maxRows);
+        const rowGap = Math.min(58, (height - top - 60) / Math.max(rowsInColumn - 1, 1));
+        const blockHeight = rowGap * Math.max(rowsInColumn - 1, 0);
+        const y = top + (height - top - 60 - blockHeight) / 2 + row * rowGap;
+        positions.set(node.id(), { x: cursorX + column * columnGap, y });
+      });
+      cursorX += columnCount * columnGap + laneGap;
+    });
+    return (node) => positions.get(node.id()) || { x: width / 2, y: height / 2 };
+  }
+
   function runLayout() {
     const preset = presetById.get(state.preset);
-    const name = cy.nodes().length > 55 ? "cose" : (preset?.layout || "cose");
-    const options = name === "breadthfirst"
-      ? { name, directed: true, spacingFactor: 1.25, padding: 42, animate: false }
-      : { name: "cose", idealEdgeLength: 82, nodeRepulsion: 5200, gravity: 0.16, padding: 42, animate: false, randomize: true };
+    const name = preset?.layout === "semantic"
+      ? "semantic"
+      : cy.nodes().length > 55 ? "cose" : (preset?.layout || "cose");
+    const options = name === "semantic"
+      ? { name: "preset", positions: semanticPositions(preset), fit: true, padding: 56, animate: false }
+      : name === "breadthfirst"
+        ? { name, directed: true, spacingFactor: 1.25, padding: 42, animate: false }
+        : { name: "cose", idealEdgeLength: 82, nodeRepulsion: 5200, gravity: 0.16, padding: 42, animate: false, randomize: true };
     cy.layout(options).run();
+    if (name === "semantic" && cy.zoom() < 0.58) {
+      cy.zoom(0.58);
+      cy.center();
+    }
+  }
+
+  function renderTechnologyLanes(view) {
+    const container = byId("technology-lanes");
+    const preset = presetById.get(state.preset);
+    const lanes = preset?.layout === "semantic" ? (preset.lanes || []) : [];
+    container.hidden = !lanes.length;
+    container.textContent = "";
+    if (!lanes.length) return;
+    const maxRows = Math.max(6, Math.floor((Math.max(cy.height(), 600) - 180) / 54));
+    const laneWeights = [];
+    lanes.forEach((lane) => {
+      const laneTypes = new Set(lane.node_types || []);
+      const count = view.nodes.filter((node) => laneTypes.has(node.type)).length;
+      laneWeights.push(Math.max(1, Math.ceil(count / maxRows)));
+      const item = document.createElement("span");
+      const label = document.createElement("b");
+      const total = document.createElement("small");
+      label.textContent = lane.label;
+      total.textContent = `${count} 个节点`;
+      item.append(label, total);
+      container.append(item);
+    });
+    container.style.gridTemplateColumns = laneWeights.map((weight) => `minmax(0, ${weight}fr)`).join(" ");
+  }
+
+  function activateFocusEdges() {
+    cy.edges().removeClass("edge-active");
+    const focus = cy.getElementById(state.focus);
+    if (focus.length) focus.connectedEdges().addClass("edge-active");
   }
 
   function renderGraph() {
@@ -220,10 +314,14 @@
     state.visibleEdgeIds = new Set(view.edges.map((edge) => edge.id));
     cy.elements().remove();
     cy.add(cytoscapeElements(view));
+    renderTechnologyLanes(view);
     if (cy.nodes().length) {
       runLayout();
       const focus = cy.getElementById(state.focus);
-      if (focus.length) focus.select();
+      if (focus.length) {
+        focus.select();
+        activateFocusEdges();
+      }
     }
     byId("empty-state").hidden = view.nodes.length > 0;
     const limitBanner = byId("limit-banner");
@@ -472,13 +570,11 @@
   }
 
   function resetView() {
-    state.depth = DATA.meta.default_depth;
     state.focus = DATA.meta.default_focus;
     state.query = "";
     state.tab = "overview";
     byId("graph-search").value = "";
-    byId("depth-control").value = String(state.depth);
-    configurePreset("technology");
+    configurePreset("technology", true);
     renderGraph();
   }
 
@@ -501,7 +597,7 @@
     }
   });
   byId("view-preset").addEventListener("change", (event) => {
-    configurePreset(event.target.value);
+    configurePreset(event.target.value, true);
     renderGraph();
   });
   byId("depth-control").value = String(state.depth);
@@ -538,8 +634,14 @@
     const neighborhood = event.target.closedNeighborhood();
     cy.elements().addClass("faded");
     neighborhood.removeClass("faded");
+    event.target.connectedEdges().addClass("edge-active");
   });
-  cy.on("mouseout", "node", () => cy.elements().removeClass("faded"));
+  cy.on("mouseout", "node", () => {
+    cy.elements().removeClass("faded");
+    activateFocusEdges();
+  });
+  cy.on("mouseover", "edge", (event) => event.target.addClass("edge-active"));
+  cy.on("mouseout", "edge", () => activateFocusEdges());
   window.addEventListener("resize", () => cy.resize());
   window.addEventListener("keydown", (event) => {
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
