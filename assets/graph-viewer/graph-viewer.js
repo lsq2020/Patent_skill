@@ -48,32 +48,33 @@
       {
         selector: "node",
         style: {
-          "background-color": "#64748b",
+          "background-color": "#718096",
           "border-color": "#ffffff",
-          "border-width": 2,
+          "border-width": 2.5,
           color: "#24324a",
           label: "data(label)",
           "font-family": "Inter, Segoe UI, PingFang SC, sans-serif",
-          "font-size": 9,
-          "font-weight": 600,
+          "font-size": 9.5,
+          "font-weight": 650,
+          "min-zoomed-font-size": 7,
           "text-background-color": "#ffffff",
-          "text-background-opacity": 0.88,
-          "text-background-padding": 3,
-          "text-margin-y": 6,
-          "text-max-width": 112,
+          "text-background-opacity": 0.94,
+          "text-background-padding": 4,
+          "text-margin-y": 7,
+          "text-max-width": 118,
           "text-valign": "bottom",
           "text-wrap": "ellipsis",
           height: 28,
           width: 28,
         },
       },
-      { selector: 'node[type = "research_object"]', style: { "background-color": "#111c31", shape: "round-rectangle", width: 50, height: 34, color: "#111c31" } },
-      { selector: 'node[type = "target"]', style: { "background-color": "#7c3aed", shape: "diamond", width: 34, height: 34 } },
-      { selector: 'node[type = "indication"]', style: { "background-color": "#db2777", shape: "round-hexagon", width: 36, height: 32 } },
-      { selector: 'node[type = "patent_family"]', style: { "background-color": "#2563eb", shape: "round-rectangle", width: 42, height: 30, "font-size": 10 } },
-      { selector: 'node[type = "patent_document"]', style: { "background-color": "#0f766e", shape: "hexagon" } },
-      { selector: 'node[type = "claim"]', style: { "background-color": "#f59e0b", shape: "rectangle", width: 31, height: 25 } },
-      { selector: 'node[type = "evidence"]', style: { "background-color": "#e11d48", shape: "diamond", width: 30, height: 30 } },
+      { selector: 'node[type = "research_object"]', style: { "background-color": "#101a2d", shape: "round-rectangle", width: 54, height: 36, color: "#101a2d" } },
+      { selector: 'node[type = "target"]', style: { "background-color": "#7650c7", shape: "diamond", width: 35, height: 35 } },
+      { selector: 'node[type = "indication"]', style: { "background-color": "#c84f7f", shape: "round-hexagon", width: 37, height: 33 } },
+      { selector: 'node[type = "patent_family"]', style: { "background-color": "#2f66d0", shape: "round-rectangle", width: 46, height: 31, "font-size": 10 } },
+      { selector: 'node[type = "patent_document"]', style: { "background-color": "#178176", shape: "hexagon" } },
+      { selector: 'node[type = "claim"]', style: { "background-color": "#d9962d", shape: "rectangle", width: 32, height: 25 } },
+      { selector: 'node[type = "evidence"]', style: { "background-color": "#d14b63", shape: "diamond", width: 31, height: 31 } },
       { selector: 'node[type = "applicant"]', style: { "background-color": "#334155", shape: "round-rectangle", width: 36, height: 27 } },
       { selector: 'node[type = "jurisdiction"]', style: { "background-color": "#0891b2", shape: "ellipse", width: 26, height: 26 } },
       { selector: 'node[type = "technology_theme"]', style: { "background-color": "#65a30d", shape: "tag", width: 32, height: 27 } },
@@ -81,22 +82,23 @@
       {
         selector: "edge",
         style: {
-          width: 1.25,
-          "line-color": "#98a4b5",
-          "target-arrow-color": "#98a4b5",
+          width: 1.2,
+          "line-color": "#a5afbd",
+          "target-arrow-color": "#a5afbd",
           "target-arrow-shape": "triangle",
           "arrow-scale": 0.72,
           "curve-style": "bezier",
-          opacity: 0.76,
+          opacity: 0.72,
         },
       },
       { selector: 'edge[assertion = "rule_derived"]', style: { "line-style": "dashed" } },
       { selector: 'edge[assertion = "model_inference"]', style: { "line-style": "dotted", opacity: 0.58 } },
-      { selector: 'edge[type = "SUPPORTED_BY"]', style: { "line-color": "#e11d48", "target-arrow-color": "#e11d48" } },
-      { selector: 'edge[type = "PROTECTS"]', style: { "line-color": "#65a30d", "target-arrow-color": "#65a30d" } },
+      { selector: 'edge[type = "SUPPORTED_BY"]', style: { "line-color": "#d14b63", "target-arrow-color": "#d14b63" } },
+      { selector: 'edge[type = "PROTECTS"]', style: { "line-color": "#6d932f", "target-arrow-color": "#6d932f" } },
       { selector: 'edge[type = "FILED_BY"]', style: { "line-color": "#475569", "target-arrow-color": "#475569" } },
-      { selector: ":selected", style: { "border-color": "#111c31", "border-width": 4, "overlay-color": "#2563eb", "overlay-opacity": 0.12 } },
-      { selector: ".faded", style: { opacity: 0.13, "text-opacity": 0.13 } },
+      { selector: "node:selected", style: { "border-color": "#101a2d", "border-width": 4, "underlay-color": "#2f66d0", "underlay-opacity": 0.16, "underlay-padding": 7 } },
+      { selector: "edge:selected", style: { width: 2.4, opacity: 1, "overlay-color": "#2f66d0", "overlay-opacity": 0.08 } },
+      { selector: ".faded", style: { opacity: 0.11, "text-opacity": 0.08 } },
     ],
   });
 
@@ -107,6 +109,7 @@
     state.relationTypes = new Set(preset.relation_types);
     byId("view-preset").value = preset.id;
     renderFilters();
+    renderContext();
   }
 
   function collectNeighborhood(seedIds, depth, eligibleNodes, eligibleEdges) {
@@ -238,6 +241,8 @@
   function renderFilters() {
     renderFilterGroup("node-type-filters", DATA.facets.node_types, state.nodeTypes, nodeTypeLabels, () => renderGraph());
     renderFilterGroup("relation-type-filters", DATA.facets.relation_types, state.relationTypes, null, () => renderGraph());
+    byId("node-filter-summary").textContent = `${state.nodeTypes.size} / ${DATA.facets.node_types.length}`;
+    byId("relation-filter-summary").textContent = `${state.relationTypes.size} / ${DATA.facets.relation_types.length}`;
   }
 
   function renderFilterGroup(containerId, rows, selected, labels, onChange) {
@@ -245,7 +250,7 @@
     container.textContent = "";
     rows.forEach((row) => {
       const label = document.createElement("label");
-      label.className = "filter-option";
+      label.className = `filter-option${selected.has(row.value) ? " is-selected" : ""}`;
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.value = row.value;
@@ -253,6 +258,9 @@
       checkbox.addEventListener("change", () => {
         if (checkbox.checked) selected.add(row.value);
         else selected.delete(row.value);
+        label.classList.toggle("is-selected", checkbox.checked);
+        const summaryId = containerId === "node-type-filters" ? "node-filter-summary" : "relation-filter-summary";
+        byId(summaryId).textContent = `${selected.size} / ${rows.length}`;
         onChange();
       });
       const text = document.createElement("span");
@@ -270,7 +278,10 @@
     banner.dataset.status = QUALITY.status;
     const label = QUALITY.status === "pass" ? "通过" : QUALITY.status === "error" ? "错误" : "需补录";
     const gapCount = QUALITY.gaps.reduce((sum, gap) => sum + gap.count, 0);
-    banner.innerHTML = `<b>数据质量：${escapeHtml(label)}</b><br>${QUALITY.gaps.length ? `${QUALITY.gaps.length} 类缺口，涉及 ${gapCount} 条记录。` : "未发现结构性缺口。"} <a href="graph-quality.json">查看质量报告</a>`;
+    const detail = QUALITY.gaps.length
+      ? `${QUALITY.gaps.length} 类缺口，涉及 ${gapCount} 条记录。`
+      : "未发现结构性缺口。";
+    banner.innerHTML = `<div class="quality-heading"><span class="quality-dot" aria-hidden="true"></span><b>数据质量 · ${escapeHtml(label)}</b></div><p>${escapeHtml(detail)}</p><a href="graph-quality.json">查看完整质量报告 →</a>`;
     byId("total-node-count").textContent = DATA.meta.node_count;
     byId("total-edge-count").textContent = DATA.meta.edge_count;
   }
@@ -344,7 +355,7 @@
 
   function nodeList(nodes, emptyMessage) {
     if (!nodes.length) return `<p class="empty-copy">${escapeHtml(emptyMessage)}</p>`;
-    return `<div class="node-list">${nodes.map((node) => `<button class="node-link" type="button" data-focus="${escapeHtml(node.id)}"><b>${escapeHtml(node.label)}</b><small>${escapeHtml(nodeTypeLabels.get(node.type) || node.type)} · ${escapeHtml(node.id)}</small></button>`).join("")}</div>`;
+    return `<div class="node-list">${nodes.map((node) => `<button class="node-link" type="button" data-focus="${escapeHtml(node.id)}"><span class="node-link-copy"><b>${escapeHtml(node.label)}</b><small>${escapeHtml(nodeTypeLabels.get(node.type) || node.type)} · ${escapeHtml(node.id)}</small></span><span class="node-link-arrow" aria-hidden="true">→</span></button>`).join("")}</div>`;
   }
 
   function edgeList(edges, direction) {
@@ -352,37 +363,60 @@
     return `<div class="node-list">${edges.map((edge) => {
       const otherId = direction === "in" ? edge.source : edge.target;
       const other = nodesById.get(otherId);
-      return `<button class="node-link" type="button" data-focus="${escapeHtml(otherId)}"><b>${escapeHtml(edge.label)} → ${escapeHtml(other?.label || otherId)}</b><small>${escapeHtml(edge.assertion)} · ${escapeHtml((edge.link_methods || []).join(" + ") || "未标注")}</small></button>`;
+      return `<button class="node-link" type="button" data-focus="${escapeHtml(otherId)}"><span class="node-link-copy"><b>${escapeHtml(edge.label)} · ${escapeHtml(other?.label || otherId)}</b><small>${escapeHtml(edge.assertion)} · ${escapeHtml((edge.link_methods || []).join(" + ") || "未标注")}</small></span><span class="node-link-arrow" aria-hidden="true">→</span></button>`;
     }).join("")}</div>`;
+  }
+
+  function renderContext(node = nodesById.get(state.focus)) {
+    const preset = presetById.get(state.preset) || DATA.presets[0];
+    byId("context-view-label").textContent = preset?.label || "自定义视图";
+    byId("context-view-description").textContent = preset?.description || "按当前筛选条件浏览图谱。";
+    const focusLabel = node?.label || "未选择节点";
+    const focusId = node?.id || "—";
+    byId("context-focus-label").textContent = focusLabel;
+    byId("context-focus-id").textContent = focusId;
+    byId("canvas-focus-label").textContent = focusLabel;
+    byId("canvas-focus-id").textContent = focusId;
   }
 
   function renderInspector() {
     const node = nodesById.get(state.focus);
+    renderContext(node);
     if (!node) {
       byId("inspector-type").textContent = "未选择";
       byId("inspector-title").textContent = "选择一个节点";
       byId("inspector-id").textContent = "点击图中节点或搜索结果查看双向链接";
+      byId("inspector-outgoing-count").textContent = "0";
+      byId("inspector-backlink-count").textContent = "0";
+      byId("inspector-evidence-count").textContent = "0";
       byId("inspector-content").innerHTML = '<p class="empty-copy">检查器会显示属性、claim、证据、出链和反向链接。</p>';
       return;
     }
+    const outgoing = incidentEdges(node.id, "out");
+    const backlinks = incidentEdges(node.id, "in");
+    const evidenceNodes = relatedNodes(node.id, "evidence", 2);
+    byId("inspector-type").dataset.type = node.type;
     byId("inspector-type").textContent = nodeTypeLabels.get(node.type) || node.type;
     byId("inspector-title").textContent = node.label;
     byId("inspector-id").textContent = node.id;
+    byId("inspector-outgoing-count").textContent = outgoing.length;
+    byId("inspector-backlink-count").textContent = backlinks.length;
+    byId("inspector-evidence-count").textContent = evidenceNodes.length;
     document.querySelectorAll("#inspector-tabs button").forEach((button) => {
       button.setAttribute("aria-selected", String(button.dataset.tab === state.tab));
     });
     let content = "";
     if (state.tab === "overview") {
       const url = safeUrl(node.source_url);
-      content = `<p>${escapeHtml(node.summary || "暂无摘要。")}</p>${url ? `<p><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">打开来源 ↗</a></p>` : ""}<h3>结构化属性</h3>${propertyList(node.properties)}`;
+      content = `<div class="summary-card"><span>节点摘要</span><p>${escapeHtml(node.summary || "暂无摘要。")}</p></div>${url ? `<a class="source-action" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer"><span>打开原始来源</span><span aria-hidden="true">↗</span></a>` : ""}<h3>结构化属性</h3>${propertyList(node.properties)}`;
     } else if (state.tab === "claims") {
       content = nodeList(relatedNodes(node.id, "claim", 2), "两跳范围内没有 claim 节点。");
     } else if (state.tab === "evidence") {
-      content = nodeList(relatedNodes(node.id, "evidence", 2), "两跳范围内没有 evidence 节点。");
+      content = nodeList(evidenceNodes, "两跳范围内没有 evidence 节点。");
     } else if (state.tab === "outgoing") {
-      content = edgeList(incidentEdges(node.id, "out"), "out");
+      content = edgeList(outgoing, "out");
     } else {
-      content = edgeList(incidentEdges(node.id, "in"), "in");
+      content = edgeList(backlinks, "in");
     }
     byId("inspector-content").innerHTML = content;
   }

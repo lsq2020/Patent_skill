@@ -60,66 +60,103 @@ def build_knowledge_graph(
 </head>
 <body>
   <a class="skip-link" href="#graph-canvas">跳到关系图</a>
-  <header class="appbar">
-    <div class="brand">
-      <span class="brand-kicker">Patent Evidence Graph</span>
-      <span class="brand-title">{html.escape(title)} · 专利证据双链图</span>
+  <header class="app-header">
+    <div class="appbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">PE</span>
+        <div class="brand-copy">
+          <span class="brand-kicker">Patent Evidence Graph</span>
+          <span class="brand-title">{html.escape(title)} · 专利证据双链图</span>
+        </div>
+      </div>
+      <div class="search-wrap">
+        <label for="graph-search" class="sr-only">搜索节点</label>
+        <span class="search-icon" aria-hidden="true"></span>
+        <input id="graph-search" type="search" autocomplete="off" placeholder="搜索 family_id、claim、申请人、技术主题或 finding…">
+        <span class="search-key" aria-hidden="true">Ctrl K</span>
+        <div id="search-results" class="search-results" role="listbox" hidden></div>
+      </div>
+      <div class="app-actions">
+        <div class="control-field">
+          <label for="view-preset">分析视图</label>
+          <select id="view-preset" aria-label="图谱视图"></select>
+        </div>
+        <div class="control-field control-field-compact">
+          <label for="depth-control">展开范围</label>
+          <select id="depth-control" aria-label="关系展开深度">
+            <option value="1">1 跳</option>
+            <option value="2">2 跳</option>
+            <option value="3">3 跳</option>
+          </select>
+        </div>
+        <button id="reset-button" class="ghost-action" type="button">重置</button>
+        <button id="export-button" class="primary-action" type="button">导出 JSON</button>
+      </div>
     </div>
-    <div class="search-wrap">
-      <label for="graph-search" class="brand-kicker">搜索节点</label>
-      <input id="graph-search" type="search" autocomplete="off" placeholder="搜索 family_id、claim、申请人、技术主题或 finding…">
-      <span class="search-key" aria-hidden="true">Ctrl K</span>
-      <div id="search-results" class="search-results" role="listbox" hidden></div>
-    </div>
-    <div class="app-actions">
-      <label for="view-preset" class="brand-kicker">视图</label>
-      <select id="view-preset" aria-label="图谱视图"></select>
-      <label for="depth-control" class="brand-kicker">深度</label>
-      <select id="depth-control" aria-label="关系展开深度">
-        <option value="1">1 跳</option>
-        <option value="2">2 跳</option>
-        <option value="3">3 跳</option>
-      </select>
-      <button id="reset-button" type="button">重置</button>
-      <button id="export-button" type="button">导出当前图</button>
+    <div id="case-context" class="context-bar" aria-label="当前分析上下文">
+      <div class="context-primary">
+        <span class="context-label">当前焦点</span>
+        <strong id="context-focus-label">正在载入…</strong>
+        <code id="context-focus-id">—</code>
+      </div>
+      <span class="context-divider" aria-hidden="true"></span>
+      <div class="context-view">
+        <strong id="context-view-label">正在载入视图…</strong>
+        <span id="context-view-description">正在读取分析口径</span>
+      </div>
+      <div class="context-meta">
+        <span><small>数据截至</small><b>{html.escape(str(graph.get("meta", {}).get("as_of") or "—"))}</b></span>
+        <span><small>Case ID</small><b>{html.escape(str(graph.get("meta", {}).get("case_id") or project.name))}</b></span>
+      </div>
     </div>
   </header>
 
   <div class="workspace">
     <aside class="filter-panel" aria-label="图谱筛选器">
-      <div class="panel-heading"><h2>数据与筛选</h2><button id="select-all-nodes" class="small-button" type="button">全部类型</button></div>
+      <div class="panel-heading">
+        <div><span class="section-eyebrow">Data layers</span><h2>图层与筛选</h2></div>
+        <button id="select-all-nodes" class="small-button" type="button">恢复全部</button>
+      </div>
+      <p class="panel-copy">控制画布上出现的实体与证据关系。</p>
       <div class="summary-strip">
         <div class="summary-stat"><b id="total-node-count">—</b><span>全部节点</span></div>
         <div class="summary-stat"><b id="total-edge-count">—</b><span>全部关系</span></div>
       </div>
       <div id="quality-banner" class="quality-banner" role="status" aria-live="polite"></div>
       <section class="filter-section">
-        <h3>节点类型</h3>
+        <div class="section-heading"><h3>节点类型</h3><span id="node-filter-summary">—</span></div>
         <div id="node-type-filters" class="filter-list"></div>
       </section>
       <section class="filter-section">
-        <h3>关系类型</h3>
+        <div class="section-heading"><h3>关系类型</h3><span id="relation-filter-summary">—</span></div>
         <div id="relation-type-filters" class="filter-list"></div>
       </section>
-      <section class="filter-section">
-        <h3>节点图例</h3>
-        <div id="node-legend"></div>
-      </section>
-      <section class="filter-section">
-        <h3>边的证据口径</h3>
+      <details class="legend-section" open>
+        <summary>节点图例</summary>
+        <div id="node-legend" class="legend-grid"></div>
+      </details>
+      <details class="legend-section">
+        <summary>边的证据口径</summary>
         <div id="edge-legend"></div>
-      </section>
+      </details>
     </aside>
 
     <main id="main-content" class="graph-panel">
       <div class="canvas-toolbar">
-        <div class="canvas-meta"><span id="visible-count">加载图谱…</span></div>
+        <div class="focus-card">
+          <span class="focus-mark" aria-hidden="true"></span>
+          <span class="focus-copy"><small>画布焦点</small><strong id="canvas-focus-label">正在载入…</strong><code id="canvas-focus-id">—</code></span>
+        </div>
         <div class="canvas-tools">
-          <button id="layout-button" type="button">重新布局</button>
-          <button id="fit-button" type="button">适合窗口</button>
+          <span id="visible-count" class="visible-count">加载图谱…</span>
+          <div class="button-group" aria-label="画布工具">
+            <button id="layout-button" type="button">重新布局</button>
+            <button id="fit-button" type="button">适合窗口</button>
+          </div>
         </div>
       </div>
       <div id="graph-canvas" class="graph-canvas" role="img" aria-label="专利证据关系图" tabindex="0"></div>
+      <div class="canvas-hint" aria-hidden="true"><b>操作提示</b><span>拖动画布 · 滚轮缩放 · 点击节点查看双链</span></div>
       <div id="empty-state" class="empty-state" hidden>
         <h2>当前筛选没有节点</h2>
         <p>清空搜索词、恢复节点类型或切换预设视图。</p>
@@ -129,9 +166,17 @@ def build_knowledge_graph(
     </main>
 
     <aside class="inspector-panel" aria-label="节点检查器">
-      <span id="inspector-type" class="inspector-type">未选择</span>
+      <div class="inspector-heading">
+        <span class="section-eyebrow">Node inspector</span>
+        <span id="inspector-type" class="inspector-type">未选择</span>
+      </div>
       <h2 id="inspector-title" class="inspector-title">选择一个节点</h2>
       <p id="inspector-id" class="inspector-id">点击图中节点查看双向链接</p>
+      <div class="inspector-stats" aria-label="节点关系统计">
+        <span><b id="inspector-outgoing-count">0</b><small>出链</small></span>
+        <span><b id="inspector-backlink-count">0</b><small>反向链接</small></span>
+        <span><b id="inspector-evidence-count">0</b><small>关联证据</small></span>
+      </div>
       <div id="inspector-tabs" class="inspector-tabs" role="tablist" aria-label="节点详情">
         <button type="button" role="tab" data-tab="overview" aria-selected="true">摘要</button>
         <button type="button" role="tab" data-tab="claims" aria-selected="false">Claims</button>
