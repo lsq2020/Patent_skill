@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 212" role="img" aria-label="状态信号分布" class="rv-svg">
+<title>状态信号分布</title>
+<rect width="760" height="212" rx="16" fill="var(--surface,#fff)"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">状态信号分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">把官方状态和状态来源文字归入研究阶段信号（状态色板），不替代官方法律状态。</text>
+<g class="rv-row">
+<title>待官方核验: 23</title>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">待官方核验</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="77" width="466.0" height="18" rx="9" fill="#fab219"><animate attributeName="width" from="0" to="466.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">23</text>
+</g>
+<g class="rv-row">
+<title>公开/待审查: 1</title>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">公开/待审查</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="111" width="20.3" height="18" rx="9" fill="#fab219"><animate attributeName="width" from="0" to="20.3" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row">
+<title>授权/状态较强: 1</title>
+<text x="28" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">授权/状态较强</text>
+<rect x="210" y="145" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="145" width="20.3" height="18" rx="9" fill="#0ca30c"><animate attributeName="width" from="0" to="20.3" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+</svg>

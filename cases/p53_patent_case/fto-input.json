@@ -1,0 +1,125 @@
+{
+  "technical_solution": "围绕 p53 靶点肿瘤治疗领域进行研发立项调研：评估进入 MDM2-p53 拮抗剂、突变 p53 再激活、p53 基因治疗/溶瘤病毒、p53 疫苗与 p53 蛋白降解等方向的专利壁垒、技术路线与创新空间。",
+  "features": [
+    {
+      "id": "F01",
+      "feature_type": "core",
+      "importance": "core",
+      "text": "小分子恢复 p53 肿瘤抑制功能（MDM2-p53 界面拮抗或突变 p53 再激活）用于肿瘤治疗",
+      "keyword_clusters": ["target", "mechanism", "indication"],
+      "classifications": ["A61K31/00", "C07D", "A61P35/00"]
+    },
+    {
+      "id": "F02",
+      "feature_type": "necessary",
+      "importance": "necessary",
+      "text": "靶点特异性：TP53 野生型恢复 vs 突变 p53（尤其 Y220C）的选择性",
+      "keyword_clusters": ["target", "mutation"],
+      "classifications": ["C07D", "A61K31/40"]
+    },
+    {
+      "id": "F03",
+      "feature_type": "support",
+      "importance": "support",
+      "text": "p53 基因递送：腺病毒/溶瘤病毒载体表达野生型 p53",
+      "keyword_clusters": ["gene_therapy"],
+      "classifications": ["C12N15/861", "A61K48/00"]
+    },
+    {
+      "id": "F04",
+      "feature_type": "support",
+      "importance": "support",
+      "text": "联合治疗与伴随诊断：MDM2 拮抗剂联用、p53 生物标志物患者分层",
+      "keyword_clusters": ["combination", "biomarker"],
+      "classifications": ["A61K45/06", "C12Q1/6886", "G01N33/574"]
+    },
+    {
+      "id": "F05",
+      "feature_type": "context",
+      "importance": "context",
+      "text": "p53 蛋白降解（PROTAC/degronimer）新机制方向",
+      "keyword_clusters": ["degrader"],
+      "classifications": ["C07D", "A61K47/55"]
+    }
+  ],
+  "keyword_clusters": [
+    {
+      "id": "target",
+      "label": "靶点/机制",
+      "base_terms": ["p53", "TP53"],
+      "expanded_terms": ["tumor protein p53", "p53 tumor suppressor", "p53 reactivation", "mutant p53", "p53-Y220C", "MDM2", "MDMX", "MDM4", "p53-MDM2 interaction"],
+      "aliases": ["p53", "TP53", "P53", "tumor suppressor p53"],
+      "translations": ["p53靶点", "抑癌基因p53", "p53突变", "p53再激活"],
+      "source": "scope/identity + mechanism"
+    },
+    {
+      "id": "mechanism",
+      "label": "机制词",
+      "base_terms": ["MDM2 antagonist", "p53 reactivator"],
+      "expanded_terms": ["MDM2-p53 inhibitor", "nutlin", "mutant p53 reactivation", "PRIMA-1", "quinuclidinone", "Y220C"],
+      "aliases": ["MDM2 inhibitor", "p53 activator"],
+      "translations": ["MDM2拮抗剂", "p53激活", "p53再激活剂"],
+      "source": "scope/identity"
+    },
+    {
+      "id": "indication",
+      "label": "适应症",
+      "base_terms": ["cancer"],
+      "expanded_terms": ["tumor", "solid tumor", "hematologic malignancy", "AML", "MDS", "lymphoma", "TP53-mutant cancer"],
+      "aliases": ["cancer", "malignancy", "neoplasm"],
+      "translations": ["肿瘤", "癌症", "实体瘤", "血液肿瘤"],
+      "source": "scope/identity"
+    },
+    {
+      "id": "mutation",
+      "label": "突变/标志物",
+      "base_terms": ["TP53-mutant"],
+      "expanded_terms": ["p53 Y220C", "p53 mutation", "TP53 mutation", "p53 biomarker", "TP53 status"],
+      "aliases": ["mutant p53", "Y220C", "p53 biomarker"],
+      "translations": ["p53突变", "Y220C突变", "p53生物标志物"],
+      "source": "scope/identity + claims"
+    },
+    {
+      "id": "gene_therapy",
+      "label": "基因治疗",
+      "base_terms": ["p53 gene therapy"],
+      "expanded_terms": ["adenoviral p53", "Ad5CMV-p53", "oncolytic adenovirus p53", "tumor suppressor gene therapy", "Ad-p53"],
+      "aliases": ["Gendicine", "Advexin", "SCH-58500", "ONYX-015"],
+      "translations": ["p53基因治疗", "腺病毒p53", "溶瘤腺病毒"],
+      "source": "scope/identity"
+    },
+    {
+      "id": "combination",
+      "label": "联合治疗",
+      "base_terms": ["combination therapy"],
+      "expanded_terms": ["MDM2 inhibitor combination", "p53 reactivator combination", "BCL-2 inhibitor combination", "immune checkpoint combination", "rituximab combination"],
+      "aliases": ["co-administration", "combination"],
+      "translations": ["联合用药", "联合治疗"],
+      "source": "claims + literature"
+    },
+    {
+      "id": "biomarker",
+      "label": "伴随诊断/分层",
+      "base_terms": ["p53 biomarker"],
+      "expanded_terms": ["biomarker profile", "patient selection", "companion diagnostic", "response prediction", "TP53 status biomarker"],
+      "aliases": ["biomarker", "companion diagnostic"],
+      "translations": ["生物标志物", "伴随诊断", "患者分层"],
+      "source": "claims + clinical context"
+    },
+    {
+      "id": "degrader",
+      "label": "蛋白降解",
+      "base_terms": ["PROTAC"],
+      "expanded_terms": ["MDM2 degrader", "targeted protein degradation", "degronimer", "MDM2-based PROTAC"],
+      "aliases": ["PROTAC", "degrader", "protein degradation"],
+      "translations": ["蛋白降解", "PROTAC", "降解剂"],
+      "source": "claims + literature"
+    }
+  ],
+  "classifications": ["A61K31/00", "A61P35/00", "C07D", "C12N15/861", "A61K48/00", "C12Q1/6886", "G01N33/574", "A61K45/06", "C07K"],
+  "notes": [
+    "P53 靶点领域专利总量极大，本案例按全靶点概览收录各方向代表族，FTO 初筛为立项前的方向级信号，不构成侵权结论。",
+    "所有状态均需回目标法域官方登记簿复核。",
+    "若后续进入具体分子立项，应建立分子级 fto-input 并按 R1-R7 逐轮检索。"
+  ]
+}

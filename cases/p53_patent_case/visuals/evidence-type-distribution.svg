@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 280" role="img" aria-label="证据类型分布" class="rv-svg">
+<title>证据类型分布</title>
+<rect width="760" height="280" rx="16" fill="var(--surface,#fff)"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">证据类型分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">按 evidence.csv 的 evidence_type 字段统计。</text>
+<g class="rv-row" data-idx="c60381-0">
+<title>E2: 19</title>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">E2</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="77" width="466.0" height="18" rx="9" fill="#cde2fb"><animate attributeName="width" from="0" to="466.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">19</text>
+</g>
+<g class="rv-row" data-idx="c60381-1">
+<title>E3: 3</title>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">E3</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="111" width="73.6" height="18" rx="9" fill="#86b6ef"><animate attributeName="width" from="0" to="73.6" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">3</text>
+</g>
+<g class="rv-row" data-idx="c60381-2">
+<title>E4: 2</title>
+<text x="28" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">E4</text>
+<rect x="210" y="145" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="145" width="49.1" height="18" rx="9" fill="#3987e5"><animate attributeName="width" from="0" to="49.1" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">2</text>
+</g>
+<g class="rv-row" data-idx="c60381-3">
+<title>AU2020201321B2 授权）；MDM2 抑制剂与其他抗肿瘤药联用方向: 1</title>
+<text x="28" y="192" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">AU2020201321B2 授权）；MDM2 抑制剂与其…</text>
+<rect x="210" y="179" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="179" width="24.5" height="18" rx="9" fill="#1c5cab"><animate attributeName="width" from="0" to="24.5" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="192" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c60381-4">
+<title>anticipated expiration 2040-09-22: 1</title>
+<text x="28" y="226" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">anticipated expiration 2040-0…</text>
+<rect x="210" y="213" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="213" width="24.5" height="18" rx="9" fill="#0d366b"><animate attributeName="width" from="0" to="24.5" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="226" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+</svg>

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 518" role="img" aria-label="申请人/受让人分布" class="rv-svg">
+<title>申请人/受让人分布</title>
+<rect width="760" height="518" rx="16" fill="var(--surface,#fff)"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">申请人/受让人分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">按当前族 CSV 的 applicant_or_assignee 字段统计；未做集团级消歧。</text>
+<g class="rv-row" data-idx="c31572-0">
+<title>Ltd.: 6</title>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Ltd.</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="77" width="466.0" height="18" rx="9" fill="#cde2fb"><animate attributeName="width" from="0" to="466.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">6</text>
+</g>
+<g class="rv-row" data-idx="c31572-1">
+<title>Inc.: 5</title>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Inc.</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="111" width="388.3" height="18" rx="9" fill="#b7d3f6"><animate attributeName="width" from="0" to="388.3" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">5</text>
+</g>
+<g class="rv-row" data-idx="c31572-2">
+<title>F. Hoffmann-La Roche AG: 2</title>
+<text x="28" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">F. Hoffmann-La Roche AG</text>
+<rect x="210" y="145" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="145" width="155.3" height="18" rx="9" fill="#9ec5f4"><animate attributeName="width" from="0" to="155.3" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">2</text>
+</g>
+<g class="rv-row" data-idx="c31572-3">
+<title>Multivir Inc.: 2</title>
+<text x="28" y="192" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Multivir Inc.</text>
+<rect x="210" y="179" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="179" width="155.3" height="18" rx="9" fill="#86b6ef"><animate attributeName="width" from="0" to="155.3" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="192" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">2</text>
+</g>
+<g class="rv-row" data-idx="c31572-4">
+<title>Aileron Therapeutics: 1</title>
+<text x="28" y="226" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Aileron Therapeutics</text>
+<rect x="210" y="213" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="213" width="77.7" height="18" rx="9" fill="#6da7ec"><animate attributeName="width" from="0" to="77.7" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="226" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c31572-5">
+<title>Amgen Inc.: 1</title>
+<text x="28" y="260" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Amgen Inc.</text>
+<rect x="210" y="247" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="247" width="77.7" height="18" rx="9" fill="#5598e7"><animate attributeName="width" from="0" to="77.7" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="260" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c31572-6">
+<title>Aprea AB: 1</title>
+<text x="28" y="294" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Aprea AB</text>
+<rect x="210" y="281" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="281" width="77.7" height="18" rx="9" fill="#3987e5"><animate attributeName="width" from="0" to="77.7" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="294" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c31572-7">
+<title>Aprea Therapeutics AB: 1</title>
+<text x="28" y="328" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Aprea Therapeutics AB</text>
+<rect x="210" y="315" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="315" width="77.7" height="18" rx="9" fill="#2a78d6"><animate attributeName="width" from="0" to="77.7" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="328" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c31572-8">
+<title>Arvinas Operations: 1</title>
+<text x="28" y="362" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Arvinas Operations</text>
+<rect x="210" y="349" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="349" width="77.7" height="18" rx="9" fill="#256abf"><animate attributeName="width" from="0" to="77.7" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="362" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c31572-9">
+<title>Ascentage Pharma (Suzhou) Co.: 1</title>
+<text x="28" y="396" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Ascentage Pharma (Suzhou) Co.</text>
+<rect x="210" y="383" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="383" width="77.7" height="18" rx="9" fill="#1c5cab"><animate attributeName="width" from="0" to="77.7" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="396" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c31572-10">
+<title>Board of Regents: 1</title>
+<text x="28" y="430" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Board of Regents</text>
+<rect x="210" y="417" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="417" width="77.7" height="18" rx="9" fill="#184f95"><animate attributeName="width" from="0" to="77.7" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="430" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c31572-11">
+<title>C4 Therapeutics: 1</title>
+<text x="28" y="464" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">C4 Therapeutics</text>
+<rect x="210" y="451" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="451" width="77.7" height="18" rx="9" fill="#0d366b"><animate attributeName="width" from="0" to="77.7" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="464" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+</svg>

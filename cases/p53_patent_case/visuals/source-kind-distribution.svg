@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 314" role="img" aria-label="来源角色分布" class="rv-svg">
+<title>来源角色分布</title>
+<rect width="760" height="314" rx="16" fill="var(--surface,#fff)"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">来源角色分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">按 CNIPA/PatentDatabases 来源目录中的 source_kind 统计。</text>
+<g class="rv-row" data-idx="c99582-0">
+<title>public_or_national_database: 64</title>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">public_or_national_database</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="77" width="466.0" height="18" rx="9" fill="#cde2fb"><animate attributeName="width" from="0" to="466.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">64</text>
+</g>
+<g class="rv-row" data-idx="c99582-1">
+<title>commercial_or_aggregator: 33</title>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">commercial_or_aggregator</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="111" width="240.3" height="18" rx="9" fill="#9ec5f4"><animate attributeName="width" from="0" to="240.3" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">33</text>
+</g>
+<g class="rv-row" data-idx="c99582-2">
+<title>official_or_authority: 33</title>
+<text x="28" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">official_or_authority</text>
+<rect x="210" y="145" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="145" width="240.3" height="18" rx="9" fill="#6da7ec"><animate attributeName="width" from="0" to="240.3" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">33</text>
+</g>
+<g class="rv-row" data-idx="c99582-3">
+<title>literature_or_context: 5</title>
+<text x="28" y="192" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">literature_or_context</text>
+<rect x="210" y="179" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="179" width="36.4" height="18" rx="9" fill="#2a78d6"><animate attributeName="width" from="0" to="36.4" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="192" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">5</text>
+</g>
+<g class="rv-row" data-idx="c99582-4">
+<title>classification_authority_or_navigator: 4</title>
+<text x="28" y="226" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">classification_authority_or_n…</text>
+<rect x="210" y="213" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="213" width="29.1" height="18" rx="9" fill="#1c5cab"><animate attributeName="width" from="0" to="29.1" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="226" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">4</text>
+</g>
+<g class="rv-row" data-idx="c99582-5">
+<title>classification_navigator: 1</title>
+<text x="28" y="260" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">classification_navigator</text>
+<rect x="210" y="247" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="247" width="7.3" height="18" rx="9" fill="#0d366b"><animate attributeName="width" from="0" to="7.3" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="260" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+</svg>

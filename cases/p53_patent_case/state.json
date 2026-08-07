@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "project_dir": "/data/siqing/2026_workpalce/20260731/Patent_skill_demo/Patent_skill-main/cases/p53_patent_case",
+  "current_stage": "scope",
+  "completed_stages": [],
+  "created_at": "2026-08-07T15:55:51.979082+00:00",
+  "updated_at": "2026-08-07T15:55:51.979085+00:00",
+  "reports": {
+    "summary": "complete",
+    "extraction": "complete",
+    "family_map": "complete",
+    "technology_roadmap": "complete",
+    "risk_fto": "complete",
+    "innovation_space": "complete",
+    "evidence_chain": "complete",
+    "source_catalog": "complete",
+    "index": "complete",
+    "visuals": "complete",
+    "html_pages": "complete",
+    "knowledge_graph": "complete"
+  },
+  "graph_quality": "warning",
+  "reports_generated_at": "2026-08-07T17:04:47.961508+00:00"
+}

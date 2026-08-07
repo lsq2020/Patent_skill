@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 484" role="img" aria-label="权利要求类别分布" class="rv-svg">
+<title>权利要求类别分布</title>
+<rect width="760" height="484" rx="16" fill="var(--surface,#fff)"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">权利要求类别分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">按 claim-elements.csv 的 claim_category 记录数统计。</text>
+<g class="rv-row" data-idx="c78263-0">
+<title>compound: 14</title>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">compound</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="77" width="466.0" height="18" rx="9" fill="#cde2fb"><animate attributeName="width" from="0" to="466.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">14</text>
+</g>
+<g class="rv-row" data-idx="c78263-1">
+<title>combination: 5</title>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">combination</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="111" width="166.4" height="18" rx="9" fill="#b7d3f6"><animate attributeName="width" from="0" to="166.4" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">5</text>
+</g>
+<g class="rv-row" data-idx="c78263-2">
+<title>biomarker: 3</title>
+<text x="28" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">biomarker</text>
+<rect x="210" y="145" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="145" width="99.9" height="18" rx="9" fill="#9ec5f4"><animate attributeName="width" from="0" to="99.9" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">3</text>
+</g>
+<g class="rv-row" data-idx="c78263-3">
+<title>degrader: 3</title>
+<text x="28" y="192" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">degrader</text>
+<rect x="210" y="179" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="179" width="99.9" height="18" rx="9" fill="#86b6ef"><animate attributeName="width" from="0" to="99.9" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="192" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">3</text>
+</g>
+<g class="rv-row" data-idx="c78263-4">
+<title>gene_therapy: 3</title>
+<text x="28" y="226" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">gene_therapy</text>
+<rect x="210" y="213" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="213" width="99.9" height="18" rx="9" fill="#6da7ec"><animate attributeName="width" from="0" to="99.9" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="226" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">3</text>
+</g>
+<g class="rv-row" data-idx="c78263-5">
+<title>indication: 2</title>
+<text x="28" y="260" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">indication</text>
+<rect x="210" y="247" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="247" width="66.6" height="18" rx="9" fill="#3987e5"><animate attributeName="width" from="0" to="66.6" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="260" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">2</text>
+</g>
+<g class="rv-row" data-idx="c78263-6">
+<title>method: 2</title>
+<text x="28" y="294" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">method</text>
+<rect x="210" y="281" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="281" width="66.6" height="18" rx="9" fill="#2a78d6"><animate attributeName="width" from="0" to="66.6" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="294" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">2</text>
+</g>
+<g class="rv-row" data-idx="c78263-7">
+<title>composition: 1</title>
+<text x="28" y="328" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">composition</text>
+<rect x="210" y="315" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="315" width="33.3" height="18" rx="9" fill="#256abf"><animate attributeName="width" from="0" to="33.3" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="328" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c78263-8">
+<title>formulation: 1</title>
+<text x="28" y="362" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">formulation</text>
+<rect x="210" y="349" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="349" width="33.3" height="18" rx="9" fill="#1c5cab"><animate attributeName="width" from="0" to="33.3" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="362" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c78263-9">
+<title>regimen: 1</title>
+<text x="28" y="396" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">regimen</text>
+<rect x="210" y="383" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="383" width="33.3" height="18" rx="9" fill="#184f95"><animate attributeName="width" from="0" to="33.3" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="396" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c78263-10">
+<title>vaccine: 1</title>
+<text x="28" y="430" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">vaccine</text>
+<rect x="210" y="417" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="417" width="33.3" height="18" rx="9" fill="#0d366b"><animate attributeName="width" from="0" to="33.3" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="430" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+</svg>

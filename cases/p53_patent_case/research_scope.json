@@ -1,0 +1,57 @@
+{
+  "research_object": {
+    "molecule": "p53-targeted therapies (MDM2-p53 antagonists, mutant p53 reactivators, p53 gene therapy, p53 vaccines)",
+    "synonyms": [
+      "TP53",
+      "p53",
+      "tumor protein p53",
+      "TP53 tumor suppressor",
+      "MDM2 antagonist",
+      "Nutlin",
+      "APR-246",
+      "eprenetapopt",
+      "rezatapopt",
+      "PC14586",
+      "alrizomadlin",
+      "APG-115",
+      "Gendicine",
+      "Ad5CMV-p53",
+      "p53 adenovirus",
+      "p53 vaccine",
+      "idasanutlin",
+      "siremadlin",
+      "navtemadlin",
+      "milademetan",
+      "ONYX-015",
+      "Advexin",
+      "COTI-2",
+      "PRIMA-1MET"
+    ],
+    "target": "TP53 (p53 tumor suppressor protein, cellular tumor antigen p53)",
+    "indication": "cancer (solid tumors, hematologic malignancies, and therapy-resistant states)",
+    "mechanism_notes": "P53 is a tumor suppressor regulating cell cycle arrest, apoptosis and senescence; ~50% of human cancers carry TP53 mutations. Therapeutic approaches: (1) MDM2/MDMX-p53 interaction antagonists restoring wild-type p53; (2) small-molecule reactivation of mutant p53 (e.g. Y220C); (3) p53 gene therapy via oncolytic/adenoviral vectors (e.g. Ad5CMV-p53/Gendicine); (4) p53 vaccines and p53-targeting biologics."
+  },
+  "jurisdictions": ["US", "CN", "WO", "EP"],
+  "related_jurisdictions": ["WO", "EP", "JP", "KR", "AU"],
+  "as_of": "2026-08-07",
+  "focus": [
+    "compound", "salt", "formulation", "indication", "combination",
+    "resistance", "biomarker", "gene therapy", "vaccine", "antibody",
+    "regimen", "diagnostic"
+  ],
+  "depth": "standard_analysis",
+  "report_language": "zh",
+  "created_at": "2026-08-07T15:55:51.979043+00:00",
+  "sources_accessed": [
+    "Google Patents XHR search API via Jina Reader mirror (r.jina.ai/http://patents.google.com/xhr/query) - 2026-08-07",
+    "Google Patents patent detail pages via Jina Reader mirror (r.jina.ai/http://patents.google.com/patent/<doc>/en) - 2026-08-07",
+    "CNIPA/PatentDatabases source catalog snapshot (references/patent-database-sources.json)"
+  ],
+  "limitations": [
+    "Google Patents 直连与 XHR 端点在本环境被临时限流(503/captcha)，本次数据经 Jina Reader 只读镜像获取，属 E2/E3 级别证据；法律状态需回官方登记簿复核。",
+    "专利族成员清单未从官方登记簿逐条核验，DOCDB/INPADOC 族口径为脚本聚合快照。",
+    "P53 靶点专利总量极大（MDM2 拮抗剂数千族），本次为全靶点概览，仅收录各技术方向的代表性核心族，不构成完整清单。",
+    "各方向仅抓取 WO 为主的公开文本，US/CN/EP 国家阶段的授权号与法律状态未逐一核验。",
+    "Gendicine(今又生)等中国专利族检索覆盖有限，需 CNIPA 官方检索系统补检。"
+  ]
+}

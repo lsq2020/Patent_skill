@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "status": "warning",
+  "generated_at": "2026-08-07T17:04:48.018848+00:00",
+  "metrics": {
+    "node_count": 213,
+    "edge_count": 497,
+    "family_count": 25,
+    "claim_count": 36,
+    "evidence_count": 26,
+    "linked_evidence_count": 23,
+    "evidence_link_rate": 0.8846,
+    "family_relation_edge_count": 0,
+    "member_relation_edge_count": 0,
+    "families_with_relation_count": 0,
+    "causal_relation_count": 0,
+    "causal_concept_count": 0,
+    "causal_context_edge_count": 0,
+    "causal_context_coverage_rate": 1.0
+  },
+  "checks": {
+    "node_ids_unique": true,
+    "edge_ids_unique": true,
+    "no_dangling_edges": true,
+    "all_claims_have_ids": true,
+    "all_causal_concepts_in_scope": true
+  },
+  "gaps": [
+    {
+      "code": "evidence_unlinked",
+      "severity": "warning",
+      "count": 3,
+      "record_ids": [
+        "P53-EVI-001",
+        "P53-EVI-002",
+        "P53-EVI-026"
+      ],
+      "message": "部分 finding 没有 family_id/claim_id 双链。",
+      "next_action": "补显式 ID，或补可匹配的 document_no/source_url。"
+    },
+    {
+      "code": "family_relations_missing",
+      "severity": "warning",
+      "count": 25,
+      "record_ids": [
+        "P53-FAM-001",
+        "P53-FAM-002",
+        "P53-FAM-003",
+        "P53-FAM-004",
+        "P53-FAM-005",
+        "P53-FAM-006",
+        "P53-FAM-007",
+        "P53-FAM-008",
+        "P53-FAM-009",
+        "P53-FAM-010",
+        "P53-FAM-011",
+        "P53-FAM-012",
+        "P53-FAM-013",
+        "P53-FAM-014",
+        "P53-FAM-015",
+        "P53-FAM-016",
+        "P53-FAM-017",
+        "P53-FAM-018",
+        "P53-FAM-019",
+        "P53-FAM-020",
+        "P53-FAM-021",
+        "P53-FAM-022",
+        "P53-FAM-023",
+        "P53-FAM-024",
+        "P53-FAM-025"
+      ],
+      "message": "当前没有显式的专利族连续关系边。",
+      "next_action": "补录 priority/national phase/divisional/continuation 关系；同族文献关系写入 member_relations，不要从 notes 自动推断。"
+    }
+  ]
+}

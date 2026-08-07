@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" role="img" aria-label="最早优先权年度分布" class="rv-svg">
+<title>最早优先权年度分布</title>
+<rect width="760" height="260" rx="16" fill="var(--surface,#fff)"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">最早优先权年度分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">按族级 earliest_priority 的年份统计（趋势折线）。</text>
+<line x1="46" y1="218" x2="720" y2="218" stroke="var(--axis,#c3c2b7)" stroke-width="1"/>
+<path d="M46.0,181.0 L88.1,181.0 L130.2,181.0 L172.4,181.0 L214.5,107.0 L256.6,181.0 L298.8,181.0 L340.9,181.0 L383.0,181.0 L425.1,181.0 L467.2,181.0 L509.4,144.0 L551.5,107.0 L593.6,181.0 L635.8,70.0 L677.9,181.0 L720.0,181.0 L720.0,218 L46.0,218 Z" fill="#b7d3f6" opacity=".55"/>
+<path d="M46.0,181.0 L88.1,181.0 L130.2,181.0 L172.4,181.0 L214.5,107.0 L256.6,181.0 L298.8,181.0 L340.9,181.0 L383.0,181.0 L425.1,181.0 L467.2,181.0 L509.4,144.0 L551.5,107.0 L593.6,181.0 L635.8,70.0 L677.9,181.0 L720.0,181.0" fill="none" stroke="#2a78d6" stroke-width="2.5"/>
+<g class="rv-row"><title>1993: 1</title><circle cx="46.0" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="46.0" y="169.0" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="var(--ink,#17233b)">1</text>
+<text x="46.0" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">1993</text>
+<g class="rv-row"><title>2000: 1</title><circle cx="88.1" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<g class="rv-row"><title>2002: 1</title><circle cx="130.2" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="130.2" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2002</text>
+<g class="rv-row"><title>2003: 1</title><circle cx="172.4" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<g class="rv-row"><title>2007: 3</title><circle cx="214.5" cy="107.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="214.5" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2007</text>
+<g class="rv-row"><title>2008: 1</title><circle cx="256.6" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<g class="rv-row"><title>2010: 1</title><circle cx="298.8" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="298.8" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2010</text>
+<g class="rv-row"><title>2011: 1</title><circle cx="340.9" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<g class="rv-row"><title>2012: 1</title><circle cx="383.0" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="383.0" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2012</text>
+<g class="rv-row"><title>2014: 1</title><circle cx="425.1" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<g class="rv-row"><title>2015: 1</title><circle cx="467.2" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="467.2" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2015</text>
+<g class="rv-row"><title>2016: 2</title><circle cx="509.4" cy="144.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<g class="rv-row"><title>2017: 3</title><circle cx="551.5" cy="107.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="551.5" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2017</text>
+<g class="rv-row"><title>2018: 1</title><circle cx="593.6" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<g class="rv-row"><title>2019: 4</title><circle cx="635.8" cy="70.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="635.8" y="58.0" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="var(--ink,#17233b)">4</text>
+<text x="635.8" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2019</text>
+<g class="rv-row"><title>2021: 1</title><circle cx="677.9" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<g class="rv-row"><title>2022: 1</title><circle cx="720.0" cy="181.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="720.0" y="169.0" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="var(--ink,#17233b)">1</text>
+<text x="720.0" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2022</text>
+</svg>

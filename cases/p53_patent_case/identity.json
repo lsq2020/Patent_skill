@@ -1,0 +1,80 @@
+{
+  "molecule": {
+    "canonical": "p53-targeted therapies (multiple mechanistic classes, no single lead molecule)",
+    "synonyms": [
+      "MDM2-p53 antagonists: nutlin, idasanutlin (RG7388, Roche), siremadlin (HDM201, Novartis), navtemadlin (KRT-232, Kartos), milademetan (DS-3032b, Daiichi Sankyo), APG-115/alrizomadlin (Ascentage), AMG-232 (Amgen)",
+      "mutant p53 reactivators: APR-246/eprenetapopt (PRIMA-1MET, Aprea), rezatapopt (PC14586, PMV Pharma), COTI-2 (Critical Outcome Technologies), RITA",
+      "p53 gene therapy: Gendicine (Ad5CMV-p53, Shenzhen SiBiono), Advexin/INGN-201 (Introgen), SCH-58500 (Canji), oncolytic p53 adenoviruses (ONYX-015, Ad5Δ24)",
+      "p53 vaccines/antibodies/biologics: p53 peptide vaccines, anti-p53 antibodies",
+      "p53 degradation: MDM2-based PROTACs (Arvinas, C4 Therapeutics, Regents of University of Michigan)"
+    ],
+    "status": "partially_confirmed",
+    "note": "研究对象为P53靶点全领域，涵盖小分子MDM2拮抗剂、突变p53再激活剂、基因治疗载体、疫苗/抗体和PROTAC降解剂五大技术方向。分子清单基于Google Patents XHR检索(经Jina镜像)与公开文献整理。"
+  },
+  "target": {
+    "canonical": "TP53 (tumor protein p53, cellular tumor antigen p53)",
+    "aliases": [
+      "p53",
+      "P53",
+      "TP53",
+      "tumor suppressor p53",
+      "p53 protein",
+      "cellular tumor antigen p53",
+      "phosphoprotein p53"
+    ],
+    "gene_symbol": "TP53",
+    "protein_family": "Tumor suppressor / transcription factor",
+    "mechanism": "p53 是关键的肿瘤抑制转录因子，调控细胞周期阻滞、DNA修复、衰老和凋亡。约50%的恶性肿瘤存在 TP53 基因突变；野生型 p53 被 MDM2/MDMX 泛素化降解抑制。治疗策略包括：阻断 MDM2-p53 相互作用以稳定野生型 p53；小分子恢复突变 p53(如 Y220C)的折叠和转录活性；通过腺病毒/溶瘤病毒递送野生型 p53 基因；p53 疫苗和抗体激活免疫应答。"
+  },
+  "indication": {
+    "canonical": "cancer (solid tumors, hematologic malignancies)",
+    "aliases": [
+      "癌症",
+      "实体瘤",
+      "血液系统恶性肿瘤",
+      "急性髓系白血病 AML",
+      "骨髓增生异常综合征 MDS",
+      "淋巴瘤 lymphoma",
+      "乳腺癌 breast cancer",
+      "肺癌 lung cancer",
+      "肝癌 liver cancer",
+      "头颈癌 head and neck cancer",
+      "胃癌 gastric cancer",
+      "前列腺癌 prostate cancer",
+      "胶质母细胞瘤 glioblastoma",
+      "TP53-mutant cancer",
+      "p53-Y220C mutant cancer"
+    ],
+    "status": "confirmed"
+  },
+  "applicants": [
+    "F. Hoffmann-La Roche AG (idasanutlin/RG7388, RG7112; MDM2 领域先驱)",
+    "Novartis AG (siremadlin/HDM201, MDM2-p53 抑制剂与剂量方案)",
+    "Ascentage Pharma (Suzhou) Co., Ltd. (APG-115/alrizomadlin, BCL-2+MDM2 联用)",
+    "Kartos Therapeutics / MD Anderson (navtemadlin/KRT-232, 肿瘤治疗与眼科)",
+    "Daiichi Sankyo (milademetan/DS-3032b)",
+    "Amgen Inc. (AMG-232, MDM2 联用疗法)",
+    "Aprea Therapeutics AB / Inc. (APR-246/eprenetapopt/PRIMA-1MET)",
+    "PMV Pharmaceuticals, Inc. (rezatapopt/PC14586, p53-Y220C 再激活)",
+    "Jacobio Pharmaceuticals Co., Ltd. / 北京加科思新药研发有限公司 (突变 p53 靶向化合物)",
+    "Canji, Inc. (Schering) (腺病毒介导 p53 基因治疗, Ad-p53/SCH-58500)",
+    "Shenzhen SiBiono GeneTech Co., Ltd. (深圳赛百诺, Gendicine/今又生 Ad5CMV-p53)",
+    "Introgen Therapeutics (Advexin/INGN-201)",
+    "Multivir Inc. (p53 生物标志物、肿瘤抑制基因治疗)",
+    "The Regents of the University of Michigan (MDM2 蛋白降解剂)",
+    "Arvinas Operations, Inc. (MDM2 靶向 PROTAC)",
+    "C4 Therapeutics, Inc. (靶向蛋白降解, MDM2)",
+    "Critical Outcome Technologies Inc. (COTI-2)",
+    "Aileron Therapeutics (稳定 p53 肽)",
+    "The Regents of the University of Texas System (溶瘤腺病毒, E1A/E1B 突变体)",
+    "Hangzhou Converd/Convero Co., Ltd. (杭州康万达, 溶瘤腺病毒 p53)"
+  ],
+  "unresolved_questions": [
+    "法律状态为 Google Patents 聚合快照（E3），USPTO Patent Center / EPO Register / CNIPA 官方登记簿需逐族复核。",
+    "Roche nutlin/idasanutlin 核心化合物族的美国授权号与专利期延长(PTE)未核验。",
+    "Gendicine 的中国核心专利族（深圳赛百诺）未能在本次检索中直接命中，需 CNIPA 系统补检。",
+    "p53 疫苗与抗体方向的代表族较少，属概览边界；如需深挖需扩展检索。",
+    "ONYX-015 (Onyx Pharmaceuticals) 核心专利（E1B-55kD 缺失腺病毒）未直接命中，需补检。",
+    "各族的精确 family member 清单和分案/continuation 关系未从官方族数据核验。"
+  ]
+}
