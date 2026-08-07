@@ -1,17 +1,17 @@
 # 创新空间假设报告
 
-> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T06:40:29.657750+00:00 · 本报告为研究资料，不构成法律意见。
+> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T07:09:26.243120+00:00 · 本报告为研究资料，不构成法律意见。
 
 ## 研究范围
 
-- **研究对象**：GLP-1 receptor agonist (class landscape)；别名：semaglutide, 司美格鲁肽, liraglutide, tirzepatide, 替尔泊肽, orforglipron, oral GLP-1, 小分子GLP-1, GLP-1受体激动剂, GLP-1RA, glucagon-like peptide-1 receptor agonist, peptide GLP-1, GIP/GLP-1 dual
-- **靶点/机制**：GLP1R (glucagon-like peptide 1 receptor)
+- **研究对象**：GLP-1 receptor agonist (class landscape)
+- **靶点**：GLP1R (glucagon-like peptide 1 receptor)
 - **适应症**：type 2 diabetes mellitus; obesity/overweight; cardiovascular risk
-- **法域**：目标法域 CN, US, WO, EP；关联扩展法域 WO, EP
-- **截至日期**：2026-08-07
-- **深度**：standard_analysis；报告语言：zh
-- **来源目录**：上游记录 — 条，去重 URL — 个；目录不是已访问结果集。
-- **申请人消歧**：Novo Nordisk A/S (诺和诺德), Eli Lilly and Company (礼来), Gilead Sciences, Inc. (吉利德), Zealand Pharma A/S (西兰制药), Sanofi (赛诺菲), Qilu Regor Therapeutics Inc. (齐鲁锐格), Eccogene (Shanghai) Co., Ltd. (诚益生物), Hangzhou Zhongmeihuadong Pharmaceutical (华东医药/中美华东), Hangzhou Derui Zhizhi / Mindrank AI (杭州德睿智药), Shionogi & Co., Ltd. (盐野义), Jiangsu Hengrui Pharmaceuticals (恒瑞医药), Fujian Shengdi Pharmaceutical (福建盛迪), Beijing Hanmi Pharmaceutical (北京韩美/韩美药品), Chongqing Kangding Medical Technology (重庆康丁医药), Gasherbrum Bio, Inc., Twist Bioscience Corporation, Amgen Inc., CMPD Licensing, LLC, Pfizer Inc., Boehringer Ingelheim
+- **目标法域**：CN, US, WO, EP
+- **关联法域**：WO, EP
+- **截至**：2026-08-07
+- **深度**：standard_analysis
+- **主要申请人**：Novo Nordisk A/S, Eli Lilly and Company, Gilead Sciences, Inc., Zealand Pharma A/S, Sanofi, Qilu Regor Therapeutics Inc., Eccogene, Hangzhou Zhongmeihuadong Pharmaceutical, Hangzhou Derui Zhizhi / Mindrank AI, Shionogi & Co., Ltd., Jiangsu Hengrui Pharmaceuticals, Fujian Shengdi Pharmaceutical, Beijing Hanmi Pharmaceutical, Chongqing Kangding Medical Technology, Gasherbrum Bio, Inc., Twist Bioscience Corporation, Amgen Inc., CMPD Licensing, LLC, Pfizer Inc., Boehringer Ingelheim（详情见[执行摘要](00-executive-summary.md)）
 
 ## 1. 使用原则
 
@@ -41,8 +41,8 @@
 | 核心实体的结构、序列、变体、盐型/晶型或选择性/安全窗 | F18 | 核心组成/功能性 claim 记录提供边界 | Method of treating or ameliorating metabolic disorders using GLP-1R agonist (incl. combos with GIPR-related agents) | Amgen metabolic GLP-1R use | 补检同族/官方 claim；必要时做结构、制剂、药效或生物标志物实验 | 中/待验证 |
 | 制剂参数、赋形剂、浓度/pH、输注条件或稳定性窗口 | F19 | 制剂/组合物族已进入样本 | Topical administration of GLP-1 receptor agonists to oral cavity / skin for systemic effect (novel delivery route) | Topical GLP-1 delivery (early-stage) | 补检同族/官方 claim；必要时做结构、制剂、药效或生物标志物实验 | 中/待验证 |
 | 制剂参数、赋形剂、浓度/pH、输注条件或稳定性窗口 | F20 | 制剂/组合物族已进入样本 | Pharmaceutical composition of GLP-1 receptor and GIP receptor agonist (HRS9531-family formulation) | Hengrui/Shengdi dual agonist formulation | 补检同族/官方 claim；必要时做结构、制剂、药效或生物标志物实验 | 中/待验证 |
-| 耐药机制与下一代联合策略 | GAP-RESISTANCE | 当前样本未建立对象特异性耐药核心族 | 需要把 B2M、JAK/IFN、抗原呈递、TIL、髓系和替代检查点分层检索 | 不能把未搜到写成没有专利；文献机制不等于专利保护 | 专利+文献+临床注册三线补检，再做 claim chart | 低/需补检 |
-| 安全窗、免疫相关不良反应监测和处置 | GAP-SAFETY | 当前技术方案包含监测和处置特征，但样本中直接 claim linkage 不足 | 监测指标、影像、分级阈值和激素处置可能形成方法/诊断方向 | 医疗指南或说明书内容不自动产生专利保护 | 逐项检索监测/阈值/处置组合并核对法域 claim | 中/需法律复核 |
+| 拟实施方案的对象特异性权利要求边界 | GAP-CLAIM-LINKAGE | 当前样本已提供专利族和/或权利要求要素记录 | 尚需将拟实施特征与同一独立权利要求逐项关联：GLP-1 receptor agonist (class landscape) 用于 type 2 diabetes mellitus; obesity/overweight;…；治疗或检测步骤包含给药对象、方案或患者分层。 | 未建立关联不等于不存在相关专利或可自由实施 | 对高相关族制作 claim chart，并逐法域核验有效独立权利要求与状态 | 中/需法律复核 |
+| 术语、别名与相邻实施方式补检 | GAP-TERM-EXPANSION | 案例词簇可作为可追溯的检索起点 | 需要覆盖案例声明的别名、译名、同义表达和相邻实施方式：研究对象、靶点/机制、适应症、用途与治疗 | 扩词命中不自动构成权利要求覆盖 | 在检索日志中记录扩词来源、检索式、纳排理由，并回到独立权利要求核验 | 低/需补检 |
 
 ## 统计可视化
 
@@ -73,8 +73,8 @@
 | 核心结构/序列/化合物 | 见核心组成或抗体/序列方向 | 需查 Markush、序列变体和子族 | 结构检索+独立 claim 对比 |
 | 盐型/晶型/制剂/工艺 | 若有制剂族则存在分层布局 | 配方和状态需单独核验 | 做组成、工艺、稳定性和制剂 claim chart |
 | 给药/剂量/联合 | 用途、组合和 regimen 族较易出现 | 时间、剂量、患者人群可能有边界 | 按治疗线次、周期、顺序和联合对象补检 |
-| 患者分层/诊断 | 标志物或邻近 ICB 族提供入口 | 对象特异性 linkage 可能不足 | 检索 biomarker + molecule + indication + claim |
-| 耐药突变/机制 | 需要单独补检，不能用相邻标志物代替 | 当前证据不足 | 建立机制词表、文献证据和专利族三联表 |
+| 患者分层/诊断 | 若案例包含标志物、诊断或分层特征，则可作为检索入口 | 对象特异性 linkage 可能不足 | 按案例词簇检索分层特征 + 研究对象 + 适应症 + claim |
+| 机制、耐受性或安全窗 | 仅在案例特征或已命中文献中出现时单独分析 | 当前证据不足时不得借用其他疾病领域术语 | 建立案例专属词表、文献证据和专利族三联表 |
 
 ## 4. 不得越过的结论
 

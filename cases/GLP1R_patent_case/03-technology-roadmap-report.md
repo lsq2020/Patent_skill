@@ -1,17 +1,17 @@
 # 技术路线图报告
 
-> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T06:40:29.657750+00:00 · 本报告为研究资料，不构成法律意见。
+> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T07:09:26.243120+00:00 · 本报告为研究资料，不构成法律意见。
 
 ## 研究范围
 
-- **研究对象**：GLP-1 receptor agonist (class landscape)；别名：semaglutide, 司美格鲁肽, liraglutide, tirzepatide, 替尔泊肽, orforglipron, oral GLP-1, 小分子GLP-1, GLP-1受体激动剂, GLP-1RA, glucagon-like peptide-1 receptor agonist, peptide GLP-1, GIP/GLP-1 dual
-- **靶点/机制**：GLP1R (glucagon-like peptide 1 receptor)
+- **研究对象**：GLP-1 receptor agonist (class landscape)
+- **靶点**：GLP1R (glucagon-like peptide 1 receptor)
 - **适应症**：type 2 diabetes mellitus; obesity/overweight; cardiovascular risk
-- **法域**：目标法域 CN, US, WO, EP；关联扩展法域 WO, EP
-- **截至日期**：2026-08-07
-- **深度**：standard_analysis；报告语言：zh
-- **来源目录**：上游记录 — 条，去重 URL — 个；目录不是已访问结果集。
-- **申请人消歧**：Novo Nordisk A/S (诺和诺德), Eli Lilly and Company (礼来), Gilead Sciences, Inc. (吉利德), Zealand Pharma A/S (西兰制药), Sanofi (赛诺菲), Qilu Regor Therapeutics Inc. (齐鲁锐格), Eccogene (Shanghai) Co., Ltd. (诚益生物), Hangzhou Zhongmeihuadong Pharmaceutical (华东医药/中美华东), Hangzhou Derui Zhizhi / Mindrank AI (杭州德睿智药), Shionogi & Co., Ltd. (盐野义), Jiangsu Hengrui Pharmaceuticals (恒瑞医药), Fujian Shengdi Pharmaceutical (福建盛迪), Beijing Hanmi Pharmaceutical (北京韩美/韩美药品), Chongqing Kangding Medical Technology (重庆康丁医药), Gasherbrum Bio, Inc., Twist Bioscience Corporation, Amgen Inc., CMPD Licensing, LLC, Pfizer Inc., Boehringer Ingelheim
+- **目标法域**：CN, US, WO, EP
+- **关联法域**：WO, EP
+- **截至**：2026-08-07
+- **深度**：standard_analysis
+- **主要申请人**：Novo Nordisk A/S, Eli Lilly and Company, Gilead Sciences, Inc., Zealand Pharma A/S, Sanofi, Qilu Regor Therapeutics Inc., Eccogene, Hangzhou Zhongmeihuadong Pharmaceutical, Hangzhou Derui Zhizhi / Mindrank AI, Shionogi & Co., Ltd., Jiangsu Hengrui Pharmaceuticals, Fujian Shengdi Pharmaceutical, Beijing Hanmi Pharmaceutical, Chongqing Kangding Medical Technology, Gasherbrum Bio, Inc., Twist Bioscience Corporation, Amgen Inc., CMPD Licensing, LLC, Pfizer Inc., Boehringer Ingelheim（详情见[执行摘要](00-executive-summary.md)）
 
 ## 1. 路线分层
 
@@ -97,12 +97,11 @@ flowchart LR
 
 > 统计口径：按族级 earliest_priority 的年份统计。
 
-## 4. 路线演化观察
+## 4. 案例已有路线材料
 
-- **结构/组成与核心实体**：19 个族/分支进入当前样本；需要继续区分核心保护与邻近技术。
-- **制剂/盐型/工艺**：1 个族/分支进入当前样本；需要继续区分核心保护与邻近技术。
+已有路线草稿：[glp1r-agonists-roadmap.md](glp1r-agonists-roadmap.md)。它可作为人工补充材料，但本报告的族—路线映射仍以结构化 CSV/证据链为准。
 
-## 6. 技术断点与补检
+## 5. 技术断点与补检
 
 - 核心结构/抗体或化合物与用途之间是否存在独立保护层，需按 claim 类别逐族核对。
 - 联合/剂量/患者分层是否形成独立权利要求，不能只由说明书或临床事实推断。

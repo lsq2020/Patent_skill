@@ -401,9 +401,15 @@ def render_innovation(case, scope, identity, families, claims, ranking, evidence
             direction, family.get("family_id"), evidence_text, compact(family.get("key_claim_elements"), 260),
             compact(counter, 240), "补检同族/官方 claim；必要时做结构、制剂、药效或生物标志物实验", "中/待验证",
         ])
+    features = plan.get("features", [])
+    clusters = plan.get("keyword_expansion", [])
+    feature_summary = "；".join(compact(feature.get("text"), 90) for feature in features[:4]) or "当前案例尚未提供结构化 FTO 特征"
+    cluster_summary = "、".join(str(cluster.get("label") or cluster.get("id")) for cluster in clusters[:6]) or "待补充案例词簇"
+    # Gap rows are deliberately case-derived.  They describe evidence that is
+    # missing from this case rather than importing a prior therapeutic area.
     hypotheses.extend([
-        ["耐药机制与下一代联合策略", "GAP-RESISTANCE", "当前样本未建立对象特异性耐药核心族", "需要把 B2M、JAK/IFN、抗原呈递、TIL、髓系和替代检查点分层检索", "不能把未搜到写成没有专利；文献机制不等于专利保护", "专利+文献+临床注册三线补检，再做 claim chart", "低/需补检"],
-        ["安全窗、免疫相关不良反应监测和处置", "GAP-SAFETY", "当前技术方案包含监测和处置特征，但样本中直接 claim linkage 不足", "监测指标、影像、分级阈值和激素处置可能形成方法/诊断方向", "医疗指南或说明书内容不自动产生专利保护", "逐项检索监测/阈值/处置组合并核对法域 claim", "中/需法律复核"],
+        ["拟实施方案的对象特异性权利要求边界", "GAP-CLAIM-LINKAGE", "当前样本已提供专利族和/或权利要求要素记录", f"尚需将拟实施特征与同一独立权利要求逐项关联：{feature_summary}", "未建立关联不等于不存在相关专利或可自由实施", "对高相关族制作 claim chart，并逐法域核验有效独立权利要求与状态", "中/需法律复核"],
+        ["术语、别名与相邻实施方式补检", "GAP-TERM-EXPANSION", "案例词簇可作为可追溯的检索起点", f"需要覆盖案例声明的别名、译名、同义表达和相邻实施方式：{cluster_summary}", "扩词命中不自动构成权利要求覆盖", "在检索日志中记录扩词来源、检索式、纳排理由，并回到独立权利要求核验", "低/需补检"],
     ])
     lines.append(table(["候选方向", "关联族/缺口", "已有依据", "当前技术缺口", "反例", "验证动作", "信心"], hypotheses))
     lines += ["", visual_block(files, ["family-theme", "claim-category", "status"])]
@@ -412,8 +418,8 @@ def render_innovation(case, scope, identity, families, claims, ranking, evidence
         ["核心结构/序列/化合物", "见核心组成或抗体/序列方向", "需查 Markush、序列变体和子族", "结构检索+独立 claim 对比"],
         ["盐型/晶型/制剂/工艺", "若有制剂族则存在分层布局", "配方和状态需单独核验", "做组成、工艺、稳定性和制剂 claim chart"],
         ["给药/剂量/联合", "用途、组合和 regimen 族较易出现", "时间、剂量、患者人群可能有边界", "按治疗线次、周期、顺序和联合对象补检"],
-        ["患者分层/诊断", "标志物或邻近 ICB 族提供入口", "对象特异性 linkage 可能不足", "检索 biomarker + molecule + indication + claim"],
-        ["耐药突变/机制", "需要单独补检，不能用相邻标志物代替", "当前证据不足", "建立机制词表、文献证据和专利族三联表"],
+        ["患者分层/诊断", "若案例包含标志物、诊断或分层特征，则可作为检索入口", "对象特异性 linkage 可能不足", "按案例词簇检索分层特征 + 研究对象 + 适应症 + claim"],
+        ["机制、耐受性或安全窗", "仅在案例特征或已命中文献中出现时单独分析", "当前证据不足时不得借用其他疾病领域术语", "建立案例专属词表、文献证据和专利族三联表"],
     ]))
     lines += ["", "## 4. 不得越过的结论", "", "- “没有检索到”只能说明当前检索范围没有建立证据。", "- 空白机会必须经结构、药效/制剂/诊断实验和法律复核后才能进入研发决策。", "- 任何方向都要重新检查未公开申请、国家阶段、分案/继续申请、Markush 和官方法律状态。"]
     return "\n".join(lines) + "\n"

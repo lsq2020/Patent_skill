@@ -155,6 +155,8 @@ python3 scripts/build_landscape_v2.py \
 
 仅在已明确拟实施技术方案时使用。排序只用于决定复核优先级，绝不代表侵权概率或 FTO 结论。
 
+`fto-input.json` 的每个关键词簇可提供 `aliases`、`synonyms` 和 `translations`；这些显式词表会与基础词、扩展词一并参与中英文/别名匹配。默认排序阈值为可复核信号阈值，若某技术特征必须严格全量命中，可在该特征上设置 `match_threshold`（0–1）。
+
 ```bash
 python3 scripts/build_fto_plan.py --project-dir cases/demo
 python3 scripts/score_fto_candidates.py --project-dir cases/demo

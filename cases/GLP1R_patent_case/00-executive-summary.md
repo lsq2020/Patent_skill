@@ -1,17 +1,42 @@
 # 执行摘要
 
-> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T06:40:29.657750+00:00 · 本报告为研究资料，不构成法律意见。
+> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T07:09:26.243120+00:00 · 本报告为研究资料，不构成法律意见。
 
 ## 研究范围
 
-- **研究对象**：GLP-1 receptor agonist (class landscape)；别名：semaglutide, 司美格鲁肽, liraglutide, tirzepatide, 替尔泊肽, orforglipron, oral GLP-1, 小分子GLP-1, GLP-1受体激动剂, GLP-1RA, glucagon-like peptide-1 receptor agonist, peptide GLP-1, GIP/GLP-1 dual
-- **靶点/机制**：GLP1R (glucagon-like peptide 1 receptor)
+- **研究对象**：GLP-1 receptor agonist (class landscape)
+- **靶点**：GLP1R (glucagon-like peptide 1 receptor)
 - **适应症**：type 2 diabetes mellitus; obesity/overweight; cardiovascular risk
-- **法域**：目标法域 CN, US, WO, EP；关联扩展法域 WO, EP
-- **截至日期**：2026-08-07
-- **深度**：standard_analysis；报告语言：zh
-- **来源目录**：上游记录 — 条，去重 URL — 个；目录不是已访问结果集。
-- **申请人消歧**：Novo Nordisk A/S (诺和诺德), Eli Lilly and Company (礼来), Gilead Sciences, Inc. (吉利德), Zealand Pharma A/S (西兰制药), Sanofi (赛诺菲), Qilu Regor Therapeutics Inc. (齐鲁锐格), Eccogene (Shanghai) Co., Ltd. (诚益生物), Hangzhou Zhongmeihuadong Pharmaceutical (华东医药/中美华东), Hangzhou Derui Zhizhi / Mindrank AI (杭州德睿智药), Shionogi & Co., Ltd. (盐野义), Jiangsu Hengrui Pharmaceuticals (恒瑞医药), Fujian Shengdi Pharmaceutical (福建盛迪), Beijing Hanmi Pharmaceutical (北京韩美/韩美药品), Chongqing Kangding Medical Technology (重庆康丁医药), Gasherbrum Bio, Inc., Twist Bioscience Corporation, Amgen Inc., CMPD Licensing, LLC, Pfizer Inc., Boehringer Ingelheim
+- **目标法域**：CN, US, WO, EP
+- **关联法域**：WO, EP
+- **截至**：2026-08-07
+- **深度**：standard_analysis
+- **主要申请人**：Novo Nordisk A/S, Eli Lilly and Company, Gilead Sciences, Inc., Zealand Pharma A/S, Sanofi, Qilu Regor Therapeutics Inc., Eccogene, Hangzhou Zhongmeihuadong Pharmaceutical, Hangzhou Derui Zhizhi / Mindrank AI, Shionogi & Co., Ltd., Jiangsu Hengrui Pharmaceuticals, Fujian Shengdi Pharmaceutical, Beijing Hanmi Pharmaceutical, Chongqing Kangding Medical Technology, Gasherbrum Bio, Inc., Twist Bioscience Corporation, Amgen Inc., CMPD Licensing, LLC, Pfizer Inc., Boehringer Ingelheim（详情见[执行摘要](00-executive-summary.md)）
+
+## 申请人与角色
+
+（本表是全案唯一列出完整角色说明的位置；其余模块报告只显示申请人名称。）
+
+- Novo Nordisk A/S (诺和诺德)
+- Eli Lilly and Company (礼来)
+- Gilead Sciences, Inc. (吉利德)
+- Zealand Pharma A/S (西兰制药)
+- Sanofi (赛诺菲)
+- Qilu Regor Therapeutics Inc. (齐鲁锐格)
+- Eccogene (Shanghai) Co., Ltd. (诚益生物)
+- Hangzhou Zhongmeihuadong Pharmaceutical (华东医药/中美华东)
+- Hangzhou Derui Zhizhi / Mindrank AI (杭州德睿智药)
+- Shionogi & Co., Ltd. (盐野义)
+- Jiangsu Hengrui Pharmaceuticals (恒瑞医药)
+- Fujian Shengdi Pharmaceutical (福建盛迪)
+- Beijing Hanmi Pharmaceutical (北京韩美/韩美药品)
+- Chongqing Kangding Medical Technology (重庆康丁医药)
+- Gasherbrum Bio, Inc.
+- Twist Bioscience Corporation
+- Amgen Inc.
+- CMPD Licensing, LLC
+- Pfizer Inc.
+- Boehringer Ingelheim
 
 ## 模块化交付
 
@@ -24,25 +49,23 @@
 | 专利族 | 20 | 以案例族 CSV 的 family_id 为统计单位 |
 | claim 要素记录 | 34 | 逐条保留文献号、claim 类别、位置和 coverage |
 | 证据链条目 | 20 | 事实、推断、来源、定位和复核动作 |
-| FTO 候选 | — | 排序是复核优先级，不是侵权概率 |
-| 检索轮次 | — | 由 FTO/query plan 生成的可恢复策略 |
-| 来源目录 | — | 可选来源 URL，不代表本案已全部访问 |
+| FTO 候选 | 20 | 排序是复核优先级，不是侵权概率 |
+| 检索轮次 | 7 | 由 FTO/query plan 生成的可恢复策略 |
+| 来源目录 | 140 | 可选来源 URL，不代表本案已全部访问 |
 
 ## 当前最重要的信号
 
-1. **小分子口服 GLP-1R 赛道专利密集且多数已授权**：Gilead（F03，US/TW/AU 已授权，含超宽抗肥胖联合权利要求）、Qilu Regor（F04，AU/CN 已授权）、Eccogene（F05，US 已授权）、华东医药（F06，US/CN 已授权，且有晶型/口服制剂续案）、德睿智药（F07，CN 已授权）等构成 2020-2022 优先权高峰。新进入者的结构变体空间被快速压缩。
-2. **双/三重激动剂（GIP/GLP-1、GCG/GLP-1/GIP）存在多条已授权肽类族**：Zealand（F02，US/CN 已授权）、Lilly（F09，CN/TW 已授权，tirzepatide 族）、Sanofi（F12，US/EP 已授权）、Hanmi（F14，EP/KR 已授权）。后续双靶点组合需逐条与这些序列限定族比对。
-3. **口服给药技术是独立保护层**：Novo oral semaglutide + SNAC 固体组合物族（F01，ES 已授权/多国待核验）是口服 GLP-1 吸收技术的核心障碍；华东（F06）与 Hengrui/福建盛迪（F13/F20）正在用制剂+组合物续案围绕口服剂型布防。
-4. **联合用药/组合物权利要求明显扩张**：Gilead F03 权利要求 4 和 Shionogi F08 都明确列出与 SGLT2i、ACC 抑制剂、PYY、其他 GLP-1 激动剂等联合用药，形成「化合物→组合→剂量」多层壁垒；Shionogi F08 甚至点名 danuglipron、PF07081532、LY-3502970、RGT-075 等候选。
-5. **早期/试验性赛道仍开放**：Topical GLP-1（CMPD Licensing F19，2023 优先权）、抗体型 GLP1R 激动剂（Twist F17）、Gasherbrum 杂环骨架（F16）等仍以 pending 为主，是本轮检索中相对未饱和的区域。
+- **HIGH · F02**：dual GIP/GLP-1 peptide agonist；完整命中特征 F01, F02；部分命中 无；[US11008375B2](https://patents.google.com/patent/US11008375B2/en)。
+- **HIGH · F03**：small-molecule GLP-1R agonist；完整命中特征 F01, F02；部分命中 无；[US12091404B2](https://patents.google.com/patent/US12091404B2/en)。
+- **HIGH · F05**：small-molecule GLP-1R agonist；完整命中特征 F01, F02；部分命中 无；[US11584751B1](https://patents.google.com/patent/US11584751B1/en)。
+- **HIGH · F06**：small-molecule GLP-1R agonist；完整命中特征 F01, F02；部分命中 无；[US11981666B2](https://patents.google.com/patent/US11981666B2/en)。
+- **HIGH · F08**：combination; composition；完整命中特征 F01, F02；部分命中 无；[US20240374587A1](https://patents.google.com/patent/US20240374587A1/en)。
 
 ## 最大证据缺口
 
-1. **官方法律状态未核验（E1 缺口）**：所有状态均来自 Google Patents 聚合视图（E3），未在 USPTO Patent Center、EPO Register、CNIPA、JPO 等官方登记簿逐法域确认授权、年费、期限调整、异议/无效或分案/继续申请。
-2. **族归并与成员清单未完整**：`family_id` 基于代表文献与人工归并，未按 DOCDB simple family 逐一重建优先权集合；CN/AU/HK 多件公开文本未提取到结构化 Claims 段（如 AU2020256647B2、CN112469731B、HK40113396A）。
-3. **未做结构/序列级比对的 FTO 阅读**：对目标分子的 Markush 范围、盐型/晶型、前药、制剂专利是否存在独立保护，仅有 claim 要素初筛，没有完整独立权利要求 claim chart。
-4. **检索覆盖有限**：只使用 Google Patents 单一检索入口；WIPO PATENTSCOPE、EPO Espacenet、CNIPA、USPTO Open Data 未直接执行；IPC/CPC 分类号反向扩展未完成。
-
+- 这是由范围文件自动生成的保守模板，请在正式检索前人工补充技术特征、阈值和分类号。
+- 每一轮的真实结果数量、纳排决定和官方法律状态需要在检索后回填。
+- FTO 风险必须基于目标法域的完整独立权利要求和截至日期状态复核。
 
 ## 统计可视化
 

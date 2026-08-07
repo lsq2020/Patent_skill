@@ -1,17 +1,17 @@
 # 权利要求与要素抽取报告
 
-> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T06:40:29.657750+00:00 · 本报告为研究资料，不构成法律意见。
+> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T07:09:26.243120+00:00 · 本报告为研究资料，不构成法律意见。
 
 ## 研究范围
 
-- **研究对象**：GLP-1 receptor agonist (class landscape)；别名：semaglutide, 司美格鲁肽, liraglutide, tirzepatide, 替尔泊肽, orforglipron, oral GLP-1, 小分子GLP-1, GLP-1受体激动剂, GLP-1RA, glucagon-like peptide-1 receptor agonist, peptide GLP-1, GIP/GLP-1 dual
-- **靶点/机制**：GLP1R (glucagon-like peptide 1 receptor)
+- **研究对象**：GLP-1 receptor agonist (class landscape)
+- **靶点**：GLP1R (glucagon-like peptide 1 receptor)
 - **适应症**：type 2 diabetes mellitus; obesity/overweight; cardiovascular risk
-- **法域**：目标法域 CN, US, WO, EP；关联扩展法域 WO, EP
-- **截至日期**：2026-08-07
-- **深度**：standard_analysis；报告语言：zh
-- **来源目录**：上游记录 — 条，去重 URL — 个；目录不是已访问结果集。
-- **申请人消歧**：Novo Nordisk A/S (诺和诺德), Eli Lilly and Company (礼来), Gilead Sciences, Inc. (吉利德), Zealand Pharma A/S (西兰制药), Sanofi (赛诺菲), Qilu Regor Therapeutics Inc. (齐鲁锐格), Eccogene (Shanghai) Co., Ltd. (诚益生物), Hangzhou Zhongmeihuadong Pharmaceutical (华东医药/中美华东), Hangzhou Derui Zhizhi / Mindrank AI (杭州德睿智药), Shionogi & Co., Ltd. (盐野义), Jiangsu Hengrui Pharmaceuticals (恒瑞医药), Fujian Shengdi Pharmaceutical (福建盛迪), Beijing Hanmi Pharmaceutical (北京韩美/韩美药品), Chongqing Kangding Medical Technology (重庆康丁医药), Gasherbrum Bio, Inc., Twist Bioscience Corporation, Amgen Inc., CMPD Licensing, LLC, Pfizer Inc., Boehringer Ingelheim
+- **目标法域**：CN, US, WO, EP
+- **关联法域**：WO, EP
+- **截至**：2026-08-07
+- **深度**：standard_analysis
+- **主要申请人**：Novo Nordisk A/S, Eli Lilly and Company, Gilead Sciences, Inc., Zealand Pharma A/S, Sanofi, Qilu Regor Therapeutics Inc., Eccogene, Hangzhou Zhongmeihuadong Pharmaceutical, Hangzhou Derui Zhizhi / Mindrank AI, Shionogi & Co., Ltd., Jiangsu Hengrui Pharmaceuticals, Fujian Shengdi Pharmaceutical, Beijing Hanmi Pharmaceutical, Chongqing Kangding Medical Technology, Gasherbrum Bio, Inc., Twist Bioscience Corporation, Amgen Inc., CMPD Licensing, LLC, Pfizer Inc., Boehringer Ingelheim（详情见[执行摘要](00-executive-summary.md)）
 
 ## 1. 抽取方法与口径
 
@@ -159,6 +159,35 @@
 
 ## 6. 抽取质量与缺口
 
+下表按族标出三个常见缺口字段是否已建立（✓已记录 / –缺失，需补检），比逐条读句子更快看出缺口分布：
+
+| 族 | 突变/标志物字段 | 授权号 | 状态来源为官方登记簿（非公开镜像） |
+|---|---|---|---|
+| F01 | ✓ | ✓ | ✓ |
+| F02 | ✓ | ✓ | ✓ |
+| F03 | ✓ | ✓ | ✓ |
+| F04 | ✓ | ✓ | ✓ |
+| F05 | ✓ | ✓ | ✓ |
+| F06 | ✓ | ✓ | ✓ |
+| F07 | ✓ | ✓ | ✓ |
+| F08 | ✓ | ✓ | ✓ |
+| F09 | ✓ | ✓ | ✓ |
+| F10 | ✓ | ✓ | ✓ |
+| F11 | ✓ | ✓ | ✓ |
+| F12 | ✓ | ✓ | ✓ |
+| F13 | ✓ | ✓ | ✓ |
+| F14 | ✓ | ✓ | ✓ |
+| F15 | ✓ | ✓ | ✓ |
+| F16 | ✓ | ✓ | ✓ |
+| F17 | ✓ | ✓ | ✓ |
+| F18 | ✓ | ✓ | ✓ |
+| F19 | ✓ | ✓ | ✓ |
+| F20 | ✓ | ✓ | ✓ |
+
+其他补检任务：
+- 这是由范围文件自动生成的保守模板，请在正式检索前人工补充技术特征、阈值和分类号。
+- 每一轮的真实结果数量、纳排决定和官方法律状态需要在检索后回填。
+- FTO 风险必须基于目标法域的完整独立权利要求和截至日期状态复核。
 
 ## 7. 抽取字段字典
 

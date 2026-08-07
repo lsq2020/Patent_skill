@@ -4,6 +4,8 @@
 import argparse
 import csv
 import json
+import re
+import unicodedata
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -17,7 +19,25 @@ def load_json(path):
 
 
 def norm(value):
-    return " ".join(str(value or "").lower().replace("-", " ").split())
+    value = unicodedata.normalize("NFKC", str(value or "")).lower()
+    value = re.sub(r"[‐‑‒–—―_-]+", " ", value)
+    return " ".join(value.split())
+
+
+def compact_norm(value):
+    """Make spacing and punctuation differences non-material for CJK/Latin terms."""
+    return re.sub(r"[^\w\u4e00-\u9fff]+", "", norm(value))
+
+
+def term_matches(term, text):
+    """Match declared terms and aliases without treating a hidden model as evidence."""
+    normalized_term = norm(term)
+    if not normalized_term:
+        return False
+    if normalized_term in text:
+        return True
+    compact_term = compact_norm(term)
+    return len(compact_term) >= 3 and compact_term in compact_norm(text)
 
 
 def csv_rows(path):
@@ -46,13 +66,20 @@ def build_feature_matches(plan, text):
                 # Technical prose is useful for a human but is intentionally not
                 # used as a hidden semantic model; each declared keyword cluster
                 # must contribute separately to feature coverage.
-                hit_terms = [term for term in cluster.get("terms", []) if norm(term) and norm(term) in text]
+                hit_terms = [term for term in cluster.get("terms", []) if term_matches(term, text)]
                 cluster_hits.append({"cluster_id": cluster["id"], "label": cluster.get("label", cluster["id"]), "terms": hit_terms[:12]})
         if not cluster_hits:
             continue
         hit_clusters = [item for item in cluster_hits if item["terms"]]
         coverage = len(hit_clusters) / len(cluster_hits)
-        threshold = {"core": 0.75, "necessary": 0.75, "support": 0.5, "context": 0.5}.get(feature.get("importance", "support"), 0.5)
+        # A feature may be supplied as only one or two independent clusters.
+        # A 50% default recognises a meaningful, reviewable signal while the
+        # caller may still set ``match_threshold`` up to 1.0 for strict cases.
+        threshold = feature.get("match_threshold", {"core": 0.5, "necessary": 0.5, "support": 0.5, "context": 0.5}.get(feature.get("importance", "support"), 0.5))
+        try:
+            threshold = float(threshold)
+        except (TypeError, ValueError):
+            threshold = 0.5
         if coverage > 0:
             matches.append({
                 "feature_id": feature["id"],
@@ -97,9 +124,14 @@ def rank(plan, claim_rows, family_rows):
         if any(token in status_text for token in ("active", "pending", "granted", "authorized", "授权", "审查中")):
             score += 0.03
         score = min(score, 1.0)
-        if core_hits >= 1 and necessary_hits >= 1:
+        feature_coverage = matched_weight / total_weight
+        # HIGH remains a review queue, not a legal conclusion.  A clearly
+        # qualified core feature plus either a necessary feature or broad
+        # weighted coverage should not be suppressed merely because wording
+        # differs across languages or source records.
+        if core_hits >= 1 and (necessary_hits >= 1 or feature_coverage >= 0.65):
             priority = "HIGH"
-        elif core_hits or necessary_hits >= 2:
+        elif core_hits or necessary_hits or feature_coverage >= 0.30:
             priority = "MEDIUM"
         else:
             priority = "LOW"
@@ -109,7 +141,7 @@ def rank(plan, claim_rows, family_rows):
             "relevance": family.get("relevance", "unknown"),
             "review_priority": priority,
             "screen_score": round(score, 4),
-            "feature_coverage": round(matched_weight / total_weight, 4),
+            "feature_coverage": round(feature_coverage, 4),
             "matched_features": ", ".join(sorted(matched_ids)),
             "partial_features": ", ".join(sorted(partial_ids)),
             "matched_terms": "; ".join(f'{item["feature_id"]}: {", ".join(item["terms"])}' for item in feature_matches),
@@ -162,7 +194,7 @@ def main():
         "input_claims": str(claim_path) if claim_path else None,
         "input_families": str(family_path) if family_path else None,
         "ranking_file": str(out),
-        "method": "declared keyword cluster overlap + claim category/relevance/status signals",
+        "method": "declared keyword clusters (including supplied aliases/translations) + claim category/relevance/status signals",
         "disclaimer": "Screening only; no infringement or validity conclusion.",
     }
     (project / "fto-search-plan.json").write_text(json.dumps(plan, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
