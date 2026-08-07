@@ -10,7 +10,7 @@ from pathlib import Path
 from build_case_output import split_values, stable_hash
 
 
-GRAPH_SCHEMA_VERSION = "1.0"
+GRAPH_SCHEMA_VERSION = "1.1"
 FAMILY_RELATION_TYPES = {
     "CONTINUATION_OF",
     "CONTINUATION_IN_PART_OF",
@@ -31,6 +31,7 @@ NODE_LABELS = {
     "jurisdiction": "法域",
     "technology_theme": "技术主题",
     "source": "来源",
+    "causal_concept": "因果概念",
 }
 EDGE_LABELS = {
     "IN_SCOPE": "研究范围",
@@ -48,6 +49,13 @@ EDGE_LABELS = {
     "CONTINUATION_OF": "继续申请",
     "CONTINUATION_IN_PART_OF": "部分继续申请",
     "RELATED_TO": "相关族",
+    "BLOCKS": "阻断",
+    "INHIBITS": "抑制",
+    "INCREASES": "增加",
+    "DECREASES": "降低",
+    "REDUCES_RISK_OF": "降低风险",
+    "INCREASES_RISK_OF": "增加风险",
+    "MODIFIES_EFFECT_OF": "修饰效应",
 }
 
 
@@ -68,8 +76,8 @@ def graph_edge_id(source, relation_type, target):
     return f"EDGE-{stable_hash(source, relation_type, target, length=12)}"
 
 
-def build_presets():
-    return [
+def build_presets(causal_relation_types=None):
+    presets = [
         {
             "id": "family",
             "label": "专利族视图",
@@ -125,6 +133,41 @@ def build_presets():
             "layout": "cose",
         },
     ]
+    if causal_relation_types:
+        presets.append(
+            {
+                "id": "causal",
+                "label": "因果机制视图",
+                "description": "仅显示有明确语义、证据等级和适用范围的因果/机制路径。",
+                "default_depth": 3,
+                "node_types": ["causal_concept", "evidence", "source"],
+                "relation_types": list(causal_relation_types) + ["SUPPORTED_BY", "HAS_SOURCE"],
+                "layout": "cose",
+            }
+        )
+    return presets
+
+
+def edge_semantics(relation_type, values=None):
+    if relation_type in {"SUPPORTED_BY", "HAS_SOURCE"}:
+        relation_kind = "evidentiary"
+    elif relation_type in FAMILY_RELATION_TYPES - {"RELATED_TO"}:
+        relation_kind = "temporal"
+    else:
+        relation_kind = "structural"
+    defaults = {
+        "relation_kind": relation_kind,
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": [],
+    }
+    defaults.update(values or {})
+    defaults["source_urls"] = list(defaults.get("source_urls") or [])
+    return defaults
 
 
 def facet_rows(counter):
@@ -174,7 +217,10 @@ def build_quality(case_output, nodes, edges):
     unlinked_evidence = [
         row.get("finding_id")
         for row in evidence
-        if not row.get("family_ids") and not row.get("claim_ids")
+        if not row.get("family_ids") and not row.get("claim_ids") and not row.get("concept_ids")
+    ]
+    causal_edges = [
+        row for row in edges if row.get("relation_kind") in {"causal", "mechanistic"}
     ]
     missing_claim_ids = [index for index, row in enumerate(claims) if not row.get("claim_id")]
     gaps = []
@@ -268,6 +314,7 @@ def build_quality(case_output, nodes, edges):
             "family_relation_edge_count": len(family_relation_edges),
             "member_relation_edge_count": len(member_relation_edges),
             "families_with_relation_count": len(families_with_relations),
+            "causal_relation_count": len(causal_edges),
         },
         "checks": {
             "node_ids_unique": len(node_ids) == len(nodes),
@@ -318,7 +365,7 @@ def build_graph_data(project, case_output_path=None, output_path=None, quality_p
         if node_id not in nodes:
             nodes[node_id] = record
 
-    def add_edge(source, relation_type, target, assertion="direct_fact", link_methods=None, evidence_ids=None, properties=None, edge_id=None):
+    def add_edge(source, relation_type, target, assertion="direct_fact", link_methods=None, evidence_ids=None, properties=None, edge_id=None, semantics=None):
         if not source or not target:
             return
         key = (source, relation_type, target)
@@ -334,6 +381,7 @@ def build_graph_data(project, case_output_path=None, output_path=None, quality_p
                 "link_methods": list(link_methods or []),
                 "evidence_ids": list(evidence_ids or []),
                 "properties": properties or {},
+                **edge_semantics(relation_type, semantics),
             }
 
     case_id = case.get("case_id") or project.name
@@ -415,6 +463,18 @@ def build_graph_data(project, case_output_path=None, output_path=None, quality_p
             },
         )
 
+    for concept in records.get("concepts", []):
+        concept_id = concept.get("concept_id")
+        add_node(
+            f"concept:{concept_id}",
+            "causal_concept",
+            concept.get("label"),
+            concept.get("description"),
+            concept,
+            (concept.get("source_urls") or [""])[0],
+            {"concept_type": [concept.get("concept_type")]},
+        )
+
     for finding in records.get("evidence", []):
         finding_id = finding.get("finding_id")
         finding_node = f"finding:{finding_id}"
@@ -447,6 +507,20 @@ def build_graph_data(project, case_output_path=None, output_path=None, quality_p
             relation.get("evidence_ids", []),
             relation.get("properties", {}),
             relation.get("relation_id"),
+            {
+                key: relation.get(key)
+                for key in (
+                    "relation_kind",
+                    "causal_status",
+                    "polarity",
+                    "directness",
+                    "evidence_level",
+                    "confidence",
+                    "rationale",
+                    "source_urls",
+                )
+                if key in relation
+            },
         )
 
     node_rows = sorted(nodes.values(), key=lambda row: (row["type"], row["label"], row["id"]))
@@ -455,9 +529,11 @@ def build_graph_data(project, case_output_path=None, output_path=None, quality_p
     node_type_counts = Counter(row["type"] for row in node_rows)
     relation_type_counts = Counter(row["type"] for row in edge_rows)
     assertion_counts = Counter(row["assertion"] for row in edge_rows)
+    relation_kind_counts = Counter(row["relation_kind"] for row in edge_rows)
     applicant_counts = Counter()
     jurisdiction_counts = Counter()
     theme_counts = Counter()
+    concept_type_counts = Counter()
     for node in node_rows:
         for value in node.get("facets", {}).get("applicant", []):
             applicant_counts[value] += 1
@@ -465,6 +541,16 @@ def build_graph_data(project, case_output_path=None, output_path=None, quality_p
             jurisdiction_counts[value] += 1
         for value in node.get("facets", {}).get("theme", []):
             theme_counts[value] += 1
+        for value in node.get("facets", {}).get("concept_type", []):
+            if value:
+                concept_type_counts[value] += 1
+    causal_relation_types = sorted(
+        {
+            row["type"]
+            for row in edge_rows
+            if row["relation_kind"] in {"causal", "mechanistic", "associative"}
+        }
+    )
     graph = {
         "schema_version": GRAPH_SCHEMA_VERSION,
         "meta": {
@@ -486,11 +572,13 @@ def build_graph_data(project, case_output_path=None, output_path=None, quality_p
             "node_types": facet_rows(node_type_counts),
             "relation_types": facet_rows(relation_type_counts),
             "assertions": facet_rows(assertion_counts),
+            "relation_kinds": facet_rows(relation_kind_counts),
             "applicants": facet_rows(applicant_counts),
             "jurisdictions": facet_rows(jurisdiction_counts),
             "themes": facet_rows(theme_counts),
+            "concept_types": facet_rows(concept_type_counts),
         },
-        "presets": build_presets(),
+        "presets": build_presets(causal_relation_types),
         "legend": {
             "node_types": [
                 {"value": value, "label": label} for value, label in NODE_LABELS.items()
@@ -499,6 +587,14 @@ def build_graph_data(project, case_output_path=None, output_path=None, quality_p
                 {"value": "direct_fact", "label": "显式事实", "line_style": "solid"},
                 {"value": "rule_derived", "label": "规则关联", "line_style": "dashed"},
                 {"value": "model_inference", "label": "模型推断", "line_style": "dotted"},
+            ],
+            "relation_kinds": [
+                {"value": "causal", "label": "因果效应", "line_style": "solid"},
+                {"value": "mechanistic", "label": "作用机制", "line_style": "solid"},
+                {"value": "associative", "label": "仅相关", "line_style": "dotted"},
+                {"value": "temporal", "label": "时间/法律序列", "line_style": "dashed"},
+                {"value": "evidentiary", "label": "证据链接", "line_style": "dashed"},
+                {"value": "structural", "label": "结构关系", "line_style": "solid"},
             ],
         },
     }

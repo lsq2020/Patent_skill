@@ -1333,6 +1333,34 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   font-size: 9px;
 }
 
+.relation-kind {
+  display: inline-flex;
+  align-items: center;
+  min-width: 64px;
+  padding: 2px 7px;
+  border: 1px solid #d7dee7;
+  border-radius: 999px;
+  background: #f3f5f8;
+  color: #475467;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.025em;
+}
+
+.relation-kind-causal { border-color: #9bb2d0; background: #edf2f8; color: #405f84; }
+.relation-kind-mechanistic { border-color: #8cbab1; background: #edf6f4; color: #316b61; }
+.relation-kind-associative { border-style: dotted; border-color: #87909a; color: #59636d; }
+.relation-kind-temporal { border-style: dashed; border-color: #d9ba86; background: #fbf6ec; color: #7f612f; }
+.relation-kind-evidentiary { border-style: dashed; border-color: #dd9a90; background: #fbefed; color: #8a4b42; }
+
+.relation-detail {
+  display: block;
+  margin-top: 4px;
+  color: #667085;
+  font-size: 9px;
+  line-height: 1.35;
+}
+
 .page-footer {
   padding: 17px 24px 24px;
   border-top: 1px solid var(--line);
@@ -1481,11 +1509,19 @@ html[data-theme="dark"] .filter-option input {
 }
 
 html[data-theme="dark"] .filter-count,
-html[data-theme="dark"] .assertion {
+html[data-theme="dark"] .assertion,
+html[data-theme="dark"] .relation-kind {
   border-color: #444b52;
   background: #2b3035;
   color: #aeb5bc;
 }
+
+html[data-theme="dark"] .relation-kind-causal { border-color: #6682a6; color: #b7cae2; }
+html[data-theme="dark"] .relation-kind-mechanistic { border-color: #4f877d; color: #9bc9c0; }
+html[data-theme="dark"] .relation-kind-associative { border-style: dotted; }
+html[data-theme="dark"] .relation-kind-temporal { border-style: dashed; border-color: #8a6d3d; color: #d6b77f; }
+html[data-theme="dark"] .relation-kind-evidentiary { border-style: dashed; border-color: #8a5149; color: #d8a29a; }
+html[data-theme="dark"] .relation-detail { color: #89929b; }
 
 html[data-theme="dark"] .quality-banner {
   border-color: #63543b;

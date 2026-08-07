@@ -29,7 +29,7 @@ class GraphDataTests(unittest.TestCase):
             quality_path=self.output_dir / "graph-quality.json",
         )
 
-        self.assertEqual("1.0", graph["schema_version"])
+        self.assertEqual("1.1", graph["schema_version"])
         self.assertEqual([], validate(graph))
         node_ids = {row["id"] for row in graph["nodes"]}
         node_types = {row["type"] for row in graph["nodes"]}
@@ -139,6 +139,106 @@ class GraphDataTests(unittest.TestCase):
         broken["edges"][0]["target"] = "missing:node"
         errors = validate(broken)
         self.assertTrue(any("dangling target" in error for error in errors))
+
+    def test_builds_auditable_causal_nodes_edges_and_preset(self):
+        source = json.loads((self.case_dir / "case-output.json").read_text(encoding="utf-8"))
+        source["schema_version"] = "1.2"
+        source["records"]["concepts"] = [
+            {
+                "concept_id": "C-DRUG",
+                "concept_type": "intervention",
+                "label": "Durvalumab after chemoradiotherapy",
+                "description": "Defined intervention.",
+                "source_urls": ["https://example.test/trial"],
+            },
+            {
+                "concept_id": "C-OUTCOME",
+                "concept_type": "clinical_outcome",
+                "label": "Progression or death",
+                "description": "Randomized trial endpoint.",
+                "source_urls": ["https://example.test/trial"],
+            },
+        ]
+        source["records"]["evidence"].append(
+            {
+                "finding_id": "CAUSE-001",
+                "conclusion_or_fact": "Randomization supports a treatment effect.",
+                "evidence_type": "randomized_trial",
+                "source_url": "https://example.test/trial",
+                "family_ids": [],
+                "claim_ids": [],
+                "concept_ids": ["C-DRUG", "C-OUTCOME"],
+                "link_methods": ["explicit_concept_id"],
+                "confidence": "high",
+            }
+        )
+        source["records"]["relations"].append(
+            {
+                "relation_id": "REL-CAUSAL",
+                "source_id": "concept:C-DRUG",
+                "relation_type": "REDUCES_RISK_OF",
+                "target_id": "concept:C-OUTCOME",
+                "assertion": "direct_fact",
+                "link_methods": ["curated_causal_relation"],
+                "evidence_ids": ["CAUSE-001"],
+                "properties": {"population": "Trial population"},
+                "relation_kind": "causal",
+                "causal_status": "established",
+                "polarity": "negative",
+                "directness": "total_effect",
+                "evidence_level": "randomized_trial",
+                "confidence": "high",
+                "rationale": "Randomized placebo comparison.",
+                "source_urls": ["https://example.test/trial"],
+            }
+        )
+        case_output_path = self.output_dir / "case-output.json"
+        case_output_path.write_text(json.dumps(source), encoding="utf-8")
+
+        graph, quality = build_graph_data(
+            self.output_dir,
+            case_output_path=case_output_path,
+            output_path=self.output_dir / "graph-data.json",
+            quality_path=self.output_dir / "graph-quality.json",
+        )
+
+        self.assertEqual("1.1", graph["schema_version"])
+        self.assertEqual([], validate(graph))
+        concept = next(node for node in graph["nodes"] if node["id"] == "concept:C-DRUG")
+        self.assertEqual("causal_concept", concept["type"])
+        self.assertEqual("intervention", concept["facets"]["concept_type"][0])
+        edge = next(row for row in graph["edges"] if row["id"] == "REL-CAUSAL")
+        self.assertEqual("causal", edge["relation_kind"])
+        self.assertEqual("established", edge["causal_status"])
+        self.assertEqual("randomized_trial", edge["evidence_level"])
+        causal_preset = next(row for row in graph["presets"] if row["id"] == "causal")
+        self.assertIn("causal_concept", causal_preset["node_types"])
+        self.assertIn("REDUCES_RISK_OF", causal_preset["relation_types"])
+        self.assertEqual(1, quality["metrics"]["causal_relation_count"])
+
+    def test_validator_rejects_causal_graph_edges_without_provenance(self):
+        graph, _ = build_graph_data(
+            self.case_dir,
+            output_path=self.output_dir / "graph-data.json",
+            quality_path=self.output_dir / "graph-quality.json",
+        )
+        broken = copy.deepcopy(graph)
+        broken["schema_version"] = "1.1"
+        broken["edges"][0].update(
+            {
+                "relation_kind": "causal",
+                "causal_status": "established",
+                "evidence_ids": [],
+                "source_urls": [],
+                "rationale": "",
+            }
+        )
+
+        errors = validate(broken)
+
+        self.assertTrue(any("causal edge requires evidence_ids" in error for error in errors))
+        self.assertTrue(any("causal edge requires source_urls" in error for error in errors))
+        self.assertTrue(any("causal edge requires rationale" in error for error in errors))
 
 
 if __name__ == "__main__":

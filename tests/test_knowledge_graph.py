@@ -178,6 +178,20 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn("(timestamp - lastMotionTick) >= 24", html)
         self.assertIn("(now - lastWaveEmission) >= 65", html)
 
+    def test_distinguishes_causal_mechanistic_and_noncausal_edges(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn('node[type = "causal_concept"]', html)
+        self.assertIn('edge[relationKind = "causal"]', html)
+        self.assertIn('edge[relationKind = "mechanistic"]', html)
+        self.assertIn('edge[relationKind = "associative"]', html)
+        self.assertIn("relationKind: edge.relation_kind", html)
+        self.assertIn("causalStatus: edge.causal_status", html)
+        self.assertIn("evidenceLevel: edge.evidence_level", html)
+        self.assertIn('class="relation-kind relation-kind-${escapeHtml(edge.relation_kind)}"', html)
+        self.assertIn("因果状态 / 证据等级", html)
+
 
 if __name__ == "__main__":
     unittest.main()

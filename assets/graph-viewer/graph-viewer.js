@@ -103,6 +103,7 @@
     applicant: 18,
     jurisdiction: 16,
     technology_theme: 21,
+    causal_concept: 26,
     source: 12,
   };
 
@@ -158,6 +159,7 @@
       { selector: 'node.editorial-node[type = "applicant"]', style: { "background-color": "#87909a", "border-color": "#a6adb5", width: 18, height: 18 } },
       { selector: 'node.editorial-node[type = "jurisdiction"]', style: { "background-color": "#668fa0", "border-color": "#8aabb8", width: 16, height: 16 } },
       { selector: 'node.editorial-node[type = "technology_theme"]', style: { "background-color": "#899f68", "border-color": "#adbc92", width: 21, height: 21, "text-max-width": 104 } },
+      { selector: 'node.editorial-node[type = "causal_concept"]', style: { "background-color": "#9bb2d0", "border-color": "#c5d2e2", "border-width": 1.4, width: 26, height: 26, "font-size": 9.2, "font-weight": 600, "text-max-width": 116 } },
       { selector: 'node.editorial-node[type = "source"]', style: { "background-color": "#6e7378", "border-color": "#8a8f94", width: 12, height: 12, color: "#b9bec3", "font-size": 8 } },
       { selector: 'node.corridor-node[type = "research_object"]', style: { width: 46, height: 46 } },
       { selector: 'node.corridor-node[type = "target"]', style: { width: 27, height: 27 } },
@@ -180,6 +182,11 @@
       },
       { selector: 'edge[assertion = "rule_derived"]', style: { "line-style": "dashed" } },
       { selector: 'edge[assertion = "model_inference"]', style: { "line-style": "dotted", opacity: 0.25 } },
+      { selector: 'edge[relationKind = "causal"]', style: { "line-color": "#9bb2d0", "target-arrow-color": "#9bb2d0", "target-arrow-shape": "triangle", "line-style": "solid", width: 1.8, opacity: 0.68 } },
+      { selector: 'edge[relationKind = "mechanistic"]', style: { "line-color": "#5f9e92", "target-arrow-color": "#5f9e92", "target-arrow-shape": "triangle", "line-style": "solid", width: 1.45, opacity: 0.62 } },
+      { selector: 'edge[relationKind = "associative"]', style: { "line-color": "#87909a", "target-arrow-color": "#87909a", "target-arrow-shape": "triangle-tee", "line-style": "dotted", width: 1.05, opacity: 0.48 } },
+      { selector: 'edge[relationKind = "temporal"]', style: { "line-color": "#c49a5a", "target-arrow-color": "#c49a5a", "target-arrow-shape": "triangle", "line-style": "dashed", width: 1.05, opacity: 0.5 } },
+      { selector: 'edge[relationKind = "evidentiary"]', style: { "line-color": "#c97264", "target-arrow-color": "#c97264", "line-style": "dashed", width: 0.95, opacity: 0.44 } },
       { selector: 'edge[type = "SUPPORTED_BY"]', style: { "line-color": "#655156", "target-arrow-color": "#655156" } },
       { selector: 'edge[type = "PROTECTS"]', style: { "line-color": "#5b6250", "target-arrow-color": "#5b6250" } },
       { selector: 'edge[type = "FILED_BY"]', style: { "line-color": "#555b61", "target-arrow-color": "#555b61" } },
@@ -632,6 +639,14 @@
           type: edge.type,
           label: edge.label,
           assertion: edge.assertion,
+          relationKind: edge.relation_kind,
+          causalStatus: edge.causal_status,
+          polarity: edge.polarity,
+          directness: edge.directness,
+          evidenceLevel: edge.evidence_level,
+          confidence: edge.confidence,
+          rationale: edge.rationale,
+          sourceUrls: edge.source_urls,
           linkMethods: edge.link_methods,
           evidenceIds: edge.evidence_ids,
           ...spatialMetrics.edges.get(edge.id),
@@ -822,12 +837,13 @@
       research_object: "#d6d0c4", target: "#8f84b7", indication: "#b56f86",
       patent_family: "#6f8fb9", patent_document: "#5f9e92", claim: "#c49a5a",
       evidence: "#c97264", applicant: "#87909a", jurisdiction: "#668fa0",
-      technology_theme: "#899f68", source: "#6e7378",
+      technology_theme: "#899f68", causal_concept: "#9bb2d0", source: "#6e7378",
     };
     byId("node-legend").innerHTML = DATA.legend.node_types
       .map((row) => `<div class="legend-row"><span class="legend-dot" style="background:${nodeColors[row.value] || "#64748b"}"></span>${escapeHtml(row.label)}</div>`)
       .join("");
-    byId("edge-legend").innerHTML = DATA.legend.assertions
+    const edgeLegend = DATA.legend.relation_kinds || DATA.legend.assertions;
+    byId("edge-legend").innerHTML = edgeLegend
       .map((row) => `<div class="legend-row"><span class="legend-line ${escapeHtml(row.line_style)}"></span>${escapeHtml(row.label)}</div>`)
       .join("");
   }
@@ -835,7 +851,7 @@
   function renderRelationTable(edges) {
     const body = byId("relation-table-body");
     if (!edges.length) {
-      body.innerHTML = '<tr><td colspan="5" class="empty-copy">当前筛选下没有关系边。</td></tr>';
+      body.innerHTML = '<tr><td colspan="6" class="empty-copy">当前筛选下没有关系边。</td></tr>';
       return;
     }
     body.innerHTML = edges.slice(0, 200).map((edge) => {
@@ -845,7 +861,8 @@
         <td><button type="button" data-focus="${escapeHtml(edge.source)}">${escapeHtml(source?.label || edge.source)}</button></td>
         <td>${escapeHtml(edge.label || edge.type)}</td>
         <td><button type="button" data-focus="${escapeHtml(edge.target)}">${escapeHtml(target?.label || edge.target)}</button></td>
-        <td><span class="assertion">${escapeHtml(edge.assertion)}</span></td>
+        <td><span class="relation-kind relation-kind-${escapeHtml(edge.relation_kind)}">${escapeHtml(edge.relation_kind || "structural")}</span><small class="relation-detail">${escapeHtml(edge.assertion || "structured")}</small></td>
+        <td>${escapeHtml(edge.causal_status || "not_applicable")}<small class="relation-detail">${escapeHtml(edge.evidence_level || "not_applicable")} · ${escapeHtml(edge.confidence || "not_assessed")} · ${escapeHtml(edge.directness || "not_applicable")}</small></td>
         <td>${escapeHtml((edge.evidence_ids || []).join("; ") || "—")}</td>
       </tr>`;
     }).join("");
@@ -894,7 +911,7 @@
     return `<div class="node-list">${edges.map((edge) => {
       const otherId = direction === "in" ? edge.source : edge.target;
       const other = nodesById.get(otherId);
-      return `<button class="node-link" type="button" data-focus="${escapeHtml(otherId)}"><span class="node-link-copy"><b>${escapeHtml(edge.label)} · ${escapeHtml(other?.label || otherId)}</b><small>${escapeHtml(edge.assertion)} · ${escapeHtml((edge.link_methods || []).join(" + ") || "未标注")}</small></span><span class="node-link-arrow" aria-hidden="true">→</span></button>`;
+      return `<button class="node-link" type="button" data-focus="${escapeHtml(otherId)}"><span class="node-link-copy"><b>${escapeHtml(edge.label)} · ${escapeHtml(other?.label || otherId)}</b><small>${escapeHtml(edge.relation_kind || "structural")} · ${escapeHtml(edge.causal_status || "not_applicable")} · ${escapeHtml(edge.evidence_level || "not_applicable")}</small></span><span class="node-link-arrow" aria-hidden="true">→</span></button>`;
     }).join("")}</div>`;
   }
 

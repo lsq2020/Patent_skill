@@ -237,7 +237,7 @@ def build_knowledge_graph(
     </div>
     <div class="table-scroll">
       <table class="relation-table">
-        <thead><tr><th>源节点</th><th>关系</th><th>目标节点</th><th>口径</th><th>finding_id</th></tr></thead>
+        <thead><tr><th>源节点</th><th>关系</th><th>目标节点</th><th>关系语义</th><th>因果状态 / 证据等级</th><th>finding_id</th></tr></thead>
         <tbody id="relation-table-body"></tbody>
       </table>
     </div>
