@@ -4,6 +4,12 @@
 The charts are deliberately generated from the case CSV/JSON files instead of
 being embedded as hand-written numbers.  SVG keeps the output portable and
 crisp in Markdown, Word-to-PDF workflows, and the local browser.
+
+Chart *form* follows the data's job (dataviz skill, choosing-a-form.md):
+trend-over-time -> line, magnitude comparison -> sequential-hue bar,
+state/priority signal -> status-palette bars, jurisdiction membership ->
+a real 2D world-map choropleth (see MAP_CHARTS). Colors come from the shared
+`_report_theme` token module (validated palette, not hand-picked hex).
 """
 
 import argparse
@@ -11,12 +17,19 @@ import csv
 import html
 import json
 import re
-from collections import Counter, defaultdict
+import sys
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import _report_theme as theme
+import _world_geo_data as geo
 
-PALETTE = ["#1264d9", "#3c8eea", "#72b7f5", "#9bd4f7", "#f2a93b", "#e3655b", "#6d7892", "#4ab39a"]
+# chart_id -> render form
+LINE_CHARTS = {"priority-year"}
+STATUS_CHARTS = {"status", "risk-priority", "evidence-confidence"}
+MAP_CHARTS = {"jurisdiction"}
 
 
 def load_json(path, default=None):
@@ -97,7 +110,102 @@ def year_counts(families):
     return counter
 
 
-def bar_svg(title, values, *, width=760, label_width=210, color_index=0, note=""):
+def _seq_color(idx, total):
+    """Sequential blue: earlier/smaller bars lighter, larger bars darker."""
+    steps = sorted(theme.SEQUENTIAL)
+    if total <= 1:
+        return theme.SEQUENTIAL[steps[len(steps) // 2]]
+    pos = int((idx / max(1, total - 1)) * (len(steps) - 1))
+    return theme.SEQUENTIAL[steps[min(len(steps) - 1, max(0, pos))]]
+
+
+def bar_chart_svg(title, values, *, chart_id="", width=760, label_width=210, note="", svg_id=None):
+    """Magnitude comparison: sorted bars, sequential-blue (largest = darkest), hover + end label."""
+    values = [(str(k), int(v)) for k, v in values if str(k).strip()]
+    values = values[:12]
+    row_height = 34
+    top = 74
+    bottom = 36
+    height = max(190, top + max(1, len(values)) * row_height + bottom)
+    max_value = max([v for _, v in values] or [1])
+    safe_title = html.escape(title)
+    uid = svg_id or f"c{abs(hash(chart_id or title)) % 100000}"
+    lines = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{safe_title}" class="rv-svg">',
+        f"<title>{safe_title}</title>",
+        f'<rect width="{width}" height="{height}" rx="16" fill="var(--surface,#fff)"/>',
+        f'<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">{safe_title}</text>',
+    ]
+    if note:
+        lines.append(f'<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">{html.escape(note)}</text>')
+    if not values:
+        lines.append('<text x="28" y="105" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="var(--muted,#71809a)">当前数据集暂无可绘制记录</text>')
+    for idx, (label, value) in enumerate(values):
+        y = top + idx * row_height
+        bar_x = label_width
+        bar_max = width - bar_x - 84
+        bar_w = 0 if max_value == 0 else max(2, bar_max * value / max_value)
+        fill = _seq_color(idx, len(values))
+        lines.append(f'<g class="rv-row" data-idx="{uid}-{idx}">')
+        lines.extend([
+            f'<title>{html.escape(label)}: {value}</title>',
+            f'<text x="28" y="{y + 16}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">{html.escape(compact(label, 30))}</text>',
+            f'<rect x="{bar_x}" y="{y + 3}" width="{bar_max}" height="18" rx="9" fill="var(--track,#edf2fa)"/>',
+            f'<rect class="rv-bar" x="{bar_x}" y="{y + 3}" width="{bar_w:.1f}" height="18" rx="9" fill="{fill}"><animate attributeName="width" from="0" to="{bar_w:.1f}" dur=".5s" fill="freeze"/></rect>',
+            f'<text x="{width - 54}" y="{y + 16}" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">{value}</text>',
+        ])
+        lines.append("</g>")
+    lines.append("</svg>")
+    return "\n".join(lines)
+
+
+def line_chart_svg(title, values, *, chart_id="", width=760, note="", svg_id=None):
+    """Trend over time: one series, sequential-blue line + dots, direct end label."""
+    pairs = [(str(k), int(v)) for k, v in values if str(k).strip()]
+    safe_title = html.escape(title)
+    height = 260
+    top, bottom, left, right = 70, 42, 46, 40
+    plot_w = width - left - right
+    plot_h = height - top - bottom
+    lines = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{safe_title}" class="rv-svg">',
+        f"<title>{safe_title}</title>",
+        f'<rect width="{width}" height="{height}" rx="16" fill="var(--surface,#fff)"/>',
+        f'<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">{safe_title}</text>',
+    ]
+    if note:
+        lines.append(f'<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">{html.escape(note)}</text>')
+    if not pairs:
+        lines.append('<text x="28" y="105" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="var(--muted,#71809a)">当前数据集暂无可绘制记录</text>')
+        lines.append("</svg>")
+        return "\n".join(lines)
+    max_v = max(v for _, v in pairs) or 1
+    n = len(pairs)
+    step = plot_w / max(1, n - 1) if n > 1 else 0
+    baseline = top + plot_h
+    lines.append(f'<line x1="{left}" y1="{baseline}" x2="{width - right}" y2="{baseline}" stroke="var(--axis,#c3c2b7)" stroke-width="1"/>')
+    points = []
+    for idx, (label, value) in enumerate(pairs):
+        x = left + (step * idx if n > 1 else plot_w / 2)
+        y = baseline - (value / max_v) * plot_h
+        points.append((x, y, label, value))
+    path_d = " ".join(f"{'M' if i == 0 else 'L'}{x:.1f},{y:.1f}" for i, (x, y, _, _) in enumerate(points))
+    area_d = path_d + f" L{points[-1][0]:.1f},{baseline} L{points[0][0]:.1f},{baseline} Z"
+    accent = theme.ACCENT
+    lines.append(f'<path d="{area_d}" fill="{theme.SEQUENTIAL[150]}" opacity=".55"/>')
+    lines.append(f'<path d="{path_d}" fill="none" stroke="{accent}" stroke-width="2.5"/>')
+    for idx, (x, y, label, value) in enumerate(points):
+        lines.append(f'<g class="rv-row"><title>{html.escape(label)}: {value}</title><circle cx="{x:.1f}" cy="{y:.1f}" r="7" fill="{accent}" stroke="var(--surface,#fff)" stroke-width="2"/></g>')
+        if idx == 0 or idx == len(points) - 1 or value == max_v:
+            lines.append(f'<text x="{x:.1f}" y="{y - 12:.1f}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="var(--ink,#17233b)">{value}</text>')
+        if idx % max(1, n // 8) == 0 or idx == n - 1:
+            lines.append(f'<text x="{x:.1f}" y="{baseline + 18}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">{html.escape(label)}</text>')
+    lines.append("</svg>")
+    return "\n".join(lines)
+
+
+def status_bars_svg(title, values, *, chart_id="", width=760, label_width=210, note="", svg_id=None):
+    """State/priority signal: status-palette color, never plain sequential blue."""
     values = [(str(k), int(v)) for k, v in values if str(k).strip()]
     values = values[:12]
     row_height = 34
@@ -107,29 +215,108 @@ def bar_svg(title, values, *, width=760, label_width=210, color_index=0, note=""
     max_value = max([v for _, v in values] or [1])
     safe_title = html.escape(title)
     lines = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{safe_title}">',
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{safe_title}" class="rv-svg">',
         f"<title>{safe_title}</title>",
-        f'<rect width="{width}" height="{height}" rx="16" fill="#ffffff"/>',
-        f'<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">{safe_title}</text>',
+        f'<rect width="{width}" height="{height}" rx="16" fill="var(--surface,#fff)"/>',
+        f'<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">{safe_title}</text>',
     ]
     if note:
-        lines.append(f'<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">{html.escape(note)}</text>')
+        lines.append(f'<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">{html.escape(note)}</text>')
     if not values:
-        lines.append('<text x="28" y="105" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="#71809a">当前数据集暂无可绘制记录</text>')
+        lines.append('<text x="28" y="105" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="var(--muted,#71809a)">当前数据集暂无可绘制记录</text>')
     for idx, (label, value) in enumerate(values):
         y = top + idx * row_height
         bar_x = label_width
         bar_max = width - bar_x - 84
         bar_w = 0 if max_value == 0 else max(2, bar_max * value / max_value)
-        fill = PALETTE[(color_index + idx) % len(PALETTE)]
+        fill = theme.STATUS[theme.status_for(label)]
+        lines.append(f'<g class="rv-row">')
         lines.extend([
-            f'<text x="28" y="{y + 16}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">{html.escape(compact(label, 30))}</text>',
-            f'<rect x="{bar_x}" y="{y + 3}" width="{bar_max}" height="18" rx="9" fill="#edf2fa"/>',
-            f'<rect x="{bar_x}" y="{y + 3}" width="{bar_w:.1f}" height="18" rx="9" fill="{fill}"/>',
-            f'<text x="{width - 54}" y="{y + 16}" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">{value}</text>',
+            f'<title>{html.escape(label)}: {value}</title>',
+            f'<text x="28" y="{y + 16}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">{html.escape(compact(label, 30))}</text>',
+            f'<rect x="{bar_x}" y="{y + 3}" width="{bar_max}" height="18" rx="9" fill="var(--track,#edf2fa)"/>',
+            f'<rect class="rv-bar" x="{bar_x}" y="{y + 3}" width="{bar_w:.1f}" height="18" rx="9" fill="{fill}"><animate attributeName="width" from="0" to="{bar_w:.1f}" dur=".5s" fill="freeze"/></rect>',
+            f'<text x="{width - 54}" y="{y + 16}" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">{value}</text>',
         ])
+        lines.append("</g>")
     lines.append("</svg>")
     return "\n".join(lines)
+
+
+def _geo_shade(count, max_count):
+    if count <= 0:
+        return "var(--track,#edf2fa)"
+    steps = sorted(theme.SEQUENTIAL)
+    idx = int(round((count / max(1, max_count)) * (len(steps) - 1)))
+    return theme.SEQUENTIAL[steps[max(0, min(len(steps) - 1, idx))]]
+
+
+def geo_map_svg(title, values, *, chart_id="", note="", width=760):
+    """Jurisdiction membership is a geographic fact, not just a magnitude - render
+    the real Natural Earth world outline (see scripts/_world_geo_data.py) with
+    each covered jurisdiction filled by a sequential-blue shade (family count),
+    instead of a bar per country code."""
+    counts = {str(k).strip(): int(v) for k, v in values if str(k).strip()}
+    safe_title = html.escape(title)
+    margin = 20
+    scale = (width - margin * 2) / geo.PLOT_W
+    map_h = geo.PLOT_H * scale
+    top = 74
+    height = top + map_h + 34
+    max_count = max(list(counts.values()) or [1])
+    drawn = set(geo.JURISDICTION_PATHS)
+    other_codes = sorted(c for c in counts if c not in drawn and c != "WO")
+    wo_count = counts.get("WO", 0)
+    lines = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height:.0f}" role="img" aria-label="{safe_title}" class="rv-svg">',
+        f"<title>{safe_title}</title>",
+        f'<rect width="{width}" height="{height:.0f}" rx="16" fill="var(--surface,#fff)"/>',
+        f'<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">{safe_title}</text>',
+    ]
+    if note:
+        lines.append(f'<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">{html.escape(note)}</text>')
+    if not counts:
+        lines.append('<text x="28" y="105" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="var(--muted,#71809a)">当前数据集暂无可绘制记录</text>')
+        lines.append("</svg>")
+        return "\n".join(lines)
+    stroke_w = 1 / scale
+    lines.append(f'<g transform="translate({margin},{top}) scale({scale:.4f})">')
+    lines.append(f'<rect x="0" y="0" width="{geo.PLOT_W}" height="{geo.PLOT_H}" fill="none" stroke="var(--line,#dfe5ec)" stroke-width="{stroke_w:.2f}"/>')
+    lines.append(f'<path d="{geo.LAND_PATH}" fill="var(--line,#dfe5ec)"/>')
+    for code, d in geo.JURISDICTION_PATHS.items():
+        n = counts.get(code, 0)
+        fill = _geo_shade(n, max_count)
+        lines.append(f'<path d="{d}" fill="{fill}" stroke="var(--surface,#fff)" stroke-width="{stroke_w:.2f}"><title>{html.escape(code)}：{n} 族</title></path>')
+    lines.append("</g>")
+    for code, (lx, ly) in geo.LABEL_POINTS.items():
+        n = counts.get(code, 0)
+        x, y = margin + lx * scale, top + ly * scale
+        lines.append(f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" font-weight="700" fill="var(--ink,#17233b)">{html.escape(code)}</text>')
+        lines.append(f'<text x="{x:.1f}" y="{y + 11:.1f}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9" fill="var(--muted,#71809a)">{n}</text>')
+    footer = [f"WO/PCT {wo_count} 族（全球/PCT 申请，不对应单一坐标）"]
+    if other_codes:
+        footer.append("另有 " + "、".join(f"{c} {counts[c]} 族" for c in other_codes) + " 未在地图上单独标出（示意范围之外的法域）")
+    lines.append(f'<text x="28" y="{height - 12:.0f}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">{html.escape(" · ".join(footer))}</text>')
+    lines.append("</svg>")
+    return "\n".join(lines)
+
+
+def render_chart(chart_id, title, values, note):
+    if chart_id in MAP_CHARTS:
+        return geo_map_svg(title, values, chart_id=chart_id, note=note), "map"
+    if chart_id in LINE_CHARTS:
+        return line_chart_svg(title, values, chart_id=chart_id, note=note), "line"
+    if chart_id in STATUS_CHARTS:
+        return status_bars_svg(title, values, chart_id=chart_id, note=note), "status"
+    return bar_chart_svg(title, values, chart_id=chart_id, note=note), "bar"
+
+
+def table_view(values):
+    rows = [(str(k), int(v)) for k, v in values if str(k).strip()]
+    if not rows:
+        return ""
+    body = "".join(f"<tr><td>{html.escape(label)}</td><td>{value}</td></tr>" for label, value in rows)
+    return f'<details class="chart-table"><summary>数据表格</summary><table><thead><tr><th>类别</th><th>数量</th></tr></thead><tbody>{body}</tbody></table></details>'
 
 
 def metric_card(label, value, hint):
@@ -161,7 +348,7 @@ def build_dataset(project):
             "values": sorted(Counter(family_stage(f) for f in families).items(), key=lambda x: (-x[1], x[0])),
         },
         {
-            "id": "priority-year", "title": "最早优先权年度分布", "metric_definition": "按族级 earliest_priority 的年份统计。",
+            "id": "priority-year", "title": "最早优先权年度分布", "metric_definition": "按族级 earliest_priority 的年份统计（趋势折线）。",
             "source_fields": ["earliest_priority"], "values": sorted(year_counts(families).items()),
         },
         {
@@ -177,16 +364,16 @@ def build_dataset(project):
             "source_fields": ["claim_category"], "values": sorted(count_values(claims, "claim_category").items(), key=lambda x: (-x[1], x[0])),
         },
         {
-            "id": "status", "title": "状态信号分布", "metric_definition": "把官方状态和状态来源文字归入研究阶段信号，不替代官方法律状态。",
+            "id": "status", "title": "状态信号分布", "metric_definition": "把官方状态和状态来源文字归入研究阶段信号（状态色板），不替代官方法律状态。",
             "source_fields": ["official_status", "status_source", "official_status_signal"],
             "values": sorted(Counter(status_bucket(f"{f.get('official_status', '')} {f.get('status_source', '')}") for f in families).items(), key=lambda x: (-x[1], x[0])),
         },
         {
-            "id": "risk-priority", "title": "FTO 复核优先级", "metric_definition": "按 fto-candidate-ranking.csv 的 review_priority 统计；是复核队列，不是侵权概率。",
+            "id": "risk-priority", "title": "FTO 复核优先级", "metric_definition": "按 fto-candidate-ranking.csv 的 review_priority 统计（状态色板）；是复核队列，不是侵权概率。",
             "source_fields": ["review_priority"], "values": sorted(count_values(ranking, "review_priority").items(), key=lambda x: ({"HIGH": 0, "MEDIUM": 1, "LOW": 2}.get(x[0], 9), x[0])),
         },
         {
-            "id": "evidence-confidence", "title": "证据置信度分布", "metric_definition": "按 evidence.csv 的 confidence 字段统计。",
+            "id": "evidence-confidence", "title": "证据置信度分布", "metric_definition": "按 evidence.csv 的 confidence 字段统计（状态色板）。",
             "source_fields": ["confidence"], "values": sorted(count_values(evidence, "confidence").items(), key=lambda x: (-x[1], x[0])),
         },
         {
@@ -242,29 +429,34 @@ def build_html(project, chart_defs, metrics, scope, manifest):
             chart = chart_map.get(chart_id)
             if not chart:
                 continue
-            svg = bar_svg(chart["title"], chart["values"], note=chart["metric_definition"])
-            chart_html.append(f'<article class="chart-card">{svg}<div class="chart-note">口径：{html.escape(chart["metric_definition"])}</div></article>')
+            svg, form = render_chart(chart_id, chart["title"], chart["values"], chart["metric_definition"])
+            form_label = {"line": "趋势折线", "status": "状态色板", "bar": "顺序色阶条形图", "map": "真实世界地图"}[form]
+            chart_html.append(
+                f'<article class="chart-card">{svg}'
+                f'<div class="chart-note">口径：{html.escape(chart["metric_definition"])} · 形式：{form_label}</div>'
+                f'{table_view(chart["values"])}'
+                f'</article>'
+            )
         chart_html.append("</div></section>")
     generated = manifest["generated_at"]
     return f'''<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title>
 <style>
-:root {{ --blue:#1264d9; --blue2:#eaf4ff; --ink:#17233b; --muted:#71809a; --line:#dce6f2; --bg:#f5f8fc; }}
-* {{ box-sizing:border-box; }} body {{ margin:0; color:var(--ink); background:var(--bg); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; }}
+{theme.css_tokens()}
+{theme.shared_component_css()}
 .page {{ max-width:1480px; margin:0 auto; padding:34px 40px 60px; }}
-.hero {{ background:linear-gradient(135deg,#f8fbff,#eaf4ff); border:1px solid #d4e6fb; border-radius:22px; padding:30px 34px 26px; box-shadow:0 8px 24px rgba(18,100,217,.06); }}
-.eyebrow {{ color:var(--blue); font-weight:700; letter-spacing:.08em; font-size:13px; }} h1 {{ margin:10px 0 8px; font-size:32px; }} .hero p {{ margin:0; color:var(--muted); line-height:1.7; }}
-.metrics {{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; margin:20px 0; }} .metric {{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px; }} .metric-value {{ color:var(--blue); font-size:27px; font-weight:800; }} .metric-label {{ margin-top:5px; font-size:14px; font-weight:700; }} .metric-hint {{ margin-top:7px; color:var(--muted); font-size:12px; }}
-.steps {{ display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 26px; }} .step {{ display:flex; align-items:center; gap:9px; color:var(--ink); text-decoration:none; background:#fff; border:1px solid var(--line); border-radius:999px; padding:8px 14px 8px 9px; }} .step span {{ width:27px; height:27px; display:grid; place-items:center; border-radius:50%; color:#fff; background:var(--blue); font-size:11px; font-weight:800; }} .step:hover {{ border-color:var(--blue); color:var(--blue); }}
-.section {{ margin:26px 0; }} .section-title {{ display:flex; justify-content:space-between; align-items:baseline; margin:0 2px 12px; }} .section-title h2 {{ margin:0; font-size:22px; }} .section-title span {{ color:var(--muted); font-size:12px; }} .chart-grid {{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }} .chart-card {{ background:#fff; border:1px solid var(--line); border-radius:18px; padding:14px; box-shadow:0 4px 14px rgba(25,63,115,.04); }} .chart-card svg {{ display:block; width:100%; height:auto; }} .chart-note {{ border-top:1px solid #edf1f7; padding:10px 12px 3px; color:var(--muted); font-size:12px; line-height:1.6; }}
-.footer {{ margin-top:30px; padding:18px 20px; background:#fff; border:1px solid var(--line); border-radius:16px; color:var(--muted); font-size:12px; line-height:1.7; }} .footer a {{ color:var(--blue); }}
+h1 {{ margin:10px 0 8px; font-size:32px; }}
+.steps {{ display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 26px; }} .step {{ display:flex; align-items:center; gap:9px; color:var(--ink); text-decoration:none; background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:8px 14px 8px 9px; }} .step span {{ width:27px; height:27px; display:grid; place-items:center; border-radius:50%; color:#fff; background:var(--accent); font-size:11px; font-weight:800; }} .step:hover {{ border-color:var(--accent); color:var(--accent); }}
+.section {{ margin:26px 0; }} .section-title {{ display:flex; justify-content:space-between; align-items:baseline; margin:0 2px 12px; }} .section-title h2 {{ margin:0; font-size:22px; }} .section-title span {{ color:var(--muted); font-size:12px; }} .chart-grid {{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }}
+.rv-row {{ cursor:default; }} .rv-row:hover .rv-bar {{ filter:brightness(1.1); }} .rv-row:hover text {{ font-weight:800; }}
+.footer {{ margin-top:30px; padding:18px 20px; background:var(--surface); border:1px solid var(--line); border-radius:16px; color:var(--muted); font-size:12px; line-height:1.7; }} .footer a {{ color:var(--accent); }}
 @media (max-width:900px) {{ .page {{ padding:20px 16px 40px; }} .metrics {{ grid-template-columns:repeat(2,minmax(0,1fr)); }} .chart-grid {{ grid-template-columns:1fr; }} h1 {{ font-size:25px; }} }}
 </style></head><body><main class="page">
-<header class="hero"><div class="eyebrow">MEDTECH PATENT ROADMAP · FTO-STYLE VISUAL REPORT</div><h1>{html.escape(title)}</h1><p>案例范围：{html.escape(obj.get('molecule', '未指定'))} · {html.escape(obj.get('target', '未指定'))} · {html.escape(obj.get('indication', '未指定'))}<br>生成时间：{html.escape(generated)} · 图表均由案例结构化数据自动生成。</p></header>
+<header class="hero"><div class="eyebrow">MEDTECH PATENT ROADMAP · FTO-STYLE VISUAL REPORT</div><h1>{html.escape(title)}</h1><p>案例范围：{html.escape(obj.get('molecule', '未指定'))} · {html.escape(obj.get('target', '未指定'))} · {html.escape(obj.get('indication', '未指定'))}<br>生成时间：{html.escape(generated)} · 图表均由案例结构化数据自动生成；图表形式按数据类型分配（趋势用折线、量级比较用顺序色阶、状态/优先级用状态色板）。</p></header>
 <div class="metrics">{"".join(cards)}</div><nav class="steps">{step_html}</nav>
 {"".join(chart_html)}
-<div class="footer">口径提示：统计图用于导航、比较和复核排序，不等同于权利要求覆盖、法律有效性或侵权概率。<br>交付入口：<a href="report-index.md">模块化报告索引</a> · <a href="04-risk-and-fto-report.md">风险 / FTO 报告</a> · <a href="visuals/manifest.json">图表数据清单</a></div>
+<div class="footer">口径提示：统计图用于导航、比较和复核排序，不等同于权利要求覆盖、法律有效性或侵权概率。每张图下方可展开"数据表格"查看原始数值。<br>交付入口：<a href="report-index.md">模块化报告索引</a> · <a href="04-risk-and-fto-report.md">风险 / FTO 报告</a> · <a href="visuals/manifest.json">图表数据清单</a></div>
 </main></body></html>'''
 
 
@@ -276,7 +468,7 @@ def build_visuals(project):
     visuals_dir.mkdir(parents=True, exist_ok=True)
     generated = datetime.now(timezone.utc).isoformat()
     manifest = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "case": project.name,
         "generated_at": generated,
         "metrics": metrics,
@@ -285,14 +477,16 @@ def build_visuals(project):
             "统计单位依图表说明而异：族图通常按 family_id，claim 图按要素记录，证据图按 evidence.csv 条目。",
             "状态图是文本信号分类，必须回到目标法域官方登记簿核验。",
             "来源图是 CNIPA/PatentDatabases 目录快照，不等于本案已访问结果集。",
+            "图表形式按数据类型分配（趋势/量级/状态），颜色取自已验证的 dataviz 参考色板，不逐图手工调色。",
         ],
     }
-    for index, chart in enumerate(chart_defs):
+    for chart in chart_defs:
         svg_name = f"{chart['id']}-distribution.svg"
         svg_path = visuals_dir / svg_name
-        svg_path.write_text(bar_svg(chart["title"], chart["values"], color_index=index, note=chart["metric_definition"]), encoding="utf-8")
+        svg_markup, form = render_chart(chart["id"], chart["title"], chart["values"], chart["metric_definition"])
+        svg_path.write_text(svg_markup, encoding="utf-8")
         manifest["charts"].append({
-            "id": chart["id"], "title": chart["title"], "filename": svg_name,
+            "id": chart["id"], "title": chart["title"], "filename": svg_name, "form": form,
             "metric_definition": chart["metric_definition"], "source_fields": chart["source_fields"],
             "values": [[str(k), int(v)] for k, v in chart["values"]],
         })

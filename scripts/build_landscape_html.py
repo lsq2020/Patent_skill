@@ -5,7 +5,11 @@ import argparse
 import csv
 import html
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import _report_theme as theme
 
 
 def _first(row, *keys):
@@ -74,14 +78,14 @@ def render(title, as_of, families):
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title_safe}</title>
 <style>
-:root{{--ink:#18202b;--muted:#637083;--line:#dfe5ec;--blue:#155eef;--blue-soft:#eaf1ff;--teal:#008a8a;--amber:#b77900;--bg:#f6f8fb;--surface:#fff}}
+{theme.css_tokens()}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}}
-main{{max-width:1280px;margin:0 auto;padding:28px 22px 50px}}header{{display:flex;justify-content:space-between;gap:20px;margin-bottom:20px}}h1{{font-size:28px;margin:0 0 5px}}h2{{font-size:18px;margin:0 0 14px}}.muted{{color:var(--muted)}}.notice{{background:#fff8e6;border:1px solid #f0d48a;border-radius:10px;padding:11px 13px;color:#6d5000;margin-bottom:18px}}
+main{{max-width:1280px;margin:0 auto;padding:28px 22px 50px}}header{{display:flex;justify-content:space-between;gap:20px;margin-bottom:20px}}h1{{font-size:28px;margin:0 0 5px}}h2{{font-size:18px;margin:0 0 14px}}.muted{{color:var(--muted)}}.notice{{background:color-mix(in srgb,var(--warning) 14%,var(--surface));border:1px solid color-mix(in srgb,var(--warning) 45%,var(--surface));border-radius:10px;padding:11px 13px;color:#6d5000;margin-bottom:18px}}
 .controls{{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}}label{{font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center}}select{{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--surface);min-width:150px}}
-.metrics{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}}.metric,.panel{{background:var(--surface);border:1px solid var(--line);border-radius:12px}}.metric{{padding:14px 16px}}.metric span{{display:block;color:var(--muted);font-size:12px}}.metric strong{{font-size:26px}}
-.grid{{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}}.panel{{padding:17px;margin-bottom:16px}}.full{{grid-column:1/-1}}table{{width:100%;border-collapse:collapse}}th,td{{text-align:left;padding:9px 7px;border-bottom:1px solid #edf0f4;vertical-align:top}}th{{font-size:12px;color:var(--muted);font-weight:500}}a{{color:var(--blue);text-decoration:none}}.tag{{display:inline-block;background:var(--blue-soft);color:#174ea6;border-radius:999px;padding:2px 7px;font-size:11px;margin-right:4px}}.tag.teal{{background:#e2f7f7;color:#087575}}.tag.amber{{background:#fff1cc;color:#7a5600}}
-.timeline{{display:grid;gap:9px}}.tr{{display:grid;grid-template-columns:62px 1fr;gap:10px;align-items:center}}.track{{display:flex;align-items:center;gap:8px;border-bottom:1px solid #edf0f4;min-height:28px}}.dot{{width:11px;height:11px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px var(--blue-soft)}}.dot.resistance{{background:var(--teal);box-shadow:0 0 0 4px #e2f7f7}}.dot.watch{{background:var(--amber);box-shadow:0 0 0 4px #fff1cc}}
-.roadmap{{display:flex;align-items:center;gap:7px;flex-wrap:wrap}}.node{{background:var(--blue-soft);border:1px solid #c9d9ff;border-radius:9px;padding:9px;text-align:center}}.arrow{{font-size:20px;color:var(--muted)}}.foot{{font-size:12px;color:var(--muted);margin-top:10px}}@media(max-width:900px){{.grid{{grid-template-columns:1fr}}.metrics{{grid-template-columns:repeat(2,1fr)}}header{{display:block}}}}@media(max-width:560px){{main{{padding:18px 12px}}.family-table{{display:block;overflow-x:auto;white-space:nowrap}}}}
+.metrics{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}}.metric,.panel{{background:var(--surface);border:1px solid var(--line);border-radius:12px}}.metric{{padding:14px 16px}}.metric span{{display:block;color:var(--muted);font-size:12px}}.metric strong{{font-size:26px;color:var(--accent)}}
+.grid{{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}}.panel{{padding:17px;margin-bottom:16px}}.full{{grid-column:1/-1}}table{{width:100%;border-collapse:collapse}}th,td{{text-align:left;padding:9px 7px;border-bottom:1px solid var(--line);vertical-align:top}}th{{font-size:12px;color:var(--muted);font-weight:500}}a{{color:var(--accent);text-decoration:none}}.tag{{display:inline-block;background:var(--accent-soft);color:#174ea6;border-radius:999px;padding:2px 7px;font-size:11px;margin-right:4px}}.tag.teal{{background:color-mix(in srgb,var(--cat-3) 18%,var(--surface));color:#0a6b52}}.tag.amber{{background:color-mix(in srgb,var(--warning) 20%,var(--surface));color:#7a5600}}
+.timeline{{display:grid;gap:9px}}.tr{{display:grid;grid-template-columns:62px 1fr;gap:10px;align-items:center}}.track{{display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line);min-height:28px}}.dot{{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}}.dot.resistance{{background:var(--cat-3);box-shadow:0 0 0 4px color-mix(in srgb,var(--cat-3) 18%,var(--surface))}}.dot.watch{{background:var(--warning);box-shadow:0 0 0 4px color-mix(in srgb,var(--warning) 20%,var(--surface))}}
+.roadmap{{display:flex;align-items:center;gap:7px;flex-wrap:wrap}}.node{{background:var(--accent-soft);border:1px solid var(--seq-200);border-radius:9px;padding:9px;text-align:center}}.arrow{{font-size:20px;color:var(--muted)}}.foot{{font-size:12px;color:var(--muted);margin-top:10px}}@media(max-width:900px){{.grid{{grid-template-columns:1fr}}.metrics{{grid-template-columns:repeat(2,1fr)}}header{{display:block}}}}@media(max-width:560px){{main{{padding:18px 12px}}.family-table{{display:block;overflow-x:auto;white-space:nowrap}}}}
 </style></head><body><main>
 <header><div><h1>{title_safe}</h1><p class="muted">可复核专利族景观；支持按技术主题、法域和状态筛选。</p></div><div class="muted">案例快照<br>{asof_safe}</div></header>
 <div class="notice">状态和风险为研究快照，不构成法律意见或 FTO 结论。来源应回到专利文本和目标法域官方登记簿复核。</div>
