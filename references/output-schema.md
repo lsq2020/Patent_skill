@@ -1,6 +1,6 @@
 # case-output.json 数据契约
 
-`case-output.json` 是 CSV、证据链、报告和图谱之间的稳定接口。当前版本为 `1.1`，在 `1.0` 的报告契约上增加稳定 claim ID、文献记录和一等关系边。
+`case-output.json` 是 CSV、证据链、报告和图谱之间的稳定接口。当前版本为 `1.2`，在 `1.1` 的一等关系边上增加因果概念、统一关系语义和证据门槛。
 
 ## 顶层结构
 
@@ -15,6 +15,7 @@ case-output.json
 │   ├── documents
 │   ├── claims
 │   ├── evidence
+│   ├── concepts
 │   ├── relations
 │   └── ranking
 ├── uncertainty
@@ -30,7 +31,8 @@ case-output.json
 - `claim_id`：优先沿用输入值；缺失时由 family、document、类别、定位、要素和 coverage 的规范化指纹生成 `CLM-*`。调整 CSV 行顺序不会改变 ID。
 - `finding_id`：沿用 evidence CSV 的人工稳定 ID。
 - `relation_id`：由 `source_id + relation_type + target_id` 生成 `REL-*`。
-- 图节点 ID 使用命名空间：`family:*`、`document:*`、`claim:*`、`finding:*`。
+- `concept_id`：沿用 `causal-relationships.json` 中的人工稳定 ID。
+- 图节点 ID 使用命名空间：`family:*`、`document:*`、`claim:*`、`finding:*`、`concept:*`。
 
 ## 关系字段
 
@@ -77,11 +79,12 @@ Evidence 记录统一包含：
   "finding_id": "FIND-001",
   "family_ids": ["FAM-001"],
   "claim_ids": ["CLM-..."],
+  "concept_ids": ["CONCEPT-..."],
   "link_methods": ["document_no"]
 }
 ```
 
-优先使用输入的 `family_ids` / `claim_ids`。缺失时只允许通过完全规范化的 `document_no` 或相同 `source_url` 建立规则关系；无法匹配时保留孤立 finding 并写入质量缺口。
+优先使用输入的 `family_ids` / `claim_ids` / `concept_ids`。缺失时只允许通过完全规范化的 `document_no` 或相同 `source_url` 建立规则关系；无法匹配时保留孤立 finding 并写入质量缺口。
 
 ## 一等关系边
 
@@ -90,6 +93,8 @@ Evidence 记录统一包含：
 ```text
 relation_id | source_id | relation_type | target_id
 assertion | link_methods | evidence_ids | properties
+relation_kind | causal_status | polarity | directness
+evidence_level | confidence | rationale | source_urls
 ```
 
 `assertion` 只允许：
@@ -100,9 +105,13 @@ assertion | link_methods | evidence_ids | properties
 
 边只存一次。反向链接由图谱视图根据入边动态计算。
 
+`relation_kind` 将边分为 `structural`、`evidentiary`、`temporal`、`associative`、`mechanistic` 和 `causal`。只有 `mechanistic` / `causal` 可以表达因果，且必须同时具备非空 `evidence_ids`、`source_urls`、`rationale` 和已评估的 `confidence`。`causal_status` 区分 `established`、`supported` 与 `hypothesized`；专利披露、同族、优先权、引用或共现不得自动升级为因果。
+
+`evidence_level` 记录证据设计，而不是单纯来源名称：`randomized_trial`、`preclinical_experiment`、`regulatory_statement`、`observational_study`、`patent_disclosure`、`structured_metadata` 或 `expert_inference`。随机试验的因果结论必须保留入组人群与终点范围；前临床机制不得外推为人体临床获益。
+
 ## 兼容和校验
 
 - 旧 CSV 不必立即新增列；构建器会补 `claim_id`、数组字段和可确定的规则关系。
-- 新采集优先直接写 `claim_id`、`representative_document_assignee`、`family_ownership_summary`、`members`、`priority_set`、`member_relations`、`family_relations`、`family_ids` 和 `claim_ids`。
-- `validate_output_schema.py` 检查 ID 唯一性、数组字段、悬空边和 assertion 枚举。
+- 新采集优先直接写 `claim_id`、`representative_document_assignee`、`family_ownership_summary`、`members`、`priority_set`、`member_relations`、`family_relations`、`family_ids`、`claim_ids`、`concept_ids` 和完整关系语义。
+- `validate_output_schema.py` 检查 ID 唯一性、数组字段、悬空边、关系枚举、证据引用完整性和因果门槛。
 - `confidence` 表示证据可信度，不表示侵权概率或法律状态结论。

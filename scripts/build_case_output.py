@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-SCHEMA_VERSION = "1.1"
+SCHEMA_VERSION = "1.2"
 REPORT_PATHS = [
     "00-executive-summary.md",
     "01-extraction-report.md",
@@ -36,6 +36,32 @@ FAMILY_RELATION_TYPES = {
     "PRIORITY_TO",
     "RELATED_TO",
 }
+TEMPORAL_RELATION_TYPES = FAMILY_RELATION_TYPES - {"RELATED_TO"}
+
+
+def relation_semantics(relation_type, overrides=None):
+    if relation_type in {"SUPPORTED_BY", "HAS_SOURCE"}:
+        relation_kind = "evidentiary"
+        evidence_level = "structured_metadata"
+    elif relation_type in TEMPORAL_RELATION_TYPES:
+        relation_kind = "temporal"
+        evidence_level = "structured_metadata"
+    else:
+        relation_kind = "structural"
+        evidence_level = "structured_metadata"
+    values = {
+        "relation_kind": relation_kind,
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": evidence_level,
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": [],
+    }
+    values.update(overrides or {})
+    values["source_urls"] = unique_strings(values.get("source_urls", []))
+    return values
 
 
 def load_json(path, default=None):
@@ -300,6 +326,21 @@ def normalize_claims(rows):
     return claims
 
 
+def normalize_concepts(rows):
+    concepts = []
+    for source in rows or []:
+        if not isinstance(source, dict):
+            continue
+        row = dict(source)
+        row["concept_id"] = str(row.get("concept_id") or "").strip()
+        row["concept_type"] = str(row.get("concept_type") or "").strip()
+        row["label"] = str(row.get("label") or "").strip()
+        row["description"] = str(row.get("description") or "").strip()
+        row["source_urls"] = unique_strings(row.get("source_urls", []))
+        concepts.append(row)
+    return concepts
+
+
 def build_document_index(families, claims, evidence):
     documents = {}
 
@@ -367,10 +408,13 @@ def normalize_evidence(rows, families, claims):
         methods = []
         family_ids = set(split_values(row.get("family_ids") or row.get("family_id")))
         claim_ids = set(split_values(row.get("claim_ids") or row.get("claim_id")))
+        concept_ids = set(split_values(row.get("concept_ids") or row.get("concept_id")))
         if family_ids:
             methods.append("explicit_family_id")
         if claim_ids:
             methods.append("explicit_claim_id")
+        if concept_ids:
+            methods.append("explicit_concept_id")
 
         document_key = normalize_document(row.get("document_no"))
         if document_key:
@@ -389,15 +433,16 @@ def normalize_evidence(rows, families, claims):
         family_ids.update(claim_family.get(claim_id) for claim_id in claim_ids)
         row["family_ids"] = sorted(value for value in family_ids if value)
         row["claim_ids"] = sorted(value for value in claim_ids if value)
+        row["concept_ids"] = sorted(value for value in concept_ids if value)
         row["link_methods"] = unique_strings(methods)
         normalized.append(row)
     return normalized
 
 
-def build_relations(families, claims, evidence):
+def build_relations(families, claims, evidence, curated_relations=None):
     relations = {}
 
-    def add(source_id, relation_type, target_id, assertion, link_method, evidence_ids=None, properties=None):
+    def add(source_id, relation_type, target_id, assertion, link_method, evidence_ids=None, properties=None, semantics=None):
         if not source_id or not target_id:
             return
         key = (source_id, relation_type, target_id)
@@ -412,6 +457,7 @@ def build_relations(families, claims, evidence):
                 "link_methods": unique_strings([link_method]),
                 "evidence_ids": evidence_ids,
                 "properties": properties or {},
+                **relation_semantics(relation_type, semantics),
             }
             return
         row = relations[key]
@@ -419,6 +465,8 @@ def build_relations(families, claims, evidence):
             row["assertion"] = "direct_fact"
         row["link_methods"] = unique_strings(row["link_methods"] + [link_method])
         row["evidence_ids"] = unique_strings(row["evidence_ids"] + evidence_ids)
+        if semantics:
+            row.update(relation_semantics(relation_type, semantics))
 
     for family in families:
         family_node = f"family:{family.get('family_id')}"
@@ -511,6 +559,39 @@ def build_relations(families, claims, evidence):
                 method,
                 evidence_ids,
             )
+        for concept_id in finding.get("concept_ids", []):
+            add(
+                f"concept:{concept_id}",
+                "SUPPORTED_BY",
+                finding_node,
+                assertion,
+                method,
+                evidence_ids,
+            )
+
+    semantic_fields = {
+        "relation_kind",
+        "causal_status",
+        "polarity",
+        "directness",
+        "evidence_level",
+        "confidence",
+        "rationale",
+        "source_urls",
+    }
+    for relation in curated_relations or []:
+        if not isinstance(relation, dict):
+            continue
+        add(
+            relation.get("source_id"),
+            normalize_relation_type(relation.get("relation_type")),
+            relation.get("target_id"),
+            relation.get("assertion", "direct_fact"),
+            "+".join(split_values(relation.get("link_methods"))) or "curated_relation",
+            split_values(relation.get("evidence_ids")),
+            relation.get("properties", {}),
+            {key: relation.get(key) for key in semantic_fields if key in relation},
+        )
     return sorted(relations.values(), key=lambda row: row["relation_id"])
 
 
@@ -536,6 +617,7 @@ def input_paths(project):
         project / "public-source-search-results.json",
         project / "patent-database-sources.json",
         project / "fto-candidate-ranking.csv",
+        project / "causal-relationships.json",
     ]
     candidates += sorted(project.glob("*-patent-families.csv"))
     candidates += sorted(project.glob("*-claim-elements.csv"))
@@ -608,15 +690,21 @@ def build_case_output(project):
     raw_evidence = load_csv(first_match(project, "*-evidence.csv"))
     ranking = load_csv(project / "fto-candidate-ranking.csv")
     source_log = load_jsonl(project / "source-log.jsonl")
+    causal_input = load_json(project / "causal-relationships.json", {})
 
     families = normalize_families(raw_families)
     claims = normalize_claims(raw_claims)
-    evidence = normalize_evidence(raw_evidence, families, claims)
+    concepts = normalize_concepts(causal_input.get("concepts", []))
+    evidence = normalize_evidence(
+        raw_evidence + list(causal_input.get("evidence", [])), families, claims
+    )
     documents_by_key = build_document_index(families, claims, evidence)
     documents = sorted(documents_by_key.values(), key=lambda row: normalize_document(row["document_id"]))
-    relations = build_relations(families, claims, evidence)
+    relations = build_relations(
+        families, claims, evidence, causal_input.get("relations", [])
+    )
     uncertainty = build_uncertainty(families, claims, evidence)
-    urls = source_urls(families, claims, evidence, ranking, source_log)
+    urls = source_urls(families, claims, evidence, concepts, ranking, source_log)
     generated = datetime.now(timezone.utc).isoformat()
 
     report_rows = []
@@ -658,6 +746,10 @@ def build_case_output(project):
         "family_count": len(families),
         "claim_count": len(claims),
         "evidence_count": len(evidence),
+        "concept_count": len(concepts),
+        "causal_relation_count": sum(
+            1 for row in relations if row["relation_kind"] in {"causal", "mechanistic"}
+        ),
         "document_count": len(documents),
         "relation_count": len(relations),
         "family_relation_count": family_relation_count,
@@ -706,6 +798,7 @@ def build_case_output(project):
             "documents": documents,
             "claims": claims,
             "evidence": evidence,
+            "concepts": concepts,
             "relations": relations,
             "ranking": ranking,
         },

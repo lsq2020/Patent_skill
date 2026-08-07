@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.local/patent-skill/output-schema-1.1.json",
+  "$id": "https://example.local/patent-skill/output-schema-1.2.json",
   "title": "Medtech Patent Roadmap Case Output",
   "type": "object",
   "additionalProperties": true,
@@ -17,7 +17,7 @@
     "contract"
   ],
   "properties": {
-    "schema_version": {"const": "1.1"},
+    "schema_version": {"const": "1.2"},
     "case": {
       "type": "object",
       "required": ["case_id", "research_object", "jurisdictions", "as_of", "depth"]
@@ -30,7 +30,7 @@
     "records": {
       "type": "object",
       "additionalProperties": true,
-      "required": ["families", "documents", "claims", "evidence", "relations", "ranking"],
+      "required": ["families", "documents", "claims", "evidence", "concepts", "relations", "ranking"],
       "properties": {
         "families": {
           "type": "array",
@@ -47,6 +47,10 @@
         "evidence": {
           "type": "array",
           "items": {"$ref": "#/$defs/evidence"}
+        },
+        "concepts": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/concept"}
         },
         "relations": {
           "type": "array",
@@ -144,12 +148,25 @@
     "evidence": {
       "type": "object",
       "additionalProperties": true,
-      "required": ["finding_id", "family_ids", "claim_ids", "link_methods"],
+        "required": ["finding_id", "family_ids", "claim_ids", "concept_ids", "link_methods"],
       "properties": {
         "finding_id": {"type": "string", "minLength": 1},
         "family_ids": {"type": "array", "items": {"type": "string"}},
         "claim_ids": {"type": "array", "items": {"type": "string"}},
+        "concept_ids": {"type": "array", "items": {"type": "string"}},
         "link_methods": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "concept": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["concept_id", "concept_type", "label", "description", "source_urls"],
+      "properties": {
+        "concept_id": {"type": "string", "minLength": 1},
+        "concept_type": {"type": "string", "minLength": 1},
+        "label": {"type": "string", "minLength": 1},
+        "description": {"type": "string"},
+        "source_urls": {"type": "array", "items": {"type": "string", "format": "uri"}}
       }
     },
     "relation": {
@@ -163,7 +180,15 @@
         "assertion",
         "link_methods",
         "evidence_ids",
-        "properties"
+        "properties",
+        "relation_kind",
+        "causal_status",
+        "polarity",
+        "directness",
+        "evidence_level",
+        "confidence",
+        "rationale",
+        "source_urls"
       ],
       "properties": {
         "relation_id": {"type": "string", "pattern": "^REL-"},
@@ -175,7 +200,30 @@
         },
         "link_methods": {"type": "array", "items": {"type": "string"}},
         "evidence_ids": {"type": "array", "items": {"type": "string"}},
-        "properties": {"type": "object"}
+        "properties": {"type": "object"},
+        "relation_kind": {
+          "enum": ["structural", "evidentiary", "causal", "mechanistic", "associative", "temporal"]
+        },
+        "causal_status": {
+          "enum": ["not_applicable", "established", "supported", "hypothesized", "not_causal"]
+        },
+        "polarity": {"enum": ["positive", "negative", "mixed", "neutral"]},
+        "directness": {"enum": ["direct", "mediated", "total_effect", "not_applicable"]},
+        "evidence_level": {
+          "enum": [
+            "not_applicable",
+            "structured_metadata",
+            "patent_disclosure",
+            "regulatory_statement",
+            "preclinical_experiment",
+            "randomized_trial",
+            "observational_study",
+            "expert_inference"
+          ]
+        },
+        "confidence": {"enum": ["high", "medium", "low", "not_assessed"]},
+        "rationale": {"type": "string"},
+        "source_urls": {"type": "array", "items": {"type": "string", "format": "uri"}}
       }
     }
   }

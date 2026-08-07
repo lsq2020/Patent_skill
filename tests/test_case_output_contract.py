@@ -147,7 +147,7 @@ class CaseOutputContractTests(unittest.TestCase):
     def test_builds_stable_ids_and_first_class_relations(self):
         output = build_case_output(self.project)
 
-        self.assertEqual("1.1", output["schema_version"])
+        self.assertEqual("1.2", output["schema_version"])
         self.assertEqual([], validate(output))
         claim_ids = [row["claim_id"] for row in output["records"]["claims"]]
         self.assertEqual(2, len(set(claim_ids)))
@@ -209,6 +209,102 @@ class CaseOutputContractTests(unittest.TestCase):
         output["records"]["families"][0]["member_relations"] = "invalid"
         errors = validate(output)
         self.assertTrue(any("member_relations must be an array" in error for error in errors))
+
+    def test_ingests_curated_causal_relations_with_explicit_semantics(self):
+        source_url = "https://example.test/randomized-trial"
+        (self.project / "causal-relationships.json").write_text(
+            json.dumps(
+                {
+                    "schema_version": "1.0",
+                    "concepts": [
+                        {
+                            "concept_id": "C-DRUG",
+                            "concept_type": "intervention",
+                            "label": "Example molecule",
+                            "description": "Curated intervention node.",
+                            "source_urls": [source_url],
+                        },
+                        {
+                            "concept_id": "C-OUTCOME",
+                            "concept_type": "clinical_outcome",
+                            "label": "Disease progression or death",
+                            "description": "Trial endpoint.",
+                            "source_urls": [source_url],
+                        },
+                    ],
+                    "evidence": [
+                        {
+                            "finding_id": "CAUSE-001",
+                            "conclusion_or_fact": "Randomization identified a treatment effect.",
+                            "evidence_type": "randomized_trial",
+                            "source_url": source_url,
+                            "concept_ids": ["C-DRUG", "C-OUTCOME"],
+                            "confidence": "high",
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "source_id": "concept:C-DRUG",
+                            "relation_type": "REDUCES_RISK_OF",
+                            "target_id": "concept:C-OUTCOME",
+                            "assertion": "direct_fact",
+                            "link_methods": ["curated_causal_relation"],
+                            "evidence_ids": ["CAUSE-001"],
+                            "relation_kind": "causal",
+                            "causal_status": "established",
+                            "polarity": "negative",
+                            "directness": "total_effect",
+                            "evidence_level": "randomized_trial",
+                            "confidence": "high",
+                            "rationale": "Randomized placebo comparison supports a total causal effect.",
+                            "source_urls": [source_url],
+                            "properties": {"population": "Defined trial population"},
+                        }
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+
+        output = build_case_output(self.project)
+
+        self.assertEqual([], validate(output))
+        self.assertEqual(2, len(output["records"]["concepts"]))
+        causal_evidence = next(
+            row for row in output["records"]["evidence"] if row["finding_id"] == "CAUSE-001"
+        )
+        self.assertEqual(["C-DRUG", "C-OUTCOME"], causal_evidence["concept_ids"])
+        relation = next(
+            row
+            for row in output["records"]["relations"]
+            if row["relation_type"] == "REDUCES_RISK_OF"
+        )
+        self.assertEqual("causal", relation["relation_kind"])
+        self.assertEqual("established", relation["causal_status"])
+        self.assertEqual("randomized_trial", relation["evidence_level"])
+        self.assertEqual([source_url], relation["source_urls"])
+
+    def test_validator_rejects_unsupported_causal_claims(self):
+        output = build_case_output(self.project)
+        output["records"]["relations"][0].update(
+            {
+                "relation_kind": "causal",
+                "causal_status": "established",
+                "polarity": "positive",
+                "directness": "direct",
+                "evidence_level": "randomized_trial",
+                "confidence": "high",
+                "rationale": "",
+                "source_urls": [],
+                "evidence_ids": [],
+            }
+        )
+
+        errors = validate(output)
+
+        self.assertTrue(any("causal relation requires evidence_ids" in error for error in errors))
+        self.assertTrue(any("causal relation requires source_urls" in error for error in errors))
+        self.assertTrue(any("causal relation requires rationale" in error for error in errors))
 
 
 if __name__ == "__main__":
