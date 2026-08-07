@@ -99,6 +99,22 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn('node.corridor-node[type = "claim"]', html)
         self.assertIn(".technology-lanes::before", html)
 
+    def test_uses_a_dark_editorial_constellation_palette(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn('data-theme="dark"', html)
+        self.assertIn('<meta name="color-scheme" content="dark">', html)
+        self.assertIn("--graph-bg: #1a1c1e;", html)
+        self.assertIn("--entity-family: #6f8fb9;", html)
+        self.assertIn("--entity-document: #5f9e92;", html)
+        self.assertIn("--entity-claim: #c49a5a;", html)
+        self.assertIn("--entity-evidence: #c97264;", html)
+        self.assertIn('addClass("editorial-node")', html)
+        self.assertIn('node.editorial-node[type = "patent_family"]', html)
+        self.assertIn('"target-arrow-shape": "none"', html)
+        self.assertIn("html[data-theme=\"dark\"] .graph-panel", html)
+
 
 if __name__ == "__main__":
     unittest.main()

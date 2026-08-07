@@ -1,35 +1,47 @@
 <!doctype html>
-<html lang="zh-CN" data-cytoscape-version="3.34.0">
+<html lang="zh-CN" data-theme="dark" data-cytoscape-version="3.34.0">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="color-scheme" content="light">
+  <meta name="color-scheme" content="dark">
   <title>Durvalumab · 专利证据双链图</title>
   <style>:root {
-  --ink: #172033;
-  --ink-soft: #344054;
-  --muted: #667085;
-  --muted-light: #98a2b3;
-  --line: #dfe5ec;
-  --line-strong: #c7d0dc;
-  --canvas: #f5f3ee;
-  --surface: #fffefa;
-  --surface-soft: #f7f6f2;
-  --navy: #111827;
-  --navy-soft: #1f2937;
-  --blue: #2857b8;
-  --blue-strong: #1f4697;
-  --blue-soft: #edf2fb;
-  --amber: #9a5b13;
-  --amber-soft: #fff8e9;
-  --red: #b42318;
-  --red-soft: #fff1ef;
-  --green: #14765b;
-  --green-soft: #eef9f5;
+  --ink: #dde1e5;
+  --ink-soft: #b3bac2;
+  --muted: #8e969f;
+  --muted-light: #6f777f;
+  --line: #34393e;
+  --line-strong: #474d53;
+  --canvas: #1a1c1e;
+  --surface: #222529;
+  --surface-soft: #272b2f;
+  --navy: #151719;
+  --navy-soft: #202327;
+  --blue: #7c9ac4;
+  --blue-strong: #9bb2d0;
+  --blue-soft: #29323d;
+  --amber: #c49a5a;
+  --amber-soft: #342f27;
+  --red: #c97264;
+  --red-soft: #352726;
+  --green: #5f9e92;
+  --green-soft: #24332f;
+  --graph-bg: #1a1c1e;
+  --graph-bg-center: #202326;
+  --graph-line: #555b61;
+  --graph-label: #d9dde1;
+  --entity-research: #d6d0c4;
+  --entity-family: #6f8fb9;
+  --entity-document: #5f9e92;
+  --entity-claim: #c49a5a;
+  --entity-evidence: #c97264;
+  --entity-target: #8f84b7;
+  --entity-indication: #b56f86;
+  --entity-theme: #899f68;
   --header-height: 96px;
   --rail-width: 56px;
-  --shadow-sm: 0 4px 16px rgba(17, 24, 39, 0.08);
-  --shadow-md: 0 20px 48px rgba(17, 24, 39, 0.16);
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.22);
+  --shadow-md: 0 24px 56px rgba(0, 0, 0, 0.38);
 }
 
 * { box-sizing: border-box; }
@@ -1291,6 +1303,281 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 .page-footer a { color: var(--blue); }
 
+/* Dark editorial constellation: quiet enough for dense research graphs, with
+   restrained entity accents reserved for meaning and active evidence paths. */
+html[data-theme="dark"] { color-scheme: dark; }
+
+html[data-theme="dark"] body {
+  background: var(--graph-bg);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] button:focus-visible,
+html[data-theme="dark"] input:focus-visible,
+html[data-theme="dark"] select:focus-visible,
+html[data-theme="dark"] summary:focus-visible,
+html[data-theme="dark"] a:focus-visible {
+  outline-color: rgba(124, 154, 196, 0.62);
+}
+
+html[data-theme="dark"] .app-header {
+  border-bottom: 1px solid #2c3034;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+html[data-theme="dark"] .appbar { background: #151719; }
+
+html[data-theme="dark"] .brand-mark {
+  border-color: #4a535c;
+  background: #262a2e;
+  color: #d2d7dc;
+}
+
+html[data-theme="dark"] .brand-kicker,
+html[data-theme="dark"] .section-eyebrow { color: #89939d; }
+
+html[data-theme="dark"] .search-wrap input,
+html[data-theme="dark"] .control-field select,
+html[data-theme="dark"] .app-actions button {
+  border-color: #3b4147;
+  background: #202327;
+  color: #dfe3e7;
+}
+
+html[data-theme="dark"] .search-wrap input:focus {
+  border-color: #7189aa;
+  background: #25292d;
+  box-shadow: 0 0 0 3px rgba(111, 143, 185, 0.16);
+}
+
+html[data-theme="dark"] .app-actions .primary-action {
+  border-color: #697f9e;
+  background: #2a3440;
+  color: #c7d5e7;
+}
+
+html[data-theme="dark"] .app-actions .primary-action:hover { background: #344253; }
+
+html[data-theme="dark"] .context-bar {
+  border-color: #30353a;
+  background: #1d2023;
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .graph-rail {
+  border-color: #2f3438;
+  background: #17191b;
+}
+
+html[data-theme="dark"] .rail-action { color: #8d969f; }
+
+html[data-theme="dark"] .rail-action:hover,
+html[data-theme="dark"] .rail-action[aria-expanded="true"],
+html[data-theme="dark"] .rail-action[aria-pressed="true"] {
+  border-color: #434a51;
+  background: #25292d;
+  color: #e2e5e8;
+}
+
+html[data-theme="dark"] .filter-panel,
+html[data-theme="dark"] .inspector-panel,
+html[data-theme="dark"] .relation-ledger,
+html[data-theme="dark"] .page-footer,
+html[data-theme="dark"] .search-results,
+html[data-theme="dark"] .empty-state {
+  border-color: var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  scrollbar-color: #4d545b transparent;
+}
+
+html[data-theme="dark"] .panel-close,
+html[data-theme="dark"] .small-button,
+html[data-theme="dark"] .node-link {
+  border-color: var(--line-strong);
+  background: #24282c;
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .node-link:hover,
+html[data-theme="dark"] .search-result:hover,
+html[data-theme="dark"] .filter-option:hover,
+html[data-theme="dark"] .filter-option.is-selected {
+  border-color: #515b65;
+  background: #2a3035;
+  color: #edf0f2;
+}
+
+html[data-theme="dark"] .summary-strip,
+html[data-theme="dark"] .inspector-stats,
+html[data-theme="dark"] .summary-card,
+html[data-theme="dark"] .table-scroll {
+  border-color: var(--line);
+  background: var(--surface-soft);
+}
+
+html[data-theme="dark"] .summary-card {
+  border-left-color: var(--entity-family);
+}
+
+html[data-theme="dark"] .summary-card p,
+html[data-theme="dark"] .inspector-content > p,
+html[data-theme="dark"] .property-list dd { color: #c3c9cf; }
+
+html[data-theme="dark"] .filter-section,
+html[data-theme="dark"] .legend-section,
+html[data-theme="dark"] .property-list,
+html[data-theme="dark"] .property-list dt,
+html[data-theme="dark"] .property-list dd,
+html[data-theme="dark"] .relation-table th,
+html[data-theme="dark"] .relation-table td { border-color: #34393e; }
+
+html[data-theme="dark"] .filter-option { color: #aeb5bc; }
+
+html[data-theme="dark"] .filter-option input {
+  border-color: #666f78;
+  background: #1b1e21;
+}
+
+html[data-theme="dark"] .filter-count,
+html[data-theme="dark"] .assertion {
+  border-color: #444b52;
+  background: #2b3035;
+  color: #aeb5bc;
+}
+
+html[data-theme="dark"] .quality-banner {
+  border-color: #63543b;
+  border-left-color: var(--amber);
+  background: var(--amber-soft);
+  color: #d6b77f;
+}
+
+html[data-theme="dark"] .quality-banner[data-status="pass"] {
+  border-color: #385f56;
+  border-left-color: var(--green);
+  background: var(--green-soft);
+  color: #8fc1b6;
+}
+
+html[data-theme="dark"] .quality-banner[data-status="error"] {
+  border-color: #6b413d;
+  border-left-color: var(--red);
+  background: var(--red-soft);
+  color: #e19a90;
+}
+
+html[data-theme="dark"] .legend-dot {
+  border-color: #232629;
+  box-shadow: 0 0 0 1px #555c63;
+}
+
+html[data-theme="dark"] .graph-panel {
+  background-color: var(--graph-bg);
+  background-image: radial-gradient(ellipse at 50% 46%, var(--graph-bg-center) 0%, var(--graph-bg) 70%);
+}
+
+html[data-theme="dark"] .focus-card,
+html[data-theme="dark"] .path-legend,
+html[data-theme="dark"] .visible-count,
+html[data-theme="dark"] .button-group,
+html[data-theme="dark"] .canvas-hint {
+  border-color: rgba(91, 99, 107, 0.68);
+  background: rgba(31, 34, 37, 0.86);
+  color: #99a1a9;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+html[data-theme="dark"] .focus-copy strong,
+html[data-theme="dark"] .canvas-hint b { color: #dce0e3; }
+
+html[data-theme="dark"] .focus-mark { border-color: var(--entity-research); }
+html[data-theme="dark"] .focus-mark::before,
+html[data-theme="dark"] .focus-mark::after { background: var(--entity-research); }
+html[data-theme="dark"] .focus-copy small { color: #aebdce; }
+
+html[data-theme="dark"] .path-legend [data-path="incoming"] i { border-color: var(--entity-document); }
+html[data-theme="dark"] .path-legend [data-path="outgoing"] i { border-color: var(--entity-claim); }
+
+html[data-theme="dark"] .canvas-tools button {
+  border-color: #3f454b;
+  color: #bac0c6;
+}
+
+html[data-theme="dark"] .canvas-tools button:hover {
+  background: #2d3338;
+  color: #edf0f2;
+}
+
+html[data-theme="dark"] .technology-lanes {
+  top: 84px;
+  bottom: auto;
+  height: 58px;
+  opacity: 0.72;
+}
+
+html[data-theme="dark"] .technology-lanes::before {
+  top: 43px;
+  border-color: rgba(139, 147, 155, 0.12);
+}
+
+html[data-theme="dark"] .technology-lanes > span,
+html[data-theme="dark"] .technology-lanes > span:nth-child(even) {
+  gap: 2px;
+  padding: 4px 10px;
+  border: 0;
+  background: transparent;
+  color: #8e969e;
+}
+
+html[data-theme="dark"] .lane-step {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border-color: #535a61;
+  background: rgba(30, 33, 36, 0.86);
+  color: #a9b0b7;
+}
+
+html[data-theme="dark"] .technology-lanes b {
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+html[data-theme="dark"] .technology-lanes small { display: none; }
+
+html[data-theme="dark"] .limit-banner {
+  border-color: #66573e;
+  border-left-color: var(--amber);
+  background: rgba(52, 47, 39, 0.96);
+  color: #d6b77f;
+}
+
+html[data-theme="dark"] .inspector-type {
+  border-color: #505861;
+  background: #2b3035;
+  color: #c4cbd2;
+}
+
+html[data-theme="dark"] .inspector-tabs button[aria-selected="true"] { color: #a9bdd6; }
+html[data-theme="dark"] .inspector-tabs button[aria-selected="true"]::after { background: var(--entity-family); }
+
+html[data-theme="dark"] .source-action {
+  border-color: #4d5e72;
+  background: #29323d;
+  color: #b7c8dc;
+}
+
+html[data-theme="dark"] .relation-table th {
+  background: #292d31;
+  color: #aeb5bc;
+}
+
+html[data-theme="dark"] .relation-table tbody tr:hover { background: #282d31; }
+
 @media (max-width: 1280px) {
   .appbar { grid-template-columns: minmax(230px, 0.7fr) minmax(270px, 1fr) auto; gap: 14px; padding-inline: 16px; }
   .control-field select { width: 128px; }
@@ -1685,67 +1972,71 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
       {
         selector: "node",
         style: {
-          "background-color": "#718096",
-          "border-color": "#ffffff",
-          "border-width": 2.5,
-          color: "#24324a",
+          "background-color": "#666b70",
+          "border-color": "#202326",
+          "border-width": 1,
+          shape: "ellipse",
+          color: "#d9dde1",
           label: "data(displayLabel)",
           "font-family": "Inter, Segoe UI, PingFang SC, sans-serif",
-          "font-size": 9.5,
-          "font-weight": 600,
-          "min-zoomed-font-size": 3.5,
-          "text-background-color": "#ffffff",
-          "text-background-opacity": 0.94,
-          "text-background-padding": 4,
-          "text-margin-y": 7,
-          "text-max-width": 118,
+          "font-size": 9,
+          "font-weight": 500,
+          "min-zoomed-font-size": 4,
+          "text-background-color": "#1a1c1e",
+          "text-background-opacity": 0,
+          "text-background-padding": 2,
+          "text-margin-y": 6,
+          "text-max-width": 112,
           "text-valign": "bottom",
           "text-wrap": "ellipsis",
-          height: 28,
-          width: 28,
+          "text-outline-color": "#1a1c1e",
+          "text-outline-opacity": 0.72,
+          "text-outline-width": 1,
+          height: 15,
+          width: 15,
         },
       },
-      { selector: 'node[type = "research_object"]', style: { "background-color": "#101a2d", shape: "round-rectangle", width: 98, height: 44, color: "#ffffff", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0, "font-size": 10.5 } },
-      { selector: 'node[type = "target"]', style: { "background-color": "#f6f1ff", "border-color": "#7650c7", shape: "round-rectangle", width: 76, height: 38, color: "#573a98", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0 } },
-      { selector: 'node[type = "indication"]', style: { "background-color": "#fff1f5", "border-color": "#c84f7f", shape: "round-rectangle", width: 82, height: 38, color: "#9f315d", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0 } },
-      { selector: 'node[type = "patent_family"]', style: { "background-color": "#f7faff", "border-color": "#2f66d0", "border-width": 2.2, shape: "round-rectangle", width: 112, height: 54, color: "#17345f", "font-size": 8.3, "font-weight": 700, "text-valign": "center", "text-wrap": "wrap", "text-max-width": 100, "text-background-opacity": 0, "text-margin-y": 0 } },
-      { selector: 'node[type = "patent_document"]', style: { "background-color": "#178176", shape: "hexagon" } },
-      { selector: 'node[type = "claim"]', style: { "background-color": "#fff8e9", "border-color": "#d9962d", shape: "round-rectangle", width: 88, height: 38, color: "#805014", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0, "text-max-width": 78 } },
-      { selector: 'node[type = "evidence"]', style: { "background-color": "#d14b63", shape: "diamond", width: 31, height: 31 } },
-      { selector: 'node[type = "applicant"]', style: { "background-color": "#334155", shape: "round-rectangle", width: 36, height: 27 } },
-      { selector: 'node[type = "jurisdiction"]', style: { "background-color": "#0891b2", shape: "ellipse", width: 26, height: 26 } },
-      { selector: 'node[type = "technology_theme"]', style: { "background-color": "#f4f8e9", "border-color": "#70952e", shape: "tag", width: 84, height: 34, color: "#4f6f1e", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0, "text-max-width": 72 } },
-      { selector: 'node[type = "source"]', style: { "background-color": "#94a3b8", shape: "vee", width: 27, height: 27 } },
-      { selector: 'node.corridor-node[type = "research_object"]', style: { width: 112, height: 48, "border-color": "#334155", "border-width": 2 } },
-      { selector: 'node.corridor-node[type = "target"]', style: { width: 92, height: 42, "font-size": 9.5 } },
-      { selector: 'node.corridor-node[type = "indication"]', style: { width: 104, height: 42, "font-size": 9.5 } },
-      { selector: 'node.corridor-node[type = "patent_family"]', style: { width: 124, height: 58, "border-width": 2.5 } },
-      { selector: 'node.corridor-node[type = "technology_theme"]', style: { width: 104, height: 42, shape: "round-rectangle", "text-max-width": 92 } },
-      { selector: 'node.corridor-node[type = "claim"]', style: { width: 108, height: 44, "text-max-width": 96, "border-width": 2 } },
+      { selector: 'node.editorial-node[type = "research_object"]', style: { "background-color": "#d6d0c4", "border-color": "#eee9e1", "border-width": 1.5, width: 40, height: 40, color: "#f0f1f2", "font-size": 11.5, "font-weight": 600, "text-max-width": 150 } },
+      { selector: 'node.editorial-node[type = "target"]', style: { "background-color": "#8f84b7", "border-color": "#b4acce", width: 24, height: 24 } },
+      { selector: 'node.editorial-node[type = "indication"]', style: { "background-color": "#b56f86", "border-color": "#d49aab", width: 24, height: 24 } },
+      { selector: 'node.editorial-node[type = "patent_family"]', style: { "background-color": "#6f8fb9", "border-color": "#9bb1ce", "border-width": 1.5, width: 32, height: 32, "font-size": 8.4, "font-weight": 600, "text-wrap": "wrap", "text-max-width": 108 } },
+      { selector: 'node.editorial-node[type = "patent_document"]', style: { "background-color": "#5f9e92", "border-color": "#8cbab1", width: 19, height: 19 } },
+      { selector: 'node.editorial-node[type = "claim"]', style: { "background-color": "#c49a5a", "border-color": "#d9ba86", width: 23, height: 23, "text-max-width": 96 } },
+      { selector: 'node.editorial-node[type = "evidence"]', style: { "background-color": "#c97264", "border-color": "#dd9a90", width: 19, height: 19 } },
+      { selector: 'node.editorial-node[type = "applicant"]', style: { "background-color": "#87909a", "border-color": "#a6adb5", width: 18, height: 18 } },
+      { selector: 'node.editorial-node[type = "jurisdiction"]', style: { "background-color": "#668fa0", "border-color": "#8aabb8", width: 16, height: 16 } },
+      { selector: 'node.editorial-node[type = "technology_theme"]', style: { "background-color": "#899f68", "border-color": "#adbc92", width: 21, height: 21, "text-max-width": 104 } },
+      { selector: 'node.editorial-node[type = "source"]', style: { "background-color": "#6e7378", "border-color": "#8a8f94", width: 12, height: 12, color: "#b9bec3", "font-size": 8 } },
+      { selector: 'node.corridor-node[type = "research_object"]', style: { width: 46, height: 46 } },
+      { selector: 'node.corridor-node[type = "target"]', style: { width: 27, height: 27 } },
+      { selector: 'node.corridor-node[type = "indication"]', style: { width: 27, height: 27 } },
+      { selector: 'node.corridor-node[type = "patent_family"]', style: { width: 36, height: 36, "border-width": 1.8 } },
+      { selector: 'node.corridor-node[type = "technology_theme"]', style: { width: 24, height: 24 } },
+      { selector: 'node.corridor-node[type = "claim"]', style: { width: 26, height: 26, "text-max-width": 102 } },
       {
         selector: "edge",
         style: {
-          width: 1.2,
-          "line-color": "#a5afbd",
-          "target-arrow-color": "#a5afbd",
-          "target-arrow-shape": "triangle",
-          "arrow-scale": 0.72,
+          width: 0.8,
+          "line-color": "#555b61",
+          "target-arrow-color": "#555b61",
+          "target-arrow-shape": "none",
+          "arrow-scale": 0.62,
           "curve-style": "bezier",
-          opacity: 0.72,
+          opacity: 0.34,
         },
       },
       { selector: 'edge[assertion = "rule_derived"]', style: { "line-style": "dashed" } },
-      { selector: 'edge[assertion = "model_inference"]', style: { "line-style": "dotted", opacity: 0.58 } },
-      { selector: 'edge[type = "SUPPORTED_BY"]', style: { "line-color": "#d14b63", "target-arrow-color": "#d14b63" } },
-      { selector: 'edge[type = "PROTECTS"]', style: { "line-color": "#6d932f", "target-arrow-color": "#6d932f" } },
-      { selector: 'edge[type = "FILED_BY"]', style: { "line-color": "#475569", "target-arrow-color": "#475569" } },
-      { selector: "edge.corridor-edge", style: { "curve-style": "taxi", "taxi-direction": "rightward", "taxi-turn": "50%", "taxi-radius": 5, opacity: 0.58 } },
-      { selector: "edge.edge-active", style: { label: "data(label)", width: 2.1, opacity: 1, color: "#344054", "font-size": 8, "font-weight": 600, "text-rotation": "autorotate", "text-background-color": "#ffffff", "text-background-opacity": 0.96, "text-background-padding": 2, "text-margin-y": -7, "z-index": 8 } },
-      { selector: "edge.incoming-active", style: { "line-color": "#287f8f", "target-arrow-color": "#287f8f" } },
-      { selector: "edge.outgoing-active", style: { "line-color": "#c46a2b", "target-arrow-color": "#c46a2b" } },
-      { selector: "node:selected", style: { "border-color": "#101a2d", "border-width": 4, "underlay-color": "#2f66d0", "underlay-opacity": 0.16, "underlay-padding": 7 } },
-      { selector: "edge:selected", style: { width: 2.4, opacity: 1, "overlay-color": "#2f66d0", "overlay-opacity": 0.08 } },
-      { selector: ".faded", style: { opacity: 0.11, "text-opacity": 0.08 } },
+      { selector: 'edge[assertion = "model_inference"]', style: { "line-style": "dotted", opacity: 0.25 } },
+      { selector: 'edge[type = "SUPPORTED_BY"]', style: { "line-color": "#655156", "target-arrow-color": "#655156" } },
+      { selector: 'edge[type = "PROTECTS"]', style: { "line-color": "#5b6250", "target-arrow-color": "#5b6250" } },
+      { selector: 'edge[type = "FILED_BY"]', style: { "line-color": "#555b61", "target-arrow-color": "#555b61" } },
+      { selector: "edge.corridor-edge", style: { "curve-style": "straight", opacity: 0.3 } },
+      { selector: "edge.edge-active", style: { label: "data(label)", width: 1.8, opacity: 0.96, color: "#c9ced3", "font-size": 8, "font-weight": 600, "target-arrow-shape": "triangle", "text-rotation": "autorotate", "text-background-color": "#1c1f22", "text-background-opacity": 0.92, "text-background-padding": 2, "text-margin-y": -7, "z-index": 8 } },
+      { selector: "edge.incoming-active", style: { "line-color": "#5f9e92", "target-arrow-color": "#5f9e92" } },
+      { selector: "edge.outgoing-active", style: { "line-color": "#c49a5a", "target-arrow-color": "#c49a5a" } },
+      { selector: "node:selected", style: { "border-color": "#f0ede7", "border-width": 2.4, "underlay-color": "#d9dde1", "underlay-opacity": 0.13, "underlay-padding": 9 } },
+      { selector: "edge:selected", style: { width: 2.2, opacity: 1, "overlay-color": "#d9dde1", "overlay-opacity": 0.06 } },
+      { selector: ".faded", style: { opacity: 0.07, "text-opacity": 0.04 } },
     ],
   });
 
@@ -1949,6 +2240,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     state.visibleEdgeIds = new Set(view.edges.map((edge) => edge.id));
     cy.elements().remove();
     cy.add(cytoscapeElements(view));
+    cy.nodes().addClass("editorial-node");
     if (state.preset === "technology") {
       cy.nodes().addClass("corridor-node");
       cy.edges().addClass("corridor-edge");
@@ -2025,10 +2317,10 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
 
   function renderLegend() {
     const nodeColors = {
-      research_object: "#111c31", target: "#7c3aed", indication: "#db2777",
-      patent_family: "#2563eb", patent_document: "#0f766e", claim: "#f59e0b",
-      evidence: "#e11d48", applicant: "#334155", jurisdiction: "#0891b2",
-      technology_theme: "#65a30d", source: "#94a3b8",
+      research_object: "#d6d0c4", target: "#8f84b7", indication: "#b56f86",
+      patent_family: "#6f8fb9", patent_document: "#5f9e92", claim: "#c49a5a",
+      evidence: "#c97264", applicant: "#87909a", jurisdiction: "#668fa0",
+      technology_theme: "#899f68", source: "#6e7378",
     };
     byId("node-legend").innerHTML = DATA.legend.node_types
       .map((row) => `<div class="legend-row"><span class="legend-dot" style="background:${nodeColors[row.value] || "#64748b"}"></span>${escapeHtml(row.label)}</div>`)

@@ -50,11 +50,11 @@ def build_knowledge_graph(
     vendor = vendor_path.read_text(encoding="utf-8")
     app_js = js_path.read_text(encoding="utf-8")
     document = f'''<!doctype html>
-<html lang="zh-CN" data-cytoscape-version="{CYTOSCAPE_VERSION}">
+<html lang="zh-CN" data-theme="dark" data-cytoscape-version="{CYTOSCAPE_VERSION}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="color-scheme" content="light">
+  <meta name="color-scheme" content="dark">
   <title>{html.escape(title)} · 专利证据双链图</title>
   <style>{css}</style>
 </head>
