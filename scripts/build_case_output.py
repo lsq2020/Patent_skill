@@ -646,19 +646,21 @@ def build_uncertainty(families, claims, evidence):
     unlinked_findings = [
         row.get("finding_id")
         for row in evidence
-        if not row.get("family_ids") and not row.get("claim_ids")
+        if not row.get("family_ids")
+        and not row.get("claim_ids")
+        and not row.get("concept_ids")
     ]
     if unlinked_findings:
         items.append(
             {
                 "id": "U-EVIDENCE-LINK",
                 "category": "evidence_linkage",
-                "statement": "部分 finding 尚未关联到 family_id 或 claim_id。",
-                "impact": "图谱无法从结论反向定位到专利族或权利要求。",
+                "statement": "部分 finding 尚未关联到 family_id、claim_id 或 concept_id。",
+                "impact": "图谱无法从结论反向定位到专利族、权利要求或因果概念。",
                 "confidence": "high",
                 "linked_ids": unlinked_findings,
-                "next_action": "在 evidence CSV 补 family_ids/claim_ids，或补可匹配的 document_no。",
-                "evidence_keys": ["evidence.family_ids", "evidence.claim_ids", "evidence.document_no"],
+                "next_action": "在 evidence CSV 补 family_ids/claim_ids/concept_ids，或补可匹配的 document_no。",
+                "evidence_keys": ["evidence.family_ids", "evidence.claim_ids", "evidence.concept_ids", "evidence.document_no"],
             }
         )
     relation_gaps = [
@@ -755,10 +757,16 @@ def build_case_output(project):
         "family_relation_count": family_relation_count,
         "member_relation_count": member_relation_count,
         "linked_evidence_count": sum(
-            1 for row in evidence if row["family_ids"] or row["claim_ids"]
+            1
+            for row in evidence
+            if row["family_ids"] or row["claim_ids"] or row["concept_ids"]
         ),
         "unlinked_evidence_count": sum(
-            1 for row in evidence if not row["family_ids"] and not row["claim_ids"]
+            1
+            for row in evidence
+            if not row["family_ids"]
+            and not row["claim_ids"]
+            and not row["concept_ids"]
         ),
         "ranking_count": len(ranking),
         "source_url_count": len(urls),
@@ -817,8 +825,8 @@ def build_case_output(project):
             {
                 "id": "evidence_unlinked",
                 "observed": metrics["unlinked_evidence_count"] > 0,
-                "trigger": "finding 无显式 ID 关系，document_no 和 source_url 也不能匹配。",
-                "impact": "finding 无法形成 family/claim 双链。",
+                "trigger": "finding 无显式 family/claim/concept ID 关系，document_no 和 source_url 也不能匹配。",
+                "impact": "finding 无法形成 family/claim/concept 双链。",
                 "fallback": "保留孤立 finding，并输出补录任务。",
             },
         ],

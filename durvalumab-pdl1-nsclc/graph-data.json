@@ -1,13 +1,13 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "meta": {
     "case_id": "durvalumab-pdl1-nsclc",
     "title": "Durvalumab",
     "as_of": "2026-08-07",
-    "generated_at": "2026-08-07T04:20:55.251799+00:00",
-    "source_schema_version": "1.1",
-    "node_count": 80,
-    "edge_count": 130,
+    "generated_at": "2026-08-07T06:45:22.756493+00:00",
+    "source_schema_version": "1.2",
+    "node_count": 101,
+    "edge_count": 163,
     "quality_status": "warning",
     "default_focus": "research:durvalumab-pdl1-nsclc",
     "default_depth": 1,
@@ -93,6 +93,254 @@
       "source_url": "",
       "facets": {},
       "search_text": "applicant:e6b74ebecad2 medimmune ltd"
+    },
+    {
+      "id": "concept:C-PROGRESSION-DEATH",
+      "type": "causal_concept",
+      "label": "Disease progression or death",
+      "summary": "Progression-free survival endpoint used in the PACIFIC randomized trial.",
+      "properties": {
+        "concept_id": "C-PROGRESSION-DEATH",
+        "concept_type": "clinical_outcome",
+        "label": "Disease progression or death",
+        "description": "Progression-free survival endpoint used in the PACIFIC randomized trial.",
+        "source_urls": [
+          "https://pubmed.ncbi.nlm.nih.gov/28885881/"
+        ]
+      },
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+      "facets": {
+        "concept_type": [
+          "clinical_outcome"
+        ]
+      },
+      "search_text": "concept:c-progression-death disease progression or death progression-free survival endpoint used in the pacific randomized trial."
+    },
+    {
+      "id": "concept:C-DURVALUMAB",
+      "type": "causal_concept",
+      "label": "Durvalumab",
+      "summary": "Human monoclonal antibody directed against PD-L1.",
+      "properties": {
+        "concept_id": "C-DURVALUMAB",
+        "concept_type": "intervention",
+        "label": "Durvalumab",
+        "description": "Human monoclonal antibody directed against PD-L1.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+          "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+        ]
+      },
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "facets": {
+        "concept_type": [
+          "intervention"
+        ]
+      },
+      "search_text": "concept:c-durvalumab durvalumab human monoclonal antibody directed against pd-l1."
+    },
+    {
+      "id": "concept:C-DURVALUMAB-POST-CCRT",
+      "type": "causal_concept",
+      "label": "Durvalumab after concurrent chemoradiotherapy",
+      "summary": "Consolidation durvalumab in unresectable stage III NSCLC without progression after platinum-based concurrent chemoradiotherapy.",
+      "properties": {
+        "concept_id": "C-DURVALUMAB-POST-CCRT",
+        "concept_type": "intervention",
+        "label": "Durvalumab after concurrent chemoradiotherapy",
+        "description": "Consolidation durvalumab in unresectable stage III NSCLC without progression after platinum-based concurrent chemoradiotherapy.",
+        "source_urls": [
+          "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+          "https://pubmed.ncbi.nlm.nih.gov/35108059/",
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+      "facets": {
+        "concept_type": [
+          "intervention"
+        ]
+      },
+      "search_text": "concept:c-durvalumab-post-ccrt durvalumab after concurrent chemoradiotherapy consolidation durvalumab in unresectable stage iii nsclc without progression after platinum-based concurrent chemoradiotherapy."
+    },
+    {
+      "id": "concept:C-IMMUNE-MEDIATED-AE",
+      "type": "causal_concept",
+      "label": "Immune-mediated adverse reactions",
+      "summary": "Adverse reactions caused by loss of immune inhibition and peripheral tolerance after PD-1/PD-L1 pathway blockade.",
+      "properties": {
+        "concept_id": "C-IMMUNE-MEDIATED-AE",
+        "concept_type": "adverse_event",
+        "label": "Immune-mediated adverse reactions",
+        "description": "Adverse reactions caused by loss of immune inhibition and peripheral tolerance after PD-1/PD-L1 pathway blockade.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "facets": {
+        "concept_type": [
+          "adverse_event"
+        ]
+      },
+      "search_text": "concept:c-immune-mediated-ae immune-mediated adverse reactions adverse reactions caused by loss of immune inhibition and peripheral tolerance after pd-1/pd-l1 pathway blockade."
+    },
+    {
+      "id": "concept:C-OVERALL-SURVIVAL",
+      "type": "causal_concept",
+      "label": "Overall survival",
+      "summary": "Time-to-death endpoint reported in PACIFIC follow-up.",
+      "properties": {
+        "concept_id": "C-OVERALL-SURVIVAL",
+        "concept_type": "clinical_outcome",
+        "label": "Overall survival",
+        "description": "Time-to-death endpoint reported in PACIFIC follow-up.",
+        "source_urls": [
+          "https://pubmed.ncbi.nlm.nih.gov/35108059/"
+        ]
+      },
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35108059/",
+      "facets": {
+        "concept_type": [
+          "clinical_outcome"
+        ]
+      },
+      "search_text": "concept:c-overall-survival overall survival time-to-death endpoint reported in pacific follow-up."
+    },
+    {
+      "id": "concept:C-PDL1-PD1-CD80",
+      "type": "causal_concept",
+      "label": "PD-L1 interaction with PD-1 and CD80",
+      "summary": "Checkpoint interactions through which PD-L1 suppresses antitumor T-cell activity.",
+      "properties": {
+        "concept_id": "C-PDL1-PD1-CD80",
+        "concept_type": "molecular_interaction",
+        "label": "PD-L1 interaction with PD-1 and CD80",
+        "description": "Checkpoint interactions through which PD-L1 suppresses antitumor T-cell activity.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+          "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+        ]
+      },
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "facets": {
+        "concept_type": [
+          "molecular_interaction"
+        ]
+      },
+      "search_text": "concept:c-pdl1-pd1-cd80 pd-l1 interaction with pd-1 and cd80 checkpoint interactions through which pd-l1 suppresses antitumor t-cell activity."
+    },
+    {
+      "id": "concept:C-PNEUMONITIS",
+      "type": "causal_concept",
+      "label": "Pneumonitis or radiation pneumonitis",
+      "summary": "Composite pulmonary safety outcome reported for PACIFIC; mixed immune and radiation etiologies limit mechanism-specific interpretation.",
+      "properties": {
+        "concept_id": "C-PNEUMONITIS",
+        "concept_type": "adverse_event",
+        "label": "Pneumonitis or radiation pneumonitis",
+        "description": "Composite pulmonary safety outcome reported for PACIFIC; mixed immune and radiation etiologies limit mechanism-specific interpretation.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "facets": {
+        "concept_type": [
+          "adverse_event"
+        ]
+      },
+      "search_text": "concept:c-pneumonitis pneumonitis or radiation pneumonitis composite pulmonary safety outcome reported for pacific; mixed immune and radiation etiologies limit mechanism-specific interpretation."
+    },
+    {
+      "id": "concept:C-RECENT-THORACIC-RT",
+      "type": "causal_concept",
+      "label": "Recent thoracic radiation",
+      "summary": "Recent thoracic radiation exposure before PD-L1 therapy; not randomized as an exposure in the cited safety comparison.",
+      "properties": {
+        "concept_id": "C-RECENT-THORACIC-RT",
+        "concept_type": "exposure",
+        "label": "Recent thoracic radiation",
+        "description": "Recent thoracic radiation exposure before PD-L1 therapy; not randomized as an exposure in the cited safety comparison.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "facets": {
+        "concept_type": [
+          "exposure"
+        ]
+      },
+      "search_text": "concept:c-recent-thoracic-rt recent thoracic radiation recent thoracic radiation exposure before pd-l1 therapy; not randomized as an exposure in the cited safety comparison."
+    },
+    {
+      "id": "concept:C-TCELL-ACTIVATION",
+      "type": "causal_concept",
+      "label": "T-cell activation",
+      "summary": "Restored or increased T-cell activity after PD-L1 blockade in preclinical experiments.",
+      "properties": {
+        "concept_id": "C-TCELL-ACTIVATION",
+        "concept_type": "biological_process",
+        "label": "T-cell activation",
+        "description": "Restored or increased T-cell activity after PD-L1 blockade in preclinical experiments.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+          "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+        ]
+      },
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "facets": {
+        "concept_type": [
+          "biological_process"
+        ]
+      },
+      "search_text": "concept:c-tcell-activation t-cell activation restored or increased t-cell activity after pd-l1 blockade in preclinical experiments."
+    },
+    {
+      "id": "concept:C-TCELL-INHIBITION",
+      "type": "causal_concept",
+      "label": "T-cell inhibition",
+      "summary": "Inhibitory checkpoint signaling that limits T-cell activation and antitumor immune responses.",
+      "properties": {
+        "concept_id": "C-TCELL-INHIBITION",
+        "concept_type": "biological_process",
+        "label": "T-cell inhibition",
+        "description": "Inhibitory checkpoint signaling that limits T-cell activation and antitumor immune responses.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "facets": {
+        "concept_type": [
+          "biological_process"
+        ]
+      },
+      "search_text": "concept:c-tcell-inhibition t-cell inhibition inhibitory checkpoint signaling that limits t-cell activation and antitumor immune responses."
+    },
+    {
+      "id": "concept:C-XENOGRAFT-TUMOR-GROWTH",
+      "type": "causal_concept",
+      "label": "Tumor growth in human-immune-cell xenograft models",
+      "summary": "Preclinical tumor-growth outcome; it is not a human clinical endpoint.",
+      "properties": {
+        "concept_id": "C-XENOGRAFT-TUMOR-GROWTH",
+        "concept_type": "preclinical_outcome",
+        "label": "Tumor growth in human-immune-cell xenograft models",
+        "description": "Preclinical tumor-growth outcome; it is not a human clinical endpoint.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+          "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+        ]
+      },
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "facets": {
+        "concept_type": [
+          "preclinical_outcome"
+        ]
+      },
+      "search_text": "concept:c-xenograft-tumor-growth tumor growth in human-immune-cell xenograft models preclinical tumor-growth outcome; it is not a human clinical endpoint."
     },
     {
       "id": "claim:CLM-45849A7289FA2C75",
@@ -347,6 +595,197 @@
       "search_text": "claim:clm-fba98844461c411c use · us9493565b2 use of the antibody against pd-l1/b7-h1-mediated immune suppression"
     },
     {
+      "id": "finding:DVL-CAUS-001",
+      "type": "evidence",
+      "label": "DVL-CAUS-001",
+      "summary": "Preclinical characterization found that MEDI4736 bound PD-L1, blocked PD-L1 interactions with PD-1 and CD80, restored T-cell activation, and produced T-cell-dependent antitumor activity in xenograft models.",
+      "properties": {
+        "finding_id": "DVL-CAUS-001",
+        "conclusion_or_fact": "Preclinical characterization found that MEDI4736 bound PD-L1, blocked PD-L1 interactions with PD-1 and CD80, restored T-cell activation, and produced T-cell-dependent antitumor activity in xenograft models.",
+        "evidence_type": "preclinical_experiment",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+        "concept_ids": [
+          "C-DURVALUMAB",
+          "C-PDL1-PD1-CD80",
+          "C-TCELL-ACTIVATION",
+          "C-XENOGRAFT-TUMOR-GROWTH"
+        ],
+        "confidence": "high",
+        "scope": "In vitro assays and human-immune-cell xenograft models; no direct inference of human clinical benefit.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": [
+          "explicit_concept_id"
+        ]
+      },
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+      "facets": {
+        "family_id": [],
+        "confidence": [
+          "high"
+        ]
+      },
+      "search_text": "finding:dvl-caus-001 dvl-caus-001 preclinical characterization found that medi4736 bound pd-l1, blocked pd-l1 interactions with pd-1 and cd80, restored t-cell activation, and produced t-cell-dependent antitumor activity in xenograft models."
+    },
+    {
+      "id": "finding:DVL-CAUS-002",
+      "type": "evidence",
+      "label": "DVL-CAUS-002",
+      "summary": "The FDA label describes PD-L1-mediated T-cell inhibition and states that durvalumab blocks PD-L1 binding to PD-1 and CD80, releasing inhibition of PD-L1-mediated immune responses.",
+      "properties": {
+        "finding_id": "DVL-CAUS-002",
+        "conclusion_or_fact": "The FDA label describes PD-L1-mediated T-cell inhibition and states that durvalumab blocks PD-L1 binding to PD-1 and CD80, releasing inhibition of PD-L1-mediated immune responses.",
+        "evidence_type": "regulatory_statement",
+        "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+        "concept_ids": [
+          "C-DURVALUMAB",
+          "C-PDL1-PD1-CD80",
+          "C-TCELL-ACTIVATION",
+          "C-TCELL-INHIBITION"
+        ],
+        "confidence": "high",
+        "scope": "Regulatory mechanism-of-action statement, supported by nonclinical evidence.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": [
+          "explicit_concept_id"
+        ]
+      },
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "facets": {
+        "family_id": [],
+        "confidence": [
+          "high"
+        ]
+      },
+      "search_text": "finding:dvl-caus-002 dvl-caus-002 the fda label describes pd-l1-mediated t-cell inhibition and states that durvalumab blocks pd-l1 binding to pd-1 and cd80, releasing inhibition of pd-l1-mediated immune responses."
+    },
+    {
+      "id": "finding:DVL-CAUS-003",
+      "type": "evidence",
+      "label": "DVL-CAUS-003",
+      "summary": "In PACIFIC, randomization to durvalumab after concurrent chemoradiotherapy improved progression-free survival versus placebo; the reported hazard ratio was 0.52 with a 95% confidence interval of 0.42 to 0.65.",
+      "properties": {
+        "finding_id": "DVL-CAUS-003",
+        "conclusion_or_fact": "In PACIFIC, randomization to durvalumab after concurrent chemoradiotherapy improved progression-free survival versus placebo; the reported hazard ratio was 0.52 with a 95% confidence interval of 0.42 to 0.65.",
+        "evidence_type": "randomized_trial",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+        "concept_ids": [
+          "C-DURVALUMAB-POST-CCRT",
+          "C-PROGRESSION-DEATH"
+        ],
+        "confidence": "high",
+        "scope": "Unresectable stage III NSCLC without progression after at least two cycles of platinum-based concurrent chemoradiotherapy.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": [
+          "explicit_concept_id"
+        ]
+      },
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+      "facets": {
+        "family_id": [],
+        "confidence": [
+          "high"
+        ]
+      },
+      "search_text": "finding:dvl-caus-003 dvl-caus-003 in pacific, randomization to durvalumab after concurrent chemoradiotherapy improved progression-free survival versus placebo; the reported hazard ratio was 0.52 with a 95% confidence interval of 0.42 to 0.65."
+    },
+    {
+      "id": "finding:DVL-CAUS-004",
+      "type": "evidence",
+      "label": "DVL-CAUS-004",
+      "summary": "Five-year PACIFIC follow-up reported an overall-survival hazard ratio of 0.72, with estimated five-year survival of 42.9% for durvalumab and 33.4% for placebo.",
+      "properties": {
+        "finding_id": "DVL-CAUS-004",
+        "conclusion_or_fact": "Five-year PACIFIC follow-up reported an overall-survival hazard ratio of 0.72, with estimated five-year survival of 42.9% for durvalumab and 33.4% for placebo.",
+        "evidence_type": "randomized_trial",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/35108059/",
+        "concept_ids": [
+          "C-DURVALUMAB-POST-CCRT",
+          "C-OVERALL-SURVIVAL"
+        ],
+        "confidence": "high",
+        "scope": "Long-term follow-up of the randomized PACIFIC population.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": [
+          "explicit_concept_id"
+        ]
+      },
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35108059/",
+      "facets": {
+        "family_id": [],
+        "confidence": [
+          "high"
+        ]
+      },
+      "search_text": "finding:dvl-caus-004 dvl-caus-004 five-year pacific follow-up reported an overall-survival hazard ratio of 0.72, with estimated five-year survival of 42.9% for durvalumab and 33.4% for placebo."
+    },
+    {
+      "id": "finding:DVL-CAUS-005",
+      "type": "evidence",
+      "label": "DVL-CAUS-005",
+      "summary": "The FDA label states that PD-1/PD-L1 pathway blockade can break peripheral tolerance and induce immune-mediated adverse reactions.",
+      "properties": {
+        "finding_id": "DVL-CAUS-005",
+        "conclusion_or_fact": "The FDA label states that PD-1/PD-L1 pathway blockade can break peripheral tolerance and induce immune-mediated adverse reactions.",
+        "evidence_type": "regulatory_statement",
+        "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+        "concept_ids": [
+          "C-DURVALUMAB",
+          "C-IMMUNE-MEDIATED-AE"
+        ],
+        "confidence": "high",
+        "scope": "Class-mechanism safety statement; event-specific risk varies by organ, regimen, and population.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": [
+          "explicit_concept_id"
+        ]
+      },
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "facets": {
+        "family_id": [],
+        "confidence": [
+          "high"
+        ]
+      },
+      "search_text": "finding:dvl-caus-005 dvl-caus-005 the fda label states that pd-1/pd-l1 pathway blockade can break peripheral tolerance and induce immune-mediated adverse reactions."
+    },
+    {
+      "id": "finding:DVL-CAUS-006",
+      "type": "evidence",
+      "label": "DVL-CAUS-006",
+      "summary": "In PACIFIC, pneumonitis including radiation pneumonitis occurred in 18.3% of durvalumab-treated patients and 12.8% of placebo-treated patients after recent radiation.",
+      "properties": {
+        "finding_id": "DVL-CAUS-006",
+        "conclusion_or_fact": "In PACIFIC, pneumonitis including radiation pneumonitis occurred in 18.3% of durvalumab-treated patients and 12.8% of placebo-treated patients after recent radiation.",
+        "evidence_type": "randomized_trial",
+        "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+        "concept_ids": [
+          "C-DURVALUMAB-POST-CCRT",
+          "C-PNEUMONITIS",
+          "C-RECENT-THORACIC-RT"
+        ],
+        "confidence": "high",
+        "scope": "PACIFIC safety population after definitive chemoradiation; outcome combines pneumonitis and radiation pneumonitis.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": [
+          "explicit_concept_id"
+        ]
+      },
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "facets": {
+        "family_id": [],
+        "confidence": [
+          "high"
+        ]
+      },
+      "search_text": "finding:dvl-caus-006 dvl-caus-006 in pacific, pneumonitis including radiation pneumonitis occurred in 18.3% of durvalumab-treated patients and 12.8% of placebo-treated patients after recent radiation."
+    },
+    {
       "id": "finding:DVL-E-001",
       "type": "evidence",
       "label": "DVL-E-001",
@@ -366,6 +805,7 @@
           "DVL-FAM-001"
         ],
         "claim_ids": [],
+        "concept_ids": [],
         "link_methods": [
           "document_no"
         ]
@@ -404,6 +844,7 @@
           "CLM-B1590893650BEC39",
           "CLM-FBA98844461C411C"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -443,6 +884,7 @@
           "CLM-00AE26C2B3F92DFB",
           "CLM-87EBDEF95B4FF94B"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -481,6 +923,7 @@
         "claim_ids": [
           "CLM-93209869EF5FFBD8"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -519,6 +962,7 @@
         "claim_ids": [
           "CLM-AF86F6ACB0AFD6EA"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -557,6 +1001,7 @@
         "claim_ids": [
           "CLM-44EA1A9C9F497ACE"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -595,6 +1040,7 @@
         "claim_ids": [
           "CLM-45849A7289FA2C75"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1781,6 +2227,54 @@
       "search_text": "source:e5e8a3e5b1c9 patents.google.com https://patents.google.com/patent/us20190256603a1/en"
     },
     {
+      "id": "source:599897D59574",
+      "type": "source",
+      "label": "pubmed.ncbi.nlm.nih.gov",
+      "summary": "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+      "properties": {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28885881/"
+      },
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+      "facets": {},
+      "search_text": "source:599897d59574 pubmed.ncbi.nlm.nih.gov https://pubmed.ncbi.nlm.nih.gov/28885881/"
+    },
+    {
+      "id": "source:9AF54F37C385",
+      "type": "source",
+      "label": "pubmed.ncbi.nlm.nih.gov",
+      "summary": "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+      "properties": {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+      },
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+      "facets": {},
+      "search_text": "source:9af54f37c385 pubmed.ncbi.nlm.nih.gov https://pubmed.ncbi.nlm.nih.gov/25943534/"
+    },
+    {
+      "id": "source:B5A498897F11",
+      "type": "source",
+      "label": "pubmed.ncbi.nlm.nih.gov",
+      "summary": "https://pubmed.ncbi.nlm.nih.gov/35108059/",
+      "properties": {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35108059/"
+      },
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35108059/",
+      "facets": {},
+      "search_text": "source:b5a498897f11 pubmed.ncbi.nlm.nih.gov https://pubmed.ncbi.nlm.nih.gov/35108059/"
+    },
+    {
+      "id": "source:461EDA7A07C6",
+      "type": "source",
+      "label": "www.accessdata.fda.gov",
+      "summary": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "properties": {
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      },
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "facets": {},
+      "search_text": "source:461eda7a07c6 www.accessdata.fda.gov https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+    },
+    {
       "id": "target:5852ECF45A21",
       "type": "target",
       "label": "PD-L1",
@@ -1905,6 +2399,63 @@
   ],
   "edges": [
     {
+      "id": "REL-A7746C436F54",
+      "source": "concept:C-RECENT-THORACIC-RT",
+      "target": "concept:C-PNEUMONITIS",
+      "type": "ASSOCIATED_WITH",
+      "label": "相关于",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "curated_causal_relation"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-006"
+      ],
+      "properties": {
+        "scope": "Safety association only",
+        "causal_limit": "Potential confounding and mixed pneumonitis attribution."
+      },
+      "relation_kind": "associative",
+      "causal_status": "not_causal",
+      "polarity": "positive",
+      "directness": "not_applicable",
+      "evidence_level": "observational_study",
+      "confidence": "medium",
+      "rationale": "The label reports a higher incidence after recent thoracic radiation, but radiation exposure was not randomized in this comparison and the outcome has mixed etiologies; the edge therefore does not assert causation.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
+    },
+    {
+      "id": "REL-15D862EA468B",
+      "source": "concept:C-DURVALUMAB",
+      "target": "concept:C-PDL1-PD1-CD80",
+      "type": "BLOCKS",
+      "label": "阻断",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "curated_causal_relation"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-001",
+        "DVL-CAUS-002"
+      ],
+      "properties": {
+        "scope": "Molecular target engagement; not itself a clinical efficacy claim."
+      },
+      "relation_kind": "mechanistic",
+      "causal_status": "established",
+      "polarity": "negative",
+      "directness": "direct",
+      "evidence_level": "regulatory_statement",
+      "confidence": "high",
+      "rationale": "Direct binding and blockade were characterized experimentally and are described in the current regulatory mechanism-of-action section.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
+    },
+    {
       "id": "REL-76603E7434B5",
       "source": "claim:CLM-00AE26C2B3F92DFB",
       "target": "document:US20190256603A1",
@@ -1915,7 +2466,15 @@
         "claim.document"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-0088EA14AB51",
@@ -1928,7 +2487,15 @@
         "claim.document"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-DAAEC3CEADB4",
@@ -1941,7 +2508,15 @@
         "claim.document"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-2D6B9CB65E8B",
@@ -1954,7 +2529,15 @@
         "claim.document"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-40C68B5A2FD9",
@@ -1967,7 +2550,15 @@
         "claim.document"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-797377D3FC33",
@@ -1980,7 +2571,15 @@
         "claim.document"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-96C49F3FD0EB",
@@ -1993,7 +2592,15 @@
         "claim.document"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-816E4CF4292F",
@@ -2006,7 +2613,15 @@
         "claim.document"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-D59D078220E7",
@@ -2019,7 +2634,72 @@
         "claim.document"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-6007B0946F4E",
+      "source": "concept:C-DURVALUMAB",
+      "target": "concept:C-TCELL-INHIBITION",
+      "type": "DECREASES",
+      "label": "降低",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "curated_causal_relation"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-001",
+        "DVL-CAUS-002"
+      ],
+      "properties": {
+        "mediator": "PD-L1 interaction with PD-1 and CD80"
+      },
+      "relation_kind": "mechanistic",
+      "causal_status": "established",
+      "polarity": "negative",
+      "directness": "mediated",
+      "evidence_level": "regulatory_statement",
+      "confidence": "high",
+      "rationale": "Durvalumab blocks the PD-L1 interactions that transmit inhibitory checkpoint signaling.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
+    },
+    {
+      "id": "REL-2C5CD93E5DAB",
+      "source": "concept:C-TCELL-ACTIVATION",
+      "target": "concept:C-XENOGRAFT-TUMOR-GROWTH",
+      "type": "DECREASES",
+      "label": "降低",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "curated_causal_relation"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-001"
+      ],
+      "properties": {
+        "scope": "Human-immune-cell xenograft models only",
+        "extrapolation_limit": "Do not promote this edge to a human clinical outcome."
+      },
+      "relation_kind": "causal",
+      "causal_status": "supported",
+      "polarity": "negative",
+      "directness": "mediated",
+      "evidence_level": "preclinical_experiment",
+      "confidence": "medium",
+      "rationale": "The reported antitumor effect was T-cell dependent, supporting a mediated causal path in the xenograft model but not establishing human benefit.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+      ]
     },
     {
       "id": "EDGE-4409B6EF887E",
@@ -2030,7 +2710,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-D025CE8E0229",
@@ -2041,7 +2729,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-FB6CE7F2014C",
@@ -2052,7 +2748,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-4CF4D6AD1422",
@@ -2063,7 +2767,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-91B8EB2C3DCC",
@@ -2074,7 +2786,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-70F9D6E3396D",
@@ -2085,7 +2805,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-ECEE327CE30F",
@@ -2096,7 +2824,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-9BFCD9D9A535",
@@ -2107,7 +2843,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-4F70670DE1BD",
@@ -2118,7 +2862,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-8EB585F03438",
@@ -2129,7 +2881,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-90D5D6BFB3B9",
@@ -2140,7 +2900,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-4748F7B327F0",
@@ -2151,7 +2919,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-4B33D0C3B4B7",
@@ -2162,7 +2938,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-75F9CFEB9F25",
@@ -2173,7 +2957,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-CF817CB2B7A4",
@@ -2184,7 +2976,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-FFD69607C3D3",
@@ -2195,7 +2995,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-B90ADF9F71AC",
@@ -2206,7 +3014,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-C09E2C28467F",
@@ -2217,7 +3033,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-C78F1142AF8B",
@@ -2228,7 +3052,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-5E8F806B6A1F",
@@ -2239,7 +3071,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-5023D8B92321",
@@ -2250,7 +3090,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-563873ADA53E",
@@ -2261,7 +3109,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-535AD60A38D4",
@@ -2272,7 +3128,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-3E2FD1B55610",
@@ -2283,7 +3147,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-FE109042A1BA",
@@ -2294,7 +3166,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-088AE02A3525",
@@ -2305,7 +3185,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-77CD6FA427E0",
@@ -2316,7 +3204,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-A9AB989F0797",
@@ -2327,7 +3223,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-F00E2CFA1F8C",
@@ -2338,7 +3242,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-2841C985D9B9",
@@ -2349,7 +3261,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-CBB9EA00C78E",
@@ -2360,7 +3280,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-4DFFC0029B1C",
@@ -2371,7 +3299,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-31AB326595EF",
@@ -2382,7 +3318,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-7B42BB42059B",
@@ -2393,7 +3337,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-7E7B9D56B3BC",
@@ -2404,7 +3356,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-B8FD2154211F",
@@ -2415,7 +3375,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-1860C83F8B30",
@@ -2428,7 +3396,15 @@
         "claim.family_id"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-B728CB45D151",
@@ -2441,7 +3417,15 @@
         "claim.family_id"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-9DB5D768E72A",
@@ -2454,7 +3438,15 @@
         "claim.family_id"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-8B58A6A259B8",
@@ -2467,7 +3459,15 @@
         "claim.family_id"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-6C5BADF53166",
@@ -2480,7 +3480,15 @@
         "claim.family_id"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-2686E6C07D32",
@@ -2493,7 +3501,15 @@
         "claim.family_id"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-4987701619A1",
@@ -2506,7 +3522,15 @@
         "claim.family_id"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-CC77C4C51F25",
@@ -2519,7 +3543,15 @@
         "claim.family_id"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-8D2B44702986",
@@ -2532,7 +3564,15 @@
         "claim.family_id"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-56EA2D971D55",
@@ -2547,7 +3587,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-8EEE068EBE2A",
@@ -2562,7 +3610,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-8109FE4FDA6C",
@@ -2577,7 +3633,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "representative"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-C48C91E2F289",
@@ -2592,7 +3656,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-EF6032B5E487",
@@ -2607,7 +3679,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "representative"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-FE4786C77ECC",
@@ -2622,7 +3702,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-8F3E918BCC6E",
@@ -2637,7 +3725,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-5EE5D28F66F9",
@@ -2652,7 +3748,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-EE705AF81B8B",
@@ -2667,7 +3771,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-DD0809C91CF2",
@@ -2682,7 +3794,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-5A271F654A75",
@@ -2697,7 +3817,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-26329AC49B30",
@@ -2712,7 +3840,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "representative"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-A5FAFAEE49E3",
@@ -2727,7 +3863,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-1B00C715F430",
@@ -2742,7 +3886,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "representative"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-04F9E885D627",
@@ -2757,7 +3909,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-8C782ED55656",
@@ -2772,7 +3932,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "representative"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-F2DF631BE3F6",
@@ -2787,7 +3955,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-F8C3FBC272D1",
@@ -2802,7 +3978,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "representative"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-E7F38A6DEAD1",
@@ -2817,7 +4001,15 @@
       "evidence_ids": [],
       "properties": {
         "role": "member"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-C5FD8DAF22FA",
@@ -2832,7 +4024,141 @@
       "evidence_ids": [],
       "properties": {
         "role": "representative"
-      }
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-AC67B9AE345F",
+      "source": "finding:DVL-CAUS-001",
+      "target": "source:9AF54F37C385",
+      "type": "HAS_SOURCE",
+      "label": "来源",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "evidence.source_url"
+      ],
+      "evidence_ids": [],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-96F5D1C2863C",
+      "source": "finding:DVL-CAUS-002",
+      "target": "source:461EDA7A07C6",
+      "type": "HAS_SOURCE",
+      "label": "来源",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "evidence.source_url"
+      ],
+      "evidence_ids": [],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-F7F7BDE2579E",
+      "source": "finding:DVL-CAUS-003",
+      "target": "source:599897D59574",
+      "type": "HAS_SOURCE",
+      "label": "来源",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "evidence.source_url"
+      ],
+      "evidence_ids": [],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-DB6DA8DD2230",
+      "source": "finding:DVL-CAUS-004",
+      "target": "source:B5A498897F11",
+      "type": "HAS_SOURCE",
+      "label": "来源",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "evidence.source_url"
+      ],
+      "evidence_ids": [],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-C59ED86CDFEB",
+      "source": "finding:DVL-CAUS-005",
+      "target": "source:461EDA7A07C6",
+      "type": "HAS_SOURCE",
+      "label": "来源",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "evidence.source_url"
+      ],
+      "evidence_ids": [],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-2BF82771F90C",
+      "source": "finding:DVL-CAUS-006",
+      "target": "source:461EDA7A07C6",
+      "type": "HAS_SOURCE",
+      "label": "来源",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "evidence.source_url"
+      ],
+      "evidence_ids": [],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-233E337E6304",
@@ -2845,7 +4171,15 @@
         "evidence.source_url"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-B1F6932AF011",
@@ -2858,7 +4192,15 @@
         "evidence.source_url"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-F3217BB6249C",
@@ -2871,7 +4213,15 @@
         "evidence.source_url"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-49C22E6C13D0",
@@ -2884,7 +4234,15 @@
         "evidence.source_url"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-E3D49AB6F561",
@@ -2897,7 +4255,15 @@
         "evidence.source_url"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-0D85D325E1B2",
@@ -2910,7 +4276,15 @@
         "evidence.source_url"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-C0098FF54974",
@@ -2923,7 +4297,132 @@
         "evidence.source_url"
       ],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-7A2FE7AC8DFE",
+      "source": "concept:C-DURVALUMAB",
+      "target": "concept:C-TCELL-ACTIVATION",
+      "type": "INCREASES",
+      "label": "增加",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "curated_causal_relation"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-001",
+        "DVL-CAUS-002"
+      ],
+      "properties": {
+        "scope": "In vitro and nonclinical immune-response models; no direct clinical endpoint."
+      },
+      "relation_kind": "mechanistic",
+      "causal_status": "supported",
+      "polarity": "positive",
+      "directness": "mediated",
+      "evidence_level": "preclinical_experiment",
+      "confidence": "high",
+      "rationale": "Restored T-cell activation was observed after PD-L1 blockade in preclinical assays; the inference is bounded to those experimental systems.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
+    },
+    {
+      "id": "REL-474890F17597",
+      "source": "concept:C-PDL1-PD1-CD80",
+      "target": "concept:C-TCELL-INHIBITION",
+      "type": "INCREASES",
+      "label": "增加",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "curated_causal_relation"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-002"
+      ],
+      "properties": {
+        "scope": "Checkpoint signaling mechanism."
+      },
+      "relation_kind": "mechanistic",
+      "causal_status": "established",
+      "polarity": "positive",
+      "directness": "direct",
+      "evidence_level": "regulatory_statement",
+      "confidence": "high",
+      "rationale": "The regulatory mechanism states that PD-L1 interaction with PD-1 and CD80 inhibits T-cell activation and cytokine production.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
+    },
+    {
+      "id": "REL-5095F7134E79",
+      "source": "concept:C-DURVALUMAB",
+      "target": "concept:C-IMMUNE-MEDIATED-AE",
+      "type": "INCREASES_RISK_OF",
+      "label": "增加风险",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "curated_causal_relation"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-005"
+      ],
+      "properties": {
+        "scope": "Class-mechanism safety relationship; not an organ-specific incidence estimate."
+      },
+      "relation_kind": "mechanistic",
+      "causal_status": "established",
+      "polarity": "positive",
+      "directness": "mediated",
+      "evidence_level": "regulatory_statement",
+      "confidence": "high",
+      "rationale": "The label attributes immune-mediated adverse reactions to removal of PD-1/PD-L1 pathway inhibition and loss of peripheral tolerance.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
+    },
+    {
+      "id": "REL-12347604809F",
+      "source": "concept:C-DURVALUMAB-POST-CCRT",
+      "target": "concept:C-PNEUMONITIS",
+      "type": "INCREASES_RISK_OF",
+      "label": "增加风险",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "curated_causal_relation"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-006"
+      ],
+      "properties": {
+        "population": "PACIFIC safety population after definitive chemoradiation",
+        "comparator": "Placebo",
+        "endpoint": "Pneumonitis including radiation pneumonitis",
+        "incidence_percent": {
+          "durvalumab": 18.3,
+          "placebo": 12.8
+        },
+        "absolute_difference_percentage_points": 5.5
+      },
+      "relation_kind": "causal",
+      "causal_status": "supported",
+      "polarity": "positive",
+      "directness": "total_effect",
+      "evidence_level": "randomized_trial",
+      "confidence": "medium",
+      "rationale": "Randomization supports a treatment-attributable difference in the composite pneumonitis outcome, but mixed immune and radiation etiologies limit mechanism-specific certainty.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
     },
     {
       "id": "EDGE-59FB770867F7",
@@ -2934,7 +4433,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-DDA10E3C453B",
@@ -2945,7 +4452,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-05DC001DFFF6",
@@ -2956,7 +4471,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-51867028C5F3",
@@ -2967,7 +4490,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-628712F85D7F",
@@ -2978,7 +4509,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-863B9B1C0008",
@@ -2989,7 +4528,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-8CC054D8EE30",
@@ -3000,7 +4547,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-DBEEF4506F9E",
@@ -3011,7 +4566,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-7DB3AA561674",
@@ -3022,7 +4585,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-9A634B2A36E6",
@@ -3039,7 +4610,15 @@
         "family_id": "DVL-FAM-003",
         "source_url": "https://patents.google.com/patent/AU2024250324A1/en",
         "notes": "National-phase member identified on public mirror"
-      }
+      },
+      "relation_kind": "temporal",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-210C89287D7D",
@@ -3056,7 +4635,15 @@
         "family_id": "DVL-FAM-003",
         "source_url": "https://patents.google.com/patent/CN120936347A/en",
         "notes": "National-phase member identified on public mirror"
-      }
+      },
+      "relation_kind": "temporal",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-3C38FCF2C043",
@@ -3073,7 +4660,15 @@
         "family_id": "DVL-FAM-003",
         "source_url": "https://patents.google.com/patent/EP4694872A1/en",
         "notes": "Regional-phase member identified on public mirror"
-      }
+      },
+      "relation_kind": "temporal",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-BBD3884BEE65",
@@ -3090,7 +4685,15 @@
         "family_id": "DVL-FAM-003",
         "source_url": "https://patents.google.com/patent/IL323900A/en",
         "notes": "National-phase member identified on public mirror"
-      }
+      },
+      "relation_kind": "temporal",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-C02118C8B98E",
@@ -3107,7 +4710,15 @@
         "family_id": "DVL-FAM-003",
         "source_url": "https://patents.google.com/patent/KR20250173561A/en",
         "notes": "National-phase member identified on public mirror"
-      }
+      },
+      "relation_kind": "temporal",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-8AA4CB9B217E",
@@ -3118,7 +4729,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-CE270ECE396E",
@@ -3129,7 +4748,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-BD4D32B3970B",
@@ -3140,7 +4767,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-E42F68B3331E",
@@ -3151,7 +4786,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-DFADBD1B3C96",
@@ -3162,7 +4805,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-295E89F9F643",
@@ -3173,7 +4824,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-1298217B6EA9",
@@ -3184,7 +4843,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-98C84E32751B",
@@ -3195,7 +4862,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-CB42FB1DD52B",
@@ -3206,7 +4881,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-854BED744267",
@@ -3217,7 +4900,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-F2DA7008B46A",
@@ -3228,7 +4919,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-E1A6114ABEF4",
@@ -3239,7 +4938,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-8990DDA7A7D7",
@@ -3250,7 +4957,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-81EBE0FBACC9",
@@ -3261,7 +4976,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-7ED092136D4D",
@@ -3272,7 +4995,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-B32662097895",
@@ -3283,7 +5014,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-C1F4FDBADB1E",
@@ -3294,7 +5033,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-F5E386DCAABC",
@@ -3305,7 +5052,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-31B7FE7E6FA0",
@@ -3316,7 +5071,15 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "EDGE-A02358F98396",
@@ -3327,7 +5090,90 @@
       "assertion": "direct_fact",
       "link_methods": [],
       "evidence_ids": [],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-1E9D7D724312",
+      "source": "concept:C-DURVALUMAB-POST-CCRT",
+      "target": "concept:C-OVERALL-SURVIVAL",
+      "type": "REDUCES_RISK_OF",
+      "label": "降低风险",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "curated_causal_relation"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-004"
+      ],
+      "properties": {
+        "population": "PACIFIC randomized population",
+        "comparator": "Placebo",
+        "endpoint": "Overall survival",
+        "effect_measure": "Hazard ratio",
+        "estimate": 0.72,
+        "confidence_interval_95": [
+          0.59,
+          0.89
+        ],
+        "five_year_survival_percent": {
+          "durvalumab": 42.9,
+          "placebo": 33.4
+        }
+      },
+      "relation_kind": "causal",
+      "causal_status": "established",
+      "polarity": "negative",
+      "directness": "total_effect",
+      "evidence_level": "randomized_trial",
+      "confidence": "high",
+      "rationale": "Long-term follow-up of the randomized PACIFIC comparison supports a total survival effect for the trial population.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/35108059/"
+      ]
+    },
+    {
+      "id": "REL-3D0616A8F150",
+      "source": "concept:C-DURVALUMAB-POST-CCRT",
+      "target": "concept:C-PROGRESSION-DEATH",
+      "type": "REDUCES_RISK_OF",
+      "label": "降低风险",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "curated_causal_relation"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-003"
+      ],
+      "properties": {
+        "population": "Unresectable stage III NSCLC without progression after platinum-based concurrent chemoradiotherapy",
+        "comparator": "Placebo",
+        "endpoint": "Progression-free survival",
+        "effect_measure": "Hazard ratio",
+        "estimate": 0.52,
+        "confidence_interval_95": [
+          0.42,
+          0.65
+        ]
+      },
+      "relation_kind": "causal",
+      "causal_status": "established",
+      "polarity": "negative",
+      "directness": "total_effect",
+      "evidence_level": "randomized_trial",
+      "confidence": "high",
+      "rationale": "The randomized, placebo-controlled PACIFIC comparison identifies a total treatment effect for progression-free survival in the enrolled population.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
     },
     {
       "id": "REL-7C5FF9154627",
@@ -3342,7 +5188,15 @@
       "evidence_ids": [
         "DVL-E-003"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-63BD72194B27",
@@ -3357,7 +5211,15 @@
       "evidence_ids": [
         "DVL-E-006"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-BBDBF810C9B2",
@@ -3372,7 +5234,15 @@
       "evidence_ids": [
         "DVL-E-007"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-C89D628FA479",
@@ -3387,7 +5257,15 @@
       "evidence_ids": [
         "DVL-E-003"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-98BAEF155CCD",
@@ -3402,7 +5280,15 @@
       "evidence_ids": [
         "DVL-E-004"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-C9713EE0D9DE",
@@ -3417,7 +5303,15 @@
       "evidence_ids": [
         "DVL-E-005"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-5E7492BF6855",
@@ -3432,7 +5326,15 @@
       "evidence_ids": [
         "DVL-E-002"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-452F693AEB05",
@@ -3447,7 +5349,406 @@
       "evidence_ids": [
         "DVL-E-002"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-18761A9F3E2E",
+      "source": "concept:C-DURVALUMAB",
+      "target": "finding:DVL-CAUS-001",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-001"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-61FD1585B5F1",
+      "source": "concept:C-DURVALUMAB",
+      "target": "finding:DVL-CAUS-002",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-002"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-BC76DC27E70F",
+      "source": "concept:C-DURVALUMAB",
+      "target": "finding:DVL-CAUS-005",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-005"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-AF7EDB6221DD",
+      "source": "concept:C-DURVALUMAB-POST-CCRT",
+      "target": "finding:DVL-CAUS-003",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-003"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-356BC7724637",
+      "source": "concept:C-DURVALUMAB-POST-CCRT",
+      "target": "finding:DVL-CAUS-004",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-004"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-5F283D3D61FD",
+      "source": "concept:C-DURVALUMAB-POST-CCRT",
+      "target": "finding:DVL-CAUS-006",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-006"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-9E646FBC4219",
+      "source": "concept:C-IMMUNE-MEDIATED-AE",
+      "target": "finding:DVL-CAUS-005",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-005"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-552D7AC82705",
+      "source": "concept:C-OVERALL-SURVIVAL",
+      "target": "finding:DVL-CAUS-004",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-004"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-30DEA8E0C57A",
+      "source": "concept:C-PDL1-PD1-CD80",
+      "target": "finding:DVL-CAUS-001",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-001"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-365B44579067",
+      "source": "concept:C-PDL1-PD1-CD80",
+      "target": "finding:DVL-CAUS-002",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-002"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-D78FCB9B9518",
+      "source": "concept:C-PNEUMONITIS",
+      "target": "finding:DVL-CAUS-006",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-006"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-84F82DECA300",
+      "source": "concept:C-PROGRESSION-DEATH",
+      "target": "finding:DVL-CAUS-003",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-003"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-8F05B25715FB",
+      "source": "concept:C-RECENT-THORACIC-RT",
+      "target": "finding:DVL-CAUS-006",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-006"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-528713A589F6",
+      "source": "concept:C-TCELL-ACTIVATION",
+      "target": "finding:DVL-CAUS-001",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-001"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-B4E5577B29F4",
+      "source": "concept:C-TCELL-ACTIVATION",
+      "target": "finding:DVL-CAUS-002",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-002"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-C08DCABBBBD3",
+      "source": "concept:C-TCELL-INHIBITION",
+      "target": "finding:DVL-CAUS-002",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-002"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "REL-40A5E6684465",
+      "source": "concept:C-XENOGRAFT-TUMOR-GROWTH",
+      "target": "finding:DVL-CAUS-001",
+      "type": "SUPPORTED_BY",
+      "label": "证据支持",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "explicit_concept_id"
+      ],
+      "evidence_ids": [
+        "DVL-CAUS-001"
+      ],
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-AF89A52F5BA5",
@@ -3462,7 +5763,15 @@
       "evidence_ids": [
         "DVL-E-001"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-F36A1E3C1B63",
@@ -3477,7 +5786,15 @@
       "evidence_ids": [
         "DVL-E-002"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-A9D2B1BF5B75",
@@ -3492,7 +5809,15 @@
       "evidence_ids": [
         "DVL-E-003"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-1D82448A860E",
@@ -3507,7 +5832,15 @@
       "evidence_ids": [
         "DVL-E-004"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-4D98DE817975",
@@ -3522,7 +5855,15 @@
       "evidence_ids": [
         "DVL-E-006"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-8908A4CB36DC",
@@ -3537,7 +5878,15 @@
       "evidence_ids": [
         "DVL-E-005"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     },
     {
       "id": "REL-948C1C7BC0BF",
@@ -3552,7 +5901,15 @@
       "evidence_ids": [
         "DVL-E-007"
       ],
-      "properties": {}
+      "properties": {},
+      "relation_kind": "evidentiary",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
     }
   ],
   "facets": {
@@ -3561,6 +5918,21 @@
         "value": "patent_document",
         "label": "patent_document",
         "count": 20
+      },
+      {
+        "value": "evidence",
+        "label": "evidence",
+        "count": 13
+      },
+      {
+        "value": "causal_concept",
+        "label": "causal_concept",
+        "count": 11
+      },
+      {
+        "value": "source",
+        "label": "source",
+        "count": 11
       },
       {
         "value": "technology_theme",
@@ -3583,18 +5955,8 @@
         "count": 8
       },
       {
-        "value": "evidence",
-        "label": "evidence",
-        "count": 7
-      },
-      {
         "value": "patent_family",
         "label": "patent_family",
-        "count": 7
-      },
-      {
-        "value": "source",
-        "label": "source",
         "count": 7
       },
       {
@@ -3615,6 +5977,11 @@
     ],
     "relation_types": [
       {
+        "value": "SUPPORTED_BY",
+        "label": "SUPPORTED_BY",
+        "count": 32
+      },
+      {
         "value": "FILED_IN",
         "label": "FILED_IN",
         "count": 26
@@ -3630,9 +5997,9 @@
         "count": 20
       },
       {
-        "value": "SUPPORTED_BY",
-        "label": "SUPPORTED_BY",
-        "count": 15
+        "value": "HAS_SOURCE",
+        "label": "HAS_SOURCE",
+        "count": 13
       },
       {
         "value": "FILED_BY",
@@ -3655,26 +6022,83 @@
         "count": 9
       },
       {
-        "value": "HAS_SOURCE",
-        "label": "HAS_SOURCE",
-        "count": 7
-      },
-      {
         "value": "NATIONAL_PHASE_OF",
         "label": "NATIONAL_PHASE_OF",
         "count": 5
+      },
+      {
+        "value": "DECREASES",
+        "label": "DECREASES",
+        "count": 2
+      },
+      {
+        "value": "INCREASES",
+        "label": "INCREASES",
+        "count": 2
+      },
+      {
+        "value": "INCREASES_RISK_OF",
+        "label": "INCREASES_RISK_OF",
+        "count": 2
+      },
+      {
+        "value": "REDUCES_RISK_OF",
+        "label": "REDUCES_RISK_OF",
+        "count": 2
+      },
+      {
+        "value": "ASSOCIATED_WITH",
+        "label": "ASSOCIATED_WITH",
+        "count": 1
+      },
+      {
+        "value": "BLOCKS",
+        "label": "BLOCKS",
+        "count": 1
       }
     ],
     "assertions": [
       {
         "value": "direct_fact",
         "label": "direct_fact",
-        "count": 115
+        "count": 148
       },
       {
         "value": "rule_derived",
         "label": "rule_derived",
         "count": 15
+      }
+    ],
+    "relation_kinds": [
+      {
+        "value": "structural",
+        "label": "structural",
+        "count": 103
+      },
+      {
+        "value": "evidentiary",
+        "label": "evidentiary",
+        "count": 45
+      },
+      {
+        "value": "mechanistic",
+        "label": "mechanistic",
+        "count": 5
+      },
+      {
+        "value": "temporal",
+        "label": "temporal",
+        "count": 5
+      },
+      {
+        "value": "causal",
+        "label": "causal",
+        "count": 4
+      },
+      {
+        "value": "associative",
+        "label": "associative",
+        "count": 1
       }
     ],
     "applicants": [
@@ -3827,6 +6251,43 @@
         "label": "patient-selection",
         "count": 1
       }
+    ],
+    "concept_types": [
+      {
+        "value": "adverse_event",
+        "label": "adverse_event",
+        "count": 2
+      },
+      {
+        "value": "biological_process",
+        "label": "biological_process",
+        "count": 2
+      },
+      {
+        "value": "clinical_outcome",
+        "label": "clinical_outcome",
+        "count": 2
+      },
+      {
+        "value": "intervention",
+        "label": "intervention",
+        "count": 2
+      },
+      {
+        "value": "exposure",
+        "label": "exposure",
+        "count": 1
+      },
+      {
+        "value": "molecular_interaction",
+        "label": "molecular_interaction",
+        "count": 1
+      },
+      {
+        "value": "preclinical_outcome",
+        "label": "preclinical_outcome",
+        "count": 1
+      }
     ]
   },
   "presets": [
@@ -3947,6 +6408,28 @@
         "PROTECTS"
       ],
       "layout": "cose"
+    },
+    {
+      "id": "causal",
+      "label": "因果机制视图",
+      "description": "仅显示有明确语义、证据等级和适用范围的因果/机制路径。",
+      "default_depth": 3,
+      "node_types": [
+        "causal_concept",
+        "evidence",
+        "source"
+      ],
+      "relation_types": [
+        "ASSOCIATED_WITH",
+        "BLOCKS",
+        "DECREASES",
+        "INCREASES",
+        "INCREASES_RISK_OF",
+        "REDUCES_RISK_OF",
+        "SUPPORTED_BY",
+        "HAS_SOURCE"
+      ],
+      "layout": "cose"
     }
   ],
   "legend": {
@@ -3994,6 +6477,10 @@
       {
         "value": "source",
         "label": "来源"
+      },
+      {
+        "value": "causal_concept",
+        "label": "因果概念"
       }
     ],
     "assertions": [
@@ -4011,6 +6498,38 @@
         "value": "model_inference",
         "label": "模型推断",
         "line_style": "dotted"
+      }
+    ],
+    "relation_kinds": [
+      {
+        "value": "causal",
+        "label": "因果效应",
+        "line_style": "solid"
+      },
+      {
+        "value": "mechanistic",
+        "label": "作用机制",
+        "line_style": "solid"
+      },
+      {
+        "value": "associative",
+        "label": "仅相关",
+        "line_style": "dotted"
+      },
+      {
+        "value": "temporal",
+        "label": "时间/法律序列",
+        "line_style": "dashed"
+      },
+      {
+        "value": "evidentiary",
+        "label": "证据链接",
+        "line_style": "dashed"
+      },
+      {
+        "value": "structural",
+        "label": "结构关系",
+        "line_style": "solid"
       }
     ]
   }

@@ -45,6 +45,7 @@ class GraphDataTests(unittest.TestCase):
                 "applicant",
                 "jurisdiction",
                 "technology_theme",
+                "causal_concept",
                 "source",
             }.issubset(node_types)
         )
@@ -60,7 +61,7 @@ class GraphDataTests(unittest.TestCase):
             )
         )
         self.assertEqual(
-            {"family", "technology", "evidence", "applicant"},
+            {"family", "technology", "evidence", "applicant", "causal"},
             {preset["id"] for preset in graph["presets"]},
         )
         technology = next(preset for preset in graph["presets"] if preset["id"] == "technology")
@@ -143,6 +144,15 @@ class GraphDataTests(unittest.TestCase):
     def test_builds_auditable_causal_nodes_edges_and_preset(self):
         source = json.loads((self.case_dir / "case-output.json").read_text(encoding="utf-8"))
         source["schema_version"] = "1.2"
+        source["records"]["evidence"] = [
+            row for row in source["records"]["evidence"] if not row.get("concept_ids")
+        ]
+        source["records"]["relations"] = [
+            row
+            for row in source["records"]["relations"]
+            if not row["source_id"].startswith("concept:")
+            and not row["target_id"].startswith("concept:")
+        ]
         source["records"]["concepts"] = [
             {
                 "concept_id": "C-DRUG",

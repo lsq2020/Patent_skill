@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "case": {
     "case_id": "durvalumab-pdl1-nsclc",
     "research_object": {
@@ -33,8 +33,8 @@
     ]
   },
   "run": {
-    "run_id": "durvalumab-pdl1-nsclc-20260807T042055Z",
-    "generated_at": "2026-08-07T04:20:55.308121+00:00",
+    "run_id": "durvalumab-pdl1-nsclc-20260807T064522Z",
+    "generated_at": "2026-08-07T06:45:22.492841+00:00",
     "skill_version": "repository",
     "pipeline": [
       "scope",
@@ -50,15 +50,17 @@
   "metrics": {
     "family_count": 7,
     "claim_count": 9,
-    "evidence_count": 7,
+    "evidence_count": 13,
+    "concept_count": 11,
+    "causal_relation_count": 9,
     "document_count": 20,
-    "relation_count": 58,
+    "relation_count": 85,
     "family_relation_count": 0,
     "member_relation_count": 5,
-    "linked_evidence_count": 7,
+    "linked_evidence_count": 13,
     "unlinked_evidence_count": 0,
     "ranking_count": 7,
-    "source_url_count": 12,
+    "source_url_count": 16,
     "source_log_count": 11,
     "report_count": 14,
     "uncertainty_count": 1
@@ -738,6 +740,7 @@
           "DVL-FAM-001"
         ],
         "claim_ids": [],
+        "concept_ids": [],
         "link_methods": [
           "document_no"
         ]
@@ -760,6 +763,7 @@
           "CLM-B1590893650BEC39",
           "CLM-FBA98844461C411C"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -783,6 +787,7 @@
           "CLM-00AE26C2B3F92DFB",
           "CLM-87EBDEF95B4FF94B"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -805,6 +810,7 @@
         "claim_ids": [
           "CLM-93209869EF5FFBD8"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -827,6 +833,7 @@
         "claim_ids": [
           "CLM-AF86F6ACB0AFD6EA"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -849,6 +856,7 @@
         "claim_ids": [
           "CLM-44EA1A9C9F497ACE"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -871,9 +879,224 @@
         "claim_ids": [
           "CLM-45849A7289FA2C75"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
+        ]
+      },
+      {
+        "finding_id": "DVL-CAUS-001",
+        "conclusion_or_fact": "Preclinical characterization found that MEDI4736 bound PD-L1, blocked PD-L1 interactions with PD-1 and CD80, restored T-cell activation, and produced T-cell-dependent antitumor activity in xenograft models.",
+        "evidence_type": "preclinical_experiment",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+        "concept_ids": [
+          "C-DURVALUMAB",
+          "C-PDL1-PD1-CD80",
+          "C-TCELL-ACTIVATION",
+          "C-XENOGRAFT-TUMOR-GROWTH"
+        ],
+        "confidence": "high",
+        "scope": "In vitro assays and human-immune-cell xenograft models; no direct inference of human clinical benefit.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": [
+          "explicit_concept_id"
+        ]
+      },
+      {
+        "finding_id": "DVL-CAUS-002",
+        "conclusion_or_fact": "The FDA label describes PD-L1-mediated T-cell inhibition and states that durvalumab blocks PD-L1 binding to PD-1 and CD80, releasing inhibition of PD-L1-mediated immune responses.",
+        "evidence_type": "regulatory_statement",
+        "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+        "concept_ids": [
+          "C-DURVALUMAB",
+          "C-PDL1-PD1-CD80",
+          "C-TCELL-ACTIVATION",
+          "C-TCELL-INHIBITION"
+        ],
+        "confidence": "high",
+        "scope": "Regulatory mechanism-of-action statement, supported by nonclinical evidence.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": [
+          "explicit_concept_id"
+        ]
+      },
+      {
+        "finding_id": "DVL-CAUS-003",
+        "conclusion_or_fact": "In PACIFIC, randomization to durvalumab after concurrent chemoradiotherapy improved progression-free survival versus placebo; the reported hazard ratio was 0.52 with a 95% confidence interval of 0.42 to 0.65.",
+        "evidence_type": "randomized_trial",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+        "concept_ids": [
+          "C-DURVALUMAB-POST-CCRT",
+          "C-PROGRESSION-DEATH"
+        ],
+        "confidence": "high",
+        "scope": "Unresectable stage III NSCLC without progression after at least two cycles of platinum-based concurrent chemoradiotherapy.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": [
+          "explicit_concept_id"
+        ]
+      },
+      {
+        "finding_id": "DVL-CAUS-004",
+        "conclusion_or_fact": "Five-year PACIFIC follow-up reported an overall-survival hazard ratio of 0.72, with estimated five-year survival of 42.9% for durvalumab and 33.4% for placebo.",
+        "evidence_type": "randomized_trial",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/35108059/",
+        "concept_ids": [
+          "C-DURVALUMAB-POST-CCRT",
+          "C-OVERALL-SURVIVAL"
+        ],
+        "confidence": "high",
+        "scope": "Long-term follow-up of the randomized PACIFIC population.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": [
+          "explicit_concept_id"
+        ]
+      },
+      {
+        "finding_id": "DVL-CAUS-005",
+        "conclusion_or_fact": "The FDA label states that PD-1/PD-L1 pathway blockade can break peripheral tolerance and induce immune-mediated adverse reactions.",
+        "evidence_type": "regulatory_statement",
+        "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+        "concept_ids": [
+          "C-DURVALUMAB",
+          "C-IMMUNE-MEDIATED-AE"
+        ],
+        "confidence": "high",
+        "scope": "Class-mechanism safety statement; event-specific risk varies by organ, regimen, and population.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": [
+          "explicit_concept_id"
+        ]
+      },
+      {
+        "finding_id": "DVL-CAUS-006",
+        "conclusion_or_fact": "In PACIFIC, pneumonitis including radiation pneumonitis occurred in 18.3% of durvalumab-treated patients and 12.8% of placebo-treated patients after recent radiation.",
+        "evidence_type": "randomized_trial",
+        "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+        "concept_ids": [
+          "C-DURVALUMAB-POST-CCRT",
+          "C-PNEUMONITIS",
+          "C-RECENT-THORACIC-RT"
+        ],
+        "confidence": "high",
+        "scope": "PACIFIC safety population after definitive chemoradiation; outcome combines pneumonitis and radiation pneumonitis.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": [
+          "explicit_concept_id"
+        ]
+      }
+    ],
+    "concepts": [
+      {
+        "concept_id": "C-DURVALUMAB",
+        "concept_type": "intervention",
+        "label": "Durvalumab",
+        "description": "Human monoclonal antibody directed against PD-L1.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+          "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+        ]
+      },
+      {
+        "concept_id": "C-PDL1-PD1-CD80",
+        "concept_type": "molecular_interaction",
+        "label": "PD-L1 interaction with PD-1 and CD80",
+        "description": "Checkpoint interactions through which PD-L1 suppresses antitumor T-cell activity.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+          "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+        ]
+      },
+      {
+        "concept_id": "C-TCELL-INHIBITION",
+        "concept_type": "biological_process",
+        "label": "T-cell inhibition",
+        "description": "Inhibitory checkpoint signaling that limits T-cell activation and antitumor immune responses.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      {
+        "concept_id": "C-TCELL-ACTIVATION",
+        "concept_type": "biological_process",
+        "label": "T-cell activation",
+        "description": "Restored or increased T-cell activity after PD-L1 blockade in preclinical experiments.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+          "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+        ]
+      },
+      {
+        "concept_id": "C-XENOGRAFT-TUMOR-GROWTH",
+        "concept_type": "preclinical_outcome",
+        "label": "Tumor growth in human-immune-cell xenograft models",
+        "description": "Preclinical tumor-growth outcome; it is not a human clinical endpoint.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+          "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+        ]
+      },
+      {
+        "concept_id": "C-DURVALUMAB-POST-CCRT",
+        "concept_type": "intervention",
+        "label": "Durvalumab after concurrent chemoradiotherapy",
+        "description": "Consolidation durvalumab in unresectable stage III NSCLC without progression after platinum-based concurrent chemoradiotherapy.",
+        "source_urls": [
+          "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+          "https://pubmed.ncbi.nlm.nih.gov/35108059/",
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      {
+        "concept_id": "C-PROGRESSION-DEATH",
+        "concept_type": "clinical_outcome",
+        "label": "Disease progression or death",
+        "description": "Progression-free survival endpoint used in the PACIFIC randomized trial.",
+        "source_urls": [
+          "https://pubmed.ncbi.nlm.nih.gov/28885881/"
+        ]
+      },
+      {
+        "concept_id": "C-OVERALL-SURVIVAL",
+        "concept_type": "clinical_outcome",
+        "label": "Overall survival",
+        "description": "Time-to-death endpoint reported in PACIFIC follow-up.",
+        "source_urls": [
+          "https://pubmed.ncbi.nlm.nih.gov/35108059/"
+        ]
+      },
+      {
+        "concept_id": "C-IMMUNE-MEDIATED-AE",
+        "concept_type": "adverse_event",
+        "label": "Immune-mediated adverse reactions",
+        "description": "Adverse reactions caused by loss of immune inhibition and peripheral tolerance after PD-1/PD-L1 pathway blockade.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      {
+        "concept_id": "C-PNEUMONITIS",
+        "concept_type": "adverse_event",
+        "label": "Pneumonitis or radiation pneumonitis",
+        "description": "Composite pulmonary safety outcome reported for PACIFIC; mixed immune and radiation etiologies limit mechanism-specific interpretation.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      {
+        "concept_id": "C-RECENT-THORACIC-RT",
+        "concept_type": "exposure",
+        "label": "Recent thoracic radiation",
+        "description": "Recent thoracic radiation exposure before PD-L1 therapy; not randomized as an exposure in the cited safety comparison.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
         ]
       }
     ],
@@ -888,7 +1111,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-04F9E885D627",
@@ -902,7 +1133,76 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-12347604809F",
+        "source_id": "concept:C-DURVALUMAB-POST-CCRT",
+        "relation_type": "INCREASES_RISK_OF",
+        "target_id": "concept:C-PNEUMONITIS",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "curated_causal_relation"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-006"
+        ],
+        "properties": {
+          "population": "PACIFIC safety population after definitive chemoradiation",
+          "comparator": "Placebo",
+          "endpoint": "Pneumonitis including radiation pneumonitis",
+          "incidence_percent": {
+            "durvalumab": 18.3,
+            "placebo": 12.8
+          },
+          "absolute_difference_percentage_points": 5.5
+        },
+        "relation_kind": "causal",
+        "causal_status": "supported",
+        "polarity": "positive",
+        "directness": "total_effect",
+        "evidence_level": "randomized_trial",
+        "confidence": "medium",
+        "rationale": "Randomization supports a treatment-attributable difference in the composite pneumonitis outcome, but mixed immune and radiation etiologies limit mechanism-specific certainty.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      {
+        "relation_id": "REL-15D862EA468B",
+        "source_id": "concept:C-DURVALUMAB",
+        "relation_type": "BLOCKS",
+        "target_id": "concept:C-PDL1-PD1-CD80",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "curated_causal_relation"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-001",
+          "DVL-CAUS-002"
+        ],
+        "properties": {
+          "scope": "Molecular target engagement; not itself a clinical efficacy claim."
+        },
+        "relation_kind": "mechanistic",
+        "causal_status": "established",
+        "polarity": "negative",
+        "directness": "direct",
+        "evidence_level": "regulatory_statement",
+        "confidence": "high",
+        "rationale": "Direct binding and blockade were characterized experimentally and are described in the current regulatory mechanism-of-action section.",
+        "source_urls": [
+          "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
       },
       {
         "relation_id": "REL-1860C83F8B30",
@@ -914,7 +1214,37 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-18761A9F3E2E",
+        "source_id": "concept:C-DURVALUMAB",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-001",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-001"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-1B00C715F430",
@@ -928,7 +1258,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-1D82448A860E",
@@ -942,7 +1280,53 @@
         "evidence_ids": [
           "DVL-E-004"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-1E9D7D724312",
+        "source_id": "concept:C-DURVALUMAB-POST-CCRT",
+        "relation_type": "REDUCES_RISK_OF",
+        "target_id": "concept:C-OVERALL-SURVIVAL",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "curated_causal_relation"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-004"
+        ],
+        "properties": {
+          "population": "PACIFIC randomized population",
+          "comparator": "Placebo",
+          "endpoint": "Overall survival",
+          "effect_measure": "Hazard ratio",
+          "estimate": 0.72,
+          "confidence_interval_95": [
+            0.59,
+            0.89
+          ],
+          "five_year_survival_percent": {
+            "durvalumab": 42.9,
+            "placebo": 33.4
+          }
+        },
+        "relation_kind": "causal",
+        "causal_status": "established",
+        "polarity": "negative",
+        "directness": "total_effect",
+        "evidence_level": "randomized_trial",
+        "confidence": "high",
+        "rationale": "Long-term follow-up of the randomized PACIFIC comparison supports a total survival effect for the trial population.",
+        "source_urls": [
+          "https://pubmed.ncbi.nlm.nih.gov/35108059/"
+        ]
       },
       {
         "relation_id": "REL-210C89287D7D",
@@ -958,7 +1342,15 @@
           "family_id": "DVL-FAM-003",
           "source_url": "https://patents.google.com/patent/CN120936347A/en",
           "notes": "National-phase member identified on public mirror"
-        }
+        },
+        "relation_kind": "temporal",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-26329AC49B30",
@@ -972,7 +1364,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-2686E6C07D32",
@@ -984,7 +1384,42 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-2C5CD93E5DAB",
+        "source_id": "concept:C-TCELL-ACTIVATION",
+        "relation_type": "DECREASES",
+        "target_id": "concept:C-XENOGRAFT-TUMOR-GROWTH",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "curated_causal_relation"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-001"
+        ],
+        "properties": {
+          "scope": "Human-immune-cell xenograft models only",
+          "extrapolation_limit": "Do not promote this edge to a human clinical outcome."
+        },
+        "relation_kind": "causal",
+        "causal_status": "supported",
+        "polarity": "negative",
+        "directness": "mediated",
+        "evidence_level": "preclinical_experiment",
+        "confidence": "medium",
+        "rationale": "The reported antitumor effect was T-cell dependent, supporting a mediated causal path in the xenograft model but not establishing human benefit.",
+        "source_urls": [
+          "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+        ]
       },
       {
         "relation_id": "REL-2D6B9CB65E8B",
@@ -996,7 +1431,81 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-30DEA8E0C57A",
+        "source_id": "concept:C-PDL1-PD1-CD80",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-001",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-001"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-356BC7724637",
+        "source_id": "concept:C-DURVALUMAB-POST-CCRT",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-004",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-004"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-365B44579067",
+        "source_id": "concept:C-PDL1-PD1-CD80",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-002",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-002"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-3C38FCF2C043",
@@ -1012,7 +1521,72 @@
           "family_id": "DVL-FAM-003",
           "source_url": "https://patents.google.com/patent/EP4694872A1/en",
           "notes": "Regional-phase member identified on public mirror"
-        }
+        },
+        "relation_kind": "temporal",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-3D0616A8F150",
+        "source_id": "concept:C-DURVALUMAB-POST-CCRT",
+        "relation_type": "REDUCES_RISK_OF",
+        "target_id": "concept:C-PROGRESSION-DEATH",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "curated_causal_relation"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-003"
+        ],
+        "properties": {
+          "population": "Unresectable stage III NSCLC without progression after platinum-based concurrent chemoradiotherapy",
+          "comparator": "Placebo",
+          "endpoint": "Progression-free survival",
+          "effect_measure": "Hazard ratio",
+          "estimate": 0.52,
+          "confidence_interval_95": [
+            0.42,
+            0.65
+          ]
+        },
+        "relation_kind": "causal",
+        "causal_status": "established",
+        "polarity": "negative",
+        "directness": "total_effect",
+        "evidence_level": "randomized_trial",
+        "confidence": "high",
+        "rationale": "The randomized, placebo-controlled PACIFIC comparison identifies a total treatment effect for progression-free survival in the enrolled population.",
+        "source_urls": [
+          "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      {
+        "relation_id": "REL-40A5E6684465",
+        "source_id": "concept:C-XENOGRAFT-TUMOR-GROWTH",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-001",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-001"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-40C68B5A2FD9",
@@ -1024,7 +1598,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-452F693AEB05",
@@ -1038,7 +1620,41 @@
         "evidence_ids": [
           "DVL-E-002"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-474890F17597",
+        "source_id": "concept:C-PDL1-PD1-CD80",
+        "relation_type": "INCREASES",
+        "target_id": "concept:C-TCELL-INHIBITION",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "curated_causal_relation"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-002"
+        ],
+        "properties": {
+          "scope": "Checkpoint signaling mechanism."
+        },
+        "relation_kind": "mechanistic",
+        "causal_status": "established",
+        "polarity": "positive",
+        "directness": "direct",
+        "evidence_level": "regulatory_statement",
+        "confidence": "high",
+        "rationale": "The regulatory mechanism states that PD-L1 interaction with PD-1 and CD80 inhibits T-cell activation and cytokine production.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
       },
       {
         "relation_id": "REL-4987701619A1",
@@ -1050,7 +1666,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-4D98DE817975",
@@ -1064,7 +1688,85 @@
         "evidence_ids": [
           "DVL-E-006"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-5095F7134E79",
+        "source_id": "concept:C-DURVALUMAB",
+        "relation_type": "INCREASES_RISK_OF",
+        "target_id": "concept:C-IMMUNE-MEDIATED-AE",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "curated_causal_relation"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-005"
+        ],
+        "properties": {
+          "scope": "Class-mechanism safety relationship; not an organ-specific incidence estimate."
+        },
+        "relation_kind": "mechanistic",
+        "causal_status": "established",
+        "polarity": "positive",
+        "directness": "mediated",
+        "evidence_level": "regulatory_statement",
+        "confidence": "high",
+        "rationale": "The label attributes immune-mediated adverse reactions to removal of PD-1/PD-L1 pathway inhibition and loss of peripheral tolerance.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      {
+        "relation_id": "REL-528713A589F6",
+        "source_id": "concept:C-TCELL-ACTIVATION",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-001",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-001"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-552D7AC82705",
+        "source_id": "concept:C-OVERALL-SURVIVAL",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-004",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-004"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-56EA2D971D55",
@@ -1078,7 +1780,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-5A271F654A75",
@@ -1092,7 +1802,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-5E7492BF6855",
@@ -1106,7 +1824,15 @@
         "evidence_ids": [
           "DVL-E-002"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-5EE5D28F66F9",
@@ -1120,7 +1846,87 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-5F283D3D61FD",
+        "source_id": "concept:C-DURVALUMAB-POST-CCRT",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-006",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-006"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-6007B0946F4E",
+        "source_id": "concept:C-DURVALUMAB",
+        "relation_type": "DECREASES",
+        "target_id": "concept:C-TCELL-INHIBITION",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "curated_causal_relation"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-001",
+          "DVL-CAUS-002"
+        ],
+        "properties": {
+          "mediator": "PD-L1 interaction with PD-1 and CD80"
+        },
+        "relation_kind": "mechanistic",
+        "causal_status": "established",
+        "polarity": "negative",
+        "directness": "mediated",
+        "evidence_level": "regulatory_statement",
+        "confidence": "high",
+        "rationale": "Durvalumab blocks the PD-L1 interactions that transmit inhibitory checkpoint signaling.",
+        "source_urls": [
+          "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
+      },
+      {
+        "relation_id": "REL-61FD1585B5F1",
+        "source_id": "concept:C-DURVALUMAB",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-002",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-002"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-63BD72194B27",
@@ -1134,7 +1940,15 @@
         "evidence_ids": [
           "DVL-E-006"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-6C5BADF53166",
@@ -1146,7 +1960,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-76603E7434B5",
@@ -1158,7 +1980,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-797377D3FC33",
@@ -1170,7 +2000,43 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-7A2FE7AC8DFE",
+        "source_id": "concept:C-DURVALUMAB",
+        "relation_type": "INCREASES",
+        "target_id": "concept:C-TCELL-ACTIVATION",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "curated_causal_relation"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-001",
+          "DVL-CAUS-002"
+        ],
+        "properties": {
+          "scope": "In vitro and nonclinical immune-response models; no direct clinical endpoint."
+        },
+        "relation_kind": "mechanistic",
+        "causal_status": "supported",
+        "polarity": "positive",
+        "directness": "mediated",
+        "evidence_level": "preclinical_experiment",
+        "confidence": "high",
+        "rationale": "Restored T-cell activation was observed after PD-L1 blockade in preclinical assays; the inference is bounded to those experimental systems.",
+        "source_urls": [
+          "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
       },
       {
         "relation_id": "REL-7C5FF9154627",
@@ -1184,7 +2050,15 @@
         "evidence_ids": [
           "DVL-E-003"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8109FE4FDA6C",
@@ -1198,7 +2072,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-816E4CF4292F",
@@ -1210,7 +2092,37 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-84F82DECA300",
+        "source_id": "concept:C-PROGRESSION-DEATH",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-003",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-003"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8908A4CB36DC",
@@ -1224,7 +2136,15 @@
         "evidence_ids": [
           "DVL-E-005"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8B58A6A259B8",
@@ -1236,7 +2156,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8C782ED55656",
@@ -1250,7 +2178,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8D2B44702986",
@@ -1262,7 +2198,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8EEE068EBE2A",
@@ -1276,7 +2220,37 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-8F05B25715FB",
+        "source_id": "concept:C-RECENT-THORACIC-RT",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-006",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-006"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8F3E918BCC6E",
@@ -1290,7 +2264,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-948C1C7BC0BF",
@@ -1304,7 +2286,15 @@
         "evidence_ids": [
           "DVL-E-007"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-96C49F3FD0EB",
@@ -1316,7 +2306,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-98BAEF155CCD",
@@ -1330,7 +2328,15 @@
         "evidence_ids": [
           "DVL-E-004"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-9A634B2A36E6",
@@ -1346,7 +2352,15 @@
           "family_id": "DVL-FAM-003",
           "source_url": "https://patents.google.com/patent/AU2024250324A1/en",
           "notes": "National-phase member identified on public mirror"
-        }
+        },
+        "relation_kind": "temporal",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-9DB5D768E72A",
@@ -1358,7 +2372,37 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-9E646FBC4219",
+        "source_id": "concept:C-IMMUNE-MEDIATED-AE",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-005",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-005"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-A5FAFAEE49E3",
@@ -1372,7 +2416,42 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-A7746C436F54",
+        "source_id": "concept:C-RECENT-THORACIC-RT",
+        "relation_type": "ASSOCIATED_WITH",
+        "target_id": "concept:C-PNEUMONITIS",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "curated_causal_relation"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-006"
+        ],
+        "properties": {
+          "scope": "Safety association only",
+          "causal_limit": "Potential confounding and mixed pneumonitis attribution."
+        },
+        "relation_kind": "associative",
+        "causal_status": "not_causal",
+        "polarity": "positive",
+        "directness": "not_applicable",
+        "evidence_level": "observational_study",
+        "confidence": "medium",
+        "rationale": "The label reports a higher incidence after recent thoracic radiation, but radiation exposure was not randomized in this comparison and the outcome has mixed etiologies; the edge therefore does not assert causation.",
+        "source_urls": [
+          "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+        ]
       },
       {
         "relation_id": "REL-A9D2B1BF5B75",
@@ -1386,7 +2465,37 @@
         "evidence_ids": [
           "DVL-E-003"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-AF7EDB6221DD",
+        "source_id": "concept:C-DURVALUMAB-POST-CCRT",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-003",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-003"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-AF89A52F5BA5",
@@ -1400,7 +2509,37 @@
         "evidence_ids": [
           "DVL-E-001"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-B4E5577B29F4",
+        "source_id": "concept:C-TCELL-ACTIVATION",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-002",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-002"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-B728CB45D151",
@@ -1412,7 +2551,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-BBD3884BEE65",
@@ -1428,7 +2575,15 @@
           "family_id": "DVL-FAM-003",
           "source_url": "https://patents.google.com/patent/IL323900A/en",
           "notes": "National-phase member identified on public mirror"
-        }
+        },
+        "relation_kind": "temporal",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-BBDBF810C9B2",
@@ -1442,7 +2597,37 @@
         "evidence_ids": [
           "DVL-E-007"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-BC76DC27E70F",
+        "source_id": "concept:C-DURVALUMAB",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-005",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-005"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-C02118C8B98E",
@@ -1458,7 +2643,37 @@
           "family_id": "DVL-FAM-003",
           "source_url": "https://patents.google.com/patent/KR20250173561A/en",
           "notes": "National-phase member identified on public mirror"
-        }
+        },
+        "relation_kind": "temporal",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-C08DCABBBBD3",
+        "source_id": "concept:C-TCELL-INHIBITION",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-002",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-002"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-C48C91E2F289",
@@ -1472,7 +2687,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-C5FD8DAF22FA",
@@ -1486,7 +2709,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-C89D628FA479",
@@ -1500,7 +2731,15 @@
         "evidence_ids": [
           "DVL-E-003"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-C9713EE0D9DE",
@@ -1514,7 +2753,15 @@
         "evidence_ids": [
           "DVL-E-005"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-CC77C4C51F25",
@@ -1526,7 +2773,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-D59D078220E7",
@@ -1538,7 +2793,37 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
+      },
+      {
+        "relation_id": "REL-D78FCB9B9518",
+        "source_id": "concept:C-PNEUMONITIS",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-CAUS-006",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "explicit_concept_id"
+        ],
+        "evidence_ids": [
+          "DVL-CAUS-006"
+        ],
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-DAAEC3CEADB4",
@@ -1550,7 +2835,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-DD0809C91CF2",
@@ -1564,7 +2857,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-E7F38A6DEAD1",
@@ -1578,7 +2879,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-EE705AF81B8B",
@@ -1592,7 +2901,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-EF6032B5E487",
@@ -1606,7 +2923,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-F2DF631BE3F6",
@@ -1620,7 +2945,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-F36A1E3C1B63",
@@ -1634,7 +2967,15 @@
         "evidence_ids": [
           "DVL-E-002"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-F8C3FBC272D1",
@@ -1648,7 +2989,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-FE4786C77ECC",
@@ -1662,7 +3011,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       }
     ],
     "ranking": [
@@ -1825,8 +3182,8 @@
     {
       "id": "evidence_unlinked",
       "observed": false,
-      "trigger": "finding 无显式 ID 关系，document_no 和 source_url 也不能匹配。",
-      "impact": "finding 无法形成 family/claim 双链。",
+      "trigger": "finding 无显式 family/claim/concept ID 关系，document_no 和 source_url 也不能匹配。",
+      "impact": "finding 无法形成 family/claim/concept 双链。",
       "fallback": "保留孤立 finding，并输出补录任务。"
     }
   ],
@@ -1925,6 +3282,10 @@
     ],
     "inputs": [
       {
+        "path": "causal-relationships.json",
+        "sha256": "4ba606cd852bca4142548ffca76a6244948d71775bb9a54f595ffc76e63b8ed7"
+      },
+      {
         "path": "durvalumab-pdl1-nsclc-claim-elements.csv",
         "sha256": "39b8ac7e64dbdfeb8139287e4ea739c511ca8377a64fbda48040eb78c8e62b8f"
       },
@@ -1969,13 +3330,13 @@
       "report-index.md": "2d4a12866b4a289f25839fbc7499c0048af75e9604ded8b49500819388c75bf3",
       "report-index.html": "619a6b151026d6fbe31af5595fcd85e402a389c929701c1ed90cdaf00df10bb6",
       "report-visuals.html": "a7b0514a8259c21f5af40a22640143957a206fa12c9fe4bacdcc3b748277fd76",
-      "knowledge-graph.html": "8ba0bdb451d0c38ddb378b686572ee2ca993df75a54ed7ca216720fbdf7c803d",
+      "knowledge-graph.html": "a47aae19b35c10d150c0abbd039cf3c893c86698dccbde78ec21330bcc2b4b04",
       "graph-data.json": "e5320e92d29c3c364384568f0ff71a7eddd8a9838bb10e373c8c86ff91e27cd7",
       "graph-quality.json": "b65ce449f501c72ab41cf570e987b774add45a42c0ca961271b447585ee6b568"
     }
   },
   "contract": {
-    "schema_version": "1.1",
+    "schema_version": "1.2",
     "schema_path": "references/output-schema.json"
   },
   "identity": {

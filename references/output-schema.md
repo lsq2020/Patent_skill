@@ -109,6 +109,8 @@ evidence_level | confidence | rationale | source_urls
 
 `evidence_level` 记录证据设计，而不是单纯来源名称：`randomized_trial`、`preclinical_experiment`、`regulatory_statement`、`observational_study`、`patent_disclosure`、`structured_metadata` 或 `expert_inference`。随机试验的因果结论必须保留入组人群与终点范围；前临床机制不得外推为人体临床获益。
 
+完整的判定顺序、层级边界和 Durvalumab 校准示例见 [因果关系建模与审计规则](causal-relation-model.md)。
+
 ## 兼容和校验
 
 - 旧 CSV 不必立即新增列；构建器会补 `claim_id`、数组字段和可确定的规则关系。

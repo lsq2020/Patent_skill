@@ -1,0 +1,439 @@
+{
+  "schema_version": "1.0",
+  "case_id": "durvalumab-pdl1-nsclc",
+  "method": {
+    "principle": "Only encode a causal or mechanistic edge when the relation has explicit provenance, an evidence design, a bounded scope, and a rationale. Patent disclosure, citation, family membership, timing, and co-occurrence are not treated as causal evidence.",
+    "causal_hierarchy": [
+      "Randomized comparisons may support a total treatment effect for the enrolled population, comparator, endpoint, and follow-up window.",
+      "Controlled preclinical experiments may support mechanistic causality only in the tested model.",
+      "Regulatory statements may support an established mechanism or recognized safety mechanism, while preserving the label's scope.",
+      "Non-randomized subgroup differences are encoded as associative unless confounding is adequately controlled."
+    ],
+    "reviewed_on": "2026-08-07"
+  },
+  "concepts": [
+    {
+      "concept_id": "C-DURVALUMAB",
+      "concept_type": "intervention",
+      "label": "Durvalumab",
+      "description": "Human monoclonal antibody directed against PD-L1.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+      ]
+    },
+    {
+      "concept_id": "C-PDL1-PD1-CD80",
+      "concept_type": "molecular_interaction",
+      "label": "PD-L1 interaction with PD-1 and CD80",
+      "description": "Checkpoint interactions through which PD-L1 suppresses antitumor T-cell activity.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+      ]
+    },
+    {
+      "concept_id": "C-TCELL-INHIBITION",
+      "concept_type": "biological_process",
+      "label": "T-cell inhibition",
+      "description": "Inhibitory checkpoint signaling that limits T-cell activation and antitumor immune responses.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
+    },
+    {
+      "concept_id": "C-TCELL-ACTIVATION",
+      "concept_type": "biological_process",
+      "label": "T-cell activation",
+      "description": "Restored or increased T-cell activity after PD-L1 blockade in preclinical experiments.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+      ]
+    },
+    {
+      "concept_id": "C-XENOGRAFT-TUMOR-GROWTH",
+      "concept_type": "preclinical_outcome",
+      "label": "Tumor growth in human-immune-cell xenograft models",
+      "description": "Preclinical tumor-growth outcome; it is not a human clinical endpoint.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+        "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+      ]
+    },
+    {
+      "concept_id": "C-DURVALUMAB-POST-CCRT",
+      "concept_type": "intervention",
+      "label": "Durvalumab after concurrent chemoradiotherapy",
+      "description": "Consolidation durvalumab in unresectable stage III NSCLC without progression after platinum-based concurrent chemoradiotherapy.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+        "https://pubmed.ncbi.nlm.nih.gov/35108059/",
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
+    },
+    {
+      "concept_id": "C-PROGRESSION-DEATH",
+      "concept_type": "clinical_outcome",
+      "label": "Disease progression or death",
+      "description": "Progression-free survival endpoint used in the PACIFIC randomized trial.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/28885881/"
+      ]
+    },
+    {
+      "concept_id": "C-OVERALL-SURVIVAL",
+      "concept_type": "clinical_outcome",
+      "label": "Overall survival",
+      "description": "Time-to-death endpoint reported in PACIFIC follow-up.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/35108059/"
+      ]
+    },
+    {
+      "concept_id": "C-IMMUNE-MEDIATED-AE",
+      "concept_type": "adverse_event",
+      "label": "Immune-mediated adverse reactions",
+      "description": "Adverse reactions caused by loss of immune inhibition and peripheral tolerance after PD-1/PD-L1 pathway blockade.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
+    },
+    {
+      "concept_id": "C-PNEUMONITIS",
+      "concept_type": "adverse_event",
+      "label": "Pneumonitis or radiation pneumonitis",
+      "description": "Composite pulmonary safety outcome reported for PACIFIC; mixed immune and radiation etiologies limit mechanism-specific interpretation.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
+    },
+    {
+      "concept_id": "C-RECENT-THORACIC-RT",
+      "concept_type": "exposure",
+      "label": "Recent thoracic radiation",
+      "description": "Recent thoracic radiation exposure before PD-L1 therapy; not randomized as an exposure in the cited safety comparison.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "finding_id": "DVL-CAUS-001",
+      "conclusion_or_fact": "Preclinical characterization found that MEDI4736 bound PD-L1, blocked PD-L1 interactions with PD-1 and CD80, restored T-cell activation, and produced T-cell-dependent antitumor activity in xenograft models.",
+      "evidence_type": "preclinical_experiment",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+      "concept_ids": [
+        "C-DURVALUMAB",
+        "C-PDL1-PD1-CD80",
+        "C-TCELL-ACTIVATION",
+        "C-XENOGRAFT-TUMOR-GROWTH"
+      ],
+      "confidence": "high",
+      "scope": "In vitro assays and human-immune-cell xenograft models; no direct inference of human clinical benefit."
+    },
+    {
+      "finding_id": "DVL-CAUS-002",
+      "conclusion_or_fact": "The FDA label describes PD-L1-mediated T-cell inhibition and states that durvalumab blocks PD-L1 binding to PD-1 and CD80, releasing inhibition of PD-L1-mediated immune responses.",
+      "evidence_type": "regulatory_statement",
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "concept_ids": [
+        "C-DURVALUMAB",
+        "C-PDL1-PD1-CD80",
+        "C-TCELL-INHIBITION",
+        "C-TCELL-ACTIVATION"
+      ],
+      "confidence": "high",
+      "scope": "Regulatory mechanism-of-action statement, supported by nonclinical evidence."
+    },
+    {
+      "finding_id": "DVL-CAUS-003",
+      "conclusion_or_fact": "In PACIFIC, randomization to durvalumab after concurrent chemoradiotherapy improved progression-free survival versus placebo; the reported hazard ratio was 0.52 with a 95% confidence interval of 0.42 to 0.65.",
+      "evidence_type": "randomized_trial",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+      "concept_ids": [
+        "C-DURVALUMAB-POST-CCRT",
+        "C-PROGRESSION-DEATH"
+      ],
+      "confidence": "high",
+      "scope": "Unresectable stage III NSCLC without progression after at least two cycles of platinum-based concurrent chemoradiotherapy."
+    },
+    {
+      "finding_id": "DVL-CAUS-004",
+      "conclusion_or_fact": "Five-year PACIFIC follow-up reported an overall-survival hazard ratio of 0.72, with estimated five-year survival of 42.9% for durvalumab and 33.4% for placebo.",
+      "evidence_type": "randomized_trial",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35108059/",
+      "concept_ids": [
+        "C-DURVALUMAB-POST-CCRT",
+        "C-OVERALL-SURVIVAL"
+      ],
+      "confidence": "high",
+      "scope": "Long-term follow-up of the randomized PACIFIC population."
+    },
+    {
+      "finding_id": "DVL-CAUS-005",
+      "conclusion_or_fact": "The FDA label states that PD-1/PD-L1 pathway blockade can break peripheral tolerance and induce immune-mediated adverse reactions.",
+      "evidence_type": "regulatory_statement",
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "concept_ids": [
+        "C-DURVALUMAB",
+        "C-IMMUNE-MEDIATED-AE"
+      ],
+      "confidence": "high",
+      "scope": "Class-mechanism safety statement; event-specific risk varies by organ, regimen, and population."
+    },
+    {
+      "finding_id": "DVL-CAUS-006",
+      "conclusion_or_fact": "In PACIFIC, pneumonitis including radiation pneumonitis occurred in 18.3% of durvalumab-treated patients and 12.8% of placebo-treated patients after recent radiation.",
+      "evidence_type": "randomized_trial",
+      "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf",
+      "concept_ids": [
+        "C-DURVALUMAB-POST-CCRT",
+        "C-PNEUMONITIS",
+        "C-RECENT-THORACIC-RT"
+      ],
+      "confidence": "high",
+      "scope": "PACIFIC safety population after definitive chemoradiation; outcome combines pneumonitis and radiation pneumonitis."
+    }
+  ],
+  "relations": [
+    {
+      "source_id": "concept:C-DURVALUMAB",
+      "relation_type": "BLOCKS",
+      "target_id": "concept:C-PDL1-PD1-CD80",
+      "assertion": "direct_fact",
+      "link_methods": ["curated_causal_relation"],
+      "evidence_ids": ["DVL-CAUS-001", "DVL-CAUS-002"],
+      "relation_kind": "mechanistic",
+      "causal_status": "established",
+      "polarity": "negative",
+      "directness": "direct",
+      "evidence_level": "regulatory_statement",
+      "confidence": "high",
+      "rationale": "Direct binding and blockade were characterized experimentally and are described in the current regulatory mechanism-of-action section.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ],
+      "properties": {
+        "scope": "Molecular target engagement; not itself a clinical efficacy claim."
+      }
+    },
+    {
+      "source_id": "concept:C-PDL1-PD1-CD80",
+      "relation_type": "INCREASES",
+      "target_id": "concept:C-TCELL-INHIBITION",
+      "assertion": "direct_fact",
+      "link_methods": ["curated_causal_relation"],
+      "evidence_ids": ["DVL-CAUS-002"],
+      "relation_kind": "mechanistic",
+      "causal_status": "established",
+      "polarity": "positive",
+      "directness": "direct",
+      "evidence_level": "regulatory_statement",
+      "confidence": "high",
+      "rationale": "The regulatory mechanism states that PD-L1 interaction with PD-1 and CD80 inhibits T-cell activation and cytokine production.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ],
+      "properties": {
+        "scope": "Checkpoint signaling mechanism."
+      }
+    },
+    {
+      "source_id": "concept:C-DURVALUMAB",
+      "relation_type": "DECREASES",
+      "target_id": "concept:C-TCELL-INHIBITION",
+      "assertion": "direct_fact",
+      "link_methods": ["curated_causal_relation"],
+      "evidence_ids": ["DVL-CAUS-001", "DVL-CAUS-002"],
+      "relation_kind": "mechanistic",
+      "causal_status": "established",
+      "polarity": "negative",
+      "directness": "mediated",
+      "evidence_level": "regulatory_statement",
+      "confidence": "high",
+      "rationale": "Durvalumab blocks the PD-L1 interactions that transmit inhibitory checkpoint signaling.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ],
+      "properties": {
+        "mediator": "PD-L1 interaction with PD-1 and CD80"
+      }
+    },
+    {
+      "source_id": "concept:C-DURVALUMAB",
+      "relation_type": "INCREASES",
+      "target_id": "concept:C-TCELL-ACTIVATION",
+      "assertion": "direct_fact",
+      "link_methods": ["curated_causal_relation"],
+      "evidence_ids": ["DVL-CAUS-001", "DVL-CAUS-002"],
+      "relation_kind": "mechanistic",
+      "causal_status": "supported",
+      "polarity": "positive",
+      "directness": "mediated",
+      "evidence_level": "preclinical_experiment",
+      "confidence": "high",
+      "rationale": "Restored T-cell activation was observed after PD-L1 blockade in preclinical assays; the inference is bounded to those experimental systems.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/25943534/",
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ],
+      "properties": {
+        "scope": "In vitro and nonclinical immune-response models; no direct clinical endpoint."
+      }
+    },
+    {
+      "source_id": "concept:C-TCELL-ACTIVATION",
+      "relation_type": "DECREASES",
+      "target_id": "concept:C-XENOGRAFT-TUMOR-GROWTH",
+      "assertion": "direct_fact",
+      "link_methods": ["curated_causal_relation"],
+      "evidence_ids": ["DVL-CAUS-001"],
+      "relation_kind": "causal",
+      "causal_status": "supported",
+      "polarity": "negative",
+      "directness": "mediated",
+      "evidence_level": "preclinical_experiment",
+      "confidence": "medium",
+      "rationale": "The reported antitumor effect was T-cell dependent, supporting a mediated causal path in the xenograft model but not establishing human benefit.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/25943534/"
+      ],
+      "properties": {
+        "scope": "Human-immune-cell xenograft models only",
+        "extrapolation_limit": "Do not promote this edge to a human clinical outcome."
+      }
+    },
+    {
+      "source_id": "concept:C-DURVALUMAB-POST-CCRT",
+      "relation_type": "REDUCES_RISK_OF",
+      "target_id": "concept:C-PROGRESSION-DEATH",
+      "assertion": "direct_fact",
+      "link_methods": ["curated_causal_relation"],
+      "evidence_ids": ["DVL-CAUS-003"],
+      "relation_kind": "causal",
+      "causal_status": "established",
+      "polarity": "negative",
+      "directness": "total_effect",
+      "evidence_level": "randomized_trial",
+      "confidence": "high",
+      "rationale": "The randomized, placebo-controlled PACIFIC comparison identifies a total treatment effect for progression-free survival in the enrolled population.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/28885881/",
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ],
+      "properties": {
+        "population": "Unresectable stage III NSCLC without progression after platinum-based concurrent chemoradiotherapy",
+        "comparator": "Placebo",
+        "endpoint": "Progression-free survival",
+        "effect_measure": "Hazard ratio",
+        "estimate": 0.52,
+        "confidence_interval_95": [0.42, 0.65]
+      }
+    },
+    {
+      "source_id": "concept:C-DURVALUMAB-POST-CCRT",
+      "relation_type": "REDUCES_RISK_OF",
+      "target_id": "concept:C-OVERALL-SURVIVAL",
+      "assertion": "direct_fact",
+      "link_methods": ["curated_causal_relation"],
+      "evidence_ids": ["DVL-CAUS-004"],
+      "relation_kind": "causal",
+      "causal_status": "established",
+      "polarity": "negative",
+      "directness": "total_effect",
+      "evidence_level": "randomized_trial",
+      "confidence": "high",
+      "rationale": "Long-term follow-up of the randomized PACIFIC comparison supports a total survival effect for the trial population.",
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/35108059/"
+      ],
+      "properties": {
+        "population": "PACIFIC randomized population",
+        "comparator": "Placebo",
+        "endpoint": "Overall survival",
+        "effect_measure": "Hazard ratio",
+        "estimate": 0.72,
+        "confidence_interval_95": [0.59, 0.89],
+        "five_year_survival_percent": {
+          "durvalumab": 42.9,
+          "placebo": 33.4
+        }
+      }
+    },
+    {
+      "source_id": "concept:C-DURVALUMAB",
+      "relation_type": "INCREASES_RISK_OF",
+      "target_id": "concept:C-IMMUNE-MEDIATED-AE",
+      "assertion": "direct_fact",
+      "link_methods": ["curated_causal_relation"],
+      "evidence_ids": ["DVL-CAUS-005"],
+      "relation_kind": "mechanistic",
+      "causal_status": "established",
+      "polarity": "positive",
+      "directness": "mediated",
+      "evidence_level": "regulatory_statement",
+      "confidence": "high",
+      "rationale": "The label attributes immune-mediated adverse reactions to removal of PD-1/PD-L1 pathway inhibition and loss of peripheral tolerance.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ],
+      "properties": {
+        "scope": "Class-mechanism safety relationship; not an organ-specific incidence estimate."
+      }
+    },
+    {
+      "source_id": "concept:C-DURVALUMAB-POST-CCRT",
+      "relation_type": "INCREASES_RISK_OF",
+      "target_id": "concept:C-PNEUMONITIS",
+      "assertion": "direct_fact",
+      "link_methods": ["curated_causal_relation"],
+      "evidence_ids": ["DVL-CAUS-006"],
+      "relation_kind": "causal",
+      "causal_status": "supported",
+      "polarity": "positive",
+      "directness": "total_effect",
+      "evidence_level": "randomized_trial",
+      "confidence": "medium",
+      "rationale": "Randomization supports a treatment-attributable difference in the composite pneumonitis outcome, but mixed immune and radiation etiologies limit mechanism-specific certainty.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ],
+      "properties": {
+        "population": "PACIFIC safety population after definitive chemoradiation",
+        "comparator": "Placebo",
+        "endpoint": "Pneumonitis including radiation pneumonitis",
+        "incidence_percent": {
+          "durvalumab": 18.3,
+          "placebo": 12.8
+        },
+        "absolute_difference_percentage_points": 5.5
+      }
+    },
+    {
+      "source_id": "concept:C-RECENT-THORACIC-RT",
+      "relation_type": "ASSOCIATED_WITH",
+      "target_id": "concept:C-PNEUMONITIS",
+      "assertion": "direct_fact",
+      "link_methods": ["curated_causal_relation"],
+      "evidence_ids": ["DVL-CAUS-006"],
+      "relation_kind": "associative",
+      "causal_status": "not_causal",
+      "polarity": "positive",
+      "directness": "not_applicable",
+      "evidence_level": "observational_study",
+      "confidence": "medium",
+      "rationale": "The label reports a higher incidence after recent thoracic radiation, but radiation exposure was not randomized in this comparison and the outcome has mixed etiologies; the edge therefore does not assert causation.",
+      "source_urls": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761069s053lbl.pdf"
+      ],
+      "properties": {
+        "scope": "Safety association only",
+        "causal_limit": "Potential confounding and mixed pneumonitis attribution."
+      }
+    }
+  ]
+}

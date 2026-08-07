@@ -1,18 +1,19 @@
 {
   "schema_version": "1.0",
   "status": "warning",
-  "generated_at": "2026-08-07T04:20:55.251669+00:00",
+  "generated_at": "2026-08-07T06:45:22.756097+00:00",
   "metrics": {
-    "node_count": 80,
-    "edge_count": 130,
+    "node_count": 101,
+    "edge_count": 163,
     "family_count": 7,
     "claim_count": 9,
-    "evidence_count": 7,
-    "linked_evidence_count": 7,
+    "evidence_count": 13,
+    "linked_evidence_count": 13,
     "evidence_link_rate": 1.0,
     "family_relation_edge_count": 0,
     "member_relation_edge_count": 5,
-    "families_with_relation_count": 1
+    "families_with_relation_count": 1,
+    "causal_relation_count": 9
   },
   "checks": {
     "node_ids_unique": true,

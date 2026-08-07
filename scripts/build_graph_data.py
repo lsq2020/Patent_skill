@@ -56,6 +56,7 @@ EDGE_LABELS = {
     "REDUCES_RISK_OF": "降低风险",
     "INCREASES_RISK_OF": "增加风险",
     "MODIFIES_EFFECT_OF": "修饰效应",
+    "ASSOCIATED_WITH": "相关于",
 }
 
 

@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "case": {
     "case_id": "tfr1_patent_case",
     "research_object": {
@@ -33,8 +33,8 @@
     ]
   },
   "run": {
-    "run_id": "tfr1_patent_case-20260807T035609Z",
-    "generated_at": "2026-08-07T03:56:09.042580+00:00",
+    "run_id": "tfr1_patent_case-20260807T064948Z",
+    "generated_at": "2026-08-07T06:49:48.796854+00:00",
     "skill_version": "repository",
     "pipeline": [
       "scope",
@@ -51,9 +51,12 @@
     "family_count": 25,
     "claim_count": 32,
     "evidence_count": 15,
+    "concept_count": 0,
+    "causal_relation_count": 0,
     "document_count": 37,
     "relation_count": 152,
     "family_relation_count": 0,
+    "member_relation_count": 0,
     "linked_evidence_count": 13,
     "unlinked_evidence_count": 2,
     "ranking_count": 12,
@@ -92,6 +95,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "F. Hoffmann-La Roche AG / Genentech",
+        "family_ownership_summary": "F. Hoffmann-La Roche AG / Genentech",
         "relation_fields_present": false
       },
       {
@@ -121,6 +127,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Genentech Inc / Hoffmann-La Roche",
+        "family_ownership_summary": "Genentech Inc / Hoffmann-La Roche",
         "relation_fields_present": false
       },
       {
@@ -151,6 +160,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Hoffmann-La Roche Inc / Roche Diagnostics GmbH",
+        "family_ownership_summary": "Hoffmann-La Roche Inc / Roche Diagnostics GmbH",
         "relation_fields_present": false
       },
       {
@@ -180,6 +192,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Hoffmann-La Roche Inc",
+        "family_ownership_summary": "Hoffmann-La Roche Inc",
         "relation_fields_present": false
       },
       {
@@ -209,6 +224,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "F. Hoffmann-La Roche AG",
+        "family_ownership_summary": "F. Hoffmann-La Roche AG",
         "relation_fields_present": false
       },
       {
@@ -239,6 +257,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "JCR Pharmaceuticals Co Ltd",
+        "family_ownership_summary": "JCR Pharmaceuticals Co Ltd",
         "relation_fields_present": false
       },
       {
@@ -268,6 +289,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "JCR Pharmaceuticals Co Ltd",
+        "family_ownership_summary": "JCR Pharmaceuticals Co Ltd",
         "relation_fields_present": false
       },
       {
@@ -297,6 +321,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "JCR Pharmaceuticals Co Ltd",
+        "family_ownership_summary": "JCR Pharmaceuticals Co Ltd",
         "relation_fields_present": false
       },
       {
@@ -326,6 +353,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "JCR Pharmaceuticals Co Ltd",
+        "family_ownership_summary": "JCR Pharmaceuticals Co Ltd",
         "relation_fields_present": false
       },
       {
@@ -356,6 +386,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Ossianix Inc",
+        "family_ownership_summary": "Ossianix Inc",
         "relation_fields_present": false
       },
       {
@@ -385,6 +418,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Ossianix Inc",
+        "family_ownership_summary": "Ossianix Inc",
         "relation_fields_present": false
       },
       {
@@ -414,6 +450,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Ossianix Inc",
+        "family_ownership_summary": "Ossianix Inc",
         "relation_fields_present": false
       },
       {
@@ -448,6 +487,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Dyne Therapeutics Inc",
+        "family_ownership_summary": "Dyne Therapeutics Inc",
         "relation_fields_present": false
       },
       {
@@ -477,6 +519,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Avidity Biosciences Inc",
+        "family_ownership_summary": "Avidity Biosciences Inc",
         "relation_fields_present": false
       },
       {
@@ -507,6 +552,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "CytomX Therapeutics Inc (co-developed with AbbVie Inc; assignment events transfer AbbVie inventors to CytomX)",
+        "family_ownership_summary": "CytomX Therapeutics Inc (co-developed with AbbVie Inc; assignment events transfer AbbVie inventors to CytomX)",
         "relation_fields_present": false
       },
       {
@@ -537,6 +585,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "CytomX Therapeutics Inc",
+        "family_ownership_summary": "CytomX Therapeutics Inc",
         "relation_fields_present": false
       },
       {
@@ -566,6 +617,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "GenAhead Bio Inc",
+        "family_ownership_summary": "GenAhead Bio Inc",
         "relation_fields_present": false
       },
       {
@@ -595,6 +649,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Sapreme Technologies B.V.",
+        "family_ownership_summary": "Sapreme Technologies B.V.",
         "relation_fields_present": false
       },
       {
@@ -624,6 +681,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Inatherys",
+        "family_ownership_summary": "Inatherys",
         "relation_fields_present": false
       },
       {
@@ -653,6 +713,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Fred Hutchinson Cancer Center",
+        "family_ownership_summary": "Fred Hutchinson Cancer Center",
         "relation_fields_present": false
       },
       {
@@ -683,6 +746,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Denali Therapeutics Inc",
+        "family_ownership_summary": "Denali Therapeutics Inc",
         "relation_fields_present": false
       },
       {
@@ -712,6 +778,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Regeneron Pharmaceuticals Inc",
+        "family_ownership_summary": "Regeneron Pharmaceuticals Inc",
         "relation_fields_present": false
       },
       {
@@ -741,6 +810,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Board of Regents of the University of Texas System",
+        "family_ownership_summary": "Board of Regents of the University of Texas System",
         "relation_fields_present": false
       },
       {
@@ -770,6 +842,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "The Trustees of Columbia University in the City of New York",
+        "family_ownership_summary": "The Trustees of Columbia University in the City of New York",
         "relation_fields_present": false
       },
       {
@@ -799,6 +874,9 @@
         ],
         "priority_set": [],
         "family_relations": [],
+        "member_relations": [],
+        "representative_document_assignee": "Lumicell Inc",
+        "family_ownership_summary": "Lumicell Inc",
         "relation_fields_present": false
       }
     ],
@@ -1678,6 +1756,7 @@
           "CLM-64CF0975C75F15C0",
           "CLM-DF3752AF680EC027"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1702,6 +1781,7 @@
           "CLM-64CF0975C75F15C0",
           "CLM-DF3752AF680EC027"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1726,6 +1806,7 @@
           "CLM-4EA4DBD365841277",
           "CLM-8DC79C4D591D5A8E"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1750,6 +1831,7 @@
           "CLM-97A064F8F7799A38",
           "CLM-AD4937E4955A0421"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1775,6 +1857,7 @@
           "CLM-78ABFE738C12284C",
           "CLM-9A8A379F3E1E579E"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1799,6 +1882,7 @@
           "CLM-B099E495980C13AC",
           "CLM-E51025E6EDC88F48"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1824,6 +1908,7 @@
           "CLM-9E5C7232DB6E60D4",
           "CLM-A22449BD7354A3A7"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1848,6 +1933,7 @@
           "CLM-AA144CB0DF7F6BE7",
           "CLM-D01888B2FB6CC983"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1870,6 +1956,7 @@
         "claim_ids": [
           "CLM-4E97831AD0A5053B"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1888,6 +1975,7 @@
         "reviewer_action": "These are raw hit counts (not family counts); ADC keyword introduces electronic-engineering noise that must be excluded.",
         "family_ids": [],
         "claim_ids": [],
+        "concept_ids": [],
         "link_methods": []
       },
       {
@@ -1903,6 +1991,7 @@
         "reviewer_action": "All CN/US/EP legal status must be re-verified in CNIPA, USPTO Patent Center, and EPO Register before any FTO/validity use.",
         "family_ids": [],
         "claim_ids": [],
+        "concept_ids": [],
         "link_methods": []
       },
       {
@@ -1924,6 +2013,7 @@
           "CLM-AA144CB0DF7F6BE7",
           "CLM-D01888B2FB6CC983"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1947,6 +2037,7 @@
           "CLM-EB02AAEA5C4D4491",
           "CLM-F045183A01E429F9"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1972,6 +2063,7 @@
           "CLM-9E5C7232DB6E60D4",
           "CLM-A22449BD7354A3A7"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
@@ -1995,12 +2087,14 @@
           "CLM-3E1AFEEBB77196FA",
           "CLM-3ECC46A251ADCAF5"
         ],
+        "concept_ids": [],
         "link_methods": [
           "document_no",
           "source_url"
         ]
       }
     ],
+    "concepts": [],
     "relations": [
       {
         "relation_id": "REL-01BFE4CE3127",
@@ -2012,7 +2106,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-01E13914BC5B",
@@ -2024,7 +2126,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-031A13E1B8DF",
@@ -2038,7 +2148,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-039CC82D715A",
@@ -2050,7 +2168,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-082C5C348557",
@@ -2064,7 +2190,15 @@
         "evidence_ids": [
           "TFR-E-008"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-0BFA817AAB78",
@@ -2078,7 +2212,15 @@
         "evidence_ids": [
           "TFR-E-005"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-0C450D5DE250",
@@ -2092,7 +2234,15 @@
         "evidence_ids": [
           "TFR-E-006"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-0F3D45B2BD02",
@@ -2106,7 +2256,15 @@
         "evidence_ids": [
           "TFR-E-009"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-10F63D559CBB",
@@ -2118,7 +2276,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-13C297FAE9B3",
@@ -2130,7 +2296,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-191D1B517581",
@@ -2142,7 +2316,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-1BBB5F4485D4",
@@ -2154,7 +2336,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-1DCA7C9D7C6D",
@@ -2166,7 +2356,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-1DDB9CE99FCC",
@@ -2178,7 +2376,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-239319AE0D24",
@@ -2192,7 +2398,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-2731A0848E4A",
@@ -2204,7 +2418,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-279F345DE37A",
@@ -2218,7 +2440,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-29C605079EFD",
@@ -2232,7 +2462,15 @@
         "evidence_ids": [
           "TFR-E-007"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-2CA989B0E3D3",
@@ -2246,7 +2484,15 @@
         "evidence_ids": [
           "TFR-E-014"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-2D46DB08E263",
@@ -2258,7 +2504,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-30B517614145",
@@ -2270,7 +2524,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-32929EC0B4C9",
@@ -2284,7 +2546,15 @@
         "evidence_ids": [
           "TFR-E-001"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-3426CF41723A",
@@ -2298,7 +2568,15 @@
         "evidence_ids": [
           "TFR-E-002"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-34D6EAC31F17",
@@ -2312,7 +2590,15 @@
         "evidence_ids": [
           "TFR-E-007"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-35C8117D65FB",
@@ -2326,7 +2612,15 @@
         "evidence_ids": [
           "TFR-E-004"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-37B51508FAE1",
@@ -2340,7 +2634,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-3B11FF06A431",
@@ -2354,7 +2656,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-3DADEF6FD540",
@@ -2368,7 +2678,15 @@
         "evidence_ids": [
           "TFR-E-004"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-3F55EAD1D0AC",
@@ -2382,7 +2700,15 @@
         "evidence_ids": [
           "TFR-E-003"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-41C36BE1A272",
@@ -2394,7 +2720,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-42AA9D006265",
@@ -2406,7 +2740,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-4438F775C384",
@@ -2418,7 +2760,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-462E7C27506B",
@@ -2430,7 +2780,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-4D560CE1A0F2",
@@ -2442,7 +2800,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-4F4A18071A8A",
@@ -2454,7 +2820,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-4FEA01649F7C",
@@ -2468,7 +2842,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-50AA06D84398",
@@ -2480,7 +2862,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-50D2B914F589",
@@ -2494,7 +2884,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-51BB371A6CC0",
@@ -2508,7 +2906,15 @@
         "evidence_ids": [
           "TFR-E-003"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-541D0541F3CA",
@@ -2522,7 +2928,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-552C5E26C3DE",
@@ -2534,7 +2948,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-55A2C8C8FEC5",
@@ -2546,7 +2968,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-5672067A5001",
@@ -2560,7 +2990,15 @@
         "evidence_ids": [
           "TFR-E-005"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-5720EDB9F26C",
@@ -2574,7 +3012,15 @@
         "evidence_ids": [
           "TFR-E-004"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-587D66A7D902",
@@ -2586,7 +3032,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-5A6162D5535A",
@@ -2600,7 +3054,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-5B3E202BD883",
@@ -2612,7 +3074,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-5FD2B11963F5",
@@ -2626,7 +3096,15 @@
         "evidence_ids": [
           "TFR-E-013"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-613A9814ABD8",
@@ -2638,7 +3116,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-6197AE17C584",
@@ -2650,7 +3136,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-64764A63C07A",
@@ -2664,7 +3158,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-669FB77BD67A",
@@ -2678,7 +3180,15 @@
         "evidence_ids": [
           "TFR-E-013"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-68458CDCE0B6",
@@ -2692,7 +3202,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-696F662C5932",
@@ -2706,7 +3224,15 @@
         "evidence_ids": [
           "TFR-E-015"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-6B80F7E4E872",
@@ -2720,7 +3246,15 @@
         "evidence_ids": [
           "TFR-E-001"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-6CD313393D77",
@@ -2734,7 +3268,15 @@
         "evidence_ids": [
           "TFR-E-009"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-6D1676B0C3F4",
@@ -2748,7 +3290,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-6E79A00E1A84",
@@ -2762,7 +3312,15 @@
         "evidence_ids": [
           "TFR-E-003"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-6E79D348D396",
@@ -2774,7 +3332,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-6ECB2197675C",
@@ -2786,7 +3352,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-6EFC8FF4A312",
@@ -2798,7 +3372,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-703B103661B6",
@@ -2810,7 +3392,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-732BB280C266",
@@ -2822,7 +3412,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-733D2A3877E5",
@@ -2836,7 +3434,15 @@
         "evidence_ids": [
           "TFR-E-003"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-75B3D50AB58C",
@@ -2850,7 +3456,15 @@
         "evidence_ids": [
           "TFR-E-007"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-76A24FE93B13",
@@ -2862,7 +3476,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-76AA6288CEBA",
@@ -2876,7 +3498,15 @@
         "evidence_ids": [
           "TFR-E-002"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-7795176F5FE4",
@@ -2890,7 +3520,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-79B10C329E06",
@@ -2902,7 +3540,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-79C9F7D7522D",
@@ -2916,7 +3562,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-7B5C218692FC",
@@ -2930,7 +3584,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-7CE757B14FF3",
@@ -2944,7 +3606,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-7D8949DBFF29",
@@ -2956,7 +3626,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-7D9848E3F86F",
@@ -2968,7 +3646,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-7DE2E64C1C25",
@@ -2982,7 +3668,15 @@
         "evidence_ids": [
           "TFR-E-002"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-7EEF3055E932",
@@ -2996,7 +3690,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8040D236EEE0",
@@ -3008,7 +3710,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-82D0EB813008",
@@ -3020,7 +3730,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-87106D7DA0F3",
@@ -3034,7 +3752,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-881D91475DBA",
@@ -3046,7 +3772,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8A2DF9283383",
@@ -3058,7 +3792,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8B17C7299EC1",
@@ -3070,7 +3812,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8B181C31B171",
@@ -3082,7 +3832,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8DA17C4B56A5",
@@ -3096,7 +3854,15 @@
         "evidence_ids": [
           "TFR-E-004"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8E3DEA23662A",
@@ -3108,7 +3874,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8E458EFE1496",
@@ -3120,7 +3894,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-8FE88C7A8053",
@@ -3134,7 +3916,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-90D3D7759093",
@@ -3146,7 +3936,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-90DA00CC09BF",
@@ -3158,7 +3956,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-96DFBD03A86A",
@@ -3172,7 +3978,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-9ABF385C7447",
@@ -3184,7 +3998,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-9BD9F0436F27",
@@ -3196,7 +4018,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-9EFB94D97F5D",
@@ -3210,7 +4040,15 @@
         "evidence_ids": [
           "TFR-E-005"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-9F98D673860C",
@@ -3224,7 +4062,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-A07B3403EBAC",
@@ -3238,7 +4084,15 @@
         "evidence_ids": [
           "TFR-E-013"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-A1CC6B9FD097",
@@ -3252,7 +4106,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-A6CDA0242453",
@@ -3264,7 +4126,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-A7A4D6BD0DAA",
@@ -3276,7 +4146,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-A8329075111C",
@@ -3290,7 +4168,15 @@
         "evidence_ids": [
           "TFR-E-006"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-A9745BCFC53D",
@@ -3304,7 +4190,15 @@
         "evidence_ids": [
           "TFR-E-012"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-AAA84DAF71F4",
@@ -3316,7 +4210,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-ACA2B43A2BBA",
@@ -3330,7 +4232,15 @@
         "evidence_ids": [
           "TFR-E-008"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-AE9A370491DF",
@@ -3344,7 +4254,15 @@
         "evidence_ids": [
           "TFR-E-002"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-B38BD4DF2F42",
@@ -3358,7 +4276,15 @@
         "evidence_ids": [
           "TFR-E-008"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-B38FBC980400",
@@ -3370,7 +4296,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-B63B9D763065",
@@ -3382,7 +4316,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-B92766D73E6E",
@@ -3396,7 +4338,15 @@
         "evidence_ids": [
           "TFR-E-014"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-BD2869C4EFC9",
@@ -3410,7 +4360,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-C1FFBB68377C",
@@ -3424,7 +4382,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-C6AA3ED90940",
@@ -3438,7 +4404,15 @@
         "evidence_ids": [
           "TFR-E-005"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-C8C70AB4237E",
@@ -3452,7 +4426,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-CA60F6C3D782",
@@ -3466,7 +4448,15 @@
         "evidence_ids": [
           "TFR-E-001"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-CDCA481E2410",
@@ -3480,7 +4470,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-CEDC000EF3D9",
@@ -3494,7 +4492,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-CF093AA8B174",
@@ -3508,7 +4514,15 @@
         "evidence_ids": [
           "TFR-E-015"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-CFBBADD61FFC",
@@ -3520,7 +4534,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-CFECA0C20ABD",
@@ -3532,7 +4554,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-D08270CA9B7E",
@@ -3546,7 +4576,15 @@
         "evidence_ids": [
           "TFR-E-001"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-D1D6A415717D",
@@ -3558,7 +4596,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-D21DAA32E54A",
@@ -3572,7 +4618,15 @@
         "evidence_ids": [
           "TFR-E-007"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-D2C65209E1F8",
@@ -3584,7 +4638,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-D4D08C3C1FC8",
@@ -3598,7 +4660,15 @@
         "evidence_ids": [
           "TFR-E-014"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-D5D10C36F2E3",
@@ -3610,7 +4680,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-D7861D934F01",
@@ -3624,7 +4702,15 @@
         "evidence_ids": [
           "TFR-E-012"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-D87861A69786",
@@ -3638,7 +4724,15 @@
         "evidence_ids": [
           "TFR-E-008"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-DAC6B2E430AD",
@@ -3650,7 +4744,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-DACC93965BCC",
@@ -3662,7 +4764,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-DBC52CA4CDBE",
@@ -3676,7 +4786,15 @@
         "evidence_ids": [
           "TFR-E-014"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-DD3F4F9E6DEF",
@@ -3690,7 +4808,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-DE7A50779D62",
@@ -3704,7 +4830,15 @@
         "evidence_ids": [
           "TFR-E-015"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-DF1868A79A86",
@@ -3716,7 +4850,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-DF26ECB6B556",
@@ -3730,7 +4872,15 @@
         "evidence_ids": [
           "TFR-E-007"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-E0A5236FE6F5",
@@ -3744,7 +4894,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-E0E94C5791CD",
@@ -3758,7 +4916,15 @@
         "evidence_ids": [
           "TFR-E-012"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-E109795AB7A7",
@@ -3772,7 +4938,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-E4F7A4010384",
@@ -3786,7 +4960,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-E64BAA3FDA03",
@@ -3800,7 +4982,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-E9FE05D96E20",
@@ -3814,7 +5004,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-EAA4051D98D0",
@@ -3828,7 +5026,15 @@
         "evidence_ids": [
           "TFR-E-006"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-EAF7F34BE3DE",
@@ -3840,7 +5046,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-EBF14FE21E03",
@@ -3854,7 +5068,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-EC3B314C2D1F",
@@ -3866,7 +5088,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-EED2ED6C535A",
@@ -3880,7 +5110,15 @@
         "evidence_ids": [
           "TFR-E-012"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-EEDD8963AFA9",
@@ -3892,7 +5130,15 @@
           "claim.family_id"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-F2840F2BC30A",
@@ -3906,7 +5152,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-F2B74B4C1017",
@@ -3920,7 +5174,15 @@
         "evidence_ids": [
           "TFR-E-006"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-F37FE6635BD8",
@@ -3932,7 +5194,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-F62E8BEB40DC",
@@ -3946,7 +5216,15 @@
         "evidence_ids": [
           "TFR-E-014"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-F6EB47721FA4",
@@ -3960,7 +5238,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "member"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-F9E55F9632DD",
@@ -3974,7 +5260,15 @@
         "evidence_ids": [
           "TFR-E-005"
         ],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "evidentiary",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-FDAB73B223D3",
@@ -3986,7 +5280,15 @@
           "claim.document"
         ],
         "evidence_ids": [],
-        "properties": {}
+        "properties": {},
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       },
       {
         "relation_id": "REL-FE1C980A32BD",
@@ -4000,7 +5302,15 @@
         "evidence_ids": [],
         "properties": {
           "role": "representative"
-        }
+        },
+        "relation_kind": "structural",
+        "causal_status": "not_applicable",
+        "polarity": "neutral",
+        "directness": "not_applicable",
+        "evidence_level": "structured_metadata",
+        "confidence": "not_assessed",
+        "rationale": "",
+        "source_urls": []
       }
     ],
     "ranking": [
@@ -4216,24 +5526,25 @@
       {
         "id": "U-EVIDENCE-LINK",
         "category": "evidence_linkage",
-        "statement": "部分 finding 尚未关联到 family_id 或 claim_id。",
-        "impact": "图谱无法从结论反向定位到专利族或权利要求。",
+        "statement": "部分 finding 尚未关联到 family_id、claim_id 或 concept_id。",
+        "impact": "图谱无法从结论反向定位到专利族、权利要求或因果概念。",
         "confidence": "high",
         "linked_ids": [
           "TFR-E-010",
           "TFR-E-011"
         ],
-        "next_action": "在 evidence CSV 补 family_ids/claim_ids，或补可匹配的 document_no。",
+        "next_action": "在 evidence CSV 补 family_ids/claim_ids/concept_ids，或补可匹配的 document_no。",
         "evidence_keys": [
           "evidence.family_ids",
           "evidence.claim_ids",
+          "evidence.concept_ids",
           "evidence.document_no"
         ]
       },
       {
         "id": "U-FAMILY-RELATION",
         "category": "family_relation",
-        "statement": "部分专利族没有结构化成员、优先权集或族间连续关系字段。",
+        "statement": "部分专利族没有结构化成员、优先权集或连续关系字段。",
         "impact": "只能显示代表文献，不能完整还原 priority、national phase、divisional 或 continuation 边。",
         "confidence": "high",
         "linked_ids": [
@@ -4263,10 +5574,11 @@
           "TFR-FAM-024",
           "TFR-FAM-025"
         ],
-        "next_action": "补 members、priority_set 和 family_relations，不从叙述性 notes 自动推断。",
+        "next_action": "补 members、priority_set、member_relations 和 family_relations，不从叙述性 notes 自动推断。",
         "evidence_keys": [
           "family.members",
           "family.priority_set",
+          "family.member_relations",
           "family.family_relations"
         ]
       }
@@ -4276,15 +5588,15 @@
     {
       "id": "family_relation_fields_missing",
       "observed": true,
-      "trigger": "family 记录缺少 members、priority_set 或 family_relations。",
+      "trigger": "family 记录缺少 members、priority_set、member_relations 或 family_relations。",
       "impact": "图谱中的专利族关系不完整。",
       "fallback": "保留质量缺口，不从自然语言 notes 猜测关系边。"
     },
     {
       "id": "evidence_unlinked",
       "observed": true,
-      "trigger": "finding 无显式 ID 关系，document_no 和 source_url 也不能匹配。",
-      "impact": "finding 无法形成 family/claim 双链。",
+      "trigger": "finding 无显式 family/claim/concept ID 关系，document_no 和 source_url 也不能匹配。",
+      "impact": "finding 无法形成 family/claim/concept 双链。",
       "fallback": "保留孤立 finding，并输出补录任务。"
     }
   ],
@@ -4431,13 +5743,13 @@
       "report-index.md": "db365395443ee1470159a75aa3e63b02ae33094c2261da84877862b930f3d8d9",
       "report-index.html": "33ff69d872eaab39ccb7eb12b2eef135b82fdb383a1e52b5641e8b620c306eec",
       "report-visuals.html": "b15da6ab75ca01229c88290d29c0c71190c208f38a7f232d35370fc50d510fbb",
-      "knowledge-graph.html": "b19746c5bdca056681fffc7d0eef2a2d1b6d952ddbf702098fbc9d213d15a53f",
+      "knowledge-graph.html": "11c84e5c82901fd0c5bfd89aad09a380cd856d2d10fe30704929fe90a8f52895",
       "graph-data.json": "e282218b62b98c3ed64f244d986028dd2eb6b9048e85a86a2f797ce24b9305d4",
       "graph-quality.json": "d6770383b9e81986848b50b417dc469ceaf6b55d20dcebc134a81baffd0de4b8"
     }
   },
   "contract": {
-    "schema_version": "1.1",
+    "schema_version": "1.2",
     "schema_path": "references/output-schema.json"
   },
   "identity": {

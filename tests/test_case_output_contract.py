@@ -283,6 +283,16 @@ class CaseOutputContractTests(unittest.TestCase):
         self.assertEqual("established", relation["causal_status"])
         self.assertEqual("randomized_trial", relation["evidence_level"])
         self.assertEqual([source_url], relation["source_urls"])
+        self.assertEqual(0, output["metrics"]["unlinked_evidence_count"])
+        evidence_gap = next(
+            (
+                item
+                for item in output["uncertainty"]["items"]
+                if item["id"] == "U-EVIDENCE-LINK"
+            ),
+            None,
+        )
+        self.assertIsNone(evidence_gap)
 
     def test_validator_rejects_unsupported_causal_claims(self):
         output = build_case_output(self.project)
