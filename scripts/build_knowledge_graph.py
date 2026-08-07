@@ -111,11 +111,38 @@ def build_knowledge_graph(
     </div>
   </header>
 
-  <div class="workspace">
-    <aside class="filter-panel" aria-label="图谱筛选器">
+  <div class="workspace-shell">
+    <nav class="graph-rail" aria-label="图谱工具">
+      <button id="layer-toggle" class="rail-action" type="button" aria-controls="filter-panel" aria-expanded="false" title="打开图层与筛选">
+        <span class="rail-glyph rail-glyph-layers" aria-hidden="true"></span><span>图层</span>
+      </button>
+      <div class="rail-divider" aria-hidden="true"></div>
+      <button id="focus-back" class="rail-action" type="button" title="返回上一个焦点" disabled>
+        <span class="rail-glyph rail-glyph-back" aria-hidden="true"></span><span>返回</span>
+      </button>
+      <button id="focus-forward" class="rail-action" type="button" title="前往下一个焦点" disabled>
+        <span class="rail-glyph rail-glyph-forward" aria-hidden="true"></span><span>前进</span>
+      </button>
+      <button id="focus-neighborhood" class="rail-action" type="button" aria-pressed="false" title="只显示当前节点的局部关系">
+        <span class="rail-glyph rail-glyph-focus" aria-hidden="true"></span><span>局部</span>
+      </button>
+      <div class="rail-spacer"></div>
+      <button id="inspector-toggle" class="rail-action" type="button" aria-controls="inspector-panel" aria-expanded="false" title="打开节点检查器">
+        <span class="rail-glyph rail-glyph-detail" aria-hidden="true"></span><span>详情</span>
+      </button>
+      <button id="ledger-toggle" class="rail-action" type="button" aria-controls="relation-ledger" aria-expanded="false" title="打开关系账本">
+        <span class="rail-glyph rail-glyph-ledger" aria-hidden="true"></span><span>关系</span>
+      </button>
+    </nav>
+
+    <div id="workspace" class="workspace">
+    <aside id="filter-panel" class="filter-panel" aria-label="图谱筛选器" aria-hidden="true">
       <div class="panel-heading">
         <div><span class="section-eyebrow">Data layers</span><h2>图层与筛选</h2></div>
-        <button id="select-all-nodes" class="small-button" type="button">恢复全部</button>
+        <div class="panel-actions">
+          <button id="select-all-nodes" class="small-button" type="button">恢复全部</button>
+          <button id="filter-close" class="panel-close" type="button" aria-label="关闭图层与筛选">×</button>
+        </div>
       </div>
       <p class="panel-copy">控制画布上出现的实体与证据关系。</p>
       <div class="summary-strip">
@@ -166,10 +193,10 @@ def build_knowledge_graph(
       <div id="graph-status" class="skip-link" aria-live="polite"></div>
     </main>
 
-    <aside class="inspector-panel" aria-label="节点检查器">
+    <aside id="inspector-panel" class="inspector-panel" aria-label="节点检查器" aria-hidden="true">
       <div class="inspector-heading">
-        <span class="section-eyebrow">Node inspector</span>
-        <span id="inspector-type" class="inspector-type">未选择</span>
+        <div><span class="section-eyebrow">Node inspector</span><span id="inspector-type" class="inspector-type">未选择</span></div>
+        <button id="inspector-close" class="panel-close" type="button" aria-label="关闭节点检查器">×</button>
       </div>
       <h2 id="inspector-title" class="inspector-title">选择一个节点</h2>
       <p id="inspector-id" class="inspector-id">点击图中节点查看双向链接</p>
@@ -187,12 +214,12 @@ def build_knowledge_graph(
       </div>
       <div id="inspector-content" class="inspector-content" role="tabpanel"></div>
     </aside>
-  </div>
+    </div>
 
-  <section class="relation-ledger" aria-labelledby="relation-ledger-title">
+  <section class="relation-ledger" id="relation-ledger" aria-labelledby="relation-ledger-title" aria-hidden="true">
     <div class="ledger-head">
       <div><h2 id="relation-ledger-title">当前可见关系</h2><p>边只存一次；反向链接由入边动态计算。最多显示 200 条。</p></div>
-      <a href="graph-data.json">打开机器可读图数据</a>
+      <div class="ledger-actions"><a href="graph-data.json">打开机器可读图数据</a><button id="ledger-close" class="panel-close" type="button" aria-label="关闭关系账本">×</button></div>
     </div>
     <div class="table-scroll">
       <table class="relation-table">
@@ -201,6 +228,7 @@ def build_knowledge_graph(
       </table>
     </div>
   </section>
+  </div>
   <footer class="page-footer">
     <a href="report-index.html">返回模块化报告</a> · <a href="graph-quality.json">图谱质量报告</a> · <a href="case-output.json">case-output.json</a><br>
     关系图用于检索、证据回溯和复核导航，不以节点颜色或距离表达法律有效性、侵权概率或科学确定性。Cytoscape.js {CYTOSCAPE_VERSION}（MIT）已内嵌，可离线打开。

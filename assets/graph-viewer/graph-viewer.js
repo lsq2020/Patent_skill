@@ -15,13 +15,20 @@
   const initialDepth = ["1", "2", "3"].includes(params.get("depth"))
     ? Number(params.get("depth"))
     : presetDefaultDepth(initialPreset);
+  const initialFocus = nodesById.has(params.get("focus")) ? params.get("focus") : DATA.meta.default_focus;
 
   const state = {
     preset: initialPreset,
     depth: initialDepth,
-    focus: nodesById.has(params.get("focus")) ? params.get("focus") : DATA.meta.default_focus,
+    focus: initialFocus,
     query: params.get("q") || "",
     tab: "overview",
+    focusHistory: [initialFocus],
+    focusIndex: 0,
+    filterOpen: false,
+    inspectorOpen: false,
+    ledgerOpen: false,
+    localFocus: params.get("local") === "1",
     nodeTypes: new Set(),
     relationTypes: new Set(),
     visibleNodeIds: new Set(),
@@ -30,6 +37,35 @@
 
   const $ = (selector) => document.querySelector(selector);
   const byId = (id) => document.getElementById(id);
+  function setPanelState(panel, open) {
+    const config = {
+      filter: { stateKey: "filterOpen", className: "is-filter-open", panelId: "filter-panel", toggleId: "layer-toggle" },
+      inspector: { stateKey: "inspectorOpen", className: "is-inspector-open", panelId: "inspector-panel", toggleId: "inspector-toggle" },
+      ledger: { stateKey: "ledgerOpen", className: "is-open", panelId: "relation-ledger", toggleId: "ledger-toggle" },
+    }[panel];
+    if (!config) return;
+    state[config.stateKey] = open;
+    const target = byId(config.panelId);
+    const toggle = byId(config.toggleId);
+    if (panel === "ledger") target.classList.toggle(config.className, open);
+    else byId("workspace").classList.toggle(config.className, open);
+    target.setAttribute("aria-hidden", String(!open));
+    toggle.setAttribute("aria-expanded", String(open));
+    if (open && panel !== "ledger") target.querySelector("button, input, select, a")?.focus({ preventScroll: true });
+  }
+
+  function updateFocusNavigation() {
+    byId("focus-back").disabled = state.focusIndex <= 0;
+    byId("focus-forward").disabled = state.focusIndex >= state.focusHistory.length - 1;
+  }
+
+  function navigateFocusHistory(offset) {
+    const nextIndex = state.focusIndex + offset;
+    if (nextIndex < 0 || nextIndex >= state.focusHistory.length) return;
+    state.focusIndex = nextIndex;
+    selectNode(state.focusHistory[nextIndex], { recordHistory: false, openInspector: state.inspectorOpen });
+  }
+
   const escapeHtml = (value) => String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -115,7 +151,10 @@
       { selector: 'edge[type = "SUPPORTED_BY"]', style: { "line-color": "#d14b63", "target-arrow-color": "#d14b63" } },
       { selector: 'edge[type = "PROTECTS"]', style: { "line-color": "#6d932f", "target-arrow-color": "#6d932f" } },
       { selector: 'edge[type = "FILED_BY"]', style: { "line-color": "#475569", "target-arrow-color": "#475569" } },
+      { selector: "edge.corridor-edge", style: { "curve-style": "taxi", "taxi-direction": "rightward", "taxi-turn": "50%", "taxi-radius": 5, opacity: 0.58 } },
       { selector: "edge.edge-active", style: { label: "data(label)", width: 2.1, opacity: 1, color: "#344054", "font-size": 8, "font-weight": 600, "text-rotation": "autorotate", "text-background-color": "#ffffff", "text-background-opacity": 0.96, "text-background-padding": 2, "text-margin-y": -7, "z-index": 8 } },
+      { selector: "edge.incoming-active", style: { "line-color": "#287f8f", "target-arrow-color": "#287f8f" } },
+      { selector: "edge.outgoing-active", style: { "line-color": "#c46a2b", "target-arrow-color": "#c46a2b" } },
       { selector: "node:selected", style: { "border-color": "#101a2d", "border-width": 4, "underlay-color": "#2f66d0", "underlay-opacity": 0.16, "underlay-padding": 7 } },
       { selector: "edge:selected", style: { width: 2.4, opacity: 1, "overlay-color": "#2f66d0", "overlay-opacity": 0.08 } },
       { selector: ".faded", style: { opacity: 0.11, "text-opacity": 0.08 } },
@@ -168,8 +207,9 @@
     } else if (eligibleNodes.has(state.focus)) {
       seedIds = [state.focus];
     }
+    const explorationDepth = state.localFocus ? 1 : state.depth;
     let selected = seedIds.length
-      ? collectNeighborhood(seedIds, state.depth, eligibleNodes, eligibleEdges)
+      ? collectNeighborhood(seedIds, explorationDepth, eligibleNodes, eligibleEdges)
       : new Set(eligibleNodes);
 
     const limit = Number(DATA.meta.visible_node_limit || 80);
@@ -234,29 +274,31 @@
     const lanes = preset?.lanes || [];
     const width = Math.max(cy.width(), 640);
     const height = Math.max(cy.height(), 600);
-    const maxRows = Math.max(6, Math.floor((height - 180) / 54));
-    const columnGap = 126;
-    const laneGap = 54;
-    const top = 124;
+    const maxRows = Math.max(5, Math.floor((height - 210) / 64));
+    const horizontalPadding = 36;
+    const laneWidth = (width - horizontalPadding * 2) / Math.max(lanes.length, 1);
+    const top = 132;
+    const bottom = 60;
     const positions = new Map();
-    let cursorX = 72;
 
-    lanes.forEach((lane) => {
+    lanes.forEach((lane, laneIndex) => {
       const laneTypes = new Set(lane.node_types || []);
       const laneNodes = cy.nodes()
         .filter((node) => laneTypes.has(node.data("type")))
         .sort((left, right) => String(left.data("label")).localeCompare(String(right.data("label"))));
       const columnCount = Math.max(1, Math.ceil(laneNodes.length / maxRows));
+      const innerWidth = Math.max(laneWidth - 20, 40);
+      const columnWidth = innerWidth / columnCount;
       laneNodes.forEach((node, nodeIndex) => {
         const column = Math.floor(nodeIndex / maxRows);
         const row = nodeIndex % maxRows;
         const rowsInColumn = Math.min(maxRows, laneNodes.length - column * maxRows);
-        const rowGap = Math.min(58, (height - top - 60) / Math.max(rowsInColumn - 1, 1));
+        const rowGap = Math.min(68, (height - top - bottom) / Math.max(rowsInColumn - 1, 1));
         const blockHeight = rowGap * Math.max(rowsInColumn - 1, 0);
-        const y = top + (height - top - 60 - blockHeight) / 2 + row * rowGap;
-        positions.set(node.id(), { x: cursorX + column * columnGap, y });
+        const y = top + (height - top - bottom - blockHeight) / 2 + row * rowGap;
+        const x = horizontalPadding + laneIndex * laneWidth + 10 + columnWidth * (column + 0.5);
+        positions.set(node.id(), { x, y });
       });
-      cursorX += columnCount * columnGap + laneGap;
     });
     return (node) => positions.get(node.id()) || { x: width / 2, y: height / 2 };
   }
@@ -285,12 +327,9 @@
     container.hidden = !lanes.length;
     container.textContent = "";
     if (!lanes.length) return;
-    const maxRows = Math.max(6, Math.floor((Math.max(cy.height(), 600) - 180) / 54));
-    const laneWeights = [];
     lanes.forEach((lane) => {
       const laneTypes = new Set(lane.node_types || []);
       const count = view.nodes.filter((node) => laneTypes.has(node.type)).length;
-      laneWeights.push(Math.max(1, Math.ceil(count / maxRows)));
       const item = document.createElement("span");
       const label = document.createElement("b");
       const total = document.createElement("small");
@@ -299,13 +338,15 @@
       item.append(label, total);
       container.append(item);
     });
-    container.style.gridTemplateColumns = laneWeights.map((weight) => `minmax(0, ${weight}fr)`).join(" ");
+    container.style.gridTemplateColumns = `repeat(${lanes.length}, minmax(0, 1fr))`;
   }
 
   function activateFocusEdges() {
-    cy.edges().removeClass("edge-active");
+    cy.edges().removeClass("edge-active incoming-active outgoing-active");
     const focus = cy.getElementById(state.focus);
-    if (focus.length) focus.connectedEdges().addClass("edge-active");
+    if (!focus.length) return;
+    focus.incomers("edge").addClass("edge-active incoming-active");
+    focus.outgoers("edge").addClass("edge-active outgoing-active");
   }
 
   function renderGraph() {
@@ -314,6 +355,7 @@
     state.visibleEdgeIds = new Set(view.edges.map((edge) => edge.id));
     cy.elements().remove();
     cy.add(cytoscapeElements(view));
+    if (state.preset === "technology") cy.edges().addClass("corridor-edge");
     renderTechnologyLanes(view);
     if (cy.nodes().length) {
       runLayout();
@@ -525,12 +567,20 @@
     next.set("view", state.preset);
     next.set("depth", String(state.depth));
     if (state.query) next.set("q", state.query);
+    if (state.localFocus) next.set("local", "1");
     history.replaceState(null, "", `${window.location.pathname}?${next.toString()}${window.location.hash}`);
   }
 
-  function selectNode(nodeId) {
+  function selectNode(nodeId, options = {}) {
     const node = nodesById.get(nodeId);
     if (!node) return;
+    const recordHistory = options.recordHistory ?? true;
+    const openInspector = options.openInspector ?? true;
+    if (recordHistory && state.focusHistory[state.focusIndex] !== nodeId) {
+      state.focusHistory = state.focusHistory.slice(0, state.focusIndex + 1);
+      state.focusHistory.push(nodeId);
+      state.focusIndex = state.focusHistory.length - 1;
+    }
     state.focus = nodeId;
     state.query = "";
     byId("graph-search").value = "";
@@ -538,6 +588,8 @@
     incidentEdges(nodeId).forEach((edge) => state.relationTypes.add(edge.type));
     renderFilters();
     renderGraph();
+    updateFocusNavigation();
+    if (openInspector) setPanelState("inspector", true);
   }
 
   function renderSearchResults() {
@@ -573,9 +625,17 @@
     state.focus = DATA.meta.default_focus;
     state.query = "";
     state.tab = "overview";
+    state.focusHistory = [state.focus];
+    state.focusIndex = 0;
+    state.localFocus = false;
     byId("graph-search").value = "";
+    byId("focus-neighborhood").setAttribute("aria-pressed", "false");
     configurePreset("technology", true);
     renderGraph();
+    updateFocusNavigation();
+    setPanelState("filter", false);
+    setPanelState("inspector", false);
+    setPanelState("ledger", false);
   }
 
   let searchTimer;
@@ -609,6 +669,20 @@
   byId("layout-button").addEventListener("click", runLayout);
   byId("reset-button").addEventListener("click", resetView);
   byId("export-button").addEventListener("click", exportVisible);
+  byId("layer-toggle").addEventListener("click", () => setPanelState("filter", !state.filterOpen));
+  byId("filter-close").addEventListener("click", () => setPanelState("filter", false));
+  byId("inspector-toggle").addEventListener("click", () => setPanelState("inspector", !state.inspectorOpen));
+  byId("inspector-close").addEventListener("click", () => setPanelState("inspector", false));
+  byId("ledger-toggle").addEventListener("click", () => setPanelState("ledger", !state.ledgerOpen));
+  byId("ledger-close").addEventListener("click", () => setPanelState("ledger", false));
+  byId("focus-back").addEventListener("click", () => navigateFocusHistory(-1));
+  byId("focus-forward").addEventListener("click", () => navigateFocusHistory(1));
+  byId("focus-neighborhood").setAttribute("aria-pressed", String(state.localFocus));
+  byId("focus-neighborhood").addEventListener("click", (event) => {
+    state.localFocus = !state.localFocus;
+    event.currentTarget.setAttribute("aria-pressed", String(state.localFocus));
+    renderGraph();
+  });
   byId("select-all-nodes").addEventListener("click", () => {
     state.nodeTypes = new Set(DATA.facets.node_types.map((row) => row.value));
     renderFilters();
@@ -648,6 +722,11 @@
       event.preventDefault();
       byId("graph-search").focus();
     }
+    if (event.key === "Escape") {
+      if (state.ledgerOpen) setPanelState("ledger", false);
+      else if (state.inspectorOpen) setPanelState("inspector", false);
+      else if (state.filterOpen) setPanelState("filter", false);
+    }
   });
 
   DATA.presets.forEach((preset) => {
@@ -661,4 +740,5 @@
   renderLegend();
   renderSearchResults();
   renderGraph();
+  updateFocusNavigation();
 })();

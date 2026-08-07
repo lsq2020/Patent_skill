@@ -60,6 +60,33 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertNotIn("</script", encoded.lower())
         self.assertIn("<\\/script>", encoded)
 
+    def test_builds_a_canvas_first_patent_atlas_shell(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn('class="graph-rail"', html)
+        self.assertIn('id="layer-toggle"', html)
+        self.assertIn('aria-controls="filter-panel"', html)
+        self.assertIn('id="filter-panel"', html)
+        self.assertIn('id="inspector-close"', html)
+        self.assertIn('id="ledger-toggle"', html)
+        self.assertIn('aria-controls="relation-ledger"', html)
+        self.assertIn('id="focus-back"', html)
+        self.assertIn('id="focus-forward"', html)
+        self.assertIn('id="focus-neighborhood"', html)
+        self.assertIn('class="workspace-shell"', html)
+        self.assertIn('class="relation-ledger" id="relation-ledger"', html)
+
+        self.assertIn("focusHistory", html)
+        self.assertIn("navigateFocusHistory", html)
+        self.assertIn("setPanelState", html)
+        self.assertIn("incoming-active", html)
+        self.assertIn("outgoing-active", html)
+        self.assertIn("corridor-edge", html)
+        self.assertIn("workspace.is-filter-open", html)
+        self.assertIn("workspace.is-inspector-open", html)
+        self.assertIn("relation-ledger.is-open", html)
+
 
 if __name__ == "__main__":
     unittest.main()
