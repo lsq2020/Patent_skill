@@ -86,8 +86,26 @@
       "required": ["family_id", "members", "priority_set", "family_relations"],
       "properties": {
         "family_id": {"type": "string", "minLength": 1},
+        "representative_document_assignee": {"type": "string"},
+        "family_ownership_summary": {"type": "string"},
         "members": {"type": "array", "items": {"type": "string"}},
         "priority_set": {"type": "array", "items": {"type": "string"}},
+        "member_relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["source_document", "relation_type", "target_document", "evidence_ids"],
+            "properties": {
+              "source_document": {"type": "string", "minLength": 1},
+              "relation_type": {"type": "string", "minLength": 1},
+              "target_document": {"type": "string", "minLength": 1},
+              "evidence_ids": {"type": "array", "items": {"type": "string"}},
+              "source_url": {"type": "string"},
+              "notes": {"type": "string"}
+            }
+          }
+        },
         "family_relations": {
           "type": "array",
           "items": {

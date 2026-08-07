@@ -63,6 +63,10 @@ def validate(output):
         for key in ("members", "priority_set", "family_relations"):
             if not isinstance(row.get(key), list):
                 errors.append(f"family {row.get('family_id', 'unknown')} {key} must be an array")
+        if "member_relations" in row and not isinstance(row.get("member_relations"), list):
+            errors.append(
+                f"family {row.get('family_id', 'unknown')} member_relations must be an array"
+            )
     for value in duplicate_values(families, "family_id"):
         errors.append(f"duplicate family_id: {value}")
 

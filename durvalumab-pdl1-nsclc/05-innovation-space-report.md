@@ -1,6 +1,6 @@
 # 创新空间假设报告
 
-> 案例：`durvalumab-pdl1-nsclc` · 生成时间：2026-08-06T04:11:59.997400+00:00 · 本报告为研究资料，不构成法律意见。
+> 案例：`durvalumab-pdl1-nsclc` · 生成时间：2026-08-07T04:20:55.032248+00:00 · 本报告为研究资料，不构成法律意见。
 
 ## 研究范围
 
@@ -8,7 +8,7 @@
 - **靶点/机制**：PD-L1
 - **适应症**：non-small cell lung cancer (NSCLC)
 - **法域**：目标法域 CN, US；关联扩展法域 WO, EP
-- **截至日期**：2026-08-06
+- **截至日期**：2026-08-07
 - **深度**：standard_analysis；报告语言：zh
 - **来源目录**：上游记录 143 条，去重 URL 140 个；目录不是已访问结果集。
 - **申请人消歧**：未提供；需从族记录反向归一化
@@ -23,7 +23,7 @@
 |---|---|---|---|---|---|---|
 | 核心实体的结构、序列、变体、盐型/晶型或选择性/安全窗 | DVL-FAM-001 | 核心组成/功能性 claim 记录提供边界 | anti-B7-H1/PD-L1 binding agent; human IgG1; Fc mutations; variable-region/sequence-defined antibody | Core composition family. WO2011066389A1 and US8779108B2 are related members/branches; do not treat each publication as a new invention. | 补检同族/官方 claim；必要时做结构、制剂、药效或生物标志物实验 | 中/待验证 |
 | 联合治疗、给药顺序、周期、剂量和治疗线次 | DVL-FAM-002 | 用途/联合/方案族存在保护布局 | administer durvalumab and tremelimumab to PD-L1-negative NSCLC with high CD8+ tumor-infiltrating lymphocytes | Useful example of a biomarker-and-combination branch; claim scope and national status require direct claim/register review. | 补检同族/官方 claim；必要时做结构、制剂、药效或生物标志物实验 | 中/待验证 |
-| 联合治疗、给药顺序、周期、剂量和治疗线次 | DVL-FAM-003 | 用途/联合/方案族存在保护布局 | 1000-2000 mg durvalumab plus platinum chemotherapy before surgery, resection, then adjuvant durvalumab; cycles and Q3W/Q4W regimen | Recent indication/regimen branch. It is a publication-level signal, not a conclusion that CN/US protection exists. | 补检同族/官方 claim；必要时做结构、制剂、药效或生物标志物实验 | 中/待验证 |
+| 联合治疗、给药顺序、周期、剂量和治疗线次 | DVL-FAM-003 | 用途/联合/方案族存在保护布局 | 1000-2000 mg durvalumab plus platinum chemotherapy before surgery, resection, then adjuvant durvalumab; cycles and Q3W/Q4W regimen | Recent indication/regimen branch. National-phase members are explicit discovery signals, not conclusions that claims are live or equivalent. | 补检同族/官方 claim；必要时做结构、制剂、药效或生物标志物实验 | 中/待验证 |
 | 联合治疗、给药顺序、周期、剂量和治疗线次 | DVL-FAM-004 | 用途/联合/方案族存在保护布局 | locally advanced unresectable stage III NSCLC; concurrent chemoradiation; durvalumab as PD-L1 inhibitor context | Indication-route expansion from consolidation to concurrent chemoradiation; verify independent claims and live status in CN/US. | 补检同族/官方 claim；必要时做结构、制剂、药效或生物标志物实验 | 中/待验证 |
 | 制剂参数、赋形剂、浓度/pH、输注条件或稳定性窗口 | DVL-FAM-005 | 制剂/组合物族已进入样本 | antibody formulation; stabilizing excipients and concentration/pH-related formulation parameters | Included to show formulation-layer migration; it is not equivalent to a live durvalumab product patent. | 补检同族/官方 claim；必要时做结构、制剂、药效或生物标志物实验 | 中/待验证 |
 | 联合治疗、给药顺序、周期、剂量和治疗线次 | DVL-FAM-006 | 用途/联合/方案族存在保护布局 | anti-TIGIT and anti-PD-L1 antagonist dosing; durvalumab appears in disclosure/context but applicant is a competitor | Competitive/pathway expansion, not counted as a durvalumab-specific core family until independent claims are confirmed. | 补检同族/官方 claim；必要时做结构、制剂、药效或生物标志物实验 | 中/待验证 |

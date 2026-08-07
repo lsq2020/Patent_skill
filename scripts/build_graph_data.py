@@ -153,11 +153,24 @@ def build_quality(case_output, nodes, edges):
         and row["source"].startswith("family:")
         and row["target"].startswith("family:")
     ]
+    member_relation_edges = [
+        row
+        for row in edges
+        if row["type"] in FAMILY_RELATION_TYPES
+        and row["source"].startswith("document:")
+        and row["target"].startswith("document:")
+        and "family.member_relations" in row.get("link_methods", [])
+    ]
     families_with_relations = {
         endpoint.split(":", 1)[1]
         for row in family_relation_edges
         for endpoint in (row["source"], row["target"])
     }
+    families_with_relations.update(
+        row.get("properties", {}).get("family_id")
+        for row in member_relation_edges
+        if row.get("properties", {}).get("family_id")
+    )
     unlinked_evidence = [
         row.get("finding_id")
         for row in evidence
@@ -209,15 +222,16 @@ def build_quality(case_output, nodes, edges):
                 "next_action": "补显式 ID，或补可匹配的 document_no/source_url。",
             }
         )
-    if families and not family_relation_edges:
+    continuity_edges = family_relation_edges + member_relation_edges
+    if families and not continuity_edges:
         gaps.append(
             {
                 "code": "family_relations_missing",
                 "severity": "warning",
                 "count": len(families),
                 "record_ids": [row.get("family_id") for row in families],
-                "message": "当前没有显式的专利族间连续关系边。",
-                "next_action": "补录 priority/national phase/divisional/continuation 关系；不要从 notes 自动推断。",
+                "message": "当前没有显式的专利族连续关系边。",
+                "next_action": "补录 priority/national phase/divisional/continuation 关系；同族文献关系写入 member_relations，不要从 notes 自动推断。",
             }
         )
     elif len(families_with_relations) < len(families):
@@ -252,6 +266,7 @@ def build_quality(case_output, nodes, edges):
             "linked_evidence_count": linked_count,
             "evidence_link_rate": round(linked_count / len(evidence), 4) if evidence else 1.0,
             "family_relation_edge_count": len(family_relation_edges),
+            "member_relation_edge_count": len(member_relation_edges),
             "families_with_relation_count": len(families_with_relations),
         },
         "checks": {
@@ -344,7 +359,10 @@ def build_graph_data(project, case_output_path=None, output_path=None, quality_p
     for family in records.get("families", []):
         family_id = family.get("family_id")
         node_id = f"family:{family_id}"
-        applicants = split_values(family.get("applicant_or_assignee"))
+        applicants = split_values(
+            family.get("representative_document_assignee")
+            or family.get("applicant_or_assignee")
+        )
         jurisdictions = split_values(family.get("jurisdictions"))
         themes = split_values(family.get("claim_categories")) or split_values(family.get("claim_theme"))
         add_node(

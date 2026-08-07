@@ -1,6 +1,6 @@
 # 执行摘要
 
-> 案例：`durvalumab-pdl1-nsclc` · 生成时间：2026-08-06T04:11:59.997400+00:00 · 本报告为研究资料，不构成法律意见。
+> 案例：`durvalumab-pdl1-nsclc` · 生成时间：2026-08-07T04:20:55.032248+00:00 · 本报告为研究资料，不构成法律意见。
 
 ## 研究范围
 
@@ -8,7 +8,7 @@
 - **靶点/机制**：PD-L1
 - **适应症**：non-small cell lung cancer (NSCLC)
 - **法域**：目标法域 CN, US；关联扩展法域 WO, EP
-- **截至日期**：2026-08-06
+- **截至日期**：2026-08-07
 - **深度**：standard_analysis；报告语言：zh
 - **来源目录**：上游记录 143 条，去重 URL 140 个；目录不是已访问结果集。
 - **申请人消歧**：未提供；需从族记录反向归一化
@@ -32,8 +32,8 @@
 
 - **MEDIUM · DVL-FAM-004**：Durvalumab/PD-1-axis inhibition with concurrent platinum-based chemoradiation for unresectable stage III NSCLC；完整命中特征 F01, F02；部分命中 F03, F04, F05；[WO2022248478A1](https://patents.google.com/patent/WO2022248478A1/en)。
 - **LOW · DVL-FAM-002**：Durvalumab plus tremelimumab for selected NSCLC patients；完整命中特征 F01；部分命中 F02, F03, F04, F05；[US20190256603A1](https://patents.google.com/patent/US20190256603A1/en)。
-- **LOW · DVL-FAM-007**：Biomarker for immune checkpoint blockade therapy in NSCLC；完整命中特征 F01；部分命中 F02, F03, F04, F05；[WO2024234348A1](https://patents.google.com/patent/WO2024234348A1/en)。
 - **LOW · DVL-FAM-001**：Fc-optimized anti-PD-L1 antibody (durvalumab/MEDI4736) composition and sequence；完整命中特征 无；部分命中 F01, F02, F03, F04, F05；[US9493565B2](https://patents.google.com/patent/US9493565B2/en)。
+- **LOW · DVL-FAM-007**：Biomarker for immune checkpoint blockade therapy in NSCLC；完整命中特征 F01；部分命中 F02, F03, F04, F05；[WO2024234348A1](https://patents.google.com/patent/WO2024234348A1/en)。
 - **LOW · DVL-FAM-005**：Human anti-PD-L1 antibody formulation including durvalumab-relevant formulation disclosure；完整命中特征 无；部分命中 F01, F02, F03, F04, F05；[US20210054079A1](https://patents.google.com/patent/US20210054079A1/en)。
 
 ## 最大证据缺口

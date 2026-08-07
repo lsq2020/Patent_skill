@@ -52,10 +52,13 @@ class CaseOutputContractTests(unittest.TestCase):
                     "related_family_ids": "",
                     "earliest_priority": "2020-01-01",
                     "applicant_or_assignee": "Example Bio",
+                    "representative_document_assignee": "",
+                    "family_ownership_summary": "",
                     "jurisdictions": "US;WO",
                     "claim_theme": "Composition",
                     "claim_categories": "composition",
                     "source_url": "https://example.test/patent/US100B2",
+                    "member_relations": "",
                 },
                 {
                     "family_id": "FAM-002",
@@ -70,10 +73,23 @@ class CaseOutputContractTests(unittest.TestCase):
                     "related_family_ids": "",
                     "earliest_priority": "2021-01-01",
                     "applicant_or_assignee": "Example Bio",
+                    "representative_document_assignee": "Example Bio US",
+                    "family_ownership_summary": "Example Bio group",
                     "jurisdictions": "US",
                     "claim_theme": "Use",
                     "claim_categories": "use",
                     "source_url": "https://example.test/patent/US200A1",
+                    "member_relations": json.dumps(
+                        [
+                            {
+                                "source_document": "US200A1",
+                                "relation_type": "NATIONAL_PHASE_OF",
+                                "target_document": "WO100A1",
+                                "evidence_ids": ["FIND-001"],
+                                "source_url": "https://example.test/patent/US200A1",
+                            }
+                        ]
+                    ),
                 },
             ],
         )
@@ -150,6 +166,24 @@ class CaseOutputContractTests(unittest.TestCase):
         self.assertIn((f"claim:{claim_ids[0]}", "SUPPORTED_BY", "finding:FIND-001"), relation_keys)
         self.assertIn(("family:FAM-002", "DIVISIONAL_OF", "family:FAM-001"), relation_keys)
         self.assertIn(("family:FAM-001", "HAS_MEMBER", "document:US100A1"), relation_keys)
+        self.assertIn(
+            ("document:US200A1", "NATIONAL_PHASE_OF", "document:WO100A1"),
+            relation_keys,
+        )
+
+        second_family = next(
+            row for row in output["records"]["families"] if row["family_id"] == "FAM-002"
+        )
+        self.assertEqual("Example Bio US", second_family["representative_document_assignee"])
+        self.assertEqual("Example Bio group", second_family["family_ownership_summary"])
+        self.assertEqual(1, len(second_family["member_relations"]))
+        first_family = next(
+            row for row in output["records"]["families"] if row["family_id"] == "FAM-001"
+        )
+        self.assertEqual("Example Bio", first_family["representative_document_assignee"])
+        self.assertEqual("Example Bio", first_family["family_ownership_summary"])
+        self.assertEqual(1, output["metrics"]["family_relation_count"])
+        self.assertEqual(1, output["metrics"]["member_relation_count"])
 
     def test_generated_claim_ids_do_not_depend_on_csv_row_order(self):
         first = build_case_output(self.project)
@@ -169,6 +203,12 @@ class CaseOutputContractTests(unittest.TestCase):
         output["records"]["relations"][0]["target_id"] = "claim:missing"
         errors = validate(output)
         self.assertTrue(any("dangling target_id" in error for error in errors))
+
+    def test_validator_rejects_non_array_member_relations(self):
+        output = build_case_output(self.project)
+        output["records"]["families"][0]["member_relations"] = "invalid"
+        errors = validate(output)
+        self.assertTrue(any("member_relations must be an array" in error for error in errors))
 
 
 if __name__ == "__main__":

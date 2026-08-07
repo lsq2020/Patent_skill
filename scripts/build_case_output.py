@@ -193,23 +193,87 @@ def normalize_family_relations(row):
     return result
 
 
+def normalize_member_relations(row):
+    raw = row.get("member_relations")
+    if isinstance(raw, str) and raw.strip().startswith("["):
+        try:
+            raw = json.loads(raw)
+        except json.JSONDecodeError:
+            raw = []
+    if not isinstance(raw, list):
+        return []
+
+    relations = []
+    seen = set()
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        source_document = str(
+            item.get("source_document") or item.get("source") or ""
+        ).strip()
+        target_document = str(
+            item.get("target_document") or item.get("target") or ""
+        ).strip()
+        relation_type = normalize_relation_type(item.get("relation_type"))
+        key = (
+            normalize_document(source_document),
+            relation_type,
+            normalize_document(target_document),
+        )
+        if not source_document or not target_document or key in seen:
+            continue
+        seen.add(key)
+        relations.append(
+            {
+                "source_document": source_document,
+                "relation_type": relation_type,
+                "target_document": target_document,
+                "evidence_ids": split_values(item.get("evidence_ids")),
+                "source_url": str(item.get("source_url") or "").strip(),
+                "notes": str(item.get("notes") or "").strip(),
+            }
+        )
+    return relations
+
+
 def normalize_families(rows):
     families = []
     for source in rows:
         row = dict(source)
         family_id = str(row.get("family_id") or "").strip()
         explicit_members = split_values(row.get("members") or row.get("family_members"))
+        member_relations = normalize_member_relations(row)
+        relation_documents = [
+            document
+            for relation in member_relations
+            for document in (relation["source_document"], relation["target_document"])
+        ]
         members = unique_strings(
             [row.get("representative_document"), row.get("representative_application")]
             + split_values(row.get("grants"))
             + explicit_members
+            + relation_documents
         )
         row["family_id"] = family_id
         row["members"] = members
         row["priority_set"] = split_values(row.get("priority_set"))
         row["family_relations"] = normalize_family_relations(row)
+        row["member_relations"] = member_relations
+        row["representative_document_assignee"] = str(
+            row.get("representative_document_assignee")
+            or row.get("applicant_or_assignee")
+            or ""
+        ).strip()
+        row["family_ownership_summary"] = str(
+            row.get("family_ownership_summary")
+            or row.get("applicant_or_assignee")
+            or ""
+        ).strip()
         row["relation_fields_present"] = bool(
-            explicit_members or row["priority_set"] or row["family_relations"]
+            explicit_members
+            or row["priority_set"]
+            or row["family_relations"]
+            or row["member_relations"]
         )
         families.append(row)
     return families
@@ -265,6 +329,10 @@ def build_document_index(families, claims, evidence):
             add(member, family_id, role, family.get("source_url", ""))
         for priority in family.get("priority_set", []):
             add(priority, family_id, "priority", family.get("source_url", ""))
+        for relation in family.get("member_relations", []):
+            relation_url = relation.get("source_url") or family.get("source_url", "")
+            add(relation.get("source_document"), family_id, "member", relation_url)
+            add(relation.get("target_document"), family_id, "member", relation_url)
     for claim in claims:
         add(claim.get("document"), claim.get("family_id"), "claim_document", claim.get("evidence_url", ""))
     for finding in evidence:
@@ -385,6 +453,21 @@ def build_relations(families, claims, evidence):
                 relation.get("evidence_ids"),
                 {"notes": relation.get("notes", "")},
             )
+        for relation in family.get("member_relations", []):
+            relation_type = normalize_relation_type(relation.get("relation_type"))
+            add(
+                document_node_id(relation.get("source_document")),
+                relation_type,
+                document_node_id(relation.get("target_document")),
+                "direct_fact",
+                "family.member_relations",
+                relation.get("evidence_ids"),
+                {
+                    "family_id": family.get("family_id"),
+                    "source_url": relation.get("source_url", ""),
+                    "notes": relation.get("notes", ""),
+                },
+            )
 
     for claim in claims:
         claim_node = f"claim:{claim.get('claim_id')}"
@@ -504,12 +587,12 @@ def build_uncertainty(families, claims, evidence):
             {
                 "id": "U-FAMILY-RELATION",
                 "category": "family_relation",
-                "statement": "部分专利族没有结构化成员、优先权集或族间连续关系字段。",
+                "statement": "部分专利族没有结构化成员、优先权集或连续关系字段。",
                 "impact": "只能显示代表文献，不能完整还原 priority、national phase、divisional 或 continuation 边。",
                 "confidence": "high",
                 "linked_ids": relation_gaps,
-                "next_action": "补 members、priority_set 和 family_relations，不从叙述性 notes 自动推断。",
-                "evidence_keys": ["family.members", "family.priority_set", "family.family_relations"],
+                "next_action": "补 members、priority_set、member_relations 和 family_relations，不从叙述性 notes 自动推断。",
+                "evidence_keys": ["family.members", "family.priority_set", "family.member_relations", "family.family_relations"],
             }
         )
     return items
@@ -557,7 +640,19 @@ def build_case_output(project):
         if row["exists"]
     }
     family_relation_count = sum(
-        1 for row in relations if row["relation_type"] in FAMILY_RELATION_TYPES
+        1
+        for row in relations
+        if row["relation_type"] in FAMILY_RELATION_TYPES
+        and row["source_id"].startswith("family:")
+        and row["target_id"].startswith("family:")
+    )
+    member_relation_count = sum(
+        1
+        for row in relations
+        if row["relation_type"] in FAMILY_RELATION_TYPES
+        and row["source_id"].startswith("document:")
+        and row["target_id"].startswith("document:")
+        and "family.member_relations" in row.get("link_methods", [])
     )
     metrics = {
         "family_count": len(families),
@@ -566,6 +661,7 @@ def build_case_output(project):
         "document_count": len(documents),
         "relation_count": len(relations),
         "family_relation_count": family_relation_count,
+        "member_relation_count": member_relation_count,
         "linked_evidence_count": sum(
             1 for row in evidence if row["family_ids"] or row["claim_ids"]
         ),
@@ -621,7 +717,7 @@ def build_case_output(project):
             {
                 "id": "family_relation_fields_missing",
                 "observed": any(row.get("category") == "family_relation" for row in uncertainty),
-                "trigger": "family 记录缺少 members、priority_set 或 family_relations。",
+                "trigger": "family 记录缺少 members、priority_set、member_relations 或 family_relations。",
                 "impact": "图谱中的专利族关系不完整。",
                 "fallback": "保留质量缺口，不从自然语言 notes 猜测关系边。",
             },

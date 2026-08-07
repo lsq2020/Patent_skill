@@ -75,8 +75,31 @@ class GraphDataTests(unittest.TestCase):
         self.assertEqual(len(graph["edges"]), graph["meta"]["edge_count"])
         self.assertEqual("warning", quality["status"])
         self.assertTrue(
-            any(gap["code"] == "family_relations_missing" for gap in quality["gaps"])
+            any(gap["code"] == "family_relations_partial" for gap in quality["gaps"])
         )
+
+        filed_by_labels = {
+            next(node["label"] for node in graph["nodes"] if node["id"] == edge["target"])
+            for edge in graph["edges"]
+            if edge["source"] == "family:DVL-FAM-002" and edge["type"] == "FILED_BY"
+        }
+        self.assertEqual(
+            {"C/o Definiens AG", "Definiens AG", "MedImmune LLC"},
+            filed_by_labels,
+        )
+        family_007 = next(
+            node for node in graph["nodes"] if node["id"] == "family:DVL-FAM-007"
+        )
+        self.assertIn("ceased", family_007["properties"]["official_status"].lower())
+        self.assertTrue(
+            any(
+                edge["source"] == "document:CN120936347A"
+                and edge["type"] == "NATIONAL_PHASE_OF"
+                and edge["target"] == "document:WO2024213696A1"
+                for edge in graph["edges"]
+            )
+        )
+        self.assertEqual(5, quality["metrics"]["member_relation_edge_count"])
 
     def test_family_relation_edges_survive_without_inference(self):
         source = json.loads((self.case_dir / "case-output.json").read_text(encoding="utf-8"))

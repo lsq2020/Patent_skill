@@ -51,7 +51,7 @@
     const properties = node.properties || {};
     const document = properties.representative_document || properties.representative_application || "";
     const priorityYear = String(properties.earliest_priority || "").slice(0, 4);
-    const applicant = compactLabel(String(properties.applicant_or_assignee || "").split("/")[0], 22);
+    const applicant = compactLabel(String(properties.representative_document_assignee || properties.applicant_or_assignee || "").split("/")[0], 22);
     const detail = [document, priorityYear ? `优先权 ${priorityYear}` : ""].filter(Boolean).join(" · ");
     return [node.label, detail, applicant].filter(Boolean).join("\n");
   };
@@ -74,7 +74,7 @@
           label: "data(displayLabel)",
           "font-family": "Inter, Segoe UI, PingFang SC, sans-serif",
           "font-size": 9.5,
-          "font-weight": 650,
+          "font-weight": 600,
           "min-zoomed-font-size": 3.5,
           "text-background-color": "#ffffff",
           "text-background-opacity": 0.94,
@@ -90,7 +90,7 @@
       { selector: 'node[type = "research_object"]', style: { "background-color": "#101a2d", shape: "round-rectangle", width: 98, height: 44, color: "#ffffff", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0, "font-size": 10.5 } },
       { selector: 'node[type = "target"]', style: { "background-color": "#f6f1ff", "border-color": "#7650c7", shape: "round-rectangle", width: 76, height: 38, color: "#573a98", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0 } },
       { selector: 'node[type = "indication"]', style: { "background-color": "#fff1f5", "border-color": "#c84f7f", shape: "round-rectangle", width: 82, height: 38, color: "#9f315d", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0 } },
-      { selector: 'node[type = "patent_family"]', style: { "background-color": "#f7faff", "border-color": "#2f66d0", "border-width": 2.2, shape: "round-rectangle", width: 112, height: 54, color: "#17345f", "font-size": 8.3, "font-weight": 680, "text-valign": "center", "text-wrap": "wrap", "text-max-width": 100, "text-background-opacity": 0, "text-margin-y": 0 } },
+      { selector: 'node[type = "patent_family"]', style: { "background-color": "#f7faff", "border-color": "#2f66d0", "border-width": 2.2, shape: "round-rectangle", width: 112, height: 54, color: "#17345f", "font-size": 8.3, "font-weight": 700, "text-valign": "center", "text-wrap": "wrap", "text-max-width": 100, "text-background-opacity": 0, "text-margin-y": 0 } },
       { selector: 'node[type = "patent_document"]', style: { "background-color": "#178176", shape: "hexagon" } },
       { selector: 'node[type = "claim"]', style: { "background-color": "#fff8e9", "border-color": "#d9962d", shape: "round-rectangle", width: 88, height: 38, color: "#805014", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0, "text-max-width": 78 } },
       { selector: 'node[type = "evidence"]', style: { "background-color": "#d14b63", shape: "diamond", width: 31, height: 31 } },
@@ -115,7 +115,7 @@
       { selector: 'edge[type = "SUPPORTED_BY"]', style: { "line-color": "#d14b63", "target-arrow-color": "#d14b63" } },
       { selector: 'edge[type = "PROTECTS"]', style: { "line-color": "#6d932f", "target-arrow-color": "#6d932f" } },
       { selector: 'edge[type = "FILED_BY"]', style: { "line-color": "#475569", "target-arrow-color": "#475569" } },
-      { selector: "edge.edge-active", style: { label: "data(label)", width: 2.1, opacity: 1, color: "#344054", "font-size": 8, "font-weight": 650, "text-rotation": "autorotate", "text-background-color": "#ffffff", "text-background-opacity": 0.96, "text-background-padding": 2, "text-margin-y": -7, "z-index": 8 } },
+      { selector: "edge.edge-active", style: { label: "data(label)", width: 2.1, opacity: 1, color: "#344054", "font-size": 8, "font-weight": 600, "text-rotation": "autorotate", "text-background-color": "#ffffff", "text-background-opacity": 0.96, "text-background-padding": 2, "text-margin-y": -7, "z-index": 8 } },
       { selector: "node:selected", style: { "border-color": "#101a2d", "border-width": 4, "underlay-color": "#2f66d0", "underlay-opacity": 0.16, "underlay-padding": 7 } },
       { selector: "edge:selected", style: { width: 2.4, opacity: 1, "overlay-color": "#2f66d0", "overlay-opacity": 0.08 } },
       { selector: ".faded", style: { opacity: 0.11, "text-opacity": 0.08 } },

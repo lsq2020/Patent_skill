@@ -3,11 +3,11 @@
   "meta": {
     "case_id": "durvalumab-pdl1-nsclc",
     "title": "Durvalumab",
-    "as_of": "2026-08-06",
-    "generated_at": "2026-08-07T03:53:41.237265+00:00",
+    "as_of": "2026-08-07",
+    "generated_at": "2026-08-07T04:20:55.251799+00:00",
     "source_schema_version": "1.1",
-    "node_count": 70,
-    "edge_count": 112,
+    "node_count": 80,
+    "edge_count": 130,
     "quality_status": "warning",
     "default_focus": "research:durvalumab-pdl1-nsclc",
     "default_depth": 1,
@@ -25,14 +25,44 @@
       "search_text": "applicant:4a98ae9c92c8 astrazeneca ab"
     },
     {
-      "id": "applicant:AA03BD3E406A",
+      "id": "applicant:A64BEEE0A7BF",
       "type": "applicant",
-      "label": "F. Hoffmann-La Roche AG / Genentech Inc",
+      "label": "C/o Definiens AG",
       "summary": "",
       "properties": {},
       "source_url": "",
       "facets": {},
-      "search_text": "applicant:aa03bd3e406a f. hoffmann-la roche ag / genentech inc"
+      "search_text": "applicant:a64beee0a7bf c/o definiens ag"
+    },
+    {
+      "id": "applicant:AD5DD76A1306",
+      "type": "applicant",
+      "label": "Definiens AG",
+      "summary": "",
+      "properties": {},
+      "source_url": "",
+      "facets": {},
+      "search_text": "applicant:ad5dd76a1306 definiens ag"
+    },
+    {
+      "id": "applicant:04FABD654D6D",
+      "type": "applicant",
+      "label": "F. Hoffmann-La Roche AG",
+      "summary": "",
+      "properties": {},
+      "source_url": "",
+      "facets": {},
+      "search_text": "applicant:04fabd654d6d f. hoffmann-la roche ag"
+    },
+    {
+      "id": "applicant:1EF511BCF4D6",
+      "type": "applicant",
+      "label": "Genentech Inc",
+      "summary": "",
+      "properties": {},
+      "source_url": "",
+      "facets": {},
+      "search_text": "applicant:1ef511bcf4d6 genentech inc"
     },
     {
       "id": "applicant:5D3FBEDFC954",
@@ -45,14 +75,14 @@
       "search_text": "applicant:5d3fbedfc954 individual applicant"
     },
     {
-      "id": "applicant:FB29D33756C6",
+      "id": "applicant:F25A49FD88A5",
       "type": "applicant",
-      "label": "MedImmune LLC / AstraZeneca AB",
+      "label": "MedImmune LLC",
       "summary": "",
       "properties": {},
       "source_url": "",
       "facets": {},
-      "search_text": "applicant:fb29d33756c6 medimmune llc / astrazeneca ab"
+      "search_text": "applicant:f25a49fd88a5 medimmune llc"
     },
     {
       "id": "applicant:E6B74EBECAD2",
@@ -63,16 +93,6 @@
       "source_url": "",
       "facets": {},
       "search_text": "applicant:e6b74ebecad2 medimmune ltd"
-    },
-    {
-      "id": "applicant:C7F646051B5F",
-      "type": "applicant",
-      "label": "MedImmune Ltd / AstraZeneca AB",
-      "summary": "",
-      "properties": {},
-      "source_url": "",
-      "facets": {},
-      "search_text": "applicant:c7f646051b5f medimmune ltd / astrazeneca ab"
     },
     {
       "id": "claim:CLM-45849A7289FA2C75",
@@ -602,6 +622,16 @@
       "search_text": "indication:006b51befe28 non-small cell lung cancer (nsclc)"
     },
     {
+      "id": "jurisdiction:AU",
+      "type": "jurisdiction",
+      "label": "AU",
+      "summary": "",
+      "properties": {},
+      "source_url": "",
+      "facets": {},
+      "search_text": "jurisdiction:au au"
+    },
+    {
       "id": "jurisdiction:CN",
       "type": "jurisdiction",
       "label": "CN",
@@ -622,6 +652,16 @@
       "search_text": "jurisdiction:ep ep"
     },
     {
+      "id": "jurisdiction:IL",
+      "type": "jurisdiction",
+      "label": "IL",
+      "summary": "",
+      "properties": {},
+      "source_url": "",
+      "facets": {},
+      "search_text": "jurisdiction:il il"
+    },
+    {
       "id": "jurisdiction:JP",
       "type": "jurisdiction",
       "label": "JP",
@@ -630,6 +670,16 @@
       "source_url": "",
       "facets": {},
       "search_text": "jurisdiction:jp jp"
+    },
+    {
+      "id": "jurisdiction:KR",
+      "type": "jurisdiction",
+      "label": "KR",
+      "summary": "",
+      "properties": {},
+      "source_url": "",
+      "facets": {},
+      "search_text": "jurisdiction:kr kr"
     },
     {
       "id": "jurisdiction:US",
@@ -650,6 +700,136 @@
       "source_url": "",
       "facets": {},
       "search_text": "jurisdiction:wo wo"
+    },
+    {
+      "id": "document:AU2024250324A1",
+      "type": "patent_document",
+      "label": "AU2024250324A1",
+      "summary": "member",
+      "properties": {
+        "document_id": "AU2024250324A1",
+        "family_ids": [
+          "DVL-FAM-003"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2024213696A1/en",
+          "https://patents.google.com/patent/AU2024250324A1/en"
+        ]
+      },
+      "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
+      "facets": {
+        "family_id": [
+          "DVL-FAM-003"
+        ]
+      },
+      "search_text": "document:au2024250324a1 au2024250324a1 member"
+    },
+    {
+      "id": "document:CN120936347A",
+      "type": "patent_document",
+      "label": "CN120936347A",
+      "summary": "member",
+      "properties": {
+        "document_id": "CN120936347A",
+        "family_ids": [
+          "DVL-FAM-003"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2024213696A1/en",
+          "https://patents.google.com/patent/CN120936347A/en"
+        ]
+      },
+      "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
+      "facets": {
+        "family_id": [
+          "DVL-FAM-003"
+        ]
+      },
+      "search_text": "document:cn120936347a cn120936347a member"
+    },
+    {
+      "id": "document:EP4694872A1",
+      "type": "patent_document",
+      "label": "EP4694872A1",
+      "summary": "member",
+      "properties": {
+        "document_id": "EP4694872A1",
+        "family_ids": [
+          "DVL-FAM-003"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2024213696A1/en",
+          "https://patents.google.com/patent/EP4694872A1/en"
+        ]
+      },
+      "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
+      "facets": {
+        "family_id": [
+          "DVL-FAM-003"
+        ]
+      },
+      "search_text": "document:ep4694872a1 ep4694872a1 member"
+    },
+    {
+      "id": "document:IL323900A",
+      "type": "patent_document",
+      "label": "IL323900A",
+      "summary": "member",
+      "properties": {
+        "document_id": "IL323900A",
+        "family_ids": [
+          "DVL-FAM-003"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2024213696A1/en",
+          "https://patents.google.com/patent/IL323900A/en"
+        ]
+      },
+      "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
+      "facets": {
+        "family_id": [
+          "DVL-FAM-003"
+        ]
+      },
+      "search_text": "document:il323900a il323900a member"
+    },
+    {
+      "id": "document:KR20250173561A",
+      "type": "patent_document",
+      "label": "KR20250173561A",
+      "summary": "member",
+      "properties": {
+        "document_id": "KR20250173561A",
+        "family_ids": [
+          "DVL-FAM-003"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2024213696A1/en",
+          "https://patents.google.com/patent/KR20250173561A/en"
+        ]
+      },
+      "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
+      "facets": {
+        "family_id": [
+          "DVL-FAM-003"
+        ]
+      },
+      "search_text": "document:kr20250173561a kr20250173561a member"
     },
     {
       "id": "document:PCT/CN2023/094890",
@@ -991,7 +1171,7 @@
       "id": "document:WO2024213696A1",
       "type": "patent_document",
       "label": "WO2024213696A1",
-      "summary": "representative / claim_document / evidence_document",
+      "summary": "representative / member / claim_document / evidence_document",
       "properties": {
         "document_id": "WO2024213696A1",
         "family_ids": [
@@ -999,11 +1179,17 @@
         ],
         "roles": [
           "representative",
+          "member",
           "claim_document",
           "evidence_document"
         ],
         "source_urls": [
-          "https://patents.google.com/patent/WO2024213696A1/en"
+          "https://patents.google.com/patent/WO2024213696A1/en",
+          "https://patents.google.com/patent/AU2024250324A1/en",
+          "https://patents.google.com/patent/CN120936347A/en",
+          "https://patents.google.com/patent/EP4694872A1/en",
+          "https://patents.google.com/patent/KR20250173561A/en",
+          "https://patents.google.com/patent/IL323900A/en"
         ]
       },
       "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
@@ -1012,7 +1198,7 @@
           "DVL-FAM-003"
         ]
       },
-      "search_text": "document:wo2024213696a1 wo2024213696a1 representative / claim_document / evidence_document"
+      "search_text": "document:wo2024213696a1 wo2024213696a1 representative / member / claim_document / evidence_document"
     },
     {
       "id": "document:WO2024234348A1",
@@ -1054,7 +1240,7 @@
         "grants": "US8779108B2;US9493565B2",
         "earliest_priority": "2009-11-24",
         "publication_date": "2016-11-15",
-        "applicant_or_assignee": "MedImmune Ltd / AstraZeneca AB",
+        "applicant_or_assignee": "MedImmune Ltd",
         "inventors": "Christophe Queva; Michelle Morrow; Scott Hammond; Marat Alimzhanov",
         "jurisdictions": "CN;US;WO;EP",
         "claim_theme": "Fc-optimized anti-PD-L1 antibody (durvalumab/MEDI4736) composition and sequence",
@@ -1068,11 +1254,14 @@
         "source_url": "https://patents.google.com/patent/US9493565B2/en",
         "relevance": "core",
         "notes": "Core composition family. WO2011066389A1 and US8779108B2 are related members/branches; do not treat each publication as a new invention.",
+        "representative_document_assignee": "MedImmune Ltd",
+        "family_ownership_summary": "Representative record lists MedImmune Ltd; AstraZeneca AB appears in assignment history",
         "members": [
           "US9493565B2",
           "US14/271108",
           "US8779108B2"
         ],
+        "member_relations": [],
         "priority_set": [],
         "family_relations": [],
         "relation_fields_present": false
@@ -1080,7 +1269,7 @@
       "source_url": "https://patents.google.com/patent/US9493565B2/en",
       "facets": {
         "applicant": [
-          "MedImmune Ltd / AstraZeneca AB"
+          "MedImmune Ltd"
         ],
         "jurisdiction": [
           "CN",
@@ -1109,7 +1298,7 @@
         "grants": "",
         "earliest_priority": "2016-11-11",
         "publication_date": "2019-08-22",
-        "applicant_or_assignee": "MedImmune LLC / AstraZeneca AB",
+        "applicant_or_assignee": "C/o Definiens AG;Definiens AG;MedImmune LLC",
         "inventors": "Keith Steele; Song Wu; Brandon Higgs; others",
         "jurisdictions": "CN;US;WO;EP;JP",
         "claim_theme": "Durvalumab plus tremelimumab for selected NSCLC patients",
@@ -1123,10 +1312,13 @@
         "source_url": "https://patents.google.com/patent/US20190256603A1/en",
         "relevance": "core",
         "notes": "Useful example of a biomarker-and-combination branch; claim scope and national status require direct claim/register review.",
+        "representative_document_assignee": "C/o Definiens AG;Definiens AG;MedImmune LLC",
+        "family_ownership_summary": "Representative record lists Definiens AG and MedImmune LLC; AstraZeneca AB family-level ownership is not established by the current source",
         "members": [
           "US20190256603A1",
           "US16/346268"
         ],
+        "member_relations": [],
         "priority_set": [],
         "family_relations": [],
         "relation_fields_present": false
@@ -1134,7 +1326,9 @@
       "source_url": "https://patents.google.com/patent/US20190256603A1/en",
       "facets": {
         "applicant": [
-          "MedImmune LLC / AstraZeneca AB"
+          "C/o Definiens AG",
+          "Definiens AG",
+          "MedImmune LLC"
         ],
         "jurisdiction": [
           "CN",
@@ -1166,25 +1360,74 @@
         "publication_date": "2024-10-17",
         "applicant_or_assignee": "AstraZeneca AB",
         "inventors": "Norah Shire; Phillip Dennis",
-        "jurisdictions": "WO",
+        "jurisdictions": "AU;CN;EP;IL;KR;WO",
         "claim_theme": "Durvalumab plus platinum chemotherapy for resectable NSCLC",
         "claim_categories": "method of treatment;combination;regimen",
         "key_claim_elements": "1000-2000 mg durvalumab plus platinum chemotherapy before surgery, resection, then adjuvant durvalumab; cycles and Q3W/Q4W regimen",
         "mutation_or_biomarker": "",
-        "official_status": "WO publication; CN/US national-phase status not established in this screening",
-        "status_as_of": "2026-08-06",
+        "official_status": "WO PCT record shown ceased; AU/CN/EP/KR/IL national or regional members identified on public mirror; live status requires official-register confirmation",
+        "status_as_of": "2026-08-07",
         "status_source": "Google Patents public mirror; national register follow-up required",
         "status_confidence": "medium",
         "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
         "relevance": "core",
-        "notes": "Recent indication/regimen branch. It is a publication-level signal, not a conclusion that CN/US protection exists.",
+        "notes": "Recent indication/regimen branch. National-phase members are explicit discovery signals, not conclusions that claims are live or equivalent.",
+        "representative_document_assignee": "AstraZeneca AB",
+        "family_ownership_summary": "AstraZeneca AB",
         "members": [
           "WO2024213696A1",
-          "PCT/EP2024/059945"
+          "PCT/EP2024/059945",
+          "AU2024250324A1",
+          "CN120936347A",
+          "EP4694872A1",
+          "KR20250173561A",
+          "IL323900A"
+        ],
+        "member_relations": [
+          {
+            "source_document": "AU2024250324A1",
+            "relation_type": "NATIONAL_PHASE_OF",
+            "target_document": "WO2024213696A1",
+            "evidence_ids": [],
+            "source_url": "https://patents.google.com/patent/AU2024250324A1/en",
+            "notes": "National-phase member identified on public mirror"
+          },
+          {
+            "source_document": "CN120936347A",
+            "relation_type": "NATIONAL_PHASE_OF",
+            "target_document": "WO2024213696A1",
+            "evidence_ids": [],
+            "source_url": "https://patents.google.com/patent/CN120936347A/en",
+            "notes": "National-phase member identified on public mirror"
+          },
+          {
+            "source_document": "EP4694872A1",
+            "relation_type": "NATIONAL_PHASE_OF",
+            "target_document": "WO2024213696A1",
+            "evidence_ids": [],
+            "source_url": "https://patents.google.com/patent/EP4694872A1/en",
+            "notes": "Regional-phase member identified on public mirror"
+          },
+          {
+            "source_document": "KR20250173561A",
+            "relation_type": "NATIONAL_PHASE_OF",
+            "target_document": "WO2024213696A1",
+            "evidence_ids": [],
+            "source_url": "https://patents.google.com/patent/KR20250173561A/en",
+            "notes": "National-phase member identified on public mirror"
+          },
+          {
+            "source_document": "IL323900A",
+            "relation_type": "NATIONAL_PHASE_OF",
+            "target_document": "WO2024213696A1",
+            "evidence_ids": [],
+            "source_url": "https://patents.google.com/patent/IL323900A/en",
+            "notes": "National-phase member identified on public mirror"
+          }
         ],
         "priority_set": [],
         "family_relations": [],
-        "relation_fields_present": false
+        "relation_fields_present": true
       },
       "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
       "facets": {
@@ -1192,6 +1435,11 @@
           "AstraZeneca AB"
         ],
         "jurisdiction": [
+          "AU",
+          "CN",
+          "EP",
+          "IL",
+          "KR",
           "WO"
         ],
         "theme": [
@@ -1229,10 +1477,13 @@
         "source_url": "https://patents.google.com/patent/WO2022248478A1/en",
         "relevance": "core",
         "notes": "Indication-route expansion from consolidation to concurrent chemoradiation; verify independent claims and live status in CN/US.",
+        "representative_document_assignee": "AstraZeneca AB",
+        "family_ownership_summary": "AstraZeneca AB",
         "members": [
           "WO2022248478A1",
           "PCT/EP2022/064061"
         ],
+        "member_relations": [],
         "priority_set": [],
         "family_relations": [],
         "relation_fields_present": false
@@ -1283,10 +1534,13 @@
         "source_url": "https://patents.google.com/patent/US20210054079A1/en",
         "relevance": "core",
         "notes": "Included to show formulation-layer migration; it is not equivalent to a live durvalumab product patent.",
+        "representative_document_assignee": "MedImmune Ltd",
+        "family_ownership_summary": "MedImmune Ltd",
         "members": [
           "US20210054079A1",
           "US17/049839"
         ],
+        "member_relations": [],
         "priority_set": [],
         "family_relations": [],
         "relation_fields_present": false
@@ -1319,7 +1573,7 @@
         "grants": "",
         "earliest_priority": "2018-02-26",
         "publication_date": "2019-08-29",
-        "applicant_or_assignee": "F. Hoffmann-La Roche AG / Genentech Inc",
+        "applicant_or_assignee": "F. Hoffmann-La Roche AG;Genentech Inc",
         "inventors": "Raymond D. Meng",
         "jurisdictions": "CN;US;WO;EP;JP",
         "claim_theme": "Anti-TIGIT plus anti-PD-L1 antagonist dosing",
@@ -1333,10 +1587,13 @@
         "source_url": "https://patents.google.com/patent/WO2019165434A1/en",
         "relevance": "boundary",
         "notes": "Competitive/pathway expansion, not counted as a durvalumab-specific core family until independent claims are confirmed.",
+        "representative_document_assignee": "F. Hoffmann-La Roche AG;Genentech Inc",
+        "family_ownership_summary": "F. Hoffmann-La Roche AG;Genentech Inc",
         "members": [
           "WO2019165434A1",
           "PCT/US2019/019603"
         ],
+        "member_relations": [],
         "priority_set": [],
         "family_relations": [],
         "relation_fields_present": false
@@ -1344,7 +1601,8 @@
       "source_url": "https://patents.google.com/patent/WO2019165434A1/en",
       "facets": {
         "applicant": [
-          "F. Hoffmann-La Roche AG / Genentech Inc"
+          "F. Hoffmann-La Roche AG",
+          "Genentech Inc"
         ],
         "jurisdiction": [
           "CN",
@@ -1381,17 +1639,20 @@
         "claim_categories": "biomarker;diagnostic;patient selection",
         "key_claim_elements": "gene-expression biomarker panels for response assessment in NSCLC immune-checkpoint blockade",
         "mutation_or_biomarker": "ITGAL; ITGAX; TMEM119; multi-gene panels",
-        "official_status": "WO record shown pending; not durvalumab-specific in the rapid screen",
-        "status_as_of": "2026-08-06",
+        "official_status": "WO record shown ceased; not durvalumab-specific in the rapid screen",
+        "status_as_of": "2026-08-07",
         "status_source": "Google Patents public mirror; claim-level linkage to durvalumab not established",
         "status_confidence": "medium",
         "source_url": "https://patents.google.com/patent/WO2024234348A1/en",
         "relevance": "boundary",
         "notes": "Included as an adjacent biomarker-space signal; it demonstrates why resistance/biomarker searches need a separate relevance label.",
+        "representative_document_assignee": "Individual applicant",
+        "family_ownership_summary": "Individual applicant",
         "members": [
           "WO2024234348A1",
           "PCT/CN2023/094890"
         ],
+        "member_relations": [],
         "priority_set": [],
         "family_relations": [],
         "relation_fields_present": false
@@ -1419,7 +1680,7 @@
       "summary": "PD-L1 · non-small cell lung cancer (NSCLC)",
       "properties": {
         "case_id": "durvalumab-pdl1-nsclc",
-        "as_of": "2026-08-06",
+        "as_of": "2026-08-07",
         "focus": [
           "compound",
           "formulation",
@@ -1761,9 +2022,9 @@
       "properties": {}
     },
     {
-      "id": "EDGE-0D653E177148",
+      "id": "EDGE-4409B6EF887E",
       "source": "family:DVL-FAM-001",
-      "target": "applicant:C7F646051B5F",
+      "target": "applicant:E6B74EBECAD2",
       "type": "FILED_BY",
       "label": "申请人",
       "assertion": "direct_fact",
@@ -1772,9 +2033,31 @@
       "properties": {}
     },
     {
-      "id": "EDGE-F0896136E6D9",
+      "id": "EDGE-D025CE8E0229",
       "source": "family:DVL-FAM-002",
-      "target": "applicant:FB29D33756C6",
+      "target": "applicant:A64BEEE0A7BF",
+      "type": "FILED_BY",
+      "label": "申请人",
+      "assertion": "direct_fact",
+      "link_methods": [],
+      "evidence_ids": [],
+      "properties": {}
+    },
+    {
+      "id": "EDGE-FB6CE7F2014C",
+      "source": "family:DVL-FAM-002",
+      "target": "applicant:AD5DD76A1306",
+      "type": "FILED_BY",
+      "label": "申请人",
+      "assertion": "direct_fact",
+      "link_methods": [],
+      "evidence_ids": [],
+      "properties": {}
+    },
+    {
+      "id": "EDGE-4CF4D6AD1422",
+      "source": "family:DVL-FAM-002",
+      "target": "applicant:F25A49FD88A5",
       "type": "FILED_BY",
       "label": "申请人",
       "assertion": "direct_fact",
@@ -1816,9 +2099,20 @@
       "properties": {}
     },
     {
-      "id": "EDGE-6827EB036C44",
+      "id": "EDGE-9BFCD9D9A535",
       "source": "family:DVL-FAM-006",
-      "target": "applicant:AA03BD3E406A",
+      "target": "applicant:04FABD654D6D",
+      "type": "FILED_BY",
+      "label": "申请人",
+      "assertion": "direct_fact",
+      "link_methods": [],
+      "evidence_ids": [],
+      "properties": {}
+    },
+    {
+      "id": "EDGE-4F70670DE1BD",
+      "source": "family:DVL-FAM-006",
+      "target": "applicant:1EF511BCF4D6",
       "type": "FILED_BY",
       "label": "申请人",
       "assertion": "direct_fact",
@@ -1929,6 +2223,61 @@
       "id": "EDGE-C78F1142AF8B",
       "source": "family:DVL-FAM-002",
       "target": "jurisdiction:WO",
+      "type": "FILED_IN",
+      "label": "布局法域",
+      "assertion": "direct_fact",
+      "link_methods": [],
+      "evidence_ids": [],
+      "properties": {}
+    },
+    {
+      "id": "EDGE-5E8F806B6A1F",
+      "source": "family:DVL-FAM-003",
+      "target": "jurisdiction:AU",
+      "type": "FILED_IN",
+      "label": "布局法域",
+      "assertion": "direct_fact",
+      "link_methods": [],
+      "evidence_ids": [],
+      "properties": {}
+    },
+    {
+      "id": "EDGE-5023D8B92321",
+      "source": "family:DVL-FAM-003",
+      "target": "jurisdiction:CN",
+      "type": "FILED_IN",
+      "label": "布局法域",
+      "assertion": "direct_fact",
+      "link_methods": [],
+      "evidence_ids": [],
+      "properties": {}
+    },
+    {
+      "id": "EDGE-563873ADA53E",
+      "source": "family:DVL-FAM-003",
+      "target": "jurisdiction:EP",
+      "type": "FILED_IN",
+      "label": "布局法域",
+      "assertion": "direct_fact",
+      "link_methods": [],
+      "evidence_ids": [],
+      "properties": {}
+    },
+    {
+      "id": "EDGE-535AD60A38D4",
+      "source": "family:DVL-FAM-003",
+      "target": "jurisdiction:IL",
+      "type": "FILED_IN",
+      "label": "布局法域",
+      "assertion": "direct_fact",
+      "link_methods": [],
+      "evidence_ids": [],
+      "properties": {}
+    },
+    {
+      "id": "EDGE-3E2FD1B55610",
+      "source": "family:DVL-FAM-003",
+      "target": "jurisdiction:KR",
       "type": "FILED_IN",
       "label": "布局法域",
       "assertion": "direct_fact",
@@ -2258,6 +2607,81 @@
       "evidence_ids": [],
       "properties": {
         "role": "representative"
+      }
+    },
+    {
+      "id": "REL-FE4786C77ECC",
+      "source": "family:DVL-FAM-003",
+      "target": "document:AU2024250324A1",
+      "type": "HAS_MEMBER",
+      "label": "族成员",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "family.member"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "role": "member"
+      }
+    },
+    {
+      "id": "REL-8F3E918BCC6E",
+      "source": "family:DVL-FAM-003",
+      "target": "document:CN120936347A",
+      "type": "HAS_MEMBER",
+      "label": "族成员",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "family.member"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "role": "member"
+      }
+    },
+    {
+      "id": "REL-5EE5D28F66F9",
+      "source": "family:DVL-FAM-003",
+      "target": "document:EP4694872A1",
+      "type": "HAS_MEMBER",
+      "label": "族成员",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "family.member"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "role": "member"
+      }
+    },
+    {
+      "id": "REL-EE705AF81B8B",
+      "source": "family:DVL-FAM-003",
+      "target": "document:IL323900A",
+      "type": "HAS_MEMBER",
+      "label": "族成员",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "family.member"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "role": "member"
+      }
+    },
+    {
+      "id": "REL-DD0809C91CF2",
+      "source": "family:DVL-FAM-003",
+      "target": "document:KR20250173561A",
+      "type": "HAS_MEMBER",
+      "label": "族成员",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "family.member"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "role": "member"
       }
     },
     {
@@ -2599,6 +3023,91 @@
       "link_methods": [],
       "evidence_ids": [],
       "properties": {}
+    },
+    {
+      "id": "REL-9A634B2A36E6",
+      "source": "document:AU2024250324A1",
+      "target": "document:WO2024213696A1",
+      "type": "NATIONAL_PHASE_OF",
+      "label": "国家阶段",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "family.member_relations"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "family_id": "DVL-FAM-003",
+        "source_url": "https://patents.google.com/patent/AU2024250324A1/en",
+        "notes": "National-phase member identified on public mirror"
+      }
+    },
+    {
+      "id": "REL-210C89287D7D",
+      "source": "document:CN120936347A",
+      "target": "document:WO2024213696A1",
+      "type": "NATIONAL_PHASE_OF",
+      "label": "国家阶段",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "family.member_relations"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "family_id": "DVL-FAM-003",
+        "source_url": "https://patents.google.com/patent/CN120936347A/en",
+        "notes": "National-phase member identified on public mirror"
+      }
+    },
+    {
+      "id": "REL-3C38FCF2C043",
+      "source": "document:EP4694872A1",
+      "target": "document:WO2024213696A1",
+      "type": "NATIONAL_PHASE_OF",
+      "label": "国家阶段",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "family.member_relations"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "family_id": "DVL-FAM-003",
+        "source_url": "https://patents.google.com/patent/EP4694872A1/en",
+        "notes": "Regional-phase member identified on public mirror"
+      }
+    },
+    {
+      "id": "REL-BBD3884BEE65",
+      "source": "document:IL323900A",
+      "target": "document:WO2024213696A1",
+      "type": "NATIONAL_PHASE_OF",
+      "label": "国家阶段",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "family.member_relations"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "family_id": "DVL-FAM-003",
+        "source_url": "https://patents.google.com/patent/IL323900A/en",
+        "notes": "National-phase member identified on public mirror"
+      }
+    },
+    {
+      "id": "REL-C02118C8B98E",
+      "source": "document:KR20250173561A",
+      "target": "document:WO2024213696A1",
+      "type": "NATIONAL_PHASE_OF",
+      "label": "国家阶段",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "family.member_relations"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "family_id": "DVL-FAM-003",
+        "source_url": "https://patents.google.com/patent/KR20250173561A/en",
+        "notes": "National-phase member identified on public mirror"
+      }
     },
     {
       "id": "EDGE-8AA4CB9B217E",
@@ -3051,7 +3560,7 @@
       {
         "value": "patent_document",
         "label": "patent_document",
-        "count": 15
+        "count": 20
       },
       {
         "value": "technology_theme",
@@ -3062,6 +3571,16 @@
         "value": "claim",
         "label": "claim",
         "count": 9
+      },
+      {
+        "value": "applicant",
+        "label": "applicant",
+        "count": 8
+      },
+      {
+        "value": "jurisdiction",
+        "label": "jurisdiction",
+        "count": 8
       },
       {
         "value": "evidence",
@@ -3077,16 +3596,6 @@
         "value": "source",
         "label": "source",
         "count": 7
-      },
-      {
-        "value": "applicant",
-        "label": "applicant",
-        "count": 6
-      },
-      {
-        "value": "jurisdiction",
-        "label": "jurisdiction",
-        "count": 5
       },
       {
         "value": "indication",
@@ -3108,7 +3617,12 @@
       {
         "value": "FILED_IN",
         "label": "FILED_IN",
-        "count": 21
+        "count": 26
+      },
+      {
+        "value": "HAS_MEMBER",
+        "label": "HAS_MEMBER",
+        "count": 20
       },
       {
         "value": "PROTECTS",
@@ -3116,14 +3630,14 @@
         "count": 20
       },
       {
-        "value": "HAS_MEMBER",
-        "label": "HAS_MEMBER",
-        "count": 15
-      },
-      {
         "value": "SUPPORTED_BY",
         "label": "SUPPORTED_BY",
         "count": 15
+      },
+      {
+        "value": "FILED_BY",
+        "label": "FILED_BY",
+        "count": 10
       },
       {
         "value": "CLAIMS_DOCUMENT",
@@ -3141,21 +3655,21 @@
         "count": 9
       },
       {
-        "value": "FILED_BY",
-        "label": "FILED_BY",
-        "count": 7
-      },
-      {
         "value": "HAS_SOURCE",
         "label": "HAS_SOURCE",
         "count": 7
+      },
+      {
+        "value": "NATIONAL_PHASE_OF",
+        "label": "NATIONAL_PHASE_OF",
+        "count": 5
       }
     ],
     "assertions": [
       {
         "value": "direct_fact",
         "label": "direct_fact",
-        "count": 97
+        "count": 115
       },
       {
         "value": "rule_derived",
@@ -3170,8 +3684,28 @@
         "count": 2
       },
       {
-        "value": "F. Hoffmann-La Roche AG / Genentech Inc",
-        "label": "F. Hoffmann-La Roche AG / Genentech Inc",
+        "value": "MedImmune Ltd",
+        "label": "MedImmune Ltd",
+        "count": 2
+      },
+      {
+        "value": "C/o Definiens AG",
+        "label": "C/o Definiens AG",
+        "count": 1
+      },
+      {
+        "value": "Definiens AG",
+        "label": "Definiens AG",
+        "count": 1
+      },
+      {
+        "value": "F. Hoffmann-La Roche AG",
+        "label": "F. Hoffmann-La Roche AG",
+        "count": 1
+      },
+      {
+        "value": "Genentech Inc",
+        "label": "Genentech Inc",
         "count": 1
       },
       {
@@ -3180,18 +3714,8 @@
         "count": 1
       },
       {
-        "value": "MedImmune LLC / AstraZeneca AB",
-        "label": "MedImmune LLC / AstraZeneca AB",
-        "count": 1
-      },
-      {
-        "value": "MedImmune Ltd",
-        "label": "MedImmune Ltd",
-        "count": 1
-      },
-      {
-        "value": "MedImmune Ltd / AstraZeneca AB",
-        "label": "MedImmune Ltd / AstraZeneca AB",
+        "value": "MedImmune LLC",
+        "label": "MedImmune LLC",
         "count": 1
       }
     ],
@@ -3202,24 +3726,39 @@
         "count": 6
       },
       {
+        "value": "CN",
+        "label": "CN",
+        "count": 5
+      },
+      {
+        "value": "EP",
+        "label": "EP",
+        "count": 5
+      },
+      {
         "value": "US",
         "label": "US",
         "count": 5
       },
       {
-        "value": "CN",
-        "label": "CN",
-        "count": 4
-      },
-      {
-        "value": "EP",
-        "label": "EP",
-        "count": 4
-      },
-      {
         "value": "JP",
         "label": "JP",
         "count": 2
+      },
+      {
+        "value": "AU",
+        "label": "AU",
+        "count": 1
+      },
+      {
+        "value": "IL",
+        "label": "IL",
+        "count": 1
+      },
+      {
+        "value": "KR",
+        "label": "KR",
+        "count": 1
       }
     ],
     "themes": [

@@ -51,6 +51,8 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn("semanticPositions", html)
         self.assertIn('preset?.layout === "semantic"', html)
         self.assertIn("edge-active", html)
+        self.assertNotIn('"font-weight": 650', html)
+        self.assertNotIn('"font-weight": 680', html)
 
     def test_embedded_json_cannot_terminate_its_script_tag(self):
         payload = {"label": "</script><script>alert(1)</script>"}

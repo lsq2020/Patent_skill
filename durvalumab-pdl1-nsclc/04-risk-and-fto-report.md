@@ -1,6 +1,6 @@
 # 风险与 FTO 报告
 
-> 案例：`durvalumab-pdl1-nsclc` · 生成时间：2026-08-06T04:11:59.997400+00:00 · 本报告为研究资料，不构成法律意见。
+> 案例：`durvalumab-pdl1-nsclc` · 生成时间：2026-08-07T04:20:55.032248+00:00 · 本报告为研究资料，不构成法律意见。
 
 ## 研究范围
 
@@ -8,7 +8,7 @@
 - **靶点/机制**：PD-L1
 - **适应症**：non-small cell lung cancer (NSCLC)
 - **法域**：目标法域 CN, US；关联扩展法域 WO, EP
-- **截至日期**：2026-08-06
+- **截至日期**：2026-08-07
 - **深度**：standard_analysis；报告语言：zh
 - **来源目录**：上游记录 143 条，去重 URL 140 个；目录不是已访问结果集。
 - **申请人消歧**：未提供；需从族记录反向归一化
@@ -37,10 +37,10 @@
 |---|---|---|---|---|---|---|---|---|---|
 | MEDIUM | DVL-FAM-004 | [WO2022248478A1](https://patents.google.com/patent/WO2022248478A1/en) | Durvalumab/PD-1-axis inhibition with concurrent platinum-based chemoradiation for unresectable stage III NSCLC | 79.3% | F01, F02 | F03, F04, F05 | indication | CN117425493A and US20240254235A1 shown published/pending on public mirror; official register review required | Google Patents public mirror; national register follow-up required |
 | LOW | DVL-FAM-002 | [US20190256603A1](https://patents.google.com/patent/US20190256603A1/en) | Durvalumab plus tremelimumab for selected NSCLC patients | 51.0% | F01 | F02, F03, F04, F05 | combination; patient-selection | US application shown abandoned; CN member shown pending on public mirror; family legal state differs by jurisdiction | Google Patents family/status page; official CNIPA/USPTO confirmation pending |
-| LOW | DVL-FAM-007 | [WO2024234348A1](https://patents.google.com/patent/WO2024234348A1/en) | Biomarker for immune checkpoint blockade therapy in NSCLC | 43.0% | F01 | F02, F03, F04, F05 | biomarker | WO record shown pending; not durvalumab-specific in the rapid screen | Google Patents public mirror; claim-level linkage to durvalumab not established |
 | LOW | DVL-FAM-001 | [US9493565B2](https://patents.google.com/patent/US9493565B2/en) | Fc-optimized anti-PD-L1 antibody (durvalumab/MEDI4736) composition and sequence | 41.5% | 无 | F01, F02, F03, F04, F05 | composition; use | US public mirror shows active; CN and other national members require official-register review | Google Patents public mirror; USPTO link available on record |
+| LOW | DVL-FAM-007 | [WO2024234348A1](https://patents.google.com/patent/WO2024234348A1/en) | Biomarker for immune checkpoint blockade therapy in NSCLC | 40.0% | F01 | F02, F03, F04, F05 | biomarker | WO record shown ceased; not durvalumab-specific in the rapid screen | Google Patents public mirror; claim-level linkage to durvalumab not established |
 | LOW | DVL-FAM-005 | [US20210054079A1](https://patents.google.com/patent/US20210054079A1/en) | Human anti-PD-L1 antibody formulation including durvalumab-relevant formulation disclosure | 38.5% | 无 | F01, F02, F03, F04, F05 | formulation | US application shown abandoned on public mirror | Google Patents public mirror; USPTO Patent Center follow-up required |
-| LOW | DVL-FAM-003 | [WO2024213696A1](https://patents.google.com/patent/WO2024213696A1/en) | Durvalumab plus platinum chemotherapy for resectable NSCLC | 34.7% | F01 | F02, F04, F05 | regimen | WO publication; CN/US national-phase status not established in this screening | Google Patents public mirror; national register follow-up required |
+| LOW | DVL-FAM-003 | [WO2024213696A1](https://patents.google.com/patent/WO2024213696A1/en) | Durvalumab plus platinum chemotherapy for resectable NSCLC | 34.7% | F01 | F02, F04, F05 | regimen | WO PCT record shown ceased; AU/CN/EP/KR/IL national or regional members identified on public mirror; live status requires official-register confirmation | Google Patents public mirror; national register follow-up required |
 | LOW | DVL-FAM-006 | [WO2019165434A1](https://patents.google.com/patent/WO2019165434A1/en) | Anti-TIGIT plus anti-PD-L1 antagonist dosing | 30.5% | 无 | F01, F02, F03, F04, F05 | combination | WO record shown ceased; national status differs by jurisdiction | Google Patents public mirror; official register review required |
 
 ## 统计可视化
@@ -81,18 +81,18 @@
 - **claim 记录**：combination: durvalumab plus tremelimumab; patient-selection: PD-L1-negative NSCLC with high CD8+ tumor-infiltrating lymphocytes。
 - **下一步**：下载目标法域官方文本；核对完整独立权利要求、分案/继续申请、审查档案、年费/异议/无效和实施方案逐项要素。
 
-### DVL-FAM-007 · LOW · WO2024234348A1
-
-- **触发事实**：Biomarker for immune checkpoint blockade therapy in NSCLC；完整命中 `F01`；部分命中 `F02, F03, F04, F05`。
-- **状态限制**：WO record shown pending; not durvalumab-specific in the rapid screen；来源：Google Patents public mirror; claim-level linkage to durvalumab not established。
-- **claim 记录**：biomarker: NSCLC immune-checkpoint response gene-expression panel。
-- **下一步**：下载目标法域官方文本；核对完整独立权利要求、分案/继续申请、审查档案、年费/异议/无效和实施方案逐项要素。
-
 ### DVL-FAM-001 · LOW · US9493565B2
 
 - **触发事实**：Fc-optimized anti-PD-L1 antibody (durvalumab/MEDI4736) composition and sequence；完整命中 `无`；部分命中 `F01, F02, F03, F04, F05`。
 - **状态限制**：US public mirror shows active; CN and other national members require official-register review；来源：Google Patents public mirror; USPTO link available on record。
 - **claim 记录**：composition: anti-B7-H1/PD-L1 antibody with sequence-defined variable regions and Fc engineering; use: use of the antibody against PD-L1/B7-H1-mediated immune suppression。
+- **下一步**：下载目标法域官方文本；核对完整独立权利要求、分案/继续申请、审查档案、年费/异议/无效和实施方案逐项要素。
+
+### DVL-FAM-007 · LOW · WO2024234348A1
+
+- **触发事实**：Biomarker for immune checkpoint blockade therapy in NSCLC；完整命中 `F01`；部分命中 `F02, F03, F04, F05`。
+- **状态限制**：WO record shown ceased; not durvalumab-specific in the rapid screen；来源：Google Patents public mirror; claim-level linkage to durvalumab not established。
+- **claim 记录**：biomarker: NSCLC immune-checkpoint response gene-expression panel。
 - **下一步**：下载目标法域官方文本；核对完整独立权利要求、分案/继续申请、审查档案、年费/异议/无效和实施方案逐项要素。
 
 ### DVL-FAM-005 · LOW · US20210054079A1
@@ -105,7 +105,7 @@
 ### DVL-FAM-003 · LOW · WO2024213696A1
 
 - **触发事实**：Durvalumab plus platinum chemotherapy for resectable NSCLC；完整命中 `F01`；部分命中 `F02, F04, F05`。
-- **状态限制**：WO publication; CN/US national-phase status not established in this screening；来源：Google Patents public mirror; national register follow-up required。
+- **状态限制**：WO PCT record shown ceased; AU/CN/EP/KR/IL national or regional members identified on public mirror; live status requires official-register confirmation；来源：Google Patents public mirror; national register follow-up required。
 - **claim 记录**：regimen: durvalumab plus platinum chemotherapy before resection, followed by adjuvant durvalumab。
 - **下一步**：下载目标法域官方文本；核对完整独立权利要求、分案/继续申请、审查档案、年费/异议/无效和实施方案逐项要素。
 

@@ -33,6 +33,15 @@ def find_file(project, pattern):
     return matches[0] if matches else None
 
 
+def portable_path(path, project):
+    if not path:
+        return None
+    try:
+        return path.resolve().relative_to(project.resolve()).as_posix()
+    except ValueError:
+        return str(path)
+
+
 def family_index(rows):
     return {row.get("family_id", ""): row for row in rows if row.get("family_id")}
 
@@ -126,7 +135,7 @@ def rank(plan, claim_rows, family_rows):
 def write_csv(path, rows):
     fields = ["family_id", "representative_document", "relevance", "review_priority", "screen_score", "feature_coverage", "matched_features", "partial_features", "matched_feature_coverage", "matched_terms", "claim_categories", "official_status_signal", "status_source", "source_url", "notes"]
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -159,9 +168,9 @@ def main():
     plan["stage_summary"]["comparison_count"] = sum(1 for row in ranked if row["matched_features"])
     plan["candidate_screen"] = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "input_claims": str(claim_path) if claim_path else None,
-        "input_families": str(family_path) if family_path else None,
-        "ranking_file": str(out),
+        "input_claims": portable_path(claim_path, project),
+        "input_families": portable_path(family_path, project),
+        "ranking_file": portable_path(out, project),
         "method": "declared keyword cluster overlap + claim category/relevance/status signals",
         "disclaimer": "Screening only; no infringement or validity conclusion.",
     }

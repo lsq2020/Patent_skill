@@ -38,8 +38,20 @@ case-output.json
 
 ```json
 {
+  "representative_document_assignee": "Example Bio LLC",
+  "family_ownership_summary": "Example Bio LLC; parent-group ownership requires separate evidence",
   "members": ["US123A1", "US123B2"],
   "priority_set": ["US62/123456"],
+  "member_relations": [
+    {
+      "source_document": "US123A1",
+      "relation_type": "NATIONAL_PHASE_OF",
+      "target_document": "WO2020123456A1",
+      "evidence_ids": ["FIND-001"],
+      "source_url": "https://example.test/patent/US123A1",
+      "notes": ""
+    }
+  ],
   "family_relations": [
     {
       "target_family_id": "FAM-001",
@@ -51,7 +63,12 @@ case-output.json
 }
 ```
 
-允许的族间关系包括 `CONTINUATION_OF`、`CONTINUATION_IN_PART_OF`、`DIVISIONAL_OF`、`NATIONAL_PHASE_OF` 和 `RELATED_TO`。不从 `notes` 或自然语言族描述自动推断这些边。
+- `representative_document_assignee` 只记录代表文献来源直接支持的申请人/受让人；图谱的申请人节点优先使用该字段。
+- `family_ownership_summary` 用于记录集团归属、转让链或族层汇总，不等同于代表文献的当前受让人。
+- `member_relations` 表达同一族内文献之间的 `NATIONAL_PHASE_OF`、`PRIORITY_TO` 等关系，生成 `document:* → document:*` 边。
+- `family_relations` 表达不同规范化族之间的 `CONTINUATION_OF`、`CONTINUATION_IN_PART_OF`、`DIVISIONAL_OF`、`NATIONAL_PHASE_OF` 和 `RELATED_TO`，生成 `family:* → family:*` 边。
+
+不从 `notes` 或自然语言族描述自动推断上述关系。旧 `applicant_or_assignee` 字段继续保留；缺少新字段时构建器会以它作为兼容回退。
 
 Evidence 记录统一包含：
 
@@ -86,6 +103,6 @@ assertion | link_methods | evidence_ids | properties
 ## 兼容和校验
 
 - 旧 CSV 不必立即新增列；构建器会补 `claim_id`、数组字段和可确定的规则关系。
-- 新采集优先直接写 `claim_id`、`members`、`priority_set`、`family_relations`、`family_ids` 和 `claim_ids`。
+- 新采集优先直接写 `claim_id`、`representative_document_assignee`、`family_ownership_summary`、`members`、`priority_set`、`member_relations`、`family_relations`、`family_ids` 和 `claim_ids`。
 - `validate_output_schema.py` 检查 ID 唯一性、数组字段、悬空边和 assertion 枚举。
 - `confidence` 表示证据可信度，不表示侵权概率或法律状态结论。
