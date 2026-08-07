@@ -190,10 +190,6 @@
   };
   const GRAPH_LABEL_HIDE_ZOOM = 0.68;
   const GRAPH_LABEL_DETAIL_ZOOM = 0.92;
-  const GRAPH_NODE_SCALE_MIN = 0.78;
-  const GRAPH_NODE_SCALE_MAX = 1.24;
-  const GRAPH_FONT_SCALE_MIN = 0.74;
-  const GRAPH_FONT_SCALE_MAX = 1.18;
 
   const cy = cytoscape({
     container: byId("graph-canvas"),
@@ -289,7 +285,6 @@
       { selector: "node:selected", style: { "border-color": "#f0ede7", "border-width": 2.4, "underlay-color": "#d9dde1", "underlay-opacity": 0.13, "underlay-padding": 9, "z-index": 999, "z-index-compare": "manual" } },
       { selector: "edge:selected", style: { width: 2.2, opacity: 1, "overlay-color": "#d9dde1", "overlay-opacity": 0.06 } },
       { selector: ".faded", style: { opacity: 0.07, "text-opacity": 0.04 } },
-      { selector: "node.semantic-zoom", style: { width: "data(semanticNodeSize)", height: "data(semanticNodeSize)", "font-size": "data(semanticFontSize)", "text-margin-y": "data(semanticTextOffset)" } },
       { selector: "node.semantic-label-hidden", style: { label: "", "text-opacity": 0, "text-outline-opacity": 0 } },
       { selector: "edge.semantic-label-hidden", style: { label: "", "text-opacity": 0 } },
     ],
@@ -634,23 +629,13 @@
   function applySemanticZoom() {
     semanticZoomFrame = 0;
     const zoom = cy.zoom();
-    const nodeScale = clamp(0.66 + (zoom * 0.34), GRAPH_NODE_SCALE_MIN, GRAPH_NODE_SCALE_MAX);
-    const fontScale = clamp(0.64 + (zoom * 0.36), GRAPH_FONT_SCALE_MIN, GRAPH_FONT_SCALE_MAX);
     const hideAllLabels = zoom < GRAPH_LABEL_HIDE_ZOOM;
     const showPriorityLabelsOnly = zoom < GRAPH_LABEL_DETAIL_ZOOM;
     cy.batch(() => {
       cy.nodes().forEach((node) => {
-        const baseNodeSize = Number(node.data("galaxyNodeSize")) || nodeBaseSizes[node.data("type")] || 15;
-        const baseFontSize = Number(node.data("galaxyFontSize")) || 9;
-        const baseTextOffset = Number(node.data("galaxyTextOffset")) || 7;
         const isPriorityLabel = node.id() === state.focus
           || node.selected()
           || Number(node.data("degreeCentrality") || 0) >= 0.56;
-        node.data({
-          semanticNodeSize: Number((baseNodeSize * nodeScale).toFixed(2)),
-          semanticFontSize: Number((baseFontSize * fontScale).toFixed(2)),
-          semanticTextOffset: Number((baseTextOffset * nodeScale).toFixed(2)),
-        });
         node.toggleClass("semantic-label-hidden", hideAllLabels || (showPriorityLabelsOnly && !isPriorityLabel));
       });
       cy.edges().toggleClass("semantic-label-hidden", showPriorityLabelsOnly);
@@ -987,7 +972,8 @@
           ? typeSize
           : 9 + (degreeCentrality * 39) + (node.id === state.focus ? 5 : 0);
       const galaxyNodeSize = clamp(rawSize * settings.nodeScale, 7, 62);
-      const galaxyFontSize = clamp((6.2 + (degreeCentrality * 9.8)) * Math.sqrt(settings.nodeScale), 6, 18);
+      const galaxyFontSize = clamp(4.4 + (galaxyNodeSize * 0.17), 6.5, 14);
+      const galaxyTextOffset = clamp(3.5 + (galaxyNodeSize * 0.12), 4.5, 11);
       const galaxyColor = GALAXY_TYPE_COLORS[node.type] || "#8f989f";
       nodes.set(node.id, {
         degree,
@@ -1001,7 +987,7 @@
         galaxyGlowBlur: Number((3 + (degreeCentrality * 20 * settings.glowStrength)).toFixed(1)),
         galaxyGlowOpacity: Number((settings.glowStrength * (0.1 + (degreeCentrality * 0.52))).toFixed(2)),
         galaxyBorderWidth: Number((0.7 + (degreeCentrality * 1.2)).toFixed(1)),
-        galaxyTextOffset: Number((4 + (galaxyNodeSize * 0.18)).toFixed(1)),
+        galaxyTextOffset: Number(galaxyTextOffset.toFixed(1)),
       });
     });
     const edges = new Map();
@@ -1433,7 +1419,6 @@
     cy.nodes().addClass("editorial-node");
     cy.nodes().addClass("depth-aware");
     cy.nodes().addClass("galaxy-node");
-    cy.nodes().addClass("semantic-zoom");
     cy.edges().addClass("depth-aware");
     cy.edges().addClass("galaxy-edge");
     applyGalaxyAppearance();

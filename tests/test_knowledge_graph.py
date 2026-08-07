@@ -241,22 +241,24 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn("motionAnchors.set", html)
         self.assertIn(".graph-canvas { cursor: grab;", html)
 
-    def test_scales_nodes_and_labels_then_hides_labels_at_distant_zoom_levels(self):
+    def test_keeps_node_font_ratio_stable_then_hides_labels_at_distant_zoom_levels(self):
         build_knowledge_graph(self.case_dir, output_path=self.output)
         html = self.output.read_text(encoding="utf-8")
 
         self.assertIn("const GRAPH_LABEL_HIDE_ZOOM = 0.68;", html)
         self.assertIn("const GRAPH_LABEL_DETAIL_ZOOM = 0.92;", html)
-        self.assertIn('selector: "node.semantic-zoom"', html)
         self.assertIn('selector: "node.semantic-label-hidden"', html)
         self.assertIn('selector: "edge.semantic-label-hidden"', html)
         self.assertIn("function applySemanticZoom()", html)
         self.assertIn("zoom < GRAPH_LABEL_HIDE_ZOOM", html)
         self.assertIn("zoom < GRAPH_LABEL_DETAIL_ZOOM", html)
-        self.assertIn("semanticNodeSize", html)
-        self.assertIn("semanticFontSize", html)
+        self.assertIn("const galaxyFontSize = clamp(4.4 + (galaxyNodeSize * 0.17), 6.5, 14);", html)
+        self.assertIn("const galaxyTextOffset = clamp(3.5 + (galaxyNodeSize * 0.12), 4.5, 11);", html)
         self.assertIn("window.requestAnimationFrame(applySemanticZoom)", html)
         self.assertNotIn("GRAPH_LABEL_MIN_RENDERED_SIZE", html)
+        self.assertNotIn("semanticNodeSize", html)
+        self.assertNotIn("semanticFontSize", html)
+        self.assertNotIn('selector: "node.semantic-zoom"', html)
 
     def test_keeps_zoom_and_cinematic_motion_responsive_under_load(self):
         build_knowledge_graph(self.case_dir, output_path=self.output)
