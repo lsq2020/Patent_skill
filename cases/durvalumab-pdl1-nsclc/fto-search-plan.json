@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-06T03:23:08.107065+00:00",
+  "generated_at": "2026-08-07T09:49:06.460665+00:00",
   "case": "durvalumab-pdl1-nsclc",
   "scope": {
     "research_object": {
@@ -22,7 +22,7 @@
       "WO",
       "EP"
     ],
-    "as_of": "2026-08-06",
+    "as_of": "2026-08-07",
     "focus": [
       "compound",
       "formulation",
@@ -667,14 +667,14 @@
     {
       "id": "R1",
       "kind": "high_precision",
-      "title": "关键词组合检索",
-      "objective": "锁定研究对象、靶点、适应症和风险/监测场景同时出现的文献。",
+      "title": "核心对象与用途组合检索",
+      "objective": "锁定核心技术特征在标题、摘要和权利要求中的共同披露。 当前词簇：度伐利尤单抗、PD-L1、阻断。",
       "fields": [
         "title",
         "abstract",
         "claims"
       ],
-      "formula": "(\"度伐利尤单抗\" OR \"durvalumab\") AND (\"PD-L1\" OR \"程序性死亡配体1\") AND (\"非小细胞肺癌\" OR \"NSCLC\" OR \"non small cell lung cancer\") AND (\"免疫相关不良反应\" OR \"irAE\" OR \"immune related adverse event\" OR \"器官受损\" OR \"组织损伤\" OR \"organ toxicity\")",
+      "formula": "(\"度伐利尤单抗\" OR \"durvalumab\") AND (\"PD-L1\" OR \"程序性死亡配体1\") AND (\"阻断\" OR \"blockade\")",
       "source_routes": [
         "primary_or_status_check",
         "discovery_and_cross_check"
@@ -691,14 +691,14 @@
     {
       "id": "R2",
       "kind": "iterative_expansion",
-      "title": "机制与通路扩展",
-      "objective": "扩大到 PD-1/PD-L1 结合、阻断、免疫毒性和器官损伤表述。",
+      "title": "同义词与机制扩展",
+      "objective": "用案例声明的别名、同义词、译名和机制词扩大召回，并回到权利要求核验。 当前词簇：度伐利尤单抗、PD-L1、阻断、免疫相关不良反应、器官受损。",
       "fields": [
         "full_text",
         "claims",
         "CPC/IPC"
       ],
-      "formula": "(\"度伐利尤单抗\" OR \"durvalumab\" OR \"德瓦鲁单抗\" OR \"度伐鲁单抗\" OR \"PD-L1抑制剂\" OR \"Imfinzi\" OR \"MEDI4736\" OR \"MEDI-4736\" OR \"PD-L1 inhibitor\") AND (\"PD-L1\" OR \"程序性死亡配体1\" OR \"CD274\" OR \"B7-H1\" OR \"programmed death ligand 1\" OR \"programmed death-ligand 1\" OR \"阻断\" OR \"blockade\" OR \"拮抗\" OR \"结合抑制\" OR \"通路阻断\" OR \"block\" OR \"inhibit\" OR \"antagonize\") AND (\"免疫相关不良反应\" OR \"irAE\" OR \"immune related adverse event\" OR \"自身免疫反应\" OR \"免疫毒性\" OR \"autoimmune reaction\" OR \"immunotoxicity\" OR \"immune-related adverse event\" OR \"器官受损\" OR \"组织损伤\" OR \"organ toxicity\" OR \"靶器官毒性\" OR \"实质器官攻击\" OR \"tissue damage\" OR \"organ injury\" OR \"adverse effect\")",
+      "formula": "(\"度伐利尤单抗\" OR \"durvalumab\" OR \"德瓦鲁单抗\" OR \"度伐鲁单抗\" OR \"PD-L1抑制剂\" OR \"Imfinzi\" OR \"MEDI4736\" OR \"MEDI-4736\" OR \"PD-L1 inhibitor\") AND (\"PD-L1\" OR \"程序性死亡配体1\" OR \"CD274\" OR \"B7-H1\" OR \"programmed death ligand 1\" OR \"programmed death-ligand 1\") AND (\"阻断\" OR \"blockade\" OR \"拮抗\" OR \"结合抑制\" OR \"通路阻断\" OR \"block\" OR \"inhibit\" OR \"antagonize\") AND (\"免疫相关不良反应\" OR \"irAE\" OR \"immune related adverse event\" OR \"自身免疫反应\" OR \"免疫毒性\" OR \"autoimmune reaction\" OR \"immunotoxicity\" OR \"immune-related adverse event\") AND (\"器官受损\" OR \"组织损伤\" OR \"organ toxicity\" OR \"靶器官毒性\" OR \"实质器官攻击\" OR \"tissue damage\" OR \"organ injury\" OR \"adverse effect\")",
       "source_routes": [
         "primary_or_status_check",
         "discovery_and_cross_check"
@@ -715,13 +715,14 @@
     {
       "id": "R3",
       "kind": "iterative_expansion",
-      "title": "肺部不良事件专项",
-      "objective": "覆盖免疫相关性肺炎、间质性肺病、肺毒性和呼吸体征连续监测。",
+      "title": "技术特征分层检索",
+      "objective": "围绕尚未覆盖的技术特征分别检索，避免由单一对象词主导结果。 当前词簇：非小细胞肺癌、肺炎/肺毒性、体征监测。",
       "fields": [
         "claims",
-        "description"
+        "description",
+        "abstract"
       ],
-      "formula": "(\"度伐利尤单抗\" OR \"durvalumab\" OR \"德瓦鲁单抗\" OR \"度伐鲁单抗\" OR \"PD-L1抑制剂\" OR \"Imfinzi\" OR \"MEDI4736\" OR \"MEDI-4736\" OR \"PD-L1 inhibitor\" OR \"非小细胞肺癌\" OR \"NSCLC\" OR \"non small cell lung cancer\" OR \"肺腺癌\" OR \"肺鳞癌\" OR \"肺癌\" OR \"lung adenocarcinoma\") AND (\"肺炎\" OR \"pneumonitis\" OR \"间质性肺病\" OR \"肺部炎症\" OR \"肺毒性\" OR \"interstitial lung disease\" OR \"pneumonia\" OR \"pulmonary toxicity\") AND (\"体征监测\" OR \"monitoring\" OR \"呼吸监测\" OR \"肺部听诊\" OR \"连续监护\" OR \"respiratory monitoring\" OR \"physical sign tracking\" OR \"surveillance\" OR \"胸部影像\" OR \"胸部CT\" OR \"chest imaging\" OR \"肺部影像\" OR \"胸片\" OR \"chest CT\" OR \"thoracic imaging\" OR \"chest radiograph\")",
+      "formula": "(\"非小细胞肺癌\" OR \"NSCLC\" OR \"non small cell lung cancer\" OR \"肺腺癌\" OR \"肺鳞癌\" OR \"肺癌\" OR \"lung adenocarcinoma\" OR \"lung carcinoma\" OR \"non-small-cell lung cancer\") AND (\"肺炎\" OR \"pneumonitis\" OR \"间质性肺病\" OR \"肺部炎症\" OR \"肺毒性\" OR \"interstitial lung disease\" OR \"pneumonia\" OR \"pulmonary toxicity\") AND (\"体征监测\" OR \"monitoring\" OR \"呼吸监测\" OR \"肺部听诊\" OR \"连续监护\" OR \"respiratory monitoring\" OR \"physical sign tracking\" OR \"surveillance\")",
       "source_routes": [
         "primary_or_status_check",
         "discovery_and_cross_check",
@@ -739,14 +740,14 @@
     {
       "id": "R4",
       "kind": "iterative_expansion",
-      "title": "生化指标与内分泌监测",
-      "objective": "覆盖 ALT/AST、肌酐、TSH、游离 T4、血糖等基线和治疗期监测。",
+      "title": "实施方式与边界检索",
+      "objective": "补检组成、制剂、给药、检测、工艺或用途等案例实际声明的边界特征。 当前词簇：生化检测、生化指标、胸部影像。",
       "fields": [
         "claims",
         "abstract",
         "full_text"
       ],
-      "formula": "(\"度伐利尤单抗\" OR \"durvalumab\" OR \"德瓦鲁单抗\" OR \"度伐鲁单抗\" OR \"PD-L1抑制剂\" OR \"Imfinzi\" OR \"MEDI4736\" OR \"MEDI-4736\" OR \"PD-L1 inhibitor\" OR \"非小细胞肺癌\" OR \"NSCLC\" OR \"non small cell lung cancer\" OR \"肺腺癌\" OR \"肺鳞癌\" OR \"肺癌\" OR \"lung adenocarcinoma\") AND (\"生化检测\" OR \"biochemical test\" OR \"生化筛查\" OR \"血液生化\" OR \"生化分析\" OR \"biochemical assay\" OR \"blood chemistry\" OR \"serum analysis\" OR \"ALT\" OR \"AST\" OR \"肌酐\" OR \"TSH\" OR \"游离T4\" OR \"血糖\" OR \"transaminase\" OR \"creatinine\")",
+      "formula": "(\"生化检测\" OR \"biochemical test\" OR \"生化筛查\" OR \"血液生化\" OR \"生化分析\" OR \"biochemical assay\" OR \"blood chemistry\" OR \"serum analysis\") AND (\"ALT\" OR \"AST\" OR \"肌酐\" OR \"TSH\" OR \"游离T4\" OR \"血糖\" OR \"transaminase\" OR \"creatinine\" OR \"free T4\" OR \"blood glucose\" OR \"alanine aminotransferase\" OR \"aspartate aminotransferase\" OR \"thyroid stimulating hormone\") AND (\"胸部影像\" OR \"胸部CT\" OR \"chest imaging\" OR \"肺部影像\" OR \"胸片\" OR \"chest CT\" OR \"thoracic imaging\" OR \"chest radiograph\")",
       "source_routes": [
         "primary_or_status_check",
         "discovery_and_cross_check",
@@ -763,14 +764,15 @@
     },
     {
       "id": "R5",
-      "kind": "iterative_expansion",
-      "title": "结肠炎与处置方案",
-      "objective": "覆盖腹泻分级、结肠炎、皮质类固醇和治疗决策。",
+      "kind": "feature_gap_expansion",
+      "title": "未充分命中特征补检",
+      "objective": "根据初筛中未命中或仅部分命中的技术特征，补充术语、别名、译名、分类号和相邻实施方式。",
       "fields": [
         "claims",
-        "description"
+        "description",
+        "CPC/IPC"
       ],
-      "formula": "(\"度伐利尤单抗\" OR \"durvalumab\" OR \"德瓦鲁单抗\" OR \"度伐鲁单抗\" OR \"PD-L1抑制剂\" OR \"Imfinzi\" OR \"MEDI4736\" OR \"MEDI-4736\" OR \"PD-L1 inhibitor\") AND (\"结肠炎\" OR \"colitis\" OR \"肠道炎症\" OR \"腹泻\" OR \"肠毒性\" OR \"diarrhea\" OR \"bowel inflammation\" OR \"enterocolitis\") AND (\"皮质类固醇\" OR \"corticosteroid\" OR \"糖皮质激素\" OR \"激素治疗\" OR \"类固醇\" OR \"glucocorticoid\" OR \"steroid\" OR \"prednisone\")",
+      "formula": "(\"度伐利尤单抗\" OR \"durvalumab\" OR \"德瓦鲁单抗\" OR \"度伐鲁单抗\" OR \"PD-L1抑制剂\" OR \"Imfinzi\" OR \"MEDI4736\" OR \"MEDI-4736\" OR \"PD-L1 inhibitor\") AND (\"PD-L1\" OR \"程序性死亡配体1\" OR \"CD274\" OR \"B7-H1\" OR \"programmed death ligand 1\" OR \"programmed death-ligand 1\") AND (\"阻断\" OR \"blockade\" OR \"拮抗\" OR \"结合抑制\" OR \"通路阻断\" OR \"block\" OR \"inhibit\" OR \"antagonize\") AND (\"免疫相关不良反应\" OR \"irAE\" OR \"immune related adverse event\" OR \"自身免疫反应\" OR \"免疫毒性\" OR \"autoimmune reaction\" OR \"immunotoxicity\" OR \"immune-related adverse event\") AND (\"器官受损\" OR \"组织损伤\" OR \"organ toxicity\" OR \"靶器官毒性\" OR \"实质器官攻击\" OR \"tissue damage\" OR \"organ injury\" OR \"adverse effect\") AND (\"非小细胞肺癌\" OR \"NSCLC\" OR \"non small cell lung cancer\" OR \"肺腺癌\" OR \"肺鳞癌\" OR \"肺癌\" OR \"lung adenocarcinoma\" OR \"lung carcinoma\" OR \"non-small-cell lung cancer\") AND (\"肺炎\" OR \"pneumonitis\" OR \"间质性肺病\" OR \"肺部炎症\" OR \"肺毒性\" OR \"interstitial lung disease\" OR \"pneumonia\" OR \"pulmonary toxicity\") AND (\"体征监测\" OR \"monitoring\" OR \"呼吸监测\" OR \"肺部听诊\" OR \"连续监护\" OR \"respiratory monitoring\" OR \"physical sign tracking\" OR \"surveillance\") AND (\"生化检测\" OR \"biochemical test\" OR \"生化筛查\" OR \"血液生化\" OR \"生化分析\" OR \"biochemical assay\" OR \"blood chemistry\" OR \"serum analysis\") AND (\"ALT\" OR \"AST\" OR \"肌酐\" OR \"TSH\" OR \"游离T4\" OR \"血糖\" OR \"transaminase\" OR \"creatinine\" OR \"free T4\" OR \"blood glucose\" OR \"alanine aminotransferase\" OR \"aspartate aminotransferase\" OR \"thyroid stimulating hormone\") AND (\"胸部影像\" OR \"胸部CT\" OR \"chest imaging\" OR \"肺部影像\" OR \"胸片\" OR \"chest CT\" OR \"thoracic imaging\" OR \"chest radiograph\") AND (\"磨玻璃影\" OR \"GGO\" OR \"ground glass opacity\" OR \"斑片状浸润\" OR \"磨玻璃样密度影\" OR \"patchy infiltrates\" OR \"ground glass density\") AND (\"结肠炎\" OR \"colitis\" OR \"肠道炎症\" OR \"腹泻\" OR \"肠毒性\" OR \"diarrhea\" OR \"bowel inflammation\" OR \"enterocolitis\") AND (\"皮质类固醇\" OR \"corticosteroid\" OR \"糖皮质激素\" OR \"激素治疗\" OR \"类固醇\" OR \"glucocorticoid\" OR \"steroid\" OR \"prednisone\")",
       "source_routes": [
         "primary_or_status_check",
         "discovery_and_cross_check",
@@ -789,13 +791,13 @@
       "id": "R6",
       "kind": "classification_expansion",
       "title": "IPC/CPC 组合检索",
-      "objective": "用分类号补足检测、抗体、免疫治疗和医疗数据分析类漏检。",
+      "objective": "用当前案例声明或从高相关文献反向确认的分类号补足漏检。",
       "fields": [
         "IPC",
         "CPC",
         "claims"
       ],
-      "formula": "(\"PD-L1\" OR \"程序性死亡配体1\" OR \"CD274\" OR \"B7-H1\" OR \"programmed death ligand 1\" OR \"programmed death-ligand 1\" OR \"非小细胞肺癌\" OR \"NSCLC\" OR \"non small cell lung cancer\" OR \"肺腺癌\" OR \"肺鳞癌\" OR \"肺癌\" OR \"lung adenocarcinoma\" OR \"lung carcinoma\" OR \"non-small-cell lung cancer\") AND (\"体征监测\" OR \"monitoring\" OR \"呼吸监测\" OR \"肺部听诊\" OR \"连续监护\" OR \"respiratory monitoring\" OR \"physical sign tracking\" OR \"surveillance\" OR \"生化检测\" OR \"biochemical test\" OR \"生化筛查\" OR \"血液生化\" OR \"生化分析\" OR \"biochemical assay\" OR \"blood chemistry\" OR \"serum analysis\") AND (\"A61P11/00\" OR \"A61P43/00\" OR \"A61K39/395\" OR \"C07K16/28\" OR \"A61P37/04\" OR \"G16H50/30\" OR \"A61P35/00\" OR \"C07K16/2818\" OR \"G01N33/68\" OR \"A61P35/02\" OR \"A61P37/02\" OR \"A61P1/00\" OR \"G01N33/50\" OR \"A61K45/06\" OR \"G01N33/5091\" OR \"A61B5/00\" OR \"G16H30/40\" OR \"G16H30/20\" OR \"A61B6/00\" OR \"A61B5/08\" OR \"G16H50/20\" OR \"A61B5/4848\" OR \"A61B6/03\" OR \"G01N33/573\")",
+      "formula": "(\"度伐利尤单抗\" OR \"durvalumab\" OR \"德瓦鲁单抗\" OR \"度伐鲁单抗\" OR \"PD-L1抑制剂\" OR \"Imfinzi\" OR \"MEDI4736\" OR \"MEDI-4736\" OR \"PD-L1 inhibitor\") AND (\"PD-L1\" OR \"程序性死亡配体1\" OR \"CD274\" OR \"B7-H1\" OR \"programmed death ligand 1\" OR \"programmed death-ligand 1\") AND (\"阻断\" OR \"blockade\" OR \"拮抗\" OR \"结合抑制\" OR \"通路阻断\" OR \"block\" OR \"inhibit\" OR \"antagonize\") AND (\"A61P11/00\" OR \"A61P43/00\" OR \"A61K39/395\" OR \"C07K16/28\" OR \"A61P37/04\" OR \"G16H50/30\" OR \"A61P35/00\" OR \"C07K16/2818\" OR \"G01N33/68\" OR \"A61P35/02\" OR \"A61P37/02\" OR \"A61P1/00\" OR \"G01N33/50\" OR \"A61K45/06\" OR \"G01N33/5091\" OR \"A61B5/00\" OR \"G16H30/40\" OR \"G16H30/20\" OR \"A61B6/00\" OR \"A61B5/08\" OR \"G16H50/20\" OR \"A61B5/4848\" OR \"A61B6/03\" OR \"G01N33/573\")",
       "source_routes": [
         "classification_navigation",
         "primary_or_status_check",
@@ -840,7 +842,7 @@
     "upstream_repo": "https://github.com/CNIPA/PatentDatabases",
     "upstream_readme": "https://raw.githubusercontent.com/CNIPA/PatentDatabases/master/README.md",
     "upstream_readme_sha256": "51dc7ed174d1ae4d23ba9d1b8ebd8ae340aae330f8787d0c42ea2588b19b95c2",
-    "snapshot_at": "2026-08-06T03:14:21.301746+00:00",
+    "snapshot_at": "2026-08-07T09:48:55.570125+00:00",
     "counts": {
       "upstream_listings": 143,
       "unique_urls": 140,
@@ -3293,7 +3295,7 @@
     "classification_count": 37,
     "search_round_count": 7,
     "candidate_count": 7,
-    "comparison_count": 4
+    "comparison_count": 7
   },
   "gaps": [
     "用户给出的 IPC/CPC 作为候选分类号导入；正式检索前应按目标法域分类版本和命中文献反向确认。",
@@ -3303,11 +3305,11 @@
     "FTO 风险必须基于目标法域的完整独立权利要求和截至日期状态复核。"
   ],
   "candidate_screen": {
-    "generated_at": "2026-08-07T04:20:54.016778+00:00",
+    "generated_at": "2026-08-07T09:49:06.659146+00:00",
     "input_claims": "durvalumab-pdl1-nsclc-claim-elements.csv",
     "input_families": "durvalumab-pdl1-nsclc-patent-families.csv",
     "ranking_file": "fto-candidate-ranking.csv",
-    "method": "declared keyword cluster overlap + claim category/relevance/status signals",
+    "method": "declared keyword clusters (including supplied aliases/translations) + claim category/relevance/status signals",
     "disclaimer": "Screening only; no infringement or validity conclusion."
   }
 }

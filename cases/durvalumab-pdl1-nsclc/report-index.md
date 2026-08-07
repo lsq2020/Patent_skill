@@ -1,6 +1,6 @@
 # durvalumab-pdl1-nsclc 模块化报告索引
 
-> 生成时间：2026-08-07T04:20:55.032248+00:00 · 结构化数据目录：`C:\Users\14245\Documents\MOF\tmp\Patent_skill-review\durvalumab-pdl1-nsclc`
+> 生成时间：2026-08-07T09:49:32.719627+00:00 · 结构化数据目录：`C:\Users\14245\Documents\MOF\tmp\Patent_skill-review\cases\durvalumab-pdl1-nsclc`
 
 ## 交互式入口
 

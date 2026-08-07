@@ -3,7 +3,7 @@
   "upstream_repo": "https://github.com/CNIPA/PatentDatabases",
   "upstream_readme": "https://raw.githubusercontent.com/CNIPA/PatentDatabases/master/README.md",
   "upstream_readme_sha256": "51dc7ed174d1ae4d23ba9d1b8ebd8ae340aae330f8787d0c42ea2588b19b95c2",
-  "snapshot_at": "2026-08-06T03:14:21.301746+00:00",
+  "snapshot_at": "2026-08-07T09:48:55.570125+00:00",
   "source_policy": {
     "description": "This is a source directory, not an endorsement and not proof that every URL is current or accessible.",
     "official_or_authority": "Use for primary publication, prosecution or legal-status verification when the target jurisdiction is covered.",
