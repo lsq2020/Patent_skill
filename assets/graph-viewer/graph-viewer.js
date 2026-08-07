@@ -200,7 +200,7 @@
     userPanningEnabled: true,
     autoungrabify: false,
     autolock: false,
-    wheelSensitivity: 5,
+    wheelSensitivity: 3.5,
     selectionType: "single",
     boxSelectionEnabled: false,
     style: [
@@ -300,6 +300,8 @@
   const DRAG_NEIGHBOR_COUPLING = 0.28;
   const DEPTH_TAP_RADIUS = 14;
   const DEPTH_TAP_WINDOW_MS = 1100;
+  const STAR_TRAIL_FRAME_MS = 24;
+  const CAMERA_CRUISE_FRAME_MS = 24;
 
   const motionAnchors = new Map();
   const motionVelocities = new Map();
@@ -325,8 +327,12 @@
   let starTrailWidth = 0;
   let starTrailHeight = 0;
   let lastStarTrailFrame = 0;
+  let starTrailEdges = [];
+  const trailPointScratch = { x: 0, y: 0 };
+  const trailControlScratch = { x: 0, y: 0 };
   let cruiseBaseline = null;
   let cruiseStartedAt = performance.now();
+  let lastCameraCruiseFrame = 0;
   let programmaticViewportUntil = 0;
 
   function velocityFor(nodeId) {
@@ -724,12 +730,11 @@
   const stableGalaxyHash = (id) => [...String(id)]
     .reduce((total, character) => ((total * 41) + character.charCodeAt(0)) % 104729, 29);
 
-  function quadraticCurvePoint(source, control, target, progress) {
+  function quadraticCurvePoint(source, control, target, progress, output = {}) {
     const inverse = 1 - progress;
-    return {
-      x: (inverse * inverse * source.x) + (2 * inverse * progress * control.x) + (progress * progress * target.x),
-      y: (inverse * inverse * source.y) + (2 * inverse * progress * control.y) + (progress * progress * target.y),
-    };
+    output.x = (inverse * inverse * source.x) + (2 * inverse * progress * control.x) + (progress * progress * target.x);
+    output.y = (inverse * inverse * source.y) + (2 * inverse * progress * control.y) + (progress * progress * target.y);
+    return output;
   }
 
   function galaxyRgba(color, alpha) {
@@ -755,49 +760,72 @@
     return true;
   }
 
+  function rebuildStarTrailCache() {
+    const settings = state.galaxySettings;
+    starTrailEdges = cy.edges().slice(0, 140).map((edge) => ({
+      edge,
+      source: edge.source(),
+      target: edge.target(),
+      hash: stableGalaxyHash(edge.id()),
+      curveDistance: Number(edge.data("galaxyCurveDistance") || 0) * 0.58,
+      color: edge.data("galaxyColor") || "#8f989f",
+      opacity: Number(edge.data("galaxyEdgeOpacity") || settings.edgeOpacity),
+    }));
+  }
+
   function renderStarTrails(timestamp) {
-    if (!sizeStarTrailCanvas() || (timestamp - lastStarTrailFrame) < 30) return;
+    if (!starTrailContext) return;
+    if ((!starTrailWidth || !starTrailHeight) && !sizeStarTrailCanvas()) return;
+    if ((timestamp - lastStarTrailFrame) < STAR_TRAIL_FRAME_MS) return;
     lastStarTrailFrame = timestamp;
     starTrailContext.clearRect(0, 0, starTrailWidth, starTrailHeight);
     const settings = state.galaxySettings;
-    const strandCount = Math.round(settings.trailDensity);
-    if (!strandCount || settings.preset === "minimal" || !cy.edges().length) return;
+    const configuredStrandCount = Math.round(settings.trailDensity);
+    const interactionActive = draggedNodeId || (timestamp - lastViewportInteraction) < 240;
+    const strandCount = interactionActive ? Math.min(2, configuredStrandCount) : configuredStrandCount;
+    if (!strandCount || settings.preset === "minimal" || !starTrailEdges.length) return;
 
     starTrailContext.save();
     starTrailContext.globalCompositeOperation = "lighter";
     const zoom = cy.zoom();
-    cy.edges().slice(0, 140).forEach((edge) => {
-      const source = edge.source().renderedPosition();
-      const target = edge.target().renderedPosition();
+    starTrailEdges.forEach((trailEdge) => {
+      const edge = trailEdge.edge;
+      const source = trailEdge.source.renderedPosition();
+      const target = trailEdge.target.renderedPosition();
       const dx = target.x - source.x;
       const dy = target.y - source.y;
       const length = Math.max(1, Math.hypot(dx, dy));
-      const normal = { x: -dy / length, y: dx / length };
-      const hash = stableGalaxyHash(edge.id());
-      const baseCurve = Number(edge.data("galaxyCurveDistance") || 0) * zoom * 0.58;
-      const color = edge.data("galaxyColor") || "#8f989f";
+      const normalX = -dy / length;
+      const normalY = dx / length;
+      const hash = trailEdge.hash;
+      const baseCurve = trailEdge.curveDistance * zoom;
+      const color = trailEdge.color;
       const interactionScale = edge.hasClass("faded") ? 0.08 : edge.hasClass("edge-active") ? 1.7 : 1;
-      const opacity = Number(edge.data("galaxyEdgeOpacity") || settings.edgeOpacity) * interactionScale;
-      let pulseControl = null;
+      const opacity = trailEdge.opacity * interactionScale;
+      let pulseControlX = 0;
+      let pulseControlY = 0;
 
       for (let strand = 0; strand < strandCount; strand += 1) {
         const offset = (strand - ((strandCount - 1) / 2)) * (1.7 + ((hash % 7) * 0.15));
-        const control = {
-          x: (source.x + target.x) / 2 + (normal.x * (baseCurve + offset)),
-          y: (source.y + target.y) / 2 + (normal.y * (baseCurve + offset)),
-        };
-        if (strand === Math.floor(strandCount / 2)) pulseControl = control;
+        const controlX = (source.x + target.x) / 2 + (normalX * (baseCurve + offset));
+        const controlY = (source.y + target.y) / 2 + (normalY * (baseCurve + offset));
+        if (strand === Math.floor(strandCount / 2)) {
+          pulseControlX = controlX;
+          pulseControlY = controlY;
+        }
         starTrailContext.beginPath();
         starTrailContext.moveTo(source.x, source.y);
-        starTrailContext.quadraticCurveTo(control.x, control.y, target.x, target.y);
+        starTrailContext.quadraticCurveTo(controlX, controlY, target.x, target.y);
         starTrailContext.strokeStyle = galaxyRgba(color, clamp(opacity * (0.16 + (strand * 0.045)), 0.025, 0.24));
         starTrailContext.lineWidth = 0.34 + (((hash + strand) % 5) * 0.08);
         starTrailContext.stroke();
       }
 
-      if (settings.preset === "atlas" && pulseControl && hash % 3 === 0) {
+      if (!interactionActive && settings.preset === "atlas" && hash % 3 === 0) {
         const progress = ((timestamp * 0.000055) + ((hash % 1000) / 1000)) % 1;
-        const point = quadraticCurvePoint(source, pulseControl, target, progress);
+        trailControlScratch.x = pulseControlX;
+        trailControlScratch.y = pulseControlY;
+        const point = quadraticCurvePoint(source, trailControlScratch, target, progress, trailPointScratch);
         const pulse = starTrailContext.createRadialGradient(point.x, point.y, 0, point.x, point.y, 4.5);
         pulse.addColorStop(0, galaxyRgba(color, 0.78));
         pulse.addColorStop(0.3, galaxyRgba(color, 0.36));
@@ -835,6 +863,8 @@
     if (!state.galaxySettings.cameraCruise || prefersReducedMotion || draggedNodeId) return;
     if (timestamp < programmaticViewportUntil) return;
     if ((timestamp - lastViewportInteraction) < 1600) return;
+    if ((timestamp - lastCameraCruiseFrame) < CAMERA_CRUISE_FRAME_MS) return;
+    lastCameraCruiseFrame = timestamp;
     if (!cruiseBaseline) captureCruiseBaseline();
     const seconds = (timestamp - cruiseStartedAt) / 1000;
     const zoom = clamp(cruiseBaseline.zoom * (1 + (Math.sin(seconds * 0.2) * 0.035)), cy.minZoom(), cy.maxZoom());
@@ -1147,6 +1177,7 @@
         });
       });
     }
+    rebuildStarTrailCache();
     syncGalaxyControls();
     lastStarTrailFrame = 0;
     renderStarTrails(performance.now());
@@ -1955,6 +1986,7 @@
   window.addEventListener("resize", () => {
     cy.resize();
     cruiseBaseline = null;
+    sizeStarTrailCanvas();
     lastStarTrailFrame = 0;
     renderStarTrails(performance.now());
   });

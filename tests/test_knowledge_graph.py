@@ -221,13 +221,23 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn("userZoomingEnabled: true", html)
         self.assertIn("userPanningEnabled: true", html)
         self.assertIn("autoungrabify: false", html)
-        self.assertIn("wheelSensitivity: 5", html)
+        self.assertIn("wheelSensitivity: 3.5", html)
         self.assertIn("function startAmbientMotion()", html)
         self.assertIn('cy.on("grab", "node"', html)
         self.assertIn('cy.on("dragfree", "node"', html)
         self.assertIn('cy.on("zoom"', html)
         self.assertIn("motionAnchors.set", html)
         self.assertIn(".graph-canvas { cursor: grab;", html)
+
+    def test_keeps_zoom_and_cinematic_motion_responsive_under_load(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn("const STAR_TRAIL_FRAME_MS = 24;", html)
+        self.assertIn("const CAMERA_CRUISE_FRAME_MS = 24;", html)
+        self.assertIn("function rebuildStarTrailCache()", html)
+        self.assertIn("const interactionActive = draggedNodeId || (timestamp - lastViewportInteraction) < 240;", html)
+        self.assertIn("if ((timestamp - lastCameraCruiseFrame) < CAMERA_CRUISE_FRAME_MS) return;", html)
 
     def test_propagates_drag_motion_with_springs_damping_and_waves(self):
         build_knowledge_graph(self.case_dir, output_path=self.output)
