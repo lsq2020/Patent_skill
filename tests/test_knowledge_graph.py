@@ -176,6 +176,26 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn("window.localStorage.setItem", html)
         self.assertIn("state.galaxySettings.autoOrbit", html)
 
+    def test_adds_a_cinematic_star_atlas_with_real_edge_trails_and_camera_cruise(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn('data-galaxy-preset="atlas"', html)
+        self.assertIn('id="galaxy-trail-density"', html)
+        self.assertIn('id="galaxy-camera-cruise"', html)
+        self.assertIn('id="star-trail-canvas"', html)
+        self.assertIn("trailDensity", html)
+        self.assertIn("cameraCruise", html)
+        self.assertIn("function quadraticCurvePoint", html)
+        self.assertIn("function renderStarTrails(timestamp)", html)
+        self.assertIn("function applyCameraCruise(timestamp)", html)
+        self.assertIn("if (timestamp < programmaticViewportUntil) return;", html)
+        self.assertIn("event.originalEvent || performance.now() > programmaticViewportUntil", html)
+        self.assertIn('selector: "node.galaxy-node:selected"', html)
+        self.assertIn(".star-trail-canvas", html)
+        self.assertIn("mix-blend-mode: screen", html)
+        self.assertIn("pointer-events: none", html)
+
     def test_adds_depth_cues_without_transforming_the_interactive_canvas(self):
         build_knowledge_graph(self.case_dir, output_path=self.output)
         html = self.output.read_text(encoding="utf-8")

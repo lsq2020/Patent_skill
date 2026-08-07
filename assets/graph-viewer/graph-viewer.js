@@ -20,23 +20,26 @@
   const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
   const GALAXY_STORAGE_KEY = "patent-evidence-graph.galaxy-settings.v1";
   const DEFAULT_GALAXY_SETTINGS = Object.freeze({
-    preset: "galaxy",
+    preset: "atlas",
     sizeMode: "degree",
-    nodeScale: 1,
-    edgeOpacity: 0.34,
-    glowStrength: 0.62,
-    linkDistance: 94,
-    pressure: 1,
-    orbitStrength: 0.36,
+    nodeScale: 1.02,
+    edgeOpacity: 0.26,
+    glowStrength: 0.9,
+    trailDensity: 4,
+    linkDistance: 104,
+    pressure: 1.08,
+    orbitStrength: 0.78,
     starfield: true,
     twinkle: true,
     autoOrbit: false,
+    cameraCruise: true,
   });
   const GALAXY_PRESET_SETTINGS = {
-    galaxy: { ...DEFAULT_GALAXY_SETTINGS },
-    spiral: { ...DEFAULT_GALAXY_SETTINGS, preset: "spiral", nodeScale: 0.96, edgeOpacity: 0.42, glowStrength: 0.74, linkDistance: 108, pressure: 1.08, orbitStrength: 0.76 },
-    nebula: { ...DEFAULT_GALAXY_SETTINGS, preset: "nebula", nodeScale: 1.08, edgeOpacity: 0.48, glowStrength: 0.9, linkDistance: 86, pressure: 0.82, orbitStrength: 0.28 },
-    minimal: { ...DEFAULT_GALAXY_SETTINGS, preset: "minimal", sizeMode: "type", nodeScale: 0.9, edgeOpacity: 0.2, glowStrength: 0, linkDistance: 82, pressure: 0.9, orbitStrength: 0, starfield: false, twinkle: false },
+    atlas: { ...DEFAULT_GALAXY_SETTINGS },
+    galaxy: { ...DEFAULT_GALAXY_SETTINGS, preset: "galaxy", nodeScale: 1, edgeOpacity: 0.34, glowStrength: 0.62, trailDensity: 2, linkDistance: 94, pressure: 1, orbitStrength: 0.36, cameraCruise: false },
+    spiral: { ...DEFAULT_GALAXY_SETTINGS, preset: "spiral", nodeScale: 0.96, edgeOpacity: 0.42, glowStrength: 0.74, trailDensity: 3, linkDistance: 108, pressure: 1.08, orbitStrength: 0.76, cameraCruise: false },
+    nebula: { ...DEFAULT_GALAXY_SETTINGS, preset: "nebula", nodeScale: 1.08, edgeOpacity: 0.48, glowStrength: 0.9, trailDensity: 3, linkDistance: 86, pressure: 0.82, orbitStrength: 0.28, cameraCruise: false },
+    minimal: { ...DEFAULT_GALAXY_SETTINGS, preset: "minimal", sizeMode: "type", nodeScale: 0.9, edgeOpacity: 0.2, glowStrength: 0, trailDensity: 0, linkDistance: 82, pressure: 0.9, orbitStrength: 0, starfield: false, twinkle: false, cameraCruise: false },
   };
   const GALAXY_TYPE_COLORS = {
     research_object: "#e5e0d6",
@@ -61,22 +64,26 @@
   ]);
 
   function normalizeGalaxySettings(input = {}) {
+    const preset = GALAXY_PRESET_SETTINGS[input.preset] ? input.preset : DEFAULT_GALAXY_SETTINGS.preset;
+    const presetDefaults = GALAXY_PRESET_SETTINGS[preset];
     const numberSetting = (key, min, max) => {
       const value = Number(input[key]);
-      return Number.isFinite(value) ? Math.min(max, Math.max(min, value)) : DEFAULT_GALAXY_SETTINGS[key];
+      return Number.isFinite(value) ? Math.min(max, Math.max(min, value)) : presetDefaults[key];
     };
     return {
-      preset: GALAXY_PRESET_SETTINGS[input.preset] ? input.preset : DEFAULT_GALAXY_SETTINGS.preset,
-      sizeMode: ["degree", "type", "uniform"].includes(input.sizeMode) ? input.sizeMode : DEFAULT_GALAXY_SETTINGS.sizeMode,
+      preset,
+      sizeMode: ["degree", "type", "uniform"].includes(input.sizeMode) ? input.sizeMode : presetDefaults.sizeMode,
       nodeScale: numberSetting("nodeScale", 0.65, 1.8),
       edgeOpacity: numberSetting("edgeOpacity", 0.08, 0.82),
       glowStrength: numberSetting("glowStrength", 0, 1),
+      trailDensity: numberSetting("trailDensity", 0, 5),
       linkDistance: numberSetting("linkDistance", 52, 168),
       pressure: numberSetting("pressure", 0.55, 1.8),
       orbitStrength: numberSetting("orbitStrength", 0, 1),
-      starfield: typeof input.starfield === "boolean" ? input.starfield : DEFAULT_GALAXY_SETTINGS.starfield,
-      twinkle: typeof input.twinkle === "boolean" ? input.twinkle : DEFAULT_GALAXY_SETTINGS.twinkle,
-      autoOrbit: typeof input.autoOrbit === "boolean" ? input.autoOrbit : DEFAULT_GALAXY_SETTINGS.autoOrbit,
+      starfield: typeof input.starfield === "boolean" ? input.starfield : presetDefaults.starfield,
+      twinkle: typeof input.twinkle === "boolean" ? input.twinkle : presetDefaults.twinkle,
+      autoOrbit: typeof input.autoOrbit === "boolean" ? input.autoOrbit : presetDefaults.autoOrbit,
+      cameraCruise: typeof input.cameraCruise === "boolean" ? input.cameraCruise : presetDefaults.cameraCruise,
     };
   }
 
@@ -268,6 +275,7 @@
       { selector: "edge.corridor-edge", style: { "curve-style": "straight", opacity: 0.3 } },
       { selector: "edge.depth-aware", style: { width: "data(visualWidth)", opacity: "data(depthOpacity)", "z-index": "data(depthOrder)", "z-index-compare": "manual" } },
       { selector: "node.galaxy-node", style: { "background-color": "data(galaxyColor)", "border-color": "data(galaxyBorderColor)", "border-width": "data(galaxyBorderWidth)", width: "data(galaxyNodeSize)", height: "data(galaxyNodeSize)", "font-size": "data(galaxyFontSize)", "font-weight": "data(galaxyFontWeight)", "text-opacity": "data(galaxyLabelOpacity)", "text-outline-opacity": 0.9, "text-outline-width": 1.4, "text-margin-y": "data(galaxyTextOffset)", "shadow-color": "data(galaxyColor)", "shadow-blur": "data(galaxyGlowBlur)", "shadow-opacity": "data(galaxyGlowOpacity)", "shadow-offset-x": 0, "shadow-offset-y": 0 } },
+      { selector: "node.galaxy-node:selected", style: { "border-color": "#fff5e8", "border-width": 3, "shadow-color": "data(galaxyColor)", "shadow-blur": 38, "shadow-opacity": 0.94, "underlay-color": "data(galaxyColor)", "underlay-opacity": 0.22, "underlay-padding": 16, "font-weight": 700, "text-opacity": 1 } },
       { selector: "edge.galaxy-edge", style: { "curve-style": "unbundled-bezier", "control-point-distances": "data(galaxyCurveDistance)", "control-point-weights": 0.5, "line-color": "data(galaxyColor)", "target-arrow-color": "data(galaxyColor)", width: "data(galaxyEdgeWidth)", opacity: "data(galaxyEdgeOpacity)", "line-cap": "round", "target-arrow-shape": "none" } },
       { selector: "edge.edge-active", style: { label: "data(label)", width: 1.8, opacity: 0.96, color: "#c9ced3", "font-size": 8, "font-weight": 600, "target-arrow-shape": "triangle", "text-rotation": "autorotate", "text-background-color": "#1c1f22", "text-background-opacity": 0.92, "text-background-padding": 2, "text-margin-y": -7, "z-index": 8 } },
       { selector: "edge.incoming-active", style: { "line-color": "#5f9e92", "target-arrow-color": "#5f9e92" } },
@@ -312,6 +320,14 @@
   let galaxyStatsFrames = 0;
   let galaxyStatsWindowStarted = performance.now();
   let galaxyFps = 0;
+  const starTrailCanvas = byId("star-trail-canvas");
+  const starTrailContext = starTrailCanvas?.getContext("2d");
+  let starTrailWidth = 0;
+  let starTrailHeight = 0;
+  let lastStarTrailFrame = 0;
+  let cruiseBaseline = null;
+  let cruiseStartedAt = performance.now();
+  let programmaticViewportUntil = 0;
 
   function velocityFor(nodeId) {
     if (!motionVelocities.has(nodeId)) motionVelocities.set(nodeId, { x: 0, y: 0 });
@@ -545,6 +561,8 @@
       }
       lastMotionTick = timestamp;
     }
+    applyCameraCruise(timestamp);
+    renderStarTrails(timestamp);
     startAmbientMotion();
   }
 
@@ -705,6 +723,139 @@
   };
   const stableGalaxyHash = (id) => [...String(id)]
     .reduce((total, character) => ((total * 41) + character.charCodeAt(0)) % 104729, 29);
+
+  function quadraticCurvePoint(source, control, target, progress) {
+    const inverse = 1 - progress;
+    return {
+      x: (inverse * inverse * source.x) + (2 * inverse * progress * control.x) + (progress * progress * target.x),
+      y: (inverse * inverse * source.y) + (2 * inverse * progress * control.y) + (progress * progress * target.y),
+    };
+  }
+
+  function galaxyRgba(color, alpha) {
+    const hex = String(color || "#8f989f").replace("#", "");
+    const normalized = hex.length === 3 ? [...hex].map((value) => value + value).join("") : hex;
+    const value = Number.parseInt(normalized, 16);
+    if (!Number.isFinite(value)) return `rgba(143, 152, 159, ${alpha})`;
+    return `rgba(${(value >> 16) & 255}, ${(value >> 8) & 255}, ${value & 255}, ${alpha})`;
+  }
+
+  function sizeStarTrailCanvas() {
+    if (!starTrailCanvas || !starTrailContext) return false;
+    const width = Math.max(1, Math.round(starTrailCanvas.clientWidth));
+    const height = Math.max(1, Math.round(starTrailCanvas.clientHeight));
+    const density = Math.min(window.devicePixelRatio || 1, 2);
+    if (width !== starTrailWidth || height !== starTrailHeight || starTrailCanvas.width !== Math.round(width * density)) {
+      starTrailWidth = width;
+      starTrailHeight = height;
+      starTrailCanvas.width = Math.round(width * density);
+      starTrailCanvas.height = Math.round(height * density);
+      starTrailContext.setTransform(density, 0, 0, density, 0, 0);
+    }
+    return true;
+  }
+
+  function renderStarTrails(timestamp) {
+    if (!sizeStarTrailCanvas() || (timestamp - lastStarTrailFrame) < 30) return;
+    lastStarTrailFrame = timestamp;
+    starTrailContext.clearRect(0, 0, starTrailWidth, starTrailHeight);
+    const settings = state.galaxySettings;
+    const strandCount = Math.round(settings.trailDensity);
+    if (!strandCount || settings.preset === "minimal" || !cy.edges().length) return;
+
+    starTrailContext.save();
+    starTrailContext.globalCompositeOperation = "lighter";
+    const zoom = cy.zoom();
+    cy.edges().slice(0, 140).forEach((edge) => {
+      const source = edge.source().renderedPosition();
+      const target = edge.target().renderedPosition();
+      const dx = target.x - source.x;
+      const dy = target.y - source.y;
+      const length = Math.max(1, Math.hypot(dx, dy));
+      const normal = { x: -dy / length, y: dx / length };
+      const hash = stableGalaxyHash(edge.id());
+      const baseCurve = Number(edge.data("galaxyCurveDistance") || 0) * zoom * 0.58;
+      const color = edge.data("galaxyColor") || "#8f989f";
+      const interactionScale = edge.hasClass("faded") ? 0.08 : edge.hasClass("edge-active") ? 1.7 : 1;
+      const opacity = Number(edge.data("galaxyEdgeOpacity") || settings.edgeOpacity) * interactionScale;
+      let pulseControl = null;
+
+      for (let strand = 0; strand < strandCount; strand += 1) {
+        const offset = (strand - ((strandCount - 1) / 2)) * (1.7 + ((hash % 7) * 0.15));
+        const control = {
+          x: (source.x + target.x) / 2 + (normal.x * (baseCurve + offset)),
+          y: (source.y + target.y) / 2 + (normal.y * (baseCurve + offset)),
+        };
+        if (strand === Math.floor(strandCount / 2)) pulseControl = control;
+        starTrailContext.beginPath();
+        starTrailContext.moveTo(source.x, source.y);
+        starTrailContext.quadraticCurveTo(control.x, control.y, target.x, target.y);
+        starTrailContext.strokeStyle = galaxyRgba(color, clamp(opacity * (0.16 + (strand * 0.045)), 0.025, 0.24));
+        starTrailContext.lineWidth = 0.34 + (((hash + strand) % 5) * 0.08);
+        starTrailContext.stroke();
+      }
+
+      if (settings.preset === "atlas" && pulseControl && hash % 3 === 0) {
+        const progress = ((timestamp * 0.000055) + ((hash % 1000) / 1000)) % 1;
+        const point = quadraticCurvePoint(source, pulseControl, target, progress);
+        const pulse = starTrailContext.createRadialGradient(point.x, point.y, 0, point.x, point.y, 4.5);
+        pulse.addColorStop(0, galaxyRgba(color, 0.78));
+        pulse.addColorStop(0.3, galaxyRgba(color, 0.36));
+        pulse.addColorStop(1, galaxyRgba(color, 0));
+        starTrailContext.fillStyle = pulse;
+        starTrailContext.beginPath();
+        starTrailContext.arc(point.x, point.y, 4.5, 0, Math.PI * 2);
+        starTrailContext.fill();
+      }
+    });
+
+    const selected = cy.nodes(":selected").toArray()[0] || cy.getElementById(state.focus).toArray()[0];
+    if (selected) {
+      const position = selected.renderedPosition();
+      const color = selected.data("galaxyColor") || "#e5e0d6";
+      const radius = 34 + (Math.sin(timestamp * 0.0024) * 5);
+      const halo = starTrailContext.createRadialGradient(position.x, position.y, 0, position.x, position.y, radius);
+      halo.addColorStop(0, galaxyRgba(color, 0.42));
+      halo.addColorStop(0.16, galaxyRgba(color, 0.16));
+      halo.addColorStop(1, galaxyRgba(color, 0));
+      starTrailContext.fillStyle = halo;
+      starTrailContext.beginPath();
+      starTrailContext.arc(position.x, position.y, radius, 0, Math.PI * 2);
+      starTrailContext.fill();
+    }
+    starTrailContext.restore();
+  }
+
+  function captureCruiseBaseline() {
+    cruiseBaseline = { zoom: cy.zoom(), pan: { ...cy.pan() } };
+    cruiseStartedAt = performance.now();
+  }
+
+  function applyCameraCruise(timestamp) {
+    if (!state.galaxySettings.cameraCruise || prefersReducedMotion || draggedNodeId) return;
+    if (timestamp < programmaticViewportUntil) return;
+    if ((timestamp - lastViewportInteraction) < 1600) return;
+    if (!cruiseBaseline) captureCruiseBaseline();
+    const seconds = (timestamp - cruiseStartedAt) / 1000;
+    const zoom = clamp(cruiseBaseline.zoom * (1 + (Math.sin(seconds * 0.2) * 0.035)), cy.minZoom(), cy.maxZoom());
+    const pan = {
+      x: cruiseBaseline.pan.x + (Math.sin(seconds * 0.17) * 10),
+      y: cruiseBaseline.pan.y + (Math.cos(seconds * 0.13) * 7),
+    };
+    programmaticViewportUntil = timestamp + 80;
+    cy.viewport({ zoom, pan });
+  }
+
+  function flyCameraToNode(node) {
+    if (state.galaxySettings.preset !== "atlas" || prefersReducedMotion || !node?.length) return;
+    const zoom = clamp(Math.max(cy.zoom(), 0.78) * 1.08, 0.62, 1.42);
+    const position = node.position();
+    const pan = { x: (cy.width() / 2) - (position.x * zoom), y: (cy.height() / 2) - (position.y * zoom) };
+    programmaticViewportUntil = performance.now() + 760;
+    cruiseBaseline = null;
+    cy.animate({ pan, zoom, duration: 620, easing: "ease-in-out-cubic" });
+    window.setTimeout(captureCruiseBaseline, 660);
+  }
 
   function computeSpatialMetrics(view) {
     const degreeById = new Map(view.nodes.map((node) => [node.id, 0]));
@@ -897,6 +1048,7 @@
     groupEntries.forEach(([group, nodes], clusterIndex) => {
       const groupAngle = (-Math.PI / 2) + ((clusterIndex / clusterCount) * Math.PI * 2);
       let clusterRadiusScale = 1;
+      if (settings.preset === "atlas") clusterRadiusScale = 0.72 + ((clusterIndex % 3) * 0.12);
       if (settings.preset === "spiral") clusterRadiusScale = 0.36 + ((clusterIndex + 1) / clusterCount) * 0.78;
       if (settings.preset === "nebula") clusterRadiusScale = 0.72 + ((stableGalaxyHash(group) % 24) / 100);
       const clusterTwist = settings.preset === "spiral" ? clusterIndex * 0.52 : 0;
@@ -906,6 +1058,10 @@
       };
       nodes.sort((left, right) => Number(right.data("degree")) - Number(left.data("degree")) || left.id().localeCompare(right.id()));
       nodes.forEach((node, nodeIndex) => {
+        if (settings.preset === "atlas" && node.id() === state.focus) {
+          positions.set(node.id(), center);
+          return;
+        }
         if (nodeIndex === 0) {
           positions.set(node.id(), clusterCenter);
           return;
@@ -931,6 +1087,7 @@
       "galaxy-node-scale": settings.nodeScale,
       "galaxy-edge-opacity": settings.edgeOpacity,
       "galaxy-glow-strength": settings.glowStrength,
+      "galaxy-trail-density": settings.trailDensity,
       "galaxy-link-distance": settings.linkDistance,
       "galaxy-pressure": settings.pressure,
       "galaxy-orbit-strength": settings.orbitStrength,
@@ -943,13 +1100,15 @@
     byId("galaxy-starfield").checked = settings.starfield;
     byId("galaxy-twinkle").checked = settings.twinkle;
     byId("galaxy-auto-orbit").checked = settings.autoOrbit;
+    byId("galaxy-camera-cruise").checked = settings.cameraCruise;
     byId("galaxy-node-scale-value").textContent = `${settings.nodeScale.toFixed(2)}×`;
     byId("galaxy-edge-opacity-value").textContent = `${Math.round(settings.edgeOpacity * 100)}%`;
     byId("galaxy-glow-strength-value").textContent = `${Math.round(settings.glowStrength * 100)}%`;
+    byId("galaxy-trail-density-value").textContent = `${Math.round(settings.trailDensity)} 股`;
     byId("galaxy-link-distance-value").textContent = String(settings.linkDistance);
     byId("galaxy-pressure-value").textContent = `${settings.pressure.toFixed(2)}×`;
     byId("galaxy-orbit-strength-value").textContent = `${Math.round(settings.orbitStrength * 100)}%`;
-    const presetLabels = { galaxy: "Galaxy", spiral: "Spiral", nebula: "Nebula", minimal: "Minimal" };
+    const presetLabels = { atlas: "Star Atlas", galaxy: "Galaxy", spiral: "Spiral", nebula: "Nebula", minimal: "Minimal" };
     byId("galaxy-preset-status").textContent = presetLabels[settings.preset] || "Custom";
     document.querySelectorAll("[data-galaxy-preset]").forEach((button) => {
       button.setAttribute("aria-pressed", String(button.dataset.galaxyPreset === settings.preset));
@@ -963,6 +1122,7 @@
     panel.dataset.galaxyMode = settings.preset;
     panel.dataset.starfield = String(settings.starfield);
     panel.dataset.twinkle = String(settings.twinkle && !prefersReducedMotion);
+    panel.dataset.trails = String(settings.trailDensity > 0);
     if (cy.nodes().length) {
       const view = {
         nodes: DATA.nodes.filter((node) => state.visibleNodeIds.has(node.id)),
@@ -988,12 +1148,15 @@
       });
     }
     syncGalaxyControls();
+    lastStarTrailFrame = 0;
+    renderStarTrails(performance.now());
   }
 
   function applyGalaxyPreset(presetId) {
     const preset = GALAXY_PRESET_SETTINGS[presetId] || GALAXY_PRESET_SETTINGS.galaxy;
-    state.galaxySettings = { ...preset, autoOrbit: state.galaxySettings.autoOrbit };
+    state.galaxySettings = { ...preset };
     orbitStartedAt = performance.now();
+    cruiseBaseline = null;
     applyGalaxyAppearance();
     renderTechnologyLanes({ nodes: DATA.nodes.filter((node) => state.visibleNodeIds.has(node.id)) });
     if (cy.nodes().length) runLayout();
@@ -1039,6 +1202,7 @@
       "galaxy-node-scale": ["nodeScale", false],
       "galaxy-edge-opacity": ["edgeOpacity", false],
       "galaxy-glow-strength": ["glowStrength", false],
+      "galaxy-trail-density": ["trailDensity", false],
       "galaxy-link-distance": ["linkDistance", true],
       "galaxy-pressure": ["pressure", true],
       "galaxy-orbit-strength": ["orbitStrength", true],
@@ -1055,10 +1219,11 @@
       state.galaxySettings.sizeMode = event.target.value;
       applyGalaxyAppearance();
     });
-    [["galaxy-starfield", "starfield"], ["galaxy-twinkle", "twinkle"], ["galaxy-auto-orbit", "autoOrbit"]].forEach(([id, key]) => {
+    [["galaxy-starfield", "starfield"], ["galaxy-twinkle", "twinkle"], ["galaxy-auto-orbit", "autoOrbit"], ["galaxy-camera-cruise", "cameraCruise"]].forEach(([id, key]) => {
       byId(id).addEventListener("change", (event) => {
         state.galaxySettings[key] = event.target.checked;
         if (key === "autoOrbit") orbitStartedAt = performance.now();
+        if (key === "cameraCruise") cruiseBaseline = null;
         applyGalaxyAppearance();
         startAmbientMotion();
       });
@@ -1071,6 +1236,7 @@
       state.galaxySettings = { ...DEFAULT_GALAXY_SETTINGS };
       try { window.localStorage.removeItem(GALAXY_STORAGE_KEY); } catch (_error) { /* File origins may disable storage. */ }
       orbitStartedAt = performance.now();
+      cruiseBaseline = null;
       applyGalaxyAppearance();
       runLayout();
     });
@@ -1096,6 +1262,11 @@
     const layout = cy.layout(options);
     layout.one("layoutstop", () => {
       captureMotionAnchors();
+      window.requestAnimationFrame(() => {
+        captureCruiseBaseline();
+        lastStarTrailFrame = 0;
+        renderStarTrails(performance.now());
+      });
       startAmbientMotion();
     });
     layout.run();
@@ -1435,6 +1606,7 @@
       activateFocusEdges();
       renderInspector();
       updateUrl();
+      flyCameraToNode(graphNode);
     } else {
       if (!state.nodeTypes.has(node.type)) state.nodeTypes.add(node.type);
       incidentEdges(nodeId).forEach((edge) => state.relationTypes.add(edge.type));
@@ -1765,16 +1937,27 @@
     lastDragSample = null;
     graphCanvas.classList.remove("is-grabbing");
   });
-  cy.on("zoom", () => {
+  cy.on("zoom", (event) => {
     depthTapCycle = null;
-    lastViewportInteraction = performance.now();
+    if (event.originalEvent || performance.now() > programmaticViewportUntil) {
+      lastViewportInteraction = performance.now();
+      captureCruiseBaseline();
+    }
     updateZoomLevel();
   });
-  cy.on("pan", () => {
+  cy.on("pan", (event) => {
     depthTapCycle = null;
-    lastViewportInteraction = performance.now();
+    if (event.originalEvent || performance.now() > programmaticViewportUntil) {
+      lastViewportInteraction = performance.now();
+      captureCruiseBaseline();
+    }
   });
-  window.addEventListener("resize", () => cy.resize());
+  window.addEventListener("resize", () => {
+    cy.resize();
+    cruiseBaseline = null;
+    lastStarTrailFrame = 0;
+    renderStarTrails(performance.now());
+  });
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) stopAmbientMotion(false);
     else startAmbientMotion();

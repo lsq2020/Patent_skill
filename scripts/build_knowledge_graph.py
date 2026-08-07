@@ -181,7 +181,8 @@ def build_knowledge_graph(
       <section class="galaxy-section" aria-labelledby="galaxy-preset-title">
         <div class="section-heading"><h3 id="galaxy-preset-title">视觉预设</h3><span id="galaxy-preset-status">Galaxy</span></div>
         <div class="galaxy-presets" role="group" aria-label="银河视觉预设">
-          <button type="button" data-galaxy-preset="galaxy" aria-pressed="true"><i aria-hidden="true"></i><b>银河</b><small>均衡层级</small></button>
+          <button type="button" data-galaxy-preset="atlas" aria-pressed="true"><i aria-hidden="true"></i><b>星轨</b><small>视频巡航</small></button>
+          <button type="button" data-galaxy-preset="galaxy" aria-pressed="false"><i aria-hidden="true"></i><b>银河</b><small>均衡层级</small></button>
           <button type="button" data-galaxy-preset="spiral" aria-pressed="false"><i aria-hidden="true"></i><b>旋臂</b><small>强化轨道</small></button>
           <button type="button" data-galaxy-preset="nebula" aria-pressed="false"><i aria-hidden="true"></i><b>星云</b><small>辉光团簇</small></button>
           <button type="button" data-galaxy-preset="minimal" aria-pressed="false"><i aria-hidden="true"></i><b>极简</b><small>证据优先</small></button>
@@ -206,6 +207,9 @@ def build_knowledge_graph(
         <label class="galaxy-range-row" for="galaxy-glow-strength"><span><b>辉光强度</b><small>突出高连接度 hub</small></span><output id="galaxy-glow-strength-value">62%</output>
           <input id="galaxy-glow-strength" type="range" min="0" max="1" value="0.62" step="0.02">
         </label>
+        <label class="galaxy-range-row" for="galaxy-trail-density"><span><b>星轨密度</b><small>每条真实关系的光轨束数量</small></span><output id="galaxy-trail-density-value">4 股</output>
+          <input id="galaxy-trail-density" type="range" min="0" max="5" value="4" step="1">
+        </label>
       </section>
 
       <section class="galaxy-section" aria-labelledby="galaxy-physics-title">
@@ -223,6 +227,7 @@ def build_knowledge_graph(
           <label><input id="galaxy-starfield" type="checkbox" checked><span><b>星空背景</b><small>深度星尘</small></span></label>
           <label><input id="galaxy-twinkle" type="checkbox" checked><span><b>星星眨眼</b><small>轻微闪烁</small></span></label>
           <label><input id="galaxy-auto-orbit" type="checkbox"><span><b>自动环绕</b><small>空闲时慢速旋转</small></span></label>
+          <label><input id="galaxy-camera-cruise" type="checkbox" checked><span><b>镜头巡航</b><small>缓慢推拉与漂移</small></span></label>
         </div>
       </section>
 
@@ -247,7 +252,7 @@ def build_knowledge_graph(
       </section>
     </aside>
 
-    <main id="main-content" class="graph-panel" data-galaxy-mode="galaxy" data-starfield="true" data-twinkle="true">
+    <main id="main-content" class="graph-panel" data-galaxy-mode="atlas" data-starfield="true" data-twinkle="true">
       <div class="graph-depth-field" aria-hidden="true">
         <span class="depth-plane depth-plane-far"></span>
         <span class="depth-plane depth-plane-mid"></span>
@@ -276,6 +281,7 @@ def build_knowledge_graph(
         </div>
       </div>
       <div id="technology-lanes" class="technology-lanes" aria-hidden="true" hidden></div>
+      <canvas id="star-trail-canvas" class="star-trail-canvas" aria-hidden="true"></canvas>
       <div id="graph-canvas" class="graph-canvas" role="img" aria-label="专利证据关系图" tabindex="0"></div>
       <div class="canvas-hint" aria-hidden="true"><b>操作提示</b><span>拖动节点触发弹簧联动 · 滚轮/双指快速缩放 · 点击重叠节点逐层选择</span></div>
       <div id="empty-state" class="empty-state" hidden>
