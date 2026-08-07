@@ -959,6 +959,7 @@
   function applyGalaxyAppearance() {
     const settings = state.galaxySettings;
     const panel = byId("main-content");
+    const corridorMode = state.preset === "technology" && settings.preset === "minimal";
     panel.dataset.galaxyMode = settings.preset;
     panel.dataset.starfield = String(settings.starfield);
     panel.dataset.twinkle = String(settings.twinkle && !prefersReducedMotion);
@@ -969,6 +970,13 @@
       };
       const metrics = computeGalaxyMetrics(view);
       cy.batch(() => {
+        if (corridorMode) {
+          cy.nodes().addClass("corridor-node");
+          cy.edges().addClass("corridor-edge");
+        } else {
+          cy.nodes().removeClass("corridor-node");
+          cy.edges().removeClass("corridor-edge");
+        }
         cy.nodes().forEach((node) => {
           const values = metrics.nodes.get(node.id());
           if (values) node.data(values);
