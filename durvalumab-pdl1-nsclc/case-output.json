@@ -33,8 +33,8 @@
     ]
   },
   "run": {
-    "run_id": "durvalumab-pdl1-nsclc-20260807T030720Z",
-    "generated_at": "2026-08-07T03:07:20.341367+00:00",
+    "run_id": "durvalumab-pdl1-nsclc-20260807T032646Z",
+    "generated_at": "2026-08-07T03:26:45.718934+00:00",
     "skill_version": "repository",
     "pipeline": [
       "scope",
@@ -59,7 +59,7 @@
     "ranking_count": 7,
     "source_url_count": 12,
     "source_log_count": 11,
-    "report_count": 11,
+    "report_count": 14,
     "uncertainty_count": 1
   },
   "records": {
@@ -1611,20 +1611,20 @@
     {
       "path": "knowledge-graph.html",
       "format": "html",
-      "exists": false,
-      "status": "missing"
+      "exists": true,
+      "status": "complete"
     },
     {
       "path": "graph-data.json",
       "format": "json",
-      "exists": false,
-      "status": "missing"
+      "exists": true,
+      "status": "complete"
     },
     {
       "path": "graph-quality.json",
       "format": "json",
-      "exists": false,
-      "status": "missing"
+      "exists": true,
+      "status": "complete"
     }
   ],
   "reproducibility": {
@@ -1677,9 +1677,12 @@
       "05-innovation-space-report.md": "922589c5d1ecfc0e92ffe75fe57e30dc72a944b0342f94afdb39364ade090d79",
       "06-evidence-chain-report.md": "24de67e956ae42c3123b67be5f5858d589cb765781cc691b5e7bfbcb251df457",
       "07-source-catalog-report.md": "b85a28c746f2a54e586601e1cf5e5bd18c9859452244c8b30e6ef1bfc1dcfb3d",
-      "report-index.md": "e81bd9ecf720c2ed9bfe526b8e6048a26064880889b9ef882817defc1821c3c7",
-      "report-index.html": "a08f2bd919d5dfdcd915870f73e8bcf11f4a55f6645da70db86468f5acc245c5",
-      "report-visuals.html": "0b85824416c5ee68b11bf4e6eb86456f6520798e2c886df4179f9ebd078720f4"
+      "report-index.md": "cb8457bc760e6e1a544104dc89250a1330bef432074666e0502814d7b1a42480",
+      "report-index.html": "619a6b151026d6fbe31af5595fcd85e402a389c929701c1ed90cdaf00df10bb6",
+      "report-visuals.html": "0b85824416c5ee68b11bf4e6eb86456f6520798e2c886df4179f9ebd078720f4",
+      "knowledge-graph.html": "cf1bd6e5dcda2ecb1bb5107bc3b74fe02e90c17181fa1c8db8dce6232908164f",
+      "graph-data.json": "edaf32687c37b18a8524fb0497ee898fb3c3e1bf7d46b43b94621050924c2a94",
+      "graph-quality.json": "ebb8fc54dcadd582a221b62a8d606b4d8e78c11dda0fdf1d0eb5d4acebdb3829"
     }
   },
   "contract": {

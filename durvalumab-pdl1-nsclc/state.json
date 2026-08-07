@@ -28,7 +28,9 @@
     "source_catalog": "complete",
     "index": "complete",
     "visuals": "complete",
-    "html_pages": "complete"
+    "html_pages": "complete",
+    "knowledge_graph": "complete"
   },
+  "graph_quality": "warning",
   "reports_generated_at": "2026-08-06T04:11:59.997400+00:00"
 }

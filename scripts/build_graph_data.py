@@ -385,7 +385,7 @@ def build_graph_data(project, case_output_path=None, output_path=None, quality_p
             claim.get("evidence_url"),
             {
                 "family_id": [claim.get("family_id")],
-                "theme": [claim.get("claim_category")],
+                "theme": split_values(claim.get("claim_category")),
             },
         )
 

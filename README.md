@@ -169,6 +169,16 @@ python3 scripts/build_report_pages.py --project-dir cases/demo
 
 通常 `build_modular_reports.py` 已会联动生成图表和 HTML 页面；单独执行后两条命令适用于数据更新后的重建。
 
+若只重建专利证据双链图，按数据契约顺序执行：
+
+```bash
+python3 scripts/build_case_output.py --project-dir cases/demo
+python3 scripts/validate_output_schema.py --output cases/demo/case-output.json
+python3 scripts/build_graph_data.py --project-dir cases/demo
+python3 scripts/validate_graph_data.py --graph cases/demo/graph-data.json
+python3 scripts/build_knowledge_graph.py --project-dir cases/demo
+```
+
 ## 输出说明
 
 完成标准分析后，案例目录通常包含：
@@ -184,6 +194,10 @@ python3 scripts/build_report_pages.py --project-dir cases/demo
 07-source-catalog-report.md       # 来源目录和访问限制
 report-index.md / report-index.html
 report-visuals.html
+case-output.json                  # 稳定 ID 与一等关系边
+graph-data.json                   # Cytoscape-ready 图数据
+graph-quality.json                # 关系与证据关联质量
+knowledge-graph.html              # 离线专利证据双链图
 visuals/                           # SVG 图表和统计口径 manifest
 ```
 
@@ -208,6 +222,7 @@ visuals/                           # SVG 图表和统计口径 manifest
 | 证据链 | 事实/推断、来源 URL、claim 或事件位置、置信度 | 让关键判断可回溯、可审计 |
 | 来源目录 | 官方核验、聚合扩展、上下文来源和访问限制 | 选择与目标法域匹配的数据入口 |
 | 统计总览 | 技术主题、优先权、法域、claim 类别、FTO、证据与来源角色 | 快速定位数据分布和需要补检的区域 |
+| 专利证据双链图 | family、document、claim、finding、source、申请人、法域和技术主题 | 从结论反向回溯证据，发现缺失关联和族关系补录任务 |
 
 使用时，建议从“执行摘要”确认边界，再进入“专利族地图”和“权利要求与要素抽取”；涉及实施、许可、开发或争议决策时，回到“风险 / FTO”和“证据链”核对目标法域的官方文本、完整独立权利要求和法律事件。
 
@@ -239,4 +254,4 @@ visuals/                           # SVG 图表和统计口径 manifest
 
 ## 许可证
 
-本仓库当前未提供许可证文件。若计划公开复用、分发或商用，请由仓库维护者补充合适的许可证。
+本仓库当前未提供项目级许可证文件。若计划公开复用、分发或商用，请由仓库维护者补充合适的许可证。内嵌的 Cytoscape.js 使用 MIT 许可证，许可证文本保存在 `assets/graph-viewer/CYTOSCAPE-LICENSE.txt`。

@@ -33,8 +33,8 @@
     ]
   },
   "run": {
-    "run_id": "tfr1_patent_case-20260807T030720Z",
-    "generated_at": "2026-08-07T03:07:20.023398+00:00",
+    "run_id": "tfr1_patent_case-20260807T032645Z",
+    "generated_at": "2026-08-07T03:26:45.131416+00:00",
     "skill_version": "repository",
     "pipeline": [
       "scope",
@@ -59,7 +59,7 @@
     "ranking_count": 12,
     "source_url_count": 28,
     "source_log_count": 22,
-    "report_count": 11,
+    "report_count": 14,
     "uncertainty_count": 2
   },
   "records": {
@@ -4358,20 +4358,20 @@
     {
       "path": "knowledge-graph.html",
       "format": "html",
-      "exists": false,
-      "status": "missing"
+      "exists": true,
+      "status": "complete"
     },
     {
       "path": "graph-data.json",
       "format": "json",
-      "exists": false,
-      "status": "missing"
+      "exists": true,
+      "status": "complete"
     },
     {
       "path": "graph-quality.json",
       "format": "json",
-      "exists": false,
-      "status": "missing"
+      "exists": true,
+      "status": "complete"
     }
   ],
   "reproducibility": {
@@ -4428,9 +4428,12 @@
       "05-innovation-space-report.md": "9e897aba81934f29813bf7cc8babf93e27f5b6ca942407998cec6611677aef88",
       "06-evidence-chain-report.md": "6066225e65ddff7a6be1d7bd5749cfc1b4d1268d37d0d26aa4b84b9d6ad608b0",
       "07-source-catalog-report.md": "96d5286f5b8cf5b90d4c15e437310bb06a765395f0a3ee1262076cba4bf6ea23",
-      "report-index.md": "1938224a0aaf926c71322c8f8f4d693ee4654c9184328c12d334d6e1faf0bccb",
-      "report-index.html": "f17110f1030d1ee4b479956d948a6d89906c198bd6e54ed8490c746d23bd9d23",
-      "report-visuals.html": "b15da6ab75ca01229c88290d29c0c71190c208f38a7f232d35370fc50d510fbb"
+      "report-index.md": "db365395443ee1470159a75aa3e63b02ae33094c2261da84877862b930f3d8d9",
+      "report-index.html": "33ff69d872eaab39ccb7eb12b2eef135b82fdb383a1e52b5641e8b620c306eec",
+      "report-visuals.html": "b15da6ab75ca01229c88290d29c0c71190c208f38a7f232d35370fc50d510fbb",
+      "knowledge-graph.html": "01526cefe58cf579dc54c9bf1e2acf1ef5c628828d85fe289af2f442de5af9f2",
+      "graph-data.json": "24a0db120ea40dbf453515e8e5aa4324cc43001a86fa1a8491e971d53c788e2c",
+      "graph-quality.json": "9f4e4e6250dcfd571d714ad35d61b7215413ac23991ee565871e88fdc792d525"
     }
   },
   "contract": {

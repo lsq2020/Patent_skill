@@ -2,10 +2,12 @@
 
 > 生成时间：2026-08-06T05:47:44.783064+00:00 · 结构化数据目录：`/data/siqing/2026_workpalce/20260731/tfr1_patent_case`
 
-## FTO 风格统计入口
+## 交互式入口
 
+- [打开专利证据双链图](knowledge-graph.html)
 - [打开交互式统计总览](report-visuals.html)
 - [查看图表数据清单](visuals/manifest.json)
+- [查看图谱质量报告](graph-quality.json)
 
 ## 报告清单
 
@@ -24,6 +26,8 @@
 - `*-patent-families.csv`：族级数据
 - `*-claim-elements.csv`：权利要求要素
 - `*-evidence.csv`：证据链
+- `case-output.json`：稳定 ID 和一等关系边
+- `graph-data.json` / `graph-quality.json`：图谱数据和质量缺口
 - `fto-search-plan.json`：FTO 特征、检索轮次和来源目录
 - `fto-candidate-ranking.csv`：候选排序
 - `source-log.jsonl`：实际访问日志

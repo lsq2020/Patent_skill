@@ -228,14 +228,10 @@ def claim_fingerprint(row):
 
 def normalize_claims(rows):
     claims = []
-    seen = set()
     for source in rows:
         row = dict(source)
         existing = str(row.get("claim_id") or "").strip()
         row["claim_id"] = existing or f"CLM-{stable_hash(*claim_fingerprint(row))}"
-        if row["claim_id"] in seen:
-            continue
-        seen.add(row["claim_id"])
         claims.append(row)
     return claims
 
