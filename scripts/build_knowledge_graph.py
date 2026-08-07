@@ -170,9 +170,16 @@ def build_knowledge_graph(
 
     <main id="main-content" class="graph-panel">
       <div class="canvas-toolbar">
-        <div class="focus-card">
-          <span class="focus-mark" aria-hidden="true"></span>
-          <span class="focus-copy"><small>画布焦点</small><strong id="canvas-focus-label">正在载入…</strong><code id="canvas-focus-id">—</code></span>
+        <div class="focus-stack">
+          <div class="focus-card">
+            <span class="focus-mark" aria-hidden="true"></span>
+            <span class="focus-copy"><small>画布焦点</small><strong id="canvas-focus-label">正在载入…</strong><code id="canvas-focus-id">—</code></span>
+          </div>
+          <div class="path-legend" aria-label="焦点关系方向">
+            <span data-path="incoming"><i aria-hidden="true"></i>入链</span>
+            <span data-path="outgoing"><i aria-hidden="true"></i>出链</span>
+            <span data-path="derived"><i aria-hidden="true"></i>推导关系</span>
+          </div>
         </div>
         <div class="canvas-tools">
           <span id="visible-count" class="visible-count">加载图谱…</span>

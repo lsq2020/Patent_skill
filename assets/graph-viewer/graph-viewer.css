@@ -734,7 +734,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   pointer-events: none;
 }
 
-.focus-card, .canvas-tools { pointer-events: auto; }
+.focus-stack, .focus-card, .canvas-tools { pointer-events: auto; }
+
+.focus-stack { display: grid; gap: 6px; min-width: 0; }
 
 .focus-card {
   display: flex;
@@ -799,6 +801,25 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   white-space: nowrap;
 }
 
+.path-legend {
+  display: flex;
+  width: max-content;
+  gap: 10px;
+  padding: 5px 8px;
+  border: 1px solid rgba(199, 208, 220, 0.88);
+  border-radius: 6px;
+  background: rgba(255, 254, 250, 0.92);
+  color: var(--muted);
+  font-size: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.path-legend span { display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+.path-legend i { width: 14px; border-top: 2px solid #8b96a6; }
+.path-legend [data-path="incoming"] i { border-color: #287f8f; }
+.path-legend [data-path="outgoing"] i { border-color: #c46a2b; }
+.path-legend [data-path="derived"] i { border-top-style: dashed; }
+
 .canvas-tools {
   display: flex;
   align-items: center;
@@ -852,6 +873,16 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   pointer-events: none;
 }
 
+.technology-lanes::before {
+  position: absolute;
+  z-index: -1;
+  top: 54px;
+  right: 3%;
+  left: 3%;
+  border-top: 1px solid rgba(73, 85, 103, 0.16);
+  content: "";
+}
+
 .technology-lanes[hidden] { display: none; }
 
 .technology-lanes > span {
@@ -870,6 +901,22 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 .technology-lanes > span:first-child { border-left: 0; }
 .technology-lanes > span:nth-child(even) { background: rgba(222, 226, 230, 0.15); }
+
+.lane-step {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  margin-bottom: 2px;
+  border: 1px solid #b8c2cf;
+  border-radius: 50%;
+  background: rgba(255, 254, 250, 0.96);
+  color: #4b596d;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 700;
+}
 
 .technology-lanes b {
   overflow: hidden;
@@ -1296,6 +1343,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   .ledger-head { align-items: flex-start; flex-direction: column; }
   .canvas-toolbar { top: 8px; right: 8px; left: 8px; }
   .focus-card { max-width: 62%; }
+  .path-legend { display: none; }
   .canvas-tools { flex-direction: column; align-items: flex-end; }
   .visible-count { order: 2; }
   .technology-lanes { right: 4px; left: 4px; }

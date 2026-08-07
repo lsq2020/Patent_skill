@@ -87,6 +87,18 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn("workspace.is-inspector-open", html)
         self.assertIn("relation-ledger.is-open", html)
 
+    def test_visualizes_technology_as_a_numbered_evidence_corridor(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn('class="path-legend"', html)
+        self.assertIn('data-path="incoming"', html)
+        self.assertIn('data-path="outgoing"', html)
+        self.assertIn('className = "lane-step"', html)
+        self.assertIn('addClass("corridor-node")', html)
+        self.assertIn('node.corridor-node[type = "claim"]', html)
+        self.assertIn(".technology-lanes::before", html)
+
 
 if __name__ == "__main__":
     unittest.main()

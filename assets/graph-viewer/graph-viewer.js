@@ -51,7 +51,6 @@
     else byId("workspace").classList.toggle(config.className, open);
     target.setAttribute("aria-hidden", String(!open));
     toggle.setAttribute("aria-expanded", String(open));
-    if (open && panel !== "ledger") target.querySelector("button, input, select, a")?.focus({ preventScroll: true });
   }
 
   function updateFocusNavigation() {
@@ -134,6 +133,12 @@
       { selector: 'node[type = "jurisdiction"]', style: { "background-color": "#0891b2", shape: "ellipse", width: 26, height: 26 } },
       { selector: 'node[type = "technology_theme"]', style: { "background-color": "#f4f8e9", "border-color": "#70952e", shape: "tag", width: 84, height: 34, color: "#4f6f1e", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0, "text-max-width": 72 } },
       { selector: 'node[type = "source"]', style: { "background-color": "#94a3b8", shape: "vee", width: 27, height: 27 } },
+      { selector: 'node.corridor-node[type = "research_object"]', style: { width: 112, height: 48, "border-color": "#334155", "border-width": 2 } },
+      { selector: 'node.corridor-node[type = "target"]', style: { width: 92, height: 42, "font-size": 9.5 } },
+      { selector: 'node.corridor-node[type = "indication"]', style: { width: 104, height: 42, "font-size": 9.5 } },
+      { selector: 'node.corridor-node[type = "patent_family"]', style: { width: 124, height: 58, "border-width": 2.5 } },
+      { selector: 'node.corridor-node[type = "technology_theme"]', style: { width: 104, height: 42, shape: "round-rectangle", "text-max-width": 92 } },
+      { selector: 'node.corridor-node[type = "claim"]', style: { width: 108, height: 44, "text-max-width": 96, "border-width": 2 } },
       {
         selector: "edge",
         style: {
@@ -327,26 +332,32 @@
     container.hidden = !lanes.length;
     container.textContent = "";
     if (!lanes.length) return;
-    lanes.forEach((lane) => {
+    lanes.forEach((lane, laneIndex) => {
       const laneTypes = new Set(lane.node_types || []);
       const count = view.nodes.filter((node) => laneTypes.has(node.type)).length;
       const item = document.createElement("span");
+      const step = document.createElement("i");
       const label = document.createElement("b");
       const total = document.createElement("small");
+      step.className = "lane-step";
+      step.textContent = String(laneIndex + 1).padStart(2, "0");
       label.textContent = lane.label;
       total.textContent = `${count} 个节点`;
-      item.append(label, total);
+      item.append(step, label, total);
       container.append(item);
     });
     container.style.gridTemplateColumns = `repeat(${lanes.length}, minmax(0, 1fr))`;
   }
 
-  function activateFocusEdges() {
+  function activateNodeEdges(node) {
     cy.edges().removeClass("edge-active incoming-active outgoing-active");
-    const focus = cy.getElementById(state.focus);
-    if (!focus.length) return;
-    focus.incomers("edge").addClass("edge-active incoming-active");
-    focus.outgoers("edge").addClass("edge-active outgoing-active");
+    if (!node.length) return;
+    node.incomers("edge").addClass("edge-active incoming-active");
+    node.outgoers("edge").addClass("edge-active outgoing-active");
+  }
+
+  function activateFocusEdges() {
+    activateNodeEdges(cy.getElementById(state.focus));
   }
 
   function renderGraph() {
@@ -355,7 +366,10 @@
     state.visibleEdgeIds = new Set(view.edges.map((edge) => edge.id));
     cy.elements().remove();
     cy.add(cytoscapeElements(view));
-    if (state.preset === "technology") cy.edges().addClass("corridor-edge");
+    if (state.preset === "technology") {
+      cy.nodes().addClass("corridor-node");
+      cy.edges().addClass("corridor-edge");
+    }
     renderTechnologyLanes(view);
     if (cy.nodes().length) {
       runLayout();
@@ -371,7 +385,7 @@
     limitBanner.textContent = view.truncated
       ? `当前视图符合条件的节点为 ${view.totalEligible} 个；为保持可读性，仅显示优先级最高的 ${view.nodes.length} 个。请搜索、缩小类型或选择节点。`
       : "";
-    byId("visible-count").textContent = `${view.nodes.length} 节点 · ${view.edges.length} 关系`;
+    byId("visible-count").textContent = `${state.localFocus ? "局部 · " : ""}${view.nodes.length} 节点 · ${view.edges.length} 关系`;
     byId("graph-status").textContent = `图谱已更新，显示 ${view.nodes.length} 个节点和 ${view.edges.length} 条关系。`;
     renderRelationTable(view.edges);
     renderInspector();
@@ -708,7 +722,7 @@
     const neighborhood = event.target.closedNeighborhood();
     cy.elements().addClass("faded");
     neighborhood.removeClass("faded");
-    event.target.connectedEdges().addClass("edge-active");
+    activateNodeEdges(event.target);
   });
   cy.on("mouseout", "node", () => {
     cy.elements().removeClass("faded");

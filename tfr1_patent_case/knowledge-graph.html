@@ -12,23 +12,24 @@
   --muted-light: #98a2b3;
   --line: #dfe5ec;
   --line-strong: #c7d0dc;
-  --canvas: #f4f6f9;
-  --surface: #ffffff;
-  --surface-soft: #f8fafc;
-  --navy: #101a2d;
-  --navy-soft: #19263d;
-  --blue: #2f66d0;
-  --blue-strong: #1f55bc;
-  --blue-soft: #edf3ff;
+  --canvas: #f5f3ee;
+  --surface: #fffefa;
+  --surface-soft: #f7f6f2;
+  --navy: #111827;
+  --navy-soft: #1f2937;
+  --blue: #2857b8;
+  --blue-strong: #1f4697;
+  --blue-soft: #edf2fb;
   --amber: #9a5b13;
   --amber-soft: #fff8e9;
   --red: #b42318;
   --red-soft: #fff1ef;
   --green: #14765b;
   --green-soft: #eef9f5;
-  --header-height: 118px;
-  --shadow-sm: 0 3px 12px rgba(22, 32, 51, 0.07);
-  --shadow-md: 0 14px 36px rgba(22, 32, 51, 0.12);
+  --header-height: 96px;
+  --rail-width: 56px;
+  --shadow-sm: 0 4px 16px rgba(17, 24, 39, 0.08);
+  --shadow-md: 0 20px 48px rgba(17, 24, 39, 0.16);
 }
 
 * { box-sizing: border-box; }
@@ -90,8 +91,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   grid-template-columns: minmax(260px, 0.82fr) minmax(310px, 1.16fr) auto;
   gap: 24px;
   align-items: center;
-  height: 70px;
-  padding: 10px 22px;
+  height: 58px;
+  padding: 8px 16px;
   background: var(--navy);
 }
 
@@ -104,9 +105,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 .brand-mark {
   display: grid;
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
   place-items: center;
   border: 1px solid #3d5577;
   border-radius: 7px;
@@ -133,7 +134,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   display: block;
   overflow: hidden;
   margin-top: 4px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 720;
   letter-spacing: -0.015em;
   text-overflow: ellipsis;
@@ -170,7 +171,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 .search-wrap input {
   width: 100%;
-  height: 42px;
+  height: 38px;
   padding: 0 64px 0 40px;
   border: 1px solid #3b4b66;
   border-radius: 8px;
@@ -191,7 +192,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 .search-key {
   position: absolute;
-  top: 11px;
+  top: 9px;
   right: 11px;
   padding: 3px 6px;
   border: 1px solid #50617c;
@@ -293,8 +294,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   grid-template-columns: minmax(250px, 0.9fr) 1px minmax(280px, 1.25fr) auto;
   gap: 16px;
   align-items: center;
-  height: 48px;
-  padding: 0 22px;
+  height: 38px;
+  padding: 0 16px;
   border-bottom: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.98);
   color: var(--ink);
@@ -360,34 +361,143 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .context-meta small { color: var(--muted-light); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; }
 .context-meta b { max-width: 180px; overflow: hidden; color: var(--ink-soft); font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
 
-.workspace {
-  display: grid;
-  grid-template-columns: 252px minmax(430px, 1fr) 352px;
+.workspace-shell {
+  position: relative;
   min-height: calc(100vh - var(--header-height));
 }
 
-.filter-panel, .inspector-panel {
-  position: sticky;
+.workspace {
+  position: relative;
+  min-height: calc(100vh - var(--header-height));
+  margin-left: var(--rail-width);
+}
+
+.graph-rail {
+  position: fixed;
+  z-index: 18;
   top: var(--header-height);
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: var(--rail-width);
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 8px;
+  border-right: 1px solid #263244;
+  background: #151e2d;
+}
+
+.rail-action {
+  display: grid;
+  width: 40px;
+  min-height: 44px;
+  place-items: center;
+  gap: 2px;
+  padding: 5px 2px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #aeb9ca;
+  font-size: 8px;
+  cursor: pointer;
+}
+
+.rail-action:hover, .rail-action[aria-expanded="true"], .rail-action[aria-pressed="true"] {
+  border-color: #3b4b62;
+  background: #202c3e;
+  color: #f7f9fc;
+}
+
+.rail-action:disabled { opacity: 0.32; cursor: default; }
+.rail-spacer { flex: 1; }
+.rail-divider { width: 24px; height: 1px; margin: 4px 0; background: #303c4f; }
+
+.rail-glyph {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+}
+
+.rail-glyph::before, .rail-glyph::after {
+  position: absolute;
+  content: "";
+}
+
+.rail-glyph-layers::before { inset: 3px 1px 6px; border: 1px solid currentColor; transform: skewY(-20deg); }
+.rail-glyph-layers::after { inset: 7px 1px 2px; border: 1px solid currentColor; border-top: 0; transform: skewY(-20deg); }
+.rail-glyph-back::before, .rail-glyph-forward::before { top: 5px; width: 8px; height: 8px; border-top: 1px solid currentColor; border-left: 1px solid currentColor; }
+.rail-glyph-back::before { left: 3px; transform: rotate(-45deg); }
+.rail-glyph-forward::before { right: 3px; transform: rotate(135deg); }
+.rail-glyph-back::after, .rail-glyph-forward::after { top: 9px; width: 13px; border-top: 1px solid currentColor; }
+.rail-glyph-back::after { left: 3px; }
+.rail-glyph-forward::after { right: 3px; }
+.rail-glyph-focus::before { inset: 1px; border: 1px solid currentColor; border-radius: 50%; }
+.rail-glyph-focus::after { inset: 6px; border: 2px solid currentColor; border-radius: 50%; }
+.rail-glyph-detail::before { inset: 1px 3px; border: 1px solid currentColor; }
+.rail-glyph-detail::after { top: 5px; right: 6px; left: 6px; height: 6px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
+.rail-glyph-ledger::before { inset: 2px 1px; border: 1px solid currentColor; }
+.rail-glyph-ledger::after { top: 6px; right: 4px; left: 4px; height: 5px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
+
+.filter-panel, .inspector-panel {
+  position: fixed;
+  z-index: 17;
+  top: var(--header-height);
+  bottom: 0;
   height: calc(100vh - var(--header-height));
   min-width: 0;
   overflow-y: auto;
   background: var(--surface);
   scrollbar-color: #cbd4df transparent;
   scrollbar-width: thin;
+  transition: transform 180ms ease, visibility 180ms ease;
+  visibility: hidden;
 }
 
 .filter-panel {
-  z-index: 3;
-  padding: 18px 16px 28px;
+  left: var(--rail-width);
+  width: min(304px, calc(100vw - var(--rail-width) - 16px));
+  padding: 20px 16px 28px;
   border-right: 1px solid var(--line);
+  transform: translateX(calc(-100% - var(--rail-width)));
+  box-shadow: 16px 0 40px rgba(17, 24, 39, 0.12);
 }
 
 .inspector-panel {
-  z-index: 3;
-  padding: 20px 18px 28px;
+  right: 0;
+  width: min(400px, calc(100vw - var(--rail-width) - 16px));
+  padding: 20px 20px 28px;
   border-left: 1px solid var(--line);
+  transform: translateX(100%);
+  box-shadow: -16px 0 40px rgba(17, 24, 39, 0.12);
 }
+
+.workspace.is-filter-open .filter-panel,
+.workspace.is-inspector-open .inspector-panel {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.panel-actions, .ledger-actions { display: flex; align-items: center; gap: 8px; }
+
+.panel-close {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.panel-close:hover { border-color: #91a3bb; color: var(--ink); }
 
 .panel-heading, .inspector-heading, .section-heading {
   display: flex;
@@ -614,8 +724,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   min-width: 0;
   min-height: 700px;
   overflow: hidden;
-  background-color: #f5f7fa;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='1' cy='1' r='.75' fill='%23c9d2df' fill-opacity='.45'/%3E%3C/svg%3E");
+  background-color: var(--canvas);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ccircle cx='1' cy='1' r='.7' fill='%2398a2b3' fill-opacity='.28'/%3E%3C/svg%3E");
 }
 
 .canvas-toolbar {
@@ -631,18 +741,20 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   pointer-events: none;
 }
 
-.focus-card, .canvas-tools { pointer-events: auto; }
+.focus-stack, .focus-card, .canvas-tools { pointer-events: auto; }
+
+.focus-stack { display: grid; gap: 6px; min-width: 0; }
 
 .focus-card {
   display: flex;
   min-width: 0;
-  max-width: 48%;
+  max-width: 52%;
   align-items: center;
   gap: 10px;
   padding: 9px 11px;
   border: 1px solid rgba(199, 208, 220, 0.92);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.95);
+  border-radius: 7px;
+  background: rgba(255, 254, 250, 0.96);
   box-shadow: var(--shadow-sm);
 }
 
@@ -696,6 +808,25 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   white-space: nowrap;
 }
 
+.path-legend {
+  display: flex;
+  width: max-content;
+  gap: 10px;
+  padding: 5px 8px;
+  border: 1px solid rgba(199, 208, 220, 0.88);
+  border-radius: 6px;
+  background: rgba(255, 254, 250, 0.92);
+  color: var(--muted);
+  font-size: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.path-legend span { display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+.path-legend i { width: 14px; border-top: 2px solid #8b96a6; }
+.path-legend [data-path="incoming"] i { border-color: #287f8f; }
+.path-legend [data-path="outgoing"] i { border-color: #c46a2b; }
+.path-legend [data-path="derived"] i { border-top-style: dashed; }
+
 .canvas-tools {
   display: flex;
   align-items: center;
@@ -706,7 +837,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   padding: 6px 9px;
   border: 1px solid rgba(199, 208, 220, 0.92);
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 254, 250, 0.96);
   color: var(--ink-soft);
   font-size: 9px;
   font-weight: 700;
@@ -719,7 +850,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   overflow: hidden;
   border: 1px solid rgba(199, 208, 220, 0.96);
   border-radius: 7px;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 254, 250, 0.96);
   box-shadow: var(--shadow-sm);
 }
 
@@ -740,13 +871,23 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .technology-lanes {
   position: absolute;
   z-index: 2;
-  top: 82px;
-  right: 30px;
-  bottom: 42px;
-  left: 30px;
+  top: 76px;
+  right: 20px;
+  bottom: 24px;
+  left: 20px;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   pointer-events: none;
+}
+
+.technology-lanes::before {
+  position: absolute;
+  z-index: -1;
+  top: 54px;
+  right: 3%;
+  left: 3%;
+  border-top: 1px solid rgba(73, 85, 103, 0.16);
+  content: "";
 }
 
 .technology-lanes[hidden] { display: none; }
@@ -755,26 +896,39 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   position: relative;
   display: flex;
   min-width: 0;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
+  padding: 14px 12px;
+  border-left: 1px solid rgba(112, 122, 139, 0.13);
+  background: rgba(255, 254, 250, 0.22);
   color: #536176;
-  text-align: center;
+  text-align: left;
 }
 
-.technology-lanes > span::after {
-  position: absolute;
-  top: 30px;
-  bottom: 0;
-  left: 50%;
-  border-left: 1px dashed rgba(148, 163, 184, 0.22);
-  content: "";
+.technology-lanes > span:first-child { border-left: 0; }
+.technology-lanes > span:nth-child(even) { background: rgba(222, 226, 230, 0.15); }
+
+.lane-step {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  margin-bottom: 2px;
+  border: 1px solid #b8c2cf;
+  border-radius: 50%;
+  background: rgba(255, 254, 250, 0.96);
+  color: #4b596d;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .technology-lanes b {
   overflow: hidden;
   max-width: 100%;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 760;
   letter-spacing: 0.04em;
   text-overflow: ellipsis;
@@ -782,7 +936,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 }
 
 .technology-lanes small {
-  color: #8a96a8;
+  color: #7d8796;
   font-size: 8px;
 }
 
@@ -1043,10 +1197,23 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .empty-copy { color: var(--muted); font-size: 11px; line-height: 1.6; }
 
 .relation-ledger {
-  padding: 22px 24px 28px;
+  position: fixed;
+  z-index: 19;
+  right: 0;
+  bottom: 0;
+  left: var(--rail-width);
+  max-height: 46vh;
+  overflow: auto;
+  padding: 18px 20px 24px;
   border-top: 1px solid var(--line-strong);
   background: var(--surface);
+  box-shadow: 0 -20px 48px rgba(17, 24, 39, 0.14);
+  transform: translateY(calc(100% + 24px));
+  transition: transform 180ms ease, visibility 180ms ease;
+  visibility: hidden;
 }
+
+.relation-ledger.is-open { transform: translateY(0); visibility: visible; }
 
 .ledger-head {
   display: flex;
@@ -1128,61 +1295,70 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   .appbar { grid-template-columns: minmax(230px, 0.7fr) minmax(270px, 1fr) auto; gap: 14px; padding-inline: 16px; }
   .control-field select { width: 128px; }
   .control-field-compact select { width: 72px; }
-  .workspace { grid-template-columns: 226px minmax(390px, 1fr) 310px; }
-  .filter-panel { padding-inline: 13px; }
-  .inspector-panel { padding-inline: 15px; }
 }
 
 @media (max-width: 1080px) {
-  :root { --header-height: 164px; }
-  .appbar { height: 116px; grid-template-columns: minmax(240px, 0.7fr) minmax(300px, 1fr); align-content: center; }
+  :root { --header-height: 138px; }
+  .appbar { height: 100px; grid-template-columns: minmax(240px, 0.7fr) minmax(300px, 1fr); align-content: center; }
   .app-actions { grid-column: 1 / -1; justify-content: flex-end; }
   .context-bar { grid-template-columns: minmax(220px, 0.9fr) 1px minmax(260px, 1.2fr) auto; padding-inline: 16px; }
   .context-meta span:last-child { display: none; }
-  .workspace { grid-template-columns: 214px minmax(380px, 1fr) 286px; }
 }
 
 @media (max-width: 900px) {
-  :root { --header-height: auto; }
-  .app-header { position: static; height: auto; }
-  .appbar { height: auto; grid-template-columns: 1fr; gap: 10px; padding: 14px; }
-  .app-actions { grid-column: auto; justify-content: flex-start; flex-wrap: wrap; }
-  .context-bar { height: auto; min-height: 58px; grid-template-columns: 1fr auto; gap: 8px 16px; padding: 10px 14px; }
-  .context-divider { display: none; }
-  .context-view { grid-column: 1 / -1; grid-row: 2; }
-  .context-meta { grid-column: 2; grid-row: 1; }
-  .workspace { display: flex; flex-direction: column; }
-  .filter-panel, .inspector-panel { position: static; height: auto; overflow: visible; border: 0; border-bottom: 1px solid var(--line); }
-  .filter-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .graph-panel { min-height: 620px; order: 2; }
-  .filter-panel { order: 1; }
-  .inspector-panel { order: 3; }
-  .graph-canvas { height: 70vh; min-height: 620px; }
+  :root { --header-height: 138px; }
+  .brand-kicker { display: none; }
+  .context-view-description { display: none; }
+  .filter-panel { width: min(320px, calc(100vw - var(--rail-width) - 8px)); }
+  .inspector-panel { width: min(420px, calc(100vw - var(--rail-width) - 8px)); }
+  .graph-panel, .graph-canvas { min-height: 620px; }
 }
 
 @media (max-width: 580px) {
-  .brand-title { font-size: 14px; }
-  .app-actions { align-items: stretch; }
-  .control-field { flex: 1 1 120px; }
-  .control-field select { width: 100%; }
-  .app-actions button { flex: 1 1 auto; align-self: flex-end; }
-  .context-primary { display: grid; gap: 2px; }
-  .context-primary code { display: none; }
-  .context-meta { display: none; }
-  .context-bar { grid-template-columns: 1fr; }
-  .context-view { grid-column: 1; }
-  .filter-list { grid-template-columns: 1fr; }
-  .canvas-toolbar { top: 10px; right: 10px; left: 10px; align-items: flex-start; }
-  .focus-card { max-width: 56%; }
+  :root { --header-height: 166px; --rail-width: 0px; }
+  .appbar { height: 128px; grid-template-columns: 1fr; gap: 8px; padding: 10px 12px; }
+  .brand { display: none; }
+  .app-actions { grid-column: auto; justify-content: flex-start; overflow-x: auto; padding-bottom: 2px; }
+  .control-field label { display: none; }
+  .control-field select { width: 124px; }
+  .control-field-compact select { width: 68px; }
+  .app-actions button { flex: 0 0 auto; }
+  .context-bar { height: 38px; grid-template-columns: 1fr; padding: 0 12px; }
+  .context-primary code, .context-divider, .context-view, .context-meta { display: none; }
+  .graph-rail {
+    top: auto;
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    width: auto;
+    height: 52px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 4px 8px;
+    border: 1px solid #2d394c;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+  }
+  .rail-action { width: 44px; min-height: 42px; }
+  .rail-divider, .rail-spacer { display: none; }
+  .workspace { margin-left: 0; }
+  .filter-panel, .inspector-panel { top: var(--header-height); width: calc(100vw - 8px); height: calc(100vh - var(--header-height) - 68px); }
+  .filter-panel { left: 0; }
+  .inspector-panel { right: 0; }
+  .relation-ledger { right: 4px; bottom: 68px; left: 4px; max-height: 55vh; padding: 16px 12px 20px; }
+  .ledger-head { align-items: flex-start; flex-direction: column; }
+  .canvas-toolbar { top: 8px; right: 8px; left: 8px; }
+  .focus-card { max-width: 62%; }
+  .path-legend { display: none; }
   .canvas-tools { flex-direction: column; align-items: flex-end; }
   .visible-count { order: 2; }
-  .canvas-hint { right: 10px; bottom: 10px; left: 10px; justify-content: center; }
   .technology-lanes { right: 4px; left: 4px; }
+  .technology-lanes > span { padding-inline: 4px; }
   .technology-lanes b { font-size: 7px; }
   .technology-lanes small { display: none; }
+  .canvas-hint { display: none; }
   .graph-panel, .graph-canvas { min-height: 560px; }
-  .relation-ledger { padding: 18px 12px 22px; }
-  .ledger-head { align-items: flex-start; flex-direction: column; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1243,11 +1419,38 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
     </div>
   </header>
 
-  <div class="workspace">
-    <aside class="filter-panel" aria-label="图谱筛选器">
+  <div class="workspace-shell">
+    <nav class="graph-rail" aria-label="图谱工具">
+      <button id="layer-toggle" class="rail-action" type="button" aria-controls="filter-panel" aria-expanded="false" title="打开图层与筛选">
+        <span class="rail-glyph rail-glyph-layers" aria-hidden="true"></span><span>图层</span>
+      </button>
+      <div class="rail-divider" aria-hidden="true"></div>
+      <button id="focus-back" class="rail-action" type="button" title="返回上一个焦点" disabled>
+        <span class="rail-glyph rail-glyph-back" aria-hidden="true"></span><span>返回</span>
+      </button>
+      <button id="focus-forward" class="rail-action" type="button" title="前往下一个焦点" disabled>
+        <span class="rail-glyph rail-glyph-forward" aria-hidden="true"></span><span>前进</span>
+      </button>
+      <button id="focus-neighborhood" class="rail-action" type="button" aria-pressed="false" title="只显示当前节点的局部关系">
+        <span class="rail-glyph rail-glyph-focus" aria-hidden="true"></span><span>局部</span>
+      </button>
+      <div class="rail-spacer"></div>
+      <button id="inspector-toggle" class="rail-action" type="button" aria-controls="inspector-panel" aria-expanded="false" title="打开节点检查器">
+        <span class="rail-glyph rail-glyph-detail" aria-hidden="true"></span><span>详情</span>
+      </button>
+      <button id="ledger-toggle" class="rail-action" type="button" aria-controls="relation-ledger" aria-expanded="false" title="打开关系账本">
+        <span class="rail-glyph rail-glyph-ledger" aria-hidden="true"></span><span>关系</span>
+      </button>
+    </nav>
+
+    <div id="workspace" class="workspace">
+    <aside id="filter-panel" class="filter-panel" aria-label="图谱筛选器" aria-hidden="true">
       <div class="panel-heading">
         <div><span class="section-eyebrow">Data layers</span><h2>图层与筛选</h2></div>
-        <button id="select-all-nodes" class="small-button" type="button">恢复全部</button>
+        <div class="panel-actions">
+          <button id="select-all-nodes" class="small-button" type="button">恢复全部</button>
+          <button id="filter-close" class="panel-close" type="button" aria-label="关闭图层与筛选">×</button>
+        </div>
       </div>
       <p class="panel-copy">控制画布上出现的实体与证据关系。</p>
       <div class="summary-strip">
@@ -1275,9 +1478,16 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
     <main id="main-content" class="graph-panel">
       <div class="canvas-toolbar">
-        <div class="focus-card">
-          <span class="focus-mark" aria-hidden="true"></span>
-          <span class="focus-copy"><small>画布焦点</small><strong id="canvas-focus-label">正在载入…</strong><code id="canvas-focus-id">—</code></span>
+        <div class="focus-stack">
+          <div class="focus-card">
+            <span class="focus-mark" aria-hidden="true"></span>
+            <span class="focus-copy"><small>画布焦点</small><strong id="canvas-focus-label">正在载入…</strong><code id="canvas-focus-id">—</code></span>
+          </div>
+          <div class="path-legend" aria-label="焦点关系方向">
+            <span data-path="incoming"><i aria-hidden="true"></i>入链</span>
+            <span data-path="outgoing"><i aria-hidden="true"></i>出链</span>
+            <span data-path="derived"><i aria-hidden="true"></i>推导关系</span>
+          </div>
         </div>
         <div class="canvas-tools">
           <span id="visible-count" class="visible-count">加载图谱…</span>
@@ -1298,10 +1508,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
       <div id="graph-status" class="skip-link" aria-live="polite"></div>
     </main>
 
-    <aside class="inspector-panel" aria-label="节点检查器">
+    <aside id="inspector-panel" class="inspector-panel" aria-label="节点检查器" aria-hidden="true">
       <div class="inspector-heading">
-        <span class="section-eyebrow">Node inspector</span>
-        <span id="inspector-type" class="inspector-type">未选择</span>
+        <div><span class="section-eyebrow">Node inspector</span><span id="inspector-type" class="inspector-type">未选择</span></div>
+        <button id="inspector-close" class="panel-close" type="button" aria-label="关闭节点检查器">×</button>
       </div>
       <h2 id="inspector-title" class="inspector-title">选择一个节点</h2>
       <p id="inspector-id" class="inspector-id">点击图中节点查看双向链接</p>
@@ -1319,12 +1529,12 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
       </div>
       <div id="inspector-content" class="inspector-content" role="tabpanel"></div>
     </aside>
-  </div>
+    </div>
 
-  <section class="relation-ledger" aria-labelledby="relation-ledger-title">
+  <section class="relation-ledger" id="relation-ledger" aria-labelledby="relation-ledger-title" aria-hidden="true">
     <div class="ledger-head">
       <div><h2 id="relation-ledger-title">当前可见关系</h2><p>边只存一次；反向链接由入边动态计算。最多显示 200 条。</p></div>
-      <a href="graph-data.json">打开机器可读图数据</a>
+      <div class="ledger-actions"><a href="graph-data.json">打开机器可读图数据</a><button id="ledger-close" class="panel-close" type="button" aria-label="关闭关系账本">×</button></div>
     </div>
     <div class="table-scroll">
       <table class="relation-table">
@@ -1333,6 +1543,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
       </table>
     </div>
   </section>
+  </div>
   <footer class="page-footer">
     <a href="report-index.html">返回模块化报告</a> · <a href="graph-quality.json">图谱质量报告</a> · <a href="case-output.json">case-output.json</a><br>
     关系图用于检索、证据回溯和复核导航，不以节点颜色或距离表达法律有效性、侵权概率或科学确定性。Cytoscape.js 3.34.0（MIT）已内嵌，可离线打开。
@@ -1387,13 +1598,20 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
   const initialDepth = ["1", "2", "3"].includes(params.get("depth"))
     ? Number(params.get("depth"))
     : presetDefaultDepth(initialPreset);
+  const initialFocus = nodesById.has(params.get("focus")) ? params.get("focus") : DATA.meta.default_focus;
 
   const state = {
     preset: initialPreset,
     depth: initialDepth,
-    focus: nodesById.has(params.get("focus")) ? params.get("focus") : DATA.meta.default_focus,
+    focus: initialFocus,
     query: params.get("q") || "",
     tab: "overview",
+    focusHistory: [initialFocus],
+    focusIndex: 0,
+    filterOpen: false,
+    inspectorOpen: false,
+    ledgerOpen: false,
+    localFocus: params.get("local") === "1",
     nodeTypes: new Set(),
     relationTypes: new Set(),
     visibleNodeIds: new Set(),
@@ -1402,6 +1620,34 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
 
   const $ = (selector) => document.querySelector(selector);
   const byId = (id) => document.getElementById(id);
+  function setPanelState(panel, open) {
+    const config = {
+      filter: { stateKey: "filterOpen", className: "is-filter-open", panelId: "filter-panel", toggleId: "layer-toggle" },
+      inspector: { stateKey: "inspectorOpen", className: "is-inspector-open", panelId: "inspector-panel", toggleId: "inspector-toggle" },
+      ledger: { stateKey: "ledgerOpen", className: "is-open", panelId: "relation-ledger", toggleId: "ledger-toggle" },
+    }[panel];
+    if (!config) return;
+    state[config.stateKey] = open;
+    const target = byId(config.panelId);
+    const toggle = byId(config.toggleId);
+    if (panel === "ledger") target.classList.toggle(config.className, open);
+    else byId("workspace").classList.toggle(config.className, open);
+    target.setAttribute("aria-hidden", String(!open));
+    toggle.setAttribute("aria-expanded", String(open));
+  }
+
+  function updateFocusNavigation() {
+    byId("focus-back").disabled = state.focusIndex <= 0;
+    byId("focus-forward").disabled = state.focusIndex >= state.focusHistory.length - 1;
+  }
+
+  function navigateFocusHistory(offset) {
+    const nextIndex = state.focusIndex + offset;
+    if (nextIndex < 0 || nextIndex >= state.focusHistory.length) return;
+    state.focusIndex = nextIndex;
+    selectNode(state.focusHistory[nextIndex], { recordHistory: false, openInspector: state.inspectorOpen });
+  }
+
   const escapeHtml = (value) => String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -1423,7 +1669,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     const properties = node.properties || {};
     const document = properties.representative_document || properties.representative_application || "";
     const priorityYear = String(properties.earliest_priority || "").slice(0, 4);
-    const applicant = compactLabel(String(properties.applicant_or_assignee || "").split("/")[0], 22);
+    const applicant = compactLabel(String(properties.representative_document_assignee || properties.applicant_or_assignee || "").split("/")[0], 22);
     const detail = [document, priorityYear ? `优先权 ${priorityYear}` : ""].filter(Boolean).join(" · ");
     return [node.label, detail, applicant].filter(Boolean).join("\n");
   };
@@ -1446,7 +1692,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
           label: "data(displayLabel)",
           "font-family": "Inter, Segoe UI, PingFang SC, sans-serif",
           "font-size": 9.5,
-          "font-weight": 650,
+          "font-weight": 600,
           "min-zoomed-font-size": 3.5,
           "text-background-color": "#ffffff",
           "text-background-opacity": 0.94,
@@ -1462,7 +1708,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
       { selector: 'node[type = "research_object"]', style: { "background-color": "#101a2d", shape: "round-rectangle", width: 98, height: 44, color: "#ffffff", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0, "font-size": 10.5 } },
       { selector: 'node[type = "target"]', style: { "background-color": "#f6f1ff", "border-color": "#7650c7", shape: "round-rectangle", width: 76, height: 38, color: "#573a98", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0 } },
       { selector: 'node[type = "indication"]', style: { "background-color": "#fff1f5", "border-color": "#c84f7f", shape: "round-rectangle", width: 82, height: 38, color: "#9f315d", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0 } },
-      { selector: 'node[type = "patent_family"]', style: { "background-color": "#f7faff", "border-color": "#2f66d0", "border-width": 2.2, shape: "round-rectangle", width: 112, height: 54, color: "#17345f", "font-size": 8.3, "font-weight": 680, "text-valign": "center", "text-wrap": "wrap", "text-max-width": 100, "text-background-opacity": 0, "text-margin-y": 0 } },
+      { selector: 'node[type = "patent_family"]', style: { "background-color": "#f7faff", "border-color": "#2f66d0", "border-width": 2.2, shape: "round-rectangle", width: 112, height: 54, color: "#17345f", "font-size": 8.3, "font-weight": 700, "text-valign": "center", "text-wrap": "wrap", "text-max-width": 100, "text-background-opacity": 0, "text-margin-y": 0 } },
       { selector: 'node[type = "patent_document"]', style: { "background-color": "#178176", shape: "hexagon" } },
       { selector: 'node[type = "claim"]', style: { "background-color": "#fff8e9", "border-color": "#d9962d", shape: "round-rectangle", width: 88, height: 38, color: "#805014", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0, "text-max-width": 78 } },
       { selector: 'node[type = "evidence"]', style: { "background-color": "#d14b63", shape: "diamond", width: 31, height: 31 } },
@@ -1470,6 +1716,12 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
       { selector: 'node[type = "jurisdiction"]', style: { "background-color": "#0891b2", shape: "ellipse", width: 26, height: 26 } },
       { selector: 'node[type = "technology_theme"]', style: { "background-color": "#f4f8e9", "border-color": "#70952e", shape: "tag", width: 84, height: 34, color: "#4f6f1e", "text-valign": "center", "text-background-opacity": 0, "text-margin-y": 0, "text-max-width": 72 } },
       { selector: 'node[type = "source"]', style: { "background-color": "#94a3b8", shape: "vee", width: 27, height: 27 } },
+      { selector: 'node.corridor-node[type = "research_object"]', style: { width: 112, height: 48, "border-color": "#334155", "border-width": 2 } },
+      { selector: 'node.corridor-node[type = "target"]', style: { width: 92, height: 42, "font-size": 9.5 } },
+      { selector: 'node.corridor-node[type = "indication"]', style: { width: 104, height: 42, "font-size": 9.5 } },
+      { selector: 'node.corridor-node[type = "patent_family"]', style: { width: 124, height: 58, "border-width": 2.5 } },
+      { selector: 'node.corridor-node[type = "technology_theme"]', style: { width: 104, height: 42, shape: "round-rectangle", "text-max-width": 92 } },
+      { selector: 'node.corridor-node[type = "claim"]', style: { width: 108, height: 44, "text-max-width": 96, "border-width": 2 } },
       {
         selector: "edge",
         style: {
@@ -1487,7 +1739,10 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
       { selector: 'edge[type = "SUPPORTED_BY"]', style: { "line-color": "#d14b63", "target-arrow-color": "#d14b63" } },
       { selector: 'edge[type = "PROTECTS"]', style: { "line-color": "#6d932f", "target-arrow-color": "#6d932f" } },
       { selector: 'edge[type = "FILED_BY"]', style: { "line-color": "#475569", "target-arrow-color": "#475569" } },
-      { selector: "edge.edge-active", style: { label: "data(label)", width: 2.1, opacity: 1, color: "#344054", "font-size": 8, "font-weight": 650, "text-rotation": "autorotate", "text-background-color": "#ffffff", "text-background-opacity": 0.96, "text-background-padding": 2, "text-margin-y": -7, "z-index": 8 } },
+      { selector: "edge.corridor-edge", style: { "curve-style": "taxi", "taxi-direction": "rightward", "taxi-turn": "50%", "taxi-radius": 5, opacity: 0.58 } },
+      { selector: "edge.edge-active", style: { label: "data(label)", width: 2.1, opacity: 1, color: "#344054", "font-size": 8, "font-weight": 600, "text-rotation": "autorotate", "text-background-color": "#ffffff", "text-background-opacity": 0.96, "text-background-padding": 2, "text-margin-y": -7, "z-index": 8 } },
+      { selector: "edge.incoming-active", style: { "line-color": "#287f8f", "target-arrow-color": "#287f8f" } },
+      { selector: "edge.outgoing-active", style: { "line-color": "#c46a2b", "target-arrow-color": "#c46a2b" } },
       { selector: "node:selected", style: { "border-color": "#101a2d", "border-width": 4, "underlay-color": "#2f66d0", "underlay-opacity": 0.16, "underlay-padding": 7 } },
       { selector: "edge:selected", style: { width: 2.4, opacity: 1, "overlay-color": "#2f66d0", "overlay-opacity": 0.08 } },
       { selector: ".faded", style: { opacity: 0.11, "text-opacity": 0.08 } },
@@ -1540,8 +1795,9 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     } else if (eligibleNodes.has(state.focus)) {
       seedIds = [state.focus];
     }
+    const explorationDepth = state.localFocus ? 1 : state.depth;
     let selected = seedIds.length
-      ? collectNeighborhood(seedIds, state.depth, eligibleNodes, eligibleEdges)
+      ? collectNeighborhood(seedIds, explorationDepth, eligibleNodes, eligibleEdges)
       : new Set(eligibleNodes);
 
     const limit = Number(DATA.meta.visible_node_limit || 80);
@@ -1606,29 +1862,31 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     const lanes = preset?.lanes || [];
     const width = Math.max(cy.width(), 640);
     const height = Math.max(cy.height(), 600);
-    const maxRows = Math.max(6, Math.floor((height - 180) / 54));
-    const columnGap = 126;
-    const laneGap = 54;
-    const top = 124;
+    const maxRows = Math.max(5, Math.floor((height - 210) / 64));
+    const horizontalPadding = 36;
+    const laneWidth = (width - horizontalPadding * 2) / Math.max(lanes.length, 1);
+    const top = 132;
+    const bottom = 60;
     const positions = new Map();
-    let cursorX = 72;
 
-    lanes.forEach((lane) => {
+    lanes.forEach((lane, laneIndex) => {
       const laneTypes = new Set(lane.node_types || []);
       const laneNodes = cy.nodes()
         .filter((node) => laneTypes.has(node.data("type")))
         .sort((left, right) => String(left.data("label")).localeCompare(String(right.data("label"))));
       const columnCount = Math.max(1, Math.ceil(laneNodes.length / maxRows));
+      const innerWidth = Math.max(laneWidth - 20, 40);
+      const columnWidth = innerWidth / columnCount;
       laneNodes.forEach((node, nodeIndex) => {
         const column = Math.floor(nodeIndex / maxRows);
         const row = nodeIndex % maxRows;
         const rowsInColumn = Math.min(maxRows, laneNodes.length - column * maxRows);
-        const rowGap = Math.min(58, (height - top - 60) / Math.max(rowsInColumn - 1, 1));
+        const rowGap = Math.min(68, (height - top - bottom) / Math.max(rowsInColumn - 1, 1));
         const blockHeight = rowGap * Math.max(rowsInColumn - 1, 0);
-        const y = top + (height - top - 60 - blockHeight) / 2 + row * rowGap;
-        positions.set(node.id(), { x: cursorX + column * columnGap, y });
+        const y = top + (height - top - bottom - blockHeight) / 2 + row * rowGap;
+        const x = horizontalPadding + laneIndex * laneWidth + 10 + columnWidth * (column + 0.5);
+        positions.set(node.id(), { x, y });
       });
-      cursorX += columnCount * columnGap + laneGap;
     });
     return (node) => positions.get(node.id()) || { x: width / 2, y: height / 2 };
   }
@@ -1657,27 +1915,32 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     container.hidden = !lanes.length;
     container.textContent = "";
     if (!lanes.length) return;
-    const maxRows = Math.max(6, Math.floor((Math.max(cy.height(), 600) - 180) / 54));
-    const laneWeights = [];
-    lanes.forEach((lane) => {
+    lanes.forEach((lane, laneIndex) => {
       const laneTypes = new Set(lane.node_types || []);
       const count = view.nodes.filter((node) => laneTypes.has(node.type)).length;
-      laneWeights.push(Math.max(1, Math.ceil(count / maxRows)));
       const item = document.createElement("span");
+      const step = document.createElement("i");
       const label = document.createElement("b");
       const total = document.createElement("small");
+      step.className = "lane-step";
+      step.textContent = String(laneIndex + 1).padStart(2, "0");
       label.textContent = lane.label;
       total.textContent = `${count} 个节点`;
-      item.append(label, total);
+      item.append(step, label, total);
       container.append(item);
     });
-    container.style.gridTemplateColumns = laneWeights.map((weight) => `minmax(0, ${weight}fr)`).join(" ");
+    container.style.gridTemplateColumns = `repeat(${lanes.length}, minmax(0, 1fr))`;
+  }
+
+  function activateNodeEdges(node) {
+    cy.edges().removeClass("edge-active incoming-active outgoing-active");
+    if (!node.length) return;
+    node.incomers("edge").addClass("edge-active incoming-active");
+    node.outgoers("edge").addClass("edge-active outgoing-active");
   }
 
   function activateFocusEdges() {
-    cy.edges().removeClass("edge-active");
-    const focus = cy.getElementById(state.focus);
-    if (focus.length) focus.connectedEdges().addClass("edge-active");
+    activateNodeEdges(cy.getElementById(state.focus));
   }
 
   function renderGraph() {
@@ -1686,6 +1949,10 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     state.visibleEdgeIds = new Set(view.edges.map((edge) => edge.id));
     cy.elements().remove();
     cy.add(cytoscapeElements(view));
+    if (state.preset === "technology") {
+      cy.nodes().addClass("corridor-node");
+      cy.edges().addClass("corridor-edge");
+    }
     renderTechnologyLanes(view);
     if (cy.nodes().length) {
       runLayout();
@@ -1701,7 +1968,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     limitBanner.textContent = view.truncated
       ? `当前视图符合条件的节点为 ${view.totalEligible} 个；为保持可读性，仅显示优先级最高的 ${view.nodes.length} 个。请搜索、缩小类型或选择节点。`
       : "";
-    byId("visible-count").textContent = `${view.nodes.length} 节点 · ${view.edges.length} 关系`;
+    byId("visible-count").textContent = `${state.localFocus ? "局部 · " : ""}${view.nodes.length} 节点 · ${view.edges.length} 关系`;
     byId("graph-status").textContent = `图谱已更新，显示 ${view.nodes.length} 个节点和 ${view.edges.length} 条关系。`;
     renderRelationTable(view.edges);
     renderInspector();
@@ -1897,12 +2164,20 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     next.set("view", state.preset);
     next.set("depth", String(state.depth));
     if (state.query) next.set("q", state.query);
+    if (state.localFocus) next.set("local", "1");
     history.replaceState(null, "", `${window.location.pathname}?${next.toString()}${window.location.hash}`);
   }
 
-  function selectNode(nodeId) {
+  function selectNode(nodeId, options = {}) {
     const node = nodesById.get(nodeId);
     if (!node) return;
+    const recordHistory = options.recordHistory ?? true;
+    const openInspector = options.openInspector ?? true;
+    if (recordHistory && state.focusHistory[state.focusIndex] !== nodeId) {
+      state.focusHistory = state.focusHistory.slice(0, state.focusIndex + 1);
+      state.focusHistory.push(nodeId);
+      state.focusIndex = state.focusHistory.length - 1;
+    }
     state.focus = nodeId;
     state.query = "";
     byId("graph-search").value = "";
@@ -1910,6 +2185,8 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     incidentEdges(nodeId).forEach((edge) => state.relationTypes.add(edge.type));
     renderFilters();
     renderGraph();
+    updateFocusNavigation();
+    if (openInspector) setPanelState("inspector", true);
   }
 
   function renderSearchResults() {
@@ -1945,9 +2222,17 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     state.focus = DATA.meta.default_focus;
     state.query = "";
     state.tab = "overview";
+    state.focusHistory = [state.focus];
+    state.focusIndex = 0;
+    state.localFocus = false;
     byId("graph-search").value = "";
+    byId("focus-neighborhood").setAttribute("aria-pressed", "false");
     configurePreset("technology", true);
     renderGraph();
+    updateFocusNavigation();
+    setPanelState("filter", false);
+    setPanelState("inspector", false);
+    setPanelState("ledger", false);
   }
 
   let searchTimer;
@@ -1981,6 +2266,20 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
   byId("layout-button").addEventListener("click", runLayout);
   byId("reset-button").addEventListener("click", resetView);
   byId("export-button").addEventListener("click", exportVisible);
+  byId("layer-toggle").addEventListener("click", () => setPanelState("filter", !state.filterOpen));
+  byId("filter-close").addEventListener("click", () => setPanelState("filter", false));
+  byId("inspector-toggle").addEventListener("click", () => setPanelState("inspector", !state.inspectorOpen));
+  byId("inspector-close").addEventListener("click", () => setPanelState("inspector", false));
+  byId("ledger-toggle").addEventListener("click", () => setPanelState("ledger", !state.ledgerOpen));
+  byId("ledger-close").addEventListener("click", () => setPanelState("ledger", false));
+  byId("focus-back").addEventListener("click", () => navigateFocusHistory(-1));
+  byId("focus-forward").addEventListener("click", () => navigateFocusHistory(1));
+  byId("focus-neighborhood").setAttribute("aria-pressed", String(state.localFocus));
+  byId("focus-neighborhood").addEventListener("click", (event) => {
+    state.localFocus = !state.localFocus;
+    event.currentTarget.setAttribute("aria-pressed", String(state.localFocus));
+    renderGraph();
+  });
   byId("select-all-nodes").addEventListener("click", () => {
     state.nodeTypes = new Set(DATA.facets.node_types.map((row) => row.value));
     renderFilters();
@@ -2006,7 +2305,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     const neighborhood = event.target.closedNeighborhood();
     cy.elements().addClass("faded");
     neighborhood.removeClass("faded");
-    event.target.connectedEdges().addClass("edge-active");
+    activateNodeEdges(event.target);
   });
   cy.on("mouseout", "node", () => {
     cy.elements().removeClass("faded");
@@ -2019,6 +2318,11 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
       event.preventDefault();
       byId("graph-search").focus();
+    }
+    if (event.key === "Escape") {
+      if (state.ledgerOpen) setPanelState("ledger", false);
+      else if (state.inspectorOpen) setPanelState("inspector", false);
+      else if (state.filterOpen) setPanelState("filter", false);
     }
   });
 
@@ -2033,6 +2337,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
   renderLegend();
   renderSearchResults();
   renderGraph();
+  updateFocusNavigation();
 })();
 </script>
 </body>
