@@ -6,16 +6,18 @@
 
 ![医药专利与技术路线分析 Skill 使用流程](assets/patent-skill-workflow.png)
 
-## 能做什么
+## 📋 能做什么
 
 - 以分子、靶点、机制、适应症、申请人或技术主题为入口建立可复用检索词矩阵；
 - 按 DOCDB simple family 去重，并以 INPADOC extended family 扩展技术关联；
 - 抽取独立权利要求的对象、结构/组成、功能、给药方法、结果限定与法域状态；
 - 将专利保护路线与研发/临床事实路线分层呈现；
 - 生成专利族地图、权利要求要素矩阵、风险/FTO 初筛、创新空间假设和证据链；
-- 输出 Markdown、CSV、SVG、交互式 HTML，以及可选的 DOCX FTO 风格报告。
+- 从当前案例自动生成多轮 FTO 检索计划，并支持中英文别名、同义词和翻译词的透明匹配；
+- 对公开来源执行只读检索审计，区分已提交查询、需浏览器人工操作和未映射入口；
+- 输出 Markdown、CSV、SVG、交互式 HTML、离线知识图谱、可复现性检查结果，以及可选的 DOCX FTO 风格报告。
 
-## 安装与目录
+## 🔧 安装与目录
 
 ```bash
 git clone https://github.com/lsq2020/Patent_skill.git
@@ -35,17 +37,19 @@ python3 -m pip install -r requirements.txt
 SKILL.md                         # 完整方法规范与质量门槛
 scripts/                         # 初始化、校验、报告与可视化脚本
 references/                      # 专利族、状态、FTO、可视化与来源说明
+assets/graph-viewer/             # 离线知识图谱的前端资源
 cases/                           # 可复核的完整示例案例
 ├── durvalumab-pdl1-nsclc/       # 度伐利尤单抗 / PD-L1 / NSCLC 案例
 ├── tfr1_patent_case/            # TfR1 专利分析案例
 └── GLP1R_patent_case/           # GLP-1R 激动剂类别专利景观
 agents/openai.yaml               # Agent 界面元数据
+tests/                           # 输出契约、图谱与报告联动测试
 ```
 
 > [!IMPORTANT]
 > **外网访问是完整专利检索的前提。** 请先配置可用的 VPN 或网络代理，以访问 Google Patents、WIPO、EPO、USPTO 等外部数据库；未配置或网络受限时，可能无法打开、下载或检索专利全文，导致结果存在漏检。若 Google Patents 无法直接访问，可通过 Jina Reader 的只读镜像获取公开页面文本，例如将原始 URL 包装为 `https://r.jina.ai/http://patents.google.com/patent/<document>/en`；镜像内容仅用于发现和文本提取，法律状态及关键权利要求仍须以官方来源或原始公开文本复核。
 
-## 快速开始
+## 🚀 快速开始
 
 以下示例创建一个新的案例目录。案例目录可以放在仓库外，也可以放在 `cases/` 下；本文用 `cases/demo` 表示。
 
@@ -78,11 +82,28 @@ cases/demo/
 
 在检索前，先人工确认 `identity.json` 中的标准名称、别名、研发代号、盐型/晶型及同名实体。缺少该步骤时，检索召回和误命中都会明显变差。
 
-## 推荐工作流
+## ⚙️ 推荐工作流
 
-```text
-确定范围 → 实体消歧 → 检索与来源记录 → 族归并与 claim 抽取
-→ 法律状态核验 → FTO 初筛/技术路线 → 校验、图表和模块化报告
+```mermaid
+flowchart LR
+    accTitle: Patent Skill Analysis Flow
+    accDescr: A case moves from scope and entity resolution through evidence collection and patent analysis to modular reports, visual pages, and an auditable knowledge graph.
+
+    scope[📋 定义范围] --> identity[🔍 实体消歧]
+    identity --> search[🌐 检索与来源记录]
+    search --> patent[⚙️ 专利族与 Claim 抽取]
+    patent --> review[🔍 状态核验与 FTO 初筛]
+    review --> reports[📚 模块化报告]
+    reports --> visuals[📊 统计网页与知识图谱]
+    visuals --> audit[✅ Schema 与可复现性检查]
+
+    classDef process fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a5f
+    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    classDef review_style fill:#fef9c3,stroke:#ca8a04,stroke-width:2px,color:#713f12
+
+    class scope,identity,search,patent process
+    class review review_style
+    class reports,visuals,audit output
 ```
 
 1. 定义范围：记录研究对象、目的、法域、截至日期、技术主题和分析深度。
@@ -93,7 +114,7 @@ cases/demo/
 6. 状态核验：法律状态始终写成“截至某日期，在某法域的官方记录显示……”。聚合数据库只作线索。
 7. 交付：用结构化 CSV/JSON 驱动报告和图表，保留证据定位、抓取日期和未解决问题。
 
-## 数据输入约定
+## 💾 数据输入约定
 
 初始化后，以下文件是后续脚本的核心输入：
 
@@ -109,7 +130,7 @@ cases/demo/
 
 最低字段和示例见 [SKILL.md](SKILL.md) 与示例目录 [`cases/durvalumab-pdl1-nsclc/`](cases/durvalumab-pdl1-nsclc/)。建议每条核心结论均能回溯到 `family_id`、文献号及 claim/事件位置。
 
-## 常用命令
+## 📚 常用命令
 
 ### 1. 构建检索矩阵与来源日志
 
@@ -164,15 +185,23 @@ python3 scripts/build_fto_dashboard.py --project-dir cases/demo
 python3 scripts/build_fto_docx.py --project-dir cases/demo
 ```
 
-### 5. 生成模块化报告与可视化
+### 5. 生成最终报告、统计网页与知识图谱
 
 ```bash
 python3 scripts/build_modular_reports.py --project-dir cases/demo
-python3 scripts/build_report_visuals.py --project-dir cases/demo
-python3 scripts/build_report_pages.py --project-dir cases/demo
 ```
 
-`build_modular_reports.py` 会在每次运行时同步重建 SVG 统计图、模块 HTML 页面、`case-output.json`、图谱数据与离线知识图谱页面；单独执行后两条命令适用于只重建某一可视化产物。
+`build_modular_reports.py` 是推荐的最终交付命令。它会在每次运行时同步重建模块 Markdown、SVG 统计图、模块 HTML 页面、`case-output.json`、图谱数据与离线知识图谱页面。
+
+如只需重建单项产物，可分别运行：
+
+```bash
+python3 scripts/build_report_visuals.py --project-dir cases/demo
+python3 scripts/build_report_pages.py --project-dir cases/demo
+python3 scripts/build_case_output.py --project-dir cases/demo
+python3 scripts/build_graph_data.py --project-dir cases/demo
+python3 scripts/build_knowledge_graph.py --project-dir cases/demo
+```
 
 ### 6. 公开来源检索与可复现性检查
 
@@ -186,9 +215,9 @@ python3 scripts/run_reproducibility.py --project-dir cases/demo --runs 3
 
 公开来源执行台账仅记录访问和检索动作；专利族、权利要求和法律状态仍需按本 Skill 的证据规则复核。
 
-## 输出说明
+## 📦 最终交付物与报告说明
 
-完成标准分析后，案例目录通常包含：
+完成标准分析后，案例目录通常包含以下可独立阅读、可交叉核验的结果：
 
 ```text
 00-executive-summary.md           # 执行摘要、关键风险、最大缺口
@@ -200,13 +229,39 @@ python3 scripts/run_reproducibility.py --project-dir cases/demo --runs 3
 06-evidence-chain-report.md       # 事实、推断、来源和置信度
 07-source-catalog-report.md       # 来源目录和访问限制
 report-index.md / report-index.html
-report-visuals.html
+report-visuals.html              # 统计总览网页
+case-output.json                 # 机器可读的统一交付契约
+graph-data.json / graph-quality.json
+knowledge-graph.html             # 离线专利—证据双链图
 visuals/                           # SVG 图表和统计口径 manifest
+fto-search-plan.* / fto-candidate-ranking.*  # 需要 FTO 时生成
+fto-screening-report.docx        # 可选的正式 FTO 初筛报告
+public-source-search-results.*   # 需要公开来源执行时生成
+reproducibility-report.json      # 需要重复运行检查时生成
 ```
 
 示例报告入口：[`cases/durvalumab-pdl1-nsclc/report-index.md`](cases/durvalumab-pdl1-nsclc/report-index.md)。
 
-## TfR1 案例：生成结果说明
+### 最终报告包含什么
+
+| 交付物 | 内容 | 适合回答的问题 |
+| --- | --- | --- |
+| `report-index.html` | 所有报告、图表、结构化数据和图谱入口 | 从哪里开始阅读当前案例？ |
+| `00-executive-summary` | 范围、关键发现、风险信号、最大证据缺口 | 当前最值得关注什么？ |
+| `01-extraction-report` | Claim 要素、结构/功能/用途、申请人与时间线 | 专利到底披露或主张了什么？ |
+| `02-patent-family-map-report` | 专利族、优先权、分支、法域和主题布局 | 哪些文件属于同一保护布局？ |
+| `03-technology-roadmap-report` | 专利保护路线与研发事实路线 | 技术如何演化，竞争布局在哪里？ |
+| `04-risk-and-fto-report` | 技术特征比对、候选排序、状态信号和 claim chart 动作 | 哪些专利族应优先复核？ |
+| `05-innovation-space-report` | 已有边界、缺口、反例和验证动作 | 下一步可验证的创新假设是什么？ |
+| `06-evidence-chain-report` | 事实/推断、来源、定位、置信度和复核动作 | 每条关键结论如何回溯？ |
+| `07-source-catalog-report` | 数据库角色、访问限制和来源路由 | 应从哪些来源补证据？ |
+| `report-visuals.html` | 技术主题、法域、状态、优先权、风险与证据的统计图 | 数据分布和缺口集中在哪里？ |
+| `knowledge-graph.html` | 专利族、文献、Claim、Finding 与来源的关系网络 | 一条结论依赖哪些专利与证据？ |
+| `case-output.json` | 稳定 ID、关系边、指标、不确定性和产物清单 | 如何在其他工具或自动化中复用结果？ |
+
+> 📌 **阅读建议：** 先在 `report-index.html` 确认案例范围，再阅读执行摘要、专利族地图和权利要求抽取；涉及实施、许可或争议时，使用风险/FTO 报告与证据链回到目标法域的完整独立权利要求和官方法律状态。
+
+## 🔍 TfR1 案例：生成结果说明
 
 仓库中的 [`cases/tfr1_patent_case/`](cases/tfr1_patent_case/) 是一个完整的 TfR1（Transferrin Receptor 1）案例。入口页面 [`report-index.html`](cases/tfr1_patent_case/report-index.html) 把报告模块、结构化数据和统计看板聚合为可复核的工作台。
 
@@ -228,7 +283,7 @@ visuals/                           # SVG 图表和统计口径 manifest
 
 使用时，建议从“执行摘要”确认边界，再进入“专利族地图”和“权利要求与要素抽取”；涉及实施、许可、开发或争议决策时，回到“风险 / FTO”和“证据链”核对目标法域的官方文本、完整独立权利要求和法律事件。
 
-## 证据与法律状态规则
+## 🛡️ 证据与法律状态规则
 
 - **E1**：目标法域官方登记簿、审查档案、法律事件；
 - **E2**：专利公开文本中的权利要求、说明书、摘要、图式；
@@ -238,7 +293,7 @@ visuals/                           # SVG 图表和统计口径 manifest
 
 请使用相应表达：E1/E2 可描述为“官方记录显示”或“权利要求 X 明确包含”；E3/E4 仅作交叉佐证；E5 必须标为假设，并说明搜索边界和可能反例。对尚无可靠官方记录的法域，状态应写为“待核验”。
 
-## 作为 Agent Skill 使用
+## 🤖 作为 Agent Skill 使用
 
 项目主技能名称为 `medtech-patent-roadmap`。可使用如下任务描述启动分析：
 
@@ -246,7 +301,7 @@ visuals/                           # SVG 图表和统计口径 manifest
 
 完整方法、来源清单、数据字段、质量门槛与边界条件见 [SKILL.md](SKILL.md)。
 
-## 贡献与复现
+## 🔄 贡献与复现
 
 - 不提交 API 密钥、Cookie、私有数据库导出、受限全文或未脱敏的内部材料；
 - 对新增数据保留来源 URL、访问日期、检索式、文献定位和法域；
@@ -254,7 +309,7 @@ visuals/                           # SVG 图表和统计口径 manifest
 - 提交前运行 `python3 scripts/validate_case.py --project-dir <case-dir>`；
 - 生成的结论应明确区分事实、交叉证据和推断。
 
-## 许可证
+## 📌 许可证
 
 本项目采用 [MIT License](LICENSE)。你可以在许可证条款允许的范围内使用、复制、修改、分发和再授权本项目的代码与文档，并须保留版权和许可证声明。
 
