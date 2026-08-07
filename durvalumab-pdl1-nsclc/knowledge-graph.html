@@ -2502,7 +2502,12 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     causal_concept: 26,
     source: 12,
   };
-  const GRAPH_LABEL_MIN_RENDERED_SIZE = 6.5;
+  const GRAPH_LABEL_HIDE_ZOOM = 0.68;
+  const GRAPH_LABEL_DETAIL_ZOOM = 0.92;
+  const GRAPH_NODE_SCALE_MIN = 0.78;
+  const GRAPH_NODE_SCALE_MAX = 1.24;
+  const GRAPH_FONT_SCALE_MIN = 0.74;
+  const GRAPH_FONT_SCALE_MAX = 1.18;
 
   const cy = cytoscape({
     container: byId("graph-canvas"),
@@ -2532,7 +2537,6 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
           "font-size": 9,
           "font-weight": 500,
           "line-height": 1.22,
-          "min-zoomed-font-size": GRAPH_LABEL_MIN_RENDERED_SIZE,
           "text-background-color": "#1a1c1e",
           "text-background-opacity": 0,
           "text-background-padding": 2,
@@ -2575,7 +2579,6 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
           "target-arrow-shape": "none",
           "arrow-scale": 0.62,
           "curve-style": "bezier",
-          "min-zoomed-font-size": GRAPH_LABEL_MIN_RENDERED_SIZE,
           opacity: 0.34,
         },
       },
@@ -2600,6 +2603,9 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
       { selector: "node:selected", style: { "border-color": "#f0ede7", "border-width": 2.4, "underlay-color": "#d9dde1", "underlay-opacity": 0.13, "underlay-padding": 9, "z-index": 999, "z-index-compare": "manual" } },
       { selector: "edge:selected", style: { width: 2.2, opacity: 1, "overlay-color": "#d9dde1", "overlay-opacity": 0.06 } },
       { selector: ".faded", style: { opacity: 0.07, "text-opacity": 0.04 } },
+      { selector: "node.semantic-zoom", style: { width: "data(semanticNodeSize)", height: "data(semanticNodeSize)", "font-size": "data(semanticFontSize)", "text-margin-y": "data(semanticTextOffset)" } },
+      { selector: "node.semantic-label-hidden", style: { label: "", "text-opacity": 0, "text-outline-opacity": 0 } },
+      { selector: "edge.semantic-label-hidden", style: { label: "", "text-opacity": 0 } },
     ],
   });
 
@@ -2632,6 +2638,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
   let physicsStillMoving = false;
   let draggedNodeId = "";
   let lastDragSample = null;
+  let semanticZoomFrame = 0;
   let lastWaveEmission = 0;
   let depthTapCycle = null;
   let motionCenter = { x: 0, y: 0 };
@@ -2936,6 +2943,37 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
 
   function updateZoomLevel() {
     byId("zoom-level").textContent = `${Math.round(cy.zoom() * 100)}%`;
+  }
+
+  function applySemanticZoom() {
+    semanticZoomFrame = 0;
+    const zoom = cy.zoom();
+    const nodeScale = clamp(0.66 + (zoom * 0.34), GRAPH_NODE_SCALE_MIN, GRAPH_NODE_SCALE_MAX);
+    const fontScale = clamp(0.64 + (zoom * 0.36), GRAPH_FONT_SCALE_MIN, GRAPH_FONT_SCALE_MAX);
+    const hideAllLabels = zoom < GRAPH_LABEL_HIDE_ZOOM;
+    const showPriorityLabelsOnly = zoom < GRAPH_LABEL_DETAIL_ZOOM;
+    cy.batch(() => {
+      cy.nodes().forEach((node) => {
+        const baseNodeSize = Number(node.data("galaxyNodeSize")) || nodeBaseSizes[node.data("type")] || 15;
+        const baseFontSize = Number(node.data("galaxyFontSize")) || 9;
+        const baseTextOffset = Number(node.data("galaxyTextOffset")) || 7;
+        const isPriorityLabel = node.id() === state.focus
+          || node.selected()
+          || Number(node.data("degreeCentrality") || 0) >= 0.56;
+        node.data({
+          semanticNodeSize: Number((baseNodeSize * nodeScale).toFixed(2)),
+          semanticFontSize: Number((baseFontSize * fontScale).toFixed(2)),
+          semanticTextOffset: Number((baseTextOffset * nodeScale).toFixed(2)),
+        });
+        node.toggleClass("semantic-label-hidden", hideAllLabels || (showPriorityLabelsOnly && !isPriorityLabel));
+      });
+      cy.edges().toggleClass("semantic-label-hidden", showPriorityLabelsOnly);
+    });
+  }
+
+  function scheduleSemanticZoom() {
+    if (semanticZoomFrame) return;
+    semanticZoomFrame = window.requestAnimationFrame(applySemanticZoom);
   }
 
   function updateGalaxyStats(timestamp = performance.now(), sampleFrame = false) {
@@ -3496,6 +3534,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     }
     rebuildStarTrailCache();
     syncGalaxyControls();
+    scheduleSemanticZoom();
     lastStarTrailFrame = 0;
     renderStarTrails(performance.now());
   }
@@ -3708,6 +3747,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     cy.nodes().addClass("editorial-node");
     cy.nodes().addClass("depth-aware");
     cy.nodes().addClass("galaxy-node");
+    cy.nodes().addClass("semantic-zoom");
     cy.edges().addClass("depth-aware");
     cy.edges().addClass("galaxy-edge");
     applyGalaxyAppearance();
@@ -3952,6 +3992,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
       cy.nodes().unselect();
       graphNode.select();
       activateFocusEdges();
+      scheduleSemanticZoom();
       renderInspector();
       updateUrl();
       flyCameraToNode(graphNode);
@@ -4292,6 +4333,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
       captureCruiseBaseline();
     }
     updateZoomLevel();
+    scheduleSemanticZoom();
   });
   cy.on("pan", (event) => {
     depthTapCycle = null;
