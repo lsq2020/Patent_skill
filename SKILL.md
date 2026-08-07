@@ -1,6 +1,6 @@
 ---
 name: medtech-patent-roadmap
-description: 对小分子、靶点、适应症及其组合开展可复核的医药专利检索、专利族归并、权利要求/结构/申请人/时间线抽取、法律状态核验、技术路线、FTO 风险和创新空间分析，并分别生成抽取报告、专利族地图报告、技术路线图报告、风险与 FTO 报告、创新空间假设报告、证据链报告和来源目录报告，同时生成 WIPO 风格的专利景观图、交互式/静态数据可视化、结构化数据和可组装的正式报告。用户要求“查某个分子/靶点/适应症的专利”“做专利地图”“看技术路线”“找空白点”“评估专利风险”或需要中美/全球医药专利分析时使用。不得将本 Skill 的结果表述为法律意见、侵权结论或可直接用于申报/诉讼的结论。
+description: 对小分子、靶点、适应症及其组合开展可复核的医药专利检索、专利族归并、权利要求/结构/申请人/时间线抽取、法律状态核验、技术路线、FTO 风险和创新空间分析，并分别生成抽取报告、专利族地图报告、技术路线图报告、风险与 FTO 报告、创新空间假设报告、证据链报告和来源目录报告，同时生成 WIPO 风格的专利景观图、Obsidian 式专利证据双链图、交互式/静态数据可视化、结构化数据和可组装的正式报告。用户要求“查某个分子/靶点/适应症的专利”“做专利地图”“看技术路线”“找空白点”“评估专利风险”或需要中美/全球医药专利分析时使用。不得将本 Skill 的结果表述为法律意见、侵权结论或可直接用于申报/诉讼的结论。
 ---
 
 # 医药专利与技术路线分析
@@ -17,7 +17,7 @@ description: 对小分子、靶点、适应症及其组合开展可复核的医�
 
 `输入范围 → 检索与证据 → 专利族/权利要求 → 法律状态/技术路线 → 可视化与交付`
 
-先确认研究对象、法域、截至日期和技术范围；再选择快速扫描、标准分析或深度复核级别。需要可视化时，优先产出“总览 + 时间线 + 专利族关系 + 技术路线 + 可追溯明细”，不要只画没有证据链接的装饰图。具体族判断规则见 [references/family-and-status.md](references/family-and-status.md)，可视化字段和页面结构见 [references/landscape-visualization.md](references/landscape-visualization.md)。
+先确认研究对象、法域、截至日期和技术范围；再选择快速扫描、标准分析或深度复核级别。需要可视化时，优先产出“总览 + 时间线 + 专利族关系 + 技术路线 + 可追溯明细”，不要只画没有证据链接的装饰图。具体族判断规则见 [references/family-and-status.md](references/family-and-status.md)，景观字段和页面结构见 [references/landscape-visualization.md](references/landscape-visualization.md)，双链图的数据契约与交互规则见 [references/knowledge-graph.md](references/knowledge-graph.md)。
 
 借鉴结构化药物情报 Skill 时，采用“实体消歧 → 核心检索 → 关系扩展 → 缺口补检 → 分段写作 → 统一组装”的编排方式。可迁移模式、可选富集源和边界见 [references/enrichment-and-orchestration.md](references/enrichment-and-orchestration.md)。
 
@@ -257,6 +257,7 @@ scripts/build_fto_dashboard.py --project-dir <case-dir>
 7. `06-evidence-chain-report.md`：事实、推断、来源、claim/事件定位、抓取时间、置信度、复核动作和证据缺口；
 8. `07-source-catalog-report.md`：来源目录、来源角色、访问限制、上游快照和完整 URL 清单；
 9. `report-index.md`：所有模块报告和过程数据入口；同时生成 `report-index.html` 作为 FTO 风格工作台。
+10. `knowledge-graph.html`：离线 Cytoscape.js 双链图，可从 family/claim 回溯 finding/source，并查看出链、反向链接和数据质量缺口。
 
 每个模块页面统一采用 FTO 式信息架构：案例范围与免责声明 → 顶部数据指标 → 左侧模块导航 → 分段正文/表格 → 统计图 → 证据和限制。图表必须由当前案例 CSV/JSON 自动生成，并在页面或报告中给出统计口径；不得用估算数填充。
 
@@ -276,6 +277,12 @@ scripts/build_fto_dashboard.py --project-dir <case-dir>
 推荐默认使用“技术景观图 + 保护层级矩阵 + 优先权时间泳道 + CN/US 法域矩阵 + 选中族详情”组合视图：它比单一时间线或国家数量柱状图更适合回答“谁保护了什么、何时布局、目标法域是否出现成员、证据在哪里”。可参考 WIPO 的 [COVID-19 vaccines and therapeutics patent landscape](https://www.wipo.int/en/web/patent-analytics/patent-landscape-on-covid-19-vaccines-and-therapeutics)，但只借鉴信息架构，不复制其数据或实现。
 
 静态结构使用 Mermaid 或 Markdown 图表；需要筛选、点击、钻取时生成独立 HTML；需要比赛答辩时同时生成 PPT/PNG 或 PDF 版本。图中每个关键节点必须绑定 `family_id` 或 `finding_id`，并能够回到专利号、claim/事件位置和来源链接。可视化字段参见 [references/landscape-visualization.md](references/landscape-visualization.md)。
+
+### 专利证据双链图
+
+构建双链图前必须先运行 `build_case_output.py`，使 claim 获得稳定 `claim_id`，evidence 获得 `family_ids` / `claim_ids`，并把族成员、优先权和连续关系转换为一等关系边。随后运行 `build_graph_data.py` 和 `build_knowledge_graph.py`。边只存一次，反向链接由视图按入边计算；显式事实、规则匹配和模型推断分别使用实线、虚线和点线。
+
+默认提供专利族、技术保护、证据链和申请人四个预设；默认只展开焦点节点一跳，并限制可见节点数量。族间 `priority`、`national phase`、`divisional`、`continuation` 只能来自结构化字段或证据，不从 notes 猜测。完整字段见 [references/output-schema.md](references/output-schema.md)，图谱规则见 [references/knowledge-graph.md](references/knowledge-graph.md)。
 
 ### FTO 风格统计可视化
 
@@ -353,6 +360,10 @@ outputs/<skill-name>/
 ├── report-index.md                  # 模块化报告索引（需要时）
 ├── report-index.html                # FTO 风格模块报告工作台（需要时）
 ├── report-visuals.html              # FTO 风格统计总览（需要时）
+├── case-output.json                 # 稳定 ID、记录与一等关系边（需要时）
+├── graph-data.json                  # Cytoscape.js 图数据（需要时）
+├── graph-quality.json               # 缺失关系、孤立证据和悬空边检查（需要时）
+├── knowledge-graph.html             # 离线专利证据双链图（需要时）
 ├── 00-executive-summary.html        # 独立模块页面（需要时）
 ├── 01-extraction-report.html        # 独立模块页面（需要时）
 ├── 02-patent-family-map-report.html # 独立模块页面（需要时）
@@ -388,6 +399,11 @@ outputs/<skill-name>/
 - `build_modular_reports.py`：从族、claim、证据、FTO 排名、检索计划和来源目录生成独立抽取/族地图/路线/风险/FTO/创新/证据链/来源报告，并更新 `state.json` 的模块状态。
 - `build_report_visuals.py`：从案例 CSV/JSON 生成可嵌入 Markdown 的 SVG 统计图、`visuals/manifest.json` 和 FTO 风格 `report-visuals.html`。
 - `build_report_pages.py`：把独立 Markdown 报告渲染成带 FTO 式导航、指标卡、免责声明和图表的 HTML 页面；通常由 `build_modular_reports.py` 自动调用。
+- `build_case_output.py`：统一案例记录，生成稳定 `claim_id`、文献记录、family/claim→finding 双链和显式专利族关系边。
+- `validate_output_schema.py`：检查 `case-output.json` 的字段、ID 唯一性、关系口径和悬空边。
+- `build_graph_data.py`：从 `case-output.json` 生成 Cytoscape-ready `graph-data.json` 与 `graph-quality.json`。
+- `validate_graph_data.py`：检查图节点/边 ID、悬空边、计数和预设。
+- `build_knowledge_graph.py`：内嵌 Cytoscape.js、图数据和交互组件，生成无需服务器或 CDN 的 `knowledge-graph.html`。
 
 这些脚本不连接智慧芽或任何私有数据库；可选结构化数据库应通过外部连接器提供标准化 JSON，再由上述校验、缺口分析和可视化组件消费。
 
@@ -412,6 +428,8 @@ outputs/<skill-name>/
 - 是否记录了来源目录快照日期/哈希、访问日期、结果数量和访问限制，未把不可访问或过时链接写成已检索事实。
 - 是否生成了独立抽取报告和每个 Skill 输出模块报告；抽取、族图、路线、风险/FTO、创新空间和证据链是否分别可读、互相可回溯；
 - 技术路线图是否区分研发事实与专利保护，风险/FTO 是否列出完整命中特征、部分命中特征、法域状态和下一步 claim chart，创新空间是否逐项写出反例与验证动作。
+- 是否生成稳定且唯一的 `claim_id`；finding 是否通过显式 ID 或可复核规则回链到 family/claim；图谱是否无悬空边。
+- 专利族连续关系是否来自 `members`、`priority_set`、`family_relations` 或相应证据；缺失时是否在 `graph-quality.json` 报告，而不是从 notes 猜造。
 
 若无法满足上述门槛，降低报告级别为“快速扫描”，并在执行摘要中直说限制，不要用更强的措辞掩盖证据不足。
 
@@ -429,8 +447,9 @@ outputs/<skill-name>/
 2. `document`：公开号、标题、摘要、claims、申请人、日期、分类号和源链接；
 3. `family`：族口径、优先权链、成员、分案/继续关系；
 4. `legal_event`：法域、事件日期、事件代码、来源和状态快照；
-5. `claim_element`：族/文献、claim 编号、要素、原文定位、标准化标签；
-6. `finding`：结论、证据、推断、置信度和复核状态。
+5. `claim_element`：稳定 `claim_id`、族/文献、claim 编号、要素、原文定位、标准化标签；
+6. `finding`：稳定 `finding_id`、结论、证据、推断、置信度、复核状态及关联的 `family_ids` / `claim_ids`；
+7. `relation`：稳定 `relation_id`、源/目标节点、关系类型、事实/规则/推断口径和关联证据。
 
 自动化时优先接入 EPO OPS、USPTO Open Data 等允许程序化访问的官方接口；中国专利和各国后授权状态按官方系统可用方式取数。让规则/代码负责规范化、去重、日期和族关系，让模型负责同义词扩展、claim 要素初步抽取、技术主题聚类和自然语言报告；模型不得单独决定法律状态或侵权结论。
 

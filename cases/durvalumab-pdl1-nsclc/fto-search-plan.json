@@ -3292,8 +3292,8 @@
     "keyword_term_count": 116,
     "classification_count": 37,
     "search_round_count": 7,
-    "candidate_count": 0,
-    "comparison_count": 0
+    "candidate_count": 7,
+    "comparison_count": 4
   },
   "gaps": [
     "用户给出的 IPC/CPC 作为候选分类号导入；正式检索前应按目标法域分类版本和命中文献反向确认。",
@@ -3301,5 +3301,13 @@
     "irAE 监测与处置方案需要单独核对诊断/监测方法、治疗方法、给药方案和组合物权利要求。",
     "每一轮的真实结果数量、纳排决定和官方法律状态需要在检索后回填。",
     "FTO 风险必须基于目标法域的完整独立权利要求和截至日期状态复核。"
-  ]
+  ],
+  "candidate_screen": {
+    "generated_at": "2026-08-07T04:20:54.016778+00:00",
+    "input_claims": "durvalumab-pdl1-nsclc-claim-elements.csv",
+    "input_families": "durvalumab-pdl1-nsclc-patent-families.csv",
+    "ranking_file": "fto-candidate-ranking.csv",
+    "method": "declared keyword cluster overlap + claim category/relevance/status signals",
+    "disclaimer": "Screening only; no infringement or validity conclusion."
+  }
 }

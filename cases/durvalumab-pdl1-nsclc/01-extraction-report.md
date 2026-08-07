@@ -1,6 +1,6 @@
 # 权利要求与要素抽取报告
 
-> 案例：`durvalumab-pdl1-nsclc` · 生成时间：2026-08-06T04:11:59.997400+00:00 · 本报告为研究资料，不构成法律意见。
+> 案例：`durvalumab-pdl1-nsclc` · 生成时间：2026-08-07T04:20:55.032248+00:00 · 本报告为研究资料，不构成法律意见。
 
 ## 研究范围
 
@@ -8,7 +8,7 @@
 - **靶点/机制**：PD-L1
 - **适应症**：non-small cell lung cancer (NSCLC)
 - **法域**：目标法域 CN, US；关联扩展法域 WO, EP
-- **截至日期**：2026-08-06
+- **截至日期**：2026-08-07
 - **深度**：standard_analysis；报告语言：zh
 - **来源目录**：上游记录 143 条，去重 URL 140 个；目录不是已访问结果集。
 - **申请人消歧**：未提供；需从族记录反向归一化
@@ -71,12 +71,12 @@
 
 | 族 | 申请人/受让人 | 发明人 | 法域 | 来源 |
 |---|---|---|---|---|
-| DVL-FAM-001 | MedImmune Ltd / AstraZeneca AB | Christophe Queva; Michelle Morrow; Scott Hammond; Marat Alimzhanov | CN;US;WO;EP | [来源](https://patents.google.com/patent/US9493565B2/en) |
-| DVL-FAM-002 | MedImmune LLC / AstraZeneca AB | Keith Steele; Song Wu; Brandon Higgs; others | CN;US;WO;EP;JP | [来源](https://patents.google.com/patent/US20190256603A1/en) |
-| DVL-FAM-003 | AstraZeneca AB | Norah Shire; Phillip Dennis | WO | [来源](https://patents.google.com/patent/WO2024213696A1/en) |
+| DVL-FAM-001 | MedImmune Ltd | Christophe Queva; Michelle Morrow; Scott Hammond; Marat Alimzhanov | CN;US;WO;EP | [来源](https://patents.google.com/patent/US9493565B2/en) |
+| DVL-FAM-002 | C/o Definiens AG;Definiens AG;MedImmune LLC | Keith Steele; Song Wu; Brandon Higgs; others | CN;US;WO;EP;JP | [来源](https://patents.google.com/patent/US20190256603A1/en) |
+| DVL-FAM-003 | AstraZeneca AB | Norah Shire; Phillip Dennis | AU;CN;EP;IL;KR;WO | [来源](https://patents.google.com/patent/WO2024213696A1/en) |
 | DVL-FAM-004 | AstraZeneca AB | Anthony Jarkowski; Phillip Dennis; Leo Trani; Michael Newton; Norah Shire | CN;US;WO;EP | [来源](https://patents.google.com/patent/WO2022248478A1/en) |
 | DVL-FAM-005 | MedImmune Ltd | James Biddlecombe; Jenny Main; Jiali Du; Methal Albarghouthi | US | [来源](https://patents.google.com/patent/US20210054079A1/en) |
-| DVL-FAM-006 | F. Hoffmann-La Roche AG / Genentech Inc | Raymond D. Meng | CN;US;WO;EP;JP | [来源](https://patents.google.com/patent/WO2019165434A1/en) |
+| DVL-FAM-006 | F. Hoffmann-La Roche AG;Genentech Inc | Raymond D. Meng | CN;US;WO;EP;JP | [来源](https://patents.google.com/patent/WO2019165434A1/en) |
 | DVL-FAM-007 | Individual applicant | Yanjun Wang | WO | [来源](https://patents.google.com/patent/WO2024234348A1/en) |
 
 ## 5. 时间线抽取
@@ -90,8 +90,8 @@
 | DVL-FAM-006 | 2018-02-26 | 2019-08-29 | 2026-08-06 | WO record shown ceased; national status differs by jurisdiction | Google Patents public mirror; official register review required |
 | DVL-FAM-005 | 2018-04-25 | 2021-02-25 | 2026-08-06 | US application shown abandoned on public mirror | Google Patents public mirror; USPTO Patent Center follow-up required |
 | DVL-FAM-004 | 2021-05-24 | 2022-12-01 | 2026-08-06 | CN117425493A and US20240254235A1 shown published/pending on public mirror; official register review required | Google Patents public mirror; national register follow-up required |
-| DVL-FAM-003 | 2023-04-14 | 2024-10-17 | 2026-08-06 | WO publication; CN/US national-phase status not established in this screening | Google Patents public mirror; national register follow-up required |
-| DVL-FAM-007 | 2023-05-17 | 2024-11-21 | 2026-08-06 | WO record shown pending; not durvalumab-specific in the rapid screen | Google Patents public mirror; claim-level linkage to durvalumab not established |
+| DVL-FAM-003 | 2023-04-14 | 2024-10-17 | 2026-08-07 | WO PCT record shown ceased; AU/CN/EP/KR/IL national or regional members identified on public mirror; live status requires official-register confirmation | Google Patents public mirror; national register follow-up required |
+| DVL-FAM-007 | 2023-05-17 | 2024-11-21 | 2026-08-07 | WO record shown ceased; not durvalumab-specific in the rapid screen | Google Patents public mirror; claim-level linkage to durvalumab not established |
 
 ## 6. 抽取质量与缺口
 

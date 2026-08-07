@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "status": "warning",
+  "generated_at": "2026-08-07T07:09:53.997527+00:00",
+  "metrics": {
+    "node_count": 101,
+    "edge_count": 174,
+    "family_count": 7,
+    "claim_count": 9,
+    "evidence_count": 13,
+    "linked_evidence_count": 13,
+    "evidence_link_rate": 1.0,
+    "family_relation_edge_count": 0,
+    "member_relation_edge_count": 5,
+    "families_with_relation_count": 1,
+    "causal_relation_count": 9,
+    "causal_concept_count": 11,
+    "causal_context_edge_count": 11,
+    "causal_context_coverage_rate": 1.0
+  },
+  "checks": {
+    "node_ids_unique": true,
+    "edge_ids_unique": true,
+    "no_dangling_edges": true,
+    "all_claims_have_ids": true,
+    "all_causal_concepts_in_scope": true
+  },
+  "gaps": [
+    {
+      "code": "family_relations_partial",
+      "severity": "warning",
+      "count": 6,
+      "record_ids": [
+        "DVL-FAM-001",
+        "DVL-FAM-002",
+        "DVL-FAM-004",
+        "DVL-FAM-005",
+        "DVL-FAM-006",
+        "DVL-FAM-007"
+      ],
+      "message": "部分专利族没有显式族间连续关系。",
+      "next_action": "核对这些族的优先权、国家阶段、分案和继续申请链。"
+    }
+  ]
+}

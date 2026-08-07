@@ -27,6 +27,10 @@
 report-index.md
 report-index.html
 report-visuals.html
+case-output.json
+graph-data.json
+graph-quality.json
+knowledge-graph.html
 visuals/
   *.svg
   manifest.json
@@ -145,7 +149,8 @@ visuals/
     "evidence_chain": "complete",
     "source_catalog": "complete",
     "visuals": "complete",
-    "html_pages": "complete"
+    "html_pages": "complete",
+    "knowledge_graph": "complete"
   }
 }
 ```

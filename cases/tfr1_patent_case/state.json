@@ -35,7 +35,9 @@
     "main_report": "complete",
     "roadmap": "complete",
     "fto": "complete",
-    "context": "complete"
+    "context": "complete",
+    "knowledge_graph": "complete"
   },
+  "graph_quality": "warning",
   "reports_generated_at": "2026-08-06T05:47:44.783064+00:00"
 }

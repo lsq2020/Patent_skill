@@ -18,6 +18,15 @@ try:
 except ImportError:  # pragma: no cover
     build_pages = None
 
+try:
+    from build_case_output import build_case_output
+    from build_graph_data import build_graph_data
+    from build_knowledge_graph import build_knowledge_graph
+except ImportError:  # pragma: no cover
+    build_case_output = None
+    build_graph_data = None
+    build_knowledge_graph = None
+
 
 REPORTS = [
     ("00-executive-summary.md", "执行摘要", "summary"),
@@ -507,15 +516,21 @@ def build_reports(project):
     outputs["05-innovation-space-report.md"] = render_innovation(project.name, scope, identity, families, claims, ranking, evidence, plan, catalog, files)
     outputs["06-evidence-chain-report.md"] = render_evidence(project.name, scope, identity, families, evidence, plan, catalog, source_log, files)
     outputs["07-source-catalog-report.md"] = render_source_catalog(project.name, scope, identity, catalog, files)
-    index_lines = [f"# {project.name} 模块化报告索引", "", f"> 生成时间：{generated} · 结构化数据目录：`{project}`", "", "## FTO 风格统计入口", "", "- [打开交互式统计总览](report-visuals.html)", "- [查看图表数据清单](visuals/manifest.json)", "", "## 报告清单", ""]
+    index_lines = [f"# {project.name} 模块化报告索引", "", f"> 生成时间：{generated} · 结构化数据目录：`{project}`", "", "## 交互式入口", "", "- [打开专利证据双链图](knowledge-graph.html)", "- [打开交互式统计总览](report-visuals.html)", "- [查看图表数据清单](visuals/manifest.json)", "- [查看图谱质量报告](graph-quality.json)", "", "## 报告清单", ""]
     for filename, title, _ in REPORTS:
         index_lines.append(f"- [{title}]({filename})")
-    index_lines += ["", "## 输入与过程数据", "", "- `research_scope.json` / `identity.json`：研究范围和实体消歧", "- `*-patent-families.csv`：族级数据", "- `*-claim-elements.csv`：权利要求要素", "- `*-evidence.csv`：证据链", "- `fto-search-plan.json`：FTO 特征、检索轮次和来源目录", "- `fto-candidate-ranking.csv`：候选排序", "- `source-log.jsonl`：实际访问日志", "- `visuals/`：依赖无外部图库的 SVG 统计图和 manifest", "", "## 总体限制", "", "报告将未核验的国家阶段、聚合状态、缺失 claim 和未采集结构明确标出；不把模块报告升级为法律意见。"]
+    index_lines += ["", "## 输入与过程数据", "", "- `research_scope.json` / `identity.json`：研究范围和实体消歧", "- `*-patent-families.csv`：族级数据", "- `*-claim-elements.csv`：权利要求要素", "- `*-evidence.csv`：证据链", "- `case-output.json`：稳定 ID 和一等关系边", "- `graph-data.json` / `graph-quality.json`：图谱数据和质量缺口", "- `fto-search-plan.json`：FTO 特征、检索轮次和来源目录", "- `fto-candidate-ranking.csv`：候选排序", "- `source-log.jsonl`：实际访问日志", "- `visuals/`：依赖无外部图库的 SVG 统计图和 manifest", "", "## 总体限制", "", "报告将未核验的国家阶段、聚合状态、缺失 claim 和未采集结构明确标出；不把模块报告升级为法律意见。"]
     outputs["report-index.md"] = "\n".join(index_lines) + "\n"
     for filename, content in outputs.items():
         (project / filename).write_text(content, encoding="utf-8")
     if build_pages:
         build_pages(project)
+    graph_quality = {}
+    if build_case_output and build_graph_data and build_knowledge_graph:
+        build_case_output(project)
+        _, graph_quality = build_graph_data(project)
+        build_knowledge_graph(project)
+        build_case_output(project)
     state_path = project / "state.json"
     state = load_json(state_path, {})
     state.setdefault("reports", {})
@@ -524,6 +539,8 @@ def build_reports(project):
     state["reports"]["index"] = "complete"
     state["reports"]["visuals"] = "complete"
     state["reports"]["html_pages"] = "complete"
+    state["reports"]["knowledge_graph"] = "complete" if (project / "knowledge-graph.html").exists() else "partial"
+    state["graph_quality"] = graph_quality.get("status", "not_generated")
     state["reports_generated_at"] = generated
     state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return outputs

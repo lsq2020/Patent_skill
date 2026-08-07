@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "status": "warning",
+  "generated_at": "2026-08-07T06:49:49.234957+00:00",
+  "metrics": {
+    "node_count": 168,
+    "edge_count": 442,
+    "family_count": 25,
+    "claim_count": 32,
+    "evidence_count": 15,
+    "linked_evidence_count": 13,
+    "evidence_link_rate": 0.8667,
+    "family_relation_edge_count": 0,
+    "member_relation_edge_count": 0,
+    "families_with_relation_count": 0,
+    "causal_relation_count": 0
+  },
+  "checks": {
+    "node_ids_unique": true,
+    "edge_ids_unique": true,
+    "no_dangling_edges": true,
+    "all_claims_have_ids": true
+  },
+  "gaps": [
+    {
+      "code": "evidence_unlinked",
+      "severity": "warning",
+      "count": 2,
+      "record_ids": [
+        "TFR-E-010",
+        "TFR-E-011"
+      ],
+      "message": "部分 finding 没有 family_id/claim_id 双链。",
+      "next_action": "补显式 ID，或补可匹配的 document_no/source_url。"
+    },
+    {
+      "code": "family_relations_missing",
+      "severity": "warning",
+      "count": 25,
+      "record_ids": [
+        "TFR-FAM-001",
+        "TFR-FAM-002",
+        "TFR-FAM-003",
+        "TFR-FAM-004",
+        "TFR-FAM-005",
+        "TFR-FAM-006",
+        "TFR-FAM-007",
+        "TFR-FAM-008",
+        "TFR-FAM-009",
+        "TFR-FAM-010",
+        "TFR-FAM-011",
+        "TFR-FAM-012",
+        "TFR-FAM-013",
+        "TFR-FAM-014",
+        "TFR-FAM-015",
+        "TFR-FAM-016",
+        "TFR-FAM-017",
+        "TFR-FAM-018",
+        "TFR-FAM-019",
+        "TFR-FAM-020",
+        "TFR-FAM-021",
+        "TFR-FAM-022",
+        "TFR-FAM-023",
+        "TFR-FAM-024",
+        "TFR-FAM-025"
+      ],
+      "message": "当前没有显式的专利族连续关系边。",
+      "next_action": "补录 priority/national phase/divisional/continuation 关系；同族文献关系写入 member_relations，不要从 notes 自动推断。"
+    }
+  ]
+}
