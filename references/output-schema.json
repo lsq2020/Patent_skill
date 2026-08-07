@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/patent-skill/output-schema-1.1.json",
+  "title": "Medtech Patent Roadmap Case Output",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "case",
+    "run",
+    "metrics",
+    "records",
+    "uncertainty",
+    "failure_cases",
+    "reports",
+    "reproducibility",
+    "contract"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "case": {
+      "type": "object",
+      "required": ["case_id", "research_object", "jurisdictions", "as_of", "depth"]
+    },
+    "run": {
+      "type": "object",
+      "required": ["run_id", "generated_at", "skill_version", "pipeline"]
+    },
+    "metrics": {"type": "object"},
+    "records": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["families", "documents", "claims", "evidence", "relations", "ranking"],
+      "properties": {
+        "families": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/family"}
+        },
+        "documents": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/document"}
+        },
+        "claims": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/claim"}
+        },
+        "evidence": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/evidence"}
+        },
+        "relations": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/relation"}
+        },
+        "ranking": {"type": "array"}
+      }
+    },
+    "uncertainty": {
+      "type": "object",
+      "required": ["summary", "items"],
+      "properties": {
+        "summary": {"type": "string"},
+        "items": {"type": "array"}
+      }
+    },
+    "failure_cases": {"type": "array"},
+    "reports": {"type": "array"},
+    "reproducibility": {
+      "type": "object",
+      "required": ["commands", "inputs", "output_hashes"],
+      "properties": {
+        "commands": {"type": "array", "items": {"type": "string"}},
+        "inputs": {"type": "array"},
+        "output_hashes": {"type": "object"}
+      }
+    },
+    "contract": {
+      "type": "object",
+      "required": ["schema_version", "schema_path"]
+    }
+  },
+  "$defs": {
+    "family": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["family_id", "members", "priority_set", "family_relations"],
+      "properties": {
+        "family_id": {"type": "string", "minLength": 1},
+        "members": {"type": "array", "items": {"type": "string"}},
+        "priority_set": {"type": "array", "items": {"type": "string"}},
+        "family_relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["target_family_id", "relation_type", "evidence_ids"],
+            "properties": {
+              "target_family_id": {"type": "string", "minLength": 1},
+              "relation_type": {"type": "string", "minLength": 1},
+              "evidence_ids": {"type": "array", "items": {"type": "string"}},
+              "notes": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["document_id", "family_ids", "roles", "source_urls"],
+      "properties": {
+        "document_id": {"type": "string", "minLength": 1},
+        "family_ids": {"type": "array", "items": {"type": "string"}},
+        "roles": {"type": "array", "items": {"type": "string"}},
+        "source_urls": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["claim_id", "family_id", "document", "claim_category", "element", "coverage"],
+      "properties": {
+        "claim_id": {"type": "string", "pattern": "^CLM-"},
+        "family_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["finding_id", "family_ids", "claim_ids", "link_methods"],
+      "properties": {
+        "finding_id": {"type": "string", "minLength": 1},
+        "family_ids": {"type": "array", "items": {"type": "string"}},
+        "claim_ids": {"type": "array", "items": {"type": "string"}},
+        "link_methods": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relation_id",
+        "source_id",
+        "relation_type",
+        "target_id",
+        "assertion",
+        "link_methods",
+        "evidence_ids",
+        "properties"
+      ],
+      "properties": {
+        "relation_id": {"type": "string", "pattern": "^REL-"},
+        "source_id": {"type": "string", "minLength": 1},
+        "relation_type": {"type": "string", "minLength": 1},
+        "target_id": {"type": "string", "minLength": 1},
+        "assertion": {
+          "enum": ["direct_fact", "rule_derived", "model_inference"]
+        },
+        "link_methods": {"type": "array", "items": {"type": "string"}},
+        "evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "properties": {"type": "object"}
+      }
+    }
+  }
+}

@@ -1,0 +1,4495 @@
+{
+  "schema_version": "1.1",
+  "case": {
+    "case_id": "tfr1_patent_case",
+    "research_object": {
+      "molecule": "Transferrin Receptor 1",
+      "synonyms": [
+        "transferrin receptor 1",
+        "TfR1",
+        "CD71",
+        "TFRC",
+        "transferrin receptor protein 1"
+      ],
+      "target": "TfR1",
+      "indication": "broad (cancer, iron metabolism, CNS delivery)"
+    },
+    "jurisdictions": [
+      "CN",
+      "US"
+    ],
+    "related_jurisdictions": [
+      "WO",
+      "EP"
+    ],
+    "as_of": "2026-08-06",
+    "depth": "standard_analysis",
+    "focus": [
+      "compound",
+      "formulation",
+      "indication",
+      "combination",
+      "biomarker"
+    ]
+  },
+  "run": {
+    "run_id": "tfr1_patent_case-20260807T030720Z",
+    "generated_at": "2026-08-07T03:07:20.023398+00:00",
+    "skill_version": "repository",
+    "pipeline": [
+      "scope",
+      "identity",
+      "family_normalization",
+      "claim_id_assignment",
+      "evidence_linkage",
+      "relation_normalization",
+      "modular_reports"
+    ],
+    "python": "3.13.7"
+  },
+  "metrics": {
+    "family_count": 25,
+    "claim_count": 32,
+    "evidence_count": 15,
+    "document_count": 37,
+    "relation_count": 152,
+    "family_relation_count": 0,
+    "linked_evidence_count": 13,
+    "unlinked_evidence_count": 2,
+    "ranking_count": 12,
+    "source_url_count": 28,
+    "source_log_count": 22,
+    "report_count": 11,
+    "uncertainty_count": 2
+  },
+  "records": {
+    "families": [
+      {
+        "family_id": "TFR-FAM-001",
+        "family_definition": "DOCDB/simple-family screen; anti-TfR1 antibody BBB/RMT platform (human+primate cross-reactive; low-affinity; effector-silenced; reticulocyte-sparing)",
+        "representative_document": "EP3594240B1",
+        "representative_application": "EP19190228.7A",
+        "grants": "",
+        "earliest_priority": "2013-05-20",
+        "publication_date": "2023-12-06",
+        "applicant_or_assignee": "F. Hoffmann-La Roche AG / Genentech",
+        "inventors": "Yin Zhang; Joy Yu Zuchero; Jasvinder Atwal; Jessica Couch; Mark Dennis; James Ernst; Ryan Watts; Gregory A. Lazar",
+        "jurisdictions": "EP;US;WO;CN;JP;KR;TW",
+        "claim_theme": "Anti-transferrin receptor antibody and methods of use; low-affinity BBB shuttle; multispecific CNS delivery",
+        "claim_categories": "composition;antibody;use;method of treatment;combination",
+        "key_claim_elements": "antibody binds human TfR and primate TfR; does not inhibit transferrin binding (VH SEQ ID NO:153 / VL SEQ ID NO:105); reduced/eliminated effector function (ADCC) or pH-sensitive TfR binding to avoid reticulocyte depletion; multispecific with brain antigen (BACE1, Abeta, tau, EGFR, HER2, etc.)",
+        "mutation_or_biomarker": "reticulocyte depletion; transferrin-binding non-interference",
+        "official_status": "EP granted 2023-12-06 and shown Active on public mirror (anticipated expiry 2034-05-20); CN/US official registers require review",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror / EPO Register link; official CNIPA/USPTO verification pending",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/EP3594240B1/en",
+        "relevance": "core",
+        "notes": "Roche/Genentech brain-shuttle platform. Lower TfR affinity improves brain uptake/distribution; engineering goal is avoiding reticulocyte depletion side effects seen with earlier anti-TfR antibodies.",
+        "members": [
+          "EP3594240B1",
+          "EP19190228.7A"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-002",
+        "family_definition": "DOCDB/simple-family screen; safety branch for BBB transport (reticulocyte depletion mitigation)",
+        "representative_document": "JP6905966B2",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2012-05-21",
+        "publication_date": "2021-07-07",
+        "applicant_or_assignee": "Genentech Inc / Hoffmann-La Roche",
+        "inventors": "[Genentech BBB safety patent family; inventors to verify]",
+        "jurisdictions": "JP;KR;US;WO",
+        "claim_theme": "Methods for improving safety of blood-brain barrier transport",
+        "claim_categories": "method of treatment;regimen;antibody",
+        "key_claim_elements": "dosing / engineering approaches to reduce anti-TfR-antibody-mediated reticulocyte depletion while retaining BBB transport (e.g., EPO/iron co-administration, reduced effector function, pH-sensitive binding)",
+        "mutation_or_biomarker": "reticulocyte depletion",
+        "official_status": "JP/KR granted shown on public mirror; CN/US status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/JP6905966B2/en",
+        "relevance": "core",
+        "notes": "Safety/regimen branch tied to Roche/Genentech anti-TfR1 BBB delivery. Overlaps biologically with TFR-FAM-001; treat as separate simple family based on earlier 2012-05-21 priority.",
+        "members": [
+          "JP6905966B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-003",
+        "family_definition": "DOCDB/simple-family screen; bispecific anti-hapten/anti-BBBR shuttle platform",
+        "representative_document": "US11273223B2",
+        "representative_application": "US15/930,579",
+        "grants": "",
+        "earliest_priority": "2014-01-03",
+        "publication_date": "2022-03-15",
+        "applicant_or_assignee": "Hoffmann-La Roche Inc / Roche Diagnostics GmbH",
+        "inventors": "Ulrich Brinkmann; Guy Georges; Olaf Mundigl; Jens Niewoehner",
+        "jurisdictions": "US;WO;EP;CN",
+        "claim_theme": "Bispecific anti-hapten / anti-blood-brain barrier receptor antibodies as BBB shuttles",
+        "claim_categories": "composition;antibody;conjugate;method of treatment",
+        "key_claim_elements": "bispecific antibody with first binding specificity for a hapten (biotin, digoxigenin, theophylline, fluorescein, helicar) and second binding specificity for BBB receptor (TfR, LRP1, LRP8, insulin receptor, IGF receptor, HB-EGF); non-covalent or covalent (CDR2-cysteine disulfide) complexes with haptenylated payloads (anti-alpha-synuclein, anti-Tau(pS422), anti-Abeta antibodies, inhibitory nucleic acids, small molecules); effector-function-free Fc (LALA-PG or IgG4 S228P/L235E/P329G)",
+        "mutation_or_biomarker": "",
+        "official_status": "US granted 2022-03-15 Active (expires 2035-02-16); CN/EP status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US11273223B2/en",
+        "relevance": "core",
+        "notes": "Hapten 'universal linker' shuttle allows a single anti-TfR bispecific to carry diverse payloads across the BBB; second-gen Roche shuttle platform.",
+        "members": [
+          "US11273223B2",
+          "US15/930,579"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-004",
+        "family_definition": "DOCDB/simple-family screen; monovalent BBB shuttle modules",
+        "representative_document": "US20200071413A1",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2014-01-06",
+        "publication_date": "2020-03-05",
+        "applicant_or_assignee": "Hoffmann-La Roche Inc",
+        "inventors": "",
+        "jurisdictions": "US;WO;EP;CN",
+        "claim_theme": "Monovalent blood brain barrier shuttle modules",
+        "claim_categories": "composition;antibody;use",
+        "key_claim_elements": "monovalent anti-BBB-receptor (TfR) shuttle module fused to a therapeutic antibody/payload to improve CNS delivery with reduced TfR crosslinking/toxicity",
+        "mutation_or_biomarker": "",
+        "official_status": "US application shown published on public mirror; official status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; USPTO Patent Center review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US20200071413A1/en",
+        "relevance": "core",
+        "notes": "Roche monovalent shuttle design; verify claim scope and CN/US status.",
+        "members": [
+          "US20200071413A1"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-005",
+        "family_definition": "DOCDB/simple-family screen; tailored-affinity anti-TfR antibodies",
+        "representative_document": "JP6975508B2",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2015-06-24",
+        "publication_date": "2021-12-01",
+        "applicant_or_assignee": "F. Hoffmann-La Roche AG",
+        "inventors": "[Roche tailored-affinity anti-TfR antibody family; inventors include S. Dengr/Jens Niewoehner group]",
+        "jurisdictions": "JP;TW;US;WO;EP;CN",
+        "claim_theme": "Anti-transferrin receptor antibody with purpose-built (tailored) affinity",
+        "claim_categories": "composition;antibody;use",
+        "key_claim_elements": "humanized anti-TfR antibody with engineered affinity/effector-silent (e.g., IgG1 LALA) for BBB transport; multispecific formats with second CNS target",
+        "mutation_or_biomarker": "",
+        "official_status": "JP granted 2021-12-01 shown Active; CN/US status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/JP6975508B2/en",
+        "relevance": "core",
+        "notes": "Roche tailored-affinity branch (TW TWI792646B also in family); affinity range chosen for transcytosis vs retention.",
+        "members": [
+          "JP6975508B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-006",
+        "family_definition": "DOCDB/simple-family screen; JCR single-chain anti-hTfR + CNS-protein fusion (enzyme replacement across BBB)",
+        "representative_document": "US9994641B2",
+        "representative_application": "US15/107,839",
+        "grants": "",
+        "earliest_priority": "2013-12-25",
+        "publication_date": "2018-06-12",
+        "applicant_or_assignee": "JCR Pharmaceuticals Co Ltd",
+        "inventors": "Hiroyuki Sonoda; Hideto Morimoto; Yuri Koshimura; Masafumi Kinoshita; Haruna Takagi; Yoshiko Yoshii",
+        "jurisdictions": "US;JP;EP;WO;CN;KR",
+        "claim_theme": "Anti-human transferrin receptor antibody that passes through blood-brain barrier; scFv fusion proteins",
+        "claim_categories": "composition;antibody;fusion protein;method of treatment;use",
+        "key_claim_elements": "single-chain anti-human TfR antibody recognizing peptide epitopes SEQ ID NOs:1-3 (Kd ~1 nM-1 uM); C-terminal fusion with CNS-acting protein e.g. lysosomal enzyme iduronate-2-sulfatase (I2S), alpha-L-iduronidase, NGF/BDNF; BBB transport and CNS treatment (Hunter/Hurler encephalopathy, neurodegeneration)",
+        "mutation_or_biomarker": "Hunter syndrome; Hurler syndrome; lysosomal storage",
+        "official_status": "US granted 2018-06-12 Active (expires 2034-12-24); CN/EP status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US9994641B2/en",
+        "relevance": "core",
+        "notes": "JCR 'Trojan-horse' ERT platform for CNS; basis for JCR anti-TfR brain-delivery products.",
+        "members": [
+          "US9994641B2",
+          "US15/107,839"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-007",
+        "family_definition": "DOCDB/simple-family screen; JCR novel anti-human TfR antibodies / BBB (2015 cohort)",
+        "representative_document": "EP3315606B1",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2015-06-24",
+        "publication_date": "2021-06-09",
+        "applicant_or_assignee": "JCR Pharmaceuticals Co Ltd",
+        "inventors": "[JCR novel anti-hTfR antibody family; Hiroyuki Sonoda et al.]",
+        "jurisdictions": "JP;EP;US;WO;CN;TW;KR",
+        "claim_theme": "Anti-human transferrin receptor antibody permeating blood-brain barrier (novel clones)",
+        "claim_categories": "composition;antibody;fusion protein;use",
+        "key_claim_elements": "novel anti-human TfR antibodies with BBB-permeating property; fusions for CNS delivery; JP7703635B2 / TWI769982B members",
+        "mutation_or_biomarker": "",
+        "official_status": "EP granted shown on public mirror; CN/US/JP status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/EP3315606B1/en",
+        "relevance": "core",
+        "notes": "Distinct simple family from TFR-FAM-006 based on 2015-06-24 priority; same applicant/technology line.",
+        "members": [
+          "EP3315606B1"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-008",
+        "family_definition": "DOCDB/simple-family screen; JCR novel anti-human TfR antibodies (2016 cohort)",
+        "representative_document": "JP7588199B2",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2016-12-26",
+        "publication_date": "2024-11-27",
+        "applicant_or_assignee": "JCR Pharmaceuticals Co Ltd",
+        "inventors": "Hiroyuki Sonoda; [others]",
+        "jurisdictions": "JP;TW;EP;US;WO;CN",
+        "claim_theme": "Novel anti-human transferrin receptor antibodies that pass through blood-brain barrier",
+        "claim_categories": "composition;antibody;use",
+        "key_claim_elements": "further anti-human TfR antibody clones (CDR-defined, e.g., VH CDR1/2/3 SEQ IDs) with BBB passage; TWI761413B member",
+        "mutation_or_biomarker": "",
+        "official_status": "JP granted 2024-11-27 shown on public mirror; official review required",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/JP7588199B2/en",
+        "relevance": "core",
+        "notes": "JCR next-generation anti-hTfR antibody clones (2016 priority line).",
+        "members": [
+          "JP7588199B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-009",
+        "family_definition": "DOCDB/simple-family screen; JCR anti-hTfR lyophilized formulation",
+        "representative_document": "US12178858B2",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2016-12-28",
+        "publication_date": "2025-01-14",
+        "applicant_or_assignee": "JCR Pharmaceuticals Co Ltd",
+        "inventors": "",
+        "jurisdictions": "US;JP;EP;CN;KR",
+        "claim_theme": "Lyophilized preparation of anti-transferrin receptor antibody",
+        "claim_categories": "formulation;composition",
+        "key_claim_elements": "lyophilized formulation of anti-hTfR antibody or fusion protein for storage/shelf-life/BBB delivery product",
+        "mutation_or_biomarker": "",
+        "official_status": "US granted 2025-01-14 shown Active; CN/EP status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US12178858B2/en",
+        "relevance": "core",
+        "notes": "Formulation layer of JCR TfR delivery platform; protects product-form claims.",
+        "members": [
+          "US12178858B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-010",
+        "family_definition": "DOCDB/simple-family screen; Ossianix TfR1-selective shark VNAR single-domain antibodies",
+        "representative_document": "US11918647B2",
+        "representative_application": "US16/946,524",
+        "grants": "",
+        "earliest_priority": "2014-11-14",
+        "publication_date": "2024-03-05",
+        "applicant_or_assignee": "Ossianix Inc",
+        "inventors": "Julien Hasler; Julia Lynn Rutkowski; Krzysztof Bartlomiej Wicher",
+        "jurisdictions": "US;WO;EP;AU;CA;JP;KR",
+        "claim_theme": "TfR selective binding compounds and related methods (VNAR nanobodies)",
+        "claim_categories": "composition;antibody;conjugate;use;diagnostic",
+        "key_claim_elements": "nurse-shark VNAR single-domain antibody moieties (FW1-CDR1-FW2-HV2-FW2'-HV4-FW3-CDR3-FW4) selectively binding human TfR-1 (apical domain aa 215-380) without blocking transferrin binding; pH-dependent reversible binding and endocytosis; mouse cross-reactivity; VNAR-Fc fusions and TfR1/BACE1 bispecifics for BBB or GI-tract payload delivery",
+        "mutation_or_biomarker": "TfR-2 selectivity (does not bind TfR2)",
+        "official_status": "US granted 2024-03-05 Active (expires 2038-01-05); CN/EP status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US11918647B2/en",
+        "relevance": "core",
+        "notes": "Distinct small single-domain (VNAR, ~12 kDa) approach to TfR1 targeting vs conventional IgG shuttles.",
+        "members": [
+          "US11918647B2",
+          "US16/946,524"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-011",
+        "family_definition": "DOCDB/simple-family screen; Ossianix TFR-selective binding peptides (newer)",
+        "representative_document": "US12297286B2",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2017-11-02",
+        "publication_date": "2025-06-10",
+        "applicant_or_assignee": "Ossianix Inc",
+        "inventors": "",
+        "jurisdictions": "US;WO;EP;AU;JP",
+        "claim_theme": "Transferrin receptor (TFR)-selective binding peptides capable of crossing the blood-brain barrier",
+        "claim_categories": "composition;peptide;use",
+        "key_claim_elements": "TFR1-selective peptides engineered for BBB crossing; conjugates for CNS delivery",
+        "mutation_or_biomarker": "",
+        "official_status": "US granted 2025-06-10 shown Active; CN/EP status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US12297286B2/en",
+        "relevance": "core",
+        "notes": "Ossianix peptide branch; follow-up to VNAR family.",
+        "members": [
+          "US12297286B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-012",
+        "family_definition": "DOCDB/simple-family screen; Ossianix in vivo peptide selection method",
+        "representative_document": "ES3049809T3",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2016-08-06",
+        "publication_date": "2025-06-01",
+        "applicant_or_assignee": "Ossianix Inc",
+        "inventors": "",
+        "jurisdictions": "EP;ES;US;AU",
+        "claim_theme": "In vivo methods for selecting peptides that cross the blood brain barrier",
+        "claim_categories": "process;method;peptide",
+        "key_claim_elements": "in vivo selection/panning of BBB-crossing TfR-binding peptides",
+        "mutation_or_biomarker": "",
+        "official_status": "EP/ES translation shown on public mirror; official review required",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/ES3049809T3/en",
+        "relevance": "core",
+        "notes": "Method-of-selection claim layer around Ossianix TfR peptides.",
+        "members": [
+          "ES3049809T3"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-013",
+        "family_definition": "DOCDB/simple-family screen; Dyne muscle-targeting complexes (anti-TfR1 antibody-oligo conjugates) for muscle diseases",
+        "representative_document": "US11795234B2",
+        "representative_application": "US18/184,905",
+        "grants": "US11839660B2;US12144868B2;US11844843B2;US12325753B2",
+        "earliest_priority": "2018-08-02",
+        "publication_date": "2023-10-24",
+        "applicant_or_assignee": "Dyne Therapeutics Inc",
+        "inventors": "Romesh R. Subramanian; Mohammed T. Qatanani; Timothy Weeden; Cody A. Desjardins; Brendan Quinn; John Najim",
+        "jurisdictions": "US;WO;EP;CN;JP;KR;AU;CA",
+        "claim_theme": "Muscle-targeting complexes comprising anti-transferrin receptor antibody linked to an oligonucleotide; uses for muscle diseases (DMD, DM1, FSHD, muscle atrophy, Pompe, Friedreich's ataxia)",
+        "claim_categories": "composition;conjugate;antibody;method of treatment;regimen;combination",
+        "key_claim_elements": "anti-TfR1 antibody covalently linked via cleavable (protease/pH/glutathione; valine-citrulline) or non-cleavable linker to oligonucleotide payload (ASO gapmer, RNAi, PMO, guide RNA; DUX4/DMD/DMPK-targeting); binds extracellular/apical TfR epitope; promotes receptor-mediated internalization; does not inhibit transferrin binding; treatment of FSHD/DMD/DM1",
+        "mutation_or_biomarker": "DUX4; DMD; DMPK; muscle disease targets",
+        "official_status": "US granted 2023-10-24 (11795234B2) and 2023-12-12 (11839660B2) Active (expires up to 2042-07-08); multiple US members; CN/EP national-phase status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US11839660B2/en",
+        "relevance": "core",
+        "notes": "Major 2020s TfR1 muscle-targeting landscape. Base priority 2018-08-02; antibody-specific branch priority 2021-07-09; treatment-specific branches (DM1 2020-12-31, FSHD 2021-11-12).",
+        "members": [
+          "US11795234B2",
+          "US18/184,905",
+          "US11839660B2",
+          "US12144868B2",
+          "US11844843B2",
+          "US12325753B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-014",
+        "family_definition": "DOCDB/simple-family screen; Avidity anti-transferrin receptor antibodies and antibody-oligonucleotide conjugates",
+        "representative_document": "JP7654757B2",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2018-12-21",
+        "publication_date": "2025-07-30",
+        "applicant_or_assignee": "Avidity Biosciences Inc",
+        "inventors": "",
+        "jurisdictions": "JP;US;WO;EP;CN;KR",
+        "claim_theme": "Anti-transferrin receptor antibodies and uses thereof; antibody-oligonucleotide conjugates (AOCs) for muscle disease",
+        "claim_categories": "composition;antibody;conjugate;method of treatment",
+        "key_claim_elements": "anti-transferrin receptor antibodies conjugated to exon-skipping/multi-exon-skipping oligonucleotides for DMD and other muscle diseases; US12359202B2 member covers anti-TfR1 antibody-PMO conjugates for DMD exon 44",
+        "mutation_or_biomarker": "DMD exon 44",
+        "official_status": "JP granted 2025-07-30 shown on public mirror; CN/US/EP status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/JP7654757B2/en",
+        "relevance": "core",
+        "notes": "Avidity AOC platform (FORCE/muscle-selective delivery); competitor to Dyne in TfR1-muscle delivery.",
+        "members": [
+          "JP7654757B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-015",
+        "family_definition": "DOCDB/simple-family screen; AbbVie anti-CD71 activatable ADC (Probody drug conjugate)",
+        "representative_document": "US20240115724A1",
+        "representative_application": "US18/199,453",
+        "grants": "",
+        "earliest_priority": "2017-10-14",
+        "publication_date": "2024-04-11",
+        "applicant_or_assignee": "CytomX Therapeutics Inc (co-developed with AbbVie Inc; assignment events transfer AbbVie inventors to CytomX)",
+        "inventors": "Shweta Singh; Jennifer Hope Richardson; Laura Patterson Serwer; Jonathan Alexander Terrett; Susan E. Morgan-Lappe; Tracy Henriques; Sherry L. Ralston; Marvin Robert Leanna; Ilaria Badagnani",
+        "jurisdictions": "US;WO;EP;CN;JP;KR",
+        "claim_theme": "Anti-CD71 activatable antibody drug conjugates and methods of use",
+        "claim_categories": "composition;conjugate;antibody;method of treatment",
+        "key_claim_elements": "anti-CD71 activatable antibodies (probody) conjugated to drugs; active anti-CD71 binding form released at tumor; therapeutic/diagnostic/prophylactic indications",
+        "mutation_or_biomarker": "",
+        "official_status": "US application US20240115724A1 shown Abandoned on public mirror (2026-08-06); US parent/granted and CN/EP members require official review",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "high (US application abandoned is shown on public page)",
+        "source_url": "https://patents.google.com/patent/US20240115724A1/en",
+        "relevance": "core",
+        "notes": "Activatable (probody) anti-CD71 ADC, Formula (I)/(II): anti-CD71 AB (VH/VL SEQ defined), masking moiety SEQ ID NO:18, cleavable protease-substrate moiety SEQ ID NO:156, vcMMAE payload, DAR ~2; cancers incl. gastric, ovarian, NSCLC, TNBC, CRC, melanoma, prostate, MM, DLBCL. US application shown abandoned; treat US scope as abandoned unless continuation/divisional or granted member found.",
+        "members": [
+          "US20240115724A1",
+          "US18/199,453"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-016",
+        "family_definition": "DOCDB/simple-family screen; CytomX anti-CD71 activatable antibodies",
+        "representative_document": "US20220306759A1",
+        "representative_application": "US17/666,224",
+        "grants": "",
+        "earliest_priority": "2015-05-04",
+        "publication_date": "2022-09-29",
+        "applicant_or_assignee": "CytomX Therapeutics Inc",
+        "inventors": "Jason Gary Sagert; Kimberly Ann Tipton; Jonathan Alexander Terrett; Shweta Singh; Annie Yang Weaver; Luc Roland Desnoyers",
+        "jurisdictions": "US;WO;EP;CN;JP;KR",
+        "claim_theme": "Anti-CD71 antibodies, activatable anti-CD71 antibodies, and methods of use",
+        "claim_categories": "composition;antibody;method of treatment;diagnostic",
+        "key_claim_elements": "anti-CD71 antibodies and activatable (masked) anti-CD71 antibodies with reduced off-tumor activity; therapeutic/diagnostic/prophylactic use",
+        "mutation_or_biomarker": "",
+        "official_status": "US application US20220306759A1 shown Abandoned on public mirror (2026-08-06); other members require official review",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "high (US application abandoned is shown on public page)",
+        "source_url": "https://patents.google.com/patent/US20220306759A1/en",
+        "relevance": "core",
+        "notes": "Anti-CD71 antibodies (CDR-defined: VH CDR1 GYTFTSYWMH, CDR2 AIYPGNSETG, CDR3 ENWDPGFAF; VL CDR1 SASSSVYYMY, CDR2 STSNLAS, CDR3 QQRRNYPYT), activatable (masked) anti-CD71 antibodies, multispecific formats; therapeutic/diagnostic. US application shown abandoned; other jurisdictions to review.",
+        "members": [
+          "US20220306759A1",
+          "US17/666,224"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-017",
+        "family_definition": "DOCDB/simple-family screen; GenAhead Bio anti-CD71 antibody-drug conjugate",
+        "representative_document": "JP7536328B2",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2016-06-20",
+        "publication_date": "2024-08-20",
+        "applicant_or_assignee": "GenAhead Bio Inc",
+        "inventors": "Shu Zhouzhou (司 周郷); [others]",
+        "jurisdictions": "JP;EP;US;CN;WO",
+        "claim_theme": "Antibody-drug conjugates (anti-CD71 ADC)",
+        "claim_categories": "composition;conjugate;antibody;method of treatment",
+        "key_claim_elements": "anti-CD71 antibody covalently bound to drug via linker (e.g., maleimide-based); ADC composition",
+        "mutation_or_biomarker": "",
+        "official_status": "JP granted 2024-08-20 shown on public mirror; CN/US/EP status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/JP7536328B2/en",
+        "relevance": "core",
+        "notes": "CD71-targeted ADC (EP3473270B1 member).",
+        "members": [
+          "JP7536328B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-018",
+        "family_definition": "DOCDB/simple-family screen; Sapreme Technologies CD71-targeting antibody-oligonucleotide conjugates",
+        "representative_document": "EP4015003B1",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2018-12-21",
+        "publication_date": "2023-12-06",
+        "applicant_or_assignee": "Sapreme Technologies B.V.",
+        "inventors": "Ruben Postel; Hendrik Fuchs",
+        "jurisdictions": "EP;US;WO;CN;JP;KR",
+        "claim_theme": "Improved antibody-oligonucleotide conjugate (CD71/TfR targeting, saponin-based endosomal escape)",
+        "claim_categories": "composition;conjugate;antibody;formulation",
+        "key_claim_elements": "antibody-oligonucleotide conjugate with saponin / saponin-like endosomal-escape enhancer; targeting antibodies (incl. anti-transferrin-receptor / anti-CD71); linker and conjugation chemistry for cytosolic oligonucleotide delivery",
+        "mutation_or_biomarker": "",
+        "official_status": "EP granted 2023-05-10 shown Active (expires 2039-12-09); CN/US national-phase to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "high (EP grant/status on public page)",
+        "source_url": "https://patents.google.com/patent/EP4015003B1/en",
+        "relevance": "core",
+        "notes": "AOC with endosomal-escape enhancer; differentiates from Dyne/Avidity by saponin component.",
+        "members": [
+          "EP4015003B1"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-019",
+        "family_definition": "DOCDB/simple-family screen; Inatherys anti-TfR antibodies for proliferative/inflammatory disease",
+        "representative_document": "CA2992509C",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2015-07-22",
+        "publication_date": "2022-08-23",
+        "applicant_or_assignee": "Inatherys",
+        "inventors": "",
+        "jurisdictions": "CA;US;WO;EP",
+        "claim_theme": "Anti-TfR antibodies and their use in treating proliferative and inflammatory disorders",
+        "claim_categories": "composition;antibody;method of treatment",
+        "key_claim_elements": "anti-TfR antibodies for proliferative (cancer) and inflammatory disorders",
+        "mutation_or_biomarker": "",
+        "official_status": "CA granted 2022-08-23 shown on public mirror; US/EP status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/CA2992509C/en",
+        "relevance": "core",
+        "notes": "European anti-TfR therapeutic antibody company; cancer/inflammation positioning.",
+        "members": [
+          "CA2992509C"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-020",
+        "family_definition": "DOCDB/simple-family screen; Fred Hutchinson TfR-targeting peptides",
+        "representative_document": "JP7664158B2",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2018-12-14",
+        "publication_date": "2025-04-15",
+        "applicant_or_assignee": "Fred Hutchinson Cancer Center",
+        "inventors": "",
+        "jurisdictions": "JP;US;WO",
+        "claim_theme": "Transferrin Receptor Targeting Peptides",
+        "claim_categories": "composition;peptide;use;diagnostic",
+        "key_claim_elements": "TfR-binding peptides for targeting (e.g., delivery/detection)",
+        "mutation_or_biomarker": "",
+        "official_status": "JP granted 2025-04-15 shown on public mirror; CN/US status to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/JP7664158B2/en",
+        "relevance": "core",
+        "notes": "Peptide-based TfR targeting (research/clinical use).",
+        "members": [
+          "JP7664158B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-021",
+        "family_definition": "DOCDB/simple-family screen; Denali engineered TfR1-binding transport vehicles (brain delivery)",
+        "representative_document": "EP3583120B1",
+        "representative_application": "",
+        "grants": "US11732023B2",
+        "earliest_priority": "2017-02-17",
+        "publication_date": "2023-08-16",
+        "applicant_or_assignee": "Denali Therapeutics Inc",
+        "inventors": "Xiaocheng Chen; Mark S. Dennis; Mihalis Kariolis; Adam P. Silverman; Ankita Srivastava; Ryan J. Watts; Robert C. Wells; Joy Yu Zuchero",
+        "jurisdictions": "EP;US;WO;CN;JP;KR;AU",
+        "claim_theme": "Engineered transferrin receptor binding polypeptides / transport vehicles and uses",
+        "claim_categories": "composition;antibody;fusion protein;method of treatment;use",
+        "key_claim_elements": "engineered Fc region with modified CH3 domain comprising non-native binding site for human TfR1; substitution set (positions 153,157,159,160,161,162,163,164,165,186,187,188,189,194,197,199 re SEQ ID NO:1; alternate set 118-122/210-213); binds TfR1 apical domain, no transferrin-binding inhibition, epitope comprising aa208; monovalent dimer (knob/hole T139W vs T139S/L141A/Y180V); effector-modulating L7A/L8A/P102G; serum-stability M25Y/S27T/T29E or N207S(M201L); Fab targeting Tau/BACE1/TREM2/alpha-synuclein; transcytosis across BBB",
+        "mutation_or_biomarker": "progranulin; enzyme replacement",
+        "official_status": "EP granted 2022-10-05 shown Active (expires 2038-02-15); US11732023B2 granted; CN national-phase to verify",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "high (EP grant/status on public page)",
+        "source_url": "https://patents.google.com/patent/EP3583120B1/en",
+        "relevance": "core",
+        "notes": "Denali TV platform: engineered CH3-domain TfR1 binding (non-antibody-arms approach). EP3583120B1 granted 2022-10-05.",
+        "members": [
+          "EP3583120B1",
+          "US11732023B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-022",
+        "family_definition": "DOCDB/simple-family screen; Regeneron TfR-mediated internalizing enzyme delivery",
+        "representative_document": "ES3045508T3",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2015-12-08",
+        "publication_date": "2025-05-15",
+        "applicant_or_assignee": "Regeneron Pharmaceuticals Inc",
+        "inventors": "",
+        "jurisdictions": "EP;ES;US",
+        "claim_theme": "Compositions and methods for internalizing enzymes (TfR-mediated delivery)",
+        "claim_categories": "composition;fusion protein;method of treatment",
+        "key_claim_elements": "TfR-mediated internalization of therapeutic enzymes/proteins into cells",
+        "mutation_or_biomarker": "",
+        "official_status": "EP/ES translation shown on public mirror; JP2023054256A (2018-02-07) member; official review required",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/ES3045508T3/en",
+        "relevance": "core",
+        "notes": "Regeneron TfR delivery entry; verify CN/US status.",
+        "members": [
+          "ES3045508T3"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-023",
+        "family_definition": "DOCDB/simple-family screen; transferrin ligand / TfR-targeted liposome-nanoparticle delivery (boundary)",
+        "representative_document": "US8821943B2",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2006-09-12",
+        "publication_date": "2014-09-02",
+        "applicant_or_assignee": "Board of Regents of the University of Texas System",
+        "inventors": "Esther H. Chang; [SynerGene/Chang nanoparticle team]",
+        "jurisdictions": "US;WO;CN",
+        "claim_theme": "Methods and compositions for targeted delivery of therapeutic agents (transferrin-receptor-targeted nanoparticles)",
+        "claim_categories": "composition;formulation;conjugate;method of treatment",
+        "key_claim_elements": "transferrin receptor-targeted liposomes/nanoparticles carrying therapeutic nucleic acids or drugs",
+        "mutation_or_biomarker": "",
+        "official_status": "US granted 2014-09-02 shown Active; official review required",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US8821943B2/en",
+        "relevance": "boundary",
+        "notes": "Classic transferrin-ligand/TfR-targeted nanoparticle delivery (Chang/SynerGene); ligand-based rather than antibody-based targeting.",
+        "members": [
+          "US8821943B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-024",
+        "family_definition": "DOCDB/simple-family screen; TfR1 in ferroptosis / iron-metabolism modulation (boundary)",
+        "representative_document": "US10597381B2",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2012-04-02",
+        "publication_date": "2020-03-24",
+        "applicant_or_assignee": "The Trustees of Columbia University in the City of New York",
+        "inventors": "",
+        "jurisdictions": "US;WO;EP;CN",
+        "claim_theme": "Compounds, compositions, and methods for modulating ferroptosis",
+        "claim_categories": "composition;method of treatment;mechanism",
+        "key_claim_elements": "small-molecule modulators of ferroptosis referencing TfR1/transferrin-mediated iron uptake pathway",
+        "mutation_or_biomarker": "ferroptosis",
+        "official_status": "US granted 2020-03-24 shown on public mirror; official review required",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US10597381B2/en",
+        "relevance": "boundary",
+        "notes": "TfR1 is mechanism-context (iron import for ferroptosis), not a TfR1-targeting composition; retained as adjacent mechanism space.",
+        "members": [
+          "US10597381B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "TFR-FAM-025",
+        "family_definition": "DOCDB/simple-family screen; TfR/CD71 in diagnostics / CTC enrichment / imaging (boundary)",
+        "representative_document": "US11592396B2",
+        "representative_application": "",
+        "grants": "",
+        "earliest_priority": "2009-05-27",
+        "publication_date": "2023-02-28",
+        "applicant_or_assignee": "Lumicell Inc",
+        "inventors": "",
+        "jurisdictions": "US;WO;EP",
+        "claim_theme": "Methods and systems for spatially identifying abnormal cells (TfR/CD71 as marker)",
+        "claim_categories": "diagnostic;method;composition",
+        "key_claim_elements": "fluorescence-guided detection of abnormal/cancer cells using TfR1/CD71 or related surface markers",
+        "mutation_or_biomarker": "",
+        "official_status": "US granted 2023-02-28 shown Active; official review required",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US11592396B2/en",
+        "relevance": "boundary",
+        "notes": "Diagnostic/imaging boundary family; TfR1 as cancer marker rather than delivery target.",
+        "members": [
+          "US11592396B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "CA2992509C",
+        "family_ids": [
+          "TFR-FAM-019"
+        ],
+        "roles": [
+          "representative",
+          "claim_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/CA2992509C/en"
+        ]
+      },
+      {
+        "document_id": "EP19190228.7A",
+        "family_ids": [
+          "TFR-FAM-001"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/EP3594240B1/en"
+        ]
+      },
+      {
+        "document_id": "EP3315606B1",
+        "family_ids": [
+          "TFR-FAM-007"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/EP3315606B1/en"
+        ]
+      },
+      {
+        "document_id": "EP3583120B1",
+        "family_ids": [
+          "TFR-FAM-021"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/EP3583120B1/en"
+        ]
+      },
+      {
+        "document_id": "EP3594240B1",
+        "family_ids": [
+          "TFR-FAM-001"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/EP3594240B1/en"
+        ]
+      },
+      {
+        "document_id": "EP4015003B1",
+        "family_ids": [
+          "TFR-FAM-018"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/EP4015003B1/en"
+        ]
+      },
+      {
+        "document_id": "ES3045508T3",
+        "family_ids": [
+          "TFR-FAM-022"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/ES3045508T3/en"
+        ]
+      },
+      {
+        "document_id": "ES3049809T3",
+        "family_ids": [
+          "TFR-FAM-012"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/ES3049809T3/en"
+        ]
+      },
+      {
+        "document_id": "JP6905966B2",
+        "family_ids": [
+          "TFR-FAM-002"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/JP6905966B2/en"
+        ]
+      },
+      {
+        "document_id": "JP6975508B2",
+        "family_ids": [
+          "TFR-FAM-005"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/JP6975508B2/en"
+        ]
+      },
+      {
+        "document_id": "JP7536328B2",
+        "family_ids": [
+          "TFR-FAM-017"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/JP7536328B2/en"
+        ]
+      },
+      {
+        "document_id": "JP7588199B2",
+        "family_ids": [
+          "TFR-FAM-008"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/JP7588199B2/en"
+        ]
+      },
+      {
+        "document_id": "JP7654757B2",
+        "family_ids": [
+          "TFR-FAM-014"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/JP7654757B2/en"
+        ]
+      },
+      {
+        "document_id": "JP7664158B2",
+        "family_ids": [
+          "TFR-FAM-020"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/JP7664158B2/en"
+        ]
+      },
+      {
+        "document_id": "US10597381B2",
+        "family_ids": [
+          "TFR-FAM-024"
+        ],
+        "roles": [
+          "representative",
+          "claim_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US10597381B2/en"
+        ]
+      },
+      {
+        "document_id": "US11273223B2",
+        "family_ids": [
+          "TFR-FAM-003"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US11273223B2/en"
+        ]
+      },
+      {
+        "document_id": "US11592396B2",
+        "family_ids": [
+          "TFR-FAM-025"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US11592396B2/en"
+        ]
+      },
+      {
+        "document_id": "US11732023B2",
+        "family_ids": [
+          "TFR-FAM-021"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/EP3583120B1/en"
+        ]
+      },
+      {
+        "document_id": "US11795234B2",
+        "family_ids": [
+          "TFR-FAM-013"
+        ],
+        "roles": [
+          "representative",
+          "claim_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US11839660B2/en",
+          "https://patents.google.com/patent/US11795234B2/en"
+        ]
+      },
+      {
+        "document_id": "US11839660B2",
+        "family_ids": [
+          "TFR-FAM-013"
+        ],
+        "roles": [
+          "member",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US11839660B2/en"
+        ]
+      },
+      {
+        "document_id": "US11844843B2",
+        "family_ids": [
+          "TFR-FAM-013"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US11839660B2/en"
+        ]
+      },
+      {
+        "document_id": "US11918647B2",
+        "family_ids": [
+          "TFR-FAM-010"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US11918647B2/en"
+        ]
+      },
+      {
+        "document_id": "US12144868B2",
+        "family_ids": [
+          "TFR-FAM-013"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US11839660B2/en"
+        ]
+      },
+      {
+        "document_id": "US12178858B2",
+        "family_ids": [
+          "TFR-FAM-009"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US12178858B2/en"
+        ]
+      },
+      {
+        "document_id": "US12297286B2",
+        "family_ids": [
+          "TFR-FAM-011"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US12297286B2/en"
+        ]
+      },
+      {
+        "document_id": "US12325753B2",
+        "family_ids": [
+          "TFR-FAM-013"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US11839660B2/en"
+        ]
+      },
+      {
+        "document_id": "US15/107,839",
+        "family_ids": [
+          "TFR-FAM-006"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US9994641B2/en"
+        ]
+      },
+      {
+        "document_id": "US15/930,579",
+        "family_ids": [
+          "TFR-FAM-003"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US11273223B2/en"
+        ]
+      },
+      {
+        "document_id": "US16/946,524",
+        "family_ids": [
+          "TFR-FAM-010"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US11918647B2/en"
+        ]
+      },
+      {
+        "document_id": "US17/666,224",
+        "family_ids": [
+          "TFR-FAM-016"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US20220306759A1/en"
+        ]
+      },
+      {
+        "document_id": "US18/184,905",
+        "family_ids": [
+          "TFR-FAM-013"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US11839660B2/en"
+        ]
+      },
+      {
+        "document_id": "US18/199,453",
+        "family_ids": [
+          "TFR-FAM-015"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US20240115724A1/en"
+        ]
+      },
+      {
+        "document_id": "US20200071413A1",
+        "family_ids": [
+          "TFR-FAM-004"
+        ],
+        "roles": [
+          "representative"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US20200071413A1/en"
+        ]
+      },
+      {
+        "document_id": "US20220306759A1",
+        "family_ids": [
+          "TFR-FAM-016"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US20220306759A1/en"
+        ]
+      },
+      {
+        "document_id": "US20240115724A1",
+        "family_ids": [
+          "TFR-FAM-015"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US20240115724A1/en"
+        ]
+      },
+      {
+        "document_id": "US8821943B2",
+        "family_ids": [
+          "TFR-FAM-023"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US8821943B2/en"
+        ]
+      },
+      {
+        "document_id": "US9994641B2",
+        "family_ids": [
+          "TFR-FAM-006"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US9994641B2/en"
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "family_id": "TFR-FAM-001",
+        "document": "EP3594240B1",
+        "claim_category": "composition",
+        "element": "isolated antibody that binds human TfR and primate TfR without inhibiting transferrin binding; VH SEQ ID NO:153 / VL SEQ ID NO:105",
+        "coverage": "明确披露",
+        "claim_location": "independent-claim set; sequence-defined claims",
+        "evidence_url": "https://patents.google.com/patent/EP3594240B1/en",
+        "confidence": "high",
+        "notes": "Core composition; sequence-defined claims confirmed on public page.",
+        "claim_id": "CLM-DF3752AF680EC027"
+      },
+      {
+        "family_id": "TFR-FAM-001",
+        "document": "EP3594240B1",
+        "claim_category": "method-of-treatment",
+        "element": "use of anti-TfR antibody to deliver a therapeutic/neurological-drug payload across the BBB (multispecific with BACE1/Abeta/tau/EGFR/HER2 etc.)",
+        "coverage": "可能覆盖",
+        "claim_location": "use claims; description",
+        "evidence_url": "https://patents.google.com/patent/EP3594240B1/en",
+        "confidence": "medium",
+        "notes": "Multispecific CNS-delivery use is described; exact independent-claim wording and CN/US scope need review.",
+        "claim_id": "CLM-64CF0975C75F15C0"
+      },
+      {
+        "family_id": "TFR-FAM-001",
+        "document": "EP3594240B1",
+        "claim_category": "mechanism",
+        "element": "low-affinity and/or pH-sensitive TfR binding; reduced/eliminated effector function to avoid reticulocyte depletion",
+        "coverage": "明确披露",
+        "claim_location": "description/claims",
+        "evidence_url": "https://patents.google.com/patent/EP3594240B1/en",
+        "confidence": "high",
+        "notes": "Reticulocyte-sparing engineering is a central disclosure (avoiding ADCC of TfR-rich reticulocytes).",
+        "claim_id": "CLM-5DDDC9174DE6D921"
+      },
+      {
+        "family_id": "TFR-FAM-003",
+        "document": "US11273223B2",
+        "claim_category": "composition",
+        "element": "bispecific antibody with first specificity for a hapten (biotin/digoxigenin/theophylline/fluorescein/helicar) and second specificity for TfR (or LRP8/insulin receptor/IGF receptor/HB-EGF)",
+        "coverage": "明确披露",
+        "claim_location": "independent-claim set",
+        "evidence_url": "https://patents.google.com/patent/US11273223B2/en",
+        "confidence": "high",
+        "notes": "Core claim structure confirmed on public page.",
+        "claim_id": "CLM-149CB22A7CACF065"
+      },
+      {
+        "family_id": "TFR-FAM-003",
+        "document": "US11273223B2",
+        "claim_category": "conjugate",
+        "element": "non-covalent or covalent (CDR2-cysteine disulfide) complex of the bispecific antibody with a haptenylated payload",
+        "coverage": "明确披露",
+        "claim_location": "claims",
+        "evidence_url": "https://patents.google.com/patent/US11273223B2/en",
+        "confidence": "high",
+        "notes": "Payload-agnostic haptenylation is the central concept.",
+        "claim_id": "CLM-8DC79C4D591D5A8E"
+      },
+      {
+        "family_id": "TFR-FAM-003",
+        "document": "US11273223B2",
+        "claim_category": "use",
+        "element": "use as blood-brain-barrier shuttle for CNS delivery of payloads (e.g., anti-alpha-synuclein, anti-Tau(pS422), anti-Abeta, inhibitory nucleic acids, small molecules)",
+        "coverage": "可能覆盖",
+        "claim_location": "claims/description",
+        "evidence_url": "https://patents.google.com/patent/US11273223B2/en",
+        "confidence": "medium",
+        "notes": "Exemplary payloads disclosed; scope depends on granted claim set.",
+        "claim_id": "CLM-4EA4DBD365841277"
+      },
+      {
+        "family_id": "TFR-FAM-006",
+        "document": "US9994641B2",
+        "claim_category": "composition",
+        "element": "single-chain anti-human TfR antibody recognizing peptide epitopes SEQ ID NOs:1-3",
+        "coverage": "明确披露",
+        "claim_location": "claims",
+        "evidence_url": "https://patents.google.com/patent/US9994641B2/en",
+        "confidence": "high",
+        "notes": "Sequence/epitope-defined scFv claims.",
+        "claim_id": "CLM-AD4937E4955A0421"
+      },
+      {
+        "family_id": "TFR-FAM-006",
+        "document": "US9994641B2",
+        "claim_category": "fusion-protein",
+        "element": "fusion protein of the scFv with a CNS-acting protein (e.g., lysosomal enzyme iduronate-2-sulfatase I2S) fused at C-terminus",
+        "coverage": "明确披露",
+        "claim_location": "claims",
+        "evidence_url": "https://patents.google.com/patent/US9994641B2/en",
+        "confidence": "high",
+        "notes": "ERT enzyme fusion is core (Hunter syndrome CNS disease).",
+        "claim_id": "CLM-7E319ED9511D2CFA"
+      },
+      {
+        "family_id": "TFR-FAM-006",
+        "document": "US9994641B2",
+        "claim_category": "method-of-treatment",
+        "element": "method to deliver a protein across the BBB into CNS by administering the scFv-fusion to treat CNS disease (Hunter/Hurler encephalopathy, neurodegeneration)",
+        "coverage": "可能覆盖",
+        "claim_location": "claims/description",
+        "evidence_url": "https://patents.google.com/patent/US9994641B2/en",
+        "confidence": "medium",
+        "notes": "CNS treatment use disclosed; independent-claim specificity to be confirmed.",
+        "claim_id": "CLM-97A064F8F7799A38"
+      },
+      {
+        "family_id": "TFR-FAM-010",
+        "document": "US11918647B2",
+        "claim_category": "composition",
+        "element": "TfR-1-selective nurse-shark VNAR single-domain antibody moieties (FW1-CDR1-FW2-HV2-FW2'-HV4-FW3-CDR3-FW4); SEQ ID NOS.1-184",
+        "coverage": "明确披露",
+        "claim_location": "claims; sequence-defined",
+        "evidence_url": "https://patents.google.com/patent/US11918647B2/en",
+        "confidence": "high",
+        "notes": "VNAR composition claims.",
+        "claim_id": "CLM-78ABFE738C12284C"
+      },
+      {
+        "family_id": "TFR-FAM-010",
+        "document": "US11918647B2",
+        "claim_category": "mechanism",
+        "element": "binds human TfR-1 apical domain (aa 215-380) without blocking transferrin binding; does not substantially bind TfR-2; pH-dependent reversible binding; induces endocytosis; mouse cross-reactive",
+        "coverage": "明确披露",
+        "claim_location": "claims",
+        "evidence_url": "https://patents.google.com/patent/US11918647B2/en",
+        "confidence": "high",
+        "notes": "Functional selectivity is claimed.",
+        "claim_id": "CLM-49D21CB56CF6C96E"
+      },
+      {
+        "family_id": "TFR-FAM-010",
+        "document": "US11918647B2",
+        "claim_category": "conjugate",
+        "element": "TfR-specific binding moiety (VNAR) operably linked to a heterologous molecule; VNAR-Fc fusions and TfR1/BACE1 bispecifics",
+        "coverage": "明确披露",
+        "claim_location": "claims/description",
+        "evidence_url": "https://patents.google.com/patent/US11918647B2/en",
+        "confidence": "high",
+        "notes": "Conjugate and bispecific embodiments.",
+        "claim_id": "CLM-9A8A379F3E1E579E"
+      },
+      {
+        "family_id": "TFR-FAM-010",
+        "document": "US11918647B2",
+        "claim_category": "use",
+        "element": "method of delivering a therapeutic/diagnostic molecule across the BBB or to the GI tract via the VNAR moiety",
+        "coverage": "可能覆盖",
+        "claim_location": "claims/description",
+        "evidence_url": "https://patents.google.com/patent/US11918647B2/en",
+        "confidence": "medium",
+        "notes": "BBB and GI delivery uses disclosed.",
+        "claim_id": "CLM-5115352042584AB9"
+      },
+      {
+        "family_id": "TFR-FAM-013",
+        "document": "US11839660B2",
+        "claim_category": "composition",
+        "element": "humanized anti-TfR1 antibody (3M12/3A4/5H12 variants; Fab or full IgG) binding epitope residues 258-291 and/or 358-381; KD 1e-11 to 1e-6 M; cross-reactive human+NHP; no TfR2 binding; no transferrin-binding inhibition",
+        "coverage": "明确披露",
+        "claim_location": "independent-claim set",
+        "evidence_url": "https://patents.google.com/patent/US11839660B2/en",
+        "confidence": "high",
+        "notes": "Antibody composition and epitope/functional limitations.",
+        "claim_id": "CLM-B099E495980C13AC"
+      },
+      {
+        "family_id": "TFR-FAM-013",
+        "document": "US11839660B2",
+        "claim_category": "conjugate",
+        "element": "complex of the anti-TfR1 antibody covalently linked to a molecular payload (DMPK/DMD-targeting oligonucleotide, small molecule, peptide) via cleavable linker (e.g., valine-citrulline)",
+        "coverage": "明确披露",
+        "claim_location": "claims",
+        "evidence_url": "https://patents.google.com/patent/US11839660B2/en",
+        "confidence": "high",
+        "notes": "Payload conjugation is core.",
+        "claim_id": "CLM-E51025E6EDC88F48"
+      },
+      {
+        "family_id": "TFR-FAM-013",
+        "document": "US11839660B2",
+        "claim_category": "method-of-treatment",
+        "element": "method of delivering payload to muscle or brain / treating muscle disease (DM1, DMD, FSHD) or neurological disease by IV administration",
+        "coverage": "明确披露",
+        "claim_location": "claims/description",
+        "evidence_url": "https://patents.google.com/patent/US11839660B2/en",
+        "confidence": "high",
+        "notes": "Muscle/brain delivery use is explicit.",
+        "claim_id": "CLM-9EAB73F7E62710A0"
+      },
+      {
+        "family_id": "TFR-FAM-013",
+        "document": "US11795234B2",
+        "claim_category": "composition",
+        "element": "muscle-targeting complex: anti-TfR antibody covalently linked via cleavable/non-cleavable linker to oligonucleotide (DUX4-targeting ASO gapmer/RNAi/PMO/guide RNA)",
+        "coverage": "明确披露",
+        "claim_location": "claims",
+        "evidence_url": "https://patents.google.com/patent/US11795234B2/en",
+        "confidence": "high",
+        "notes": "FSHD DUX4-targeting complex claims.",
+        "claim_id": "CLM-EF9EFDF4DE72F68E"
+      },
+      {
+        "family_id": "TFR-FAM-013",
+        "document": "US11795234B2",
+        "claim_category": "indication",
+        "element": "treatment of facioscapulohumeral muscular dystrophy (FSHD) with D4Z4 repeat deletions by delivering DUX4-inhibiting payload to muscle",
+        "coverage": "明确披露",
+        "claim_location": "claims/description",
+        "evidence_url": "https://patents.google.com/patent/US11795234B2/en",
+        "confidence": "high",
+        "notes": "FSHD indication explicit.",
+        "claim_id": "CLM-5949D70AA1562758"
+      },
+      {
+        "family_id": "TFR-FAM-021",
+        "document": "EP3583120B1",
+        "claim_category": "composition",
+        "element": "engineered transferrin-receptor-binding polypeptides (engineered Fc/transport-vehicle antibody) for brain delivery",
+        "coverage": "明确披露",
+        "claim_location": "independent-claim set",
+        "evidence_url": "https://patents.google.com/patent/EP3583120B1/en",
+        "confidence": "medium",
+        "notes": "Denali TV platform; exact Fc-engineered sequence claims need full text.",
+        "claim_id": "CLM-91C6BBEABFA37EAE"
+      },
+      {
+        "family_id": "TFR-FAM-021",
+        "document": "EP3583120B1",
+        "claim_category": "use",
+        "element": "use of TfR-binding transport vehicle to deliver therapeutic proteins/enzymes across the BBB (ERT fusion branches)",
+        "coverage": "可能覆盖",
+        "claim_location": "claims/description",
+        "evidence_url": "https://patents.google.com/patent/EP3583120B1/en",
+        "confidence": "medium",
+        "notes": "Enzyme-replacement and progranulin fusion branches disclosed.",
+        "claim_id": "CLM-A22449BD7354A3A7"
+      },
+      {
+        "family_id": "TFR-FAM-015",
+        "document": "US20240115724A1",
+        "claim_category": "conjugate",
+        "element": "anti-CD71 activatable (probody) antibody conjugated to a drug; active anti-CD71 binding form at tumor",
+        "coverage": "明确披露",
+        "claim_location": "claims/abstract",
+        "evidence_url": "https://patents.google.com/patent/US20240115724A1/en",
+        "confidence": "medium",
+        "notes": "Activatable ADC claims; national claim scope to verify.",
+        "claim_id": "CLM-D01888B2FB6CC983"
+      },
+      {
+        "family_id": "TFR-FAM-016",
+        "document": "US20220306759A1",
+        "claim_category": "composition",
+        "element": "anti-CD71 antibodies and activatable (masked) anti-CD71 antibodies",
+        "coverage": "明确披露",
+        "claim_location": "claims/abstract",
+        "evidence_url": "https://patents.google.com/patent/US20220306759A1/en",
+        "confidence": "medium",
+        "notes": "Activatable antibody platform.",
+        "claim_id": "CLM-EB02AAEA5C4D4491"
+      },
+      {
+        "family_id": "TFR-FAM-018",
+        "document": "EP4015003B1",
+        "claim_category": "conjugate",
+        "element": "anti-transferrin-receptor / anti-CD71 antibody-oligonucleotide conjugate with saponin endosomal-escape enhancer",
+        "coverage": "明确披露",
+        "claim_location": "claims/abstract",
+        "evidence_url": "https://patents.google.com/patent/EP4015003B1/en",
+        "confidence": "medium",
+        "notes": "Sapreme AOC; independent-claim scope to verify.",
+        "claim_id": "CLM-3E1AFEEBB77196FA"
+      },
+      {
+        "family_id": "TFR-FAM-019",
+        "document": "CA2992509C",
+        "claim_category": "composition",
+        "element": "anti-TfR antibodies for treating proliferative and inflammatory disorders",
+        "coverage": "可能覆盖",
+        "claim_location": "claims/abstract",
+        "evidence_url": "https://patents.google.com/patent/CA2992509C/en",
+        "confidence": "medium",
+        "notes": "Inatherys antibody claims; sequence detail not extracted in this screen.",
+        "claim_id": "CLM-8F93770FC1CE9553"
+      },
+      {
+        "family_id": "TFR-FAM-023",
+        "document": "US8821943B2",
+        "claim_category": "formulation",
+        "element": "transferrin-receptor-targeted liposomes/nanoparticles carrying therapeutic agents",
+        "coverage": "明确披露",
+        "claim_location": "claims/abstract",
+        "evidence_url": "https://patents.google.com/patent/US8821943B2/en",
+        "confidence": "medium",
+        "notes": "Boundary: ligand/transferrin-targeted delivery.",
+        "claim_id": "CLM-4E97831AD0A5053B"
+      },
+      {
+        "family_id": "TFR-FAM-024",
+        "document": "US10597381B2",
+        "claim_category": "mechanism",
+        "element": "small-molecule modulators of ferroptosis referencing TfR1/transferrin iron-import pathway",
+        "coverage": "可能覆盖",
+        "claim_location": "claims/abstract",
+        "evidence_url": "https://patents.google.com/patent/US10597381B2/en",
+        "confidence": "low",
+        "notes": "Boundary mechanism family; TfR1 is context, not targeting moiety.",
+        "claim_id": "CLM-1517359B44DECE3F"
+      },
+      {
+        "family_id": "TFR-FAM-015",
+        "document": "US20240115724A1",
+        "claim_category": "conjugate",
+        "element": "anti-CD71 activatable antibody-drug conjugate Formula (I)/(II): AB(anti-CD71 VH/VL SEQ defined) + masking moiety SEQ ID NO:18 + cleavable protease-substrate SEQ ID NO:156 + vcMMAE payload; DAR ~2",
+        "coverage": "明确披露",
+        "claim_location": "claims",
+        "evidence_url": "https://patents.google.com/patent/US20240115724A1/en",
+        "confidence": "high",
+        "notes": "US application shown Abandoned 2026-08-06; verify continuations/granted members.",
+        "claim_id": "CLM-AA144CB0DF7F6BE7"
+      },
+      {
+        "family_id": "TFR-FAM-015",
+        "document": "US20240115724A1",
+        "claim_category": "indication",
+        "element": "cancer indications: gastric, ovarian, esophageal, NSCLC, ER+ breast, TNBC, CRC, melanoma, prostate, multiple myeloma, DLBCL, pancreatic, mesothelioma, NHL, HCC, glioblastoma",
+        "coverage": "明确披露",
+        "claim_location": "claims/description",
+        "evidence_url": "https://patents.google.com/patent/US20240115724A1/en",
+        "confidence": "medium",
+        "notes": "Indication list disclosed; coverage to confirm per claim set.",
+        "claim_id": "CLM-312C29B352488CEC"
+      },
+      {
+        "family_id": "TFR-FAM-016",
+        "document": "US20220306759A1",
+        "claim_category": "composition",
+        "element": "anti-CD71 antibody with CDR-defined sequences (VH CDR1 GYTFTSYWMH, CDR2 AIYPGNSETG, CDR3 ENWDPGFAF; VL CDR1 SASSSVYYMY/CRASSSVYYMY, CDR2 STSNLAS, CDR3 QQRRNYPYT); activatable (masked) and multispecific formats",
+        "coverage": "明确披露",
+        "claim_location": "claims",
+        "evidence_url": "https://patents.google.com/patent/US20220306759A1/en",
+        "confidence": "high",
+        "notes": "US application shown Abandoned 2026-08-06; verify other members.",
+        "claim_id": "CLM-F045183A01E429F9"
+      },
+      {
+        "family_id": "TFR-FAM-021",
+        "document": "EP3583120B1",
+        "claim_category": "composition",
+        "element": "engineered Fc CH3 domain with non-native TfR1-binding site; substitution sets (positions 153,157,159,160,161,162,163,164,165,186,187,188,189,194,197,199 or 118-122/210-213 re SEQ ID NO:1); binds TfR1 apical domain without inhibiting transferrin binding; epitope comprising aa208",
+        "coverage": "明确披露",
+        "claim_location": "independent-claim set",
+        "evidence_url": "https://patents.google.com/patent/EP3583120B1/en",
+        "confidence": "high",
+        "notes": "Denali TV platform; sequence-defined CH3 claims.",
+        "claim_id": "CLM-9E5C7232DB6E60D4"
+      },
+      {
+        "family_id": "TFR-FAM-021",
+        "document": "EP3583120B1",
+        "claim_category": "use",
+        "element": "transcytosis of composition across BBB endothelium; fusion with Fab binding Tau/BACE1/TREM2/alpha-synuclein for CNS disease delivery",
+        "coverage": "明确披露",
+        "claim_location": "claims/description",
+        "evidence_url": "https://patents.google.com/patent/EP3583120B1/en",
+        "confidence": "high",
+        "notes": "BBB transcytosis use and CNS-target Fab fusions.",
+        "claim_id": "CLM-63DEA688A6CE1AD2"
+      },
+      {
+        "family_id": "TFR-FAM-018",
+        "document": "EP4015003B1",
+        "claim_category": "conjugate",
+        "element": "antibody-oligonucleotide conjugate comprising saponin/endosomal-escape enhancer for cytosolic delivery",
+        "coverage": "明确披露",
+        "claim_location": "claims",
+        "evidence_url": "https://patents.google.com/patent/EP4015003B1/en",
+        "confidence": "medium",
+        "notes": "Sapreme AOC; independent-claim scope to verify in full text.",
+        "claim_id": "CLM-3ECC46A251ADCAF5"
+      }
+    ],
+    "evidence": [
+      {
+        "finding_id": "TFR-E-001",
+        "conclusion_or_fact": "Roche/Genentech anti-TfR1 BBB-shuttle platform: EP3594240B1 (priority 2013-05-20) claims an antibody binding human and primate TfR without inhibiting transferrin binding (VH SEQ ID NO:153 / VL SEQ ID NO:105), with low-affinity and/or pH-sensitive TfR binding and reduced effector function to avoid reticulocyte depletion, enabling multispecific CNS delivery (BACE1/Abeta/tau/EGFR/HER2).",
+        "evidence_type": "patent_text_and_metadata",
+        "source_url": "https://patents.google.com/patent/EP3594240B1/en",
+        "document_no": "EP3594240B1",
+        "claim_or_event_location": "Info section (priority/status); Definitions (claims bullets)",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "high",
+        "reviewer_action": "Verify granted EP claim set in EPO Register and CN/US national members in CNIPA/USPTO Patent Center.",
+        "family_ids": [
+          "TFR-FAM-001"
+        ],
+        "claim_ids": [
+          "CLM-5DDDC9174DE6D921",
+          "CLM-64CF0975C75F15C0",
+          "CLM-DF3752AF680EC027"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "TFR-E-002",
+        "conclusion_or_fact": "EP3594240B1 is shown Active on the public mirror with anticipated expiration 2034-05-20; this is a screening signal, not an official legal-status conclusion.",
+        "evidence_type": "public_status_screen",
+        "source_url": "https://patents.google.com/patent/EP3594240B1/en",
+        "document_no": "EP3594240B1",
+        "claim_or_event_location": "Info section: Status / Anticipated expiration",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "medium",
+        "reviewer_action": "Confirm in EPO Register (European Patent Register) and national registers.",
+        "family_ids": [
+          "TFR-FAM-001"
+        ],
+        "claim_ids": [
+          "CLM-5DDDC9174DE6D921",
+          "CLM-64CF0975C75F15C0",
+          "CLM-DF3752AF680EC027"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "TFR-E-003",
+        "conclusion_or_fact": "Roche bispecific anti-hapten/anti-BBB-receptor shuttle: US11273223B2 (priority 2014-01-03) claims a bispecific antibody with a hapten-binding specificity (biotin/digoxigenin/theophylline/fluorescein/helicar) and a BBB-receptor (TfR/LRP8/insulin receptor/IGF receptor/HB-EGF) binding specificity, forming non-covalent or covalent (CDR2-cysteine disulfide) complexes with haptenylated payloads for CNS delivery; effector-function-free Fc (LALA-PG or IgG4).",
+        "evidence_type": "patent_text_and_metadata",
+        "source_url": "https://patents.google.com/patent/US11273223B2/en",
+        "document_no": "US11273223B2",
+        "claim_or_event_location": "Info section; Definitions (claims bullets)",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "high",
+        "reviewer_action": "Verify granted US claims and CN/EP national-phase status.",
+        "family_ids": [
+          "TFR-FAM-003"
+        ],
+        "claim_ids": [
+          "CLM-149CB22A7CACF065",
+          "CLM-4EA4DBD365841277",
+          "CLM-8DC79C4D591D5A8E"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "TFR-E-004",
+        "conclusion_or_fact": "JCR single-chain anti-hTfR antibody + CNS-protein fusion: US9994641B2 (priority 2013-12-25) claims an scFv recognizing hTfR epitopes SEQ ID NOs:1-3 and a C-terminal fusion with a CNS-acting protein (e.g., iduronate-2-sulfatase I2S), enabling BBB transport for CNS/lysosomal storage disease (Hunter/Hurler encephalopathy).",
+        "evidence_type": "patent_text_and_metadata",
+        "source_url": "https://patents.google.com/patent/US9994641B2/en",
+        "document_no": "US9994641B2",
+        "claim_or_event_location": "Info section; Definitions; Abstract",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "high",
+        "reviewer_action": "Verify granted US claims and CN/EP national-phase status; check JCR product pipeline links.",
+        "family_ids": [
+          "TFR-FAM-006"
+        ],
+        "claim_ids": [
+          "CLM-7E319ED9511D2CFA",
+          "CLM-97A064F8F7799A38",
+          "CLM-AD4937E4955A0421"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "TFR-E-005",
+        "conclusion_or_fact": "Ossianix TfR-1-selective shark VNAR nanobody platform: US11918647B2 (priority 2014-11-14) claims VNAR single-domain moieties selectively binding human TfR-1 (apical domain aa 215-380) without blocking transferrin binding and without substantially binding TfR-2, with pH-dependent reversible binding and endocytosis; VNAR-Fc fusions and TfR1/BACE1 bispecifics deliver payloads across the BBB or GI tract.",
+        "evidence_type": "patent_text_and_metadata",
+        "source_url": "https://patents.google.com/patent/US11918647B2/en",
+        "document_no": "US11918647B2",
+        "claim_or_event_location": "Info section; Definitions (claims bullets)",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "high",
+        "reviewer_action": "Verify granted US claims and CN/EP national-phase status.",
+        "family_ids": [
+          "TFR-FAM-010"
+        ],
+        "claim_ids": [
+          "CLM-49D21CB56CF6C96E",
+          "CLM-5115352042584AB9",
+          "CLM-78ABFE738C12284C",
+          "CLM-9A8A379F3E1E579E"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "TFR-E-006",
+        "conclusion_or_fact": "Dyne muscle-targeting complexes: US11795234B2 / US11839660B2 (base priority 2018-08-02; antibody branch priority 2021-07-09) claim anti-TfR1 antibodies covalently linked to oligonucleotide payloads (DUX4/DMD/DMPK-targeting ASO/gapmer/RNAi/PMO) via cleavable linkers, delivering payloads to muscle (and brain) for FSHD/DMD/DM1; antibodies bind apical TfR epitope, do not inhibit transferrin binding, and are cross-reactive human+NHP.",
+        "evidence_type": "patent_text_and_metadata",
+        "source_url": "https://patents.google.com/patent/US11839660B2/en",
+        "document_no": "US11839660B2",
+        "claim_or_event_location": "Info section; Definitions; Figures (in vivo muscle delivery)",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "high",
+        "reviewer_action": "Verify granted US claim set and CN/EP national-phase publications (CN115349013B, CN116194470B, CN114025805B listed).",
+        "family_ids": [
+          "TFR-FAM-013"
+        ],
+        "claim_ids": [
+          "CLM-9EAB73F7E62710A0",
+          "CLM-B099E495980C13AC",
+          "CLM-E51025E6EDC88F48"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "TFR-E-007",
+        "conclusion_or_fact": "Denali engineered TfR1-binding transport-vehicle platform: EP3583120B1 / US11732023B2 (priority 2017-02-17) claim engineered TfR1-binding polypeptides (transport vehicles) for brain delivery, with branches for ERT enzyme fusions, progranulin fusions, affinity-based methods, and engineered bispecific proteins.",
+        "evidence_type": "family_and_status_screen",
+        "source_url": "https://patents.google.com/patent/EP3583120B1/en",
+        "document_no": "EP3583120B1",
+        "claim_or_event_location": "family/status section; search metadata",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "medium",
+        "reviewer_action": "Full text extraction of EP3583120B1 claims and CN/US status required.",
+        "family_ids": [
+          "TFR-FAM-021"
+        ],
+        "claim_ids": [
+          "CLM-63DEA688A6CE1AD2",
+          "CLM-91C6BBEABFA37EAE",
+          "CLM-9E5C7232DB6E60D4",
+          "CLM-A22449BD7354A3A7"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "TFR-E-008",
+        "conclusion_or_fact": "Other CD71/TfR1 oncology and delivery families identified in this screening: AbbVie anti-CD71 activatable ADC (priority 2017-10-14), CytomX anti-CD71 activatable antibodies (2015-05-04), GenAhead Bio anti-CD71 ADC (2016-06-20), Sapreme CD71 AOC with saponin endosomal escape (2018-12-21), Inatherys anti-TfR antibodies (2015-07-22), Regeneron TfR-mediated internalizing enzymes (2015-12-08), Fred Hutchinson TfR-targeting peptides (2018-12-14).",
+        "evidence_type": "family_and_status_screen",
+        "source_url": "https://patents.google.com/patent/US20240115724A1/en",
+        "document_no": "US20240115724A1",
+        "claim_or_event_location": "search metadata; family/status section",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "medium",
+        "reviewer_action": "Individual claim/status verification for each family in official registers.",
+        "family_ids": [
+          "TFR-FAM-015"
+        ],
+        "claim_ids": [
+          "CLM-312C29B352488CEC",
+          "CLM-AA144CB0DF7F6BE7",
+          "CLM-D01888B2FB6CC983"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "TFR-E-009",
+        "conclusion_or_fact": "Boundary families retained separately (not counted as TfR1 core): transferrin-ligand/TfR-targeted nanoparticles (UT Austin/SynerGene, priority 2006-09-12), TfR1 context in ferroptosis modulators (Columbia, 2012-04-02), TfR/CD71 in diagnostics/imaging (Lumicell, 2009-05-27).",
+        "evidence_type": "family_and_status_screen",
+        "source_url": "https://patents.google.com/patent/US8821943B2/en",
+        "document_no": "US8821943B2",
+        "claim_or_event_location": "search metadata; representative claims",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "medium",
+        "reviewer_action": "Decide whether to pull these into core scope depending on the user's TfR1 focus.",
+        "family_ids": [
+          "TFR-FAM-023"
+        ],
+        "claim_ids": [
+          "CLM-4E97831AD0A5053B"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "TFR-E-010",
+        "conclusion_or_fact": "Google Patents search hit counts (as of 2026-08-06): 'transferrin receptor' antibody ~57,323; 'transferrin receptor 1'/'TfR1'/'CD71' antibody ~43,455; 'transferrin receptor' blood-brain-barrier ~17,354; 'transferrin receptor' conjugate ~48,670; 'transferrin receptor' ADC (includes analog-to-digital-converter noise) ~145,880.",
+        "evidence_type": "query_metadata",
+        "source_url": "https://patents.google.com/",
+        "document_no": "",
+        "claim_or_event_location": "search summary",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "medium",
+        "reviewer_action": "These are raw hit counts (not family counts); ADC keyword introduces electronic-engineering noise that must be excluded.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": []
+      },
+      {
+        "finding_id": "TFR-E-011",
+        "conclusion_or_fact": "Search limitation: Google Patents XHR/query and detail endpoints rate-limited the analysis IP during this session; detail pages were retrieved through the Jina Reader mirror (r.jina.ai). Legal status shown is Google's aggregated status screen, which Google itself states is 'an assumption and is not a legal conclusion'.",
+        "evidence_type": "method_note",
+        "source_url": "",
+        "document_no": "",
+        "claim_or_event_location": "",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "inference",
+        "confidence": "high",
+        "reviewer_action": "All CN/US/EP legal status must be re-verified in CNIPA, USPTO Patent Center, and EPO Register before any FTO/validity use.",
+        "family_ids": [],
+        "claim_ids": [],
+        "link_methods": []
+      },
+      {
+        "finding_id": "TFR-E-012",
+        "conclusion_or_fact": "AbbVie/CytomX anti-CD71 activatable ADC US application US20240115724A1 (priority 2017-10-14) is shown Abandoned on the public mirror as of 2026-08-06; claim structure Formula (I)/(II) with masking moiety SEQ ID NO:18 and cleavable protease substrate SEQ ID NO:156, vcMMAE payload, DAR ~2; cancer indications listed. Abandonment of the US application does NOT by itself prove the family is dead in CN/EP/JP.",
+        "evidence_type": "public_status_screen",
+        "source_url": "https://patents.google.com/patent/US20240115724A1/en",
+        "document_no": "US20240115724A1",
+        "claim_or_event_location": "Info: Status Abandoned; Definitions (claims)",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "high",
+        "reviewer_action": "Verify US parent/continuations in USPTO Patent Center and CN/EP national members in official registers.",
+        "family_ids": [
+          "TFR-FAM-015"
+        ],
+        "claim_ids": [
+          "CLM-312C29B352488CEC",
+          "CLM-AA144CB0DF7F6BE7",
+          "CLM-D01888B2FB6CC983"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "TFR-E-013",
+        "conclusion_or_fact": "CytomX anti-CD71 antibodies / activatable antibodies US application US20220306759A1 (priority 2015-05-04) is shown Abandoned on the public mirror as of 2026-08-06; CDR-defined anti-CD71 antibodies and masked activatable formats.",
+        "evidence_type": "public_status_screen",
+        "source_url": "https://patents.google.com/patent/US20220306759A1/en",
+        "document_no": "US20220306759A1",
+        "claim_or_event_location": "Info: Status Abandoned; Definitions (claims)",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "high",
+        "reviewer_action": "Verify other family members and CN/EP status in official registers.",
+        "family_ids": [
+          "TFR-FAM-016"
+        ],
+        "claim_ids": [
+          "CLM-EB02AAEA5C4D4491",
+          "CLM-F045183A01E429F9"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "TFR-E-014",
+        "conclusion_or_fact": "Denali EP3583120B1 (priority 2017-02-17) granted 2022-10-05, Active, anticipated expiration 2038-02-15; claims engineered Fc CH3 domain with non-native TfR1 binding site (substitution sets re SEQ ID NO:1), binding TfR1 apical domain without inhibiting transferrin binding, monovalent dimer with knob/hole, effector modulation (L7A/L8A/P102G), Fab fusions to Tau/BACE1/TREM2/alpha-synuclein, BBB transcytosis use.",
+        "evidence_type": "patent_text_and_metadata",
+        "source_url": "https://patents.google.com/patent/EP3583120B1/en",
+        "document_no": "EP3583120B1",
+        "claim_or_event_location": "Info (priority/status); Definitions (claims bullets)",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "high",
+        "reviewer_action": "Verify EP granted claims in EPO Register and US/CN national members (US11732023B2 granted).",
+        "family_ids": [
+          "TFR-FAM-021"
+        ],
+        "claim_ids": [
+          "CLM-63DEA688A6CE1AD2",
+          "CLM-91C6BBEABFA37EAE",
+          "CLM-9E5C7232DB6E60D4",
+          "CLM-A22449BD7354A3A7"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "TFR-E-015",
+        "conclusion_or_fact": "Sapreme EP4015003B1 (priority 2018-12-21) granted 2023-05-10, Active, anticipated expiration 2039-12-09; inventors Ruben Postel, Hendrik Fuchs; antibody-oligonucleotide conjugate with saponin/endosomal-escape enhancer; CD71/TfR-targeting classification present.",
+        "evidence_type": "patent_text_and_metadata",
+        "source_url": "https://patents.google.com/patent/EP4015003B1/en",
+        "document_no": "EP4015003B1",
+        "claim_or_event_location": "Info (priority/status); Classifications",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "medium",
+        "reviewer_action": "Extract full independent claims and verify CN/US national-phase status.",
+        "family_ids": [
+          "TFR-FAM-018"
+        ],
+        "claim_ids": [
+          "CLM-3E1AFEEBB77196FA",
+          "CLM-3ECC46A251ADCAF5"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "REL-01BFE4CE3127",
+        "source_id": "family:TFR-FAM-016",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-EB02AAEA5C4D4491",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-01E13914BC5B",
+        "source_id": "family:TFR-FAM-003",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-8DC79C4D591D5A8E",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-031A13E1B8DF",
+        "source_id": "family:TFR-FAM-001",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:EP3594240B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-039CC82D715A",
+        "source_id": "claim:CLM-9EAB73F7E62710A0",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US11839660B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-082C5C348557",
+        "source_id": "claim:CLM-312C29B352488CEC",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-008",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-008"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-0BFA817AAB78",
+        "source_id": "claim:CLM-49D21CB56CF6C96E",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-005",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-005"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-0C450D5DE250",
+        "source_id": "claim:CLM-9EAB73F7E62710A0",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-006",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-006"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-0F3D45B2BD02",
+        "source_id": "family:TFR-FAM-023",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-009",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-009"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-10F63D559CBB",
+        "source_id": "claim:CLM-49D21CB56CF6C96E",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US11918647B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-13C297FAE9B3",
+        "source_id": "family:TFR-FAM-001",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-DF3752AF680EC027",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-191D1B517581",
+        "source_id": "family:TFR-FAM-003",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-4EA4DBD365841277",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-1BBB5F4485D4",
+        "source_id": "claim:CLM-9E5C7232DB6E60D4",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:EP3583120B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-1DCA7C9D7C6D",
+        "source_id": "claim:CLM-3ECC46A251ADCAF5",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:EP4015003B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-1DDB9CE99FCC",
+        "source_id": "family:TFR-FAM-021",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-91C6BBEABFA37EAE",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-239319AE0D24",
+        "source_id": "family:TFR-FAM-023",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US8821943B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-2731A0848E4A",
+        "source_id": "claim:CLM-B099E495980C13AC",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US11839660B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-279F345DE37A",
+        "source_id": "family:TFR-FAM-006",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US9994641B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-29C605079EFD",
+        "source_id": "claim:CLM-91C6BBEABFA37EAE",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-007",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-007"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-2CA989B0E3D3",
+        "source_id": "claim:CLM-A22449BD7354A3A7",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-014",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-014"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-2D46DB08E263",
+        "source_id": "family:TFR-FAM-006",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-97A064F8F7799A38",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-30B517614145",
+        "source_id": "claim:CLM-4EA4DBD365841277",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US11273223B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-32929EC0B4C9",
+        "source_id": "claim:CLM-DF3752AF680EC027",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-001",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-001"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-3426CF41723A",
+        "source_id": "claim:CLM-64CF0975C75F15C0",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-002",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-002"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-34D6EAC31F17",
+        "source_id": "family:TFR-FAM-021",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-007",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-007"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-35C8117D65FB",
+        "source_id": "family:TFR-FAM-006",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-004",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-004"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-37B51508FAE1",
+        "source_id": "family:TFR-FAM-002",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:JP6905966B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-3B11FF06A431",
+        "source_id": "family:TFR-FAM-013",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US11844843B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-3DADEF6FD540",
+        "source_id": "claim:CLM-97A064F8F7799A38",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-004",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-004"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-3F55EAD1D0AC",
+        "source_id": "claim:CLM-4EA4DBD365841277",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-003",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-003"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-41C36BE1A272",
+        "source_id": "family:TFR-FAM-010",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-5115352042584AB9",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-42AA9D006265",
+        "source_id": "family:TFR-FAM-016",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-F045183A01E429F9",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-4438F775C384",
+        "source_id": "claim:CLM-E51025E6EDC88F48",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US11839660B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-462E7C27506B",
+        "source_id": "family:TFR-FAM-021",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-A22449BD7354A3A7",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-4D560CE1A0F2",
+        "source_id": "family:TFR-FAM-021",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-63DEA688A6CE1AD2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-4F4A18071A8A",
+        "source_id": "family:TFR-FAM-019",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-8F93770FC1CE9553",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-4FEA01649F7C",
+        "source_id": "family:TFR-FAM-001",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:EP19190228.7A",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-50AA06D84398",
+        "source_id": "family:TFR-FAM-001",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-64CF0975C75F15C0",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-50D2B914F589",
+        "source_id": "family:TFR-FAM-013",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US11795234B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-51BB371A6CC0",
+        "source_id": "claim:CLM-149CB22A7CACF065",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-003",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-003"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-541D0541F3CA",
+        "source_id": "family:TFR-FAM-014",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:JP7654757B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-552C5E26C3DE",
+        "source_id": "family:TFR-FAM-006",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-7E319ED9511D2CFA",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-55A2C8C8FEC5",
+        "source_id": "family:TFR-FAM-015",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-D01888B2FB6CC983",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-5672067A5001",
+        "source_id": "claim:CLM-9A8A379F3E1E579E",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-005",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-005"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-5720EDB9F26C",
+        "source_id": "claim:CLM-7E319ED9511D2CFA",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-004",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-004"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-587D66A7D902",
+        "source_id": "family:TFR-FAM-023",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-4E97831AD0A5053B",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-5A6162D5535A",
+        "source_id": "family:TFR-FAM-013",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US12325753B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-5B3E202BD883",
+        "source_id": "claim:CLM-97A064F8F7799A38",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US9994641B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-5FD2B11963F5",
+        "source_id": "family:TFR-FAM-016",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-013",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-013"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-613A9814ABD8",
+        "source_id": "claim:CLM-8F93770FC1CE9553",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:CA2992509C",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-6197AE17C584",
+        "source_id": "claim:CLM-D01888B2FB6CC983",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US20240115724A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-64764A63C07A",
+        "source_id": "family:TFR-FAM-005",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:JP6975508B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-669FB77BD67A",
+        "source_id": "claim:CLM-F045183A01E429F9",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-013",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-013"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-68458CDCE0B6",
+        "source_id": "family:TFR-FAM-012",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:ES3049809T3",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-696F662C5932",
+        "source_id": "claim:CLM-3E1AFEEBB77196FA",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-015",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-015"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-6B80F7E4E872",
+        "source_id": "family:TFR-FAM-001",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-001",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-001"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-6CD313393D77",
+        "source_id": "claim:CLM-4E97831AD0A5053B",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-009",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-009"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-6D1676B0C3F4",
+        "source_id": "family:TFR-FAM-016",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US17/666,224",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-6E79A00E1A84",
+        "source_id": "claim:CLM-8DC79C4D591D5A8E",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-003",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-003"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-6E79D348D396",
+        "source_id": "claim:CLM-F045183A01E429F9",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US20220306759A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-6ECB2197675C",
+        "source_id": "family:TFR-FAM-013",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-EF9EFDF4DE72F68E",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-6EFC8FF4A312",
+        "source_id": "claim:CLM-91C6BBEABFA37EAE",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:EP3583120B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-703B103661B6",
+        "source_id": "claim:CLM-1517359B44DECE3F",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US10597381B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-732BB280C266",
+        "source_id": "claim:CLM-4E97831AD0A5053B",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US8821943B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-733D2A3877E5",
+        "source_id": "family:TFR-FAM-003",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-003",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-003"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-75B3D50AB58C",
+        "source_id": "claim:CLM-9E5C7232DB6E60D4",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-007",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-007"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-76A24FE93B13",
+        "source_id": "claim:CLM-AD4937E4955A0421",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US9994641B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-76AA6288CEBA",
+        "source_id": "family:TFR-FAM-001",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-002",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-002"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-7795176F5FE4",
+        "source_id": "family:TFR-FAM-025",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US11592396B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-79B10C329E06",
+        "source_id": "family:TFR-FAM-015",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-312C29B352488CEC",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-79C9F7D7522D",
+        "source_id": "family:TFR-FAM-024",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US10597381B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-7B5C218692FC",
+        "source_id": "family:TFR-FAM-004",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US20200071413A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-7CE757B14FF3",
+        "source_id": "family:TFR-FAM-021",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US11732023B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-7D8949DBFF29",
+        "source_id": "family:TFR-FAM-003",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-149CB22A7CACF065",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-7D9848E3F86F",
+        "source_id": "claim:CLM-DF3752AF680EC027",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:EP3594240B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-7DE2E64C1C25",
+        "source_id": "claim:CLM-DF3752AF680EC027",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-002",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-002"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-7EEF3055E932",
+        "source_id": "family:TFR-FAM-006",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US15/107,839",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-8040D236EEE0",
+        "source_id": "claim:CLM-A22449BD7354A3A7",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:EP3583120B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-82D0EB813008",
+        "source_id": "family:TFR-FAM-013",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-5949D70AA1562758",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-87106D7DA0F3",
+        "source_id": "family:TFR-FAM-008",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:JP7588199B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-881D91475DBA",
+        "source_id": "claim:CLM-7E319ED9511D2CFA",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US9994641B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-8A2DF9283383",
+        "source_id": "family:TFR-FAM-013",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-9EAB73F7E62710A0",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-8B17C7299EC1",
+        "source_id": "claim:CLM-5DDDC9174DE6D921",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:EP3594240B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-8B181C31B171",
+        "source_id": "claim:CLM-EF9EFDF4DE72F68E",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US11795234B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-8DA17C4B56A5",
+        "source_id": "claim:CLM-AD4937E4955A0421",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-004",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-004"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-8E3DEA23662A",
+        "source_id": "family:TFR-FAM-018",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-3ECC46A251ADCAF5",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-8E458EFE1496",
+        "source_id": "family:TFR-FAM-006",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-AD4937E4955A0421",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-8FE88C7A8053",
+        "source_id": "family:TFR-FAM-020",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:JP7664158B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-90D3D7759093",
+        "source_id": "claim:CLM-AA144CB0DF7F6BE7",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US20240115724A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-90DA00CC09BF",
+        "source_id": "family:TFR-FAM-010",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-9A8A379F3E1E579E",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-96DFBD03A86A",
+        "source_id": "family:TFR-FAM-015",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US20240115724A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-9ABF385C7447",
+        "source_id": "claim:CLM-149CB22A7CACF065",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US11273223B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-9BD9F0436F27",
+        "source_id": "claim:CLM-64CF0975C75F15C0",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:EP3594240B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-9EFB94D97F5D",
+        "source_id": "claim:CLM-78ABFE738C12284C",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-005",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-005"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-9F98D673860C",
+        "source_id": "family:TFR-FAM-013",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US12144868B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-A07B3403EBAC",
+        "source_id": "claim:CLM-EB02AAEA5C4D4491",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-013",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-013"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-A1CC6B9FD097",
+        "source_id": "family:TFR-FAM-013",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US18/184,905",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-A6CDA0242453",
+        "source_id": "family:TFR-FAM-010",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-78ABFE738C12284C",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-A7A4D6BD0DAA",
+        "source_id": "claim:CLM-8DC79C4D591D5A8E",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US11273223B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-A8329075111C",
+        "source_id": "claim:CLM-E51025E6EDC88F48",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-006",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-006"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-A9745BCFC53D",
+        "source_id": "claim:CLM-312C29B352488CEC",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-012",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-012"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-AAA84DAF71F4",
+        "source_id": "claim:CLM-EB02AAEA5C4D4491",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US20220306759A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-ACA2B43A2BBA",
+        "source_id": "claim:CLM-D01888B2FB6CC983",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-008",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-008"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-AE9A370491DF",
+        "source_id": "claim:CLM-5DDDC9174DE6D921",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-002",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-002"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-B38BD4DF2F42",
+        "source_id": "claim:CLM-AA144CB0DF7F6BE7",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-008",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-008"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-B38FBC980400",
+        "source_id": "family:TFR-FAM-010",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-49D21CB56CF6C96E",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-B63B9D763065",
+        "source_id": "family:TFR-FAM-018",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-3E1AFEEBB77196FA",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-B92766D73E6E",
+        "source_id": "family:TFR-FAM-021",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-014",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-014"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-BD2869C4EFC9",
+        "source_id": "family:TFR-FAM-003",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US15/930,579",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-C1FFBB68377C",
+        "source_id": "family:TFR-FAM-022",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:ES3045508T3",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-C6AA3ED90940",
+        "source_id": "family:TFR-FAM-010",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-005",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-005"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-C8C70AB4237E",
+        "source_id": "family:TFR-FAM-007",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:EP3315606B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-CA60F6C3D782",
+        "source_id": "claim:CLM-5DDDC9174DE6D921",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-001",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-001"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-CDCA481E2410",
+        "source_id": "family:TFR-FAM-003",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US11273223B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-CEDC000EF3D9",
+        "source_id": "family:TFR-FAM-016",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US20220306759A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-CF093AA8B174",
+        "source_id": "family:TFR-FAM-018",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-015",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-015"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-CFBBADD61FFC",
+        "source_id": "family:TFR-FAM-024",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-1517359B44DECE3F",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-CFECA0C20ABD",
+        "source_id": "claim:CLM-63DEA688A6CE1AD2",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:EP3583120B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-D08270CA9B7E",
+        "source_id": "claim:CLM-64CF0975C75F15C0",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-001",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-001"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-D1D6A415717D",
+        "source_id": "family:TFR-FAM-015",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-AA144CB0DF7F6BE7",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-D21DAA32E54A",
+        "source_id": "claim:CLM-63DEA688A6CE1AD2",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-007",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-007"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-D2C65209E1F8",
+        "source_id": "claim:CLM-312C29B352488CEC",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US20240115724A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-D4D08C3C1FC8",
+        "source_id": "claim:CLM-63DEA688A6CE1AD2",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-014",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-014"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-D5D10C36F2E3",
+        "source_id": "claim:CLM-5115352042584AB9",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US11918647B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-D7861D934F01",
+        "source_id": "claim:CLM-AA144CB0DF7F6BE7",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-012",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-012"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-D87861A69786",
+        "source_id": "family:TFR-FAM-015",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-008",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-008"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-DAC6B2E430AD",
+        "source_id": "family:TFR-FAM-013",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-E51025E6EDC88F48",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-DACC93965BCC",
+        "source_id": "family:TFR-FAM-021",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-9E5C7232DB6E60D4",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-DBC52CA4CDBE",
+        "source_id": "claim:CLM-91C6BBEABFA37EAE",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-014",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-014"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-DD3F4F9E6DEF",
+        "source_id": "family:TFR-FAM-013",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US11839660B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-DE7A50779D62",
+        "source_id": "claim:CLM-3ECC46A251ADCAF5",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-015",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-015"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-DF1868A79A86",
+        "source_id": "claim:CLM-3E1AFEEBB77196FA",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:EP4015003B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-DF26ECB6B556",
+        "source_id": "claim:CLM-A22449BD7354A3A7",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-007",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-007"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-E0A5236FE6F5",
+        "source_id": "family:TFR-FAM-015",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US18/199,453",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-E0E94C5791CD",
+        "source_id": "family:TFR-FAM-015",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-012",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-012"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-E109795AB7A7",
+        "source_id": "family:TFR-FAM-018",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:EP4015003B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-E4F7A4010384",
+        "source_id": "family:TFR-FAM-010",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US11918647B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-E64BAA3FDA03",
+        "source_id": "family:TFR-FAM-009",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US12178858B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-E9FE05D96E20",
+        "source_id": "family:TFR-FAM-011",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US12297286B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-EAA4051D98D0",
+        "source_id": "claim:CLM-B099E495980C13AC",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-006",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-006"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-EAF7F34BE3DE",
+        "source_id": "family:TFR-FAM-001",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-5DDDC9174DE6D921",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-EBF14FE21E03",
+        "source_id": "family:TFR-FAM-017",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:JP7536328B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-EC3B314C2D1F",
+        "source_id": "claim:CLM-78ABFE738C12284C",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US11918647B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-EED2ED6C535A",
+        "source_id": "claim:CLM-D01888B2FB6CC983",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-012",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-012"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-EEDD8963AFA9",
+        "source_id": "family:TFR-FAM-013",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-B099E495980C13AC",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-F2840F2BC30A",
+        "source_id": "family:TFR-FAM-019",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:CA2992509C",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-F2B74B4C1017",
+        "source_id": "family:TFR-FAM-013",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-006",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-006"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-F37FE6635BD8",
+        "source_id": "claim:CLM-9A8A379F3E1E579E",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US11918647B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-F62E8BEB40DC",
+        "source_id": "claim:CLM-9E5C7232DB6E60D4",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-014",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-014"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-F6EB47721FA4",
+        "source_id": "family:TFR-FAM-010",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US16/946,524",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-F9E55F9632DD",
+        "source_id": "claim:CLM-5115352042584AB9",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:TFR-E-005",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "TFR-E-005"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-FDAB73B223D3",
+        "source_id": "claim:CLM-5949D70AA1562758",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US11795234B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-FE1C980A32BD",
+        "source_id": "family:TFR-FAM-021",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:EP3583120B1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      }
+    ],
+    "ranking": [
+      {
+        "family_id": "TFR-FAM-013",
+        "representative_document": "US11795234B2",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.9995",
+        "feature_coverage": "0.8095",
+        "matched_features": "F02",
+        "partial_features": "F01",
+        "matched_feature_coverage": "F01=0.67 (研究对象, 靶点/机制); F02=1.00 (用途与治疗)",
+        "matched_terms": "F01: TfR1, TfR1; F02: method of treatment, combination, regimen",
+        "claim_categories": "composition; conjugate; indication; method-of-treatment",
+        "official_status_signal": "US granted 2023-10-24 (11795234B2) and 2023-12-12 (11839660B2) Active (expires up to 2042-07-08); multiple US members; CN/EP national-phase status to verify",
+        "status_source": "Google Patents public mirror; official register review required",
+        "source_url": "https://patents.google.com/patent/US11839660B2/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "TFR-FAM-015",
+        "representative_document": "US20240115724A1",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.9995",
+        "feature_coverage": "0.8095",
+        "matched_features": "F02",
+        "partial_features": "F01",
+        "matched_feature_coverage": "F01=0.67 (研究对象, 靶点/机制); F02=1.00 (用途与治疗)",
+        "matched_terms": "F01: CD71, CD71; F02: method of treatment",
+        "claim_categories": "conjugate; indication",
+        "official_status_signal": "US application US20240115724A1 shown Abandoned on public mirror (2026-08-06); US parent/granted and CN/EP members require official review",
+        "status_source": "Google Patents public mirror; official register review required",
+        "source_url": "https://patents.google.com/patent/US20240115724A1/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "TFR-FAM-021",
+        "representative_document": "EP3583120B1",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.9995",
+        "feature_coverage": "0.8095",
+        "matched_features": "F02",
+        "partial_features": "F01",
+        "matched_feature_coverage": "F01=0.67 (研究对象, 靶点/机制); F02=1.00 (用途与治疗)",
+        "matched_terms": "F01: TfR1, TfR1; F02: method of treatment",
+        "claim_categories": "composition; use",
+        "official_status_signal": "EP granted 2022-10-05 shown Active (expires 2038-02-15); US11732023B2 granted; CN national-phase to verify",
+        "status_source": "Google Patents public mirror; official register review required",
+        "source_url": "https://patents.google.com/patent/EP3583120B1/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "TFR-FAM-016",
+        "representative_document": "US20220306759A1",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.9695",
+        "feature_coverage": "0.8095",
+        "matched_features": "F02",
+        "partial_features": "F01",
+        "matched_feature_coverage": "F01=0.67 (研究对象, 靶点/机制); F02=1.00 (用途与治疗)",
+        "matched_terms": "F01: CD71, CD71; F02: method of treatment",
+        "claim_categories": "composition",
+        "official_status_signal": "US application US20220306759A1 shown Abandoned on public mirror (2026-08-06); other members require official review",
+        "status_source": "Google Patents public mirror; official register review required",
+        "source_url": "https://patents.google.com/patent/US20220306759A1/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "TFR-FAM-024",
+        "representative_document": "US10597381B2",
+        "relevance": "boundary",
+        "review_priority": "LOW",
+        "screen_score": "0.9195",
+        "feature_coverage": "0.8095",
+        "matched_features": "F02",
+        "partial_features": "F01",
+        "matched_feature_coverage": "F01=0.67 (研究对象, 靶点/机制); F02=1.00 (用途与治疗)",
+        "matched_terms": "F01: TfR1, TfR1; F02: method of treatment",
+        "claim_categories": "mechanism",
+        "official_status_signal": "US granted 2020-03-24 shown on public mirror; official review required",
+        "status_source": "Google Patents public mirror; official register review required",
+        "source_url": "https://patents.google.com/patent/US10597381B2/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "TFR-FAM-001",
+        "representative_document": "EP3594240B1",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.6186",
+        "feature_coverage": "0.4286",
+        "matched_features": "F02",
+        "partial_features": "",
+        "matched_feature_coverage": "F02=1.00 (用途与治疗)",
+        "matched_terms": "F02: method of treatment, combination",
+        "claim_categories": "composition; mechanism; method-of-treatment",
+        "official_status_signal": "EP granted 2023-12-06 and shown Active on public mirror (anticipated expiry 2034-05-20); CN/US official registers require review",
+        "status_source": "Google Patents public mirror / EPO Register link; official CNIPA/USPTO verification pending",
+        "source_url": "https://patents.google.com/patent/EP3594240B1/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "TFR-FAM-003",
+        "representative_document": "US11273223B2",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.6186",
+        "feature_coverage": "0.4286",
+        "matched_features": "F02",
+        "partial_features": "",
+        "matched_feature_coverage": "F02=1.00 (用途与治疗)",
+        "matched_terms": "F02: method of treatment",
+        "claim_categories": "composition; conjugate; use",
+        "official_status_signal": "US granted 2022-03-15 Active (expires 2035-02-16); CN/EP status to verify",
+        "status_source": "Google Patents public mirror; official register review required",
+        "source_url": "https://patents.google.com/patent/US11273223B2/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "TFR-FAM-006",
+        "representative_document": "US9994641B2",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.6186",
+        "feature_coverage": "0.4286",
+        "matched_features": "F02",
+        "partial_features": "",
+        "matched_feature_coverage": "F02=1.00 (用途与治疗)",
+        "matched_terms": "F02: method of treatment",
+        "claim_categories": "composition; fusion-protein; method-of-treatment",
+        "official_status_signal": "US granted 2018-06-12 Active (expires 2034-12-24); CN/EP status to verify",
+        "status_source": "Google Patents public mirror; official register review required",
+        "source_url": "https://patents.google.com/patent/US9994641B2/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "TFR-FAM-019",
+        "representative_document": "CA2992509C",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.6186",
+        "feature_coverage": "0.4286",
+        "matched_features": "F02",
+        "partial_features": "",
+        "matched_feature_coverage": "F02=1.00 (用途与治疗)",
+        "matched_terms": "F02: method of treatment",
+        "claim_categories": "composition",
+        "official_status_signal": "CA granted 2022-08-23 shown on public mirror; US/EP status to verify",
+        "status_source": "Google Patents public mirror; official register review required",
+        "source_url": "https://patents.google.com/patent/CA2992509C/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "TFR-FAM-023",
+        "representative_document": "US8821943B2",
+        "relevance": "boundary",
+        "review_priority": "LOW",
+        "screen_score": "0.5386",
+        "feature_coverage": "0.4286",
+        "matched_features": "F02",
+        "partial_features": "",
+        "matched_feature_coverage": "F02=1.00 (用途与治疗)",
+        "matched_terms": "F02: method of treatment",
+        "claim_categories": "formulation",
+        "official_status_signal": "US granted 2014-09-02 shown Active; official review required",
+        "status_source": "Google Patents public mirror; official register review required",
+        "source_url": "https://patents.google.com/patent/US8821943B2/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "TFR-FAM-010",
+        "representative_document": "US11918647B2",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.491",
+        "feature_coverage": "0.381",
+        "matched_features": "",
+        "partial_features": "F01",
+        "matched_feature_coverage": "F01=0.67 (研究对象, 靶点/机制)",
+        "matched_terms": "F01: TfR1, TfR1",
+        "claim_categories": "composition; conjugate; mechanism; use",
+        "official_status_signal": "US granted 2024-03-05 Active (expires 2038-01-05); CN/EP status to verify",
+        "status_source": "Google Patents public mirror; official register review required",
+        "source_url": "https://patents.google.com/patent/US11918647B2/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "TFR-FAM-018",
+        "representative_document": "EP4015003B1",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.491",
+        "feature_coverage": "0.381",
+        "matched_features": "",
+        "partial_features": "F01",
+        "matched_feature_coverage": "F01=0.67 (研究对象, 靶点/机制)",
+        "matched_terms": "F01: CD71, CD71",
+        "claim_categories": "conjugate",
+        "official_status_signal": "EP granted 2023-05-10 shown Active (expires 2039-12-09); CN/US national-phase to verify",
+        "status_source": "Google Patents public mirror; official register review required",
+        "source_url": "https://patents.google.com/patent/EP4015003B1/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      }
+    ]
+  },
+  "uncertainty": {
+    "summary": "关系边只来自显式字段或可复核的文献号/URL 规则匹配；不从 notes 自动推断专利族连续关系。",
+    "items": [
+      {
+        "id": "U-EVIDENCE-LINK",
+        "category": "evidence_linkage",
+        "statement": "部分 finding 尚未关联到 family_id 或 claim_id。",
+        "impact": "图谱无法从结论反向定位到专利族或权利要求。",
+        "confidence": "high",
+        "linked_ids": [
+          "TFR-E-010",
+          "TFR-E-011"
+        ],
+        "next_action": "在 evidence CSV 补 family_ids/claim_ids，或补可匹配的 document_no。",
+        "evidence_keys": [
+          "evidence.family_ids",
+          "evidence.claim_ids",
+          "evidence.document_no"
+        ]
+      },
+      {
+        "id": "U-FAMILY-RELATION",
+        "category": "family_relation",
+        "statement": "部分专利族没有结构化成员、优先权集或族间连续关系字段。",
+        "impact": "只能显示代表文献，不能完整还原 priority、national phase、divisional 或 continuation 边。",
+        "confidence": "high",
+        "linked_ids": [
+          "TFR-FAM-001",
+          "TFR-FAM-002",
+          "TFR-FAM-003",
+          "TFR-FAM-004",
+          "TFR-FAM-005",
+          "TFR-FAM-006",
+          "TFR-FAM-007",
+          "TFR-FAM-008",
+          "TFR-FAM-009",
+          "TFR-FAM-010",
+          "TFR-FAM-011",
+          "TFR-FAM-012",
+          "TFR-FAM-013",
+          "TFR-FAM-014",
+          "TFR-FAM-015",
+          "TFR-FAM-016",
+          "TFR-FAM-017",
+          "TFR-FAM-018",
+          "TFR-FAM-019",
+          "TFR-FAM-020",
+          "TFR-FAM-021",
+          "TFR-FAM-022",
+          "TFR-FAM-023",
+          "TFR-FAM-024",
+          "TFR-FAM-025"
+        ],
+        "next_action": "补 members、priority_set 和 family_relations，不从叙述性 notes 自动推断。",
+        "evidence_keys": [
+          "family.members",
+          "family.priority_set",
+          "family.family_relations"
+        ]
+      }
+    ]
+  },
+  "failure_cases": [
+    {
+      "id": "family_relation_fields_missing",
+      "observed": true,
+      "trigger": "family 记录缺少 members、priority_set 或 family_relations。",
+      "impact": "图谱中的专利族关系不完整。",
+      "fallback": "保留质量缺口，不从自然语言 notes 猜测关系边。"
+    },
+    {
+      "id": "evidence_unlinked",
+      "observed": true,
+      "trigger": "finding 无显式 ID 关系，document_no 和 source_url 也不能匹配。",
+      "impact": "finding 无法形成 family/claim 双链。",
+      "fallback": "保留孤立 finding，并输出补录任务。"
+    }
+  ],
+  "reports": [
+    {
+      "path": "00-executive-summary.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "01-extraction-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "02-patent-family-map-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "03-technology-roadmap-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "04-risk-and-fto-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "05-innovation-space-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "06-evidence-chain-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "07-source-catalog-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "report-index.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "report-index.html",
+      "format": "html",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "report-visuals.html",
+      "format": "html",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "knowledge-graph.html",
+      "format": "html",
+      "exists": false,
+      "status": "missing"
+    },
+    {
+      "path": "graph-data.json",
+      "format": "json",
+      "exists": false,
+      "status": "missing"
+    },
+    {
+      "path": "graph-quality.json",
+      "format": "json",
+      "exists": false,
+      "status": "missing"
+    }
+  ],
+  "reproducibility": {
+    "commands": [
+      "python scripts/build_case_output.py --project-dir <case-dir>",
+      "python scripts/validate_output_schema.py --output <case-dir>/case-output.json",
+      "python scripts/build_graph_data.py --project-dir <case-dir>",
+      "python scripts/build_knowledge_graph.py --project-dir <case-dir>"
+    ],
+    "inputs": [
+      {
+        "path": "fto-candidate-ranking.csv",
+        "sha256": "c653f75f02340253ff4cf54a2ab24536e2bcace922f23f8bddce3921178a6fe6"
+      },
+      {
+        "path": "fto-search-plan.json",
+        "sha256": "7a16c735989bf03fe9408b7b796a612aaf0fb72397b2f679b5d3af30dc26312d"
+      },
+      {
+        "path": "identity.json",
+        "sha256": "9c2384203f926bfd30ef2c06c2eb4bfbb8ef55dbd84fe56c1a98e9e00a40da0a"
+      },
+      {
+        "path": "patent-database-sources.json",
+        "sha256": "9bdbf9c4672778591e2fa7ec83af9a9bd162cdfb2d569308a93678e96aaeb933"
+      },
+      {
+        "path": "research_scope.json",
+        "sha256": "12f2f6264bb580de2ba86306a6cf2b62c36d3e85931547c524553e294015f425"
+      },
+      {
+        "path": "source-log.jsonl",
+        "sha256": "3b6139a807a111de6e4a114dabe9f9bbd5b81f2ecad5b8919dd010214bdd366f"
+      },
+      {
+        "path": "tfr1-claim-elements.csv",
+        "sha256": "4a22576fd873292669b0f68a6fcfe8d002fcb12862497d6ab52218b3d1b9149e"
+      },
+      {
+        "path": "tfr1-evidence.csv",
+        "sha256": "b1e46b6fce8531b870a3b97b9b4363c5baeedbaee394245eea45f57065848d6f"
+      },
+      {
+        "path": "tfr1-patent-families.csv",
+        "sha256": "b4be411cfbbaa41f697e290e9c3100ca28356c7403941960bc3f59333f96f0eb"
+      }
+    ],
+    "output_hashes": {
+      "00-executive-summary.md": "540aa99beae0be26631a92832253aea73ff459c87f25ee7b2d4b826cd702c741",
+      "01-extraction-report.md": "76a2a210ac0eb5fe3557565a0a7e6c96e0e46124bc0ae6eb786ef423452f8673",
+      "02-patent-family-map-report.md": "b93a5a8b6481c6239513bd2adecda5707e5f845dcb561fe1afccc60a87993ab4",
+      "03-technology-roadmap-report.md": "7fdbc55ad93ed1f5276fb8ac001891807fec6ec64c948e25763ca76f6beec8cf",
+      "04-risk-and-fto-report.md": "3fa6ceb519f80fac03e6db7db46d7dd0bfb6ea9806ee6729a53678a98ae6eda5",
+      "05-innovation-space-report.md": "9e897aba81934f29813bf7cc8babf93e27f5b6ca942407998cec6611677aef88",
+      "06-evidence-chain-report.md": "6066225e65ddff7a6be1d7bd5749cfc1b4d1268d37d0d26aa4b84b9d6ad608b0",
+      "07-source-catalog-report.md": "96d5286f5b8cf5b90d4c15e437310bb06a765395f0a3ee1262076cba4bf6ea23",
+      "report-index.md": "1938224a0aaf926c71322c8f8f4d693ee4654c9184328c12d334d6e1faf0bccb",
+      "report-index.html": "f17110f1030d1ee4b479956d948a6d89906c198bd6e54ed8490c746d23bd9d23",
+      "report-visuals.html": "b15da6ab75ca01229c88290d29c0c71190c208f38a7f232d35370fc50d510fbb"
+    }
+  },
+  "contract": {
+    "schema_version": "1.1",
+    "schema_path": "references/output-schema.json"
+  },
+  "identity": {
+    "molecule": {
+      "canonical": "Transferrin Receptor 1",
+      "synonyms": [
+        "transferrin receptor 1",
+        "TfR1",
+        "CD71",
+        "TFRC",
+        "transferrin receptor protein 1",
+        "p90",
+        "T9"
+      ],
+      "status": "confirmed_from_public_biomedical_knowledge"
+    },
+    "target": {
+      "canonical": "TfR1",
+      "aliases": [
+        "transferrin receptor 1",
+        "transferrin receptor protein 1",
+        "CD71",
+        "TFRC gene product",
+        "p90",
+        "T9"
+      ],
+      "status": "confirmed_from_public_biomedical_knowledge"
+    },
+    "indication": {
+      "canonical": "broad (cancer, iron metabolism, CNS delivery)",
+      "aliases": [
+        "iron-refractory iron deficiency anemia (IRIDA) TFRC context",
+        "cancer / proliferating-cell marker",
+        "receptor-mediated transcytosis across blood-brain barrier",
+        "erythroid iron delivery",
+        "hemochromatosis differential (TFR2)",
+        "tumor imaging / theranostics"
+      ],
+      "status": "confirmed_from_public_biomedical_knowledge"
+    },
+    "applicants": [],
+    "disambiguation_notes": [
+      "TfR1 = transferrin receptor 1 (gene TFRC, protein CD71), a type-II transmembrane homodimer that binds holo-transferrin and mediates cellular iron uptake and receptor-mediated transcytosis (e.g., across the BBB).",
+      "Distinguish from TfR2 (gene TFR2, liver/erythroid iron sensing) and from the ligand transferrin (TF); patent searches must separate 'transferrin receptor' hits that only concern the ligand.",
+      "Pathways relevant to the patent landscape: iron uptake, proliferating-cell/tumor targeting, antibody/bispecific-mediated brain delivery, antibody-drug conjugates, immunoliposomes/particles, diagnostics.",
+      "The abbreviation 'TfR' (without a number) in most biomedical texts refers to TfR1/CD71; treat 'transferrin receptor' as ambiguous but likely TfR1 unless TFR2/TfR2 is explicitly named."
+    ],
+    "unresolved_questions": [
+      "Confirm whether the user's focus is TfR1 biology broadly or a specific modality (antibody, BBB-shuttle, conjugate, diagnostic).",
+      "Verify official legal status in CNIPA and USPTO Patent Center for all representative families; Google Patents mirrors are screening signals only.",
+      "Separate anti-TfR1 platform patents from patents that merely mention TfR1/CD71 in a list of targets."
+    ]
+  },
+  "plan_summary": {
+    "search_round_count": 7,
+    "feature_count": 2
+  }
+}

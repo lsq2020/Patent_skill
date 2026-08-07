@@ -1,0 +1,1731 @@
+{
+  "schema_version": "1.1",
+  "case": {
+    "case_id": "durvalumab-pdl1-nsclc",
+    "research_object": {
+      "molecule": "Durvalumab",
+      "synonyms": [
+        "MEDI4736",
+        "MEDI-4736",
+        "Imfinzi",
+        "度伐利尤单抗"
+      ],
+      "target": "PD-L1",
+      "indication": "non-small cell lung cancer (NSCLC)"
+    },
+    "jurisdictions": [
+      "CN",
+      "US"
+    ],
+    "related_jurisdictions": [
+      "WO",
+      "EP"
+    ],
+    "as_of": "2026-08-06",
+    "depth": "standard_analysis",
+    "focus": [
+      "compound",
+      "formulation",
+      "indication",
+      "combination",
+      "resistance",
+      "biomarker"
+    ]
+  },
+  "run": {
+    "run_id": "durvalumab-pdl1-nsclc-20260807T030720Z",
+    "generated_at": "2026-08-07T03:07:20.341367+00:00",
+    "skill_version": "repository",
+    "pipeline": [
+      "scope",
+      "identity",
+      "family_normalization",
+      "claim_id_assignment",
+      "evidence_linkage",
+      "relation_normalization",
+      "modular_reports"
+    ],
+    "python": "3.13.7"
+  },
+  "metrics": {
+    "family_count": 7,
+    "claim_count": 9,
+    "evidence_count": 7,
+    "document_count": 15,
+    "relation_count": 48,
+    "family_relation_count": 0,
+    "linked_evidence_count": 7,
+    "unlinked_evidence_count": 0,
+    "ranking_count": 7,
+    "source_url_count": 12,
+    "source_log_count": 11,
+    "report_count": 11,
+    "uncertainty_count": 1
+  },
+  "records": {
+    "families": [
+      {
+        "family_id": "DVL-FAM-001",
+        "family_definition": "DOCDB/simple-family screen; sequence/engineered-antibody branch retained",
+        "representative_document": "US9493565B2",
+        "representative_application": "US14/271108",
+        "grants": "US8779108B2;US9493565B2",
+        "earliest_priority": "2009-11-24",
+        "publication_date": "2016-11-15",
+        "applicant_or_assignee": "MedImmune Ltd / AstraZeneca AB",
+        "inventors": "Christophe Queva; Michelle Morrow; Scott Hammond; Marat Alimzhanov",
+        "jurisdictions": "CN;US;WO;EP",
+        "claim_theme": "Fc-optimized anti-PD-L1 antibody (durvalumab/MEDI4736) composition and sequence",
+        "claim_categories": "composition;antibody;use",
+        "key_claim_elements": "anti-B7-H1/PD-L1 binding agent; human IgG1; Fc mutations; variable-region/sequence-defined antibody",
+        "mutation_or_biomarker": "",
+        "official_status": "US public mirror shows active; CN and other national members require official-register review",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; USPTO link available on record",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US9493565B2/en",
+        "relevance": "core",
+        "notes": "Core composition family. WO2011066389A1 and US8779108B2 are related members/branches; do not treat each publication as a new invention.",
+        "members": [
+          "US9493565B2",
+          "US14/271108",
+          "US8779108B2"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "DVL-FAM-002",
+        "family_definition": "DOCDB/simple-family screen; NSCLC use/biomarker branch",
+        "representative_document": "US20190256603A1",
+        "representative_application": "US16/346268",
+        "grants": "",
+        "earliest_priority": "2016-11-11",
+        "publication_date": "2019-08-22",
+        "applicant_or_assignee": "MedImmune LLC / AstraZeneca AB",
+        "inventors": "Keith Steele; Song Wu; Brandon Higgs; others",
+        "jurisdictions": "CN;US;WO;EP;JP",
+        "claim_theme": "Durvalumab plus tremelimumab for selected NSCLC patients",
+        "claim_categories": "method of treatment;combination;patient selection",
+        "key_claim_elements": "administer durvalumab and tremelimumab to PD-L1-negative NSCLC with high CD8+ tumor-infiltrating lymphocytes",
+        "mutation_or_biomarker": "PD-L1-negative; high CD8+ TILs",
+        "official_status": "US application shown abandoned; CN member shown pending on public mirror; family legal state differs by jurisdiction",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents family/status page; official CNIPA/USPTO confirmation pending",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US20190256603A1/en",
+        "relevance": "core",
+        "notes": "Useful example of a biomarker-and-combination branch; claim scope and national status require direct claim/register review.",
+        "members": [
+          "US20190256603A1",
+          "US16/346268"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "DVL-FAM-003",
+        "family_definition": "DOCDB/simple-family screen; perioperative NSCLC branch",
+        "representative_document": "WO2024213696A1",
+        "representative_application": "PCT/EP2024/059945",
+        "grants": "",
+        "earliest_priority": "2023-04-14",
+        "publication_date": "2024-10-17",
+        "applicant_or_assignee": "AstraZeneca AB",
+        "inventors": "Norah Shire; Phillip Dennis",
+        "jurisdictions": "WO",
+        "claim_theme": "Durvalumab plus platinum chemotherapy for resectable NSCLC",
+        "claim_categories": "method of treatment;combination;regimen",
+        "key_claim_elements": "1000-2000 mg durvalumab plus platinum chemotherapy before surgery, resection, then adjuvant durvalumab; cycles and Q3W/Q4W regimen",
+        "mutation_or_biomarker": "",
+        "official_status": "WO publication; CN/US national-phase status not established in this screening",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; national register follow-up required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
+        "relevance": "core",
+        "notes": "Recent indication/regimen branch. It is a publication-level signal, not a conclusion that CN/US protection exists.",
+        "members": [
+          "WO2024213696A1",
+          "PCT/EP2024/059945"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "DVL-FAM-004",
+        "family_definition": "DOCDB/simple-family screen; stage III NSCLC chemoradiation branch",
+        "representative_document": "WO2022248478A1",
+        "representative_application": "PCT/EP2022/064061",
+        "grants": "",
+        "earliest_priority": "2021-05-24",
+        "publication_date": "2022-12-01",
+        "applicant_or_assignee": "AstraZeneca AB",
+        "inventors": "Anthony Jarkowski; Phillip Dennis; Leo Trani; Michael Newton; Norah Shire",
+        "jurisdictions": "CN;US;WO;EP",
+        "claim_theme": "Durvalumab/PD-1-axis inhibition with concurrent platinum-based chemoradiation for unresectable stage III NSCLC",
+        "claim_categories": "method of treatment;combination;regimen",
+        "key_claim_elements": "locally advanced unresectable stage III NSCLC; concurrent chemoradiation; durvalumab as PD-L1 inhibitor context",
+        "mutation_or_biomarker": "",
+        "official_status": "CN117425493A and US20240254235A1 shown published/pending on public mirror; official register review required",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; national register follow-up required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/WO2022248478A1/en",
+        "relevance": "core",
+        "notes": "Indication-route expansion from consolidation to concurrent chemoradiation; verify independent claims and live status in CN/US.",
+        "members": [
+          "WO2022248478A1",
+          "PCT/EP2022/064061"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "DVL-FAM-005",
+        "family_definition": "DOCDB/simple-family screen; formulation branch",
+        "representative_document": "US20210054079A1",
+        "representative_application": "US17/049839",
+        "grants": "",
+        "earliest_priority": "2018-04-25",
+        "publication_date": "2021-02-25",
+        "applicant_or_assignee": "MedImmune Ltd",
+        "inventors": "James Biddlecombe; Jenny Main; Jiali Du; Methal Albarghouthi",
+        "jurisdictions": "US",
+        "claim_theme": "Human anti-PD-L1 antibody formulation including durvalumab-relevant formulation disclosure",
+        "claim_categories": "formulation;composition",
+        "key_claim_elements": "antibody formulation; stabilizing excipients and concentration/pH-related formulation parameters",
+        "mutation_or_biomarker": "",
+        "official_status": "US application shown abandoned on public mirror",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; USPTO Patent Center follow-up required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/US20210054079A1/en",
+        "relevance": "core",
+        "notes": "Included to show formulation-layer migration; it is not equivalent to a live durvalumab product patent.",
+        "members": [
+          "US20210054079A1",
+          "US17/049839"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "DVL-FAM-006",
+        "family_definition": "DOCDB/simple-family screen; adjacent checkpoint combination family",
+        "representative_document": "WO2019165434A1",
+        "representative_application": "PCT/US2019/019603",
+        "grants": "",
+        "earliest_priority": "2018-02-26",
+        "publication_date": "2019-08-29",
+        "applicant_or_assignee": "F. Hoffmann-La Roche AG / Genentech Inc",
+        "inventors": "Raymond D. Meng",
+        "jurisdictions": "CN;US;WO;EP;JP",
+        "claim_theme": "Anti-TIGIT plus anti-PD-L1 antagonist dosing",
+        "claim_categories": "combination;regimen;pathway",
+        "key_claim_elements": "anti-TIGIT and anti-PD-L1 antagonist dosing; durvalumab appears in disclosure/context but applicant is a competitor",
+        "mutation_or_biomarker": "",
+        "official_status": "WO record shown ceased; national status differs by jurisdiction",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; official register review required",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/WO2019165434A1/en",
+        "relevance": "boundary",
+        "notes": "Competitive/pathway expansion, not counted as a durvalumab-specific core family until independent claims are confirmed.",
+        "members": [
+          "WO2019165434A1",
+          "PCT/US2019/019603"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      },
+      {
+        "family_id": "DVL-FAM-007",
+        "family_definition": "DOCDB/simple-family screen; adjacent NSCLC biomarker family",
+        "representative_document": "WO2024234348A1",
+        "representative_application": "PCT/CN2023/094890",
+        "grants": "",
+        "earliest_priority": "2023-05-17",
+        "publication_date": "2024-11-21",
+        "applicant_or_assignee": "Individual applicant",
+        "inventors": "Yanjun Wang",
+        "jurisdictions": "WO",
+        "claim_theme": "Biomarker for immune checkpoint blockade therapy in NSCLC",
+        "claim_categories": "biomarker;diagnostic;patient selection",
+        "key_claim_elements": "gene-expression biomarker panels for response assessment in NSCLC immune-checkpoint blockade",
+        "mutation_or_biomarker": "ITGAL; ITGAX; TMEM119; multi-gene panels",
+        "official_status": "WO record shown pending; not durvalumab-specific in the rapid screen",
+        "status_as_of": "2026-08-06",
+        "status_source": "Google Patents public mirror; claim-level linkage to durvalumab not established",
+        "status_confidence": "medium",
+        "source_url": "https://patents.google.com/patent/WO2024234348A1/en",
+        "relevance": "boundary",
+        "notes": "Included as an adjacent biomarker-space signal; it demonstrates why resistance/biomarker searches need a separate relevance label.",
+        "members": [
+          "WO2024234348A1",
+          "PCT/CN2023/094890"
+        ],
+        "priority_set": [],
+        "family_relations": [],
+        "relation_fields_present": false
+      }
+    ],
+    "documents": [
+      {
+        "document_id": "PCT/CN2023/094890",
+        "family_ids": [
+          "DVL-FAM-007"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2024234348A1/en"
+        ]
+      },
+      {
+        "document_id": "PCT/EP2022/064061",
+        "family_ids": [
+          "DVL-FAM-004"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2022248478A1/en"
+        ]
+      },
+      {
+        "document_id": "PCT/EP2024/059945",
+        "family_ids": [
+          "DVL-FAM-003"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2024213696A1/en"
+        ]
+      },
+      {
+        "document_id": "PCT/US2019/019603",
+        "family_ids": [
+          "DVL-FAM-006"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2019165434A1/en"
+        ]
+      },
+      {
+        "document_id": "US14/271108",
+        "family_ids": [
+          "DVL-FAM-001"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US9493565B2/en"
+        ]
+      },
+      {
+        "document_id": "US16/346268",
+        "family_ids": [
+          "DVL-FAM-002"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US20190256603A1/en"
+        ]
+      },
+      {
+        "document_id": "US17/049839",
+        "family_ids": [
+          "DVL-FAM-005"
+        ],
+        "roles": [
+          "member"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US20210054079A1/en"
+        ]
+      },
+      {
+        "document_id": "US20190256603A1",
+        "family_ids": [
+          "DVL-FAM-002"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US20190256603A1/en"
+        ]
+      },
+      {
+        "document_id": "US20210054079A1",
+        "family_ids": [
+          "DVL-FAM-005"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US20210054079A1/en"
+        ]
+      },
+      {
+        "document_id": "US8779108B2",
+        "family_ids": [
+          "DVL-FAM-001"
+        ],
+        "roles": [
+          "member",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US9493565B2/en",
+          "https://patents.google.com/patent/US8779108B2/en"
+        ]
+      },
+      {
+        "document_id": "US9493565B2",
+        "family_ids": [
+          "DVL-FAM-001"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/US9493565B2/en"
+        ]
+      },
+      {
+        "document_id": "WO2019165434A1",
+        "family_ids": [
+          "DVL-FAM-006"
+        ],
+        "roles": [
+          "representative",
+          "claim_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2019165434A1/en"
+        ]
+      },
+      {
+        "document_id": "WO2022248478A1",
+        "family_ids": [
+          "DVL-FAM-004"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2022248478A1/en"
+        ]
+      },
+      {
+        "document_id": "WO2024213696A1",
+        "family_ids": [
+          "DVL-FAM-003"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2024213696A1/en"
+        ]
+      },
+      {
+        "document_id": "WO2024234348A1",
+        "family_ids": [
+          "DVL-FAM-007"
+        ],
+        "roles": [
+          "representative",
+          "claim_document",
+          "evidence_document"
+        ],
+        "source_urls": [
+          "https://patents.google.com/patent/WO2024234348A1/en"
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "family_id": "DVL-FAM-001",
+        "document": "US9493565B2",
+        "claim_category": "composition",
+        "element": "anti-B7-H1/PD-L1 antibody with sequence-defined variable regions and Fc engineering",
+        "coverage": "明确披露",
+        "claim_location": "independent-claim set; sequence-defined claims",
+        "evidence_url": "https://patents.google.com/patent/US9493565B2/en",
+        "confidence": "medium",
+        "notes": "Representative composition family; exact live claim set must be checked in USPTO Patent Center.",
+        "claim_id": "CLM-B1590893650BEC39"
+      },
+      {
+        "family_id": "DVL-FAM-001",
+        "document": "US9493565B2",
+        "claim_category": "use",
+        "element": "use of the antibody against PD-L1/B7-H1-mediated immune suppression",
+        "coverage": "可能覆盖",
+        "claim_location": "description and use claims",
+        "evidence_url": "https://patents.google.com/patent/US9493565B2/en",
+        "confidence": "medium",
+        "notes": "Use disclosure is not automatically equivalent to a live enforceable method claim.",
+        "claim_id": "CLM-FBA98844461C411C"
+      },
+      {
+        "family_id": "DVL-FAM-002",
+        "document": "US20190256603A1",
+        "claim_category": "combination",
+        "element": "durvalumab plus tremelimumab",
+        "coverage": "明确披露",
+        "claim_location": "claims/abstract",
+        "evidence_url": "https://patents.google.com/patent/US20190256603A1/en",
+        "confidence": "high",
+        "notes": "Public page explicitly describes the combination.",
+        "claim_id": "CLM-00AE26C2B3F92DFB"
+      },
+      {
+        "family_id": "DVL-FAM-002",
+        "document": "US20190256603A1",
+        "claim_category": "patient-selection",
+        "element": "PD-L1-negative NSCLC with high CD8+ tumor-infiltrating lymphocytes",
+        "coverage": "明确披露",
+        "claim_location": "claims/abstract",
+        "evidence_url": "https://patents.google.com/patent/US20190256603A1/en",
+        "confidence": "high",
+        "notes": "Biomarker/patient-selection signal; verify each national claim set.",
+        "claim_id": "CLM-87EBDEF95B4FF94B"
+      },
+      {
+        "family_id": "DVL-FAM-003",
+        "document": "WO2024213696A1",
+        "claim_category": "regimen",
+        "element": "durvalumab plus platinum chemotherapy before resection, followed by adjuvant durvalumab",
+        "coverage": "明确披露",
+        "claim_location": "claims 53-65 as reproduced on public page",
+        "evidence_url": "https://patents.google.com/patent/WO2024213696A1/en",
+        "confidence": "high",
+        "notes": "Rapid-screen claim extraction from public page; PCT claims can change during prosecution.",
+        "claim_id": "CLM-93209869EF5FFBD8"
+      },
+      {
+        "family_id": "DVL-FAM-004",
+        "document": "WO2022248478A1",
+        "claim_category": "indication",
+        "element": "locally advanced unresectable stage III NSCLC with concurrent platinum-based chemoradiation",
+        "coverage": "可能覆盖",
+        "claim_location": "description/examples; claim review pending",
+        "evidence_url": "https://patents.google.com/patent/WO2022248478A1/en",
+        "confidence": "medium",
+        "notes": "Durvalumab appears in the public disclosure; independent-claim specificity not yet confirmed.",
+        "claim_id": "CLM-44EA1A9C9F497ACE"
+      },
+      {
+        "family_id": "DVL-FAM-005",
+        "document": "US20210054079A1",
+        "claim_category": "formulation",
+        "element": "human anti-PD-L1 antibody formulation with stabilizing excipients",
+        "coverage": "可能覆盖",
+        "claim_location": "description/formulation claims",
+        "evidence_url": "https://patents.google.com/patent/US20210054079A1/en",
+        "confidence": "medium",
+        "notes": "Formulation family is broader than a durvalumab product claim in this quick screen.",
+        "claim_id": "CLM-AF86F6ACB0AFD6EA"
+      },
+      {
+        "family_id": "DVL-FAM-006",
+        "document": "WO2019165434A1",
+        "claim_category": "combination",
+        "element": "anti-TIGIT plus anti-PD-L1 antagonist dosing",
+        "coverage": "可能覆盖",
+        "claim_location": "description and claims; durvalumab linkage pending",
+        "evidence_url": "https://patents.google.com/patent/WO2019165434A1/en",
+        "confidence": "low",
+        "notes": "Boundary competitor/pathway family.",
+        "claim_id": "CLM-55D592AA559C4CF1"
+      },
+      {
+        "family_id": "DVL-FAM-007",
+        "document": "WO2024234348A1",
+        "claim_category": "biomarker",
+        "element": "NSCLC immune-checkpoint response gene-expression panel",
+        "coverage": "可能覆盖",
+        "claim_location": "description/claims; no durvalumab-specific linkage found",
+        "evidence_url": "https://patents.google.com/patent/WO2024234348A1/en",
+        "confidence": "low",
+        "notes": "Adjacent biomarker space, not a direct durvalumab resistance claim.",
+        "claim_id": "CLM-45849A7289FA2C75"
+      }
+    ],
+    "evidence": [
+      {
+        "finding_id": "DVL-E-001",
+        "conclusion_or_fact": "Durvalumab/MEDI4736 is described as an anti-PD-L1 antibody and the original B7-H1 family has priority date 2009-11-24.",
+        "evidence_type": "patent_text_and_metadata",
+        "source_url": "https://patents.google.com/patent/US8779108B2/en",
+        "document_no": "US8779108B2",
+        "claim_or_event_location": "metadata lines 15-45; description on B7-H1/PD-L1",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "medium",
+        "reviewer_action": "Verify US and CN family members in official registers.",
+        "family_ids": [
+          "DVL-FAM-001"
+        ],
+        "claim_ids": [],
+        "link_methods": [
+          "document_no"
+        ]
+      },
+      {
+        "finding_id": "DVL-E-002",
+        "conclusion_or_fact": "US9493565B2 is shown as active on the public mirror and includes a later Fc-engineered branch in the same priority family.",
+        "evidence_type": "public_status_screen",
+        "source_url": "https://patents.google.com/patent/US9493565B2/en",
+        "document_no": "US9493565B2",
+        "claim_or_event_location": "metadata/status lines 15-65",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "medium",
+        "reviewer_action": "Confirm maintenance/status with USPTO Patent Center.",
+        "family_ids": [
+          "DVL-FAM-001"
+        ],
+        "claim_ids": [
+          "CLM-B1590893650BEC39",
+          "CLM-FBA98844461C411C"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "DVL-E-003",
+        "conclusion_or_fact": "A family publication describes durvalumab plus tremelimumab for PD-L1-negative NSCLC with high CD8+ TILs.",
+        "evidence_type": "patent_abstract_and_claim_screen",
+        "source_url": "https://patents.google.com/patent/US20190256603A1/en",
+        "document_no": "US20190256603A1",
+        "claim_or_event_location": "abstract; family/status section",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "high",
+        "reviewer_action": "Compare CN national-phase claims and status.",
+        "family_ids": [
+          "DVL-FAM-002"
+        ],
+        "claim_ids": [
+          "CLM-00AE26C2B3F92DFB",
+          "CLM-87EBDEF95B4FF94B"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "DVL-E-004",
+        "conclusion_or_fact": "WO2024213696A1 describes perioperative durvalumab plus platinum chemotherapy for resectable NSCLC, with dose/cycle and surgery sequencing.",
+        "evidence_type": "patent_abstract_and_claim_screen",
+        "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
+        "document_no": "WO2024213696A1",
+        "claim_or_event_location": "claims 53-65 and description",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "high",
+        "reviewer_action": "Check whether CN/US national applications have been published and how claims evolved.",
+        "family_ids": [
+          "DVL-FAM-003"
+        ],
+        "claim_ids": [
+          "CLM-93209869EF5FFBD8"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "DVL-E-005",
+        "conclusion_or_fact": "US20210054079A1 is a human anti-PD-L1 formulation application shown abandoned on the public mirror.",
+        "evidence_type": "public_status_screen",
+        "source_url": "https://patents.google.com/patent/US20210054079A1/en",
+        "document_no": "US20210054079A1",
+        "claim_or_event_location": "metadata/status lines 15-42",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "medium",
+        "reviewer_action": "Confirm abandonment and any continuation/divisional branches.",
+        "family_ids": [
+          "DVL-FAM-005"
+        ],
+        "claim_ids": [
+          "CLM-AF86F6ACB0AFD6EA"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "DVL-E-006",
+        "conclusion_or_fact": "WO2022248478A1 family information lists CN117425493A and US20240254235A1 as national-phase publications, while the public mirror status still requires official-register confirmation.",
+        "evidence_type": "family_and_status_screen",
+        "source_url": "https://patents.google.com/patent/WO2022248478A1/en",
+        "document_no": "WO2022248478A1",
+        "claim_or_event_location": "also-published-as; country-status section",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "direct_fact",
+        "confidence": "medium",
+        "reviewer_action": "Verify CNIPA and USPTO Patent Center status and claims.",
+        "family_ids": [
+          "DVL-FAM-004"
+        ],
+        "claim_ids": [
+          "CLM-44EA1A9C9F497ACE"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      },
+      {
+        "finding_id": "DVL-E-007",
+        "conclusion_or_fact": "No direct durvalumab-specific resistance mutation family was established in this rapid example; biomarker and resistance remain a follow-up gap.",
+        "evidence_type": "gap_analysis",
+        "source_url": "https://patents.google.com/patent/WO2024234348A1/en",
+        "document_no": "WO2024234348A1",
+        "claim_or_event_location": "description on ICB biomarkers and resistance prediction",
+        "captured_at": "2026-08-06",
+        "direct_fact_or_inference": "inference",
+        "confidence": "medium",
+        "reviewer_action": "Search primary literature and claims for B2M/JAK/IFN-pathway and tumor-microenvironment mechanisms.",
+        "family_ids": [
+          "DVL-FAM-007"
+        ],
+        "claim_ids": [
+          "CLM-45849A7289FA2C75"
+        ],
+        "link_methods": [
+          "document_no",
+          "source_url"
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "REL-0088EA14AB51",
+        "source_id": "claim:CLM-44EA1A9C9F497ACE",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:WO2022248478A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-04F9E885D627",
+        "source_id": "family:DVL-FAM-005",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US17/049839",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-1860C83F8B30",
+        "source_id": "family:DVL-FAM-001",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-B1590893650BEC39",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-1B00C715F430",
+        "source_id": "family:DVL-FAM-004",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:WO2022248478A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-1D82448A860E",
+        "source_id": "family:DVL-FAM-003",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-004",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-004"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-26329AC49B30",
+        "source_id": "family:DVL-FAM-003",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:WO2024213696A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-2686E6C07D32",
+        "source_id": "family:DVL-FAM-004",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-44EA1A9C9F497ACE",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-2D6B9CB65E8B",
+        "source_id": "claim:CLM-55D592AA559C4CF1",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:WO2019165434A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-40C68B5A2FD9",
+        "source_id": "claim:CLM-87EBDEF95B4FF94B",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US20190256603A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-452F693AEB05",
+        "source_id": "claim:CLM-FBA98844461C411C",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-002",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-002"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-4987701619A1",
+        "source_id": "family:DVL-FAM-005",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-AF86F6ACB0AFD6EA",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-4D98DE817975",
+        "source_id": "family:DVL-FAM-004",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-006",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-006"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-56EA2D971D55",
+        "source_id": "family:DVL-FAM-001",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US14/271108",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-5A271F654A75",
+        "source_id": "family:DVL-FAM-003",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:PCT/EP2024/059945",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-5E7492BF6855",
+        "source_id": "claim:CLM-B1590893650BEC39",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-002",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-002"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-63BD72194B27",
+        "source_id": "claim:CLM-44EA1A9C9F497ACE",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-006",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-006"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-6C5BADF53166",
+        "source_id": "family:DVL-FAM-003",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-93209869EF5FFBD8",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-76603E7434B5",
+        "source_id": "claim:CLM-00AE26C2B3F92DFB",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US20190256603A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-797377D3FC33",
+        "source_id": "claim:CLM-93209869EF5FFBD8",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:WO2024213696A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-7C5FF9154627",
+        "source_id": "claim:CLM-00AE26C2B3F92DFB",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-003",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-003"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-8109FE4FDA6C",
+        "source_id": "family:DVL-FAM-001",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US9493565B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-816E4CF4292F",
+        "source_id": "claim:CLM-B1590893650BEC39",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US9493565B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-8908A4CB36DC",
+        "source_id": "family:DVL-FAM-005",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-005",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-005"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-8B58A6A259B8",
+        "source_id": "family:DVL-FAM-002",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-87EBDEF95B4FF94B",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-8C782ED55656",
+        "source_id": "family:DVL-FAM-005",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US20210054079A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-8D2B44702986",
+        "source_id": "family:DVL-FAM-007",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-45849A7289FA2C75",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-8EEE068EBE2A",
+        "source_id": "family:DVL-FAM-001",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US8779108B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-948C1C7BC0BF",
+        "source_id": "family:DVL-FAM-007",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-007",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-007"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-96C49F3FD0EB",
+        "source_id": "claim:CLM-AF86F6ACB0AFD6EA",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US20210054079A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-98BAEF155CCD",
+        "source_id": "claim:CLM-93209869EF5FFBD8",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-004",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-004"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-9DB5D768E72A",
+        "source_id": "family:DVL-FAM-002",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-00AE26C2B3F92DFB",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-A5FAFAEE49E3",
+        "source_id": "family:DVL-FAM-004",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:PCT/EP2022/064061",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-A9D2B1BF5B75",
+        "source_id": "family:DVL-FAM-002",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-003",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-003"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-AF89A52F5BA5",
+        "source_id": "family:DVL-FAM-001",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-001",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no"
+        ],
+        "evidence_ids": [
+          "DVL-E-001"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-B728CB45D151",
+        "source_id": "family:DVL-FAM-001",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-FBA98844461C411C",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-BBDBF810C9B2",
+        "source_id": "claim:CLM-45849A7289FA2C75",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-007",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-007"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-C48C91E2F289",
+        "source_id": "family:DVL-FAM-002",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US16/346268",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-C5FD8DAF22FA",
+        "source_id": "family:DVL-FAM-007",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:WO2024234348A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-C89D628FA479",
+        "source_id": "claim:CLM-87EBDEF95B4FF94B",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-003",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-003"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-C9713EE0D9DE",
+        "source_id": "claim:CLM-AF86F6ACB0AFD6EA",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-005",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-005"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-CC77C4C51F25",
+        "source_id": "family:DVL-FAM-006",
+        "relation_type": "HAS_CLAIM",
+        "target_id": "claim:CLM-55D592AA559C4CF1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.family_id"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-D59D078220E7",
+        "source_id": "claim:CLM-FBA98844461C411C",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:US9493565B2",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-DAAEC3CEADB4",
+        "source_id": "claim:CLM-45849A7289FA2C75",
+        "relation_type": "CLAIMS_DOCUMENT",
+        "target_id": "document:WO2024234348A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "claim.document"
+        ],
+        "evidence_ids": [],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-E7F38A6DEAD1",
+        "source_id": "family:DVL-FAM-007",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:PCT/CN2023/094890",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-EF6032B5E487",
+        "source_id": "family:DVL-FAM-002",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:US20190256603A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      },
+      {
+        "relation_id": "REL-F2DF631BE3F6",
+        "source_id": "family:DVL-FAM-006",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:PCT/US2019/019603",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.member"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "member"
+        }
+      },
+      {
+        "relation_id": "REL-F36A1E3C1B63",
+        "source_id": "family:DVL-FAM-001",
+        "relation_type": "SUPPORTED_BY",
+        "target_id": "finding:DVL-E-002",
+        "assertion": "rule_derived",
+        "link_methods": [
+          "document_no+source_url"
+        ],
+        "evidence_ids": [
+          "DVL-E-002"
+        ],
+        "properties": {}
+      },
+      {
+        "relation_id": "REL-F8C3FBC272D1",
+        "source_id": "family:DVL-FAM-006",
+        "relation_type": "HAS_MEMBER",
+        "target_id": "document:WO2019165434A1",
+        "assertion": "direct_fact",
+        "link_methods": [
+          "family.representative"
+        ],
+        "evidence_ids": [],
+        "properties": {
+          "role": "representative"
+        }
+      }
+    ],
+    "ranking": [
+      {
+        "family_id": "DVL-FAM-004",
+        "representative_document": "WO2022248478A1",
+        "relevance": "core",
+        "review_priority": "MEDIUM",
+        "screen_score": "0.7933",
+        "feature_coverage": "0.5333",
+        "matched_features": "F01, F02",
+        "partial_features": "F03, F04, F05",
+        "matched_feature_coverage": "F01=0.67 (度伐利尤单抗, 非小细胞肺癌); F02=1.00 (度伐利尤单抗, PD-L1, 阻断); F03=0.50 (PD-L1, 阻断); F04=0.50 (度伐利尤单抗, 非小细胞肺癌); F05=0.50 (度伐利尤单抗, 非小细胞肺癌)",
+        "matched_terms": "F01: durvalumab, PD-L1 inhibitor, NSCLC; F02: durvalumab, PD-L1 inhibitor, PD-L1, inhibit; F03: PD-L1, inhibit; F04: durvalumab, PD-L1 inhibitor, NSCLC; F05: durvalumab, PD-L1 inhibitor, NSCLC",
+        "claim_categories": "indication",
+        "official_status_signal": "CN117425493A and US20240254235A1 shown published/pending on public mirror; official register review required",
+        "status_source": "Google Patents public mirror; national register follow-up required",
+        "source_url": "https://patents.google.com/patent/WO2022248478A1/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "DVL-FAM-002",
+        "representative_document": "US20190256603A1",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.51",
+        "feature_coverage": "0.4",
+        "matched_features": "F01",
+        "partial_features": "F02, F03, F04, F05",
+        "matched_feature_coverage": "F01=0.67 (度伐利尤单抗, 非小细胞肺癌); F02=0.67 (度伐利尤单抗, PD-L1); F03=0.25 (PD-L1); F04=0.50 (度伐利尤单抗, 非小细胞肺癌); F05=0.50 (度伐利尤单抗, 非小细胞肺癌)",
+        "matched_terms": "F01: durvalumab, NSCLC; F02: durvalumab, PD-L1; F03: PD-L1; F04: durvalumab, NSCLC; F05: durvalumab, NSCLC",
+        "claim_categories": "combination; patient-selection",
+        "official_status_signal": "US application shown abandoned; CN member shown pending on public mirror; family legal state differs by jurisdiction",
+        "status_source": "Google Patents family/status page; official CNIPA/USPTO confirmation pending",
+        "source_url": "https://patents.google.com/patent/US20190256603A1/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "DVL-FAM-007",
+        "representative_document": "WO2024234348A1",
+        "relevance": "boundary",
+        "review_priority": "LOW",
+        "screen_score": "0.43",
+        "feature_coverage": "0.4",
+        "matched_features": "F01",
+        "partial_features": "F02, F03, F04, F05",
+        "matched_feature_coverage": "F01=0.67 (度伐利尤单抗, 非小细胞肺癌); F02=0.67 (度伐利尤单抗, 阻断); F03=0.25 (阻断); F04=0.50 (度伐利尤单抗, 非小细胞肺癌); F05=0.50 (度伐利尤单抗, 非小细胞肺癌)",
+        "matched_terms": "F01: durvalumab, NSCLC; F02: durvalumab, blockade, block; F03: blockade, block; F04: durvalumab, NSCLC; F05: durvalumab, NSCLC",
+        "claim_categories": "biomarker",
+        "official_status_signal": "WO record shown pending; not durvalumab-specific in the rapid screen",
+        "status_source": "Google Patents public mirror; claim-level linkage to durvalumab not established",
+        "source_url": "https://patents.google.com/patent/WO2024234348A1/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "DVL-FAM-001",
+        "representative_document": "US9493565B2",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.4148",
+        "feature_coverage": "0.3048",
+        "matched_features": "",
+        "partial_features": "F01, F02, F03, F04, F05",
+        "matched_feature_coverage": "F01=0.33 (度伐利尤单抗); F02=0.67 (度伐利尤单抗, PD-L1); F03=0.25 (PD-L1); F04=0.25 (度伐利尤单抗); F05=0.25 (度伐利尤单抗)",
+        "matched_terms": "F01: durvalumab, MEDI4736; F02: durvalumab, MEDI4736, PD-L1, B7-H1; F03: PD-L1, B7-H1; F04: durvalumab, MEDI4736; F05: durvalumab, MEDI4736",
+        "claim_categories": "composition; use",
+        "official_status_signal": "US public mirror shows active; CN and other national members require official-register review",
+        "status_source": "Google Patents public mirror; USPTO link available on record",
+        "source_url": "https://patents.google.com/patent/US9493565B2/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "DVL-FAM-005",
+        "representative_document": "US20210054079A1",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.3848",
+        "feature_coverage": "0.3048",
+        "matched_features": "",
+        "partial_features": "F01, F02, F03, F04, F05",
+        "matched_feature_coverage": "F01=0.33 (度伐利尤单抗); F02=0.67 (度伐利尤单抗, PD-L1); F03=0.25 (PD-L1); F04=0.25 (度伐利尤单抗); F05=0.25 (度伐利尤单抗)",
+        "matched_terms": "F01: durvalumab; F02: durvalumab, PD-L1; F03: PD-L1; F04: durvalumab; F05: durvalumab",
+        "claim_categories": "formulation",
+        "official_status_signal": "US application shown abandoned on public mirror",
+        "status_source": "Google Patents public mirror; USPTO Patent Center follow-up required",
+        "source_url": "https://patents.google.com/patent/US20210054079A1/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "DVL-FAM-003",
+        "representative_document": "WO2024213696A1",
+        "relevance": "core",
+        "review_priority": "LOW",
+        "screen_score": "0.3467",
+        "feature_coverage": "0.2667",
+        "matched_features": "F01",
+        "partial_features": "F02, F04, F05",
+        "matched_feature_coverage": "F01=0.67 (度伐利尤单抗, 非小细胞肺癌); F02=0.33 (度伐利尤单抗); F04=0.50 (度伐利尤单抗, 非小细胞肺癌); F05=0.50 (度伐利尤单抗, 非小细胞肺癌)",
+        "matched_terms": "F01: durvalumab, NSCLC; F02: durvalumab; F04: durvalumab, NSCLC; F05: durvalumab, NSCLC",
+        "claim_categories": "regimen",
+        "official_status_signal": "WO publication; CN/US national-phase status not established in this screening",
+        "status_source": "Google Patents public mirror; national register follow-up required",
+        "source_url": "https://patents.google.com/patent/WO2024213696A1/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      },
+      {
+        "family_id": "DVL-FAM-006",
+        "representative_document": "WO2019165434A1",
+        "relevance": "boundary",
+        "review_priority": "LOW",
+        "screen_score": "0.3048",
+        "feature_coverage": "0.3048",
+        "matched_features": "",
+        "partial_features": "F01, F02, F03, F04, F05",
+        "matched_feature_coverage": "F01=0.33 (度伐利尤单抗); F02=0.67 (度伐利尤单抗, PD-L1); F03=0.25 (PD-L1); F04=0.25 (度伐利尤单抗); F05=0.25 (度伐利尤单抗)",
+        "matched_terms": "F01: durvalumab; F02: durvalumab, PD-L1; F03: PD-L1; F04: durvalumab; F05: durvalumab",
+        "claim_categories": "combination",
+        "official_status_signal": "WO record shown ceased; national status differs by jurisdiction",
+        "status_source": "Google Patents public mirror; official register review required",
+        "source_url": "https://patents.google.com/patent/WO2019165434A1/en",
+        "notes": "关键词/要素初筛，不等于权利要求覆盖；需核对完整独立权利要求、法域成员和官方状态。"
+      }
+    ]
+  },
+  "uncertainty": {
+    "summary": "关系边只来自显式字段或可复核的文献号/URL 规则匹配；不从 notes 自动推断专利族连续关系。",
+    "items": [
+      {
+        "id": "U-FAMILY-RELATION",
+        "category": "family_relation",
+        "statement": "部分专利族没有结构化成员、优先权集或族间连续关系字段。",
+        "impact": "只能显示代表文献，不能完整还原 priority、national phase、divisional 或 continuation 边。",
+        "confidence": "high",
+        "linked_ids": [
+          "DVL-FAM-001",
+          "DVL-FAM-002",
+          "DVL-FAM-003",
+          "DVL-FAM-004",
+          "DVL-FAM-005",
+          "DVL-FAM-006",
+          "DVL-FAM-007"
+        ],
+        "next_action": "补 members、priority_set 和 family_relations，不从叙述性 notes 自动推断。",
+        "evidence_keys": [
+          "family.members",
+          "family.priority_set",
+          "family.family_relations"
+        ]
+      }
+    ]
+  },
+  "failure_cases": [
+    {
+      "id": "family_relation_fields_missing",
+      "observed": true,
+      "trigger": "family 记录缺少 members、priority_set 或 family_relations。",
+      "impact": "图谱中的专利族关系不完整。",
+      "fallback": "保留质量缺口，不从自然语言 notes 猜测关系边。"
+    },
+    {
+      "id": "evidence_unlinked",
+      "observed": false,
+      "trigger": "finding 无显式 ID 关系，document_no 和 source_url 也不能匹配。",
+      "impact": "finding 无法形成 family/claim 双链。",
+      "fallback": "保留孤立 finding，并输出补录任务。"
+    }
+  ],
+  "reports": [
+    {
+      "path": "00-executive-summary.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "01-extraction-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "02-patent-family-map-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "03-technology-roadmap-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "04-risk-and-fto-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "05-innovation-space-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "06-evidence-chain-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "07-source-catalog-report.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "report-index.md",
+      "format": "md",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "report-index.html",
+      "format": "html",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "report-visuals.html",
+      "format": "html",
+      "exists": true,
+      "status": "complete"
+    },
+    {
+      "path": "knowledge-graph.html",
+      "format": "html",
+      "exists": false,
+      "status": "missing"
+    },
+    {
+      "path": "graph-data.json",
+      "format": "json",
+      "exists": false,
+      "status": "missing"
+    },
+    {
+      "path": "graph-quality.json",
+      "format": "json",
+      "exists": false,
+      "status": "missing"
+    }
+  ],
+  "reproducibility": {
+    "commands": [
+      "python scripts/build_case_output.py --project-dir <case-dir>",
+      "python scripts/validate_output_schema.py --output <case-dir>/case-output.json",
+      "python scripts/build_graph_data.py --project-dir <case-dir>",
+      "python scripts/build_knowledge_graph.py --project-dir <case-dir>"
+    ],
+    "inputs": [
+      {
+        "path": "durvalumab-pdl1-nsclc-claim-elements.csv",
+        "sha256": "39b8ac7e64dbdfeb8139287e4ea739c511ca8377a64fbda48040eb78c8e62b8f"
+      },
+      {
+        "path": "durvalumab-pdl1-nsclc-evidence.csv",
+        "sha256": "11fc296da28eb25ad1a2637dc8c8b307560f23340c1f546cb2f6a57bdc8d0a50"
+      },
+      {
+        "path": "durvalumab-pdl1-nsclc-patent-families.csv",
+        "sha256": "b0b5e728aa43857b483ce8713209680104804cbc0384306ac0e60ca719fca553"
+      },
+      {
+        "path": "fto-candidate-ranking.csv",
+        "sha256": "3deaadf9a122b30611d415b6b4ea16616e2666e31debb175301495ecb64fe1a7"
+      },
+      {
+        "path": "fto-search-plan.json",
+        "sha256": "1e8347120334b17647f2fa72937373c3823c11ad2ece3053fc326d737bafe08d"
+      },
+      {
+        "path": "identity.json",
+        "sha256": "207782f09b9cb861e3dab8084b31d9c6f0ca4600d787f44f1d03561731b6ff64"
+      },
+      {
+        "path": "research_scope.json",
+        "sha256": "c57536d19075b21e2967b41863a2899526e6ac31f47a70aae7fb0d9658c56d0c"
+      },
+      {
+        "path": "source-log.jsonl",
+        "sha256": "a0b914dc03cc017cc50ef6fa3108cca3402317c6ee7824cbba1f31962b883af4"
+      }
+    ],
+    "output_hashes": {
+      "00-executive-summary.md": "173124633663d4faaf0f2e5b130324b9b03b78ef7c9bd4f52d3199d6ede9c14f",
+      "01-extraction-report.md": "c48a8f4142bfe247fc97047b12ac1b86ff5824e89cbdf085314eac09d1be6083",
+      "02-patent-family-map-report.md": "902d8b5a0a01e72703a5e22073b0eb2864ae80053bf0ae134257b021f6446ce8",
+      "03-technology-roadmap-report.md": "f0ce9bb635463f5a5b0de20b64f01bed8b4d7be659d093d76bff94fd25e7bc06",
+      "04-risk-and-fto-report.md": "7dc20399aabe0066b068ce861b16ed18d7e0580b7f2fed35dc4203bb2509035d",
+      "05-innovation-space-report.md": "922589c5d1ecfc0e92ffe75fe57e30dc72a944b0342f94afdb39364ade090d79",
+      "06-evidence-chain-report.md": "24de67e956ae42c3123b67be5f5858d589cb765781cc691b5e7bfbcb251df457",
+      "07-source-catalog-report.md": "b85a28c746f2a54e586601e1cf5e5bd18c9859452244c8b30e6ef1bfc1dcfb3d",
+      "report-index.md": "e81bd9ecf720c2ed9bfe526b8e6048a26064880889b9ef882817defc1821c3c7",
+      "report-index.html": "a08f2bd919d5dfdcd915870f73e8bcf11f4a55f6645da70db86468f5acc245c5",
+      "report-visuals.html": "0b85824416c5ee68b11bf4e6eb86456f6520798e2c886df4179f9ebd078720f4"
+    }
+  },
+  "contract": {
+    "schema_version": "1.1",
+    "schema_path": "references/output-schema.json"
+  },
+  "identity": {
+    "molecule": {
+      "canonical": "Durvalumab",
+      "synonyms": [
+        "MEDI4736",
+        "MEDI-4736",
+        "Imfinzi",
+        "度伐利尤单抗"
+      ],
+      "status": "unconfirmed"
+    },
+    "target": {
+      "canonical": "PD-L1",
+      "aliases": [
+        "B7-H1",
+        "CD274",
+        "programmed death-ligand 1"
+      ],
+      "status": "confirmed_from_public_patent_text"
+    },
+    "indication": {
+      "canonical": "non-small cell lung cancer (NSCLC)",
+      "aliases": [
+        "non-small-cell lung cancer",
+        "R-NSCLC",
+        "stage III unresectable NSCLC",
+        "LUAD",
+        "LUSC"
+      ],
+      "status": "confirmed_from_public_patent_text"
+    },
+    "applicants": [],
+    "unresolved_questions": [
+      "Confirm national-phase members and post-grant status in CNIPA and USPTO Patent Center.",
+      "Separate patents naming durvalumab from broad anti-PD-L1 platform patents that only mention it as an example.",
+      "Cross-check immune-checkpoint resistance biology against primary literature; do not equate a resistance biomarker with a patent claim."
+    ]
+  },
+  "plan_summary": {
+    "search_round_count": 7,
+    "feature_count": 7
+  }
+}
