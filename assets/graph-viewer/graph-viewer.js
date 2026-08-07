@@ -17,6 +17,59 @@
     : presetDefaultDepth(initialPreset);
   const initialFocus = nodesById.has(params.get("focus")) ? params.get("focus") : DATA.meta.default_focus;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
+  const GALAXY_STORAGE_KEY = "patent-evidence-graph.galaxy-settings.v1";
+  const DEFAULT_GALAXY_SETTINGS = Object.freeze({
+    preset: "galaxy",
+    sizeMode: "degree",
+    nodeScale: 1,
+    edgeOpacity: 0.34,
+    glowStrength: 0.62,
+    linkDistance: 94,
+    pressure: 1,
+    orbitStrength: 0.36,
+    starfield: true,
+    twinkle: true,
+    autoOrbit: false,
+  });
+  const GALAXY_PRESET_SETTINGS = {
+    galaxy: { ...DEFAULT_GALAXY_SETTINGS },
+    spiral: { ...DEFAULT_GALAXY_SETTINGS, preset: "spiral", nodeScale: 0.96, edgeOpacity: 0.42, glowStrength: 0.74, linkDistance: 108, pressure: 1.08, orbitStrength: 0.76 },
+    nebula: { ...DEFAULT_GALAXY_SETTINGS, preset: "nebula", nodeScale: 1.08, edgeOpacity: 0.48, glowStrength: 0.9, linkDistance: 86, pressure: 0.82, orbitStrength: 0.28 },
+    minimal: { ...DEFAULT_GALAXY_SETTINGS, preset: "minimal", sizeMode: "type", nodeScale: 0.9, edgeOpacity: 0.2, glowStrength: 0, linkDistance: 82, pressure: 0.9, orbitStrength: 0, starfield: false, twinkle: false },
+  };
+  const GALAXY_TYPE_COLORS = {
+    research_object: "#e5e0d6",
+    target: "#a594cf",
+    indication: "#d58aa1",
+    patent_family: "#73a7cf",
+    patent_document: "#62b6a6",
+    claim: "#d7ab62",
+    evidence: "#d77f73",
+    applicant: "#9da7b0",
+    jurisdiction: "#73a9b7",
+    technology_theme: "#a8b66e",
+    causal_concept: "#a9c7e3",
+    source: "#7d858c",
+  };
+  const GALAXY_GROUP_BY_TYPE = new Map([
+    ["research_object", 0], ["target", 0], ["indication", 0],
+    ["patent_family", 1], ["patent_document", 1],
+    ["claim", 2], ["evidence", 2], ["source", 2],
+    ["applicant", 3], ["jurisdiction", 3],
+    ["technology_theme", 4], ["causal_concept", 4],
+  ]);
+
+  function loadGalaxySettings() {
+    try {
+      const saved = JSON.parse(window.localStorage.getItem(GALAXY_STORAGE_KEY) || "null");
+      if (!saved || typeof saved !== "object") return { ...DEFAULT_GALAXY_SETTINGS };
+      const preset = GALAXY_PRESET_SETTINGS[saved.preset] ? saved.preset : DEFAULT_GALAXY_SETTINGS.preset;
+      return { ...DEFAULT_GALAXY_SETTINGS, ...saved, preset };
+    } catch (_error) {
+      return { ...DEFAULT_GALAXY_SETTINGS };
+    }
+  }
 
   const state = {
     preset: initialPreset,
@@ -27,10 +80,12 @@
     focusHistory: [initialFocus],
     focusIndex: 0,
     filterOpen: false,
+    galaxyOpen: false,
     inspectorOpen: false,
     ledgerOpen: false,
     localFocus: params.get("local") === "1",
     motionEnabled: !prefersReducedMotion,
+    galaxySettings: loadGalaxySettings(),
     nodeTypes: new Set(),
     relationTypes: new Set(),
     visibleNodeIds: new Set(),
@@ -42,6 +97,7 @@
   function setPanelState(panel, open) {
     const config = {
       filter: { stateKey: "filterOpen", className: "is-filter-open", panelId: "filter-panel", toggleId: "layer-toggle" },
+      galaxy: { stateKey: "galaxyOpen", className: "is-galaxy-open", panelId: "galaxy-panel", toggleId: "galaxy-toggle" },
       inspector: { stateKey: "inspectorOpen", className: "is-inspector-open", panelId: "inspector-panel", toggleId: "inspector-toggle" },
       ledger: { stateKey: "ledgerOpen", className: "is-open", panelId: "relation-ledger", toggleId: "ledger-toggle" },
     }[panel];
@@ -192,6 +248,8 @@
       { selector: 'edge[type = "FILED_BY"]', style: { "line-color": "#555b61", "target-arrow-color": "#555b61" } },
       { selector: "edge.corridor-edge", style: { "curve-style": "straight", opacity: 0.3 } },
       { selector: "edge.depth-aware", style: { width: "data(visualWidth)", opacity: "data(depthOpacity)", "z-index": "data(depthOrder)", "z-index-compare": "manual" } },
+      { selector: "node.galaxy-node", style: { "background-color": "data(galaxyColor)", "border-color": "data(galaxyBorderColor)", "border-width": "data(galaxyBorderWidth)", width: "data(galaxyNodeSize)", height: "data(galaxyNodeSize)", "font-size": "data(galaxyFontSize)", "font-weight": "data(galaxyFontWeight)", "text-opacity": "data(galaxyLabelOpacity)", "text-outline-opacity": 0.9, "text-outline-width": 1.4, "text-margin-y": "data(galaxyTextOffset)", "shadow-color": "data(galaxyColor)", "shadow-blur": "data(galaxyGlowBlur)", "shadow-opacity": "data(galaxyGlowOpacity)", "shadow-offset-x": 0, "shadow-offset-y": 0 } },
+      { selector: "edge.galaxy-edge", style: { "curve-style": "unbundled-bezier", "control-point-distances": "data(galaxyCurveDistance)", "control-point-weights": 0.5, "line-color": "data(galaxyColor)", "target-arrow-color": "data(galaxyColor)", width: "data(galaxyEdgeWidth)", opacity: "data(galaxyEdgeOpacity)", "line-cap": "round", "target-arrow-shape": "none" } },
       { selector: "edge.edge-active", style: { label: "data(label)", width: 1.8, opacity: 0.96, color: "#c9ced3", "font-size": 8, "font-weight": 600, "target-arrow-shape": "triangle", "text-rotation": "autorotate", "text-background-color": "#1c1f22", "text-background-opacity": 0.92, "text-background-padding": 2, "text-margin-y": -7, "z-index": 8 } },
       { selector: "edge.incoming-active", style: { "line-color": "#5f9e92", "target-arrow-color": "#5f9e92" } },
       { selector: "edge.outgoing-active", style: { "line-color": "#c49a5a", "target-arrow-color": "#c49a5a" } },
@@ -230,6 +288,8 @@
   let lastDragSample = null;
   let lastWaveEmission = 0;
   let depthTapCycle = null;
+  let motionCenter = { x: 0, y: 0 };
+  let orbitStartedAt = performance.now();
 
   function velocityFor(nodeId) {
     if (!motionVelocities.has(nodeId)) motionVelocities.set(nodeId, { x: 0, y: 0 });
@@ -264,6 +324,10 @@
       motionAnchors.set(node.id(), { x: position.x, y: position.y });
       motionVelocities.set(node.id(), { x: 0, y: 0 });
     });
+    const anchors = [...motionAnchors.values()];
+    motionCenter = anchors.length
+      ? anchors.reduce((center, position) => ({ x: center.x + position.x / anchors.length, y: center.y + position.y / anchors.length }), { x: 0, y: 0 })
+      : { x: 0, y: 0 };
     captureSpringRestLengths();
     lastPhysicsTimestamp = 0;
   }
@@ -334,7 +398,7 @@
           distance = 0.01;
         }
         const minimumDistance = 10 + ((Number(left.data("visualSize")) + Number(right.data("visualSize"))) * 0.55);
-        const coulombForce = COULOMB_STRENGTH / ((distance * distance) + 144);
+        const coulombForce = (COULOMB_STRENGTH * state.galaxySettings.pressure) / ((distance * distance) + 144);
         const collisionForce = distance < minimumDistance
           ? (minimumDistance - distance) * COLLISION_STIFFNESS
           : 0;
@@ -419,6 +483,11 @@
 
   function applyAmbientDrift(timestamp) {
     const seconds = timestamp / 1000;
+    const orbitAngle = state.galaxySettings.autoOrbit && !prefersReducedMotion
+      ? ((timestamp - orbitStartedAt) / 1000) * (0.004 + (state.galaxySettings.orbitStrength * 0.012))
+      : 0;
+    const orbitCosine = Math.cos(orbitAngle);
+    const orbitSine = Math.sin(orbitAngle);
     cy.batch(() => {
       cy.nodes().forEach((node) => {
         if (node.grabbed()) return;
@@ -427,9 +496,13 @@
         const depth = Number(node.data("spatialDepth") || 0.3);
         const phase = Number(node.data("motionPhase") || 0);
         const amplitude = 0.5 + (depth * 1.35);
+        const anchorX = anchor.x - motionCenter.x;
+        const anchorY = anchor.y - motionCenter.y;
+        const orbitX = motionCenter.x + (anchorX * orbitCosine) - (anchorY * orbitSine);
+        const orbitY = motionCenter.y + (anchorX * orbitSine) + (anchorY * orbitCosine);
         node.position({
-          x: anchor.x + (Math.sin((seconds * 0.62) + phase) * amplitude),
-          y: anchor.y + (Math.cos((seconds * 0.54) + (phase * 1.17)) * amplitude * 0.68),
+          x: orbitX + (Math.sin((seconds * 0.62) + phase) * amplitude),
+          y: orbitY + (Math.cos((seconds * 0.54) + (phase * 1.17)) * amplitude * 0.68),
         });
       });
     });
@@ -588,6 +661,8 @@
     const hash = [...String(id)].reduce((total, character) => ((total * 37) + character.charCodeAt(0)) % 991, 23);
     return (hash / 990) * Math.PI * 2;
   };
+  const stableGalaxyHash = (id) => [...String(id)]
+    .reduce((total, character) => ((total * 41) + character.charCodeAt(0)) % 104729, 29);
 
   function computeSpatialMetrics(view) {
     const degreeById = new Map(view.nodes.map((node) => [node.id, 0]));
@@ -629,8 +704,63 @@
     return { nodes, edges };
   }
 
+  function computeGalaxyMetrics(view) {
+    const settings = state.galaxySettings;
+    const degreeById = new Map(view.nodes.map((node) => [node.id, 0]));
+    view.edges.forEach((edge) => {
+      degreeById.set(edge.source, (degreeById.get(edge.source) || 0) + 1);
+      degreeById.set(edge.target, (degreeById.get(edge.target) || 0) + 1);
+    });
+    const maxDegree = Math.max(1, ...degreeById.values());
+    const nodes = new Map();
+    view.nodes.forEach((node) => {
+      const degree = degreeById.get(node.id) || 0;
+      const degreeCentrality = Math.sqrt(degree / maxDegree);
+      const typeSize = nodeBaseSizes[node.type] || 15;
+      const rawSize = settings.sizeMode === "uniform"
+        ? 17
+        : settings.sizeMode === "type"
+          ? typeSize
+          : 9 + (degreeCentrality * 39) + (node.id === state.focus ? 5 : 0);
+      const galaxyNodeSize = clamp(rawSize * settings.nodeScale, 7, 62);
+      const galaxyFontSize = clamp((6.2 + (degreeCentrality * 9.8)) * Math.sqrt(settings.nodeScale), 6, 18);
+      const galaxyColor = GALAXY_TYPE_COLORS[node.type] || "#8f989f";
+      nodes.set(node.id, {
+        degree,
+        degreeCentrality: Number(degreeCentrality.toFixed(4)),
+        galaxyColor,
+        galaxyBorderColor: galaxyColor,
+        galaxyNodeSize: Number(galaxyNodeSize.toFixed(1)),
+        galaxyFontSize: Number(galaxyFontSize.toFixed(1)),
+        galaxyFontWeight: degreeCentrality > 0.58 ? 650 : 500,
+        galaxyLabelOpacity: Number(clamp(0.38 + (degreeCentrality * 0.76), 0.38, 1).toFixed(2)),
+        galaxyGlowBlur: Number((3 + (degreeCentrality * 20 * settings.glowStrength)).toFixed(1)),
+        galaxyGlowOpacity: Number((settings.glowStrength * (0.1 + (degreeCentrality * 0.52))).toFixed(2)),
+        galaxyBorderWidth: Number((0.7 + (degreeCentrality * 1.2)).toFixed(1)),
+        galaxyTextOffset: Number((4 + (galaxyNodeSize * 0.18)).toFixed(1)),
+      });
+    });
+    const edges = new Map();
+    view.edges.forEach((edge) => {
+      const source = nodes.get(edge.source);
+      const target = nodes.get(edge.target);
+      const centrality = ((source?.degreeCentrality || 0) + (target?.degreeCentrality || 0)) / 2;
+      const hash = stableGalaxyHash(edge.id);
+      const direction = hash % 2 ? 1 : -1;
+      const curveMagnitude = (18 + (hash % 58)) * (0.36 + (settings.orbitStrength * 1.18));
+      edges.set(edge.id, {
+        galaxyColor: source?.galaxyColor || "#778087",
+        galaxyCurveDistance: Number((direction * curveMagnitude).toFixed(1)),
+        galaxyEdgeWidth: Number((0.34 + (centrality * 0.96)).toFixed(2)),
+        galaxyEdgeOpacity: Number(clamp(settings.edgeOpacity * (0.56 + (centrality * 0.62)), 0.04, 0.92).toFixed(2)),
+      });
+    });
+    return { nodes, edges };
+  }
+
   function cytoscapeElements(view) {
     const spatialMetrics = computeSpatialMetrics(view);
+    const galaxyMetrics = computeGalaxyMetrics(view);
     return [
       ...view.nodes.map((node) => ({
         group: "nodes",
@@ -643,6 +773,7 @@
           properties: node.properties,
           sourceUrl: node.source_url,
           ...spatialMetrics.nodes.get(node.id),
+          ...galaxyMetrics.nodes.get(node.id),
         },
       })),
       ...view.edges.map((edge) => ({
@@ -665,6 +796,7 @@
           linkMethods: edge.link_methods,
           evidenceIds: edge.evidence_ids,
           ...spatialMetrics.edges.get(edge.id),
+          ...galaxyMetrics.edges.get(edge.id),
         },
       })),
     ];
@@ -703,13 +835,209 @@
     return (node) => positions.get(node.id()) || { x: width / 2, y: height / 2 };
   }
 
+  function galaxyLayoutPositions() {
+    const settings = state.galaxySettings;
+    const width = Math.max(cy.width(), 720);
+    const height = Math.max(cy.height(), 620);
+    const center = { x: width / 2, y: height / 2 };
+    const groups = new Map();
+    cy.nodes().forEach((node) => {
+      const group = GALAXY_GROUP_BY_TYPE.get(node.data("type")) ?? 5;
+      if (!groups.has(group)) groups.set(group, []);
+      groups.get(group).push(node);
+    });
+    const groupEntries = [...groups.entries()].sort(([left], [right]) => left - right);
+    const positions = new Map();
+    const clusterCount = Math.max(groupEntries.length, 1);
+    const orbitRadiusX = Math.min(width * 0.31, 330) * settings.pressure;
+    const orbitRadiusY = Math.min(height * 0.24, 220) * settings.pressure;
+
+    groupEntries.forEach(([group, nodes], clusterIndex) => {
+      const groupAngle = (-Math.PI / 2) + ((clusterIndex / clusterCount) * Math.PI * 2);
+      let clusterRadiusScale = 1;
+      if (settings.preset === "spiral") clusterRadiusScale = 0.36 + ((clusterIndex + 1) / clusterCount) * 0.78;
+      if (settings.preset === "nebula") clusterRadiusScale = 0.72 + ((stableGalaxyHash(group) % 24) / 100);
+      const clusterTwist = settings.preset === "spiral" ? clusterIndex * 0.52 : 0;
+      const clusterCenter = {
+        x: center.x + (Math.cos(groupAngle + clusterTwist) * orbitRadiusX * clusterRadiusScale),
+        y: center.y + (Math.sin(groupAngle + clusterTwist) * orbitRadiusY * clusterRadiusScale),
+      };
+      nodes.sort((left, right) => Number(right.data("degree")) - Number(left.data("degree")) || left.id().localeCompare(right.id()));
+      nodes.forEach((node, nodeIndex) => {
+        if (nodeIndex === 0) {
+          positions.set(node.id(), clusterCenter);
+          return;
+        }
+        const localAngle = (nodeIndex * GOLDEN_ANGLE) + groupAngle + (settings.orbitStrength * nodeIndex * 0.08);
+        const localRadius = settings.linkDistance
+          * Math.sqrt(nodeIndex)
+          * (0.34 + (settings.pressure * 0.13))
+          * (settings.preset === "nebula" ? 0.78 : 1);
+        const flattening = settings.preset === "spiral" ? 0.58 : settings.preset === "nebula" ? 0.82 : 0.7;
+        positions.set(node.id(), {
+          x: clamp(clusterCenter.x + (Math.cos(localAngle) * localRadius), 54, width - 54),
+          y: clamp(clusterCenter.y + (Math.sin(localAngle) * localRadius * flattening), 96, height - 48),
+        });
+      });
+    });
+    return (node) => positions.get(node.id()) || center;
+  }
+
+  function syncGalaxyControls() {
+    const settings = state.galaxySettings;
+    const values = {
+      "galaxy-node-scale": settings.nodeScale,
+      "galaxy-edge-opacity": settings.edgeOpacity,
+      "galaxy-glow-strength": settings.glowStrength,
+      "galaxy-link-distance": settings.linkDistance,
+      "galaxy-pressure": settings.pressure,
+      "galaxy-orbit-strength": settings.orbitStrength,
+    };
+    Object.entries(values).forEach(([id, value]) => {
+      const input = byId(id);
+      if (input) input.value = String(value);
+    });
+    byId("galaxy-size-mode").value = settings.sizeMode;
+    byId("galaxy-starfield").checked = settings.starfield;
+    byId("galaxy-twinkle").checked = settings.twinkle;
+    byId("galaxy-auto-orbit").checked = settings.autoOrbit;
+    byId("galaxy-node-scale-value").textContent = `${settings.nodeScale.toFixed(2)}×`;
+    byId("galaxy-edge-opacity-value").textContent = `${Math.round(settings.edgeOpacity * 100)}%`;
+    byId("galaxy-glow-strength-value").textContent = `${Math.round(settings.glowStrength * 100)}%`;
+    byId("galaxy-link-distance-value").textContent = String(settings.linkDistance);
+    byId("galaxy-pressure-value").textContent = `${settings.pressure.toFixed(2)}×`;
+    byId("galaxy-orbit-strength-value").textContent = `${Math.round(settings.orbitStrength * 100)}%`;
+    const presetLabels = { galaxy: "Galaxy", spiral: "Spiral", nebula: "Nebula", minimal: "Minimal" };
+    byId("galaxy-preset-status").textContent = presetLabels[settings.preset] || "Custom";
+    document.querySelectorAll("[data-galaxy-preset]").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.galaxyPreset === settings.preset));
+    });
+  }
+
+  function applyGalaxyAppearance() {
+    const settings = state.galaxySettings;
+    const panel = byId("main-content");
+    panel.dataset.galaxyMode = settings.preset;
+    panel.dataset.starfield = String(settings.starfield);
+    panel.dataset.twinkle = String(settings.twinkle && !prefersReducedMotion);
+    if (cy.nodes().length) {
+      const view = {
+        nodes: DATA.nodes.filter((node) => state.visibleNodeIds.has(node.id)),
+        edges: DATA.edges.filter((edge) => state.visibleEdgeIds.has(edge.id)),
+      };
+      const metrics = computeGalaxyMetrics(view);
+      cy.batch(() => {
+        cy.nodes().forEach((node) => {
+          const values = metrics.nodes.get(node.id());
+          if (values) node.data(values);
+        });
+        cy.edges().forEach((edge) => {
+          const values = metrics.edges.get(edge.id());
+          if (values) edge.data(values);
+        });
+      });
+    }
+    syncGalaxyControls();
+  }
+
+  function applyGalaxyPreset(presetId) {
+    const preset = GALAXY_PRESET_SETTINGS[presetId] || GALAXY_PRESET_SETTINGS.galaxy;
+    state.galaxySettings = { ...preset, autoOrbit: state.galaxySettings.autoOrbit };
+    orbitStartedAt = performance.now();
+    applyGalaxyAppearance();
+    renderTechnologyLanes({ nodes: DATA.nodes.filter((node) => state.visibleNodeIds.has(node.id)) });
+    if (cy.nodes().length) runLayout();
+  }
+
+  function persistGalaxySettings() {
+    const button = byId("galaxy-save");
+    try {
+      window.localStorage.setItem(GALAXY_STORAGE_KEY, JSON.stringify(state.galaxySettings));
+      button.textContent = "已保存";
+    } catch (_error) {
+      button.textContent = "当前环境无法保存";
+    }
+    window.setTimeout(() => { button.textContent = "保存我的预设"; }, 1400);
+  }
+
+  function replayGalaxyEntrance() {
+    if (!cy.nodes().length) return;
+    if (prefersReducedMotion) {
+      runLayout();
+      return;
+    }
+    stopAmbientMotion(false);
+    const center = { x: cy.width() / 2, y: cy.height() / 2 };
+    const targets = new Map(cy.nodes().map((node) => [node.id(), { ...node.position() }]));
+    cy.nodes().forEach((node) => {
+      const phase = Number(node.data("motionPhase") || 0);
+      node.position({ x: center.x + (Math.cos(phase) * 9), y: center.y + (Math.sin(phase) * 9) });
+    });
+    cy.nodes().sort((left, right) => Number(right.data("degree")) - Number(left.data("degree"))).forEach((node, index) => {
+      window.setTimeout(() => {
+        node.animate({ position: targets.get(node.id()), duration: 520, easing: "ease-out-cubic" });
+      }, Math.min(index * 18, 620));
+    });
+    window.setTimeout(() => {
+      captureMotionAnchors();
+      startAmbientMotion();
+    }, 1250);
+  }
+
+  function bindGalaxyControls() {
+    const numericControls = {
+      "galaxy-node-scale": ["nodeScale", false],
+      "galaxy-edge-opacity": ["edgeOpacity", false],
+      "galaxy-glow-strength": ["glowStrength", false],
+      "galaxy-link-distance": ["linkDistance", true],
+      "galaxy-pressure": ["pressure", true],
+      "galaxy-orbit-strength": ["orbitStrength", true],
+    };
+    Object.entries(numericControls).forEach(([id, [key, affectsLayout]]) => {
+      const input = byId(id);
+      input.addEventListener("input", () => {
+        state.galaxySettings[key] = Number(input.value);
+        applyGalaxyAppearance();
+      });
+      if (affectsLayout) input.addEventListener("change", () => runLayout());
+    });
+    byId("galaxy-size-mode").addEventListener("change", (event) => {
+      state.galaxySettings.sizeMode = event.target.value;
+      applyGalaxyAppearance();
+    });
+    [["galaxy-starfield", "starfield"], ["galaxy-twinkle", "twinkle"], ["galaxy-auto-orbit", "autoOrbit"]].forEach(([id, key]) => {
+      byId(id).addEventListener("change", (event) => {
+        state.galaxySettings[key] = event.target.checked;
+        if (key === "autoOrbit") orbitStartedAt = performance.now();
+        applyGalaxyAppearance();
+        startAmbientMotion();
+      });
+    });
+    document.querySelectorAll("[data-galaxy-preset]").forEach((button) => {
+      button.addEventListener("click", () => applyGalaxyPreset(button.dataset.galaxyPreset));
+    });
+    byId("galaxy-save").addEventListener("click", persistGalaxySettings);
+    byId("galaxy-reset").addEventListener("click", () => {
+      state.galaxySettings = { ...DEFAULT_GALAXY_SETTINGS };
+      orbitStartedAt = performance.now();
+      applyGalaxyAppearance();
+      runLayout();
+    });
+    byId("galaxy-replay").addEventListener("click", replayGalaxyEntrance);
+    syncGalaxyControls();
+  }
+
   function runLayout() {
     stopAmbientMotion(false);
     const preset = presetById.get(state.preset);
-    const name = preset?.layout === "semantic"
+    const name = state.galaxySettings.preset !== "minimal"
+      ? "galaxy"
+      : preset?.layout === "semantic"
       ? "semantic"
       : cy.nodes().length > 55 ? "cose" : (preset?.layout || "cose");
-    const options = name === "semantic"
+    const options = name === "galaxy"
+      ? { name: "preset", positions: galaxyLayoutPositions(), fit: true, padding: 68, animate: false }
+      : name === "semantic"
       ? { name: "preset", positions: semanticPositions(preset), fit: true, padding: 56, animate: false }
       : name === "breadthfirst"
         ? { name, directed: true, spacingFactor: 1.25, padding: 42, animate: false }
@@ -720,7 +1048,7 @@
       startAmbientMotion();
     });
     layout.run();
-    if (name === "semantic" && cy.zoom() < 0.58) {
+    if ((name === "semantic" || name === "galaxy") && cy.zoom() < 0.58) {
       cy.zoom(0.58);
       cy.center();
     }
@@ -730,7 +1058,7 @@
   function renderTechnologyLanes(view) {
     const container = byId("technology-lanes");
     const preset = presetById.get(state.preset);
-    const lanes = preset?.layout === "semantic" ? (preset.lanes || []) : [];
+    const lanes = preset?.layout === "semantic" && state.galaxySettings.preset === "minimal" ? (preset.lanes || []) : [];
     container.hidden = !lanes.length;
     container.textContent = "";
     if (!lanes.length) return;
@@ -809,8 +1137,11 @@
     cy.add(cytoscapeElements(view));
     cy.nodes().addClass("editorial-node");
     cy.nodes().addClass("depth-aware");
+    cy.nodes().addClass("galaxy-node");
     cy.edges().addClass("depth-aware");
-    if (state.preset === "technology") {
+    cy.edges().addClass("galaxy-edge");
+    applyGalaxyAppearance();
+    if (state.preset === "technology" && state.galaxySettings.preset === "minimal") {
       cy.nodes().addClass("corridor-node");
       cy.edges().addClass("corridor-edge");
     }
@@ -1174,8 +1505,18 @@
   byId("motion-toggle").addEventListener("click", () => setMotionEnabled(!state.motionEnabled));
   byId("reset-button").addEventListener("click", resetView);
   byId("export-button").addEventListener("click", exportVisible);
-  byId("layer-toggle").addEventListener("click", () => setPanelState("filter", !state.filterOpen));
+  byId("layer-toggle").addEventListener("click", () => {
+    const open = !state.filterOpen;
+    if (open) setPanelState("galaxy", false);
+    setPanelState("filter", open);
+  });
   byId("filter-close").addEventListener("click", () => setPanelState("filter", false));
+  byId("galaxy-toggle").addEventListener("click", () => {
+    const open = !state.galaxyOpen;
+    if (open) setPanelState("filter", false);
+    setPanelState("galaxy", open);
+  });
+  byId("galaxy-close").addEventListener("click", () => setPanelState("galaxy", false));
   byId("inspector-toggle").addEventListener("click", () => setPanelState("inspector", !state.inspectorOpen));
   byId("inspector-close").addEventListener("click", () => setPanelState("inspector", false));
   byId("ledger-toggle").addEventListener("click", () => setPanelState("ledger", !state.ledgerOpen));
@@ -1312,6 +1653,7 @@
     if (event.key === "Escape") {
       if (state.ledgerOpen) setPanelState("ledger", false);
       else if (state.inspectorOpen) setPanelState("inspector", false);
+      else if (state.galaxyOpen) setPanelState("galaxy", false);
       else if (state.filterOpen) setPanelState("filter", false);
     }
   });
@@ -1322,6 +1664,7 @@
     option.textContent = preset.label;
     byId("view-preset").append(option);
   });
+  bindGalaxyControls();
   configurePreset(initialPreset);
   renderQuality();
   renderLegend();

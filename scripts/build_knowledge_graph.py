@@ -126,6 +126,9 @@ def build_knowledge_graph(
       <button id="focus-neighborhood" class="rail-action" type="button" aria-pressed="false" title="只显示当前节点的局部关系">
         <span class="rail-glyph rail-glyph-focus" aria-hidden="true"></span><span>局部</span>
       </button>
+      <button id="galaxy-toggle" class="rail-action" type="button" aria-controls="galaxy-panel" aria-expanded="false" title="打开银河视图实验室">
+        <span class="rail-glyph rail-glyph-galaxy" aria-hidden="true"></span><span>星图</span>
+      </button>
       <div class="rail-spacer"></div>
       <button id="inspector-toggle" class="rail-action" type="button" aria-controls="inspector-panel" aria-expanded="false" title="打开节点检查器">
         <span class="rail-glyph rail-glyph-detail" aria-hidden="true"></span><span>详情</span>
@@ -168,7 +171,69 @@ def build_knowledge_graph(
       </details>
     </aside>
 
-    <main id="main-content" class="graph-panel">
+    <aside id="galaxy-panel" class="galaxy-panel" aria-label="银河视图实验室" aria-hidden="true">
+      <div class="panel-heading galaxy-panel-heading">
+        <div><span class="section-eyebrow">Galaxy laboratory</span><h2>银河视图</h2></div>
+        <button id="galaxy-close" class="panel-close" type="button" aria-label="关闭银河视图实验室">×</button>
+      </div>
+      <p class="panel-copy">用连接度、实体群组和证据关系构造专利星系；所有参数均可实时预览。</p>
+
+      <section class="galaxy-section" aria-labelledby="galaxy-preset-title">
+        <div class="section-heading"><h3 id="galaxy-preset-title">视觉预设</h3><span id="galaxy-preset-status">Galaxy</span></div>
+        <div class="galaxy-presets" role="group" aria-label="银河视觉预设">
+          <button type="button" data-galaxy-preset="galaxy" aria-pressed="true"><i aria-hidden="true"></i><b>银河</b><small>均衡层级</small></button>
+          <button type="button" data-galaxy-preset="spiral" aria-pressed="false"><i aria-hidden="true"></i><b>旋臂</b><small>强化轨道</small></button>
+          <button type="button" data-galaxy-preset="nebula" aria-pressed="false"><i aria-hidden="true"></i><b>星云</b><small>辉光团簇</small></button>
+          <button type="button" data-galaxy-preset="minimal" aria-pressed="false"><i aria-hidden="true"></i><b>极简</b><small>证据优先</small></button>
+        </div>
+      </section>
+
+      <section class="galaxy-section" aria-labelledby="galaxy-readability-title">
+        <div class="section-heading"><h3 id="galaxy-readability-title">可读性</h3><span>实时</span></div>
+        <label class="galaxy-select-row" for="galaxy-size-mode"><span><b>节点大小</b><small>中心节点的视觉权重</small></span>
+          <select id="galaxy-size-mode">
+            <option value="degree">按连接数</option>
+            <option value="type">按实体类型</option>
+            <option value="uniform">统一大小</option>
+          </select>
+        </label>
+        <label class="galaxy-range-row" for="galaxy-node-scale"><span><b>节点缩放</b><small>整体节点与标签比例</small></span><output id="galaxy-node-scale-value">1.00×</output>
+          <input id="galaxy-node-scale" type="range" min="0.65" max="1.8" value="1" step="0.05">
+        </label>
+        <label class="galaxy-range-row" for="galaxy-edge-opacity"><span><b>链接透明度</b><small>降低密集关系的视觉噪声</small></span><output id="galaxy-edge-opacity-value">34%</output>
+          <input id="galaxy-edge-opacity" type="range" min="0.08" max="0.82" value="0.34" step="0.02">
+        </label>
+        <label class="galaxy-range-row" for="galaxy-glow-strength"><span><b>辉光强度</b><small>突出高连接度 hub</small></span><output id="galaxy-glow-strength-value">62%</output>
+          <input id="galaxy-glow-strength" type="range" min="0" max="1" value="0.62" step="0.02">
+        </label>
+      </section>
+
+      <section class="galaxy-section" aria-labelledby="galaxy-physics-title">
+        <div class="section-heading"><h3 id="galaxy-physics-title">空间与力场</h3><span>物理</span></div>
+        <label class="galaxy-range-row" for="galaxy-link-distance"><span><b>链接距离</b><small>关系两端的目标距离</small></span><output id="galaxy-link-distance-value">94</output>
+          <input id="galaxy-link-distance" type="range" min="52" max="168" value="94" step="2">
+        </label>
+        <label class="galaxy-range-row" for="galaxy-pressure"><span><b>星系斥力</b><small>控制团簇之间的呼吸空间</small></span><output id="galaxy-pressure-value">1.00×</output>
+          <input id="galaxy-pressure" type="range" min="0.55" max="1.8" value="1" step="0.05">
+        </label>
+        <label class="galaxy-range-row" for="galaxy-orbit-strength"><span><b>旋臂强度</b><small>控制轨道弯曲与环绕幅度</small></span><output id="galaxy-orbit-strength-value">36%</output>
+          <input id="galaxy-orbit-strength" type="range" min="0" max="1" value="0.36" step="0.02">
+        </label>
+        <div class="galaxy-switches">
+          <label><input id="galaxy-starfield" type="checkbox" checked><span><b>星空背景</b><small>深度星尘</small></span></label>
+          <label><input id="galaxy-twinkle" type="checkbox" checked><span><b>星星眨眼</b><small>轻微闪烁</small></span></label>
+          <label><input id="galaxy-auto-orbit" type="checkbox"><span><b>自动环绕</b><small>空闲时慢速旋转</small></span></label>
+        </div>
+      </section>
+
+      <section class="galaxy-section galaxy-actions-section" aria-label="银河视图操作">
+        <button id="galaxy-replay" class="small-button" type="button">重播入场</button>
+        <button id="galaxy-save" class="small-button" type="button">保存我的预设</button>
+        <button id="galaxy-reset" class="small-button" type="button">全部重置</button>
+      </section>
+    </aside>
+
+    <main id="main-content" class="graph-panel" data-galaxy-mode="galaxy" data-starfield="true" data-twinkle="true">
       <div class="graph-depth-field" aria-hidden="true">
         <span class="depth-plane depth-plane-far"></span>
         <span class="depth-plane depth-plane-mid"></span>

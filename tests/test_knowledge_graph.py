@@ -115,6 +115,46 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn('"target-arrow-shape": "none"', html)
         self.assertIn("html[data-theme=\"dark\"] .graph-panel", html)
 
+    def test_builds_a_galaxy_visual_lab_with_editorial_presets(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn('id="galaxy-toggle"', html)
+        self.assertIn('aria-controls="galaxy-panel"', html)
+        self.assertIn('id="galaxy-panel"', html)
+        self.assertIn('data-galaxy-preset="galaxy"', html)
+        self.assertIn('data-galaxy-preset="spiral"', html)
+        self.assertIn('data-galaxy-preset="nebula"', html)
+        self.assertIn('data-galaxy-preset="minimal"', html)
+        self.assertIn("const DEFAULT_GALAXY_SETTINGS", html)
+        self.assertIn("function applyGalaxyAppearance()", html)
+        self.assertIn("function galaxyLayoutPositions()", html)
+        self.assertIn("const GOLDEN_ANGLE", html)
+        self.assertIn('addClass("galaxy-node")', html)
+        self.assertIn('addClass("galaxy-edge")', html)
+        self.assertIn('selector: "node.galaxy-node"', html)
+        self.assertIn('selector: "edge.galaxy-edge"', html)
+        self.assertIn('"curve-style": "unbundled-bezier"', html)
+        self.assertIn("workspace.is-galaxy-open", html)
+        self.assertIn("data-galaxy-mode", html)
+
+    def test_scales_galaxy_hubs_and_exposes_readability_controls(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn('id="galaxy-node-scale"', html)
+        self.assertIn('id="galaxy-edge-opacity"', html)
+        self.assertIn('id="galaxy-glow-strength"', html)
+        self.assertIn('id="galaxy-link-distance"', html)
+        self.assertIn('id="galaxy-pressure"', html)
+        self.assertIn('id="galaxy-orbit-strength"', html)
+        self.assertIn('id="galaxy-size-mode"', html)
+        self.assertIn("function computeGalaxyMetrics(view)", html)
+        self.assertIn("galaxyNodeSize", html)
+        self.assertIn("galaxyFontSize", html)
+        self.assertIn("galaxyCurveDistance", html)
+        self.assertIn("degreeCentrality", html)
+
     def test_adds_depth_cues_without_transforming_the_interactive_canvas(self):
         build_knowledge_graph(self.case_dir, output_path=self.output)
         html = self.output.read_text(encoding="utf-8")
