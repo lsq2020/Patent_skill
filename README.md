@@ -26,7 +26,7 @@ python3 --version  # 推荐 Python 3.10+
 除 DOCX 报告生成外，脚本仅依赖 Python 标准库。若需要生成 DOCX：
 
 ```bash
-python3 -m pip install python-docx
+python3 -m pip install -r requirements.txt
 ```
 
 仓库结构：
@@ -35,7 +35,9 @@ python3 -m pip install python-docx
 SKILL.md                         # 完整方法规范与质量门槛
 scripts/                         # 初始化、校验、报告与可视化脚本
 references/                      # 专利族、状态、FTO、可视化与来源说明
-durvalumab-pdl1-nsclc/           # 已完成的示例案例和报告
+cases/                           # 可复核的完整示例案例
+├── durvalumab-pdl1-nsclc/       # 度伐利尤单抗 / PD-L1 / NSCLC 案例
+└── tfr1_patent_case/            # TfR1 专利分析案例
 agents/openai.yaml               # Agent 界面元数据
 ```
 
@@ -104,7 +106,7 @@ cases/demo/
 | `fto-input.json` | 拟实施方案、技术特征、关键词、分类号和 FTO 检索边界 |
 | `source-log.jsonl` | 可复核的查询与来源调用日志 |
 
-最低字段和示例见 [SKILL.md](SKILL.md) 与示例目录 `durvalumab-pdl1-nsclc/`。建议每条核心结论均能回溯到 `family_id`、文献号及 claim/事件位置。
+最低字段和示例见 [SKILL.md](SKILL.md) 与示例目录 [`cases/durvalumab-pdl1-nsclc/`](cases/durvalumab-pdl1-nsclc/)。建议每条核心结论均能回溯到 `family_id`、文献号及 claim/事件位置。
 
 ## 常用命令
 
@@ -187,11 +189,11 @@ report-visuals.html
 visuals/                           # SVG 图表和统计口径 manifest
 ```
 
-示例报告入口：[`durvalumab-pdl1-nsclc/report-index.md`](durvalumab-pdl1-nsclc/report-index.md)。
+示例报告入口：[`cases/durvalumab-pdl1-nsclc/report-index.md`](cases/durvalumab-pdl1-nsclc/report-index.md)。
 
 ## TfR1 案例：生成结果说明
 
-仓库中的 [`tfr1_patent_case/`](tfr1_patent_case/) 是一个完整的 TfR1（Transferrin Receptor 1）案例。入口页面 [`report-index.html`](tfr1_patent_case/report-index.html) 把报告模块、结构化数据和统计看板聚合为可复核的工作台。
+仓库中的 [`cases/tfr1_patent_case/`](cases/tfr1_patent_case/) 是一个完整的 TfR1（Transferrin Receptor 1）案例。入口页面 [`report-index.html`](cases/tfr1_patent_case/report-index.html) 把报告模块、结构化数据和统计看板聚合为可复核的工作台。
 
 ![TfR1 专利分析结果网页与模块说明](assets/tfr1-results-explained.png)
 
