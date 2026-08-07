@@ -4,6 +4,12 @@
 
 > 本项目用于研究、情报和初步风险筛查，不构成法律意见、侵权/FTO 结论、有效性结论或医疗建议。任何法律状态均应回到目标法域的官方登记簿核验；重大决策请由专利律师复核。
 
+> [!CAUTION]
+> **外网访问是完整专利检索的前提——请在运行检索前配置可用的 VPN 或网络代理。** Google Patents、WIPO、EPO、USPTO 等外部数据库在受限网络下可能无法打开、下载或检索全文；未配置网络时，结果可能出现全文缺失和漏检，不能将“未检到”表述为“不存在”。
+>
+> - Google Patents 无法直接访问时，可用 Jina Reader 的只读镜像定位公开页面文本：`https://r.jina.ai/http://patents.google.com/patent/<document>/en`
+> - 镜像仅用于发现和文本提取；法律状态与关键权利要求必须以官方来源或原始公开文本复核
+
 ![医药专利与技术路线分析 Skill 使用流程](assets/patent-skill-workflow.png)
 
 ## 📋 能做什么
@@ -45,9 +51,6 @@ cases/                           # 可复核的完整示例案例
 agents/openai.yaml               # Agent 界面元数据
 tests/                           # 输出契约、图谱与报告联动测试
 ```
-
-> [!IMPORTANT]
-> **外网访问是完整专利检索的前提。** 请先配置可用的 VPN 或网络代理，以访问 Google Patents、WIPO、EPO、USPTO 等外部数据库；未配置或网络受限时，可能无法打开、下载或检索专利全文，导致结果存在漏检。若 Google Patents 无法直接访问，可通过 Jina Reader 的只读镜像获取公开页面文本，例如将原始 URL 包装为 `https://r.jina.ai/http://patents.google.com/patent/<document>/en`；镜像内容仅用于发现和文本提取，法律状态及关键权利要求仍须以官方来源或原始公开文本复核。
 
 ## 🚀 快速开始
 
