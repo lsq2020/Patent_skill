@@ -117,7 +117,7 @@
     userPanningEnabled: true,
     autoungrabify: false,
     autolock: false,
-    wheelSensitivity: 0.18,
+    wheelSensitivity: 0.3,
     selectionType: "single",
     boxSelectionEnabled: false,
     style: [
@@ -194,16 +194,16 @@
     ],
   });
 
-  const SPRING_STIFFNESS = 6.4;
-  const DAMPING_COEFFICIENT = 4.8;
+  const SPRING_STIFFNESS = 8.8;
+  const DAMPING_COEFFICIENT = 4.4;
   const COULOMB_STRENGTH = 9200;
   const ANCHOR_STIFFNESS = 0.62;
   const COLLISION_STIFFNESS = 15;
-  const WAVE_SPEED = 420;
+  const WAVE_SPEED = 560;
   const WAVE_DECAY = 3.1;
   const WAVE_SPATIAL_DECAY = 0.0018;
   const WAVE_FREQUENCY = Math.PI * 13;
-  const MAX_PHYSICS_SPEED = 190;
+  const MAX_PHYSICS_SPEED = 260;
   const MAX_PHYSICS_OFFSET = 260;
 
   const motionAnchors = new Map();
@@ -406,8 +406,8 @@
         const phase = Number(node.data("motionPhase") || 0);
         const amplitude = 0.5 + (depth * 1.35);
         node.position({
-          x: anchor.x + (Math.sin((seconds * 0.42) + phase) * amplitude),
-          y: anchor.y + (Math.cos((seconds * 0.36) + (phase * 1.17)) * amplitude * 0.68),
+          x: anchor.x + (Math.sin((seconds * 0.62) + phase) * amplitude),
+          y: anchor.y + (Math.cos((seconds * 0.54) + (phase * 1.17)) * amplitude * 0.68),
         });
       });
     });
@@ -416,7 +416,7 @@
   function animateAmbientMotion(timestamp) {
     motionFrame = 0;
     if (!state.motionEnabled || document.hidden || !motionAnchors.size) return;
-    const simulationDue = (timestamp - lastMotionTick) >= 32;
+    const simulationDue = (timestamp - lastMotionTick) >= 24;
     const viewportReady = draggedNodeId || (timestamp - lastViewportInteraction) >= 180;
     if (simulationDue && viewportReady) {
       const physicsActive = draggedNodeId || physicsWaves.length || timestamp < physicsActiveUntil || physicsStillMoving;
@@ -1175,7 +1175,7 @@
     velocity.x = 0;
     velocity.y = 0;
     lastDragSample = { position: { x: position.x, y: position.y }, time: now, velocity: dragVelocity };
-    if ((now - lastWaveEmission) >= 90 && Math.hypot(dragVelocity.x, dragVelocity.y) > 12) {
+    if ((now - lastWaveEmission) >= 65 && Math.hypot(dragVelocity.x, dragVelocity.y) > 12) {
       emitPhysicsWave(node, dragVelocity, 0.42);
       lastWaveEmission = now;
     }

@@ -140,7 +140,7 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn("userZoomingEnabled: true", html)
         self.assertIn("userPanningEnabled: true", html)
         self.assertIn("autoungrabify: false", html)
-        self.assertIn("wheelSensitivity: 0.18", html)
+        self.assertIn("wheelSensitivity: 0.3", html)
         self.assertIn("function startAmbientMotion()", html)
         self.assertIn('cy.on("grab", "node"', html)
         self.assertIn('cy.on("dragfree", "node"', html)
@@ -164,6 +164,19 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn("Math.exp(-WAVE_DECAY * localTime)", html)
         self.assertIn("physicsWaves.push", html)
         self.assertIn('cy.on("drag", "node"', html)
+
+    def test_uses_faster_but_bounded_motion_tuning(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn("const SPRING_STIFFNESS = 8.8;", html)
+        self.assertIn("const DAMPING_COEFFICIENT = 4.4;", html)
+        self.assertIn("const WAVE_SPEED = 560;", html)
+        self.assertIn("const MAX_PHYSICS_SPEED = 260;", html)
+        self.assertIn("(seconds * 0.62)", html)
+        self.assertIn("(seconds * 0.54)", html)
+        self.assertIn("(timestamp - lastMotionTick) >= 24", html)
+        self.assertIn("(now - lastWaveEmission) >= 65", html)
 
 
 if __name__ == "__main__":
