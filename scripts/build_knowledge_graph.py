@@ -190,7 +190,7 @@ def build_knowledge_graph(
           <span id="visible-count" class="visible-count">加载图谱…</span>
           <span class="zoom-readout"><small>Zoom</small><output id="zoom-level" aria-label="当前缩放比例">100%</output></span>
           <div class="button-group" aria-label="画布工具">
-            <button id="motion-toggle" type="button" aria-pressed="true" title="开关节点轻微漂浮">漂浮 开</button>
+            <button id="motion-toggle" type="button" aria-pressed="true" title="开关弹簧联动、阻尼震动与轻微漂浮">力场 开</button>
             <button id="layout-button" type="button">重新布局</button>
             <button id="fit-button" type="button">适合窗口</button>
           </div>
@@ -198,7 +198,7 @@ def build_knowledge_graph(
       </div>
       <div id="technology-lanes" class="technology-lanes" aria-hidden="true" hidden></div>
       <div id="graph-canvas" class="graph-canvas" role="img" aria-label="专利证据关系图" tabindex="0"></div>
-      <div class="canvas-hint" aria-hidden="true"><b>操作提示</b><span>拖动节点 · 滚轮/双指缩放 · 拖动画布平移</span></div>
+      <div class="canvas-hint" aria-hidden="true"><b>操作提示</b><span>拖动节点触发弹簧联动 · 滚轮/双指缩放 · 拖动画布平移</span></div>
       <div id="empty-state" class="empty-state" hidden>
         <h2>当前筛选没有节点</h2>
         <p>清空搜索词、恢复节点类型或切换预设视图。</p>

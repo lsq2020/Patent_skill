@@ -148,6 +148,23 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn("motionAnchors.set", html)
         self.assertIn(".graph-canvas { cursor: grab;", html)
 
+    def test_propagates_drag_motion_with_springs_damping_and_waves(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn("const SPRING_STIFFNESS", html)
+        self.assertIn("const DAMPING_COEFFICIENT", html)
+        self.assertIn("const COULOMB_STRENGTH", html)
+        self.assertIn("const WAVE_SPEED", html)
+        self.assertIn("function captureSpringRestLengths()", html)
+        self.assertIn("function stepGraphPhysics(timestamp)", html)
+        self.assertIn("extension = distance - restLength", html)
+        self.assertIn("springForce = SPRING_STIFFNESS * extension", html)
+        self.assertIn("Math.exp(-DAMPING_COEFFICIENT * deltaTime)", html)
+        self.assertIn("Math.exp(-WAVE_DECAY * localTime)", html)
+        self.assertIn("physicsWaves.push", html)
+        self.assertIn('cy.on("drag", "node"', html)
+
 
 if __name__ == "__main__":
     unittest.main()

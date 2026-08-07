@@ -194,38 +194,237 @@
     ],
   });
 
+  const SPRING_STIFFNESS = 6.4;
+  const DAMPING_COEFFICIENT = 4.8;
+  const COULOMB_STRENGTH = 9200;
+  const ANCHOR_STIFFNESS = 0.62;
+  const COLLISION_STIFFNESS = 15;
+  const WAVE_SPEED = 420;
+  const WAVE_DECAY = 3.1;
+  const WAVE_SPATIAL_DECAY = 0.0018;
+  const WAVE_FREQUENCY = Math.PI * 13;
+  const MAX_PHYSICS_SPEED = 190;
+  const MAX_PHYSICS_OFFSET = 260;
+
   const motionAnchors = new Map();
+  const motionVelocities = new Map();
+  const springRestLengths = new Map();
+  const physicsWaves = [];
   let motionFrame = 0;
   let lastMotionTick = 0;
+  let lastPhysicsTimestamp = 0;
   let lastViewportInteraction = 0;
+  let physicsActiveUntil = 0;
+  let physicsStillMoving = false;
+  let draggedNodeId = "";
+  let lastDragSample = null;
+  let lastWaveEmission = 0;
+
+  function velocityFor(nodeId) {
+    if (!motionVelocities.has(nodeId)) motionVelocities.set(nodeId, { x: 0, y: 0 });
+    return motionVelocities.get(nodeId);
+  }
+
+  function captureSpringRestLengths() {
+    springRestLengths.clear();
+    cy.edges().forEach((edge) => {
+      const source = edge.source().position();
+      const target = edge.target().position();
+      springRestLengths.set(edge.id(), Math.max(24, Math.hypot(target.x - source.x, target.y - source.y)));
+    });
+  }
 
   function captureMotionAnchors() {
     motionAnchors.clear();
+    motionVelocities.clear();
     cy.nodes().forEach((node) => {
       const position = node.position();
       motionAnchors.set(node.id(), { x: position.x, y: position.y });
+      motionVelocities.set(node.id(), { x: 0, y: 0 });
+    });
+    captureSpringRestLengths();
+    lastPhysicsTimestamp = 0;
+  }
+
+  function emitPhysicsWave(node, dragVelocity, amplitudeScale = 1) {
+    const speed = Math.hypot(dragVelocity.x, dragVelocity.y);
+    const phase = Number(node.data("motionPhase") || 0);
+    const direction = speed > 0.01
+      ? { x: dragVelocity.x / speed, y: dragVelocity.y / speed }
+      : { x: Math.cos(phase), y: Math.sin(phase) };
+    const position = node.position();
+    physicsWaves.push({
+      sourceId: node.id(),
+      origin: { x: position.x, y: position.y },
+      direction,
+      startedAt: performance.now(),
+      amplitude: clamp((150 + (speed * 0.72)) * amplitudeScale, 110, 620),
+    });
+    while (physicsWaves.length > 7) physicsWaves.shift();
+    physicsActiveUntil = performance.now() + 2600;
+  }
+
+  // Hooke springs + Coulomb repulsion + viscous damping, integrated with a
+  // bounded semi-implicit Euler step so interactive impulses remain stable.
+  function stepGraphPhysics(timestamp) {
+    const deltaTime = lastPhysicsTimestamp
+      ? clamp((timestamp - lastPhysicsTimestamp) / 1000, 1 / 120, 1 / 30)
+      : 1 / 60;
+    lastPhysicsTimestamp = timestamp;
+    const nodes = cy.nodes().toArray();
+    const forces = new Map(nodes.map((node) => [node.id(), { x: 0, y: 0 }]));
+
+    cy.edges().forEach((edge) => {
+      const source = edge.source();
+      const target = edge.target();
+      const sourcePosition = source.position();
+      const targetPosition = target.position();
+      const dx = targetPosition.x - sourcePosition.x;
+      const dy = targetPosition.y - sourcePosition.y;
+      const distance = Math.max(0.001, Math.hypot(dx, dy));
+      const restLength = springRestLengths.get(edge.id()) || distance;
+      const extension = distance - restLength;
+      const degreeScale = 1 / Math.sqrt(Math.max(1, Math.min(source.degree(), target.degree())));
+      const springForce = SPRING_STIFFNESS * extension * (0.58 + (degreeScale * 0.42));
+      const fx = (dx / distance) * springForce;
+      const fy = (dy / distance) * springForce;
+      const sourceForce = forces.get(source.id());
+      const targetForce = forces.get(target.id());
+      sourceForce.x += fx;
+      sourceForce.y += fy;
+      targetForce.x -= fx;
+      targetForce.y -= fy;
+    });
+
+    for (let leftIndex = 0; leftIndex < nodes.length; leftIndex += 1) {
+      const left = nodes[leftIndex];
+      const leftPosition = left.position();
+      for (let rightIndex = leftIndex + 1; rightIndex < nodes.length; rightIndex += 1) {
+        const right = nodes[rightIndex];
+        const rightPosition = right.position();
+        let dx = rightPosition.x - leftPosition.x;
+        let dy = rightPosition.y - leftPosition.y;
+        let distance = Math.hypot(dx, dy);
+        if (distance < 0.001) {
+          const phase = Number(right.data("motionPhase") || 0);
+          dx = Math.cos(phase) * 0.01;
+          dy = Math.sin(phase) * 0.01;
+          distance = 0.01;
+        }
+        const minimumDistance = 10 + ((Number(left.data("visualSize")) + Number(right.data("visualSize"))) * 0.55);
+        const coulombForce = COULOMB_STRENGTH / ((distance * distance) + 144);
+        const collisionForce = distance < minimumDistance
+          ? (minimumDistance - distance) * COLLISION_STIFFNESS
+          : 0;
+        const repulsion = coulombForce + collisionForce;
+        const fx = (dx / distance) * repulsion;
+        const fy = (dy / distance) * repulsion;
+        forces.get(left.id()).x -= fx;
+        forces.get(left.id()).y -= fy;
+        forces.get(right.id()).x += fx;
+        forces.get(right.id()).y += fy;
+      }
+    }
+
+    nodes.forEach((node) => {
+      const anchor = motionAnchors.get(node.id());
+      if (!anchor) return;
+      const position = node.position();
+      const force = forces.get(node.id());
+      force.x += (anchor.x - position.x) * ANCHOR_STIFFNESS;
+      force.y += (anchor.y - position.y) * ANCHOR_STIFFNESS;
+      const phase = Number(node.data("motionPhase") || 0);
+      physicsWaves.forEach((wave) => {
+        if (wave.sourceId === node.id()) return;
+        const dx = position.x - wave.origin.x;
+        const dy = position.y - wave.origin.y;
+        const distance = Math.max(0.001, Math.hypot(dx, dy));
+        const elapsed = (timestamp - wave.startedAt) / 1000;
+        const localTime = elapsed - (distance / WAVE_SPEED);
+        if (localTime < 0 || localTime > 1.8) return;
+        const envelope = wave.amplitude
+          * Math.exp(-WAVE_DECAY * localTime)
+          * Math.exp(-WAVE_SPATIAL_DECAY * distance);
+        const oscillation = Math.sin((WAVE_FREQUENCY * localTime) - (distance * 0.034) + phase);
+        const radialX = dx / distance;
+        const radialY = dy / distance;
+        force.x += ((radialX * 0.68) + (wave.direction.x * 0.32)) * envelope * oscillation;
+        force.y += ((radialY * 0.68) + (wave.direction.y * 0.32)) * envelope * oscillation;
+      });
+    });
+
+    for (let index = physicsWaves.length - 1; index >= 0; index -= 1) {
+      if ((timestamp - physicsWaves[index].startedAt) > 2600) physicsWaves.splice(index, 1);
+    }
+
+    const damping = Math.exp(-DAMPING_COEFFICIENT * deltaTime);
+    let kineticEnergy = 0;
+    cy.batch(() => {
+      nodes.forEach((node) => {
+        if (node.grabbed()) return;
+        const anchor = motionAnchors.get(node.id());
+        const force = forces.get(node.id());
+        if (!anchor || !force) return;
+        const velocity = velocityFor(node.id());
+        const mass = 0.72 + (Number(node.data("visualSize") || 15) / 34);
+        velocity.x = (velocity.x + ((force.x / mass) * deltaTime)) * damping;
+        velocity.y = (velocity.y + ((force.y / mass) * deltaTime)) * damping;
+        const speed = Math.hypot(velocity.x, velocity.y);
+        if (speed > MAX_PHYSICS_SPEED) {
+          const scale = MAX_PHYSICS_SPEED / speed;
+          velocity.x *= scale;
+          velocity.y *= scale;
+        }
+        const position = node.position();
+        let nextX = position.x + (velocity.x * deltaTime);
+        let nextY = position.y + (velocity.y * deltaTime);
+        const offsetX = nextX - anchor.x;
+        const offsetY = nextY - anchor.y;
+        const offset = Math.hypot(offsetX, offsetY);
+        if (offset > MAX_PHYSICS_OFFSET) {
+          const scale = MAX_PHYSICS_OFFSET / offset;
+          nextX = anchor.x + (offsetX * scale);
+          nextY = anchor.y + (offsetY * scale);
+          velocity.x *= 0.45;
+          velocity.y *= 0.45;
+        }
+        node.position({ x: nextX, y: nextY });
+        kineticEnergy += (velocity.x * velocity.x) + (velocity.y * velocity.y);
+      });
+    });
+    return draggedNodeId || physicsWaves.length || timestamp < physicsActiveUntil || kineticEnergy > 0.8;
+  }
+
+  function applyAmbientDrift(timestamp) {
+    const seconds = timestamp / 1000;
+    cy.batch(() => {
+      cy.nodes().forEach((node) => {
+        if (node.grabbed()) return;
+        const anchor = motionAnchors.get(node.id());
+        if (!anchor) return;
+        const depth = Number(node.data("spatialDepth") || 0.3);
+        const phase = Number(node.data("motionPhase") || 0);
+        const amplitude = 0.5 + (depth * 1.35);
+        node.position({
+          x: anchor.x + (Math.sin((seconds * 0.42) + phase) * amplitude),
+          y: anchor.y + (Math.cos((seconds * 0.36) + (phase * 1.17)) * amplitude * 0.68),
+        });
+      });
     });
   }
 
   function animateAmbientMotion(timestamp) {
     motionFrame = 0;
     if (!state.motionEnabled || document.hidden || !motionAnchors.size) return;
-    if ((timestamp - lastMotionTick) >= 42 && (timestamp - lastViewportInteraction) >= 180) {
-      const seconds = timestamp / 1000;
-      cy.batch(() => {
-        cy.nodes().forEach((node) => {
-          if (node.grabbed()) return;
-          const anchor = motionAnchors.get(node.id());
-          if (!anchor) return;
-          const depth = Number(node.data("spatialDepth") || 0.3);
-          const phase = Number(node.data("motionPhase") || 0);
-          const amplitude = 0.55 + (depth * 1.65);
-          node.position({
-            x: anchor.x + (Math.sin((seconds * 0.47) + phase) * amplitude),
-            y: anchor.y + (Math.cos((seconds * 0.39) + (phase * 1.17)) * amplitude * 0.72),
-          });
-        });
-      });
+    const simulationDue = (timestamp - lastMotionTick) >= 32;
+    const viewportReady = draggedNodeId || (timestamp - lastViewportInteraction) >= 180;
+    if (simulationDue && viewportReady) {
+      const physicsActive = draggedNodeId || physicsWaves.length || timestamp < physicsActiveUntil || physicsStillMoving;
+      physicsStillMoving = physicsActive ? Boolean(stepGraphPhysics(timestamp)) : false;
+      if (!physicsStillMoving) {
+        lastPhysicsTimestamp = 0;
+        applyAmbientDrift(timestamp);
+      }
       lastMotionTick = timestamp;
     }
     startAmbientMotion();
@@ -240,6 +439,15 @@
   function stopAmbientMotion(restoreAnchors = true) {
     if (motionFrame) window.cancelAnimationFrame(motionFrame);
     motionFrame = 0;
+    lastPhysicsTimestamp = 0;
+    physicsWaves.length = 0;
+    physicsActiveUntil = 0;
+    physicsStillMoving = false;
+    draggedNodeId = "";
+    motionVelocities.forEach((velocity) => {
+      velocity.x = 0;
+      velocity.y = 0;
+    });
     if (!restoreAnchors) return;
     cy.batch(() => {
       cy.nodes().forEach((node) => {
@@ -252,7 +460,7 @@
   function updateMotionControl() {
     const button = byId("motion-toggle");
     button.setAttribute("aria-pressed", String(state.motionEnabled));
-    button.textContent = state.motionEnabled ? "漂浮 开" : "漂浮 关";
+    button.textContent = state.motionEnabled ? "力场 开" : "力场 关";
   }
 
   function setMotionEnabled(enabled) {
@@ -934,17 +1142,70 @@
   });
   cy.on("mouseover", "edge", (event) => event.target.addClass("edge-active"));
   cy.on("mouseout", "edge", () => activateFocusEdges());
-  cy.on("grab", "node", () => {
+  cy.on("grab", "node", (event) => {
+    const node = event.target;
+    const position = node.position();
+    if (state.motionEnabled) {
+      draggedNodeId = node.id();
+      lastDragSample = { position: { x: position.x, y: position.y }, time: performance.now(), velocity: { x: 0, y: 0 } };
+      const velocity = velocityFor(node.id());
+      velocity.x = 0;
+      velocity.y = 0;
+      physicsStillMoving = true;
+      physicsActiveUntil = performance.now() + 2600;
+    }
     graphCanvas.classList.add("is-grabbing");
     lastViewportInteraction = performance.now();
+    activateNodeEdges(node);
+    startAmbientMotion();
+  });
+  cy.on("drag", "node", (event) => {
+    if (!state.motionEnabled) return;
+    const now = performance.now();
+    const node = event.target;
+    const position = node.position();
+    const elapsed = Math.max(0.008, (now - (lastDragSample?.time || now - 16)) / 1000);
+    const previous = lastDragSample?.position || position;
+    const dragVelocity = {
+      x: (position.x - previous.x) / elapsed,
+      y: (position.y - previous.y) / elapsed,
+    };
+    motionAnchors.set(node.id(), { x: position.x, y: position.y });
+    const velocity = velocityFor(node.id());
+    velocity.x = 0;
+    velocity.y = 0;
+    lastDragSample = { position: { x: position.x, y: position.y }, time: now, velocity: dragVelocity };
+    if ((now - lastWaveEmission) >= 90 && Math.hypot(dragVelocity.x, dragVelocity.y) > 12) {
+      emitPhysicsWave(node, dragVelocity, 0.42);
+      lastWaveEmission = now;
+    }
+    physicsStillMoving = true;
+    physicsActiveUntil = now + 2600;
+    startAmbientMotion();
   });
   cy.on("dragfree", "node", (event) => {
+    const now = performance.now();
     const position = event.target.position();
     motionAnchors.set(event.target.id(), { x: position.x, y: position.y });
+    if (state.motionEnabled) {
+      const releaseVelocity = lastDragSample?.velocity || { x: 0, y: 0 };
+      emitPhysicsWave(event.target, releaseVelocity, 0.7);
+      const velocity = velocityFor(event.target.id());
+      velocity.x = 0;
+      velocity.y = 0;
+      physicsStillMoving = true;
+      physicsActiveUntil = now + 2800;
+    }
+    draggedNodeId = "";
+    lastDragSample = null;
     graphCanvas.classList.remove("is-grabbing");
     startAmbientMotion();
   });
-  cy.on("free", "node", () => graphCanvas.classList.remove("is-grabbing"));
+  cy.on("free", "node", () => {
+    draggedNodeId = "";
+    lastDragSample = null;
+    graphCanvas.classList.remove("is-grabbing");
+  });
   cy.on("zoom", () => {
     lastViewportInteraction = performance.now();
     updateZoomLevel();
