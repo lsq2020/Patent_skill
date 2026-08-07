@@ -140,7 +140,7 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn("userZoomingEnabled: true", html)
         self.assertIn("userPanningEnabled: true", html)
         self.assertIn("autoungrabify: false", html)
-        self.assertIn("wheelSensitivity: 0.72", html)
+        self.assertIn("wheelSensitivity: 1.0", html)
         self.assertIn("function startAmbientMotion()", html)
         self.assertIn('cy.on("grab", "node"', html)
         self.assertIn('cy.on("dragfree", "node"', html)
