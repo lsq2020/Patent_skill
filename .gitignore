@@ -4,3 +4,6 @@ __pycache__/
 *.py[cod]
 **/reproducibility-runs/
 **/reproducibility-report.json
+
+# Case data and generated reports are maintained outside this source repository.
+cases/

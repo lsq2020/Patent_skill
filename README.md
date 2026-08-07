@@ -44,27 +44,25 @@ SKILL.md                         # 完整方法规范与质量门槛
 scripts/                         # 初始化、校验、报告与可视化脚本
 references/                      # 专利族、状态、FTO、可视化与来源说明
 assets/graph-viewer/             # 离线知识图谱的前端资源
-cases/                           # 可复核的完整示例案例
-├── durvalumab-pdl1-nsclc/       # 度伐利尤单抗 / PD-L1 / NSCLC 案例
-├── tfr1_patent_case/            # TfR1 专利分析案例
-└── GLP1R_patent_case/           # GLP-1R 激动剂类别专利景观
 agents/openai.yaml               # Agent 界面元数据
 tests/                           # 输出契约、图谱与报告联动测试
 ```
 
+> **案例示例见仓库外。** `cases/` 不随源码仓库发布；请将原始检索记录、全文摘录和生成报告保存在独立的数据仓库或本地受控目录中。
+
 ## 🚀 快速开始
 
-以下示例创建一个新的案例目录。案例目录可以放在仓库外，也可以放在 `cases/` 下；本文用 `cases/demo` 表示。
+以下示例创建一个仓库外的案例目录。下文以环境变量 `$CASE_DIR` 表示该目录。
 
 ```bash
-mkdir -p cases
+export CASE_DIR="/path/to/your/patent-case"
 
 python3 scripts/init_case.py \
-  --project-dir cases/demo \
-  --molecule "durvalumab" \
-  --synonyms "MEDI4736,Imfinzi" \
-  --target "PD-L1" \
-  --indication "non-small cell lung cancer" \
+  --project-dir "$CASE_DIR" \
+  --molecule "your molecule or modality" \
+  --synonyms "alias-1,development-code" \
+  --target "your target" \
+  --indication "your indication" \
   --jurisdictions "CN,US" \
   --related-jurisdictions "WO,EP" \
   --as-of "2026-08-06" \
@@ -74,7 +72,7 @@ python3 scripts/init_case.py \
 该命令创建：
 
 ```text
-cases/demo/
+<external-case-dir>/
 ├── research_scope.json     # 研究范围和截至日期
 ├── identity.json           # 分子、靶点、适应症的消歧记录
 ├── state.json              # 可恢复的阶段状态
@@ -131,20 +129,22 @@ flowchart LR
 | `fto-input.json` | 拟实施方案、技术特征、关键词、分类号和 FTO 检索边界 |
 | `source-log.jsonl` | 可复核的查询与来源调用日志 |
 
-最低字段和示例见 [SKILL.md](SKILL.md) 与示例目录 [`cases/durvalumab-pdl1-nsclc/`](cases/durvalumab-pdl1-nsclc/)。建议每条核心结论均能回溯到 `family_id`、文献号及 claim/事件位置。
+最低字段见 [SKILL.md](SKILL.md)。案例示例见仓库外；建议每条核心结论均能回溯到 `family_id`、文献号及 claim/事件位置。
+
+`build_datasets.py` 的输入为便携式 JSON 对象，按需包含 `families`、`claim_elements`、`evidence` 三个数组；数组中的每条对象会成为对应 CSV 的一行。它不提供或推断专利数据，数据仍须经人工族归并和证据核验。
 
 ## 📚 常用命令
 
 ### 1. 构建检索矩阵与来源日志
 
 ```bash
-python3 scripts/build_query_matrix.py --project-dir cases/demo
+python3 scripts/build_query_matrix.py --project-dir "$CASE_DIR"
 
 python3 scripts/append_source_log.py \
-  --project-dir cases/demo \
+  --project-dir "$CASE_DIR" \
   --source-type query \
   --source-url "https://patentscope.wipo.int/" \
-  --query 'durvalumab OR MEDI4736' \
+  --query 'your molecule OR development code' \
   --result-count 42 \
   --decision included \
   --note "名称与研发代号的初步检索"
@@ -153,8 +153,8 @@ python3 scripts/append_source_log.py \
 ### 2. 校验数据并生成补检任务
 
 ```bash
-python3 scripts/validate_case.py --project-dir cases/demo
-python3 scripts/generate_gap_brief.py --project-dir cases/demo
+python3 scripts/validate_case.py --project-dir "$CASE_DIR"
+python3 scripts/generate_gap_brief.py --project-dir "$CASE_DIR"
 ```
 
 `validate_case.py` 会检查范围、实体和可选 CSV 的关键字段；警告意味着需要补数据，错误意味着应先修复输入再继续。
@@ -163,14 +163,14 @@ python3 scripts/generate_gap_brief.py --project-dir cases/demo
 
 ```bash
 python3 scripts/build_landscape_html.py \
-  --families cases/demo/demo-patent-families.csv \
-  --output cases/demo/demo-landscape.html \
+  --families "$CASE_DIR/case-patent-families.csv" \
+  --output "$CASE_DIR/patent-landscape.html" \
   --title "Demo patent landscape" \
   --as-of "2026-08-06"
 
 python3 scripts/build_landscape_v2.py \
-  --families cases/demo/demo-patent-families.csv \
-  --output cases/demo/demo-landscape-v2.html \
+  --families "$CASE_DIR/case-patent-families.csv" \
+  --output "$CASE_DIR/patent-landscape-v2.html" \
   --title "Demo patent landscape" \
   --as-of "2026-08-06"
 ```
@@ -182,16 +182,16 @@ python3 scripts/build_landscape_v2.py \
 `fto-input.json` 的每个关键词簇可提供 `aliases`、`synonyms` 和 `translations`；这些显式词表会与基础词、扩展词一并参与中英文/别名匹配。默认排序阈值为可复核信号阈值，若某技术特征必须严格全量命中，可在该特征上设置 `match_threshold`（0–1）。
 
 ```bash
-python3 scripts/build_fto_plan.py --project-dir cases/demo
-python3 scripts/score_fto_candidates.py --project-dir cases/demo
-python3 scripts/build_fto_dashboard.py --project-dir cases/demo
-python3 scripts/build_fto_docx.py --project-dir cases/demo
+python3 scripts/build_fto_plan.py --project-dir "$CASE_DIR"
+python3 scripts/score_fto_candidates.py --project-dir "$CASE_DIR"
+python3 scripts/build_fto_dashboard.py --project-dir "$CASE_DIR"
+python3 scripts/build_fto_docx.py --project-dir "$CASE_DIR"
 ```
 
 ### 5. 生成最终报告、统计网页与知识图谱
 
 ```bash
-python3 scripts/build_modular_reports.py --project-dir cases/demo
+python3 scripts/build_modular_reports.py --project-dir "$CASE_DIR"
 ```
 
 `build_modular_reports.py` 是推荐的最终交付命令。它会在每次运行时同步重建模块 Markdown、SVG 统计图、模块 HTML 页面、`case-output.json`、图谱数据与离线知识图谱页面。
@@ -199,11 +199,11 @@ python3 scripts/build_modular_reports.py --project-dir cases/demo
 如只需重建单项产物，可分别运行：
 
 ```bash
-python3 scripts/build_report_visuals.py --project-dir cases/demo
-python3 scripts/build_report_pages.py --project-dir cases/demo
-python3 scripts/build_case_output.py --project-dir cases/demo
-python3 scripts/build_graph_data.py --project-dir cases/demo
-python3 scripts/build_knowledge_graph.py --project-dir cases/demo
+python3 scripts/build_report_visuals.py --project-dir "$CASE_DIR"
+python3 scripts/build_report_pages.py --project-dir "$CASE_DIR"
+python3 scripts/build_case_output.py --project-dir "$CASE_DIR"
+python3 scripts/build_graph_data.py --project-dir "$CASE_DIR"
+python3 scripts/build_knowledge_graph.py --project-dir "$CASE_DIR"
 ```
 
 ### 6. 公开来源检索与可复现性检查
@@ -211,9 +211,9 @@ python3 scripts/build_knowledge_graph.py --project-dir cases/demo
 先使用 `source-search-portals.json` 声明经过确认的公开搜索入口；脚本默认从案例范围和实体消歧记录中推导检索词，也可在该文件中明确指定 `query.primary` 与 `query.variants`。它不会绕过登录、验证码、订阅或浏览器会话限制。
 
 ```bash
-python3 scripts/audit_public_sources.py --project-dir cases/demo
-python3 scripts/search_public_sources.py --project-dir cases/demo
-python3 scripts/run_reproducibility.py --project-dir cases/demo --runs 3
+python3 scripts/audit_public_sources.py --project-dir "$CASE_DIR"
+python3 scripts/search_public_sources.py --project-dir "$CASE_DIR"
+python3 scripts/run_reproducibility.py --project-dir "$CASE_DIR" --runs 3
 ```
 
 公开来源执行台账仅记录访问和检索动作；专利族、权利要求和法律状态仍需按本 Skill 的证据规则复核。
@@ -243,7 +243,7 @@ public-source-search-results.*   # 需要公开来源执行时生成
 reproducibility-report.json      # 需要重复运行检查时生成
 ```
 
-示例报告入口：[`cases/durvalumab-pdl1-nsclc/report-index.md`](cases/durvalumab-pdl1-nsclc/report-index.md)。
+案例示例见仓库外；完成生成后，从案例目录内的 `report-index.html` 或 `report-index.md` 开始阅读。
 
 ### 最终报告包含什么
 
@@ -264,13 +264,59 @@ reproducibility-report.json      # 需要重复运行检查时生成
 
 > 📌 **阅读建议：** 先在 `report-index.html` 确认案例范围，再阅读执行摘要、专利族地图和权利要求抽取；涉及实施、许可或争议时，使用风险/FTO 报告与证据链回到目标法域的完整独立权利要求和官方法律状态。
 
-## 🔍 TfR1 案例：生成结果说明
+## 🧪 使用示例
 
-仓库中的 [`cases/tfr1_patent_case/`](cases/tfr1_patent_case/) 是一个完整的 TfR1（Transferrin Receptor 1）案例。入口页面 [`report-index.html`](cases/tfr1_patent_case/report-index.html) 把报告模块、结构化数据和统计看板聚合为可复核的工作台。
+以下示例均从仓库外的空案例目录开始。检索返回的是候选文献，不会自动替代专利族归并、权利要求审阅和法律状态核验。
+
+### 1. 分析 GLP-1R 靶点专利布局
+
+```bash
+export CASE_DIR="/data/patent-cases/glp1r-landscape"
+python3 scripts/init_case.py --project-dir "$CASE_DIR" --molecule "GLP-1R agonist" --synonyms "semaglutide,tirzepatide" --target "GLP-1R" --indication "type 2 diabetes and obesity" --as-of "2026-08-07"
+python3 scripts/build_query_matrix.py --project-dir "$CASE_DIR"
+python3 scripts/search_google_patents.py --query '"GLP-1 receptor agonist" diabetes' --out-dir "$CASE_DIR/retrieval" --label glp1r --pages 2
+python3 scripts/fetch_claims.py --patnos <publication-number-1> <publication-number-2> --out-dir "$CASE_DIR/claims" --mirror
+```
+
+人工去重并审阅候选文献后，把专利族、claim 要素和证据整理为 `dataset-input.json`，再执行：
+
+```bash
+python3 scripts/build_datasets.py --project-dir "$CASE_DIR" --input "$CASE_DIR/dataset-input.json" --prefix glp1r
+python3 scripts/build_modular_reports.py --project-dir "$CASE_DIR"
+```
+
+### 2. 评估 TfR1 抗体或递送路线的竞争布局
+
+```bash
+export CASE_DIR="/data/patent-cases/tfr1-delivery"
+python3 scripts/init_case.py --project-dir "$CASE_DIR" --molecule "TfR1-targeting antibody" --synonyms "transferrin receptor antibody" --target "TfR1" --indication "central nervous system delivery" --as-of "2026-08-07"
+python3 scripts/build_query_matrix.py --project-dir "$CASE_DIR"
+python3 scripts/audit_public_sources.py --project-dir "$CASE_DIR"
+python3 scripts/search_public_sources.py --project-dir "$CASE_DIR"
+```
+
+将人工确认的专利族录入 CSV 后，运行 `validate_case.py`、`generate_gap_brief.py` 和 `build_modular_reports.py`，即可得到技术路线、证据链和可复核的网页入口。
+
+### 3. 对候选制剂开展 FTO 初筛准备
+
+```bash
+export CASE_DIR="/data/patent-cases/formulation-fto"
+python3 scripts/init_case.py --project-dir "$CASE_DIR" --molecule "candidate biologic" --target "your target" --indication "your indication" --as-of "2026-08-07"
+# 补全 fto-input.json 和经人工复核的 case-patent-families.csv 后：
+python3 scripts/build_fto_plan.py --project-dir "$CASE_DIR"
+python3 scripts/score_fto_candidates.py --project-dir "$CASE_DIR"
+python3 scripts/build_fto_dashboard.py --project-dir "$CASE_DIR"
+```
+
+候选排序仅帮助安排 claim chart 与官方状态复核的优先级，不构成侵权判断或 FTO 结论。
+
+## 🔍 生成结果说明
+
+案例示例见仓库外。生成的 `report-index.html` 会把报告模块、结构化数据和统计看板聚合为可复核的工作台。
 
 ![TfR1 专利分析结果网页与模块说明](assets/tfr1-results-explained.png)
 
-页面顶部首先给出研究对象、靶点、适应症、法律边界和当前数据口径；本案例包含 25 个专利族、32 条 claim 要素、15 条证据条目、12 个 FTO 候选项及 140 条来源 URL。数字用于定位数据规模和复核工作量，不代表法律结论。
+![GLP-1R 专利分析统计总览](assets/glp1r-results-overview.png)
 
 | 模块 | 输出内容 | 主要用途 |
 | --- | --- | --- |

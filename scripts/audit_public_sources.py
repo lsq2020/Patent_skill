@@ -23,9 +23,6 @@ from urllib.request import Request, urlopen
 
 
 USER_AGENT = "medtech-patent-roadmap-source-audit/1.0 (read-only; contact not provided)"
-QUERY = 'durvalumab OR MEDI4736 OR Imfinzi AND (PD-L1 OR CD274) AND (NSCLC OR "non-small cell lung cancer")'
-
-
 def load_json(path, default=None):
     if not path.exists():
         return default if default is not None else {}
@@ -92,27 +89,57 @@ def page_signal(result):
     return "empty_response"
 
 
-def direct_search_url(source_id):
-    q = quote(QUERY, safe="")
+def unique_terms(values, limit=8):
+    seen, result = set(), []
+    for value in values:
+        value = " ".join(str(value or "").split())
+        if value and value.casefold() not in seen:
+            seen.add(value.casefold())
+            result.append(value)
+        if len(result) >= limit:
+            break
+    return result
+
+
+def case_query(project, override=""):
+    if override:
+        return override
+    scope = load_json(project / "research_scope.json", {})
+    identity = load_json(project / "identity.json", {})
+    obj = scope.get("research_object", {})
+    terms = unique_terms([
+        obj.get("molecule"), identity.get("molecule", {}).get("canonical"),
+        *obj.get("synonyms", []), *identity.get("molecule", {}).get("synonyms", []),
+        obj.get("target"), identity.get("target", {}).get("canonical"),
+        *identity.get("target", {}).get("aliases", []),
+        obj.get("indication"), identity.get("indication", {}).get("canonical"),
+    ])
+    if not terms:
+        raise ValueError("未找到检索词：请提供 --query，或补全 research_scope.json / identity.json。")
+    return " OR ".join(f'"{term}"' for term in terms[:5])
+
+
+def direct_search_url(source_id, query):
+    q = quote(query, safe="")
     if source_id == "src-026":
-        return "https://worldwide.espacenet.com/patent/search?q=" + quote("durvalumab", safe="")
+        return "https://worldwide.espacenet.com/patent/search?q=" + q
     if source_id == "src-028":
-        return "https://ppubs.uspto.gov/pubwebapp/external.html?q=%28durvalumab%29&db=USPAT%2CUS-PGPUB%2CUSOCR&type=quick"
+        return "https://ppubs.uspto.gov/pubwebapp/external.html?q=" + q + "&db=USPAT%2CUS-PGPUB%2CUSOCR&type=quick"
     if source_id == "src-032":
-        return "https://patentscope.wipo.int/search/en/result.jsf?query=FP%3A%28durvalumab%29"
+        return "https://patentscope.wipo.int/search/en/result.jsf?query=" + quote(f"FP:({query})", safe="")
     if source_id == "src-045":
-        return "https://patents.google.com/?q=" + quote("durvalumab PD-L1 NSCLC", safe="")
+        return "https://patents.google.com/?q=" + q
     if source_id == "src-052":
-        return "https://pubmed.ncbi.nlm.nih.gov/?term=" + quote("durvalumab PD-L1 NSCLC", safe="")
+        return "https://pubmed.ncbi.nlm.nih.gov/?term=" + q
     return ""
 
 
-def search_signal(result):
+def search_signal(result, query):
     body = (result.get("body") or "").lower()
     if not body:
         return "no_body"
     signals = {
-        "result_or_document_signal": ("result", "patent", "publication", "durvalumab", "document", "检索结果"),
+        "result_or_document_signal": ("result", "patent", "publication", "document", "检索结果", *[term.lower() for term in unique_terms([query])]),
         "search_form_signal": ("search", "query", "keyword", "检索", "搜索"),
         "login_or_subscription_signal": ("sign in", "login", "subscription", "验证码"),
     }
@@ -139,7 +166,7 @@ def classify(source, access):
     return "public_page_manual_or_unknown_search"
 
 
-def audit_one(source):
+def audit_one(source, query):
     original_url = normalize_url(source.get("url"))
     access = fetch(original_url)
     if access["status"] != "ok" and original_url.startswith("http://"):
@@ -152,13 +179,13 @@ def audit_one(source):
         "catalog_url": source.get("url"), "default_use": source.get("default_use"), "access_status": access.get("status"),
         "http_status": access.get("http_status"), "final_url": access.get("final_url"), "title": access.get("title"),
         "content_type": access.get("content_type"), "page_signal": page_signal(access), "access_class": classify(source, {**access, "url": original_url}),
-        "landing_error": access.get("error", ""), "query": QUERY, "search_attempt": "not_attempted", "search_url": "",
+        "landing_error": access.get("error", ""), "query": query, "search_attempt": "not_attempted", "search_url": "",
         "search_http_status": "", "search_final_url": "", "search_title": "", "search_signal": "", "search_error": "",
     }
-    search_url = direct_search_url(source.get("source_id"))
+    search_url = direct_search_url(source.get("source_id"), query)
     if search_url and is_public_http(access):
         search = fetch(search_url, max_bytes=180000, timeout=12)
-        row.update({"search_attempt": "attempted", "search_url": search_url, "search_http_status": search.get("http_status"), "search_final_url": search.get("final_url"), "search_title": search.get("title"), "search_signal": search_signal(search), "search_error": search.get("error", "")})
+        row.update({"search_attempt": "attempted", "search_url": search_url, "search_http_status": search.get("http_status"), "search_final_url": search.get("final_url"), "search_title": search.get("title"), "search_signal": search_signal(search, query), "search_error": search.get("error", "")})
     elif search_url:
         row["search_attempt"] = "not_attempted_landing_unavailable"
         row["search_url"] = search_url
@@ -208,14 +235,16 @@ def build_report(rows, generated, query):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-dir", required=True)
+    parser.add_argument("--query", default="", help="Optional query override; otherwise derive terms from the case scope")
     args = parser.parse_args()
     project = Path(args.project_dir).expanduser().resolve()
+    query = case_query(project, args.query)
     plan = load_json(project / "fto-search-plan.json")
     sources = plan.get("source_catalog", {}).get("sources", [])
     generated = datetime.now(timezone.utc).isoformat()
     rows = []
     with ThreadPoolExecutor(max_workers=8) as pool:
-        futures = [pool.submit(audit_one, source) for source in sources]
+        futures = [pool.submit(audit_one, source, query) for source in sources]
         for future in as_completed(futures):
             try:
                 rows.append(future.result())
@@ -223,7 +252,7 @@ def main():
                 rows.append({
                     "source_id": "UNHANDLED", "name": "unhandled source audit exception", "source_kind": "", "catalog_url": "",
                     "default_use": "", "access_status": "exception", "http_status": "", "final_url": "", "title": "", "content_type": "",
-                    "page_signal": "", "access_class": "blocked_or_error", "landing_error": compact_error(exc), "query": QUERY,
+                    "page_signal": "", "access_class": "blocked_or_error", "landing_error": compact_error(exc), "query": query,
                     "search_attempt": "not_attempted_exception", "search_url": "", "search_http_status": "", "search_final_url": "",
                     "search_title": "", "search_signal": "", "search_error": "",
                 })
@@ -234,9 +263,9 @@ def main():
     json_path = project / "public-source-search-audit.json"
     md_path = project / "public-source-search-report.md"
     write_csv(csv_path, rows)
-    report, counts, public_count, searched_count = build_report(rows, generated, QUERY)
+    report, counts, public_count, searched_count = build_report(rows, generated, query)
     md_path.write_text(report, encoding="utf-8")
-    json_path.write_text(json.dumps({"schema_version": "1.0", "generated_at": generated, "query": QUERY, "source_count": len(rows), "public_page_count": public_count, "direct_search_count": searched_count, "counts_by_access_class": counts, "records": rows}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    json_path.write_text(json.dumps({"schema_version": "1.0", "generated_at": generated, "query": query, "source_count": len(rows), "public_page_count": public_count, "direct_search_count": searched_count, "counts_by_access_class": counts, "records": rows}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"source_count": len(rows), "public_page_count": public_count, "direct_search_count": searched_count, "counts_by_access_class": counts, "csv": str(csv_path), "report": str(md_path)}, ensure_ascii=False))
 
 

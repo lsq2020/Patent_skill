@@ -393,7 +393,10 @@ outputs/<skill-name>/
 - `build_query_matrix.py`：根据实体与范围生成精确检索、同义词/技术形态、分类/引证、族关系、竞争景观和耐药/标志物补检路径；
 - `update_source_registry.py`：从 CNIPA/PatentDatabases README 刷新全部来源目录，记录上游哈希、分组、来源角色和默认用途；
 - `append_source_log.py`：以 JSONL 追加查询、专利、官方登记簿、论文、临床、新闻和交易来源记录；
-- `audit_public_sources.py`：只读审计来源目录的可访问性与已知公开检索入口，不绕过登录、验证码或订阅限制；
+- `search_google_patents.py`：以任意检索式查询 Google Patents，并保存原始响应与标准化候选文献；直连不可用时可退回 Jina Reader 只读镜像；
+- `fetch_claims.py`：按公开文献号提取 Google Patents 的 Claims 文本；支持 Jina Reader 镜像，最终结论仍需回到原始公开文本与官方登记簿复核；
+- `build_datasets.py`：从仓库外的便携 JSON 输入生成专利族、claim 要素和证据 CSV，不内置任何疾病、靶点、文献号或本地路径；
+- `audit_public_sources.py`：只读审计来源目录的可访问性与已知公开检索入口；默认由案例范围和实体消歧记录推导检索式，也可用 `--query` 覆盖，且不绕过登录、验证码或订阅限制；
 - `search_public_sources.py`：按当前案例的研究对象与显式入口配置执行公开来源检索，并把已提交查询、需浏览器人工操作和未映射来源分别记录；
 - `build_landscape_html.py`：从标准化专利族 CSV 生成可筛选的 WIPO 风格 HTML 地图。
 - `build_landscape_v2.py`：生成保护层级矩阵、优先权时间泳道、CN/US 法域矩阵和可点击证据详情的组合视图。
