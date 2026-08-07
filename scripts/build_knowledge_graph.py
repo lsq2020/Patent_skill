@@ -198,7 +198,7 @@ def build_knowledge_graph(
       </div>
       <div id="technology-lanes" class="technology-lanes" aria-hidden="true" hidden></div>
       <div id="graph-canvas" class="graph-canvas" role="img" aria-label="专利证据关系图" tabindex="0"></div>
-      <div class="canvas-hint" aria-hidden="true"><b>操作提示</b><span>拖动节点触发弹簧联动 · 滚轮/双指缩放 · 拖动画布平移</span></div>
+      <div class="canvas-hint" aria-hidden="true"><b>操作提示</b><span>拖动节点触发弹簧联动 · 滚轮/双指快速缩放 · 点击重叠节点逐层选择</span></div>
       <div id="empty-state" class="empty-state" hidden>
         <h2>当前筛选没有节点</h2>
         <p>清空搜索词、恢复节点类型或切换预设视图。</p>

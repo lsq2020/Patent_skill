@@ -118,7 +118,7 @@
     userPanningEnabled: true,
     autoungrabify: false,
     autolock: false,
-    wheelSensitivity: 0.3,
+    wheelSensitivity: 0.48,
     selectionType: "single",
     boxSelectionEnabled: false,
     style: [
@@ -201,17 +201,20 @@
     ],
   });
 
-  const SPRING_STIFFNESS = 8.8;
-  const DAMPING_COEFFICIENT = 4.4;
+  const SPRING_STIFFNESS = 13.2;
+  const DAMPING_COEFFICIENT = 5.1;
   const COULOMB_STRENGTH = 9200;
   const ANCHOR_STIFFNESS = 0.62;
   const COLLISION_STIFFNESS = 15;
-  const WAVE_SPEED = 560;
+  const WAVE_SPEED = 760;
   const WAVE_DECAY = 3.1;
   const WAVE_SPATIAL_DECAY = 0.0018;
   const WAVE_FREQUENCY = Math.PI * 13;
-  const MAX_PHYSICS_SPEED = 260;
+  const MAX_PHYSICS_SPEED = 390;
   const MAX_PHYSICS_OFFSET = 260;
+  const DRAG_NEIGHBOR_COUPLING = 0.28;
+  const DEPTH_TAP_RADIUS = 14;
+  const DEPTH_TAP_WINDOW_MS = 1100;
 
   const motionAnchors = new Map();
   const motionVelocities = new Map();
@@ -226,10 +229,22 @@
   let draggedNodeId = "";
   let lastDragSample = null;
   let lastWaveEmission = 0;
+  let depthTapCycle = null;
 
   function velocityFor(nodeId) {
     if (!motionVelocities.has(nodeId)) motionVelocities.set(nodeId, { x: 0, y: 0 });
     return motionVelocities.get(nodeId);
+  }
+
+  function coupleNeighborVelocity(node, dragVelocity) {
+    node.connectedEdges().forEach((edge) => {
+      const neighbor = edge.source().id() === node.id() ? edge.target() : edge.source();
+      if (neighbor.grabbed()) return;
+      const influence = DRAG_NEIGHBOR_COUPLING / Math.sqrt(Math.max(1, neighbor.degree()));
+      const velocity = velocityFor(neighbor.id());
+      velocity.x += (dragVelocity.x - velocity.x) * influence;
+      velocity.y += (dragVelocity.y - velocity.y) * influence;
+    });
   }
 
   function captureSpringRestLengths() {
@@ -423,7 +438,7 @@
   function animateAmbientMotion(timestamp) {
     motionFrame = 0;
     if (!state.motionEnabled || document.hidden || !motionAnchors.size) return;
-    const simulationDue = (timestamp - lastMotionTick) >= 24;
+    const simulationDue = (timestamp - lastMotionTick) >= 16;
     const viewportReady = draggedNodeId || (timestamp - lastViewportInteraction) >= 180;
     if (simulationDue && viewportReady) {
       const physicsActive = draggedNodeId || physicsWaves.length || timestamp < physicsActiveUntil || physicsStillMoving;
@@ -747,8 +762,45 @@
     activateNodeEdges(cy.getElementById(state.focus));
   }
 
+  function depthCandidatesAt(renderedPosition, tappedNode) {
+    const candidates = cy.nodes().toArray().filter((node) => {
+      const center = node.renderedPosition();
+      const hitRadius = Math.max(DEPTH_TAP_RADIUS, (node.renderedOuterWidth() / 2) + 7);
+      return Math.hypot(center.x - renderedPosition.x, center.y - renderedPosition.y) <= hitRadius;
+    });
+    if (!candidates.some((node) => node.id() === tappedNode.id())) candidates.push(tappedNode);
+    return candidates.sort((left, right) => {
+      const depthDifference = Number(right.data("depthOrder") || 0) - Number(left.data("depthOrder") || 0);
+      if (depthDifference) return depthDifference;
+      const leftPosition = left.renderedPosition();
+      const rightPosition = right.renderedPosition();
+      const leftDistance = Math.hypot(leftPosition.x - renderedPosition.x, leftPosition.y - renderedPosition.y);
+      const rightDistance = Math.hypot(rightPosition.x - renderedPosition.x, rightPosition.y - renderedPosition.y);
+      return leftDistance - rightDistance || left.id().localeCompare(right.id());
+    });
+  }
+
+  function depthAwareTapTarget(event) {
+    const renderedPosition = event.renderedPosition || event.target.renderedPosition();
+    const candidates = depthCandidatesAt(renderedPosition, event.target);
+    if (candidates.length <= 1) {
+      depthTapCycle = null;
+      return event.target;
+    }
+    const now = performance.now();
+    const candidateKey = candidates.map((node) => node.id()).join("|");
+    const repeatsPreviousTap = depthTapCycle
+      && depthTapCycle.candidateKey === candidateKey
+      && (now - depthTapCycle.time) <= DEPTH_TAP_WINDOW_MS
+      && Math.hypot(depthTapCycle.x - renderedPosition.x, depthTapCycle.y - renderedPosition.y) <= DEPTH_TAP_RADIUS;
+    const index = repeatsPreviousTap ? (depthTapCycle.index + 1) % candidates.length : 0;
+    depthTapCycle = { candidateKey, index, time: now, x: renderedPosition.x, y: renderedPosition.y };
+    return candidates[index];
+  }
+
   function renderGraph() {
     const view = computeVisibleElements();
+    depthTapCycle = null;
     state.visibleNodeIds = new Set(view.nodes.map((node) => node.id));
     state.visibleEdgeIds = new Set(view.edges.map((edge) => edge.id));
     stopAmbientMotion(false);
@@ -992,10 +1044,20 @@
     state.focus = nodeId;
     state.query = "";
     byId("graph-search").value = "";
-    if (!state.nodeTypes.has(node.type)) state.nodeTypes.add(node.type);
-    incidentEdges(nodeId).forEach((edge) => state.relationTypes.add(edge.type));
-    renderFilters();
-    renderGraph();
+    const graphNode = cy.getElementById(nodeId);
+    const canFocusInPlace = options.preserveViewport && graphNode.length && !state.localFocus;
+    if (canFocusInPlace) {
+      cy.nodes().unselect();
+      graphNode.select();
+      activateFocusEdges();
+      renderInspector();
+      updateUrl();
+    } else {
+      if (!state.nodeTypes.has(node.type)) state.nodeTypes.add(node.type);
+      incidentEdges(nodeId).forEach((edge) => state.relationTypes.add(edge.type));
+      renderFilters();
+      renderGraph();
+    }
     updateFocusNavigation();
     if (openInspector) setPanelState("inspector", true);
   }
@@ -1146,7 +1208,10 @@
       byId("search-results").hidden = true;
     }
   });
-  cy.on("tap", "node", (event) => selectNode(event.target.id()));
+  cy.on("tap", "node", (event) => {
+    const target = depthAwareTapTarget(event);
+    selectNode(target.id(), { preserveViewport: true });
+  });
   cy.on("mouseover", "node", (event) => {
     const neighborhood = event.target.closedNeighborhood();
     cy.elements().addClass("faded");
@@ -1161,6 +1226,7 @@
   cy.on("mouseout", "edge", () => activateFocusEdges());
   cy.on("grab", "node", (event) => {
     const node = event.target;
+    depthTapCycle = null;
     const position = node.position();
     if (state.motionEnabled) {
       draggedNodeId = node.id();
@@ -1187,12 +1253,13 @@
       x: (position.x - previous.x) / elapsed,
       y: (position.y - previous.y) / elapsed,
     };
+    coupleNeighborVelocity(node, dragVelocity);
     motionAnchors.set(node.id(), { x: position.x, y: position.y });
     const velocity = velocityFor(node.id());
     velocity.x = 0;
     velocity.y = 0;
     lastDragSample = { position: { x: position.x, y: position.y }, time: now, velocity: dragVelocity };
-    if ((now - lastWaveEmission) >= 65 && Math.hypot(dragVelocity.x, dragVelocity.y) > 12) {
+    if ((now - lastWaveEmission) >= 42 && Math.hypot(dragVelocity.x, dragVelocity.y) > 12) {
       emitPhysicsWave(node, dragVelocity, 0.42);
       lastWaveEmission = now;
     }
@@ -1224,10 +1291,14 @@
     graphCanvas.classList.remove("is-grabbing");
   });
   cy.on("zoom", () => {
+    depthTapCycle = null;
     lastViewportInteraction = performance.now();
     updateZoomLevel();
   });
-  cy.on("pan", () => { lastViewportInteraction = performance.now(); });
+  cy.on("pan", () => {
+    depthTapCycle = null;
+    lastViewportInteraction = performance.now();
+  });
   window.addEventListener("resize", () => cy.resize());
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) stopAmbientMotion(false);
