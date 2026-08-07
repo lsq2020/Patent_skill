@@ -118,7 +118,7 @@
     userPanningEnabled: true,
     autoungrabify: false,
     autolock: false,
-    wheelSensitivity: 1.8,
+    wheelSensitivity: 2.5,
     selectionType: "single",
     boxSelectionEnabled: false,
     style: [
