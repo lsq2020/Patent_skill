@@ -115,6 +115,15 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn('"target-arrow-shape": "none"', html)
         self.assertIn("html[data-theme=\"dark\"] .graph-panel", html)
 
+    def test_uses_song_and_classical_serif_typefaces_offline(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn('--font-editorial: "Baskerville Old Face", Garamond, "Noto Serif SC", "STSong", SimSun, serif;', html)
+        self.assertIn("font-family: var(--font-editorial);", html)
+        self.assertIn("font-optical-sizing: auto;", html)
+        self.assertIn('"font-family": "\'Baskerville Old Face\', Garamond, \'Noto Serif SC\', STSong, SimSun, serif"', html)
+
     def test_builds_a_galaxy_visual_lab_with_editorial_presets(self):
         build_knowledge_graph(self.case_dir, output_path=self.output)
         html = self.output.read_text(encoding="utf-8")

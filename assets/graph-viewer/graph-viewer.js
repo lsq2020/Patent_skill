@@ -213,7 +213,7 @@
           shape: "ellipse",
           color: "#d9dde1",
           label: "data(displayLabel)",
-          "font-family": "Inter, Segoe UI, PingFang SC, sans-serif",
+          "font-family": "'Baskerville Old Face', Garamond, 'Noto Serif SC', STSong, SimSun, serif",
           "font-size": 9,
           "font-weight": 500,
           "min-zoomed-font-size": 4,
