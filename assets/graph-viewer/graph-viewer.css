@@ -726,6 +726,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 .graph-panel {
   position: relative;
+  isolation: isolate;
   min-width: 0;
   min-height: 700px;
   overflow: hidden;
@@ -1466,8 +1467,70 @@ html[data-theme="dark"] .legend-dot {
 }
 
 html[data-theme="dark"] .graph-panel {
+  --depth-x-far: 0px;
+  --depth-y-far: 0px;
+  --depth-x-mid: 0px;
+  --depth-y-mid: 0px;
+  --depth-x-near: 0px;
+  --depth-y-near: 0px;
+  --depth-light-x: 50%;
+  --depth-light-y: 46%;
   background-color: var(--graph-bg);
   background-image: radial-gradient(ellipse at 50% 46%, var(--graph-bg-center) 0%, var(--graph-bg) 70%);
+}
+
+html[data-theme="dark"] .graph-panel::after {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  background: radial-gradient(ellipse at var(--depth-light-x) var(--depth-light-y), transparent 36%, rgba(8, 10, 11, 0.06) 58%, rgba(6, 7, 8, 0.38) 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.graph-depth-field {
+  position: absolute;
+  z-index: 0;
+  inset: -10%;
+  overflow: hidden;
+  perspective: 900px;
+  pointer-events: none;
+}
+
+.depth-plane {
+  position: absolute;
+  inset: -8%;
+  transform-origin: 50% 50%;
+  transition: transform 360ms cubic-bezier(0.2, 0.7, 0.2, 1), opacity 240ms ease;
+  will-change: transform;
+}
+
+.depth-plane-far {
+  background-image:
+    radial-gradient(circle at 11% 22%, rgba(216, 221, 225, 0.23) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 74% 18%, rgba(111, 143, 185, 0.21) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle at 82% 76%, rgba(95, 158, 146, 0.16) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 31% 71%, rgba(214, 208, 196, 0.15) 0 0.7px, transparent 1.5px);
+  background-position: 0 0, 28px 18px, 12px 43px, 61px 9px;
+  background-size: 132px 118px, 188px 164px, 226px 196px, 274px 238px;
+  opacity: 0.48;
+  transform: translate3d(var(--depth-x-far), var(--depth-y-far), -160px) scale(1.18);
+}
+
+.depth-plane-mid {
+  background-image:
+    radial-gradient(circle at var(--depth-light-x) var(--depth-light-y), rgba(111, 143, 185, 0.09) 0, rgba(95, 158, 146, 0.035) 26%, transparent 54%),
+    radial-gradient(ellipse at 24% 58%, rgba(214, 208, 196, 0.035) 0, transparent 34%);
+  opacity: 0.88;
+  transform: translate3d(var(--depth-x-mid), var(--depth-y-mid), -60px) scale(1.08);
+}
+
+.depth-plane-near {
+  background-image:
+    radial-gradient(ellipse at 50% 46%, transparent 28%, rgba(11, 13, 14, 0.2) 68%, rgba(7, 8, 9, 0.62) 100%),
+    linear-gradient(108deg, transparent 18%, rgba(255, 255, 255, 0.012) 48%, transparent 76%);
+  opacity: 0.92;
+  transform: translate3d(var(--depth-x-near), var(--depth-y-near), 36px) scale(1.015);
 }
 
 html[data-theme="dark"] .focus-card,

@@ -115,6 +115,22 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn('"target-arrow-shape": "none"', html)
         self.assertIn("html[data-theme=\"dark\"] .graph-panel", html)
 
+    def test_adds_depth_cues_without_transforming_the_interactive_canvas(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn('class="graph-depth-field"', html)
+        self.assertEqual(3, html.count('class="depth-plane '))
+        self.assertIn("perspective: 900px", html)
+        self.assertIn("translate3d(var(--depth-x-far)", html)
+        self.assertIn("function computeSpatialMetrics(view)", html)
+        self.assertIn('addClass("depth-aware")', html)
+        self.assertIn("node.depth-aware", html)
+        self.assertIn("edge.depth-aware", html)
+        self.assertIn('addEventListener("pointermove"', html)
+        self.assertIn("requestAnimationFrame", html)
+        self.assertNotIn("graph-canvas { transform:", html)
+
 
 if __name__ == "__main__":
     unittest.main()

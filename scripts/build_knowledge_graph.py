@@ -169,6 +169,11 @@ def build_knowledge_graph(
     </aside>
 
     <main id="main-content" class="graph-panel">
+      <div class="graph-depth-field" aria-hidden="true">
+        <span class="depth-plane depth-plane-far"></span>
+        <span class="depth-plane depth-plane-mid"></span>
+        <span class="depth-plane depth-plane-near"></span>
+      </div>
       <div class="canvas-toolbar">
         <div class="focus-stack">
           <div class="focus-card">

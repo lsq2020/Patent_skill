@@ -90,6 +90,19 @@
     const detail = [document, priorityYear ? `优先权 ${priorityYear}` : ""].filter(Boolean).join(" · ");
     return [node.label, detail, applicant].filter(Boolean).join("\n");
   };
+  const nodeBaseSizes = {
+    research_object: 40,
+    target: 24,
+    indication: 24,
+    patent_family: 32,
+    patent_document: 19,
+    claim: 23,
+    evidence: 19,
+    applicant: 18,
+    jurisdiction: 16,
+    technology_theme: 21,
+    source: 12,
+  };
 
   const cy = cytoscape({
     container: byId("graph-canvas"),
@@ -143,6 +156,7 @@
       { selector: 'node.corridor-node[type = "patent_family"]', style: { width: 36, height: 36, "border-width": 1.8 } },
       { selector: 'node.corridor-node[type = "technology_theme"]', style: { width: 24, height: 24 } },
       { selector: 'node.corridor-node[type = "claim"]', style: { width: 26, height: 26, "text-max-width": 102 } },
+      { selector: "node.depth-aware", style: { width: "data(visualSize)", height: "data(visualSize)", opacity: "data(depthOpacity)", "text-opacity": "data(labelOpacity)", "z-index": "data(depthOrder)", "z-index-compare": "manual", "shadow-color": "#050607", "shadow-blur": "data(shadowBlur)", "shadow-opacity": "data(shadowOpacity)", "shadow-offset-x": 0, "shadow-offset-y": "data(shadowOffset)" } },
       {
         selector: "edge",
         style: {
@@ -161,10 +175,11 @@
       { selector: 'edge[type = "PROTECTS"]', style: { "line-color": "#5b6250", "target-arrow-color": "#5b6250" } },
       { selector: 'edge[type = "FILED_BY"]', style: { "line-color": "#555b61", "target-arrow-color": "#555b61" } },
       { selector: "edge.corridor-edge", style: { "curve-style": "straight", opacity: 0.3 } },
+      { selector: "edge.depth-aware", style: { width: "data(visualWidth)", opacity: "data(depthOpacity)", "z-index": "data(depthOrder)", "z-index-compare": "manual" } },
       { selector: "edge.edge-active", style: { label: "data(label)", width: 1.8, opacity: 0.96, color: "#c9ced3", "font-size": 8, "font-weight": 600, "target-arrow-shape": "triangle", "text-rotation": "autorotate", "text-background-color": "#1c1f22", "text-background-opacity": 0.92, "text-background-padding": 2, "text-margin-y": -7, "z-index": 8 } },
       { selector: "edge.incoming-active", style: { "line-color": "#5f9e92", "target-arrow-color": "#5f9e92" } },
       { selector: "edge.outgoing-active", style: { "line-color": "#c49a5a", "target-arrow-color": "#c49a5a" } },
-      { selector: "node:selected", style: { "border-color": "#f0ede7", "border-width": 2.4, "underlay-color": "#d9dde1", "underlay-opacity": 0.13, "underlay-padding": 9 } },
+      { selector: "node:selected", style: { "border-color": "#f0ede7", "border-width": 2.4, "underlay-color": "#d9dde1", "underlay-opacity": 0.13, "underlay-padding": 9, "z-index": 999, "z-index-compare": "manual" } },
       { selector: "edge:selected", style: { width: 2.2, opacity: 1, "overlay-color": "#d9dde1", "overlay-opacity": 0.06 } },
       { selector: ".faded", style: { opacity: 0.07, "text-opacity": 0.04 } },
     ],
@@ -249,7 +264,53 @@
     this.get = (key) => this.values.get(key) || 0;
   }
 
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+  const stableDepthNoise = (id) => {
+    const hash = [...String(id)].reduce((total, character) => ((total * 31) + character.charCodeAt(0)) % 997, 17);
+    return ((hash / 996) - 0.5) * 0.16;
+  };
+
+  function computeSpatialMetrics(view) {
+    const degreeById = new Map(view.nodes.map((node) => [node.id, 0]));
+    view.edges.forEach((edge) => {
+      degreeById.set(edge.source, (degreeById.get(edge.source) || 0) + 1);
+      degreeById.set(edge.target, (degreeById.get(edge.target) || 0) + 1);
+    });
+    const maxDegree = Math.max(1, ...degreeById.values());
+    const nodes = new Map();
+    view.nodes.forEach((node) => {
+      const centrality = Math.sqrt((degreeById.get(node.id) || 0) / maxDegree);
+      const depth = node.id === state.focus
+        ? 1
+        : clamp(0.24 + (centrality * 0.62) + stableDepthNoise(node.id), 0.22, 0.92);
+      const baseSize = nodeBaseSizes[node.type] || 15;
+      nodes.set(node.id, {
+        spatialDepth: Number(depth.toFixed(3)),
+        visualSize: Number((baseSize * (0.74 + (depth * 0.36))).toFixed(1)),
+        depthOpacity: Number((0.43 + (depth * 0.57)).toFixed(2)),
+        labelOpacity: Number((0.38 + (depth * 0.62)).toFixed(2)),
+        depthOrder: Math.round(depth * 100),
+        shadowBlur: Number((2 + (depth * 11)).toFixed(1)),
+        shadowOpacity: Number((0.08 + (depth * 0.3)).toFixed(2)),
+        shadowOffset: Number((1 + (depth * 4)).toFixed(1)),
+      });
+    });
+    const edges = new Map();
+    view.edges.forEach((edge) => {
+      const sourceDepth = nodes.get(edge.source)?.spatialDepth || 0.3;
+      const targetDepth = nodes.get(edge.target)?.spatialDepth || 0.3;
+      const depth = (sourceDepth + targetDepth) / 2;
+      edges.set(edge.id, {
+        visualWidth: Number((0.48 + (depth * 0.72)).toFixed(2)),
+        depthOpacity: Number((0.12 + (depth * 0.32)).toFixed(2)),
+        depthOrder: Math.max(1, Math.round(depth * 50)),
+      });
+    });
+    return { nodes, edges };
+  }
+
   function cytoscapeElements(view) {
+    const spatialMetrics = computeSpatialMetrics(view);
     return [
       ...view.nodes.map((node) => ({
         group: "nodes",
@@ -261,6 +322,7 @@
           summary: node.summary,
           properties: node.properties,
           sourceUrl: node.source_url,
+          ...spatialMetrics.nodes.get(node.id),
         },
       })),
       ...view.edges.map((edge) => ({
@@ -274,6 +336,7 @@
           assertion: edge.assertion,
           linkMethods: edge.link_methods,
           evidenceIds: edge.evidence_ids,
+          ...spatialMetrics.edges.get(edge.id),
         },
       })),
     ];
@@ -371,6 +434,8 @@
     cy.elements().remove();
     cy.add(cytoscapeElements(view));
     cy.nodes().addClass("editorial-node");
+    cy.nodes().addClass("depth-aware");
+    cy.edges().addClass("depth-aware");
     if (state.preset === "technology") {
       cy.nodes().addClass("corridor-node");
       cy.edges().addClass("corridor-edge");
@@ -656,6 +721,36 @@
     setPanelState("inspector", false);
     setPanelState("ledger", false);
   }
+
+  const depthSurface = byId("main-content");
+  const reduceDepthMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let depthFrame = 0;
+  let pendingDepth = { x: 0, y: 0 };
+  function renderDepthParallax() {
+    const { x, y } = pendingDepth;
+    depthSurface.style.setProperty("--depth-x-far", `${(-x * 3).toFixed(2)}px`);
+    depthSurface.style.setProperty("--depth-y-far", `${(-y * 2).toFixed(2)}px`);
+    depthSurface.style.setProperty("--depth-x-mid", `${(-x * 8).toFixed(2)}px`);
+    depthSurface.style.setProperty("--depth-y-mid", `${(-y * 5).toFixed(2)}px`);
+    depthSurface.style.setProperty("--depth-x-near", `${(x * 5).toFixed(2)}px`);
+    depthSurface.style.setProperty("--depth-y-near", `${(y * 3).toFixed(2)}px`);
+    depthSurface.style.setProperty("--depth-light-x", `${(50 + (x * 8)).toFixed(2)}%`);
+    depthSurface.style.setProperty("--depth-light-y", `${(46 + (y * 6)).toFixed(2)}%`);
+    depthFrame = 0;
+  }
+  function queueDepthParallax(x, y) {
+    if (reduceDepthMotion) return;
+    pendingDepth = { x, y };
+    if (!depthFrame) depthFrame = window.requestAnimationFrame(renderDepthParallax);
+  }
+  depthSurface.addEventListener("pointermove", (event) => {
+    if (event.pointerType === "touch") return;
+    const bounds = depthSurface.getBoundingClientRect();
+    const x = clamp(((event.clientX - bounds.left) / Math.max(bounds.width, 1)) * 2 - 1, -1, 1);
+    const y = clamp(((event.clientY - bounds.top) / Math.max(bounds.height, 1)) * 2 - 1, -1, 1);
+    queueDepthParallax(x, y);
+  }, { passive: true });
+  depthSurface.addEventListener("pointerleave", () => queueDepthParallax(0, 0), { passive: true });
 
   let searchTimer;
   byId("graph-search").value = state.query;
