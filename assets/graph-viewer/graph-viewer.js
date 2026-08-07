@@ -188,6 +188,7 @@
     causal_concept: 26,
     source: 12,
   };
+  const GRAPH_LABEL_MIN_RENDERED_SIZE = 6.5;
 
   const cy = cytoscape({
     container: byId("graph-canvas"),
@@ -216,7 +217,7 @@
           "font-family": "'Baskerville Old Face', Garamond, 'Noto Serif SC', STSong, SimSun, serif",
           "font-size": 9,
           "font-weight": 500,
-          "min-zoomed-font-size": 4,
+          "min-zoomed-font-size": GRAPH_LABEL_MIN_RENDERED_SIZE,
           "text-background-color": "#1a1c1e",
           "text-background-opacity": 0,
           "text-background-padding": 2,
@@ -259,6 +260,7 @@
           "target-arrow-shape": "none",
           "arrow-scale": 0.62,
           "curve-style": "bezier",
+          "min-zoomed-font-size": GRAPH_LABEL_MIN_RENDERED_SIZE,
           opacity: 0.34,
         },
       },

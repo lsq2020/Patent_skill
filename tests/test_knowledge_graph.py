@@ -238,6 +238,13 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn("motionAnchors.set", html)
         self.assertIn(".graph-canvas { cursor: grab;", html)
 
+    def test_hides_graph_labels_at_distant_zoom_levels(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn("const GRAPH_LABEL_MIN_RENDERED_SIZE = 6.5;", html)
+        self.assertEqual(2, html.count('"min-zoomed-font-size": GRAPH_LABEL_MIN_RENDERED_SIZE'))
+
     def test_keeps_zoom_and_cinematic_motion_responsive_under_load(self):
         build_knowledge_graph(self.case_dir, output_path=self.output)
         html = self.output.read_text(encoding="utf-8")
