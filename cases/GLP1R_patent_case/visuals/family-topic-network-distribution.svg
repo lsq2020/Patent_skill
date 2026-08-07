@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 704" role="img" aria-label="专利族—技术阶段关系网络">
+<title>专利族—技术阶段关系网络</title>
+<desc>左侧为 family_id，右侧为按 claim theme/要素归纳的技术阶段；连线表示族与阶段的归属关系。</desc>
+<rect width="760" height="704" rx="16" fill="#ffffff"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">专利族—技术阶段关系网络</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">左侧为 family_id，右侧为按 claim theme/要素归纳的技术阶段；连线表示族与阶段的归属关系。</text>
+<line x1="172" y1="88" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="118" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="148" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="178" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="208" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="238" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="268" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="298" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="328" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="358" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="388" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="418" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="448" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="478" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="508" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="538" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="568" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="598" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="628" x2="566" y2="118" stroke="#cbd8e8" stroke-width="1.5"/>
+<line x1="172" y1="658" x2="566" y2="88" stroke="#cbd8e8" stroke-width="1.5"/>
+<circle cx="164" cy="88" r="8" fill="#1264d9"/>
+<text x="148" y="92" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F01</text>
+<circle cx="164" cy="118" r="8" fill="#3c8eea"/>
+<text x="148" y="122" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F02</text>
+<circle cx="164" cy="148" r="8" fill="#72b7f5"/>
+<text x="148" y="152" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F03</text>
+<circle cx="164" cy="178" r="8" fill="#9bd4f7"/>
+<text x="148" y="182" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F04</text>
+<circle cx="164" cy="208" r="8" fill="#f2a93b"/>
+<text x="148" y="212" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F05</text>
+<circle cx="164" cy="238" r="8" fill="#e3655b"/>
+<text x="148" y="242" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F06</text>
+<circle cx="164" cy="268" r="8" fill="#6d7892"/>
+<text x="148" y="272" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F07</text>
+<circle cx="164" cy="298" r="8" fill="#4ab39a"/>
+<text x="148" y="302" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F08</text>
+<circle cx="164" cy="328" r="8" fill="#1264d9"/>
+<text x="148" y="332" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F09</text>
+<circle cx="164" cy="358" r="8" fill="#3c8eea"/>
+<text x="148" y="362" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F10</text>
+<circle cx="164" cy="388" r="8" fill="#72b7f5"/>
+<text x="148" y="392" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F11</text>
+<circle cx="164" cy="418" r="8" fill="#9bd4f7"/>
+<text x="148" y="422" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F12</text>
+<circle cx="164" cy="448" r="8" fill="#f2a93b"/>
+<text x="148" y="452" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F13</text>
+<circle cx="164" cy="478" r="8" fill="#e3655b"/>
+<text x="148" y="482" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F14</text>
+<circle cx="164" cy="508" r="8" fill="#6d7892"/>
+<text x="148" y="512" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F15</text>
+<circle cx="164" cy="538" r="8" fill="#4ab39a"/>
+<text x="148" y="542" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F16</text>
+<circle cx="164" cy="568" r="8" fill="#1264d9"/>
+<text x="148" y="572" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F17</text>
+<circle cx="164" cy="598" r="8" fill="#3c8eea"/>
+<text x="148" y="602" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F18</text>
+<circle cx="164" cy="628" r="8" fill="#72b7f5"/>
+<text x="148" y="632" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F19</text>
+<circle cx="164" cy="658" r="8" fill="#9bd4f7"/>
+<text x="148" y="662" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">F20</text>
+<rect x="566" y="80" width="16" height="16" rx="4" fill="#9bd4f7"/>
+<text x="592" y="92" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">结构/组成</text>
+<rect x="566" y="110" width="16" height="16" rx="4" fill="#f2a93b"/>
+<text x="592" y="122" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">制剂/工艺</text>
+<text x="164" y="690" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">专利族</text>
+<text x="574" y="690" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">主题/技术阶段</text>
+</svg>

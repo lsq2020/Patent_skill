@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" role="img" aria-label="检索轮次覆盖">
+<title>检索轮次覆盖</title>
+<desc>按 FTO 搜索计划的 search_rounds 统计每轮主题的任务数量。</desc>
+<rect width="760" height="332" rx="16" fill="#ffffff"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">检索轮次覆盖</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">按 FTO 搜索计划的 search_rounds 统计每轮主题的任务数量。</text>
+<line x1="70" y1="86.0" x2="720" y2="86.0" stroke="#e6edf6"/>
+<text x="58" y="90.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">1.0</text>
+<line x1="70" y1="133.0" x2="720" y2="133.0" stroke="#e6edf6"/>
+<text x="58" y="137.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">0.8</text>
+<line x1="70" y1="180.0" x2="720" y2="180.0" stroke="#e6edf6"/>
+<text x="58" y="184.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">0.5</text>
+<line x1="70" y1="227.0" x2="720" y2="227.0" stroke="#e6edf6"/>
+<text x="58" y="231.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">0.2</text>
+<line x1="70" y1="274.0" x2="720" y2="274.0" stroke="#e6edf6"/>
+<text x="58" y="278.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">0.0</text>
+<line x1="70" y1="274" x2="720" y2="274" stroke="#9aabc0"/>
+<line x1="70" y1="86" x2="70" y2="274" stroke="#9aabc0"/>
+<text x="18" y="180.0" transform="rotate(-90 18 180.0)" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">数量</text>
+<text x="395.0" y="318" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">时间/轮次</text>
+<text x="70" y="160" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="#71809a">当前数据集暂无可绘制记录</text>
+</svg>

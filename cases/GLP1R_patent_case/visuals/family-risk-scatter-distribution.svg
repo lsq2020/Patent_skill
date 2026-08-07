@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" role="img" aria-label="族优先权年份 × FTO 初筛分数">
+<title>族优先权年份 × FTO 初筛分数</title>
+<desc>每个点代表一个专利族；横轴为最早优先权年份，纵轴为初筛 screen_score，气泡大小为 claim 要素记录数。不是侵权概率。</desc>
+<rect width="760" height="332" rx="16" fill="#ffffff"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">族优先权年份 × FTO 初筛分数</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">每个点代表一个专利族；横轴为最早优先权年份，纵轴为初筛 screen_score，气泡大小为 claim 要素记录数。不是侵权概率。</text>
+<line x1="78" y1="86.0" x2="650" y2="86.0" stroke="#e6edf6"/>
+<text x="66" y="90.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">1.0</text>
+<line x1="78" y1="133.0" x2="650" y2="133.0" stroke="#e6edf6"/>
+<text x="66" y="137.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">0.8</text>
+<line x1="78" y1="180.0" x2="650" y2="180.0" stroke="#e6edf6"/>
+<text x="66" y="184.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">0.5</text>
+<line x1="78" y1="227.0" x2="650" y2="227.0" stroke="#e6edf6"/>
+<text x="66" y="231.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">0.2</text>
+<line x1="78" y1="274.0" x2="650" y2="274.0" stroke="#e6edf6"/>
+<text x="66" y="278.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">0.0</text>
+<text x="78.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2007</text>
+<text x="113.8" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2008</text>
+<text x="185.2" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2010</text>
+<text x="256.8" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2012</text>
+<text x="328.2" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2014</text>
+<text x="399.8" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2016</text>
+<text x="471.2" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2018</text>
+<text x="542.8" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2020</text>
+<text x="614.2" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2022</text>
+<text x="650.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2023</text>
+<line x1="78" y1="274" x2="650" y2="274" stroke="#9aabc0"/>
+<line x1="78" y1="86" x2="78" y2="274" stroke="#9aabc0"/>
+<text x="26" y="180.0" transform="rotate(-90 26 180.0)" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">FTO 初筛分数</text>
+<circle cx="185.2" cy="274.0" r="8" fill="#4ab39a" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F01 · 2010 · 0.00</title></circle>
+<text x="196.2" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F01</text>
+<circle cx="328.2" cy="274.0" r="9" fill="#1264d9" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F02 · 2014 · 0.00</title></circle>
+<text x="340.2" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F02</text>
+<circle cx="578.5" cy="274.0" r="10" fill="#3c8eea" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F03 · 2021 · 0.00</title></circle>
+<text x="591.5" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F03</text>
+<circle cx="471.2" cy="274.0" r="9" fill="#72b7f5" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F04 · 2018 · 0.00</title></circle>
+<text x="483.2" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F04</text>
+<circle cx="542.8" cy="274.0" r="8" fill="#9bd4f7" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F05 · 2020 · 0.00</title></circle>
+<text x="553.8" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F05</text>
+<circle cx="578.5" cy="274.0" r="9" fill="#f2a93b" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F06 · 2021 · 0.00</title></circle>
+<text x="590.5" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F06</text>
+<circle cx="578.5" cy="274.0" r="7" fill="#e3655b" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F07 · 2021 · 0.00</title></circle>
+<text x="588.5" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F07</text>
+<circle cx="578.5" cy="274.0" r="8" fill="#6d7892" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F08 · 2021 · 0.00</title></circle>
+<text x="589.5" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F08</text>
+<circle cx="471.2" cy="274.0" r="7" fill="#4ab39a" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F09 · 2018 · 0.00</title></circle>
+<text x="481.2" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F09</text>
+<circle cx="256.8" cy="274.0" r="7" fill="#1264d9" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F10 · 2012 · 0.00</title></circle>
+<text x="266.8" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F10</text>
+<circle cx="78.0" cy="274.0" r="7" fill="#3c8eea" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F11 · 2007 · 0.00</title></circle>
+<text x="88.0" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F11</text>
+<circle cx="292.5" cy="274.0" r="7" fill="#72b7f5" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F12 · 2013 · 0.00</title></circle>
+<text x="302.5" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F12</text>
+<circle cx="578.5" cy="274.0" r="7" fill="#9bd4f7" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F13 · 2021 · 0.00</title></circle>
+<text x="588.5" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F13</text>
+<circle cx="221.0" cy="274.0" r="8" fill="#f2a93b" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F14 · 2011 · 0.00</title></circle>
+<text x="232.0" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F14</text>
+<circle cx="542.8" cy="274.0" r="7" fill="#e3655b" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F15 · 2020 · 0.00</title></circle>
+<text x="552.8" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F15</text>
+<circle cx="542.8" cy="274.0" r="7" fill="#6d7892" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F16 · 2020 · 0.00</title></circle>
+<text x="552.8" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F16</text>
+<circle cx="542.8" cy="274.0" r="8" fill="#4ab39a" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F17 · 2020 · 0.00</title></circle>
+<text x="553.8" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F17</text>
+<circle cx="364.0" cy="274.0" r="7" fill="#1264d9" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F18 · 2015 · 0.00</title></circle>
+<text x="374.0" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F18</text>
+<circle cx="650.0" cy="274.0" r="7" fill="#3c8eea" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F19 · 2023 · 0.00</title></circle>
+<text x="660.0" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F19</text>
+<circle cx="578.5" cy="274.0" r="7" fill="#72b7f5" fill-opacity="0.78" stroke="#ffffff" stroke-width="2"><title>F20 · 2021 · 0.00</title></circle>
+<text x="588.5" y="278.0" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="#44536c">F20</text>
+<text x="364.0" y="318" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">最早优先权年份</text>
+</svg>

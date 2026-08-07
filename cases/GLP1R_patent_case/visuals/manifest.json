@@ -1,0 +1,988 @@
+{
+  "schema_version": "1.0",
+  "case": "GLP1R_patent_case",
+  "generated_at": "2026-08-07T06:40:36.564171+00:00",
+  "metrics": {
+    "families": 20,
+    "claims": 34,
+    "evidence": 20,
+    "fto_candidates": 0,
+    "search_rounds": 0,
+    "source_urls": "—",
+    "source_records": "—",
+    "source_log_entries": 32,
+    "public_search_records": 0,
+    "public_search_executed": 0
+  },
+  "charts": [
+    {
+      "id": "family-theme",
+      "title": "专利族技术主题分布",
+      "filename": "family-theme-distribution.svg",
+      "chart_type": "bar",
+      "metric_definition": "按 family_id 统计，每族归入一个主技术阶段。",
+      "source_fields": [
+        "claim_theme",
+        "claim_categories",
+        "key_claim_elements",
+        "mutation_or_biomarker"
+      ],
+      "values": [
+        [
+          "结构/组成",
+          19
+        ],
+        [
+          "制剂/工艺",
+          1
+        ]
+      ],
+      "data": null
+    },
+    {
+      "id": "priority-year",
+      "title": "最早优先权年度分布",
+      "filename": "priority-year-distribution.svg",
+      "chart_type": "line",
+      "metric_definition": "按族级 earliest_priority 的年份统计。",
+      "source_fields": [
+        "earliest_priority"
+      ],
+      "values": [
+        [
+          "2007",
+          1
+        ],
+        [
+          "2010",
+          1
+        ],
+        [
+          "2011",
+          1
+        ],
+        [
+          "2012",
+          1
+        ],
+        [
+          "2013",
+          1
+        ],
+        [
+          "2014",
+          1
+        ],
+        [
+          "2015",
+          1
+        ],
+        [
+          "2018",
+          2
+        ],
+        [
+          "2020",
+          4
+        ],
+        [
+          "2021",
+          6
+        ],
+        [
+          "2023",
+          1
+        ]
+      ],
+      "data": null
+    },
+    {
+      "id": "applicant",
+      "title": "申请人/受让人分布",
+      "filename": "applicant-distribution.svg",
+      "chart_type": "donut",
+      "metric_definition": "按当前族 CSV 的 applicant_or_assignee 字段统计；未做集团级消歧。",
+      "source_fields": [
+        "applicant_or_assignee"
+      ],
+      "values": [
+        [
+          "Ltd.",
+          4
+        ],
+        [
+          "S",
+          4
+        ],
+        [
+          "Novo Nordisk A",
+          3
+        ],
+        [
+          "Inc.",
+          2
+        ],
+        [
+          "Amgen Inc.",
+          1
+        ],
+        [
+          "Beijing Hanmi Pharmaceutical Co.",
+          1
+        ],
+        [
+          "CMPD Licensing",
+          1
+        ],
+        [
+          "Chongqing Kangding Medical Technology (重庆康丁医药)",
+          1
+        ],
+        [
+          "Eccogene (Shanghai) Co.",
+          1
+        ],
+        [
+          "Eli Lilly and Company",
+          1
+        ],
+        [
+          "Fujian Shengdi Pharmaceutical (福建盛迪医药)",
+          1
+        ],
+        [
+          "Gasherbrum Bio",
+          1
+        ],
+        [
+          "Gilead Sciences",
+          1
+        ],
+        [
+          "Hangzhou Derui Zhizhi (杭州德睿智药)",
+          1
+        ],
+        [
+          "Hangzhou Zhongmeihuadong Pharmaceutical Co.",
+          1
+        ],
+        [
+          "Jiangsu Hengrui Pharmaceuticals (江苏恒瑞医药)",
+          1
+        ],
+        [
+          "LLC",
+          1
+        ],
+        [
+          "Mindrank AI Ltd.",
+          1
+        ],
+        [
+          "Qilu Regor Therapeutics Inc.",
+          1
+        ],
+        [
+          "Sanofi",
+          1
+        ],
+        [
+          "Shionogi & Co.",
+          1
+        ],
+        [
+          "Twist Bioscience Corporation",
+          1
+        ],
+        [
+          "Zealand Pharma A",
+          1
+        ]
+      ],
+      "data": null
+    },
+    {
+      "id": "jurisdiction",
+      "title": "法域覆盖",
+      "filename": "jurisdiction-distribution.svg",
+      "chart_type": "heatmap",
+      "metric_definition": "按族 CSV 的 jurisdictions 字段统计存在成员记录的族数。",
+      "source_fields": [
+        "jurisdictions",
+        "family_id"
+      ],
+      "values": [],
+      "data": {
+        "rows": [
+          "F01",
+          "F02",
+          "F03",
+          "F04",
+          "F05",
+          "F06",
+          "F07",
+          "F08",
+          "F09",
+          "F10",
+          "F11",
+          "F12",
+          "F13",
+          "F14",
+          "F15",
+          "F16",
+          "F17",
+          "F18",
+          "F19",
+          "F20"
+        ],
+        "cols": [
+          "...",
+          "AU",
+          "CA",
+          "CN",
+          "EP",
+          "ES",
+          "HK",
+          "JP",
+          "KR",
+          "MX",
+          "TW",
+          "US",
+          "WO"
+        ],
+        "matrix": {
+          "F01|...": 0,
+          "F01|AU": 0,
+          "F01|CA": 0,
+          "F01|CN": 1,
+          "F01|EP": 1,
+          "F01|ES": 1,
+          "F01|HK": 0,
+          "F01|JP": 0,
+          "F01|KR": 0,
+          "F01|MX": 0,
+          "F01|TW": 0,
+          "F01|US": 1,
+          "F01|WO": 1,
+          "F02|...": 0,
+          "F02|AU": 0,
+          "F02|CA": 0,
+          "F02|CN": 1,
+          "F02|EP": 1,
+          "F02|ES": 0,
+          "F02|HK": 0,
+          "F02|JP": 0,
+          "F02|KR": 0,
+          "F02|MX": 0,
+          "F02|TW": 0,
+          "F02|US": 1,
+          "F02|WO": 1,
+          "F03|...": 0,
+          "F03|AU": 1,
+          "F03|CA": 0,
+          "F03|CN": 0,
+          "F03|EP": 1,
+          "F03|ES": 0,
+          "F03|HK": 0,
+          "F03|JP": 0,
+          "F03|KR": 0,
+          "F03|MX": 0,
+          "F03|TW": 1,
+          "F03|US": 1,
+          "F03|WO": 1,
+          "F04|...": 0,
+          "F04|AU": 1,
+          "F04|CA": 0,
+          "F04|CN": 1,
+          "F04|EP": 0,
+          "F04|ES": 0,
+          "F04|HK": 0,
+          "F04|JP": 0,
+          "F04|KR": 0,
+          "F04|MX": 0,
+          "F04|TW": 0,
+          "F04|US": 1,
+          "F04|WO": 1,
+          "F05|...": 0,
+          "F05|AU": 0,
+          "F05|CA": 0,
+          "F05|CN": 0,
+          "F05|EP": 0,
+          "F05|ES": 0,
+          "F05|HK": 0,
+          "F05|JP": 0,
+          "F05|KR": 0,
+          "F05|MX": 0,
+          "F05|TW": 0,
+          "F05|US": 1,
+          "F05|WO": 1,
+          "F06|...": 1,
+          "F06|AU": 1,
+          "F06|CA": 1,
+          "F06|CN": 1,
+          "F06|EP": 1,
+          "F06|ES": 0,
+          "F06|HK": 0,
+          "F06|JP": 1,
+          "F06|KR": 1,
+          "F06|MX": 0,
+          "F06|TW": 1,
+          "F06|US": 1,
+          "F06|WO": 1,
+          "F07|...": 0,
+          "F07|AU": 0,
+          "F07|CA": 0,
+          "F07|CN": 1,
+          "F07|EP": 1,
+          "F07|ES": 0,
+          "F07|HK": 0,
+          "F07|JP": 0,
+          "F07|KR": 0,
+          "F07|MX": 0,
+          "F07|TW": 0,
+          "F07|US": 0,
+          "F07|WO": 1,
+          "F08|...": 0,
+          "F08|AU": 1,
+          "F08|CA": 1,
+          "F08|CN": 1,
+          "F08|EP": 1,
+          "F08|ES": 0,
+          "F08|HK": 0,
+          "F08|JP": 1,
+          "F08|KR": 1,
+          "F08|MX": 1,
+          "F08|TW": 0,
+          "F08|US": 1,
+          "F08|WO": 1,
+          "F09|...": 0,
+          "F09|AU": 0,
+          "F09|CA": 0,
+          "F09|CN": 1,
+          "F09|EP": 1,
+          "F09|ES": 0,
+          "F09|HK": 0,
+          "F09|JP": 0,
+          "F09|KR": 0,
+          "F09|MX": 0,
+          "F09|TW": 1,
+          "F09|US": 1,
+          "F09|WO": 1,
+          "F10|...": 0,
+          "F10|AU": 0,
+          "F10|CA": 0,
+          "F10|CN": 0,
+          "F10|EP": 1,
+          "F10|ES": 0,
+          "F10|HK": 0,
+          "F10|JP": 0,
+          "F10|KR": 0,
+          "F10|MX": 0,
+          "F10|TW": 0,
+          "F10|US": 1,
+          "F10|WO": 1,
+          "F11|...": 0,
+          "F11|AU": 0,
+          "F11|CA": 0,
+          "F11|CN": 0,
+          "F11|EP": 1,
+          "F11|ES": 0,
+          "F11|HK": 0,
+          "F11|JP": 0,
+          "F11|KR": 0,
+          "F11|MX": 0,
+          "F11|TW": 0,
+          "F11|US": 1,
+          "F11|WO": 1,
+          "F12|...": 0,
+          "F12|AU": 0,
+          "F12|CA": 0,
+          "F12|CN": 0,
+          "F12|EP": 1,
+          "F12|ES": 0,
+          "F12|HK": 0,
+          "F12|JP": 0,
+          "F12|KR": 0,
+          "F12|MX": 0,
+          "F12|TW": 0,
+          "F12|US": 1,
+          "F12|WO": 1,
+          "F13|...": 0,
+          "F13|AU": 0,
+          "F13|CA": 0,
+          "F13|CN": 1,
+          "F13|EP": 0,
+          "F13|ES": 0,
+          "F13|HK": 1,
+          "F13|JP": 0,
+          "F13|KR": 0,
+          "F13|MX": 0,
+          "F13|TW": 0,
+          "F13|US": 0,
+          "F13|WO": 1,
+          "F14|...": 0,
+          "F14|AU": 0,
+          "F14|CA": 0,
+          "F14|CN": 1,
+          "F14|EP": 1,
+          "F14|ES": 0,
+          "F14|HK": 0,
+          "F14|JP": 0,
+          "F14|KR": 1,
+          "F14|MX": 0,
+          "F14|TW": 0,
+          "F14|US": 0,
+          "F14|WO": 1,
+          "F15|...": 0,
+          "F15|AU": 0,
+          "F15|CA": 0,
+          "F15|CN": 1,
+          "F15|EP": 0,
+          "F15|ES": 0,
+          "F15|HK": 0,
+          "F15|JP": 0,
+          "F15|KR": 0,
+          "F15|MX": 0,
+          "F15|TW": 0,
+          "F15|US": 0,
+          "F15|WO": 0,
+          "F16|...": 0,
+          "F16|AU": 0,
+          "F16|CA": 0,
+          "F16|CN": 0,
+          "F16|EP": 1,
+          "F16|ES": 0,
+          "F16|HK": 0,
+          "F16|JP": 1,
+          "F16|KR": 0,
+          "F16|MX": 0,
+          "F16|TW": 1,
+          "F16|US": 1,
+          "F16|WO": 1,
+          "F17|...": 0,
+          "F17|AU": 0,
+          "F17|CA": 0,
+          "F17|CN": 0,
+          "F17|EP": 0,
+          "F17|ES": 0,
+          "F17|HK": 0,
+          "F17|JP": 1,
+          "F17|KR": 0,
+          "F17|MX": 0,
+          "F17|TW": 0,
+          "F17|US": 1,
+          "F17|WO": 1,
+          "F18|...": 0,
+          "F18|AU": 0,
+          "F18|CA": 0,
+          "F18|CN": 0,
+          "F18|EP": 0,
+          "F18|ES": 1,
+          "F18|HK": 0,
+          "F18|JP": 1,
+          "F18|KR": 0,
+          "F18|MX": 0,
+          "F18|TW": 0,
+          "F18|US": 1,
+          "F18|WO": 1,
+          "F19|...": 0,
+          "F19|AU": 0,
+          "F19|CA": 0,
+          "F19|CN": 0,
+          "F19|EP": 0,
+          "F19|ES": 0,
+          "F19|HK": 0,
+          "F19|JP": 0,
+          "F19|KR": 0,
+          "F19|MX": 0,
+          "F19|TW": 0,
+          "F19|US": 1,
+          "F19|WO": 1,
+          "F20|...": 0,
+          "F20|AU": 0,
+          "F20|CA": 0,
+          "F20|CN": 1,
+          "F20|EP": 0,
+          "F20|ES": 0,
+          "F20|HK": 1,
+          "F20|JP": 0,
+          "F20|KR": 0,
+          "F20|MX": 0,
+          "F20|TW": 0,
+          "F20|US": 0,
+          "F20|WO": 0
+        }
+      }
+    },
+    {
+      "id": "claim-category",
+      "title": "权利要求类别分布",
+      "filename": "claim-category-distribution.svg",
+      "chart_type": "donut",
+      "metric_definition": "按 claim-elements.csv 的 claim_category 记录数统计。",
+      "source_fields": [
+        "claim_category"
+      ],
+      "values": [
+        [
+          "compound",
+          14
+        ],
+        [
+          "composition",
+          6
+        ],
+        [
+          "method_of_treatment",
+          5
+        ],
+        [
+          "combination",
+          3
+        ],
+        [
+          "antibody",
+          2
+        ],
+        [
+          "conjugate",
+          1
+        ],
+        [
+          "delivery",
+          1
+        ],
+        [
+          "formulation",
+          1
+        ],
+        [
+          "process",
+          1
+        ]
+      ],
+      "data": null
+    },
+    {
+      "id": "status",
+      "title": "状态信号分布",
+      "filename": "status-distribution.svg",
+      "chart_type": "donut",
+      "metric_definition": "把官方状态和状态来源文字归入研究阶段信号，不替代官方法律状态。",
+      "source_fields": [
+        "official_status",
+        "status_source",
+        "official_status_signal"
+      ],
+      "values": [
+        [
+          "授权/状态较强",
+          12
+        ],
+        [
+          "公开/待审查",
+          8
+        ]
+      ],
+      "data": null
+    },
+    {
+      "id": "risk-priority",
+      "title": "FTO 复核优先级",
+      "filename": "risk-priority-distribution.svg",
+      "chart_type": "donut",
+      "metric_definition": "按 fto-candidate-ranking.csv 的 review_priority 统计；是复核队列，不是侵权概率。",
+      "source_fields": [
+        "review_priority"
+      ],
+      "values": [],
+      "data": null
+    },
+    {
+      "id": "evidence-confidence",
+      "title": "证据置信度分布",
+      "filename": "evidence-confidence-distribution.svg",
+      "chart_type": "donut",
+      "metric_definition": "按 evidence.csv 的 confidence 字段统计。",
+      "source_fields": [
+        "confidence"
+      ],
+      "values": [
+        [
+          "medium",
+          13
+        ],
+        [
+          "high",
+          5
+        ],
+        [
+          "low",
+          2
+        ]
+      ],
+      "data": null
+    },
+    {
+      "id": "evidence-type",
+      "title": "证据类型分布",
+      "filename": "evidence-type-distribution.svg",
+      "chart_type": "bar",
+      "metric_definition": "按 evidence.csv 的 evidence_type 字段统计。",
+      "source_fields": [
+        "evidence_type"
+      ],
+      "values": [
+        [
+          "E3",
+          14
+        ],
+        [
+          "E2",
+          3
+        ],
+        [
+          "E4",
+          3
+        ]
+      ],
+      "data": null
+    },
+    {
+      "id": "source-kind",
+      "title": "来源角色分布",
+      "filename": "source-kind-distribution.svg",
+      "chart_type": "donut",
+      "metric_definition": "按 CNIPA/PatentDatabases 来源目录中的 source_kind 统计。",
+      "source_fields": [
+        "source_catalog.sources[].source_kind"
+      ],
+      "values": [],
+      "data": null
+    },
+    {
+      "id": "source-access-class",
+      "title": "公开访问层级",
+      "filename": "source-access-class-distribution.svg",
+      "chart_type": "donut",
+      "metric_definition": "按逐来源访问审计的 access_class 统计；公开页面不等于开放检索或开放全文。",
+      "source_fields": [
+        "public-source-search-audit.records[].access_class"
+      ],
+      "values": [],
+      "data": null
+    },
+    {
+      "id": "source-search-status",
+      "title": "来源检索执行状态",
+      "filename": "source-search-status-distribution.svg",
+      "chart_type": "donut",
+      "metric_definition": "按来源审计中的 search_attempt 统计；manual 表示需要交互式表单或人工复核。",
+      "source_fields": [
+        "public-source-search-audit.records[].search_attempt"
+      ],
+      "values": [],
+      "data": null
+    },
+    {
+      "id": "source-execution-status",
+      "title": "公开来源实际执行状态",
+      "filename": "source-execution-status-distribution.svg",
+      "chart_type": "donut",
+      "metric_definition": "按 public-source-search-results.json 的 attempt_status 统计；executed 表示已提交只读查询，browser_manual/not_mapped 保留未自动提交的边界。",
+      "source_fields": [
+        "public-source-search-results.records[].attempt_status"
+      ],
+      "values": [],
+      "data": null
+    },
+    {
+      "id": "source-result-signal",
+      "title": "公开来源响应信号",
+      "filename": "source-result-signal-distribution.svg",
+      "chart_type": "donut",
+      "metric_definition": "对已执行来源按页面响应信号统计；不把启发式数字当作正式命中总数。",
+      "source_fields": [
+        "public-source-search-results.records[].result_signal"
+      ],
+      "values": [],
+      "data": null
+    },
+    {
+      "id": "search-round",
+      "title": "检索轮次覆盖",
+      "filename": "search-round-distribution.svg",
+      "chart_type": "line",
+      "metric_definition": "按 FTO 搜索计划的 search_rounds 统计每轮主题的任务数量。",
+      "source_fields": [
+        "fto-search-plan.search_rounds"
+      ],
+      "values": [],
+      "data": null
+    },
+    {
+      "id": "family-risk-scatter",
+      "title": "族优先权年份 × FTO 初筛分数",
+      "filename": "family-risk-scatter-distribution.svg",
+      "chart_type": "scatter",
+      "metric_definition": "每个点代表一个专利族；横轴为最早优先权年份，纵轴为初筛 screen_score，气泡大小为 claim 要素记录数。不是侵权概率。",
+      "source_fields": [
+        "earliest_priority",
+        "fto-candidate-ranking.screen_score",
+        "claim-elements.family_id"
+      ],
+      "values": [],
+      "data": [
+        {
+          "x": 2010,
+          "y": 0.0,
+          "size": 2,
+          "label": "F01"
+        },
+        {
+          "x": 2014,
+          "y": 0.0,
+          "size": 3,
+          "label": "F02"
+        },
+        {
+          "x": 2021,
+          "y": 0.0,
+          "size": 4,
+          "label": "F03"
+        },
+        {
+          "x": 2018,
+          "y": 0.0,
+          "size": 3,
+          "label": "F04"
+        },
+        {
+          "x": 2020,
+          "y": 0.0,
+          "size": 2,
+          "label": "F05"
+        },
+        {
+          "x": 2021,
+          "y": 0.0,
+          "size": 3,
+          "label": "F06"
+        },
+        {
+          "x": 2021,
+          "y": 0.0,
+          "size": 1,
+          "label": "F07"
+        },
+        {
+          "x": 2021,
+          "y": 0.0,
+          "size": 2,
+          "label": "F08"
+        },
+        {
+          "x": 2018,
+          "y": 0.0,
+          "size": 1,
+          "label": "F09"
+        },
+        {
+          "x": 2012,
+          "y": 0.0,
+          "size": 1,
+          "label": "F10"
+        },
+        {
+          "x": 2007,
+          "y": 0.0,
+          "size": 1,
+          "label": "F11"
+        },
+        {
+          "x": 2013,
+          "y": 0.0,
+          "size": 1,
+          "label": "F12"
+        },
+        {
+          "x": 2021,
+          "y": 0.0,
+          "size": 1,
+          "label": "F13"
+        },
+        {
+          "x": 2011,
+          "y": 0.0,
+          "size": 2,
+          "label": "F14"
+        },
+        {
+          "x": 2020,
+          "y": 0.0,
+          "size": 1,
+          "label": "F15"
+        },
+        {
+          "x": 2020,
+          "y": 0.0,
+          "size": 1,
+          "label": "F16"
+        },
+        {
+          "x": 2020,
+          "y": 0.0,
+          "size": 2,
+          "label": "F17"
+        },
+        {
+          "x": 2015,
+          "y": 0.0,
+          "size": 1,
+          "label": "F18"
+        },
+        {
+          "x": 2023,
+          "y": 0.0,
+          "size": 1,
+          "label": "F19"
+        },
+        {
+          "x": 2021,
+          "y": 0.0,
+          "size": 1,
+          "label": "F20"
+        }
+      ]
+    },
+    {
+      "id": "family-topic-network",
+      "title": "专利族—技术阶段关系网络",
+      "filename": "family-topic-network-distribution.svg",
+      "chart_type": "network",
+      "metric_definition": "左侧为 family_id，右侧为按 claim theme/要素归纳的技术阶段；连线表示族与阶段的归属关系。",
+      "source_fields": [
+        "family_id",
+        "claim_theme",
+        "claim_categories",
+        "key_claim_elements"
+      ],
+      "values": [],
+      "data": {
+        "families": [
+          "F01",
+          "F02",
+          "F03",
+          "F04",
+          "F05",
+          "F06",
+          "F07",
+          "F08",
+          "F09",
+          "F10",
+          "F11",
+          "F12",
+          "F13",
+          "F14",
+          "F15",
+          "F16",
+          "F17",
+          "F18",
+          "F19",
+          "F20"
+        ],
+        "topics": [
+          "结构/组成",
+          "制剂/工艺"
+        ],
+        "edges": [
+          [
+            "F01",
+            "结构/组成"
+          ],
+          [
+            "F02",
+            "结构/组成"
+          ],
+          [
+            "F03",
+            "结构/组成"
+          ],
+          [
+            "F04",
+            "结构/组成"
+          ],
+          [
+            "F05",
+            "结构/组成"
+          ],
+          [
+            "F06",
+            "结构/组成"
+          ],
+          [
+            "F07",
+            "结构/组成"
+          ],
+          [
+            "F08",
+            "结构/组成"
+          ],
+          [
+            "F09",
+            "结构/组成"
+          ],
+          [
+            "F10",
+            "结构/组成"
+          ],
+          [
+            "F11",
+            "结构/组成"
+          ],
+          [
+            "F12",
+            "结构/组成"
+          ],
+          [
+            "F13",
+            "结构/组成"
+          ],
+          [
+            "F14",
+            "结构/组成"
+          ],
+          [
+            "F15",
+            "结构/组成"
+          ],
+          [
+            "F16",
+            "结构/组成"
+          ],
+          [
+            "F17",
+            "结构/组成"
+          ],
+          [
+            "F18",
+            "结构/组成"
+          ],
+          [
+            "F19",
+            "制剂/工艺"
+          ],
+          [
+            "F20",
+            "结构/组成"
+          ]
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "统计单位依图表说明而异：族图通常按 family_id，claim 图按要素记录，证据图按 evidence.csv 条目。",
+    "状态图是文本信号分类，必须回到目标法域官方登记簿核验。",
+    "来源图是 CNIPA/PatentDatabases 目录快照，不等于本案已访问结果集。"
+  ]
+}

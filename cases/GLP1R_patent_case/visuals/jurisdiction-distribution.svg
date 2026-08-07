@@ -1,0 +1,561 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 740" role="img" aria-label="法域覆盖">
+<title>法域覆盖</title>
+<desc>按族 CSV 的 jurisdictions 字段统计存在成员记录的族数。</desc>
+<rect width="760" height="740" rx="16" fill="#ffffff"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">法域覆盖</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">按族 CSV 的 jurisdictions 字段统计存在成员记录的族数。</text>
+<text x="209.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">...</text>
+<text x="315.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">AU</text>
+<text x="421.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">CA</text>
+<text x="527.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">CN</text>
+<text x="633.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">EP</text>
+<text x="739.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">ES</text>
+<text x="845.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">HK</text>
+<text x="951.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">JP</text>
+<text x="1057.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">KR</text>
+<text x="1163.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">MX</text>
+<text x="1269.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">TW</text>
+<text x="1375.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">US</text>
+<text x="1481.0" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#44536c">WO</text>
+<text x="28" y="112" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F01</text>
+<rect x="156" y="92" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F01 · ...: 0</title></rect>
+<text x="206.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="92" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F01 · AU: 0</title></rect>
+<text x="312.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="92" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F01 · CA: 0</title></rect>
+<text x="418.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="92" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F01 · CN: 1</title></rect>
+<text x="524.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="580" y="92" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F01 · EP: 1</title></rect>
+<text x="630.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="686" y="92" width="101" height="25" rx="6" fill="#1264d9" fill-opacity="0.9"><title>F01 · ES: 1</title></rect>
+<text x="736.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="792" y="92" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F01 · HK: 0</title></rect>
+<text x="842.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="92" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F01 · JP: 0</title></rect>
+<text x="948.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="92" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F01 · KR: 0</title></rect>
+<text x="1054.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="92" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F01 · MX: 0</title></rect>
+<text x="1160.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="92" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F01 · TW: 0</title></rect>
+<text x="1266.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="92" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F01 · US: 1</title></rect>
+<text x="1372.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="92" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F01 · WO: 1</title></rect>
+<text x="1478.5" y="111" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="142" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F02</text>
+<rect x="156" y="122" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F02 · ...: 0</title></rect>
+<text x="206.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="122" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F02 · AU: 0</title></rect>
+<text x="312.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="122" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F02 · CA: 0</title></rect>
+<text x="418.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="122" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F02 · CN: 1</title></rect>
+<text x="524.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="580" y="122" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F02 · EP: 1</title></rect>
+<text x="630.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="686" y="122" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F02 · ES: 0</title></rect>
+<text x="736.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="122" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F02 · HK: 0</title></rect>
+<text x="842.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="122" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F02 · JP: 0</title></rect>
+<text x="948.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="122" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F02 · KR: 0</title></rect>
+<text x="1054.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="122" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F02 · MX: 0</title></rect>
+<text x="1160.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="122" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F02 · TW: 0</title></rect>
+<text x="1266.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="122" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F02 · US: 1</title></rect>
+<text x="1372.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="122" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F02 · WO: 1</title></rect>
+<text x="1478.5" y="141" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="172" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F03</text>
+<rect x="156" y="152" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F03 · ...: 0</title></rect>
+<text x="206.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="152" width="101" height="25" rx="6" fill="#f2a93b" fill-opacity="0.9"><title>F03 · AU: 1</title></rect>
+<text x="312.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="368" y="152" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F03 · CA: 0</title></rect>
+<text x="418.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="152" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F03 · CN: 0</title></rect>
+<text x="524.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="580" y="152" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F03 · EP: 1</title></rect>
+<text x="630.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="686" y="152" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F03 · ES: 0</title></rect>
+<text x="736.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="152" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F03 · HK: 0</title></rect>
+<text x="842.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="152" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F03 · JP: 0</title></rect>
+<text x="948.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="152" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F03 · KR: 0</title></rect>
+<text x="1054.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="152" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F03 · MX: 0</title></rect>
+<text x="1160.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="152" width="101" height="25" rx="6" fill="#e3655b" fill-opacity="0.9"><title>F03 · TW: 1</title></rect>
+<text x="1266.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1322" y="152" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F03 · US: 1</title></rect>
+<text x="1372.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="152" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F03 · WO: 1</title></rect>
+<text x="1478.5" y="171" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="202" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F04</text>
+<rect x="156" y="182" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F04 · ...: 0</title></rect>
+<text x="206.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="182" width="101" height="25" rx="6" fill="#f2a93b" fill-opacity="0.9"><title>F04 · AU: 1</title></rect>
+<text x="312.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="368" y="182" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F04 · CA: 0</title></rect>
+<text x="418.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="182" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F04 · CN: 1</title></rect>
+<text x="524.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="580" y="182" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F04 · EP: 0</title></rect>
+<text x="630.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="686" y="182" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F04 · ES: 0</title></rect>
+<text x="736.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="182" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F04 · HK: 0</title></rect>
+<text x="842.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="182" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F04 · JP: 0</title></rect>
+<text x="948.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="182" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F04 · KR: 0</title></rect>
+<text x="1054.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="182" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F04 · MX: 0</title></rect>
+<text x="1160.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="182" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F04 · TW: 0</title></rect>
+<text x="1266.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="182" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F04 · US: 1</title></rect>
+<text x="1372.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="182" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F04 · WO: 1</title></rect>
+<text x="1478.5" y="201" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="232" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F05</text>
+<rect x="156" y="212" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F05 · ...: 0</title></rect>
+<text x="206.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="212" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F05 · AU: 0</title></rect>
+<text x="312.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="212" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F05 · CA: 0</title></rect>
+<text x="418.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="212" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F05 · CN: 0</title></rect>
+<text x="524.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="580" y="212" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F05 · EP: 0</title></rect>
+<text x="630.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="686" y="212" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F05 · ES: 0</title></rect>
+<text x="736.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="212" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F05 · HK: 0</title></rect>
+<text x="842.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="212" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F05 · JP: 0</title></rect>
+<text x="948.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="212" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F05 · KR: 0</title></rect>
+<text x="1054.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="212" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F05 · MX: 0</title></rect>
+<text x="1160.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="212" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F05 · TW: 0</title></rect>
+<text x="1266.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="212" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F05 · US: 1</title></rect>
+<text x="1372.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="212" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F05 · WO: 1</title></rect>
+<text x="1478.5" y="231" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="262" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F06</text>
+<rect x="156" y="242" width="101" height="25" rx="6" fill="#9bd4f7" fill-opacity="0.9"><title>F06 · ...: 1</title></rect>
+<text x="206.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="262" y="242" width="101" height="25" rx="6" fill="#f2a93b" fill-opacity="0.9"><title>F06 · AU: 1</title></rect>
+<text x="312.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="368" y="242" width="101" height="25" rx="6" fill="#e3655b" fill-opacity="0.9"><title>F06 · CA: 1</title></rect>
+<text x="418.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="474" y="242" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F06 · CN: 1</title></rect>
+<text x="524.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="580" y="242" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F06 · EP: 1</title></rect>
+<text x="630.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="686" y="242" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F06 · ES: 0</title></rect>
+<text x="736.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="242" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F06 · HK: 0</title></rect>
+<text x="842.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="242" width="101" height="25" rx="6" fill="#72b7f5" fill-opacity="0.9"><title>F06 · JP: 1</title></rect>
+<text x="948.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1004" y="242" width="101" height="25" rx="6" fill="#9bd4f7" fill-opacity="0.9"><title>F06 · KR: 1</title></rect>
+<text x="1054.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1110" y="242" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F06 · MX: 0</title></rect>
+<text x="1160.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="242" width="101" height="25" rx="6" fill="#e3655b" fill-opacity="0.9"><title>F06 · TW: 1</title></rect>
+<text x="1266.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1322" y="242" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F06 · US: 1</title></rect>
+<text x="1372.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="242" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F06 · WO: 1</title></rect>
+<text x="1478.5" y="261" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="292" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F07</text>
+<rect x="156" y="272" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F07 · ...: 0</title></rect>
+<text x="206.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="272" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F07 · AU: 0</title></rect>
+<text x="312.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="272" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F07 · CA: 0</title></rect>
+<text x="418.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="272" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F07 · CN: 1</title></rect>
+<text x="524.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="580" y="272" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F07 · EP: 1</title></rect>
+<text x="630.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="686" y="272" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F07 · ES: 0</title></rect>
+<text x="736.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="272" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F07 · HK: 0</title></rect>
+<text x="842.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="272" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F07 · JP: 0</title></rect>
+<text x="948.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="272" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F07 · KR: 0</title></rect>
+<text x="1054.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="272" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F07 · MX: 0</title></rect>
+<text x="1160.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="272" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F07 · TW: 0</title></rect>
+<text x="1266.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="272" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F07 · US: 0</title></rect>
+<text x="1372.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1428" y="272" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F07 · WO: 1</title></rect>
+<text x="1478.5" y="291" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="322" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F08</text>
+<rect x="156" y="302" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F08 · ...: 0</title></rect>
+<text x="206.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="302" width="101" height="25" rx="6" fill="#f2a93b" fill-opacity="0.9"><title>F08 · AU: 1</title></rect>
+<text x="312.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="368" y="302" width="101" height="25" rx="6" fill="#e3655b" fill-opacity="0.9"><title>F08 · CA: 1</title></rect>
+<text x="418.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="474" y="302" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F08 · CN: 1</title></rect>
+<text x="524.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="580" y="302" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F08 · EP: 1</title></rect>
+<text x="630.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="686" y="302" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F08 · ES: 0</title></rect>
+<text x="736.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="302" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F08 · HK: 0</title></rect>
+<text x="842.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="302" width="101" height="25" rx="6" fill="#72b7f5" fill-opacity="0.9"><title>F08 · JP: 1</title></rect>
+<text x="948.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1004" y="302" width="101" height="25" rx="6" fill="#9bd4f7" fill-opacity="0.9"><title>F08 · KR: 1</title></rect>
+<text x="1054.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1110" y="302" width="101" height="25" rx="6" fill="#f2a93b" fill-opacity="0.9"><title>F08 · MX: 1</title></rect>
+<text x="1160.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1216" y="302" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F08 · TW: 0</title></rect>
+<text x="1266.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="302" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F08 · US: 1</title></rect>
+<text x="1372.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="302" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F08 · WO: 1</title></rect>
+<text x="1478.5" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="352" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F09</text>
+<rect x="156" y="332" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F09 · ...: 0</title></rect>
+<text x="206.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="332" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F09 · AU: 0</title></rect>
+<text x="312.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="332" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F09 · CA: 0</title></rect>
+<text x="418.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="332" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F09 · CN: 1</title></rect>
+<text x="524.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="580" y="332" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F09 · EP: 1</title></rect>
+<text x="630.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="686" y="332" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F09 · ES: 0</title></rect>
+<text x="736.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="332" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F09 · HK: 0</title></rect>
+<text x="842.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="332" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F09 · JP: 0</title></rect>
+<text x="948.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="332" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F09 · KR: 0</title></rect>
+<text x="1054.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="332" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F09 · MX: 0</title></rect>
+<text x="1160.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="332" width="101" height="25" rx="6" fill="#e3655b" fill-opacity="0.9"><title>F09 · TW: 1</title></rect>
+<text x="1266.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1322" y="332" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F09 · US: 1</title></rect>
+<text x="1372.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="332" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F09 · WO: 1</title></rect>
+<text x="1478.5" y="351" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="382" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F10</text>
+<rect x="156" y="362" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F10 · ...: 0</title></rect>
+<text x="206.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="362" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F10 · AU: 0</title></rect>
+<text x="312.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="362" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F10 · CA: 0</title></rect>
+<text x="418.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="362" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F10 · CN: 0</title></rect>
+<text x="524.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="580" y="362" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F10 · EP: 1</title></rect>
+<text x="630.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="686" y="362" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F10 · ES: 0</title></rect>
+<text x="736.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="362" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F10 · HK: 0</title></rect>
+<text x="842.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="362" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F10 · JP: 0</title></rect>
+<text x="948.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="362" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F10 · KR: 0</title></rect>
+<text x="1054.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="362" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F10 · MX: 0</title></rect>
+<text x="1160.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="362" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F10 · TW: 0</title></rect>
+<text x="1266.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="362" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F10 · US: 1</title></rect>
+<text x="1372.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="362" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F10 · WO: 1</title></rect>
+<text x="1478.5" y="381" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="412" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F11</text>
+<rect x="156" y="392" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F11 · ...: 0</title></rect>
+<text x="206.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="392" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F11 · AU: 0</title></rect>
+<text x="312.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="392" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F11 · CA: 0</title></rect>
+<text x="418.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="392" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F11 · CN: 0</title></rect>
+<text x="524.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="580" y="392" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F11 · EP: 1</title></rect>
+<text x="630.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="686" y="392" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F11 · ES: 0</title></rect>
+<text x="736.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="392" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F11 · HK: 0</title></rect>
+<text x="842.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="392" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F11 · JP: 0</title></rect>
+<text x="948.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="392" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F11 · KR: 0</title></rect>
+<text x="1054.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="392" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F11 · MX: 0</title></rect>
+<text x="1160.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="392" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F11 · TW: 0</title></rect>
+<text x="1266.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="392" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F11 · US: 1</title></rect>
+<text x="1372.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="392" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F11 · WO: 1</title></rect>
+<text x="1478.5" y="411" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="442" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F12</text>
+<rect x="156" y="422" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F12 · ...: 0</title></rect>
+<text x="206.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="422" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F12 · AU: 0</title></rect>
+<text x="312.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="422" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F12 · CA: 0</title></rect>
+<text x="418.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="422" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F12 · CN: 0</title></rect>
+<text x="524.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="580" y="422" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F12 · EP: 1</title></rect>
+<text x="630.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="686" y="422" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F12 · ES: 0</title></rect>
+<text x="736.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="422" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F12 · HK: 0</title></rect>
+<text x="842.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="422" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F12 · JP: 0</title></rect>
+<text x="948.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="422" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F12 · KR: 0</title></rect>
+<text x="1054.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="422" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F12 · MX: 0</title></rect>
+<text x="1160.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="422" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F12 · TW: 0</title></rect>
+<text x="1266.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="422" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F12 · US: 1</title></rect>
+<text x="1372.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="422" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F12 · WO: 1</title></rect>
+<text x="1478.5" y="441" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="472" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F13</text>
+<rect x="156" y="452" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F13 · ...: 0</title></rect>
+<text x="206.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="452" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F13 · AU: 0</title></rect>
+<text x="312.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="452" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F13 · CA: 0</title></rect>
+<text x="418.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="452" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F13 · CN: 1</title></rect>
+<text x="524.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="580" y="452" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F13 · EP: 0</title></rect>
+<text x="630.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="686" y="452" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F13 · ES: 0</title></rect>
+<text x="736.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="452" width="101" height="25" rx="6" fill="#3c8eea" fill-opacity="0.9"><title>F13 · HK: 1</title></rect>
+<text x="842.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="898" y="452" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F13 · JP: 0</title></rect>
+<text x="948.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="452" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F13 · KR: 0</title></rect>
+<text x="1054.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="452" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F13 · MX: 0</title></rect>
+<text x="1160.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="452" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F13 · TW: 0</title></rect>
+<text x="1266.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="452" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F13 · US: 0</title></rect>
+<text x="1372.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1428" y="452" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F13 · WO: 1</title></rect>
+<text x="1478.5" y="471" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="502" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F14</text>
+<rect x="156" y="482" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F14 · ...: 0</title></rect>
+<text x="206.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="482" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F14 · AU: 0</title></rect>
+<text x="312.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="482" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F14 · CA: 0</title></rect>
+<text x="418.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="482" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F14 · CN: 1</title></rect>
+<text x="524.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="580" y="482" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F14 · EP: 1</title></rect>
+<text x="630.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="686" y="482" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F14 · ES: 0</title></rect>
+<text x="736.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="482" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F14 · HK: 0</title></rect>
+<text x="842.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="482" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F14 · JP: 0</title></rect>
+<text x="948.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="482" width="101" height="25" rx="6" fill="#9bd4f7" fill-opacity="0.9"><title>F14 · KR: 1</title></rect>
+<text x="1054.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1110" y="482" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F14 · MX: 0</title></rect>
+<text x="1160.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="482" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F14 · TW: 0</title></rect>
+<text x="1266.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="482" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F14 · US: 0</title></rect>
+<text x="1372.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1428" y="482" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F14 · WO: 1</title></rect>
+<text x="1478.5" y="501" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="532" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F15</text>
+<rect x="156" y="512" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F15 · ...: 0</title></rect>
+<text x="206.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="512" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F15 · AU: 0</title></rect>
+<text x="312.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="512" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F15 · CA: 0</title></rect>
+<text x="418.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="512" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F15 · CN: 1</title></rect>
+<text x="524.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="580" y="512" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F15 · EP: 0</title></rect>
+<text x="630.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="686" y="512" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F15 · ES: 0</title></rect>
+<text x="736.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="512" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F15 · HK: 0</title></rect>
+<text x="842.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="512" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F15 · JP: 0</title></rect>
+<text x="948.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="512" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F15 · KR: 0</title></rect>
+<text x="1054.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="512" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F15 · MX: 0</title></rect>
+<text x="1160.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="512" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F15 · TW: 0</title></rect>
+<text x="1266.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="512" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F15 · US: 0</title></rect>
+<text x="1372.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1428" y="512" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F15 · WO: 0</title></rect>
+<text x="1478.5" y="531" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<text x="28" y="562" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F16</text>
+<rect x="156" y="542" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F16 · ...: 0</title></rect>
+<text x="206.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="542" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F16 · AU: 0</title></rect>
+<text x="312.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="542" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F16 · CA: 0</title></rect>
+<text x="418.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="542" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F16 · CN: 0</title></rect>
+<text x="524.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="580" y="542" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F16 · EP: 1</title></rect>
+<text x="630.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="686" y="542" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F16 · ES: 0</title></rect>
+<text x="736.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="542" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F16 · HK: 0</title></rect>
+<text x="842.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="542" width="101" height="25" rx="6" fill="#72b7f5" fill-opacity="0.9"><title>F16 · JP: 1</title></rect>
+<text x="948.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1004" y="542" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F16 · KR: 0</title></rect>
+<text x="1054.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="542" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F16 · MX: 0</title></rect>
+<text x="1160.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="542" width="101" height="25" rx="6" fill="#e3655b" fill-opacity="0.9"><title>F16 · TW: 1</title></rect>
+<text x="1266.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1322" y="542" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F16 · US: 1</title></rect>
+<text x="1372.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="542" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F16 · WO: 1</title></rect>
+<text x="1478.5" y="561" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="592" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F17</text>
+<rect x="156" y="572" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F17 · ...: 0</title></rect>
+<text x="206.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="572" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F17 · AU: 0</title></rect>
+<text x="312.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="572" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F17 · CA: 0</title></rect>
+<text x="418.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="572" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F17 · CN: 0</title></rect>
+<text x="524.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="580" y="572" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F17 · EP: 0</title></rect>
+<text x="630.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="686" y="572" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F17 · ES: 0</title></rect>
+<text x="736.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="572" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F17 · HK: 0</title></rect>
+<text x="842.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="572" width="101" height="25" rx="6" fill="#72b7f5" fill-opacity="0.9"><title>F17 · JP: 1</title></rect>
+<text x="948.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1004" y="572" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F17 · KR: 0</title></rect>
+<text x="1054.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="572" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F17 · MX: 0</title></rect>
+<text x="1160.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="572" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F17 · TW: 0</title></rect>
+<text x="1266.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="572" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F17 · US: 1</title></rect>
+<text x="1372.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="572" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F17 · WO: 1</title></rect>
+<text x="1478.5" y="591" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="622" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F18</text>
+<rect x="156" y="602" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F18 · ...: 0</title></rect>
+<text x="206.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="602" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F18 · AU: 0</title></rect>
+<text x="312.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="602" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F18 · CA: 0</title></rect>
+<text x="418.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="602" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F18 · CN: 0</title></rect>
+<text x="524.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="580" y="602" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F18 · EP: 0</title></rect>
+<text x="630.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="686" y="602" width="101" height="25" rx="6" fill="#1264d9" fill-opacity="0.9"><title>F18 · ES: 1</title></rect>
+<text x="736.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="792" y="602" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F18 · HK: 0</title></rect>
+<text x="842.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="602" width="101" height="25" rx="6" fill="#72b7f5" fill-opacity="0.9"><title>F18 · JP: 1</title></rect>
+<text x="948.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1004" y="602" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F18 · KR: 0</title></rect>
+<text x="1054.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="602" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F18 · MX: 0</title></rect>
+<text x="1160.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="602" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F18 · TW: 0</title></rect>
+<text x="1266.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="602" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F18 · US: 1</title></rect>
+<text x="1372.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="602" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F18 · WO: 1</title></rect>
+<text x="1478.5" y="621" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="652" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F19</text>
+<rect x="156" y="632" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F19 · ...: 0</title></rect>
+<text x="206.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="632" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F19 · AU: 0</title></rect>
+<text x="312.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="632" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F19 · CA: 0</title></rect>
+<text x="418.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="632" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F19 · CN: 0</title></rect>
+<text x="524.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="580" y="632" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F19 · EP: 0</title></rect>
+<text x="630.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="686" y="632" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F19 · ES: 0</title></rect>
+<text x="736.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="632" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F19 · HK: 0</title></rect>
+<text x="842.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="898" y="632" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F19 · JP: 0</title></rect>
+<text x="948.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="632" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F19 · KR: 0</title></rect>
+<text x="1054.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="632" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F19 · MX: 0</title></rect>
+<text x="1160.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="632" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F19 · TW: 0</title></rect>
+<text x="1266.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="632" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F19 · US: 1</title></rect>
+<text x="1372.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="1428" y="632" width="101" height="25" rx="6" fill="#4ab39a" fill-opacity="0.9"><title>F19 · WO: 1</title></rect>
+<text x="1478.5" y="651" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<text x="28" y="682" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">F20</text>
+<rect x="156" y="662" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F20 · ...: 0</title></rect>
+<text x="206.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="262" y="662" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F20 · AU: 0</title></rect>
+<text x="312.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="368" y="662" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F20 · CA: 0</title></rect>
+<text x="418.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="474" y="662" width="101" height="25" rx="6" fill="#6d7892" fill-opacity="0.9"><title>F20 · CN: 1</title></rect>
+<text x="524.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="580" y="662" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F20 · EP: 0</title></rect>
+<text x="630.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="686" y="662" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F20 · ES: 0</title></rect>
+<text x="736.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="792" y="662" width="101" height="25" rx="6" fill="#3c8eea" fill-opacity="0.9"><title>F20 · HK: 1</title></rect>
+<text x="842.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+<rect x="898" y="662" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F20 · JP: 0</title></rect>
+<text x="948.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1004" y="662" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F20 · KR: 0</title></rect>
+<text x="1054.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1110" y="662" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F20 · MX: 0</title></rect>
+<text x="1160.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1216" y="662" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F20 · TW: 0</title></rect>
+<text x="1266.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1322" y="662" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F20 · US: 0</title></rect>
+<text x="1372.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<rect x="1428" y="662" width="101" height="25" rx="6" fill="#edf2fa" fill-opacity="1"><title>F20 · WO: 0</title></rect>
+<text x="1478.5" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#71809a">0</text>
+<text x="156" y="728" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">颜色越深表示该族在该法域有成员记录</text>
+</svg>

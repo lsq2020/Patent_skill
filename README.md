@@ -37,7 +37,8 @@ scripts/                         # 初始化、校验、报告与可视化脚本
 references/                      # 专利族、状态、FTO、可视化与来源说明
 cases/                           # 可复核的完整示例案例
 ├── durvalumab-pdl1-nsclc/       # 度伐利尤单抗 / PD-L1 / NSCLC 案例
-└── tfr1_patent_case/            # TfR1 专利分析案例
+├── tfr1_patent_case/            # TfR1 专利分析案例
+└── GLP1R_patent_case/           # GLP-1R 激动剂类别专利景观
 agents/openai.yaml               # Agent 界面元数据
 ```
 

@@ -1,0 +1,90 @@
+{
+  "molecule": {
+    "canonical": "GLP-1 receptor agonist (class landscape)",
+    "synonyms": [
+      "semaglutide",
+      "司美格鲁肽",
+      "索马鲁肽",
+      "liraglutide",
+      "利拉鲁肽",
+      "tirzepatide",
+      "替尔泊肽",
+      "orforglipron",
+      "奥福格利普隆",
+      "oral GLP-1",
+      "小分子GLP-1",
+      "GLP-1受体激动剂",
+      "GLP-1RA",
+      "GLP1R agonist",
+      "glucagon-like peptide-1 receptor agonist",
+      "peptide GLP-1",
+      "GIP/GLP-1 dual",
+      "GIP/GLP1 co-agonist",
+      "exenatide",
+      "dulaglutide",
+      "lixisenatide"
+    ],
+    "status": "confirmed",
+    "note": "范围取 GLP1R 类级专利景观（小分子、肽、双/三重激动剂、口服制剂、抗体、联合用药），不覆盖单一已上市分子的全部外围族。"
+  },
+  "target": {
+    "canonical": "GLP1R (glucagon-like peptide 1 receptor)",
+    "aliases": [
+      "GLP-1R",
+      "GLP-1 receptor",
+      "glucagon-like peptide 1 receptor",
+      "胰高血糖素样肽-1受体",
+      "glp-1r",
+      "GLP1R"
+    ],
+    "related_targets": [
+      "GIPR (tirzepatide 双靶点)",
+      "GCGR (glucagon receptor, 三靶点)",
+      "amylin receptor (co-agonist)"
+    ],
+    "status": "confirmed"
+  },
+  "indication": {
+    "canonical": "type 2 diabetes mellitus; obesity/overweight; cardiovascular risk",
+    "aliases": [
+      "2型糖尿病",
+      "T2DM",
+      "肥胖",
+      "超重",
+      "体重管理",
+      "MACE/心血管结局",
+      "NASH/MASH",
+      "diabetes",
+      "obesity"
+    ],
+    "status": "confirmed"
+  },
+  "applicants": [
+    "Novo Nordisk A/S (诺和诺德)",
+    "Eli Lilly and Company (礼来)",
+    "Gilead Sciences, Inc. (吉利德)",
+    "Zealand Pharma A/S (西兰制药)",
+    "Sanofi (赛诺菲)",
+    "Qilu Regor Therapeutics Inc. (齐鲁锐格)",
+    "Eccogene (Shanghai) Co., Ltd. (诚益生物)",
+    "Hangzhou Zhongmeihuadong Pharmaceutical (华东医药/中美华东)",
+    "Hangzhou Derui Zhizhi / Mindrank AI (杭州德睿智药)",
+    "Shionogi & Co., Ltd. (盐野义)",
+    "Jiangsu Hengrui Pharmaceuticals (恒瑞医药)",
+    "Fujian Shengdi Pharmaceutical (福建盛迪)",
+    "Beijing Hanmi Pharmaceutical (北京韩美/韩美药品)",
+    "Chongqing Kangding Medical Technology (重庆康丁医药)",
+    "Gasherbrum Bio, Inc.",
+    "Twist Bioscience Corporation",
+    "Amgen Inc.",
+    "CMPD Licensing, LLC",
+    "Pfizer Inc.",
+    "Boehringer Ingelheim"
+  ],
+  "unresolved_questions": [
+    "法律状态主要来自 Google Patents 聚合视图（E3），尚需在 USPTO Patent Center、EPO Register、CNIPA 官方登记簿逐法域核验（E1）。",
+    "Google Patents 直接请求被 IP 限流（HTTP 503/429）时改用 jina reader 镜像（r.jina.ai），镜像结果与直连结果需按日期留档。",
+    "多件 AU/HK/CN 公开文本未能在 Google Patents 提取到结构化 Claims 段（如 AU2020256647B2、CN112469731B、HK40113396A），claim 要素以代表文献或其余法域成员推断，需人工复核原文。",
+    "「GLP1R」无同名基因/蛋白歧义，按 glucagon-like peptide 1 receptor 处理；若用户实指其它实体需重跑。"
+  ]
+}
