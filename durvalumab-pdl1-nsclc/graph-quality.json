@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "status": "warning",
-  "generated_at": "2026-08-07T06:45:22.756097+00:00",
+  "generated_at": "2026-08-07T07:09:53.997527+00:00",
   "metrics": {
     "node_count": 101,
-    "edge_count": 163,
+    "edge_count": 174,
     "family_count": 7,
     "claim_count": 9,
     "evidence_count": 13,
@@ -13,13 +13,17 @@
     "family_relation_edge_count": 0,
     "member_relation_edge_count": 5,
     "families_with_relation_count": 1,
-    "causal_relation_count": 9
+    "causal_relation_count": 9,
+    "causal_concept_count": 11,
+    "causal_context_edge_count": 11,
+    "causal_context_coverage_rate": 1.0
   },
   "checks": {
     "node_ids_unique": true,
     "edge_ids_unique": true,
     "no_dangling_edges": true,
-    "all_claims_have_ids": true
+    "all_claims_have_ids": true,
+    "all_causal_concepts_in_scope": true
   },
   "gaps": [
     {

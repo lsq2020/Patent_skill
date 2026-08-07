@@ -56,6 +56,7 @@ RELATED_TO
 - 技术保护视图：研究对象、靶点、适应症、技术主题、族和 claim；
 - 证据链视图：family/claim → finding → source；
 - 申请人布局：申请人、族、法域和主题。
+- 因果全景视图：以有出处的因果/机制关系为核心，同时展示研究对象、靶点、适应症、专利族、claim、技术主题、finding 与 source。研究对象到因果概念使用 `IN_SCOPE` 结构边，`causal_status=not_applicable`，只表示本 case 的上下文收录，不表示因果。
 
 页面默认使用 URL 状态：`?focus=<node-id>&view=<preset>&depth=1&q=<query>`。默认展开一跳，最多显示 80 个节点；超过限制时必须提示并要求缩小范围。节点检查器包含摘要、Claims、证据、出链和反向链接。
 
@@ -68,6 +69,7 @@ RELATED_TO
 - 所有 claim 有稳定 ID；
 - evidence 的 family/claim 关联率；
 - 显式专利族连续关系边数量和覆盖情况。
+- 因果概念的研究上下文接入率（`causal_context_coverage_rate`）；有因果概念时应为 `1.0`。
 
 质量为 `warning` 时仍可生成视图，但页面必须显示缺口。`error` 表示关系结构不可安全使用，应先修复数据。
 

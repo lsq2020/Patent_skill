@@ -130,6 +130,87 @@ class GraphDataTests(unittest.TestCase):
         self.assertEqual("direct_fact", edge["assertion"])
         self.assertEqual(1, quality["metrics"]["family_relation_edge_count"])
 
+    def test_causal_preset_exposes_patent_context_without_promoting_it_to_causality(self):
+        graph, quality = build_graph_data(
+            self.case_dir,
+            output_path=self.output_dir / "graph-data.json",
+            quality_path=self.output_dir / "graph-quality.json",
+        )
+
+        causal_preset = next(row for row in graph["presets"] if row["id"] == "causal")
+        self.assertTrue(
+            {
+                "research_object",
+                "target",
+                "indication",
+                "patent_family",
+                "claim",
+                "technology_theme",
+                "causal_concept",
+                "evidence",
+                "source",
+            }.issubset(causal_preset["node_types"])
+        )
+        self.assertTrue(
+            {"IN_SCOPE", "PROTECTS", "HAS_CLAIM", "SUPPORTED_BY", "HAS_SOURCE"}.issubset(
+                causal_preset["relation_types"]
+            )
+        )
+
+        research_id = "research:durvalumab-pdl1-nsclc"
+        concept_ids = {
+            node["id"] for node in graph["nodes"] if node["type"] == "causal_concept"
+        }
+        context_edges = [
+            edge
+            for edge in graph["edges"]
+            if edge["source"] == research_id
+            and edge["target"] in concept_ids
+            and edge["type"] == "IN_SCOPE"
+        ]
+        self.assertEqual(concept_ids, {edge["target"] for edge in context_edges})
+        self.assertTrue(
+            all(
+                edge["relation_kind"] == "structural"
+                and edge["causal_status"] == "not_applicable"
+                for edge in context_edges
+            )
+        )
+
+        eligible_nodes = {
+            node["id"]
+            for node in graph["nodes"]
+            if node["type"] in causal_preset["node_types"]
+        }
+        eligible_edges = [
+            edge
+            for edge in graph["edges"]
+            if edge["type"] in causal_preset["relation_types"]
+            and edge["source"] in eligible_nodes
+            and edge["target"] in eligible_nodes
+        ]
+        visible = {"concept:C-DURVALUMAB"}
+        frontier = set(visible)
+        for _ in range(causal_preset["default_depth"]):
+            next_frontier = {
+                endpoint
+                for edge in eligible_edges
+                for endpoint in (edge["source"], edge["target"])
+                if (edge["source"] in frontier or edge["target"] in frontier)
+            }
+            visible.update(next_frontier)
+            frontier = next_frontier
+
+        visible_types = {
+            node["type"] for node in graph["nodes"] if node["id"] in visible
+        }
+        self.assertGreaterEqual(len(visible), 40)
+        self.assertTrue(
+            {"patent_family", "claim", "technology_theme"}.issubset(visible_types)
+        )
+        self.assertEqual(1.0, quality["metrics"]["causal_context_coverage_rate"])
+        self.assertTrue(quality["checks"]["all_causal_concepts_in_scope"])
+
     def test_validator_rejects_dangling_graph_edge(self):
         graph, _ = build_graph_data(
             self.case_dir,

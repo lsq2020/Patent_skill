@@ -138,11 +138,22 @@ def build_presets(causal_relation_types=None):
         presets.append(
             {
                 "id": "causal",
-                "label": "因果机制视图",
-                "description": "仅显示有明确语义、证据等级和适用范围的因果/机制路径。",
+                "label": "因果全景视图",
+                "description": "以可审计因果路径为核心，向外展开研究对象、靶点、适应症、专利族、claim 与技术主题；上下文边不表示因果。",
                 "default_depth": 3,
-                "node_types": ["causal_concept", "evidence", "source"],
-                "relation_types": list(causal_relation_types) + ["SUPPORTED_BY", "HAS_SOURCE"],
+                "node_types": [
+                    "research_object",
+                    "target",
+                    "indication",
+                    "patent_family",
+                    "claim",
+                    "technology_theme",
+                    "causal_concept",
+                    "evidence",
+                    "source",
+                ],
+                "relation_types": list(causal_relation_types)
+                + ["IN_SCOPE", "PROTECTS", "HAS_CLAIM", "SUPPORTED_BY", "HAS_SOURCE"],
                 "layout": "cose",
             }
         )
@@ -223,6 +234,15 @@ def build_quality(case_output, nodes, edges):
     causal_edges = [
         row for row in edges if row.get("relation_kind") in {"causal", "mechanistic"}
     ]
+    research_node_ids = {row["id"] for row in nodes if row["type"] == "research_object"}
+    concept_node_ids = {row["id"] for row in nodes if row["type"] == "causal_concept"}
+    contextualized_concept_ids = {
+        row["target"]
+        for row in edges
+        if row["type"] == "IN_SCOPE"
+        and row["source"] in research_node_ids
+        and row["target"] in concept_node_ids
+    }
     missing_claim_ids = [index for index, row in enumerate(claims) if not row.get("claim_id")]
     gaps = []
     if dangling:
@@ -300,6 +320,11 @@ def build_quality(case_output, nodes, edges):
 
     status = "error" if any(row["severity"] == "error" for row in gaps) else "warning" if gaps else "pass"
     linked_count = len(evidence) - len(unlinked_evidence)
+    causal_context_coverage_rate = (
+        round(len(contextualized_concept_ids) / len(concept_node_ids), 4)
+        if concept_node_ids
+        else 1.0
+    )
     return {
         "schema_version": "1.0",
         "status": status,
@@ -316,12 +341,17 @@ def build_quality(case_output, nodes, edges):
             "member_relation_edge_count": len(member_relation_edges),
             "families_with_relation_count": len(families_with_relations),
             "causal_relation_count": len(causal_edges),
+            "causal_concept_count": len(concept_node_ids),
+            "causal_context_edge_count": len(contextualized_concept_ids),
+            "causal_context_coverage_rate": causal_context_coverage_rate,
         },
         "checks": {
             "node_ids_unique": len(node_ids) == len(nodes),
             "edge_ids_unique": len(edge_ids) == len(set(edge_ids)),
             "no_dangling_edges": not dangling,
             "all_claims_have_ids": not missing_claim_ids,
+            "all_causal_concepts_in_scope": len(contextualized_concept_ids)
+            == len(concept_node_ids),
         },
         "gaps": gaps,
     }
@@ -466,14 +496,22 @@ def build_graph_data(project, case_output_path=None, output_path=None, quality_p
 
     for concept in records.get("concepts", []):
         concept_id = concept.get("concept_id")
+        concept_node_id = f"concept:{concept_id}"
         add_node(
-            f"concept:{concept_id}",
+            concept_node_id,
             "causal_concept",
             concept.get("label"),
             concept.get("description"),
             concept,
             (concept.get("source_urls") or [""])[0],
             {"concept_type": [concept.get("concept_type")]},
+        )
+        add_edge(
+            research_id,
+            "IN_SCOPE",
+            concept_node_id,
+            link_methods=["case.records.concepts"],
+            properties={"context_only": True},
         )
 
     for finding in records.get("evidence", []):

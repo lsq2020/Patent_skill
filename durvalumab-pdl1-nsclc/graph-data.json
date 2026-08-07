@@ -4,10 +4,10 @@
     "case_id": "durvalumab-pdl1-nsclc",
     "title": "Durvalumab",
     "as_of": "2026-08-07",
-    "generated_at": "2026-08-07T06:45:22.756493+00:00",
+    "generated_at": "2026-08-07T07:09:53.997675+00:00",
     "source_schema_version": "1.2",
     "node_count": 101,
-    "edge_count": 163,
+    "edge_count": 174,
     "quality_status": "warning",
     "default_focus": "research:durvalumab-pdl1-nsclc",
     "default_depth": 1,
@@ -4425,6 +4425,259 @@
       ]
     },
     {
+      "id": "EDGE-5224D50699DF",
+      "source": "research:durvalumab-pdl1-nsclc",
+      "target": "concept:C-DURVALUMAB",
+      "type": "IN_SCOPE",
+      "label": "研究范围",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "case.records.concepts"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "context_only": true
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-451846C73CA9",
+      "source": "research:durvalumab-pdl1-nsclc",
+      "target": "concept:C-DURVALUMAB-POST-CCRT",
+      "type": "IN_SCOPE",
+      "label": "研究范围",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "case.records.concepts"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "context_only": true
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-CEC9B3459062",
+      "source": "research:durvalumab-pdl1-nsclc",
+      "target": "concept:C-IMMUNE-MEDIATED-AE",
+      "type": "IN_SCOPE",
+      "label": "研究范围",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "case.records.concepts"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "context_only": true
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-8216FECBE0BA",
+      "source": "research:durvalumab-pdl1-nsclc",
+      "target": "concept:C-OVERALL-SURVIVAL",
+      "type": "IN_SCOPE",
+      "label": "研究范围",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "case.records.concepts"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "context_only": true
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-6467881A9E89",
+      "source": "research:durvalumab-pdl1-nsclc",
+      "target": "concept:C-PDL1-PD1-CD80",
+      "type": "IN_SCOPE",
+      "label": "研究范围",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "case.records.concepts"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "context_only": true
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-822541B2F1B8",
+      "source": "research:durvalumab-pdl1-nsclc",
+      "target": "concept:C-PNEUMONITIS",
+      "type": "IN_SCOPE",
+      "label": "研究范围",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "case.records.concepts"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "context_only": true
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-8CFDB42F5B6E",
+      "source": "research:durvalumab-pdl1-nsclc",
+      "target": "concept:C-PROGRESSION-DEATH",
+      "type": "IN_SCOPE",
+      "label": "研究范围",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "case.records.concepts"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "context_only": true
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-B7FBAB67BE55",
+      "source": "research:durvalumab-pdl1-nsclc",
+      "target": "concept:C-RECENT-THORACIC-RT",
+      "type": "IN_SCOPE",
+      "label": "研究范围",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "case.records.concepts"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "context_only": true
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-53ABD9748473",
+      "source": "research:durvalumab-pdl1-nsclc",
+      "target": "concept:C-TCELL-ACTIVATION",
+      "type": "IN_SCOPE",
+      "label": "研究范围",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "case.records.concepts"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "context_only": true
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-2FCD5B7AF163",
+      "source": "research:durvalumab-pdl1-nsclc",
+      "target": "concept:C-TCELL-INHIBITION",
+      "type": "IN_SCOPE",
+      "label": "研究范围",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "case.records.concepts"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "context_only": true
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
+      "id": "EDGE-234482577253",
+      "source": "research:durvalumab-pdl1-nsclc",
+      "target": "concept:C-XENOGRAFT-TUMOR-GROWTH",
+      "type": "IN_SCOPE",
+      "label": "研究范围",
+      "assertion": "direct_fact",
+      "link_methods": [
+        "case.records.concepts"
+      ],
+      "evidence_ids": [],
+      "properties": {
+        "context_only": true
+      },
+      "relation_kind": "structural",
+      "causal_status": "not_applicable",
+      "polarity": "neutral",
+      "directness": "not_applicable",
+      "evidence_level": "structured_metadata",
+      "confidence": "not_assessed",
+      "rationale": "",
+      "source_urls": []
+    },
+    {
       "id": "EDGE-59FB770867F7",
       "source": "research:durvalumab-pdl1-nsclc",
       "target": "family:DVL-FAM-001",
@@ -5992,6 +6245,11 @@
         "count": 20
       },
       {
+        "value": "IN_SCOPE",
+        "label": "IN_SCOPE",
+        "count": 20
+      },
+      {
         "value": "PROTECTS",
         "label": "PROTECTS",
         "count": 20
@@ -6014,11 +6272,6 @@
       {
         "value": "HAS_CLAIM",
         "label": "HAS_CLAIM",
-        "count": 9
-      },
-      {
-        "value": "IN_SCOPE",
-        "label": "IN_SCOPE",
         "count": 9
       },
       {
@@ -6061,7 +6314,7 @@
       {
         "value": "direct_fact",
         "label": "direct_fact",
-        "count": 148
+        "count": 159
       },
       {
         "value": "rule_derived",
@@ -6073,7 +6326,7 @@
       {
         "value": "structural",
         "label": "structural",
-        "count": 103
+        "count": 114
       },
       {
         "value": "evidentiary",
@@ -6411,10 +6664,16 @@
     },
     {
       "id": "causal",
-      "label": "因果机制视图",
-      "description": "仅显示有明确语义、证据等级和适用范围的因果/机制路径。",
+      "label": "因果全景视图",
+      "description": "以可审计因果路径为核心，向外展开研究对象、靶点、适应症、专利族、claim 与技术主题；上下文边不表示因果。",
       "default_depth": 3,
       "node_types": [
+        "research_object",
+        "target",
+        "indication",
+        "patent_family",
+        "claim",
+        "technology_theme",
         "causal_concept",
         "evidence",
         "source"
@@ -6426,6 +6685,9 @@
         "INCREASES",
         "INCREASES_RISK_OF",
         "REDUCES_RISK_OF",
+        "IN_SCOPE",
+        "PROTECTS",
+        "HAS_CLAIM",
         "SUPPORTED_BY",
         "HAS_SOURCE"
       ],
