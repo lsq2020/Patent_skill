@@ -858,6 +858,34 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   white-space: nowrap;
 }
 
+.zoom-readout {
+  display: grid;
+  min-width: 52px;
+  min-height: 32px;
+  place-content: center;
+  padding: 3px 8px;
+  border: 1px solid rgba(199, 208, 220, 0.92);
+  border-radius: 6px;
+  background: rgba(255, 254, 250, 0.96);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.zoom-readout small {
+  color: var(--muted);
+  font-size: 7px;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.zoom-readout output {
+  color: var(--ink-soft);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 9px;
+  line-height: 1.35;
+}
+
 .button-group {
   display: flex;
   overflow: hidden;
@@ -880,6 +908,22 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 .canvas-tools button:last-child { border-right: 0; }
 .canvas-tools button:hover { background: var(--blue-soft); color: var(--blue); }
+
+#motion-toggle::before {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #78818a;
+  content: "";
+  vertical-align: 1px;
+}
+
+#motion-toggle[aria-pressed="true"]::before {
+  background: var(--entity-document);
+  box-shadow: 0 0 0 3px rgba(95, 158, 146, 0.13);
+}
 
 .technology-lanes {
   position: absolute;
@@ -952,6 +996,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   color: #7d8796;
   font-size: 8px;
 }
+
+.graph-canvas { cursor: grab; touch-action: none; user-select: none; }
+.graph-canvas.is-grabbing { cursor: grabbing; }
 
 .graph-canvas {
   position: relative;
@@ -1543,6 +1590,7 @@ html[data-theme="dark"] .graph-panel::after {
 html[data-theme="dark"] .focus-card,
 html[data-theme="dark"] .path-legend,
 html[data-theme="dark"] .visible-count,
+html[data-theme="dark"] .zoom-readout,
 html[data-theme="dark"] .button-group,
 html[data-theme="dark"] .canvas-hint {
   border-color: rgba(91, 99, 107, 0.68);
@@ -1571,6 +1619,13 @@ html[data-theme="dark"] .canvas-tools button {
 html[data-theme="dark"] .canvas-tools button:hover {
   background: #2d3338;
   color: #edf0f2;
+}
+
+html[data-theme="dark"] .zoom-readout output { color: #d7dce0; }
+
+html[data-theme="dark"] #motion-toggle[aria-pressed="true"] {
+  background: #26332f;
+  color: #a9c9c1;
 }
 
 html[data-theme="dark"] .technology-lanes {
@@ -1846,7 +1901,9 @@ html[data-theme="dark"] .relation-table tbody tr:hover { background: #282d31; }
         </div>
         <div class="canvas-tools">
           <span id="visible-count" class="visible-count">加载图谱…</span>
+          <span class="zoom-readout"><small>Zoom</small><output id="zoom-level" aria-label="当前缩放比例">100%</output></span>
           <div class="button-group" aria-label="画布工具">
+            <button id="motion-toggle" type="button" aria-pressed="true" title="开关节点轻微漂浮">漂浮 开</button>
             <button id="layout-button" type="button">重新布局</button>
             <button id="fit-button" type="button">适合窗口</button>
           </div>
@@ -1854,7 +1911,7 @@ html[data-theme="dark"] .relation-table tbody tr:hover { background: #282d31; }
       </div>
       <div id="technology-lanes" class="technology-lanes" aria-hidden="true" hidden></div>
       <div id="graph-canvas" class="graph-canvas" role="img" aria-label="专利证据关系图" tabindex="0"></div>
-      <div class="canvas-hint" aria-hidden="true"><b>操作提示</b><span>拖动画布 · 滚轮缩放 · 点击节点查看双链</span></div>
+      <div class="canvas-hint" aria-hidden="true"><b>操作提示</b><span>拖动节点 · 滚轮/双指缩放 · 拖动画布平移</span></div>
       <div id="empty-state" class="empty-state" hidden>
         <h2>当前筛选没有节点</h2>
         <p>清空搜索词、恢复节点类型或切换预设视图。</p>
@@ -1954,6 +2011,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     ? Number(params.get("depth"))
     : presetDefaultDepth(initialPreset);
   const initialFocus = nodesById.has(params.get("focus")) ? params.get("focus") : DATA.meta.default_focus;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const state = {
     preset: initialPreset,
@@ -1967,6 +2025,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     inspectorOpen: false,
     ledgerOpen: false,
     localFocus: params.get("local") === "1",
+    motionEnabled: !prefersReducedMotion,
     nodeTypes: new Set(),
     relationTypes: new Set(),
     visibleNodeIds: new Set(),
@@ -2047,6 +2106,13 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     elements: [],
     minZoom: 0.18,
     maxZoom: 2.8,
+    zoomingEnabled: true,
+    userZoomingEnabled: true,
+    panningEnabled: true,
+    userPanningEnabled: true,
+    autoungrabify: false,
+    autolock: false,
+    wheelSensitivity: 0.18,
     selectionType: "single",
     boxSelectionEnabled: false,
     style: [
@@ -2122,6 +2188,82 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
       { selector: ".faded", style: { opacity: 0.07, "text-opacity": 0.04 } },
     ],
   });
+
+  const motionAnchors = new Map();
+  let motionFrame = 0;
+  let lastMotionTick = 0;
+  let lastViewportInteraction = 0;
+
+  function captureMotionAnchors() {
+    motionAnchors.clear();
+    cy.nodes().forEach((node) => {
+      const position = node.position();
+      motionAnchors.set(node.id(), { x: position.x, y: position.y });
+    });
+  }
+
+  function animateAmbientMotion(timestamp) {
+    motionFrame = 0;
+    if (!state.motionEnabled || document.hidden || !motionAnchors.size) return;
+    if ((timestamp - lastMotionTick) >= 42 && (timestamp - lastViewportInteraction) >= 180) {
+      const seconds = timestamp / 1000;
+      cy.batch(() => {
+        cy.nodes().forEach((node) => {
+          if (node.grabbed()) return;
+          const anchor = motionAnchors.get(node.id());
+          if (!anchor) return;
+          const depth = Number(node.data("spatialDepth") || 0.3);
+          const phase = Number(node.data("motionPhase") || 0);
+          const amplitude = 0.55 + (depth * 1.65);
+          node.position({
+            x: anchor.x + (Math.sin((seconds * 0.47) + phase) * amplitude),
+            y: anchor.y + (Math.cos((seconds * 0.39) + (phase * 1.17)) * amplitude * 0.72),
+          });
+        });
+      });
+      lastMotionTick = timestamp;
+    }
+    startAmbientMotion();
+  }
+
+  function startAmbientMotion() {
+    if (state.motionEnabled && !motionFrame) {
+      motionFrame = window.requestAnimationFrame(animateAmbientMotion);
+    }
+  }
+
+  function stopAmbientMotion(restoreAnchors = true) {
+    if (motionFrame) window.cancelAnimationFrame(motionFrame);
+    motionFrame = 0;
+    if (!restoreAnchors) return;
+    cy.batch(() => {
+      cy.nodes().forEach((node) => {
+        const anchor = motionAnchors.get(node.id());
+        if (anchor && !node.grabbed()) node.position(anchor);
+      });
+    });
+  }
+
+  function updateMotionControl() {
+    const button = byId("motion-toggle");
+    button.setAttribute("aria-pressed", String(state.motionEnabled));
+    button.textContent = state.motionEnabled ? "漂浮 开" : "漂浮 关";
+  }
+
+  function setMotionEnabled(enabled) {
+    state.motionEnabled = enabled;
+    updateMotionControl();
+    if (enabled) {
+      if (!motionAnchors.size) captureMotionAnchors();
+      startAmbientMotion();
+    } else {
+      stopAmbientMotion(true);
+    }
+  }
+
+  function updateZoomLevel() {
+    byId("zoom-level").textContent = `${Math.round(cy.zoom() * 100)}%`;
+  }
 
   function configurePreset(presetId, useDefaultDepth = false) {
     const preset = presetById.get(presetId) || DATA.presets[0];
@@ -2207,6 +2349,10 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     const hash = [...String(id)].reduce((total, character) => ((total * 31) + character.charCodeAt(0)) % 997, 17);
     return ((hash / 996) - 0.5) * 0.16;
   };
+  const stableMotionPhase = (id) => {
+    const hash = [...String(id)].reduce((total, character) => ((total * 37) + character.charCodeAt(0)) % 991, 23);
+    return (hash / 990) * Math.PI * 2;
+  };
 
   function computeSpatialMetrics(view) {
     const degreeById = new Map(view.nodes.map((node) => [node.id, 0]));
@@ -2224,6 +2370,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
       const baseSize = nodeBaseSizes[node.type] || 15;
       nodes.set(node.id, {
         spatialDepth: Number(depth.toFixed(3)),
+        motionPhase: Number(stableMotionPhase(node.id).toFixed(4)),
         visualSize: Number((baseSize * (0.74 + (depth * 0.36))).toFixed(1)),
         depthOpacity: Number((0.43 + (depth * 0.57)).toFixed(2)),
         labelOpacity: Number((0.38 + (depth * 0.62)).toFixed(2)),
@@ -2314,6 +2461,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
   }
 
   function runLayout() {
+    stopAmbientMotion(false);
     const preset = presetById.get(state.preset);
     const name = preset?.layout === "semantic"
       ? "semantic"
@@ -2323,11 +2471,17 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
       : name === "breadthfirst"
         ? { name, directed: true, spacingFactor: 1.25, padding: 42, animate: false }
         : { name: "cose", idealEdgeLength: 82, nodeRepulsion: 5200, gravity: 0.16, padding: 42, animate: false, randomize: true };
-    cy.layout(options).run();
+    const layout = cy.layout(options);
+    layout.one("layoutstop", () => {
+      captureMotionAnchors();
+      startAmbientMotion();
+    });
+    layout.run();
     if (name === "semantic" && cy.zoom() < 0.58) {
       cy.zoom(0.58);
       cy.center();
     }
+    updateZoomLevel();
   }
 
   function renderTechnologyLanes(view) {
@@ -2369,6 +2523,8 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     const view = computeVisibleElements();
     state.visibleNodeIds = new Set(view.nodes.map((node) => node.id));
     state.visibleEdgeIds = new Set(view.edges.map((edge) => edge.id));
+    stopAmbientMotion(false);
+    motionAnchors.clear();
     cy.elements().remove();
     cy.add(cytoscapeElements(view));
     cy.nodes().addClass("editorial-node");
@@ -2661,7 +2817,8 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
   }
 
   const depthSurface = byId("main-content");
-  const reduceDepthMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const graphCanvas = byId("graph-canvas");
+  const reduceDepthMotion = prefersReducedMotion;
   let depthFrame = 0;
   let pendingDepth = { x: 0, y: 0 };
   function renderDepthParallax() {
@@ -2689,6 +2846,9 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     queueDepthParallax(x, y);
   }, { passive: true });
   depthSurface.addEventListener("pointerleave", () => queueDepthParallax(0, 0), { passive: true });
+  graphCanvas.addEventListener("pointerdown", () => graphCanvas.classList.add("is-grabbing"), { passive: true });
+  window.addEventListener("pointerup", () => graphCanvas.classList.remove("is-grabbing"), { passive: true });
+  window.addEventListener("pointercancel", () => graphCanvas.classList.remove("is-grabbing"), { passive: true });
 
   let searchTimer;
   byId("graph-search").value = state.query;
@@ -2719,6 +2879,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
   });
   byId("fit-button").addEventListener("click", () => cy.fit(undefined, 44));
   byId("layout-button").addEventListener("click", runLayout);
+  byId("motion-toggle").addEventListener("click", () => setMotionEnabled(!state.motionEnabled));
   byId("reset-button").addEventListener("click", resetView);
   byId("export-button").addEventListener("click", exportVisible);
   byId("layer-toggle").addEventListener("click", () => setPanelState("filter", !state.filterOpen));
@@ -2768,7 +2929,27 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
   });
   cy.on("mouseover", "edge", (event) => event.target.addClass("edge-active"));
   cy.on("mouseout", "edge", () => activateFocusEdges());
+  cy.on("grab", "node", () => {
+    graphCanvas.classList.add("is-grabbing");
+    lastViewportInteraction = performance.now();
+  });
+  cy.on("dragfree", "node", (event) => {
+    const position = event.target.position();
+    motionAnchors.set(event.target.id(), { x: position.x, y: position.y });
+    graphCanvas.classList.remove("is-grabbing");
+    startAmbientMotion();
+  });
+  cy.on("free", "node", () => graphCanvas.classList.remove("is-grabbing"));
+  cy.on("zoom", () => {
+    lastViewportInteraction = performance.now();
+    updateZoomLevel();
+  });
+  cy.on("pan", () => { lastViewportInteraction = performance.now(); });
   window.addEventListener("resize", () => cy.resize());
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopAmbientMotion(false);
+    else startAmbientMotion();
+  });
   window.addEventListener("keydown", (event) => {
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
       event.preventDefault();
@@ -2791,7 +2972,9 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
   renderQuality();
   renderLegend();
   renderSearchResults();
+  updateMotionControl();
   renderGraph();
+  updateZoomLevel();
   updateFocusNavigation();
 })();
 </script>

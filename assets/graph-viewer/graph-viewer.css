@@ -851,6 +851,34 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   white-space: nowrap;
 }
 
+.zoom-readout {
+  display: grid;
+  min-width: 52px;
+  min-height: 32px;
+  place-content: center;
+  padding: 3px 8px;
+  border: 1px solid rgba(199, 208, 220, 0.92);
+  border-radius: 6px;
+  background: rgba(255, 254, 250, 0.96);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.zoom-readout small {
+  color: var(--muted);
+  font-size: 7px;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.zoom-readout output {
+  color: var(--ink-soft);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 9px;
+  line-height: 1.35;
+}
+
 .button-group {
   display: flex;
   overflow: hidden;
@@ -873,6 +901,22 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 .canvas-tools button:last-child { border-right: 0; }
 .canvas-tools button:hover { background: var(--blue-soft); color: var(--blue); }
+
+#motion-toggle::before {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #78818a;
+  content: "";
+  vertical-align: 1px;
+}
+
+#motion-toggle[aria-pressed="true"]::before {
+  background: var(--entity-document);
+  box-shadow: 0 0 0 3px rgba(95, 158, 146, 0.13);
+}
 
 .technology-lanes {
   position: absolute;
@@ -945,6 +989,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   color: #7d8796;
   font-size: 8px;
 }
+
+.graph-canvas { cursor: grab; touch-action: none; user-select: none; }
+.graph-canvas.is-grabbing { cursor: grabbing; }
 
 .graph-canvas {
   position: relative;
@@ -1536,6 +1583,7 @@ html[data-theme="dark"] .graph-panel::after {
 html[data-theme="dark"] .focus-card,
 html[data-theme="dark"] .path-legend,
 html[data-theme="dark"] .visible-count,
+html[data-theme="dark"] .zoom-readout,
 html[data-theme="dark"] .button-group,
 html[data-theme="dark"] .canvas-hint {
   border-color: rgba(91, 99, 107, 0.68);
@@ -1564,6 +1612,13 @@ html[data-theme="dark"] .canvas-tools button {
 html[data-theme="dark"] .canvas-tools button:hover {
   background: #2d3338;
   color: #edf0f2;
+}
+
+html[data-theme="dark"] .zoom-readout output { color: #d7dce0; }
+
+html[data-theme="dark"] #motion-toggle[aria-pressed="true"] {
+  background: #26332f;
+  color: #a9c9c1;
 }
 
 html[data-theme="dark"] .technology-lanes {

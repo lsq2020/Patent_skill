@@ -16,6 +16,7 @@
     ? Number(params.get("depth"))
     : presetDefaultDepth(initialPreset);
   const initialFocus = nodesById.has(params.get("focus")) ? params.get("focus") : DATA.meta.default_focus;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const state = {
     preset: initialPreset,
@@ -29,6 +30,7 @@
     inspectorOpen: false,
     ledgerOpen: false,
     localFocus: params.get("local") === "1",
+    motionEnabled: !prefersReducedMotion,
     nodeTypes: new Set(),
     relationTypes: new Set(),
     visibleNodeIds: new Set(),
@@ -109,6 +111,13 @@
     elements: [],
     minZoom: 0.18,
     maxZoom: 2.8,
+    zoomingEnabled: true,
+    userZoomingEnabled: true,
+    panningEnabled: true,
+    userPanningEnabled: true,
+    autoungrabify: false,
+    autolock: false,
+    wheelSensitivity: 0.18,
     selectionType: "single",
     boxSelectionEnabled: false,
     style: [
@@ -184,6 +193,82 @@
       { selector: ".faded", style: { opacity: 0.07, "text-opacity": 0.04 } },
     ],
   });
+
+  const motionAnchors = new Map();
+  let motionFrame = 0;
+  let lastMotionTick = 0;
+  let lastViewportInteraction = 0;
+
+  function captureMotionAnchors() {
+    motionAnchors.clear();
+    cy.nodes().forEach((node) => {
+      const position = node.position();
+      motionAnchors.set(node.id(), { x: position.x, y: position.y });
+    });
+  }
+
+  function animateAmbientMotion(timestamp) {
+    motionFrame = 0;
+    if (!state.motionEnabled || document.hidden || !motionAnchors.size) return;
+    if ((timestamp - lastMotionTick) >= 42 && (timestamp - lastViewportInteraction) >= 180) {
+      const seconds = timestamp / 1000;
+      cy.batch(() => {
+        cy.nodes().forEach((node) => {
+          if (node.grabbed()) return;
+          const anchor = motionAnchors.get(node.id());
+          if (!anchor) return;
+          const depth = Number(node.data("spatialDepth") || 0.3);
+          const phase = Number(node.data("motionPhase") || 0);
+          const amplitude = 0.55 + (depth * 1.65);
+          node.position({
+            x: anchor.x + (Math.sin((seconds * 0.47) + phase) * amplitude),
+            y: anchor.y + (Math.cos((seconds * 0.39) + (phase * 1.17)) * amplitude * 0.72),
+          });
+        });
+      });
+      lastMotionTick = timestamp;
+    }
+    startAmbientMotion();
+  }
+
+  function startAmbientMotion() {
+    if (state.motionEnabled && !motionFrame) {
+      motionFrame = window.requestAnimationFrame(animateAmbientMotion);
+    }
+  }
+
+  function stopAmbientMotion(restoreAnchors = true) {
+    if (motionFrame) window.cancelAnimationFrame(motionFrame);
+    motionFrame = 0;
+    if (!restoreAnchors) return;
+    cy.batch(() => {
+      cy.nodes().forEach((node) => {
+        const anchor = motionAnchors.get(node.id());
+        if (anchor && !node.grabbed()) node.position(anchor);
+      });
+    });
+  }
+
+  function updateMotionControl() {
+    const button = byId("motion-toggle");
+    button.setAttribute("aria-pressed", String(state.motionEnabled));
+    button.textContent = state.motionEnabled ? "漂浮 开" : "漂浮 关";
+  }
+
+  function setMotionEnabled(enabled) {
+    state.motionEnabled = enabled;
+    updateMotionControl();
+    if (enabled) {
+      if (!motionAnchors.size) captureMotionAnchors();
+      startAmbientMotion();
+    } else {
+      stopAmbientMotion(true);
+    }
+  }
+
+  function updateZoomLevel() {
+    byId("zoom-level").textContent = `${Math.round(cy.zoom() * 100)}%`;
+  }
 
   function configurePreset(presetId, useDefaultDepth = false) {
     const preset = presetById.get(presetId) || DATA.presets[0];
@@ -269,6 +354,10 @@
     const hash = [...String(id)].reduce((total, character) => ((total * 31) + character.charCodeAt(0)) % 997, 17);
     return ((hash / 996) - 0.5) * 0.16;
   };
+  const stableMotionPhase = (id) => {
+    const hash = [...String(id)].reduce((total, character) => ((total * 37) + character.charCodeAt(0)) % 991, 23);
+    return (hash / 990) * Math.PI * 2;
+  };
 
   function computeSpatialMetrics(view) {
     const degreeById = new Map(view.nodes.map((node) => [node.id, 0]));
@@ -286,6 +375,7 @@
       const baseSize = nodeBaseSizes[node.type] || 15;
       nodes.set(node.id, {
         spatialDepth: Number(depth.toFixed(3)),
+        motionPhase: Number(stableMotionPhase(node.id).toFixed(4)),
         visualSize: Number((baseSize * (0.74 + (depth * 0.36))).toFixed(1)),
         depthOpacity: Number((0.43 + (depth * 0.57)).toFixed(2)),
         labelOpacity: Number((0.38 + (depth * 0.62)).toFixed(2)),
@@ -376,6 +466,7 @@
   }
 
   function runLayout() {
+    stopAmbientMotion(false);
     const preset = presetById.get(state.preset);
     const name = preset?.layout === "semantic"
       ? "semantic"
@@ -385,11 +476,17 @@
       : name === "breadthfirst"
         ? { name, directed: true, spacingFactor: 1.25, padding: 42, animate: false }
         : { name: "cose", idealEdgeLength: 82, nodeRepulsion: 5200, gravity: 0.16, padding: 42, animate: false, randomize: true };
-    cy.layout(options).run();
+    const layout = cy.layout(options);
+    layout.one("layoutstop", () => {
+      captureMotionAnchors();
+      startAmbientMotion();
+    });
+    layout.run();
     if (name === "semantic" && cy.zoom() < 0.58) {
       cy.zoom(0.58);
       cy.center();
     }
+    updateZoomLevel();
   }
 
   function renderTechnologyLanes(view) {
@@ -431,6 +528,8 @@
     const view = computeVisibleElements();
     state.visibleNodeIds = new Set(view.nodes.map((node) => node.id));
     state.visibleEdgeIds = new Set(view.edges.map((edge) => edge.id));
+    stopAmbientMotion(false);
+    motionAnchors.clear();
     cy.elements().remove();
     cy.add(cytoscapeElements(view));
     cy.nodes().addClass("editorial-node");
@@ -723,7 +822,8 @@
   }
 
   const depthSurface = byId("main-content");
-  const reduceDepthMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const graphCanvas = byId("graph-canvas");
+  const reduceDepthMotion = prefersReducedMotion;
   let depthFrame = 0;
   let pendingDepth = { x: 0, y: 0 };
   function renderDepthParallax() {
@@ -751,6 +851,9 @@
     queueDepthParallax(x, y);
   }, { passive: true });
   depthSurface.addEventListener("pointerleave", () => queueDepthParallax(0, 0), { passive: true });
+  graphCanvas.addEventListener("pointerdown", () => graphCanvas.classList.add("is-grabbing"), { passive: true });
+  window.addEventListener("pointerup", () => graphCanvas.classList.remove("is-grabbing"), { passive: true });
+  window.addEventListener("pointercancel", () => graphCanvas.classList.remove("is-grabbing"), { passive: true });
 
   let searchTimer;
   byId("graph-search").value = state.query;
@@ -781,6 +884,7 @@
   });
   byId("fit-button").addEventListener("click", () => cy.fit(undefined, 44));
   byId("layout-button").addEventListener("click", runLayout);
+  byId("motion-toggle").addEventListener("click", () => setMotionEnabled(!state.motionEnabled));
   byId("reset-button").addEventListener("click", resetView);
   byId("export-button").addEventListener("click", exportVisible);
   byId("layer-toggle").addEventListener("click", () => setPanelState("filter", !state.filterOpen));
@@ -830,7 +934,27 @@
   });
   cy.on("mouseover", "edge", (event) => event.target.addClass("edge-active"));
   cy.on("mouseout", "edge", () => activateFocusEdges());
+  cy.on("grab", "node", () => {
+    graphCanvas.classList.add("is-grabbing");
+    lastViewportInteraction = performance.now();
+  });
+  cy.on("dragfree", "node", (event) => {
+    const position = event.target.position();
+    motionAnchors.set(event.target.id(), { x: position.x, y: position.y });
+    graphCanvas.classList.remove("is-grabbing");
+    startAmbientMotion();
+  });
+  cy.on("free", "node", () => graphCanvas.classList.remove("is-grabbing"));
+  cy.on("zoom", () => {
+    lastViewportInteraction = performance.now();
+    updateZoomLevel();
+  });
+  cy.on("pan", () => { lastViewportInteraction = performance.now(); });
   window.addEventListener("resize", () => cy.resize());
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopAmbientMotion(false);
+    else startAmbientMotion();
+  });
   window.addEventListener("keydown", (event) => {
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
       event.preventDefault();
@@ -853,6 +977,8 @@
   renderQuality();
   renderLegend();
   renderSearchResults();
+  updateMotionControl();
   renderGraph();
+  updateZoomLevel();
   updateFocusNavigation();
 })();
