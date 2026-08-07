@@ -1,0 +1,35 @@
+family_id,document,claim_category,element,coverage,claim_location,evidence_url,confidence,notes
+F01,US20240277817A1,composition,Solid oral composition of GLP-1 agonist + SNAC salt,明确披露,Claims 1+,https://patents.google.com/patent/US20240277817A1/en,medium,Oral semaglutide SNAC
+F01,ES3041298T3,formulation,Solid composition comprising GLP-1 agonist and SNAC,明确披露,Claims (ES grant),https://patents.google.com/patent/ES3041298T3/en,medium,EP grant national phase
+F02,US11008375B2,compound,"GIP analogue Formula I with X2=Aib, X16=Lys, C-ext Y1, acylated Lys",明确披露,Claim 1,https://patents.google.com/patent/US11008375B2/en,high,Sequence-defined GIP/GLP-1 dual
+F02,US11008375B2,composition,Pharmaceutical composition (injection/infusion or slow release),明确披露,Claim 2,https://patents.google.com/patent/US11008375B2/en,high,
+F02,US11008375B2,method_of_treatment,Treating diabetes/diabetes-related or obesity/obesity-related disorder,明确披露,Claim 3,https://patents.google.com/patent/US11008375B2/en,high,
+F03,US12091404B2,compound,Compound of defined structure,明确披露,Claim 1,https://patents.google.com/patent/US12091404B2/en,high,structure shown as image
+F03,US12091404B2,composition,Pharmaceutical composition + carrier/excipient,明确披露,Claim 2,https://patents.google.com/patent/US12091404B2/en,high,
+F03,US12091404B2,combination,"Combination with anti-obesity agent (PYY, NPYR2 agonist, SGLT2i, ACCi, etc.)",明确披露,Claim 4,https://patents.google.com/patent/US12091404B2/en,high,Broad anti-obesity combo claim
+F03,US12091404B2,method_of_treatment,Method of treating GLP-1R mediated disease,可能覆盖,Description/abstract,https://patents.google.com/patent/US12091404B2/en,medium,Method claims may be in continuation US20250084072A1
+F04,US20260035362A1,compound,Compound of specific structure (post-cancellation claims 41-44),明确披露,Claims 41-44,https://patents.google.com/patent/US20260035362A1/en,medium,Some claims canceled (1-40)
+F04,US20260035362A1,process,Process for preparing compound by reacting intermediate with acid,明确披露,Claim 43-44,https://patents.google.com/patent/US20260035362A1/en,medium,
+F04,AU2020256647B2,compound,GLP-1R agonist compounds (AU grant),明确披露,AU claims,https://patents.google.com/patent/AU2020256647B2/en,medium,
+F05,US11584751B1,compound,"Substituted imidazole Formula (I): R1=phenyl, R2=heteroaryl/indazolyl, T=oxadiazolyl",明确披露,Claim 1,https://patents.google.com/patent/US11584751B1/en,high,
+F05,US11584751B1,method_of_treatment,"Modulating GLP-1R activity; indications incl. obesity, diabetes, Alzheimer's, CVD, liver disease",明确披露,Claims 20-25,https://patents.google.com/patent/US11584751B1/en,high,
+F06,US11981666B2,compound,Compound Formula II-4 (aryl-alkyl-acid; R1=F/Cl),明确披露,Claim 1,https://patents.google.com/patent/US11981666B2/en,high,
+F06,US11981666B2,composition,Pharmaceutical composition + carrier,明确披露,Claim 4,https://patents.google.com/patent/US11981666B2/en,high,
+F06,US11981666B2,method_of_treatment,"Treating GLP-1R mediated disease (diabetes, obesity, dyslipidemia, etc.)",明确披露,Claim 5,https://patents.google.com/patent/US11981666B2/en,high,
+F07,CN117242067B,compound,Aromatic ether-substituted heterocyclic compound as GLP1R agonist,明确披露,CN claims,https://patents.google.com/patent/CN117242067B/en,low,CN grant
+F08,US20240374587A1,combination,Combo of (A) GLP-1R agonist fused-ring compound + (B) anti-obesity/blood glucose/cholesterol/BP drug,明确披露,Claim 1,https://patents.google.com/patent/US20240374587A1/en,medium,
+F08,US20240374587A1,combination,"(B) selected from GLP-1 agonists incl. semaglutide, tirzepatide, danuglipron, PF07081532, LY-3502970, RGT-075",明确披露,Claim 7,https://patents.google.com/patent/US20240374587A1/en,medium,
+F09,CN112469731B,compound,GIP/GLP1 co-agonist compounds (tirzepatide-class),明确披露,CN claims,https://patents.google.com/patent/CN112469731B/en,medium,CN grant
+F10,US11518795B2,compound,"Double-acylated GLP-1 derivatives with SEQ ID NOs 3,5,7,9,10",明确披露,Claim 1,https://patents.google.com/patent/US11518795B2/en,high,
+F11,EP2190872B1,compound,GLP-1 derivatives (acylated) + pharmaceutical compositions,明确披露,EP claims,https://patents.google.com/patent/EP2190872B1/en,medium,Foundational
+F12,US9789165B2,compound,Dual GLP-1/GIP receptor agonist peptides (exendin-4 based),明确披露,Claims,https://patents.google.com/patent/US9789165B2/en,medium,
+F13,HK40113396A,composition,Pharma composition of GLP-1 + GIP receptor dual agonist,明确披露,HK claims,https://patents.google.com/patent/HK40113396A/en,low,
+F14,EP2718317B1,compound,GIP analogs,明确披露,EP claims,https://patents.google.com/patent/EP2718317B1/en,low,
+F14,KR102285378B1,conjugate,Long-acting conjugate of trigonal glucagon/GLP-1/GIP receptor agonist,明确披露,KR claims,https://patents.google.com/patent/KR102285378B1/en,low,Hanmi LAPAS
+F15,CN113773310B,compound,GLP-1 small molecule with cardiovascular benefit,明确披露,CN claims,https://patents.google.com/patent/CN113773310B/en,low,
+F16,EP4229050A1,compound,Heterocyclic GLP-1 agonists,明确披露,EP claims,https://patents.google.com/patent/EP4229050A1/en,low,
+F17,US12391762B2,antibody,Antibody/antibody fragment binding GLP1R with defined VH/VL,明确披露,Claim 1,https://patents.google.com/patent/US12391762B2/en,medium,
+F17,US12391762B2,antibody,Antibody as GLP1R agonist or antagonist (methods),明确披露,Description,https://patents.google.com/patent/US12391762B2/en,medium,
+F18,JP7574253B2,method_of_treatment,Method of treating metabolic disorder with GLP-1R agonist,明确披露,JP claims,https://patents.google.com/patent/JP7574253B2/en,low,
+F19,WO2025042974A1,delivery,Topical administration of GLP-1R agonist (oral cavity/skin),明确披露,WO claims,https://patents.google.com/patent/WO2025042974A1/en,low,
+F20,HK40111760A,composition,Pharma composition of GLP-1R + GIPR agonist,明确披露,HK claims,https://patents.google.com/patent/HK40111760A/en,low,

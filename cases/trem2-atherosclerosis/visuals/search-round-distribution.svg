@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-label="检索轮次覆盖" class="rv-svg">
+<title>检索轮次覆盖</title>
+<rect width="760" height="190" rx="16" fill="var(--surface,#fff)"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">检索轮次覆盖</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">按 FTO 搜索计划的 search_rounds 统计每轮主题的任务数量。</text>
+<text x="28" y="105" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="var(--muted,#71809a)">当前数据集暂无可绘制记录</text>
+</svg>

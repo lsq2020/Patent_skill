@@ -26,7 +26,7 @@ python3 --version  # 推荐 Python 3.10+
 除 DOCX 报告生成外，脚本仅依赖 Python 标准库。若需要生成 DOCX：
 
 ```bash
-python3 -m pip install python-docx
+python3 -m pip install -r requirements.txt
 ```
 
 仓库结构：
@@ -35,7 +35,10 @@ python3 -m pip install python-docx
 SKILL.md                         # 完整方法规范与质量门槛
 scripts/                         # 初始化、校验、报告与可视化脚本
 references/                      # 专利族、状态、FTO、可视化与来源说明
-durvalumab-pdl1-nsclc/           # 已完成的示例案例和报告
+cases/                           # 可复核的完整示例案例
+├── durvalumab-pdl1-nsclc/       # 度伐利尤单抗 / PD-L1 / NSCLC 案例
+├── tfr1_patent_case/            # TfR1 专利分析案例
+└── GLP1R_patent_case/           # GLP-1R 激动剂类别专利景观
 agents/openai.yaml               # Agent 界面元数据
 ```
 
@@ -104,7 +107,7 @@ cases/demo/
 | `fto-input.json` | 拟实施方案、技术特征、关键词、分类号和 FTO 检索边界 |
 | `source-log.jsonl` | 可复核的查询与来源调用日志 |
 
-最低字段和示例见 [SKILL.md](SKILL.md) 与示例目录 `durvalumab-pdl1-nsclc/`。建议每条核心结论均能回溯到 `family_id`、文献号及 claim/事件位置。
+最低字段和示例见 [SKILL.md](SKILL.md) 与示例目录 [`cases/durvalumab-pdl1-nsclc/`](cases/durvalumab-pdl1-nsclc/)。建议每条核心结论均能回溯到 `family_id`、文献号及 claim/事件位置。
 
 ## 常用命令
 
@@ -152,6 +155,8 @@ python3 scripts/build_landscape_v2.py \
 
 仅在已明确拟实施技术方案时使用。排序只用于决定复核优先级，绝不代表侵权概率或 FTO 结论。
 
+`fto-input.json` 的每个关键词簇可提供 `aliases`、`synonyms` 和 `translations`；这些显式词表会与基础词、扩展词一并参与中英文/别名匹配。默认排序阈值为可复核信号阈值，若某技术特征必须严格全量命中，可在该特征上设置 `match_threshold`（0–1）。
+
 ```bash
 python3 scripts/build_fto_plan.py --project-dir cases/demo
 python3 scripts/score_fto_candidates.py --project-dir cases/demo
@@ -169,16 +174,6 @@ python3 scripts/build_report_pages.py --project-dir cases/demo
 
 通常 `build_modular_reports.py` 已会联动生成图表和 HTML 页面；单独执行后两条命令适用于数据更新后的重建。
 
-若只重建专利证据双链图，按数据契约顺序执行：
-
-```bash
-python3 scripts/build_case_output.py --project-dir cases/demo
-python3 scripts/validate_output_schema.py --output cases/demo/case-output.json
-python3 scripts/build_graph_data.py --project-dir cases/demo
-python3 scripts/validate_graph_data.py --graph cases/demo/graph-data.json
-python3 scripts/build_knowledge_graph.py --project-dir cases/demo
-```
-
 ## 输出说明
 
 完成标准分析后，案例目录通常包含：
@@ -194,18 +189,14 @@ python3 scripts/build_knowledge_graph.py --project-dir cases/demo
 07-source-catalog-report.md       # 来源目录和访问限制
 report-index.md / report-index.html
 report-visuals.html
-case-output.json                  # 稳定 ID 与一等关系边
-graph-data.json                   # Cytoscape-ready 图数据
-graph-quality.json                # 关系与证据关联质量
-knowledge-graph.html              # 离线专利证据双链图
 visuals/                           # SVG 图表和统计口径 manifest
 ```
 
-示例报告入口：[`durvalumab-pdl1-nsclc/report-index.md`](durvalumab-pdl1-nsclc/report-index.md)。
+示例报告入口：[`cases/durvalumab-pdl1-nsclc/report-index.md`](cases/durvalumab-pdl1-nsclc/report-index.md)。
 
 ## TfR1 案例：生成结果说明
 
-仓库中的 [`tfr1_patent_case/`](tfr1_patent_case/) 是一个完整的 TfR1（Transferrin Receptor 1）案例。入口页面 [`report-index.html`](tfr1_patent_case/report-index.html) 把报告模块、结构化数据和统计看板聚合为可复核的工作台。
+仓库中的 [`cases/tfr1_patent_case/`](cases/tfr1_patent_case/) 是一个完整的 TfR1（Transferrin Receptor 1）案例。入口页面 [`report-index.html`](cases/tfr1_patent_case/report-index.html) 把报告模块、结构化数据和统计看板聚合为可复核的工作台。
 
 ![TfR1 专利分析结果网页与模块说明](assets/tfr1-results-explained.png)
 
@@ -222,7 +213,6 @@ visuals/                           # SVG 图表和统计口径 manifest
 | 证据链 | 事实/推断、来源 URL、claim 或事件位置、置信度 | 让关键判断可回溯、可审计 |
 | 来源目录 | 官方核验、聚合扩展、上下文来源和访问限制 | 选择与目标法域匹配的数据入口 |
 | 统计总览 | 技术主题、优先权、法域、claim 类别、FTO、证据与来源角色 | 快速定位数据分布和需要补检的区域 |
-| 专利证据双链图 | family、document、claim、finding、source、申请人、法域和技术主题 | 从结论反向回溯证据，发现缺失关联和族关系补录任务 |
 
 使用时，建议从“执行摘要”确认边界，再进入“专利族地图”和“权利要求与要素抽取”；涉及实施、许可、开发或争议决策时，回到“风险 / FTO”和“证据链”核对目标法域的官方文本、完整独立权利要求和法律事件。
 
@@ -254,4 +244,6 @@ visuals/                           # SVG 图表和统计口径 manifest
 
 ## 许可证
 
-本仓库当前未提供项目级许可证文件。若计划公开复用、分发或商用，请由仓库维护者补充合适的许可证。内嵌的 Cytoscape.js 使用 MIT 许可证，许可证文本保存在 `assets/graph-viewer/CYTOSCAPE-LICENSE.txt`。
+本项目采用 [MIT License](LICENSE)。你可以在许可证条款允许的范围内使用、复制、修改、分发和再授权本项目的代码与文档，并须保留版权和许可证声明。
+
+案例中的专利文本、官方登记簿数据、网页内容及第三方数据库资料仍受其原始来源的访问条款和适用法律约束；MIT 许可证不授予这些第三方内容的额外权利。

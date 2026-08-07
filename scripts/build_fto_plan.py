@@ -84,7 +84,15 @@ def normalize_input(raw, scope, identity):
         item["id"] = str(item.get("id", f"cluster-{len(clusters)+1}"))
         item["label"] = item.get("label", item["id"])
         item["base_terms"] = unique(item.get("base_terms", []))
-        item["expanded_terms"] = unique(item.get("expanded_terms", []))
+        # Keep every spelling, translation and synonym supplied by the case in
+        # the declared cluster.  The scorer deliberately uses this explicit
+        # vocabulary rather than an opaque semantic model.
+        item["expanded_terms"] = unique(
+            item.get("expanded_terms", [])
+            + item.get("aliases", [])
+            + item.get("synonyms", [])
+            + item.get("translations", [])
+        )
         item["terms"] = unique(item["base_terms"] + item["expanded_terms"])
         item["source"] = item.get("source", "user_provided / normalized")
         clusters.append(item)
@@ -126,13 +134,42 @@ def build_queries(data, scope):
             pieces.append(or_expr(data["classifications"], limit=24))
         return " AND ".join(pieces)
 
-    rounds = [
-        {"id": "R1", "kind": "high_precision", "title": "关键词组合检索", "objective": "锁定研究对象、靶点、适应症和风险/监测场景同时出现的文献。", "fields": ["title", "abstract", "claims"], "formula": formula([["drug"], ["target"], ["indication"], ["irae", "organ"]], base=True), "source_routes": ["primary_or_status_check", "discovery_and_cross_check"]},
-        {"id": "R2", "kind": "iterative_expansion", "title": "机制与通路扩展", "objective": "扩大到 PD-1/PD-L1 结合、阻断、免疫毒性和器官损伤表述。", "fields": ["full_text", "claims", "CPC/IPC"], "formula": formula([["drug"], ["target", "blockade"], ["irae", "organ"]]), "source_routes": ["primary_or_status_check", "discovery_and_cross_check"]},
-        {"id": "R3", "kind": "iterative_expansion", "title": "肺部不良事件专项", "objective": "覆盖免疫相关性肺炎、间质性肺病、肺毒性和呼吸体征连续监测。", "fields": ["claims", "description"], "formula": formula([["drug", "indication"], ["pneumonitis"], ["monitoring", "imaging", "ggo"]]), "source_routes": ["primary_or_status_check", "discovery_and_cross_check", "context_only"]},
-        {"id": "R4", "kind": "iterative_expansion", "title": "生化指标与内分泌监测", "objective": "覆盖 ALT/AST、肌酐、TSH、游离 T4、血糖等基线和治疗期监测。", "fields": ["claims", "abstract", "full_text"], "formula": formula([["drug", "indication"], ["biochemical", "analyte"]]), "source_routes": ["primary_or_status_check", "discovery_and_cross_check", "context_only"]},
-        {"id": "R5", "kind": "iterative_expansion", "title": "结肠炎与处置方案", "objective": "覆盖腹泻分级、结肠炎、皮质类固醇和治疗决策。", "fields": ["claims", "description"], "formula": formula([["drug"], ["colitis"], ["steroid"]]), "source_routes": ["primary_or_status_check", "discovery_and_cross_check", "context_only"]},
-        {"id": "R6", "kind": "classification_expansion", "title": "IPC/CPC 组合检索", "objective": "用分类号补足检测、抗体、免疫治疗和医疗数据分析类漏检。", "fields": ["IPC", "CPC", "claims"], "formula": formula([["target", "indication"], ["monitoring", "biochemical", "imaging"]], classification=True), "source_routes": ["classification_navigation", "primary_or_status_check", "discovery_and_cross_check"]},
+    cluster_ids = list(clusters)
+    core_clusters = unique([cluster_id for feature in data["features"] if feature.get("importance") in ("core", "necessary") for cluster_id in feature.get("keyword_clusters", [])])
+    all_clusters = unique(core_clusters + cluster_ids)
+
+    def label(cluster_id):
+        return str(clusters.get(cluster_id, {}).get("label", cluster_id))
+
+    def group_label(ids):
+        return "、".join(label(cluster_id) for cluster_id in ids if cluster_id in clusters) or "声明的技术特征"
+
+    # The fixed sequence is a reproducible search workflow, not a disease
+    # template.  Every query and objective below is derived from the clusters
+    # declared for the current case.
+    primary = core_clusters[:3] or all_clusters[:3]
+    secondary = [cluster_id for cluster_id in all_clusters if cluster_id not in primary]
+    round_groups = [
+        ("R1", "high_precision", "核心对象与用途组合检索", primary, "锁定核心技术特征在标题、摘要和权利要求中的共同披露。", ["title", "abstract", "claims"]),
+        ("R2", "iterative_expansion", "同义词与机制扩展", primary + secondary[:2], "用案例声明的别名、同义词、译名和机制词扩大召回，并回到权利要求核验。", ["full_text", "claims", "CPC/IPC"]),
+        ("R3", "iterative_expansion", "技术特征分层检索", secondary[2:5] or all_clusters[3:6], "围绕尚未覆盖的技术特征分别检索，避免由单一对象词主导结果。", ["claims", "description", "abstract"]),
+        ("R4", "iterative_expansion", "实施方式与边界检索", secondary[5:8] or all_clusters[6:9], "补检组成、制剂、给药、检测、工艺或用途等案例实际声明的边界特征。", ["claims", "abstract", "full_text"]),
+    ]
+    rounds = []
+    for round_id, kind, title, ids, objective, fields in round_groups:
+        ids = unique(ids) or primary or all_clusters
+        rounds.append({
+            "id": round_id,
+            "kind": kind,
+            "title": title,
+            "objective": f"{objective} 当前词簇：{group_label(ids)}。",
+            "fields": fields,
+            "formula": formula([[cluster_id] for cluster_id in ids], base=round_id == "R1"),
+            "source_routes": ["primary_or_status_check", "discovery_and_cross_check"] + (["context_only"] if round_id in ("R3", "R4") else []),
+        })
+    rounds += [
+        {"id": "R5", "kind": "feature_gap_expansion", "title": "未充分命中特征补检", "objective": "根据初筛中未命中或仅部分命中的技术特征，补充术语、别名、译名、分类号和相邻实施方式。", "fields": ["claims", "description", "CPC/IPC"], "formula": formula([[cluster_id] for cluster_id in all_clusters]), "source_routes": ["primary_or_status_check", "discovery_and_cross_check", "context_only"]},
+        {"id": "R6", "kind": "classification_expansion", "title": "IPC/CPC 组合检索", "objective": "用当前案例声明或从高相关文献反向确认的分类号补足漏检。", "fields": ["IPC", "CPC", "claims"], "formula": formula([[cluster_id] for cluster_id in primary], classification=True), "source_routes": ["classification_navigation", "primary_or_status_check", "discovery_and_cross_check"]},
         {"id": "R7", "kind": "relationship_expansion", "title": "关系与边界扩展", "objective": "从高相关文献扩展同族、申请人、引用、分案/继续申请和邻近技术。", "fields": ["family", "assignee", "citations", "legal_events"], "formula": "已命中文献的 family / assignee / citation / continuity expansion; 不使用自由文本替代权利要求核验", "source_routes": ["primary_or_status_check", "discovery_and_cross_check"]},
     ]
     for row in rounds:

@@ -349,6 +349,19 @@ def compact(value, limit=380):
     return value if len(value) <= limit else value[: limit - 1] + "…"
 
 
+def case_descriptor(scope, identity):
+    obj = scope.get("research_object", {})
+    molecule = obj.get("molecule") or identity.get("molecule", {}).get("canonical") or "研究对象"
+    target = obj.get("target") or identity.get("target", {}).get("canonical") or "目标机制"
+    indication = obj.get("indication") or identity.get("indication", {}).get("canonical") or "目标用途"
+    return molecule, target, indication
+
+
+def case_feature_bullets(plan, limit=4):
+    items = [compact(feature.get("text"), 260) for feature in plan.get("features", []) if feature.get("text")]
+    return items[:limit] or ["当前案例未提供可结构化的技术特征；请先补充 fto-input.json。"]
+
+
 def build_report(project):
     plan = load_json(project / "fto-search-plan.json")
     candidates = csv_rows(project / "fto-candidate-ranking.csv")
@@ -365,6 +378,7 @@ def build_report(project):
     source_catalog = plan.get("source_catalog", {})
     source_counts = source_catalog.get("counts", {})
     as_of = scope.get("as_of", "未注明")
+    molecule, target, indication = case_descriptor(scope, plan.get("entity_resolution", {}))
     count_by_priority = {key: sum(1 for row in candidates if row.get("review_priority") == key) for key in ("HIGH", "MEDIUM", "LOW")}
     doc = Document()
     # Source-derived A4 system: portrait narrative, landscape comparison, portrait appendices.
@@ -389,7 +403,7 @@ def build_report(project):
     p = doc.add_paragraph(style="封面标题")
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.space_after = Pt(10)
-    r = p.add_run("一种度伐利尤单抗治疗 NSCLC 的\n免疫相关不良反应评估方法")
+    r = p.add_run(compact(plan.get("technical_solution") or f"{molecule} 相关技术方案", 72))
     set_run_font(r, size=23, color=NAVY, bold=True)
     add_para(doc, "FTO（Freedom to Operate）公开专利初筛与权利要求要素比对报告", size=12, color=MUTED, align=WD_ALIGN_PARAGRAPH.CENTER, after=28)
     add_para(doc, f"报告基准日：{as_of}  ·  研究区域：{', '.join(scope.get('jurisdictions', []) + scope.get('related_jurisdictions', []))}", size=10.5, color=INK, align=WD_ALIGN_PARAGRAPH.CENTER, after=56)
@@ -403,11 +417,13 @@ def build_report(project):
     doc.add_page_break()
 
     add_heading(doc, "概览")
-    add_callout(doc, "初筛结论", "在现有公开专利数据和已记录权利要求要素范围内，尚不足以确认拟实施方案落入某一目标法域的有效独立权利要求。DVL-FAM-004 / WO2022248478A1 因同时命中研究对象/适应症与 PD-L1 阻断核心簇，被列为中优先复核；其肺部监测、生化检测等必要特征仍为部分命中，必须回到完整权利要求和国家阶段状态核验。")
+    top_candidates = [row for row in candidates if row.get("review_priority") in ("HIGH", "MEDIUM")]
+    top_label = "、".join(f"{row.get('family_id')} / {row.get('representative_document')}" for row in top_candidates[:3]) or "当前候选族"
+    add_callout(doc, "初筛结论", f"在现有公开专利数据和已记录权利要求要素范围内，尚不足以确认拟实施方案落入某一目标法域的有效独立权利要求。优先复核对象为 {top_label}；应回到完整独立权利要求、国家阶段和官方状态逐项核验。")
     add_para(doc, "本报告的“高/中/低”是候选专利的复核优先级，不是侵权风险等级。核心组合物族、制剂族和邻近生物标志物族仍需分别核对其目标法域的成员、独立权利要求、分案/继续申请和官方法律状态。", after=8)
     for text in [
-        "技术方案围绕度伐利尤单抗、PD-L1/PD-1 通路、NSCLC 和免疫相关不良反应监测展开。",
-        "本轮已结构化 7 个检索轮次、14 个关键词簇、37 个 IPC/CPC 候选号，并对 7 个候选专利族、9 条权利要求要素记录进行透明排序。",
+        f"技术方案围绕 {molecule}、{target} 和 {indication} 展开。",
+        f"本轮已结构化 {len(plan.get('search_rounds', []))} 个检索轮次、{len(plan.get('keyword_expansion', []))} 个关键词簇、{len(plan.get('classifications', []))} 个 IPC/CPC 候选号，并对 {len(candidates)} 个候选专利族、{len(claims)} 条权利要求要素记录进行透明排序。",
         f"来源目录已纳入 CNIPA/PatentDatabases 的 {source_counts.get('upstream_listings', '—')} 条记录（去重后 {source_counts.get('unique_urls', '—')} 个 URL）；本案例候选证据主要来自 Google Patents 公共镜像，官方状态核验仍需按目标法域逐项完成。",
     ]:
         p = doc.add_paragraph(style="List Bullet")
@@ -415,7 +431,7 @@ def build_report(project):
         set_run_font(r, size=10.5, color=INK)
 
     add_heading(doc, "检索范围")
-    add_labeled_para(doc, "研究对象", "度伐利尤单抗（Durvalumab / MEDI4736 / Imfinzi）作为 PD-L1 抑制剂，用于非小细胞肺癌（NSCLC）相关免疫不良反应风险评估。")
+    add_labeled_para(doc, "研究对象", f"{molecule}；靶点/机制：{target}；适应症/用途：{indication}。")
     add_labeled_para(doc, "目标法域", f"{', '.join(scope.get('jurisdictions', []))}；关联扩展法域 {', '.join(scope.get('related_jurisdictions', []))}。")
     add_labeled_para(doc, "时间边界", f"截至 {as_of} 的公开记录；未公开申请、未核验的国家阶段或状态变化不在本报告中假定。")
     add_labeled_para(doc, "数据范围", "专利族 CSV、权利要求要素 CSV、证据链 CSV、来源日志及 FTO 检索计划。")
@@ -424,13 +440,8 @@ def build_report(project):
 
     add_heading(doc, "技术方案")
     add_para(doc, plan.get("technical_solution", ""), after=8)
-    add_para(doc, "拟实施方案中的风险评估逻辑包括：", color=NAVY, bold=True, after=3)
-    for text in [
-        "通过度伐利尤单抗与 PD-L1 结合并阻断 PD-1/PD-L1 通路，识别免疫相关不良反应风险；",
-        "在治疗期间连续监测肺部体征，并结合胸部 CT、磨玻璃影或斑片状浸润等影像线索识别免疫相关性肺炎；",
-        "在基线和治疗期间检测 ALT、AST、肌酐、TSH、游离 T4 和血糖，评估肝肾及内分泌受累；",
-        "根据腹泻/结肠炎分级启动皮质类固醇治疗，控制免疫相关性结肠炎进展。",
-    ]:
+    add_para(doc, "拟实施方案中的结构化技术特征包括：", color=NAVY, bold=True, after=3)
+    for text in case_feature_bullets(plan):
         p = doc.add_paragraph(style="List Bullet")
         r = p.add_run(text)
         set_run_font(r, size=10.5, color=INK)
@@ -533,10 +544,10 @@ def build_report(project):
         p.paragraph_format.space_after = Pt(6)
         r = p.add_run("FTO 初筛解释：")
         set_run_font(r, size=9.5, color=NAVY, bold=True)
-        if ranking.get("review_priority") == "MEDIUM":
-            text = "该族同时出现研究对象/适应症与 PD-L1 阻断相关核心信号，建议先核验 CN/US 国家阶段、独立权利要求和审查历史；现有数据未确认肺部监测、生化指标和结肠炎处置等必要特征被同一独立权利要求组合限定。"
+        if ranking.get("review_priority") in ("HIGH", "MEDIUM"):
+            text = "该族出现了案例声明的核心或必要技术特征信号，建议先核验目标法域国家阶段、独立权利要求和审查历史；现有初筛不能确认所有必要特征被同一独立权利要求组合限定。"
         elif family.get("relevance") == "boundary":
-            text = "该族属于邻近技术或竞争边界，当前未建立对度伐利尤单抗拟实施监测方案的完整权利要求联系；保留作为边界线索，需以独立权利要求和法域成员复核。"
+            text = "该族属于邻近技术或竞争边界，当前未建立对拟实施方案的完整权利要求联系；保留作为边界线索，需以独立权利要求和法域成员复核。"
         else:
             text = "当前特征工程只形成部分或背景层命中，尚不足以作为实施障碍结论；仍应检查同族分支、国家阶段、分案/继续申请及权利要求变化。"
         r = p.add_run(text)
@@ -592,12 +603,12 @@ def build_report(project):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-dir", required=True)
-    parser.add_argument("--output", default="durvalumab-pdl1-nsclc-fto-report.docx")
+    parser.add_argument("--output", default="fto-screening-report.docx")
     args = parser.parse_args()
     project = Path(args.project_dir).expanduser().resolve()
     output = project / args.output
     doc = build_report(project)
-    doc.core_properties.title = "度伐利尤单抗治疗 NSCLC 免疫相关不良反应评估方法 FTO 初筛报告"
+    doc.core_properties.title = f"{project.name} FTO 初筛报告"
     doc.core_properties.subject = "公开专利初筛与权利要求要素比对"
     doc.core_properties.author = "Medtech Patent Roadmap"
     doc.save(output)

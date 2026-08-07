@@ -17,7 +17,7 @@ class GraphDataTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.output_dir = Path(self.temp.name)
-        self.case_dir = ROOT / "durvalumab-pdl1-nsclc"
+        self.case_dir = ROOT / "cases" / "durvalumab-pdl1-nsclc"
 
     def tearDown(self):
         self.temp.cleanup()

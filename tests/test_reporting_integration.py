@@ -16,7 +16,7 @@ class ReportingIntegrationTests(unittest.TestCase):
     def test_modular_report_build_includes_knowledge_graph(self):
         with tempfile.TemporaryDirectory() as temp:
             project = Path(temp) / "case"
-            shutil.copytree(ROOT / "durvalumab-pdl1-nsclc", project)
+            shutil.copytree(ROOT / "cases" / "durvalumab-pdl1-nsclc", project)
             for name in (
                 "case-output.json",
                 "graph-data.json",

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 518" role="img" aria-label="申请人/受让人分布" class="rv-svg">
+<title>申请人/受让人分布</title>
+<rect width="760" height="518" rx="16" fill="var(--surface,#fff)"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">申请人/受让人分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">按当前族 CSV 的 applicant_or_assignee 字段统计；未做集团级消歧。</text>
+<g class="rv-row" data-idx="c41585-0">
+<title>Amgen Inc.: 2</title>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Amgen Inc.</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="77" width="466.0" height="18" rx="9" fill="#cde2fb"><animate attributeName="width" from="0" to="466.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">2</text>
+</g>
+<g class="rv-row" data-idx="c41585-1">
+<title>Denali Therapeutics Inc.: 2</title>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Denali Therapeutics Inc.</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="111" width="466.0" height="18" rx="9" fill="#b7d3f6"><animate attributeName="width" from="0" to="466.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">2</text>
+</g>
+<g class="rv-row" data-idx="c41585-2">
+<title>Alector LLC: 1</title>
+<text x="28" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Alector LLC</text>
+<rect x="210" y="145" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="145" width="233.0" height="18" rx="9" fill="#9ec5f4"><animate attributeName="width" from="0" to="233.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c41585-3">
+<title>Alector LLC(推断: 1</title>
+<text x="28" y="192" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Alector LLC(推断</text>
+<rect x="210" y="179" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="179" width="233.0" height="18" rx="9" fill="#86b6ef"><animate attributeName="width" from="0" to="233.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="192" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c41585-4">
+<title>Amgen Inc.(推断: 1</title>
+<text x="28" y="226" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Amgen Inc.(推断</text>
+<rect x="210" y="213" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="213" width="233.0" height="18" rx="9" fill="#6da7ec"><animate attributeName="width" from="0" to="233.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="226" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c41585-5">
+<title>Inc.(该项目自Amgen分拆予Vigil: 1</title>
+<text x="28" y="260" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Inc.(该项目自Amgen分拆予Vigil</text>
+<rect x="210" y="247" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="247" width="233.0" height="18" rx="9" fill="#5598e7"><animate attributeName="width" from="0" to="233.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="260" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c41585-6">
+<title>Vigil Neuroscience: 1</title>
+<text x="28" y="294" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Vigil Neuroscience</text>
+<rect x="210" y="281" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="281" width="233.0" height="18" rx="9" fill="#3987e5"><animate attributeName="width" from="0" to="233.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="294" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c41585-7">
+<title>iTeos Therapeutics(推断: 1</title>
+<text x="28" y="328" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">iTeos Therapeutics(推断</text>
+<rect x="210" y="315" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="315" width="233.0" height="18" rx="9" fill="#2a78d6"><animate attributeName="width" from="0" to="233.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="328" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c41585-8">
+<title>具体各件申请受让人字段未逐一核实): 1</title>
+<text x="28" y="362" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">具体各件申请受让人字段未逐一核实)</text>
+<rect x="210" y="349" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="349" width="233.0" height="18" rx="9" fill="#256abf"><animate attributeName="width" from="0" to="233.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="362" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c41585-9">
+<title>基于同业专利背景引用: 1</title>
+<text x="28" y="396" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">基于同业专利背景引用</text>
+<rect x="210" y="383" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="383" width="233.0" height="18" rx="9" fill="#1c5cab"><animate attributeName="width" from="0" to="233.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="396" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c41585-10">
+<title>基于同项目其他专利同名发明人模式，未见本篇受让人字段直接确认): 1</title>
+<text x="28" y="430" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">基于同项目其他专利同名发明人模式，未见本篇受让人字段直接确…</text>
+<rect x="210" y="417" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="417" width="233.0" height="18" rx="9" fill="#184f95"><animate attributeName="width" from="0" to="233.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="430" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c41585-11">
+<title>待核验(检索片段未提供受让人字段): 1</title>
+<text x="28" y="464" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">待核验(检索片段未提供受让人字段)</text>
+<rect x="210" y="451" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="451" width="233.0" height="18" rx="9" fill="#0d366b"><animate attributeName="width" from="0" to="233.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="464" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+</svg>

@@ -139,7 +139,7 @@ scripts/score_fto_candidates.py --project-dir <case-dir>
 scripts/build_fto_dashboard.py --project-dir <case-dir>
 ```
 
-输出 `fto-search-plan.json/md`、`fto-candidate-ranking.csv/md` 和 `fto-search.html`。候选排序必须显示命中的特征、关键词、权利要求类别、状态信号和缺口；禁止把排序分数写成侵权概率。扩词来自用户词表、实体消歧和可解释的同义/旧名/机制/临床表达；IPC/CPC 只作为召回和邻近技术入口，需用命中文献或官方分类定义反向确认。
+输出 `fto-search-plan.json/md`、`fto-candidate-ranking.csv/md` 和 `fto-search.html`。候选排序必须显示命中的特征、关键词、权利要求类别、状态信号和缺口；禁止把排序分数写成侵权概率。扩词来自用户词表、实体消歧和可解释的同义/旧名/机制/临床表达；关键词簇可显式提供 `aliases`、`synonyms` 和 `translations` 以支持中英文及别名匹配。默认阈值用于识别可复核信号，只有在需要严格限制时才对单项技术特征设置 `match_threshold`（0–1）。IPC/CPC 只作为召回和邻近技术入口，需用命中文献或官方分类定义反向确认。
 
 当用户要求“类似样例的 FTO 报告”或需要正式文档交付时，运行 `scripts/build_fto_docx.py --project-dir <case-dir>`，从 FTO 输入、检索计划、专利族、claim 要素、证据链和候选排序数据生成模板化 A4 DOCX。报告采用“封面—概览—检索范围—技术方案—技术特征—专利族初筛—权利要求比对—证据链—附录—免责声明”的结构；含表格、横向宽表、可点击来源链接和页眉页脚。该脚本是样例结构的可复用实现，不复制样例数据，也不把候选排序升级为法律结论。
 

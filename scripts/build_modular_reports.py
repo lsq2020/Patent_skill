@@ -114,20 +114,28 @@ def heading(title, level=2):
     return f"{'#' * level} {title}\n"
 
 
+def applicant_short_name(entry):
+    return re.split(r"[（(]", entry, maxsplit=1)[0].strip()
+
+
 def scope_block(scope, identity, catalog):
+    """One fact per bullet - each becomes a single chip when rendered to HTML
+    (see build_report_pages.py), so the per-page orientation strip reads as a
+    glanceable tag row instead of a paragraph. Full applicant roles live once,
+    in the executive summary, instead of repeating on all 8 module pages."""
     obj = scope.get("research_object", {})
     jurisdictions = ", ".join(scope.get("jurisdictions", [])) or "未指定"
     related = ", ".join(scope.get("related_jurisdictions", [])) or "无"
-    counts = catalog.get("counts", {})
+    applicant_names = [applicant_short_name(a) for a in identity.get("applicants", [])]
     return "\n".join([
-        f"- **研究对象**：{obj.get('molecule', '未指定')}；别名：{', '.join(obj.get('synonyms', [])) or '未记录'}",
-        f"- **靶点/机制**：{obj.get('target', '未指定')}",
+        f"- **研究对象**：{obj.get('molecule', '未指定')}",
+        f"- **靶点**：{obj.get('target', '未指定')}",
         f"- **适应症**：{obj.get('indication', '未指定')}",
-        f"- **法域**：目标法域 {jurisdictions}；关联扩展法域 {related}",
-        f"- **截至日期**：{scope.get('as_of', '未指定')}",
-        f"- **深度**：{scope.get('depth', '未指定')}；报告语言：{scope.get('report_language', 'zh')}",
-        f"- **来源目录**：上游记录 {counts.get('upstream_listings', '—')} 条，去重 URL {counts.get('unique_urls', '—')} 个；目录不是已访问结果集。",
-        f"- **申请人消歧**：{', '.join(identity.get('applicants', [])) or '未提供；需从族记录反向归一化'}",
+        f"- **目标法域**：{jurisdictions}",
+        f"- **关联法域**：{related}",
+        f"- **截至**：{scope.get('as_of', '未指定')}",
+        f"- **深度**：{scope.get('depth', '未指定')}",
+        f"- **主要申请人**：{', '.join(applicant_names) or '未提供'}（详情见[执行摘要](00-executive-summary.md)）",
     ])
 
 
@@ -197,7 +205,13 @@ def visual_block(files, chart_ids):
 def render_summary(case, scope, identity, families, claims, evidence, ranking, plan, catalog, files):
     top = sorted(ranking, key=priority_sort)[:5]
     gaps = plan.get("gaps", [])
-    lines = [common_header("执行摘要", case, scope, identity, catalog, files["generated"]), "## 模块化交付", ""]
+    lines = [common_header("执行摘要", case, scope, identity, catalog, files["generated"])]
+    applicants = identity.get("applicants", [])
+    if applicants:
+        lines += ["## 申请人与角色", "", "（本表是全案唯一列出完整角色说明的位置；其余模块报告只显示申请人名称。）", ""]
+        lines += [f"- {a}" for a in applicants]
+        lines.append("")
+    lines += ["## 模块化交付", ""]
     lines.append("本案例将事实抽取、族地图、技术路线、风险/FTO、创新空间和证据链拆成独立报告。每份报告可以单独阅读，也可以通过 `report-index.md` 回到同一组结构化数据。")
     lines += ["", "## 数据规模", "", table(["指标", "数量/状态", "说明"], [
         ["专利族", len(families), "以案例族 CSV 的 family_id 为统计单位"],
@@ -246,17 +260,20 @@ def render_extraction(case, scope, identity, families, claims, evidence, plan, c
     for family in sorted(families, key=lambda r: r.get("earliest_priority", "9999")):
         timeline_rows.append([family.get("family_id"), family.get("earliest_priority"), family.get("publication_date"), family.get("status_as_of"), family.get("official_status"), family.get("status_source")])
     lines.append(table(["族", "最早优先权", "公开日", "状态截至", "状态快照", "状态来源"], timeline_rows or [["—"] * 6]))
-    lines += ["", "## 6. 抽取质量与缺口", ""]
-    missing = []
+    lines += ["", "## 6. 抽取质量与缺口", "", "下表按族标出三个常见缺口字段是否已建立（✓已记录 / –缺失，需补检），比逐条读句子更快看出缺口分布：", ""]
+    completeness_rows = []
     for family in families:
-        if not family.get("mutation_or_biomarker"):
-            missing.append(f"{family.get('family_id')}：未建立突变/标志物字段记录")
-        if not family.get("grants"):
-            missing.append(f"{family.get('family_id')}：未记录授权号，需查目标法域官方登记簿")
-        if "public mirror" in family.get("status_source", "").lower():
-            missing.append(f"{family.get('family_id')}：状态主要来自公开镜像，需官方核验")
-    for item in missing + plan.get("gaps", []):
-        lines.append(f"- {item}")
+        completeness_rows.append([
+            family.get("family_id"),
+            "✓" if family.get("mutation_or_biomarker") else "–",
+            "✓" if family.get("grants") else "–",
+            "–" if "public mirror" in family.get("status_source", "").lower() else "✓",
+        ])
+    lines.append(table(["族", "突变/标志物字段", "授权号", "状态来源为官方登记簿（非公开镜像）"], completeness_rows or [["—"] * 4]))
+    if plan.get("gaps"):
+        lines += ["", "其他补检任务："]
+        for item in plan.get("gaps", []):
+            lines.append(f"- {item}")
     lines += ["", "## 7. 抽取字段字典", "", table(["字段层", "字段", "解释"], [
         ["权利要求", "claim_category / element / coverage", "保护对象和要素的初步结构化记录"],
         ["族", "family_id / family_definition", "族口径及族内关系说明"],
@@ -280,11 +297,13 @@ def render_family_map(case, scope, identity, families, plan, catalog, files):
         label = compact(f"{family.get('family_id')} · {family_stage(family)}", 70).replace('"', "'")
         lines.append(f"  Q --> {node}[\"{label}\"]")
     lines += ["```", "", "## 4. 优先权时间泳道数据", "", table(["族", "最早优先权", "公开日", "代表文献", "后续关系/待补检"], [[f.get("family_id"), f.get("earliest_priority"), f.get("publication_date"), link(f.get("representative_document"), f.get("source_url")), "分案/继续申请/国家阶段需逐项核验"] for f in families] or [["—"] * 5]), "", "## 5. 法域矩阵", ""]
+    lines.append("✓ = 该法域存在成员记录；– = 未见成员记录（不代表该法域一定没有专利，需按范围补检）。")
+    lines.append("")
     jurisdictions = sorted({x.strip() for f in families for x in f.get("jurisdictions", "").split(";") if x.strip()})
     matrix = []
     for family in families:
         present = {x.strip() for x in family.get("jurisdictions", "").split(";") if x.strip()}
-        matrix.append([family.get("family_id")] + ["有记录" if j in present else "未见成员记录" for j in jurisdictions])
+        matrix.append([family.get("family_id")] + ["✓" if j in present else "–" for j in jurisdictions])
     lines.append(table(["族"] + jurisdictions, matrix or [["—"]]))
     lines += ["", "## 6. 地图解读与限制", "", "- 族数反映当前数据集中的去重结果，不反映商业价值、市场份额或有效专利数量。", "- `official_status` 是输入快照；没有目标法域官方来源时，必须进入状态复核队列。", "- 代表文献不能替代族内成员清单；国家阶段、分案和继续申请可能有不同 claim 范围。"]
     return "\n".join(lines) + "\n"
@@ -312,15 +331,11 @@ def render_roadmap(case, scope, identity, families, claims, plan, catalog, files
         route_rows.append([family.get("family_id"), stage, family.get("claim_theme"), family.get("claim_categories"), compact(family.get("key_claim_elements"), 320), family.get("earliest_priority"), family.get("status_confidence")])
     lines.append(table(["族", "路线阶段", "技术主题", "claim 类别", "关键要素", "最早优先权", "状态置信度"], route_rows or [["—"] * 7]))
     lines += ["", visual_block(files, ["family-theme", "claim-category", "priority-year"])]
-    lines += ["", "## 4. 路线演化观察", ""]
-    stage_counts = {}
-    for _, stage in stages:
-        stage_counts[stage] = stage_counts.get(stage, 0) + 1
-    for stage, count in stage_counts.items():
-        lines.append(f"- **{stage}**：{count} 个族/分支进入当前样本；需要继续区分核心保护与邻近技术。")
+    # Stage counts are already shown by the "专利族技术主题分布" chart above -
+    # a prose bullet list restating the same numbers would just repeat the chart.
     if roadmap_path and roadmap_path.exists():
-        lines += ["", "## 5. 案例已有路线材料", "", f"已有路线草稿：[{roadmap_path.name}]({roadmap_path.name})。它可作为人工补充材料，但本报告的族—路线映射仍以结构化 CSV/证据链为准。"]
-    lines += ["", "## 6. 技术断点与补检", "", "- 核心结构/抗体或化合物与用途之间是否存在独立保护层，需按 claim 类别逐族核对。", "- 联合/剂量/患者分层是否形成独立权利要求，不能只由说明书或临床事实推断。", "- 耐药、标志物和诊断节点若没有直接 family/claim 证据，应保留为补检缺口。", "- 制剂、盐型/晶型、工艺或安全窗节点需要结构/组成字段和实施例支持。"]
+        lines += ["", "## 4. 案例已有路线材料", "", f"已有路线草稿：[{roadmap_path.name}]({roadmap_path.name})。它可作为人工补充材料，但本报告的族—路线映射仍以结构化 CSV/证据链为准。"]
+    lines += ["", "## 5. 技术断点与补检", "", "- 核心结构/抗体或化合物与用途之间是否存在独立保护层，需按 claim 类别逐族核对。", "- 联合/剂量/患者分层是否形成独立权利要求，不能只由说明书或临床事实推断。", "- 耐药、标志物和诊断节点若没有直接 family/claim 证据，应保留为补检缺口。", "- 制剂、盐型/晶型、工艺或安全窗节点需要结构/组成字段和实施例支持。"]
     return "\n".join(lines) + "\n"
 
 
@@ -395,9 +410,15 @@ def render_innovation(case, scope, identity, families, claims, ranking, evidence
             direction, family.get("family_id"), evidence_text, compact(family.get("key_claim_elements"), 260),
             compact(counter, 240), "补检同族/官方 claim；必要时做结构、制剂、药效或生物标志物实验", "中/待验证",
         ])
+    features = plan.get("features", [])
+    clusters = plan.get("keyword_expansion", [])
+    feature_summary = "；".join(compact(feature.get("text"), 90) for feature in features[:4]) or "当前案例尚未提供结构化 FTO 特征"
+    cluster_summary = "、".join(str(cluster.get("label") or cluster.get("id")) for cluster in clusters[:6]) or "待补充案例词簇"
+    # Gap rows are deliberately case-derived.  They describe evidence that is
+    # missing from this case rather than importing a prior therapeutic area.
     hypotheses.extend([
-        ["耐药机制与下一代联合策略", "GAP-RESISTANCE", "当前样本未建立对象特异性耐药核心族", "需要把 B2M、JAK/IFN、抗原呈递、TIL、髓系和替代检查点分层检索", "不能把未搜到写成没有专利；文献机制不等于专利保护", "专利+文献+临床注册三线补检，再做 claim chart", "低/需补检"],
-        ["安全窗、免疫相关不良反应监测和处置", "GAP-SAFETY", "当前技术方案包含监测和处置特征，但样本中直接 claim linkage 不足", "监测指标、影像、分级阈值和激素处置可能形成方法/诊断方向", "医疗指南或说明书内容不自动产生专利保护", "逐项检索监测/阈值/处置组合并核对法域 claim", "中/需法律复核"],
+        ["拟实施方案的对象特异性权利要求边界", "GAP-CLAIM-LINKAGE", "当前样本已提供专利族和/或权利要求要素记录", f"尚需将拟实施特征与同一独立权利要求逐项关联：{feature_summary}", "未建立关联不等于不存在相关专利或可自由实施", "对高相关族制作 claim chart，并逐法域核验有效独立权利要求与状态", "中/需法律复核"],
+        ["术语、别名与相邻实施方式补检", "GAP-TERM-EXPANSION", "案例词簇可作为可追溯的检索起点", f"需要覆盖案例声明的别名、译名、同义表达和相邻实施方式：{cluster_summary}", "扩词命中不自动构成权利要求覆盖", "在检索日志中记录扩词来源、检索式、纳排理由，并回到独立权利要求核验", "低/需补检"],
     ])
     lines.append(table(["候选方向", "关联族/缺口", "已有依据", "当前技术缺口", "反例", "验证动作", "信心"], hypotheses))
     lines += ["", visual_block(files, ["family-theme", "claim-category", "status"])]
@@ -406,8 +427,8 @@ def render_innovation(case, scope, identity, families, claims, ranking, evidence
         ["核心结构/序列/化合物", "见核心组成或抗体/序列方向", "需查 Markush、序列变体和子族", "结构检索+独立 claim 对比"],
         ["盐型/晶型/制剂/工艺", "若有制剂族则存在分层布局", "配方和状态需单独核验", "做组成、工艺、稳定性和制剂 claim chart"],
         ["给药/剂量/联合", "用途、组合和 regimen 族较易出现", "时间、剂量、患者人群可能有边界", "按治疗线次、周期、顺序和联合对象补检"],
-        ["患者分层/诊断", "标志物或邻近 ICB 族提供入口", "对象特异性 linkage 可能不足", "检索 biomarker + molecule + indication + claim"],
-        ["耐药突变/机制", "需要单独补检，不能用相邻标志物代替", "当前证据不足", "建立机制词表、文献证据和专利族三联表"],
+        ["患者分层/诊断", "若案例包含标志物、诊断或分层特征，则可作为检索入口", "对象特异性 linkage 可能不足", "按案例词簇检索分层特征 + 研究对象 + 适应症 + claim"],
+        ["机制、耐受性或安全窗", "仅在案例特征或已命中文献中出现时单独分析", "当前证据不足时不得借用其他疾病领域术语", "建立案例专属词表、文献证据和专利族三联表"],
     ]))
     lines += ["", "## 4. 不得越过的结论", "", "- “没有检索到”只能说明当前检索范围没有建立证据。", "- 空白机会必须经结构、药效/制剂/诊断实验和法律复核后才能进入研发决策。", "- 任何方向都要重新检查未公开申请、国家阶段、分案/继续申请、Markush 和官方法律状态。"]
     return "\n".join(lines) + "\n"
@@ -442,13 +463,13 @@ def render_evidence(case, scope, identity, families, evidence, plan, catalog, so
 
 
 def render_source_catalog(case, scope, identity, catalog, files):
+    # "by_section"/"by_source_kind" breakdowns are charted below ("来源角色分布"),
+    # so this stat table only keeps single-value facts a chart can't represent.
     lines = [common_header("来源目录报告", case, scope, identity, catalog, files["generated"]), "## 1. 目录说明", "", "该目录来自 CNIPA/PatentDatabases 上游 README 的快照。它是检索入口目录，不是质量背书，也不代表所有网站当前可用。来源必须按角色路由，并在 source-log 中记录实际访问。", "", "## 2. 统计", "", table(["指标", "数值"], [
         ["上游仓库", link("CNIPA/PatentDatabases", catalog.get("upstream_repo"))],
         ["上游 README 哈希", catalog.get("upstream_readme_sha256")],
         ["上游记录数", catalog.get("counts", {}).get("upstream_listings")],
         ["去重 URL 数", catalog.get("counts", {}).get("unique_urls")],
-        ["分组", json.dumps(catalog.get("counts", {}).get("by_section", {}), ensure_ascii=False)],
-        ["来源角色", json.dumps(catalog.get("counts", {}).get("by_source_kind", {}), ensure_ascii=False)],
     ]), "", "## 3. 使用原则", ""]
     for key, value in (catalog.get("source_policy") or {}).items():
         lines.append(f"- **{key}**：{value}")

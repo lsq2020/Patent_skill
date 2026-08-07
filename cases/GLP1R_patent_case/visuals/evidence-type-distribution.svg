@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 212" role="img" aria-label="证据类型分布">
+<title>证据类型分布</title>
+<rect width="760" height="212" rx="16" fill="#ffffff"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">证据类型分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">按 evidence.csv 的 evidence_type 字段统计。</text>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">E3</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="77" width="466.0" height="18" rx="9" fill="#1264d9"/>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">14</text>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">E2</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="111" width="99.9" height="18" rx="9" fill="#3c8eea"/>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">3</text>
+<text x="28" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">E4</text>
+<rect x="210" y="145" width="466" height="18" rx="9" fill="#edf2fa"/>
+<rect x="210" y="145" width="99.9" height="18" rx="9" fill="#72b7f5"/>
+<text x="706" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#17233b">3</text>
+</svg>

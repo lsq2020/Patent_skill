@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-08-06T08:22:03.962554+00:00",
+  "project_dir": "C:\\Users\\Administrator\\Desktop\\skillpub\\cases\\trem2-atherosclerosis",
+  "tasks": [
+    {
+      "id": "official_status_review",
+      "priority": "HIGH",
+      "category": "Legal status",
+      "objective": "Verify official status for 9 family records",
+      "suggested_queries": [
+        "CNIPA patent status",
+        "USPTO Patent Center",
+        "EPO Register"
+      ],
+      "output_file": "status-review.md"
+    },
+    {
+      "id": "resistance_biology_context",
+      "priority": "MEDIUM",
+      "category": "Literature",
+      "objective": "Cross-check resistance/biomarker biology for TREM2 in atherosclerosis",
+      "suggested_queries": [
+        "TREM2 resistance review",
+        "TREM2-targeted therapeutics (agonist antibodies, small molecules; no single lead molecule specified) resistance mechanism",
+        "TREM2 biomarker atherosclerosis"
+      ],
+      "output_file": "context/literature.md"
+    },
+    {
+      "id": "clinical_context",
+      "priority": "MEDIUM",
+      "category": "Clinical",
+      "objective": "Map clinical stage, patient selection and treatment combinations for TREM2-targeted therapeutics (agonist antibodies, small molecules; no single lead molecule specified)",
+      "suggested_queries": [
+        "TREM2-targeted therapeutics (agonist antibodies, small molecules; no single lead molecule specified) clinical trial",
+        "TREM2-targeted therapeutics (agonist antibodies, small molecules; no single lead molecule specified) atherosclerosis combination",
+        "TREM2-targeted therapeutics (agonist antibodies, small molecules; no single lead molecule specified) registration"
+      ],
+      "output_file": "context/clinical.md"
+    },
+    {
+      "id": "competitor_pathway_expansion",
+      "priority": "MEDIUM",
+      "category": "Competitors",
+      "objective": "Expand direct/class/pathway/standard-of-care competitors around TREM2",
+      "suggested_queries": [
+        "TREM2 competitors atherosclerosis",
+        "TREM2 pathway inhibitors",
+        "atherosclerosis standard of care"
+      ],
+      "output_file": "context/competitors.md"
+    }
+  ]
+}

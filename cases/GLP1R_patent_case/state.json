@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "project_dir": "/data/siqing/2026_workpalce/20260731/GLP1R_patent_case",
+  "current_stage": "scope",
+  "completed_stages": [],
+  "created_at": "2026-08-07T06:18:17.073656+00:00",
+  "updated_at": "2026-08-07T06:18:17.073659+00:00",
+  "reports": {
+    "summary": "complete",
+    "extraction": "complete",
+    "family_map": "complete",
+    "technology_roadmap": "complete",
+    "risk_fto": "complete",
+    "innovation_space": "complete",
+    "evidence_chain": "complete",
+    "source_catalog": "complete",
+    "index": "complete",
+    "visuals": "complete",
+    "html_pages": "complete",
+    "source_audit": "partial",
+    "public_source_search": "partial",
+    "machine_output": "complete",
+    "output_contract": "complete"
+  },
+  "reports_generated_at": "2026-08-07T07:09:26.243120+00:00"
+}
