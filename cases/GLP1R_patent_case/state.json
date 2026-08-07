@@ -20,7 +20,9 @@
     "source_audit": "partial",
     "public_source_search": "partial",
     "machine_output": "complete",
-    "output_contract": "complete"
+    "output_contract": "complete",
+    "knowledge_graph": "complete"
   },
-  "reports_generated_at": "2026-08-07T07:09:26.243120+00:00"
+  "reports_generated_at": "2026-08-07T11:20:26.718863+00:00",
+  "graph_quality": "warning"
 }

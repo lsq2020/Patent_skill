@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "status": "warning",
+  "generated_at": "2026-08-07T11:20:26.774493+00:00",
+  "metrics": {
+    "node_count": 203,
+    "edge_count": 317,
+    "family_count": 20,
+    "claim_count": 34,
+    "evidence_count": 20,
+    "linked_evidence_count": 17,
+    "evidence_link_rate": 0.85,
+    "family_relation_edge_count": 0,
+    "member_relation_edge_count": 0,
+    "families_with_relation_count": 0,
+    "causal_relation_count": 0,
+    "causal_concept_count": 0,
+    "causal_context_edge_count": 0,
+    "causal_context_coverage_rate": 1.0
+  },
+  "checks": {
+    "node_ids_unique": true,
+    "edge_ids_unique": true,
+    "no_dangling_edges": true,
+    "all_claims_have_ids": true,
+    "all_causal_concepts_in_scope": true
+  },
+  "gaps": [
+    {
+      "code": "evidence_unlinked",
+      "severity": "warning",
+      "count": 3,
+      "record_ids": [
+        "E01",
+        "E19",
+        "E20"
+      ],
+      "message": "部分 finding 没有 family_id/claim_id 双链。",
+      "next_action": "补显式 ID，或补可匹配的 document_no/source_url。"
+    },
+    {
+      "code": "family_relations_missing",
+      "severity": "warning",
+      "count": 20,
+      "record_ids": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "F19",
+        "F20"
+      ],
+      "message": "当前没有显式的专利族连续关系边。",
+      "next_action": "补录 priority/national phase/divisional/continuation 关系；同族文献关系写入 member_relations，不要从 notes 自动推断。"
+    }
+  ]
+}

@@ -1,44 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" role="img" aria-label="最早优先权年度分布">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" role="img" aria-label="最早优先权年度分布" class="rv-svg">
 <title>最早优先权年度分布</title>
-<desc>按族级 earliest_priority 的年份统计。</desc>
-<rect width="760" height="332" rx="16" fill="#ffffff"/>
-<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">最早优先权年度分布</text>
-<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">按族级 earliest_priority 的年份统计。</text>
-<line x1="70" y1="86.0" x2="720" y2="86.0" stroke="#e6edf6"/>
-<text x="58" y="90.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">6.0</text>
-<line x1="70" y1="133.0" x2="720" y2="133.0" stroke="#e6edf6"/>
-<text x="58" y="137.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">4.8</text>
-<line x1="70" y1="180.0" x2="720" y2="180.0" stroke="#e6edf6"/>
-<text x="58" y="184.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">3.5</text>
-<line x1="70" y1="227.0" x2="720" y2="227.0" stroke="#e6edf6"/>
-<text x="58" y="231.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">2.2</text>
-<line x1="70" y1="274.0" x2="720" y2="274.0" stroke="#e6edf6"/>
-<text x="58" y="278.0" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">1.0</text>
-<line x1="70" y1="274" x2="720" y2="274" stroke="#9aabc0"/>
-<line x1="70" y1="86" x2="70" y2="274" stroke="#9aabc0"/>
-<text x="18" y="180.0" transform="rotate(-90 18 180.0)" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">数量</text>
-<text x="395.0" y="318" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">时间/轮次</text>
-<polyline points="70.0,274.0 135.0,274.0 200.0,274.0 265.0,274.0 330.0,274.0 395.0,274.0 460.0,274.0 525.0,236.4 590.0,161.2 655.0,86.0 720.0,274.0" fill="none" stroke="#3c8eea" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="70.0" cy="274.0" r="5" fill="#ffffff" stroke="#3c8eea" stroke-width="3"><title>2007: 1</title></circle>
-<text x="70.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2007</text>
-<circle cx="135.0" cy="274.0" r="5" fill="#ffffff" stroke="#3c8eea" stroke-width="3"><title>2010: 1</title></circle>
-<text x="135.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2010</text>
-<circle cx="200.0" cy="274.0" r="5" fill="#ffffff" stroke="#3c8eea" stroke-width="3"><title>2011: 1</title></circle>
-<text x="200.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2011</text>
-<circle cx="265.0" cy="274.0" r="5" fill="#ffffff" stroke="#3c8eea" stroke-width="3"><title>2012: 1</title></circle>
-<text x="265.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2012</text>
-<circle cx="330.0" cy="274.0" r="5" fill="#ffffff" stroke="#3c8eea" stroke-width="3"><title>2013: 1</title></circle>
-<text x="330.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2013</text>
-<circle cx="395.0" cy="274.0" r="5" fill="#ffffff" stroke="#3c8eea" stroke-width="3"><title>2014: 1</title></circle>
-<text x="395.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2014</text>
-<circle cx="460.0" cy="274.0" r="5" fill="#ffffff" stroke="#3c8eea" stroke-width="3"><title>2015: 1</title></circle>
-<text x="460.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2015</text>
-<circle cx="525.0" cy="236.4" r="5" fill="#ffffff" stroke="#3c8eea" stroke-width="3"><title>2018: 2</title></circle>
-<text x="525.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2018</text>
-<circle cx="590.0" cy="161.2" r="5" fill="#ffffff" stroke="#3c8eea" stroke-width="3"><title>2020: 4</title></circle>
-<text x="590.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2020</text>
-<circle cx="655.0" cy="86.0" r="5" fill="#ffffff" stroke="#3c8eea" stroke-width="3"><title>2021: 6</title></circle>
-<text x="655.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2021</text>
-<circle cx="720.0" cy="274.0" r="5" fill="#ffffff" stroke="#3c8eea" stroke-width="3"><title>2023: 1</title></circle>
-<text x="720.0" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#44536c">2023</text>
+<rect width="760" height="260" rx="16" fill="var(--surface,#fff)"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">最早优先权年度分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">按族级 earliest_priority 的年份统计（趋势折线）。</text>
+<line x1="46" y1="218" x2="720" y2="218" stroke="var(--axis,#c3c2b7)" stroke-width="1"/>
+<path d="M46.0,193.3 L113.4,193.3 L180.8,193.3 L248.2,193.3 L315.6,193.3 L383.0,193.3 L450.4,193.3 L517.8,168.7 L585.2,119.3 L652.6,70.0 L720.0,193.3 L720.0,218 L46.0,218 Z" fill="#b7d3f6" opacity=".55"/>
+<path d="M46.0,193.3 L113.4,193.3 L180.8,193.3 L248.2,193.3 L315.6,193.3 L383.0,193.3 L450.4,193.3 L517.8,168.7 L585.2,119.3 L652.6,70.0 L720.0,193.3" fill="none" stroke="#2a78d6" stroke-width="2.5"/>
+<g class="rv-row"><title>2007: 1</title><circle cx="46.0" cy="193.3" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="46.0" y="181.3" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="var(--ink,#17233b)">1</text>
+<text x="46.0" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2007</text>
+<g class="rv-row"><title>2010: 1</title><circle cx="113.4" cy="193.3" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="113.4" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2010</text>
+<g class="rv-row"><title>2011: 1</title><circle cx="180.8" cy="193.3" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="180.8" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2011</text>
+<g class="rv-row"><title>2012: 1</title><circle cx="248.2" cy="193.3" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="248.2" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2012</text>
+<g class="rv-row"><title>2013: 1</title><circle cx="315.6" cy="193.3" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="315.6" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2013</text>
+<g class="rv-row"><title>2014: 1</title><circle cx="383.0" cy="193.3" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="383.0" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2014</text>
+<g class="rv-row"><title>2015: 1</title><circle cx="450.4" cy="193.3" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="450.4" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2015</text>
+<g class="rv-row"><title>2018: 2</title><circle cx="517.8" cy="168.7" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="517.8" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2018</text>
+<g class="rv-row"><title>2020: 4</title><circle cx="585.2" cy="119.3" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="585.2" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2020</text>
+<g class="rv-row"><title>2021: 6</title><circle cx="652.6" cy="70.0" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="652.6" y="58.0" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="var(--ink,#17233b)">6</text>
+<text x="652.6" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2021</text>
+<g class="rv-row"><title>2023: 1</title><circle cx="720.0" cy="193.3" r="7" fill="#2a78d6" stroke="var(--surface,#fff)" stroke-width="2"/></g>
+<text x="720.0" y="181.3" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="var(--ink,#17233b)">1</text>
+<text x="720.0" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">2023</text>
 </svg>

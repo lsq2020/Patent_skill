@@ -1,6 +1,6 @@
 # 证据链报告
 
-> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T07:09:26.243120+00:00 · 本报告为研究资料，不构成法律意见。
+> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T11:20:26.718863+00:00 · 本报告为研究资料，不构成法律意见。
 
 ## 研究范围
 
@@ -50,7 +50,7 @@ E1/E2 用于官方登记簿、审查档案和专利文本；E3/E4 用于 WIPO/EP
 
 ![证据置信度分布](visuals/evidence-confidence-distribution.svg)
 
-> 统计口径：按 evidence.csv 的 confidence 字段统计。
+> 统计口径：按 evidence.csv 的 confidence 字段统计（状态色板）。
 
 ### 证据类型分布
 

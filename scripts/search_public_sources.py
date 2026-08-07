@@ -31,14 +31,49 @@ from urllib.request import Request, urlopen
 
 
 USER_AGENT = "medtech-patent-roadmap-public-search/1.0 (read-only)"
-DEFAULT_QUERY = "durvalumab"
-DEFAULT_QUERY_VARIANTS = ["durvalumab", "MEDI4736", "Imfinzi", "PD-L1"]
 
 
 def load_json(path, default=None):
     if not path.exists():
         return default if default is not None else {}
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def unique(values, limit=16):
+    seen, output = set(), []
+    for value in values or []:
+        value = " ".join(str(value or "").split())
+        key = value.casefold()
+        if value and key not in seen:
+            seen.add(key)
+            output.append(value)
+        if len(output) >= limit:
+            break
+    return output
+
+
+def case_queries(project, plan, config):
+    """Use explicit case configuration first, otherwise derive terms from scope."""
+    configured = config.get("query", {}) if isinstance(config, dict) else {}
+    if configured.get("primary"):
+        return configured["primary"], unique(configured.get("variants", []))
+
+    scope = load_json(project / "research_scope.json", {})
+    identity = load_json(project / "identity.json", {})
+    obj = scope.get("research_object", {})
+    terms = [
+        obj.get("molecule"),
+        identity.get("molecule", {}).get("canonical"),
+        *obj.get("synonyms", []),
+        *identity.get("molecule", {}).get("synonyms", []),
+        obj.get("target"),
+        identity.get("target", {}).get("canonical"),
+        *identity.get("target", {}).get("aliases", []),
+    ]
+    terms = unique(terms)
+    if not terms:
+        raise ValueError("未找到检索词：请在 research_scope.json / identity.json 或 source-search-portals.json 中提供 query.primary。")
+    return terms[0], terms[1:]
 
 
 def compact_error(exc):
@@ -337,8 +372,7 @@ def main():
     audit = load_json(project / "public-source-search-audit.json", {})
     plan = load_json(project / "fto-search-plan.json", {})
     config = load_json(project / "source-search-portals.json", {})
-    query = config.get("query", {}).get("primary", DEFAULT_QUERY) if isinstance(config, dict) else DEFAULT_QUERY
-    variants = config.get("query", {}).get("variants", DEFAULT_QUERY_VARIANTS) if isinstance(config, dict) else DEFAULT_QUERY_VARIANTS
+    query, variants = case_queries(project, plan, config)
     specs = portal_specs(project, audit, plan, config)
     rows = []
     for idx, spec in enumerate(specs, 1):

@@ -1,22 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 338" role="img" aria-label="证据置信度分布">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 212" role="img" aria-label="证据置信度分布" class="rv-svg">
 <title>证据置信度分布</title>
-<desc>按 evidence.csv 的 confidence 字段统计。</desc>
-<rect width="760" height="338" rx="16" fill="#ffffff"/>
-<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">证据置信度分布</text>
-<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">按 evidence.csv 的 confidence 字段统计。</text>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#edf2fa" stroke-width="28"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#4ab39a" stroke-width="28" stroke-dasharray="318.56 171.53" stroke-dashoffset="-0.00" transform="rotate(-90 172 156)"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#1264d9" stroke-width="28" stroke-dasharray="122.52 367.57" stroke-dashoffset="-318.56" transform="rotate(-90 172 156)"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#3c8eea" stroke-width="28" stroke-dasharray="49.01 441.08" stroke-dashoffset="-441.08" transform="rotate(-90 172 156)"/>
-<text x="172" y="152" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="26" font-weight="800" fill="#17233b">20</text>
-<text x="172" y="174" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">总记录</text>
-<rect x="340" y="76" width="12" height="12" rx="3" fill="#4ab39a"/>
-<text x="362" y="86" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">medium</text>
-<text x="710" y="86" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">13 · 65%</text>
-<rect x="340" y="100" width="12" height="12" rx="3" fill="#1264d9"/>
-<text x="362" y="110" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">high</text>
-<text x="710" y="110" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">5 · 25%</text>
-<rect x="340" y="124" width="12" height="12" rx="3" fill="#3c8eea"/>
-<text x="362" y="134" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">low</text>
-<text x="710" y="134" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">2 · 10%</text>
+<rect width="760" height="212" rx="16" fill="var(--surface,#fff)"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">证据置信度分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">按 evidence.csv 的 confidence 字段统计（状态色板）。</text>
+<g class="rv-row">
+<title>medium: 13</title>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">medium</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="77" width="466.0" height="18" rx="9" fill="#fab219"><animate attributeName="width" from="0" to="466.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">13</text>
+</g>
+<g class="rv-row">
+<title>high: 5</title>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">high</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="111" width="179.2" height="18" rx="9" fill="#0ca30c"><animate attributeName="width" from="0" to="179.2" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">5</text>
+</g>
+<g class="rv-row">
+<title>low: 2</title>
+<text x="28" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">low</text>
+<rect x="210" y="145" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="145" width="71.7" height="18" rx="9" fill="#ec835a"><animate attributeName="width" from="0" to="71.7" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">2</text>
+</g>
 </svg>

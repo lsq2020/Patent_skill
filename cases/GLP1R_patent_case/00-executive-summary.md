@@ -1,6 +1,6 @@
 # 执行摘要
 
-> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T07:09:26.243120+00:00 · 本报告为研究资料，不构成法律意见。
+> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T11:20:26.718863+00:00 · 本报告为研究资料，不构成法律意见。
 
 ## 研究范围
 
@@ -81,13 +81,13 @@
 
 ![最早优先权年度分布](visuals/priority-year-distribution.svg)
 
-> 统计口径：按族级 earliest_priority 的年份统计。
+> 统计口径：按族级 earliest_priority 的年份统计（趋势折线）。
 
 ### FTO 复核优先级
 
 ![FTO 复核优先级](visuals/risk-priority-distribution.svg)
 
-> 统计口径：按 fto-candidate-ranking.csv 的 review_priority 统计；是复核队列，不是侵权概率。
+> 统计口径：按 fto-candidate-ranking.csv 的 review_priority 统计（状态色板）；是复核队列，不是侵权概率。
 
 ## 独立报告索引
 

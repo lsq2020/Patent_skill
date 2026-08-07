@@ -1,6 +1,6 @@
 # 风险与 FTO 报告
 
-> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T07:09:26.243120+00:00 · 本报告为研究资料，不构成法律意见。
+> 案例：`GLP1R_patent_case` · 生成时间：2026-08-07T11:20:26.718863+00:00 · 本报告为研究资料，不构成法律意见。
 
 ## 研究范围
 
@@ -59,13 +59,13 @@
 
 ![FTO 复核优先级](visuals/risk-priority-distribution.svg)
 
-> 统计口径：按 fto-candidate-ranking.csv 的 review_priority 统计；是复核队列，不是侵权概率。
+> 统计口径：按 fto-candidate-ranking.csv 的 review_priority 统计（状态色板）；是复核队列，不是侵权概率。
 
 ### 状态信号分布
 
 ![状态信号分布](visuals/status-distribution.svg)
 
-> 统计口径：把官方状态和状态来源文字归入研究阶段信号，不替代官方法律状态。
+> 统计口径：把官方状态和状态来源文字归入研究阶段信号（状态色板），不替代官方法律状态。
 
 ### 权利要求类别分布
 

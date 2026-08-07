@@ -29,6 +29,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-dir", required=True)
     parser.add_argument("--runs", type=int, default=3)
+    parser.add_argument("--keep-snapshots", action="store_true", help="Keep per-run case-output snapshots for debugging.")
     args = parser.parse_args()
     project = Path(args.project_dir).expanduser().resolve()
     scripts = Path(__file__).resolve().parent
@@ -39,7 +40,6 @@ def main():
         [sys.executable, str(scripts / "validate_output_schema.py"), "--output", str(project / "case-output.json")],
     ]
     snapshot_dir = project / "reproducibility-runs"
-    snapshot_dir.mkdir(parents=True, exist_ok=True)
     runs = []
     for index in range(1, max(args.runs, 1) + 1):
         steps = []
@@ -53,7 +53,8 @@ def main():
             })
         output_path = project / "case-output.json"
         snapshot_path = snapshot_dir / f"case-output-run-{index}.json"
-        if output_path.exists():
+        if args.keep_snapshots and output_path.exists():
+            snapshot_dir.mkdir(parents=True, exist_ok=True)
             snapshot_path.write_text(output_path.read_text(encoding="utf-8"), encoding="utf-8")
         runs.append({
             "run": index,

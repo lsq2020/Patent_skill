@@ -1,50 +1,90 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 338" role="img" aria-label="申请人/受让人分布">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 518" role="img" aria-label="申请人/受让人分布" class="rv-svg">
 <title>申请人/受让人分布</title>
-<desc>按当前族 CSV 的 applicant_or_assignee 字段统计；未做集团级消歧。</desc>
-<rect width="760" height="338" rx="16" fill="#ffffff"/>
-<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#17233b">申请人/受让人分布</text>
-<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">按当前族 CSV 的 applicant_or_assignee 字段统计；未做集团级消歧。</text>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#edf2fa" stroke-width="28"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#72b7f5" stroke-width="28" stroke-dasharray="103.18 386.91" stroke-dashoffset="-0.00" transform="rotate(-90 172 156)"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#9bd4f7" stroke-width="28" stroke-dasharray="103.18 386.91" stroke-dashoffset="-103.18" transform="rotate(-90 172 156)"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#f2a93b" stroke-width="28" stroke-dasharray="77.38 412.71" stroke-dashoffset="-206.35" transform="rotate(-90 172 156)"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#e3655b" stroke-width="28" stroke-dasharray="51.59 438.50" stroke-dashoffset="-283.74" transform="rotate(-90 172 156)"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#6d7892" stroke-width="28" stroke-dasharray="25.79 464.29" stroke-dashoffset="-335.32" transform="rotate(-90 172 156)"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#4ab39a" stroke-width="28" stroke-dasharray="25.79 464.29" stroke-dashoffset="-361.12" transform="rotate(-90 172 156)"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#1264d9" stroke-width="28" stroke-dasharray="25.79 464.29" stroke-dashoffset="-386.91" transform="rotate(-90 172 156)"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#3c8eea" stroke-width="28" stroke-dasharray="25.79 464.29" stroke-dashoffset="-412.71" transform="rotate(-90 172 156)"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#72b7f5" stroke-width="28" stroke-dasharray="25.79 464.29" stroke-dashoffset="-438.50" transform="rotate(-90 172 156)"/>
-<circle cx="172" cy="156" r="78" fill="none" stroke="#9bd4f7" stroke-width="28" stroke-dasharray="25.79 464.29" stroke-dashoffset="-464.29" transform="rotate(-90 172 156)"/>
-<text x="172" y="152" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="26" font-weight="800" fill="#17233b">19</text>
-<text x="172" y="174" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#71809a">总记录</text>
-<rect x="340" y="76" width="12" height="12" rx="3" fill="#72b7f5"/>
-<text x="362" y="86" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">Ltd.</text>
-<text x="710" y="86" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">4 · 21%</text>
-<rect x="340" y="100" width="12" height="12" rx="3" fill="#9bd4f7"/>
-<text x="362" y="110" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">S</text>
-<text x="710" y="110" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">4 · 21%</text>
-<rect x="340" y="124" width="12" height="12" rx="3" fill="#f2a93b"/>
-<text x="362" y="134" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">Novo Nordisk A</text>
-<text x="710" y="134" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">3 · 16%</text>
-<rect x="340" y="148" width="12" height="12" rx="3" fill="#e3655b"/>
-<text x="362" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">Inc.</text>
-<text x="710" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">2 · 11%</text>
-<rect x="340" y="172" width="12" height="12" rx="3" fill="#6d7892"/>
-<text x="362" y="182" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">Amgen Inc.</text>
-<text x="710" y="182" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">1 · 5%</text>
-<rect x="340" y="196" width="12" height="12" rx="3" fill="#4ab39a"/>
-<text x="362" y="206" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">Beijing Hanmi Pharmaceutical Co.</text>
-<text x="710" y="206" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">1 · 5%</text>
-<rect x="340" y="220" width="12" height="12" rx="3" fill="#1264d9"/>
-<text x="362" y="230" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">CMPD Licensing</text>
-<text x="710" y="230" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">1 · 5%</text>
-<rect x="340" y="244" width="12" height="12" rx="3" fill="#3c8eea"/>
-<text x="362" y="254" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">Chongqing Kangding Medical Techno…</text>
-<text x="710" y="254" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">1 · 5%</text>
-<rect x="340" y="268" width="12" height="12" rx="3" fill="#72b7f5"/>
-<text x="362" y="278" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">Eccogene (Shanghai) Co.</text>
-<text x="710" y="278" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">1 · 5%</text>
-<rect x="340" y="292" width="12" height="12" rx="3" fill="#9bd4f7"/>
-<text x="362" y="302" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="#44536c">Eli Lilly and Company</text>
-<text x="710" y="302" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#17233b">1 · 5%</text>
+<rect width="760" height="518" rx="16" fill="var(--surface,#fff)"/>
+<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">申请人/受让人分布</text>
+<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">按当前族 CSV 的 applicant_or_assignee 字段统计；未做集团级消歧。</text>
+<g class="rv-row" data-idx="c99656-0">
+<title>Ltd.: 4</title>
+<text x="28" y="90" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Ltd.</text>
+<rect x="210" y="77" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="77" width="466.0" height="18" rx="9" fill="#cde2fb"><animate attributeName="width" from="0" to="466.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="90" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">4</text>
+</g>
+<g class="rv-row" data-idx="c99656-1">
+<title>S: 4</title>
+<text x="28" y="124" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">S</text>
+<rect x="210" y="111" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="111" width="466.0" height="18" rx="9" fill="#b7d3f6"><animate attributeName="width" from="0" to="466.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="124" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">4</text>
+</g>
+<g class="rv-row" data-idx="c99656-2">
+<title>Novo Nordisk A: 3</title>
+<text x="28" y="158" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Novo Nordisk A</text>
+<rect x="210" y="145" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="145" width="349.5" height="18" rx="9" fill="#9ec5f4"><animate attributeName="width" from="0" to="349.5" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="158" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">3</text>
+</g>
+<g class="rv-row" data-idx="c99656-3">
+<title>Inc.: 2</title>
+<text x="28" y="192" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Inc.</text>
+<rect x="210" y="179" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="179" width="233.0" height="18" rx="9" fill="#86b6ef"><animate attributeName="width" from="0" to="233.0" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="192" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">2</text>
+</g>
+<g class="rv-row" data-idx="c99656-4">
+<title>Amgen Inc.: 1</title>
+<text x="28" y="226" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Amgen Inc.</text>
+<rect x="210" y="213" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="213" width="116.5" height="18" rx="9" fill="#6da7ec"><animate attributeName="width" from="0" to="116.5" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="226" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c99656-5">
+<title>Beijing Hanmi Pharmaceutical Co.: 1</title>
+<text x="28" y="260" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Beijing Hanmi Pharmaceutical …</text>
+<rect x="210" y="247" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="247" width="116.5" height="18" rx="9" fill="#5598e7"><animate attributeName="width" from="0" to="116.5" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="260" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c99656-6">
+<title>CMPD Licensing: 1</title>
+<text x="28" y="294" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">CMPD Licensing</text>
+<rect x="210" y="281" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="281" width="116.5" height="18" rx="9" fill="#3987e5"><animate attributeName="width" from="0" to="116.5" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="294" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c99656-7">
+<title>Chongqing Kangding Medical Technology (重庆康丁医药): 1</title>
+<text x="28" y="328" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Chongqing Kangding Medical Te…</text>
+<rect x="210" y="315" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="315" width="116.5" height="18" rx="9" fill="#2a78d6"><animate attributeName="width" from="0" to="116.5" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="328" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c99656-8">
+<title>Eccogene (Shanghai) Co.: 1</title>
+<text x="28" y="362" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Eccogene (Shanghai) Co.</text>
+<rect x="210" y="349" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="349" width="116.5" height="18" rx="9" fill="#256abf"><animate attributeName="width" from="0" to="116.5" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="362" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c99656-9">
+<title>Eli Lilly and Company: 1</title>
+<text x="28" y="396" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Eli Lilly and Company</text>
+<rect x="210" y="383" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="383" width="116.5" height="18" rx="9" fill="#1c5cab"><animate attributeName="width" from="0" to="116.5" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="396" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c99656-10">
+<title>Fujian Shengdi Pharmaceutical (福建盛迪医药): 1</title>
+<text x="28" y="430" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Fujian Shengdi Pharmaceutical…</text>
+<rect x="210" y="417" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="417" width="116.5" height="18" rx="9" fill="#184f95"><animate attributeName="width" from="0" to="116.5" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="430" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
+<g class="rv-row" data-idx="c99656-11">
+<title>Gasherbrum Bio: 1</title>
+<text x="28" y="464" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">Gasherbrum Bio</text>
+<rect x="210" y="451" width="466" height="18" rx="9" fill="var(--track,#edf2fa)"/>
+<rect class="rv-bar" x="210" y="451" width="116.5" height="18" rx="9" fill="#0d366b"><animate attributeName="width" from="0" to="116.5" dur=".5s" fill="freeze"/></rect>
+<text x="706" y="464" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">1</text>
+</g>
 </svg>

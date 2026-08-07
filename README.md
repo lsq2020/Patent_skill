@@ -172,7 +172,19 @@ python3 scripts/build_report_visuals.py --project-dir cases/demo
 python3 scripts/build_report_pages.py --project-dir cases/demo
 ```
 
-通常 `build_modular_reports.py` 已会联动生成图表和 HTML 页面；单独执行后两条命令适用于数据更新后的重建。
+`build_modular_reports.py` 会在每次运行时同步重建 SVG 统计图、模块 HTML 页面、`case-output.json`、图谱数据与离线知识图谱页面；单独执行后两条命令适用于只重建某一可视化产物。
+
+### 6. 公开来源检索与可复现性检查
+
+先使用 `source-search-portals.json` 声明经过确认的公开搜索入口；脚本默认从案例范围和实体消歧记录中推导检索词，也可在该文件中明确指定 `query.primary` 与 `query.variants`。它不会绕过登录、验证码、订阅或浏览器会话限制。
+
+```bash
+python3 scripts/audit_public_sources.py --project-dir cases/demo
+python3 scripts/search_public_sources.py --project-dir cases/demo
+python3 scripts/run_reproducibility.py --project-dir cases/demo --runs 3
+```
+
+公开来源执行台账仅记录访问和检索动作；专利族、权利要求和法律状态仍需按本 Skill 的证据规则复核。
 
 ## 输出说明
 

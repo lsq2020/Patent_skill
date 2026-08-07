@@ -501,7 +501,10 @@ def build_reports(project):
     source_log = load_jsonl(source_log_path)
     roadmap_path = first_match(project, "*-roadmap.md")
     generated = datetime.now(timezone.utc).isoformat()
-    if build_visuals and not (project / "visuals" / "manifest.json").exists():
+    # Rebuild on every report run: charts and HTML share theme/data helpers,
+    # so retaining an old manifest after a renderer or case-data update would
+    # leave the visual pages out of sync with the Markdown reports.
+    if build_visuals:
         build_visuals(project)
     files = {
         "generated": generated,

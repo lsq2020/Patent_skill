@@ -343,6 +343,8 @@ outputs/<skill-name>/
 ├── <case>-context/                  # 可选：临床/竞品/交易/新闻/文献上下文
 ├── query-matrix.json                # 可恢复的多路径检索计划（需要时）
 ├── patent-database-sources.json     # CNIPA/PatentDatabases 来源目录快照（需要时）
+├── source-search-portals.json        # 公开来源的已知检索入口与参数（需要时）
+├── public-source-search-results.*    # 实际提交、人工入口与未映射来源台账（需要时）
 ├── gap_brief.json                   # 基于缺口的补检任务（需要时）
 ├── fto-input.json                   # FTO 技术方案、特征、扩词和分类号输入（需要时）
 ├── fto-search-plan.json/md          # FTO 特征工程与 R1-R7 检索计划（需要时）
@@ -364,6 +366,7 @@ outputs/<skill-name>/
 ├── graph-data.json                  # Cytoscape.js 图数据（需要时）
 ├── graph-quality.json               # 缺失关系、孤立证据和悬空边检查（需要时）
 ├── knowledge-graph.html             # 离线专利证据双链图（需要时）
+├── reproducibility-report.json       # 本地管线重复运行的一致性检查（需要时）
 ├── 00-executive-summary.html        # 独立模块页面（需要时）
 ├── 01-extraction-report.html        # 独立模块页面（需要时）
 ├── 02-patent-family-map-report.html # 独立模块页面（需要时）
@@ -390,6 +393,8 @@ outputs/<skill-name>/
 - `build_query_matrix.py`：根据实体与范围生成精确检索、同义词/技术形态、分类/引证、族关系、竞争景观和耐药/标志物补检路径；
 - `update_source_registry.py`：从 CNIPA/PatentDatabases README 刷新全部来源目录，记录上游哈希、分组、来源角色和默认用途；
 - `append_source_log.py`：以 JSONL 追加查询、专利、官方登记簿、论文、临床、新闻和交易来源记录；
+- `audit_public_sources.py`：只读审计来源目录的可访问性与已知公开检索入口，不绕过登录、验证码或订阅限制；
+- `search_public_sources.py`：按当前案例的研究对象与显式入口配置执行公开来源检索，并把已提交查询、需浏览器人工操作和未映射来源分别记录；
 - `build_landscape_html.py`：从标准化专利族 CSV 生成可筛选的 WIPO 风格 HTML 地图。
 - `build_landscape_v2.py`：生成保护层级矩阵、优先权时间泳道、CN/US 法域矩阵和可点击证据详情的组合视图。
 - `build_fto_plan.py`：从 `fto-input.json` 生成技术特征、扩展关键词、IPC/CPC 和 R1-R7 检索轮次；
@@ -404,6 +409,7 @@ outputs/<skill-name>/
 - `build_graph_data.py`：从 `case-output.json` 生成 Cytoscape-ready `graph-data.json` 与 `graph-quality.json`。
 - `validate_graph_data.py`：检查图节点/边 ID、悬空边、计数和预设。
 - `build_knowledge_graph.py`：内嵌 Cytoscape.js、图数据和交互组件，生成无需服务器或 CDN 的 `knowledge-graph.html`。
+- `run_reproducibility.py`：重复执行本地校验、模块报告、案例输出和 Schema 检查，比较规范化输出哈希；不重放网络检索。
 
 这些脚本不连接智慧芽或任何私有数据库；可选结构化数据库应通过外部连接器提供标准化 JSON，再由上述校验、缺口分析和可视化组件消费。
 

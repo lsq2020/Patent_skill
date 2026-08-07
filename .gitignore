@@ -2,3 +2,5 @@
 __MACOSX/
 __pycache__/
 *.py[cod]
+**/reproducibility-runs/
+**/reproducibility-report.json
