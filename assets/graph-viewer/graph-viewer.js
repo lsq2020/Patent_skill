@@ -60,12 +60,31 @@
     ["technology_theme", 4], ["causal_concept", 4],
   ]);
 
+  function normalizeGalaxySettings(input = {}) {
+    const numberSetting = (key, min, max) => {
+      const value = Number(input[key]);
+      return Number.isFinite(value) ? Math.min(max, Math.max(min, value)) : DEFAULT_GALAXY_SETTINGS[key];
+    };
+    return {
+      preset: GALAXY_PRESET_SETTINGS[input.preset] ? input.preset : DEFAULT_GALAXY_SETTINGS.preset,
+      sizeMode: ["degree", "type", "uniform"].includes(input.sizeMode) ? input.sizeMode : DEFAULT_GALAXY_SETTINGS.sizeMode,
+      nodeScale: numberSetting("nodeScale", 0.65, 1.8),
+      edgeOpacity: numberSetting("edgeOpacity", 0.08, 0.82),
+      glowStrength: numberSetting("glowStrength", 0, 1),
+      linkDistance: numberSetting("linkDistance", 52, 168),
+      pressure: numberSetting("pressure", 0.55, 1.8),
+      orbitStrength: numberSetting("orbitStrength", 0, 1),
+      starfield: typeof input.starfield === "boolean" ? input.starfield : DEFAULT_GALAXY_SETTINGS.starfield,
+      twinkle: typeof input.twinkle === "boolean" ? input.twinkle : DEFAULT_GALAXY_SETTINGS.twinkle,
+      autoOrbit: typeof input.autoOrbit === "boolean" ? input.autoOrbit : DEFAULT_GALAXY_SETTINGS.autoOrbit,
+    };
+  }
+
   function loadGalaxySettings() {
     try {
       const saved = JSON.parse(window.localStorage.getItem(GALAXY_STORAGE_KEY) || "null");
       if (!saved || typeof saved !== "object") return { ...DEFAULT_GALAXY_SETTINGS };
-      const preset = GALAXY_PRESET_SETTINGS[saved.preset] ? saved.preset : DEFAULT_GALAXY_SETTINGS.preset;
-      return { ...DEFAULT_GALAXY_SETTINGS, ...saved, preset };
+      return normalizeGalaxySettings(saved);
     } catch (_error) {
       return { ...DEFAULT_GALAXY_SETTINGS };
     }
@@ -290,6 +309,9 @@
   let depthTapCycle = null;
   let motionCenter = { x: 0, y: 0 };
   let orbitStartedAt = performance.now();
+  let galaxyStatsFrames = 0;
+  let galaxyStatsWindowStarted = performance.now();
+  let galaxyFps = 0;
 
   function velocityFor(nodeId) {
     if (!motionVelocities.has(nodeId)) motionVelocities.set(nodeId, { x: 0, y: 0 });
@@ -511,6 +533,7 @@
   function animateAmbientMotion(timestamp) {
     motionFrame = 0;
     if (!state.motionEnabled || document.hidden || !motionAnchors.size) return;
+    updateGalaxyStats(timestamp, true);
     const simulationDue = (timestamp - lastMotionTick) >= 16;
     const viewportReady = draggedNodeId || (timestamp - lastViewportInteraction) >= 180;
     if (simulationDue && viewportReady) {
@@ -567,10 +590,29 @@
     } else {
       stopAmbientMotion(true);
     }
+    updateGalaxyStats();
   }
 
   function updateZoomLevel() {
     byId("zoom-level").textContent = `${Math.round(cy.zoom() * 100)}%`;
+  }
+
+  function updateGalaxyStats(timestamp = performance.now(), sampleFrame = false) {
+    if (sampleFrame) galaxyStatsFrames += 1;
+    const elapsed = timestamp - galaxyStatsWindowStarted;
+    if (sampleFrame && elapsed >= 700) {
+      galaxyFps = Math.round((galaxyStatsFrames * 1000) / elapsed);
+      galaxyStatsFrames = 0;
+      galaxyStatsWindowStarted = timestamp;
+    }
+    const degrees = cy.nodes().map((node) => node.degree());
+    const maxDegree = Math.max(0, ...degrees);
+    const hubThreshold = Math.max(3, Math.ceil(maxDegree * 0.45));
+    const hubCount = cy.nodes().filter((node) => node.degree() >= hubThreshold).length;
+    byId("galaxy-fps").textContent = state.motionEnabled && galaxyFps ? String(galaxyFps) : "—";
+    byId("galaxy-stat-nodes").textContent = String(cy.nodes().length);
+    byId("galaxy-stat-links").textContent = String(cy.edges().length);
+    byId("galaxy-stat-hubs").textContent = String(hubCount);
   }
 
   function configurePreset(presetId, useDefaultDepth = false) {
@@ -732,7 +774,7 @@
         galaxyBorderColor: galaxyColor,
         galaxyNodeSize: Number(galaxyNodeSize.toFixed(1)),
         galaxyFontSize: Number(galaxyFontSize.toFixed(1)),
-        galaxyFontWeight: degreeCentrality > 0.58 ? 650 : 500,
+        galaxyFontWeight: degreeCentrality > 0.58 ? 600 : 500,
         galaxyLabelOpacity: Number(clamp(0.38 + (degreeCentrality * 0.76), 0.38, 1).toFixed(2)),
         galaxyGlowBlur: Number((3 + (degreeCentrality * 20 * settings.glowStrength)).toFixed(1)),
         galaxyGlowOpacity: Number((settings.glowStrength * (0.1 + (degreeCentrality * 0.52))).toFixed(2)),
@@ -1019,6 +1061,7 @@
     byId("galaxy-save").addEventListener("click", persistGalaxySettings);
     byId("galaxy-reset").addEventListener("click", () => {
       state.galaxySettings = { ...DEFAULT_GALAXY_SETTINGS };
+      try { window.localStorage.removeItem(GALAXY_STORAGE_KEY); } catch (_error) { /* File origins may disable storage. */ }
       orbitStartedAt = performance.now();
       applyGalaxyAppearance();
       runLayout();
@@ -1164,6 +1207,7 @@
     byId("graph-status").textContent = `图谱已更新，显示 ${view.nodes.length} 个节点和 ${view.edges.length} 条关系。`;
     renderRelationTable(view.edges);
     renderInspector();
+    updateGalaxyStats();
     updateUrl();
   }
 
@@ -1393,12 +1437,79 @@
     if (openInspector) setPanelState("inspector", true);
   }
 
+  function topHubNodes(limit = 12) {
+    const visibleIds = state.visibleNodeIds.size
+      ? state.visibleNodeIds
+      : new Set(DATA.nodes.map((node) => node.id));
+    const degreeById = new Map([...visibleIds].map((id) => [id, 0]));
+    DATA.edges.forEach((edge) => {
+      if (!visibleIds.has(edge.source) || !visibleIds.has(edge.target)) return;
+      degreeById.set(edge.source, (degreeById.get(edge.source) || 0) + 1);
+      degreeById.set(edge.target, (degreeById.get(edge.target) || 0) + 1);
+    });
+    return DATA.nodes
+      .filter((node) => visibleIds.has(node.id))
+      .map((node) => ({ ...node, graphDegree: degreeById.get(node.id) || 0 }))
+      .sort((left, right) => right.graphDegree - left.graphDegree || left.label.localeCompare(right.label))
+      .slice(0, limit);
+  }
+
+  function findBridgeNodes() {
+    const nodeIds = new Set(state.visibleNodeIds);
+    const adjacency = new Map([...nodeIds].map((id) => [id, new Set()]));
+    DATA.edges.forEach((edge) => {
+      if (!nodeIds.has(edge.source) || !nodeIds.has(edge.target)) return;
+      adjacency.get(edge.source).add(edge.target);
+      adjacency.get(edge.target).add(edge.source);
+    });
+    const discovery = new Map();
+    const low = new Map();
+    const parent = new Map();
+    const bridges = new Set();
+    let time = 0;
+    function visit(nodeId) {
+      time += 1;
+      discovery.set(nodeId, time);
+      low.set(nodeId, time);
+      let children = 0;
+      adjacency.get(nodeId).forEach((neighborId) => {
+        if (!discovery.has(neighborId)) {
+          children += 1;
+          parent.set(neighborId, nodeId);
+          visit(neighborId);
+          low.set(nodeId, Math.min(low.get(nodeId), low.get(neighborId)));
+          const isRootBridge = !parent.has(nodeId) && children > 1;
+          const isInternalBridge = parent.has(nodeId) && low.get(neighborId) >= discovery.get(nodeId);
+          if (isRootBridge || isInternalBridge) bridges.add(nodeId);
+        } else if (neighborId !== parent.get(nodeId)) {
+          low.set(nodeId, Math.min(low.get(nodeId), discovery.get(neighborId)));
+        }
+      });
+    }
+    nodeIds.forEach((nodeId) => { if (!discovery.has(nodeId)) visit(nodeId); });
+    const hubRank = new Map(topHubNodes(DATA.nodes.length).map((node) => [node.id, node.graphDegree]));
+    return [...bridges]
+      .map((id) => ({ ...nodesById.get(id), graphDegree: hubRank.get(id) || 0 }))
+      .sort((left, right) => right.graphDegree - left.graphDegree || left.label.localeCompare(right.label));
+  }
+
+  function renderNodeSearchResults(nodes, contextLabel) {
+    const container = byId("search-results");
+    container.innerHTML = nodes.length
+      ? nodes.map((node) => `<button class="search-result" type="button" data-focus="${escapeHtml(node.id)}"><b>${escapeHtml(node.label)}</b><small>${escapeHtml(contextLabel)} · ${escapeHtml(nodeTypeLabels.get(node.type) || node.type)} · ${Number(node.graphDegree || 0)} 条连接</small></button>`).join("")
+      : `<div class="search-result"><small>${escapeHtml(contextLabel)}：没有匹配节点</small></div>`;
+    container.hidden = false;
+  }
+
   function renderSearchResults() {
     const container = byId("search-results");
     const query = state.query.trim().toLowerCase();
     if (!query) {
-      container.hidden = true;
-      container.textContent = "";
+      if (document.activeElement === byId("graph-search")) renderNodeSearchResults(topHubNodes(), "Top Hub");
+      else {
+        container.hidden = true;
+        container.textContent = "";
+      }
       return;
     }
     const results = DATA.nodes.filter((node) => node.search_text.includes(query)).slice(0, 8);
@@ -1481,6 +1592,7 @@
     window.clearTimeout(searchTimer);
     searchTimer = window.setTimeout(renderGraph, 180);
   });
+  byId("graph-search").addEventListener("focus", renderSearchResults);
   byId("graph-search").addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       byId("search-results").hidden = true;
@@ -1517,6 +1629,20 @@
     setPanelState("galaxy", open);
   });
   byId("galaxy-close").addEventListener("click", () => setPanelState("galaxy", false));
+  byId("galaxy-top-hubs").addEventListener("click", (event) => {
+    event.stopPropagation();
+    state.query = "";
+    byId("graph-search").value = "";
+    byId("graph-search").focus();
+    renderNodeSearchResults(topHubNodes(), "Top Hub");
+  });
+  byId("galaxy-bridge-nodes").addEventListener("click", (event) => {
+    event.stopPropagation();
+    state.query = "";
+    byId("graph-search").value = "";
+    byId("graph-search").focus();
+    renderNodeSearchResults(findBridgeNodes(), "桥接节点");
+  });
   byId("inspector-toggle").addEventListener("click", () => setPanelState("inspector", !state.inspectorOpen));
   byId("inspector-close").addEventListener("click", () => setPanelState("inspector", false));
   byId("ledger-toggle").addEventListener("click", () => setPanelState("ledger", !state.ledgerOpen));

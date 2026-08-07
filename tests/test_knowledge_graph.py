@@ -155,6 +155,27 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn("galaxyCurveDistance", html)
         self.assertIn("degreeCentrality", html)
 
+    def test_surfaces_galaxy_hubs_bridge_nodes_and_runtime_statistics(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn('id="galaxy-stats"', html)
+        self.assertIn('id="galaxy-fps"', html)
+        self.assertIn('id="galaxy-stat-nodes"', html)
+        self.assertIn('id="galaxy-stat-links"', html)
+        self.assertIn('id="galaxy-stat-hubs"', html)
+        self.assertIn('id="galaxy-top-hubs"', html)
+        self.assertIn('id="galaxy-bridge-nodes"', html)
+        self.assertIn("function topHubNodes", html)
+        self.assertIn("function findBridgeNodes", html)
+        self.assertIn("function updateGalaxyStats", html)
+        self.assertIn("function renderNodeSearchResults", html)
+        self.assertIn('addEventListener("focus", renderSearchResults)', html)
+        self.assertIn("function persistGalaxySettings()", html)
+        self.assertIn("function replayGalaxyEntrance()", html)
+        self.assertIn("window.localStorage.setItem", html)
+        self.assertIn("state.galaxySettings.autoOrbit", html)
+
     def test_adds_depth_cues_without_transforming_the_interactive_canvas(self):
         build_knowledge_graph(self.case_dir, output_path=self.output)
         html = self.output.read_text(encoding="utf-8")

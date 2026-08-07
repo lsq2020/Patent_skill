@@ -226,6 +226,20 @@ def build_knowledge_graph(
         </div>
       </section>
 
+      <section class="galaxy-section" aria-labelledby="galaxy-diagnostics-title">
+        <div class="section-heading"><h3 id="galaxy-diagnostics-title">星图诊断</h3><span>可见图</span></div>
+        <div id="galaxy-stats" class="galaxy-stats" role="status" aria-live="polite">
+          <span><b id="galaxy-fps">—</b><small>FPS</small></span>
+          <span><b id="galaxy-stat-nodes">0</b><small>节点</small></span>
+          <span><b id="galaxy-stat-links">0</b><small>关系</small></span>
+          <span><b id="galaxy-stat-hubs">0</b><small>Hub</small></span>
+        </div>
+        <div class="galaxy-analysis-actions">
+          <button id="galaxy-top-hubs" class="small-button" type="button">查看 Top Hub</button>
+          <button id="galaxy-bridge-nodes" class="small-button" type="button">检查桥接节点</button>
+        </div>
+      </section>
+
       <section class="galaxy-section galaxy-actions-section" aria-label="银河视图操作">
         <button id="galaxy-replay" class="small-button" type="button">重播入场</button>
         <button id="galaxy-save" class="small-button" type="button">保存我的预设</button>
