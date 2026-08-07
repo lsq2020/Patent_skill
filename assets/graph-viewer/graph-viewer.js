@@ -7,6 +7,7 @@
   const nodeTypeLabels = new Map(DATA.legend.node_types.map((row) => [row.value, row.label]));
   const presetById = new Map(DATA.presets.map((preset) => [preset.id, preset]));
   const params = new URLSearchParams(window.location.search);
+  const embedMode = params.get("embed") === "report" ? "report" : "";
   const initialPreset = presetById.has(params.get("view")) ? params.get("view") : "technology";
   const presetDefaultDepth = (presetId) => {
     const value = Number(presetById.get(presetId)?.default_depth ?? DATA.meta.default_depth ?? 1);
@@ -1646,6 +1647,7 @@
 
   function updateUrl() {
     const next = new URLSearchParams();
+    if (embedMode) next.set("embed", embedMode);
     if (state.focus) next.set("focus", state.focus);
     next.set("view", state.preset);
     next.set("depth", String(state.depth));

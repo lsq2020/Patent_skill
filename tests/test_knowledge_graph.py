@@ -54,6 +54,19 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertNotIn('"font-weight": 650', html)
         self.assertNotIn('"font-weight": 680', html)
 
+    def test_supports_a_compact_report_embed_without_weakening_fullscreen_mode(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn('get("embed") === "report"', html)
+        self.assertIn('document.documentElement.dataset.embed = "report"', html)
+        self.assertIn('html[data-embed="report"] .app-header', html)
+        self.assertIn('html[data-embed="report"] .graph-rail', html)
+        self.assertIn('html[data-embed="report"] .page-footer', html)
+        self.assertIn('html[data-embed="report"] .workspace', html)
+        self.assertIn('html[data-embed="report"] .inspector-panel', html)
+        self.assertIn('next.set("embed", embedMode);', html)
+
     def test_embedded_json_cannot_terminate_its_script_tag(self):
         payload = {"label": "</script><script>alert(1)</script>"}
         encoded = script_json(payload)

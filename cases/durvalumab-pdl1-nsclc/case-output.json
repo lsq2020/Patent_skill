@@ -33,8 +33,8 @@
     ]
   },
   "run": {
-    "run_id": "durvalumab-pdl1-nsclc-20260807T100521Z",
-    "generated_at": "2026-08-07T10:05:21.595784+00:00",
+    "run_id": "durvalumab-pdl1-nsclc-20260807T101502Z",
+    "generated_at": "2026-08-07T10:15:02.673527+00:00",
     "skill_version": "repository",
     "pipeline": [
       "scope",
@@ -3328,9 +3328,9 @@
       "06-evidence-chain-report.md": "a1600bf5080c26f2fc032a4a6dd76107de2c4305ed1efa8f922ec8d61b9827a8",
       "07-source-catalog-report.md": "7f72bb69d9f0bace36ee591ac357978d74e7674692997930ab79c419ea37c77f",
       "report-index.md": "192c78cfd61e7e30bc7ffa04ae99f905b3286d7f747c6ef1e07008df242082af",
-      "report-index.html": "11a593362a9c4c0b7d744e6e6da1f777267e72e92e628ac19020843e8436b195",
+      "report-index.html": "e73a8148482f85f9393227cfe18f434f5f9461febb11dd496b968adeb6364682",
       "report-visuals.html": "a7b0514a8259c21f5af40a22640143957a206fa12c9fe4bacdcc3b748277fd76",
-      "knowledge-graph.html": "cd2d6ef1af8f62c0a22d07c518ced0fa3918f47e70d3f2552c689deb35bec770",
+      "knowledge-graph.html": "ccb87e7173146f37a87592c2ee377269fdc12650aa97f96045117c72aead6325",
       "graph-data.json": "9202dc6b16597d73fb159df66a53cd52676d6b736927ed09bab4d4835c2d98ef",
       "graph-quality.json": "fdfdfe707b67a47f9b01586e479aeb74dc59ce11a72d9dd799baca7722f3f4e0"
     }

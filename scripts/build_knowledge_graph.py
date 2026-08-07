@@ -56,6 +56,11 @@ def build_knowledge_graph(
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="dark">
   <title>{html.escape(title)} · 专利证据双链图</title>
+  <script>
+    if (new URLSearchParams(window.location.search).get("embed") === "report") {{
+      document.documentElement.dataset.embed = "report";
+    }}
+  </script>
   <style>{css}</style>
 </head>
 <body>

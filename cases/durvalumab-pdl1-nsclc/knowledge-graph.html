@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="dark">
   <title>Durvalumab · 专利证据双链图</title>
+  <script>
+    if (new URLSearchParams(window.location.search).get("embed") === "report") {
+      document.documentElement.dataset.embed = "report";
+    }
+  </script>
   <style>:root {
   --ink: #dde1e5;
   --ink-soft: #b3bac2;
@@ -2003,6 +2008,79 @@ html[data-theme="dark"] .relation-table tbody tr:hover { background: #282d31; }
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
   .graph-panel[data-twinkle="true"] .depth-plane-far { animation: none; }
 }
+
+/* Report embeds keep the evidence canvas interactive while the surrounding
+   report provides navigation, title and scope. Fullscreen mode is unchanged. */
+html[data-embed="report"] {
+  --header-height: 0px;
+  --rail-width: 0px;
+  height: 100%;
+  overflow: hidden;
+}
+
+html[data-embed="report"] body {
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+html[data-embed="report"] .app-header,
+html[data-embed="report"] .graph-rail,
+html[data-embed="report"] .filter-panel,
+html[data-embed="report"] .galaxy-panel,
+html[data-embed="report"] .relation-ledger,
+html[data-embed="report"] .page-footer,
+html[data-embed="report"] .focus-stack,
+html[data-embed="report"] .canvas-hint,
+html[data-embed="report"] .visible-count,
+html[data-embed="report"] .zoom-readout,
+html[data-embed="report"] #motion-toggle,
+html[data-embed="report"] #layout-button {
+  display: none;
+}
+
+html[data-embed="report"] .workspace-shell,
+html[data-embed="report"] .workspace,
+html[data-embed="report"] .graph-panel,
+html[data-embed="report"] .graph-canvas {
+  height: 100%;
+  min-height: 0;
+}
+
+html[data-embed="report"] .workspace {
+  margin-left: 0;
+}
+
+html[data-embed="report"] .canvas-toolbar {
+  top: 10px;
+  right: 10px;
+  left: auto;
+}
+
+html[data-embed="report"] .canvas-tools {
+  display: block;
+}
+
+html[data-embed="report"] .button-group {
+  border-color: rgba(180, 188, 196, 0.32);
+  background: rgba(30, 33, 36, 0.78);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+html[data-embed="report"] .canvas-tools #fit-button {
+  min-height: 30px;
+  padding: 0 10px;
+  border: 0;
+  color: #c7cdd3;
+  font-size: 9px;
+}
+
+html[data-embed="report"] .inspector-panel {
+  top: 0;
+  height: 100vh;
+  max-width: min(380px, 86vw);
+}
 </style>
 </head>
 <body>
@@ -2321,6 +2399,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
   const nodeTypeLabels = new Map(DATA.legend.node_types.map((row) => [row.value, row.label]));
   const presetById = new Map(DATA.presets.map((preset) => [preset.id, preset]));
   const params = new URLSearchParams(window.location.search);
+  const embedMode = params.get("embed") === "report" ? "report" : "";
   const initialPreset = presetById.has(params.get("view")) ? params.get("view") : "technology";
   const presetDefaultDepth = (presetId) => {
     const value = Number(presetById.get(presetId)?.default_depth ?? DATA.meta.default_depth ?? 1);
@@ -3960,6 +4039,7 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
 
   function updateUrl() {
     const next = new URLSearchParams();
+    if (embedMode) next.set("embed", embedMode);
     if (state.focus) next.set("focus", state.focus);
     next.set("view", state.preset);
     next.set("depth", String(state.depth));
