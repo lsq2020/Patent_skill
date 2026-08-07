@@ -2479,14 +2479,24 @@ var Xr=function(e){if(!(this instanceof Xr))return new Xr(e);this.id="Thenable/1
     const text = String(value || "").trim();
     return text.length > limit ? `${text.slice(0, limit - 1)}…` : text;
   };
+  const compactOrganizationLabel = (value) => {
+    const text = String(value || "")
+      .trim()
+      .replace(/^C\/o\s+/i, "")
+      .replace(/\s+(?:AG|AB|Inc\.?|Ltd\.?|LLC|PLC|Corp\.?|Corporation|Company|Co\.?)$/i, "");
+    return compactLabel(text, 18);
+  };
   const nodeDisplayLabel = (node) => {
-    if (node.type !== "patent_family") return node.label;
     const properties = node.properties || {};
-    const document = properties.representative_document || properties.representative_application || "";
-    const priorityYear = String(properties.earliest_priority || "").slice(0, 4);
-    const applicant = compactLabel(String(properties.representative_document_assignee || properties.applicant_or_assignee || "").split("/")[0], 22);
-    const detail = [document, priorityYear ? `优先权 ${priorityYear}` : ""].filter(Boolean).join(" · ");
-    return [node.label, detail, applicant].filter(Boolean).join("\n");
+    if (node.type === "patent_family") {
+      const document = properties.representative_document || properties.representative_application || "";
+      return [node.label, document].filter(Boolean).join("\n");
+    }
+    if (node.type === "claim") return compactLabel(properties.claim_category || node.label.split(" · ")[0], 18);
+    if (node.type === "applicant") return compactOrganizationLabel(node.label);
+    if (node.type === "causal_concept") return compactLabel(node.label, 28);
+    if (node.type === "source") return compactLabel(node.label, 24);
+    return node.label;
   };
   const nodeBaseSizes = {
     research_object: 40,

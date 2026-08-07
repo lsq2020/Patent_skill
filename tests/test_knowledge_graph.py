@@ -127,6 +127,21 @@ class KnowledgeGraphPageTests(unittest.TestCase):
         self.assertIn('"text-margin-y": 7,', html)
         self.assertNotIn("--font-editorial", html)
 
+    def test_compacts_canvas_annotations_without_discarding_full_node_labels(self):
+        build_knowledge_graph(self.case_dir, output_path=self.output)
+        html = self.output.read_text(encoding="utf-8")
+
+        self.assertIn("const compactOrganizationLabel = (value) =>", html)
+        self.assertIn('if (node.type === "patent_family") {', html)
+        self.assertIn('return [node.label, document].filter(Boolean).join("\\n");', html)
+        self.assertIn('if (node.type === "claim") return compactLabel(properties.claim_category || node.label.split(" · ")[0], 18);', html)
+        self.assertIn('if (node.type === "applicant") return compactOrganizationLabel(node.label);', html)
+        self.assertIn('if (node.type === "causal_concept") return compactLabel(node.label, 28);', html)
+        self.assertIn('if (node.type === "source") return compactLabel(node.label, 24);', html)
+        self.assertIn("label: node.label,", html)
+        self.assertIn("displayLabel: nodeDisplayLabel(node),", html)
+        self.assertNotIn("const priorityYear =", html)
+
     def test_builds_a_galaxy_visual_lab_with_editorial_presets(self):
         build_knowledge_graph(self.case_dir, output_path=self.output)
         html = self.output.read_text(encoding="utf-8")
