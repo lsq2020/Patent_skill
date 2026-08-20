@@ -209,17 +209,24 @@ def css():
 """
 
 
-def shell(project, current, body, scope, manifest, is_index=False):
+def shell(project, current, body, scope, manifest, is_index=False, available_reports=None):
     obj = scope.get("research_object", {})
     case_title = obj.get("molecule", project.name)
     metrics = manifest.get("metrics", {})
+    available_reports = available_reports if available_reports is not None else REPORTS
+    has_graph = (project / "knowledge-graph.html").exists()
     links = []
     for idx, (stem, label) in enumerate(REPORTS, 1):
+        if (stem, label) not in available_reports:
+            continue
         links.append(f'<a class="{"active" if stem == current else ""}" href="{stem}.html"><i>{idx:02d}</i>{html.escape(label)}</a>')
     links.append('<a href="report-visuals.html"><i>V</i>统计总览</a>')
-    links.append('<a href="knowledge-graph.html"><i>G</i>专利证据双链图</a>')
+    if has_graph:
+        links.append('<a href="knowledge-graph.html"><i>G</i>专利证据双链图</a>')
     title = "模块化报告索引" if is_index else next((label for stem, label in REPORTS if stem == current), current)
-    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(case_title)} · {html.escape(title)}</title><style>{css()}</style>{theme.MERMAID_BOOTSTRAP}</head><body><div class="layout"><aside class="side"><div class="brand">MEDTECH PATENT ROADMAP</div><h3>模块报告</h3><nav>{"".join(links)}</nav><h3>案例</h3><a href="knowledge-graph.html"><i>↗</i>专利证据双链图</a><a href="report-visuals.html"><i>↗</i>FTO 风格统计看板</a><a href="report-index.md"><i>MD</i>Markdown 索引</a></aside><main class="main"><header class="hero"><div class="eyebrow">FTO-STYLE MODULAR REPORT</div><h1>{html.escape(case_title)} · {html.escape(title)}</h1><p>研究对象：{html.escape(case_title)} · 靶点：{html.escape(obj.get('target','未指定'))} · 适应症：{html.escape(obj.get('indication','未指定'))}<br>统计口径和图表均来自案例结构化数据；本报告为研究资料，不构成法律意见。</p></header><div class="metrics">{metric(metrics.get('families','—'),'专利族','family_id')}{metric(metrics.get('claims','—'),'claim 要素','逐条记录')}{metric(metrics.get('evidence','—'),'证据条目','可回溯链条')}{metric(metrics.get('fto_candidates','—'),'FTO 候选','复核优先队列')}{metric(metrics.get('source_urls','—'),'来源 URL','目录快照')}</div><div class="notice">状态信号、族关系、FTO 排序和统计图用于复核导航。进入许可、开发或诉讼决策前，仍需核对目标法域官方文本、完整独立权利要求、审查档案及法律事件。</div><article class="report-card">{body}</article><div class="footer">生成目录：<a href="knowledge-graph.html">证据双链图</a> · <a href="report-visuals.html">统计总览</a> · <a href="visuals/manifest.json">图表数据清单</a> · <a href="report-index.md">Markdown 版本</a></div></main></div></body></html>'''
+    case_links = (('<a href="knowledge-graph.html"><i>↗</i>专利证据双链图</a>' if has_graph else "") + '<a href="report-visuals.html"><i>↗</i>FTO 风格统计看板</a><a href="report-index.md"><i>MD</i>Markdown 索引</a>')
+    footer_links = ((f'<a href="knowledge-graph.html">证据双链图</a> · ' if has_graph else "") + '<a href="report-visuals.html">统计总览</a> · <a href="visuals/manifest.json">图表数据清单</a> · <a href="report-index.md">Markdown 版本</a>')
+    return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(case_title)} · {html.escape(title)}</title><style>{css()}</style>{theme.MERMAID_BOOTSTRAP}</head><body><div class="layout"><aside class="side"><div class="brand">MEDTECH PATENT ROADMAP</div><h3>模块报告</h3><nav>{"".join(links)}</nav><h3>案例</h3>{case_links}</aside><main class="main"><header class="hero"><div class="eyebrow">FTO-STYLE MODULAR REPORT</div><h1>{html.escape(case_title)} · {html.escape(title)}</h1><p>研究对象：{html.escape(case_title)} · 靶点：{html.escape(obj.get('target','未指定'))} · 适应症：{html.escape(obj.get('indication','未指定'))}<br>统计口径和图表均来自案例结构化数据；本报告为研究资料，不构成法律意见。</p></header><div class="metrics">{metric(metrics.get('families','—'),'专利族','family_id')}{metric(metrics.get('claims','—'),'claim 要素','逐条记录')}{metric(metrics.get('evidence','—'),'证据条目','可回溯链条')}{metric(metrics.get('fto_candidates','—'),'FTO 候选','复核优先队列')}{metric(metrics.get('source_urls','—'),'来源 URL','目录快照')}</div><div class="notice">状态信号、族关系、FTO 排序和统计图用于复核导航。进入许可、开发或诉讼决策前，仍需核对目标法域官方文本、完整独立权利要求、审查档案及法律事件。</div><article class="report-card">{body}</article><div class="footer">生成目录：{footer_links}</div></main></div></body></html>'''
 
 
 def knowledge_graph_embed(case_title):
@@ -232,21 +239,25 @@ def build_pages(project):
     project = Path(project).expanduser().resolve()
     scope = load_json(project / "research_scope.json")
     manifest = load_json(project / "visuals" / "manifest.json", {})
+    has_graph = (project / "knowledge-graph.html").exists()
+    available = [(stem, label) for stem, label in REPORTS if (project / f"{stem}.md").exists()]
     generated = {}
-    for stem, label in REPORTS:
+    for stem, label in available:
         md_path = project / f"{stem}.md"
-        if not md_path.exists():
-            continue
         html_path = project / f"{stem}.html"
-        html_path.write_text(shell(project, stem, markdown_html(md_path.read_text(encoding="utf-8")), scope, manifest), encoding="utf-8")
+        html_path.write_text(shell(project, stem, markdown_html(md_path.read_text(encoding="utf-8")), scope, manifest, available_reports=available), encoding="utf-8")
         generated[html_path.name] = str(html_path)
     cards = []
-    for stem, label in REPORTS:
+    for stem, label in available:
         cards.append(f'<a class="index-card" href="{stem}.html"><b>{html.escape(label)}</b><span>打开 FTO 风格独立页面 · Markdown：{stem}.md</span></a>')
     case_title = scope.get("research_object", {}).get("molecule", project.name)
-    index_body = knowledge_graph_embed(case_title) + '<h2>模块化交付</h2><p>每个模块均有独立页面、Markdown 正文和对应统计图；风险/FTO、技术路线、创新空间和证据链保留各自的研究边界。</p><div class="index-grid">' + "".join(cards) + '</div><h2>其他交互入口</h2><div class="index-grid"><a class="index-card" href="knowledge-graph.html"><b>专利证据双链图</b><span>在独立页面查看出链、反向链接和完整节点检查器</span></a><a class="index-card" href="report-visuals.html"><b>统计总览</b><span>查看族主题、优先权、法域、claim 类别和证据分布</span></a></div>'
+    graph_section = knowledge_graph_embed(case_title) if has_graph else ""
+    other_links = '<a class="index-card" href="report-visuals.html"><b>统计总览</b><span>查看族主题、优先权、法域、claim 类别和证据分布</span></a>'
+    if has_graph:
+        other_links = '<a class="index-card" href="knowledge-graph.html"><b>专利证据双链图</b><span>在独立页面查看出链、反向链接和完整节点检查器</span></a>' + other_links
+    index_body = graph_section + '<h2>模块化交付</h2><p>每个模块均有独立页面、Markdown 正文和对应统计图；风险/FTO、技术路线、创新空间和证据链保留各自的研究边界。</p><div class="index-grid">' + "".join(cards) + '</div><h2>其他交互入口</h2><div class="index-grid">' + other_links + '</div>'
     index_path = project / "report-index.html"
-    index_path.write_text(shell(project, "", index_body, scope, manifest, is_index=True), encoding="utf-8")
+    index_path.write_text(shell(project, "", index_body, scope, manifest, is_index=True, available_reports=available), encoding="utf-8")
     generated[index_path.name] = str(index_path)
     return generated
 

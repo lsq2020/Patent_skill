@@ -134,9 +134,20 @@ visuals/
 
 ## 总报告与状态
 
-`00-executive-summary.md` 只做入口，不替代模块报告。它应列出：核心结论、最大风险信号、最大证据缺口、创新假设数量、下一步优先级和模块报告链接。
+`00-executive-summary.md` 主要做入口，不替代模块报告：核心结论、最大风险信号、最大证据缺口、创新假设数量、下一步优先级和模块报告链接仍是必需内容。它可以额外包含一段可选的”专利布局解读”叙述——背景介绍、按技术主题分层的判断、对研发/决策的启示——但这段叙述仍要能回链具体模块报告（尤其是技术路线图报告）核对细节，不能替代模块报告本身的证据表格。该叙述来自案例目录下可选的 `<case>-interpretation.md` 文件（若存在则原样嵌入，若不存在则在执行摘要中显式标记缺口，不静默省略），由分析者/模型在有真实案例数据支撑时撰写，`build_modular_reports.py` 只负责嵌入，不负责生成判断性文字。
 
-`state.json` 增加模块状态：
+`<case>-interpretation.md` 只能用本项目 `build_report_pages.py` 里 `markdown_html()` 支持的极简 Markdown 子集：段落、`- ` 无序列表、`>` 引用、`[text](url)` 链接和 `**粗体**`；不支持 `1. 2. 3.` 有序列表（会被当成普通段落文字拼接，丢失分行和编号），需要分层编号时用 `- **第一层·…**：…` 这类无序列表 + 文字序号的写法。标题只用 `###` 或更低级别，不用 `#`/`##`，避免打乱报告本身的二级标题结构。
+
+### 深度分级对产出的影响
+
+`research_scope.json` 的 `depth` 字段现在真正控制产出规模，而不只是被回显：
+
+- `quick_scan`（快速扫描）：只生成 `00-executive-summary.md/.html` 和 `report-index.md/.html`（含统计图，因为执行摘要仍嵌入 3 张核心图表），不生成 `01-07` 模块报告，也不生成知识图谱（`case-output.json`/`graph-data.json`/`graph-quality.json`/`knowledge-graph.html`）。这对应 SKILL.md 中“快速扫描：…输出简报和风险雷达”的定位。
+- `standard_analysis` / `deep_review`：保持现有全量行为（8 份模块报告 + 图表 + 知识图谱）不变。
+
+若某案例从 `standard_analysis`/`deep_review` 降级为 `quick_scan` 后重跑，脚本会清理此前生成的 `01-07-*.md/.html` 和知识图谱文件，避免遗留过期产物。
+
+`state.json` 增加模块状态（`standard_analysis`/`deep_review` 时的取值；`quick_scan` 下除 `summary`/`index`/`visuals`/`html_pages` 外均为 `skipped_by_depth`）：
 
 ```json
 {

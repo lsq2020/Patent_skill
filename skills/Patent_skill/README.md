@@ -128,6 +128,7 @@ flowchart LR
 | `<case>-evidence.csv` | 事实/推断、来源、文献号、claim 或事件位置、置信度 |
 | `fto-input.json` | 拟实施方案、技术特征、关键词、分类号和 FTO 检索边界 |
 | `source-log.jsonl` | 可复核的查询与来源调用日志 |
+| `<case>-interpretation.md`（可选） | 执行摘要用的叙述性解读：背景介绍、按技术主题分层的判断、研发/决策启示。由分析者/模型在有真实案例数据支撑时撰写，`build_modular_reports.py` 只负责原样嵌入，不生成判断性文字 |
 
 最低字段见 [SKILL.md](SKILL.md)。案例示例见仓库外；建议每条核心结论均能回溯到 `family_id`、文献号及 claim/事件位置。
 
@@ -159,21 +160,19 @@ python3 scripts/generate_gap_brief.py --project-dir "$CASE_DIR"
 
 `validate_case.py` 会检查范围、实体和可选 CSV 的关键字段；警告意味着需要补数据，错误意味着应先修复输入再继续。
 
+案例已生成 `case-output.json` / `graph-data.json` 后，`python3 scripts/validate_all.py --project-dir "$CASE_DIR"` 一条命令即可依次跑完 `validate_case.py` + `validate_output_schema.py` + `validate_graph_data.py`。
+
 ### 3. 生成专利地图
 
 ```bash
-python3 scripts/build_landscape_html.py \
-  --families "$CASE_DIR/case-patent-families.csv" \
-  --output "$CASE_DIR/patent-landscape.html" \
-  --title "Demo patent landscape" \
-  --as-of "2026-08-06"
-
 python3 scripts/build_landscape_v2.py \
   --families "$CASE_DIR/case-patent-families.csv" \
   --output "$CASE_DIR/patent-landscape-v2.html" \
   --title "Demo patent landscape" \
   --as-of "2026-08-06"
 ```
+
+`build_landscape_v2.py`（保护层级矩阵 + 优先权时间泳道 + 法域矩阵 + 详情面板）是唯一推荐的景观视图。`build_landscape_html.py`（V1）已弃用，只为兼容已分发的旧链接保留，运行时会打印弃用提示；新案例不要再生成 V1。
 
 ### 4. FTO 风格初筛
 
@@ -194,7 +193,7 @@ python3 scripts/build_fto_docx.py --project-dir "$CASE_DIR"
 python3 scripts/build_modular_reports.py --project-dir "$CASE_DIR"
 ```
 
-`build_modular_reports.py` 是推荐的最终交付命令。它会在每次运行时同步重建模块 Markdown、SVG 统计图、模块 HTML 页面、`case-output.json`、图谱数据与离线知识图谱页面。
+`build_modular_reports.py` 是推荐的最终交付命令。它会在每次运行时同步重建模块 Markdown、SVG 统计图、模块 HTML 页面、`case-output.json`、图谱数据与离线知识图谱页面。产出规模由 `research_scope.json` 的 `depth` 决定：`quick_scan` 只生成执行摘要（含解读段落，若提供了 `<case>-interpretation.md`）和索引，不生成其余模块报告或知识图谱；`standard_analysis`/`deep_review` 生成全部 8 份模块报告、图表和知识图谱。
 
 如只需重建单项产物，可分别运行：
 
@@ -211,16 +210,15 @@ python3 scripts/build_knowledge_graph.py --project-dir "$CASE_DIR"
 先使用 `source-search-portals.json` 声明经过确认的公开搜索入口；脚本默认从案例范围和实体消歧记录中推导检索词，也可在该文件中明确指定 `query.primary` 与 `query.variants`。它不会绕过登录、验证码、订阅或浏览器会话限制。
 
 ```bash
-python3 scripts/audit_public_sources.py --project-dir "$CASE_DIR"
-python3 scripts/search_public_sources.py --project-dir "$CASE_DIR"
+python3 scripts/run_source_pipeline.py --project-dir "$CASE_DIR"
 python3 scripts/run_reproducibility.py --project-dir "$CASE_DIR" --runs 3
 ```
 
-公开来源执行台账仅记录访问和检索动作；专利族、权利要求和法律状态仍需按本 Skill 的证据规则复核。
+`run_source_pipeline.py` 依次跑完 `audit_public_sources.py` 和 `search_public_sources.py`（网络请求较多，视来源目录规模可能耗时较久）；加 `--refresh-registry` 会在之前先跑一次仓库级的 `update_source_registry.py`。也可以分别单独运行两个脚本。公开来源执行台账仅记录访问和检索动作；专利族、权利要求和法律状态仍需按本 Skill 的证据规则复核。
 
 ## 📦 最终交付物与报告说明
 
-完成标准分析后，案例目录通常包含以下可独立阅读、可交叉核验的结果：
+完成标准分析（`depth: standard_analysis` 或 `deep_review`）后，案例目录通常包含以下可独立阅读、可交叉核验的结果；`quick_scan` 深度下只生成 `00-executive-summary.md/.html` 和 `report-index.md/.html`（见上一节）：
 
 ```text
 00-executive-summary.md           # 执行摘要、关键风险、最大缺口

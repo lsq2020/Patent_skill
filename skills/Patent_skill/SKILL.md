@@ -54,6 +54,14 @@ description: 对小分子、靶点、适应症及其组合开展可复核的医�
 
 如果研究对象只有商品名，先补齐通用名、研发代号、盐型/异构体和靶点别名；如果只有靶点或适应症，先建立候选分子与机制词，不要假设用户关注某一个具体药物。
 
+### Stop rule：先锁定一种主交付目标
+
+在开始检索前，先从“立项检索 / 竞品布局 / 技术路线 / 风险初筛（FTO 防侵权）/ 创新空间”中确认本次分析的**主交付目标**（用户已经明确的，直接回显确认；含糊的，只问这一件事，不追问其余字段）。主交付目标决定深度和产出边界：
+
+- 主交付目标定，其余维度作为该目标下的支撑材料输出，不默认五个维度都做满；
+- 深度默认对应到 `research_scope.json` 的 `depth`：立项/风险初筛的第一次接触多为**快速扫描**（只出执行摘要 + 风险雷达，见「运行模式与通用输出」）；需要完整专利族地图、claim 矩阵和技术路线时才升到**标准分析**；需要国家阶段、分案/continuation 和 claim chart 时才升到**深度复核资料包**；
+- 用户中途要求扩展主交付目标（例如从"竞品布局"追加"FTO 初筛"）时，在执行摘要中显式记录目标变更，而不是静默地把两个目标混在一次输出里。
+
 ### 实体消歧与研究范围确认
 
 在正式检索前建立 `identity` 记录：
@@ -248,7 +256,7 @@ scripts/build_fto_dashboard.py --project-dir <case-dir>
 
 固定输出：
 
-1. `00-executive-summary.md`：执行摘要、关键风险、最大缺口和模块索引；
+1. `00-executive-summary.md`：执行摘要、关键风险、最大缺口和模块索引；若案例目录提供了 `<case>-interpretation.md`，还会嵌入一段“专利布局解读”（背景+分层判断+研发/决策启示，回链具体模块报告）；
 2. `01-extraction-report.md`：权利要求、结构/组成、申请人/发明人、时间线、技术要素和抽取缺口；
 3. `02-patent-family-map-report.md`：族口径、专利族地图数据、优先权时间、法域矩阵、申请人布局和族关系缺口；
 4. `03-technology-roadmap-report.md`：研发事实层与专利保护层分离的技术路线图、节点映射、演化、断点和补检任务；
@@ -324,7 +332,7 @@ scripts/build_fto_dashboard.py --project-dir <case-dir>
 
 根据用户目的选择模式：
 
-- **快速扫描**：20—50 个高相关文献线索，5—10 个核心族，输出简报和风险雷达；
+- **快速扫描**：20—50 个高相关文献线索，5—10 个核心族，输出简报和风险雷达；`build_modular_reports.py` 在此深度下只生成 `00-executive-summary.md/.html` 和 `report-index.md/.html`，不生成其余 7 份模块报告，也不生成知识图谱；
 - **标准分析**：完成词表、多路径检索、族归并、独立权利要求矩阵、状态快照、技术路线和地图；
 - **深度复核资料包**：增加国家阶段、分案/continuation、事件记录、claim chart、原始文本定位和人工复核清单。
 
@@ -337,9 +345,10 @@ outputs/<skill-name>/
 ├── <case>-patent-families.csv       # 专利族和成员数据
 ├── <case>-claim-elements.csv        # 权利要求要素矩阵
 ├── <case>-evidence.csv              # 证据链
-├── <case>-landscape.html            # 可筛选的地图/仪表盘（需要时）
-├── <case>-landscape-v2.html         # 推荐：保护层级/时间/法域/详情组合视图（需要时）
+├── <case>-landscape.html            # 已弃用（V1，仅为兼容旧链接保留，见下方 build_landscape_html.py 说明；新案例不要生成）
+├── <case>-landscape-v2.html         # 唯一推荐的景观视图：保护层级/时间/法域/详情组合视图（需要时）
 ├── <case>-roadmap.md                # 技术路线和创新假设（需要时）
+├── <case>-interpretation.md         # 执行摘要的叙述性解读：背景、分层判断、研发/决策启示（可选，需要时；由分析者/模型撰写，脚本只负责嵌入）
 ├── <case>-context/                  # 可选：临床/竞品/交易/新闻/文献上下文
 ├── query-matrix.json                # 可恢复的多路径检索计划（需要时）
 ├── patent-database-sources.json     # CNIPA/PatentDatabases 来源目录快照（需要时）
@@ -398,8 +407,9 @@ outputs/<skill-name>/
 - `build_datasets.py`：从仓库外的便携 JSON 输入生成专利族、claim 要素和证据 CSV，不内置任何疾病、靶点、文献号或本地路径；
 - `audit_public_sources.py`：只读审计来源目录的可访问性与已知公开检索入口；默认由案例范围和实体消歧记录推导检索式，也可用 `--query` 覆盖，且不绕过登录、验证码或订阅限制；
 - `search_public_sources.py`：按当前案例的研究对象与显式入口配置执行公开来源检索，并把已提交查询、需浏览器人工操作和未映射来源分别记录；
-- `build_landscape_html.py`：从标准化专利族 CSV 生成可筛选的 WIPO 风格 HTML 地图。
-- `build_landscape_v2.py`：生成保护层级矩阵、优先权时间泳道、CN/US 法域矩阵和可点击证据详情的组合视图。
+- `run_source_pipeline.py`：把 `audit_public_sources.py → search_public_sources.py` 串成一条命令（`update_source_registry.py` 是仓库级目录刷新，需要时加 `--refresh-registry` 才会一并执行；`append_source_log.py` 是逐条人工登记，参数因条目而异，仍需单独调用）。
+- `build_landscape_html.py`：已弃用的 V1 景观视图，只保留给已经分发出去的旧链接；新案例一律用 `build_landscape_v2.py`。
+- `build_landscape_v2.py`：唯一推荐的景观视图，生成保护层级矩阵、优先权时间泳道、CN/US 法域矩阵和可点击证据详情的组合视图。
 - `build_fto_plan.py`：从 `fto-input.json` 生成技术特征、扩展关键词、IPC/CPC 和 R1-R7 检索轮次；
 - `score_fto_candidates.py`：用声明的关键词簇和已有 claim-elements 做可解释的候选族排序；
 - `build_fto_dashboard.py`：生成类似产品工作流的 FTO 检索、初筛和特征比对 HTML 页面。
@@ -413,6 +423,7 @@ outputs/<skill-name>/
 - `validate_graph_data.py`：检查图节点/边 ID、悬空边、计数和预设。
 - `build_knowledge_graph.py`：内嵌 Cytoscape.js、图数据和交互组件，生成无需服务器或 CDN 的 `knowledge-graph.html`。
 - `run_reproducibility.py`：重复执行本地校验、模块报告、案例输出和 Schema 检查，比较规范化输出哈希；不重放网络检索。
+- `validate_all.py`：把 `validate_case.py`、`validate_output_schema.py`、`validate_graph_data.py` 合成一条命令（直接调用各自的 `validate()` 函数，不新增校验逻辑）；`case-output.json`/`graph-data.json` 不存在时（例如快速扫描深度）对应小节标为 `skipped`，不算错误。
 
 这些脚本不连接智慧芽或任何私有数据库；可选结构化数据库应通过外部连接器提供标准化 JSON，再由上述校验、缺口分析和可视化组件消费。
 
@@ -441,6 +452,31 @@ outputs/<skill-name>/
 - 专利族连续关系是否来自 `members`、`priority_set`、`family_relations` 或相应证据；缺失时是否在 `graph-quality.json` 报告，而不是从 notes 猜造。
 
 若无法满足上述门槛，降低报告级别为“快速扫描”，并在执行摘要中直说限制，不要用更强的措辞掩盖证据不足。
+
+### 反模式清单
+
+以下是本 Skill 最容易踩的坑，交付前对照自查：
+
+- 只搜关键词、不搜分类号——会漏掉同义词、译名和 Markush 覆盖的变体；
+- 只搜单一数据库（例如只查 Google Patents）——EPO/WIPO/CNIPA/USPTO 各有独占的族成员和法律状态；
+- 把“标题/摘要命中”直接写成“权利要求覆盖”——两者必须分栏，见「权利要求要素矩阵」；
+- 把聚合数据库的 active/inactive 标签当作最终法律状态——必须回官方登记簿核验；
+- 用国家阶段数量代替专利族数量做统计——同一族多个国家阶段会虚增“创新数量”；
+- 把 FTO 候选排序分数写成侵权概率——排序只是复核优先级；
+- 把“没有检索到”写成“不存在专利”——只能说明当前检索范围没有证据；
+- 为凑数量把不属于研究对象的邻近专利硬塞进核心集合——应放入边界候选或排除项并写明理由；
+- 静默跳过某个模块报告或图表——数据不足时要显式标注缺口，不能什么都不说就少一份。
+
+### 交付前的专利律师视角复核
+
+在 `04-risk-and-fto-report.md` 和 `05-innovation-space-report.md` 定稿前，用专利律师而非研究员的视角重读一遍两份报告的结论段落，只检查证据链是否站得住，不重新做检索：
+
+- 每条“高优先级”判断是否真的能回溯到独立权利要求要素、而不是摘要或说明书描述；
+- 每条创新空间假设的“反例”是否具体（同族分支、未公开申请、continuation），而不是一句套话；
+- 结论用语是否仍是“重叠信号/需复核”而不是滑向“侵权/不侵权”的确定性表达；
+- 是否有结论把 E3/E4（聚合数据库、论文、新闻）证据当成 E1/E2（官方登记簿、权利要求原文）来引用。
+
+复核发现的问题直接改判定或补证据缺口，不需要单独产出一份复核报告；这一步只是防止「质量门槛」清单被走过场。
 
 ## 最小实现方案
 

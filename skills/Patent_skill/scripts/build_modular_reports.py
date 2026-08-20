@@ -202,7 +202,7 @@ def visual_block(files, chart_ids):
     return "\n".join(lines).rstrip()
 
 
-def render_summary(case, scope, identity, families, claims, evidence, ranking, plan, catalog, files):
+def render_summary(case, scope, identity, families, claims, evidence, ranking, plan, catalog, files, interpretation_path=None, depth="standard_analysis"):
     top = sorted(ranking, key=priority_sort)[:5]
     gaps = plan.get("gaps", [])
     lines = [common_header("执行摘要", case, scope, identity, catalog, files["generated"])]
@@ -213,7 +213,17 @@ def render_summary(case, scope, identity, families, claims, evidence, ranking, p
         lines.append("")
     lines += ["## 模块化交付", ""]
     lines.append("本案例将事实抽取、族地图、技术路线、风险/FTO、创新空间和证据链拆成独立报告。每份报告可以单独阅读，也可以通过 `report-index.md` 回到同一组结构化数据。")
-    lines += ["", "## 数据规模", "", table(["指标", "数量/状态", "说明"], [
+    lines += ["", "## 专利布局解读", ""]
+    if interpretation_path and interpretation_path.exists():
+        lines.append(interpretation_path.read_text(encoding="utf-8").strip())
+        lines.append("")
+        if depth != "quick_scan":
+            lines.append("→ 查看完整技术路线图（[03-technology-roadmap-report.md](03-technology-roadmap-report.md)）")
+            lines.append("")
+    else:
+        lines.append(f"尚未提供解读文本。建议在案例目录补充 `<case>-interpretation.md`（背景介绍 + 分层判断 + 研发/决策启示，每条判断需可回链本案例的 family_id），补充后重新运行 `build_modular_reports.py` 即可自动嵌入本节。")
+        lines.append("")
+    lines += ["## 数据规模", "", table(["指标", "数量/状态", "说明"], [
         ["专利族", len(families), "以案例族 CSV 的 family_id 为统计单位"],
         ["claim 要素记录", len(claims), "逐条保留文献号、claim 类别、位置和 coverage"],
         ["证据链条目", len(evidence), "事实、推断、来源、定位和复核动作"],
@@ -229,8 +239,11 @@ def render_summary(case, scope, identity, families, claims, evidence, ranking, p
         lines.append(f"- {gap}")
     lines += ["", visual_block(files, ["family-theme", "priority-year", "risk-priority"])]
     lines += ["", "## 独立报告索引", ""]
-    for filename, title, _ in REPORTS[1:]:
-        lines.append(f"- [{title}]({filename})")
+    if depth == "quick_scan":
+        lines.append("当前深度为**快速扫描**，本案例只生成执行摘要；未生成专利族地图、抽取、路线、风险/FTO、创新空间、证据链和来源目录等模块报告，也未生成知识图谱。如需完整分析，请将 `research_scope.json` 的 `depth` 改为 `standard_analysis` 或 `deep_review` 后重新运行 `build_modular_reports.py`。")
+    else:
+        for filename, title, _ in REPORTS[1:]:
+            lines.append(f"- [{title}]({filename})")
     lines += ["", "## 结论边界", "", "本摘要不把摘要命中、聚合网站状态或模型推断升级为权利要求覆盖、有效性或 FTO 结论。正式实施前，优先核验目标法域的完整独立权利要求、国家阶段、分案/继续申请、审查档案和法律事件。"]
     return "\n".join(lines) + "\n"
 
@@ -421,7 +434,7 @@ def render_innovation(case, scope, identity, families, claims, ranking, evidence
         ["术语、别名与相邻实施方式补检", "GAP-TERM-EXPANSION", "案例词簇可作为可追溯的检索起点", f"需要覆盖案例声明的别名、译名、同义表达和相邻实施方式：{cluster_summary}", "扩词命中不自动构成权利要求覆盖", "在检索日志中记录扩词来源、检索式、纳排理由，并回到独立权利要求核验", "低/需补检"],
     ])
     lines.append(table(["候选方向", "关联族/缺口", "已有依据", "当前技术缺口", "反例", "验证动作", "信心"], hypotheses))
-    lines += ["", visual_block(files, ["family-theme", "claim-category", "status"])]
+    lines += ["", visual_block(files, ["family-applicant-heatmap", "family-theme", "claim-category", "status"])]
     lines += ["", "## 3. 分维度空白检查", ""]
     lines.append(table(["维度", "当前样本信号", "空白判定", "建议"], [
         ["核心结构/序列/化合物", "见核心组成或抗体/序列方向", "需查 Markush、序列变体和子族", "结构检索+独立 claim 对比"],
@@ -484,7 +497,7 @@ def render_source_catalog(case, scope, identity, catalog, files):
     return "\n".join(lines) + "\n"
 
 
-def build_reports(project):
+def build_reports(project, jurisdiction_map=False):
     scope = load_json(project / "research_scope.json")
     identity = load_json(project / "identity.json")
     plan = load_json(project / "fto-search-plan.json")
@@ -500,49 +513,80 @@ def build_reports(project):
     ranking = load_csv(ranking_path)
     source_log = load_jsonl(source_log_path)
     roadmap_path = first_match(project, "*-roadmap.md")
+    interpretation_path = first_match(project, "*-interpretation.md")
+    depth = scope.get("depth", "standard_analysis")
+    quick_scan = depth == "quick_scan"
     generated = datetime.now(timezone.utc).isoformat()
     # Rebuild on every report run: charts and HTML share theme/data helpers,
     # so retaining an old manifest after a renderer or case-data update would
     # leave the visual pages out of sync with the Markdown reports.
     if build_visuals:
-        build_visuals(project)
+        build_visuals(project, jurisdiction_map=jurisdiction_map)
     files = {
         "generated": generated,
         "visual_manifest": load_json(project / "visuals" / "manifest.json", {}),
     }
     outputs = {}
-    outputs["00-executive-summary.md"] = render_summary(project.name, scope, identity, families, claims, evidence, ranking, plan, catalog, files)
-    outputs["01-extraction-report.md"] = render_extraction(project.name, scope, identity, families, claims, evidence, plan, catalog, files)
-    outputs["02-patent-family-map-report.md"] = render_family_map(project.name, scope, identity, families, plan, catalog, files)
-    outputs["03-technology-roadmap-report.md"] = render_roadmap(project.name, scope, identity, families, claims, plan, catalog, files, roadmap_path)
-    outputs["04-risk-and-fto-report.md"] = render_risk(project.name, scope, identity, families, claims, ranking, plan, catalog, files)
-    outputs["05-innovation-space-report.md"] = render_innovation(project.name, scope, identity, families, claims, ranking, evidence, plan, catalog, files)
-    outputs["06-evidence-chain-report.md"] = render_evidence(project.name, scope, identity, families, evidence, plan, catalog, source_log, files)
-    outputs["07-source-catalog-report.md"] = render_source_catalog(project.name, scope, identity, catalog, files)
-    index_lines = [f"# {project.name} 模块化报告索引", "", f"> 生成时间：{generated} · 结构化数据目录：`{project}`", "", "## 交互式入口", "", "- [打开专利证据双链图](knowledge-graph.html)", "- [打开交互式统计总览](report-visuals.html)", "- [查看图表数据清单](visuals/manifest.json)", "- [查看图谱质量报告](graph-quality.json)", "", "## 报告清单", ""]
-    for filename, title, _ in REPORTS:
+    outputs["00-executive-summary.md"] = render_summary(project.name, scope, identity, families, claims, evidence, ranking, plan, catalog, files, interpretation_path, depth)
+    # quick_scan is scoped to the executive summary only (SKILL.md's own
+    # "快速扫描：…输出简报和风险雷达" contract) - the other modules, the
+    # knowledge graph and the DOCX/landscape extras stay standard_analysis+.
+    if not quick_scan:
+        outputs["01-extraction-report.md"] = render_extraction(project.name, scope, identity, families, claims, evidence, plan, catalog, files)
+        outputs["02-patent-family-map-report.md"] = render_family_map(project.name, scope, identity, families, plan, catalog, files)
+        outputs["03-technology-roadmap-report.md"] = render_roadmap(project.name, scope, identity, families, claims, plan, catalog, files, roadmap_path)
+        outputs["04-risk-and-fto-report.md"] = render_risk(project.name, scope, identity, families, claims, ranking, plan, catalog, files)
+        outputs["05-innovation-space-report.md"] = render_innovation(project.name, scope, identity, families, claims, ranking, evidence, plan, catalog, files)
+        outputs["06-evidence-chain-report.md"] = render_evidence(project.name, scope, identity, families, evidence, plan, catalog, source_log, files)
+        outputs["07-source-catalog-report.md"] = render_source_catalog(project.name, scope, identity, catalog, files)
+    active_reports = REPORTS if not quick_scan else REPORTS[:1]
+    if quick_scan:
+        # A case that was previously built at standard_analysis/deep_review and
+        # then dropped to quick_scan would otherwise leave stale 01-07 reports
+        # and a stale knowledge graph on disk, contradicting the new report-index.
+        for filename, _, _ in REPORTS[1:]:
+            stem = filename[: -len(".md")]
+            (project / filename).unlink(missing_ok=True)
+            (project / f"{stem}.html").unlink(missing_ok=True)
+        for stale in ("knowledge-graph.html", "graph-data.json", "graph-quality.json", "case-output.json"):
+            (project / stale).unlink(missing_ok=True)
+    index_lines = [f"# {project.name} 模块化报告索引", "", f"> 生成时间：{generated} · 结构化数据目录：`{project}`", "", "## 交互式入口", ""]
+    if quick_scan:
+        index_lines.append("- [打开交互式统计总览](report-visuals.html)")
+        index_lines.append("- [查看图表数据清单](visuals/manifest.json)")
+        index_lines.append("")
+        index_lines.append("当前深度为**快速扫描**，未生成专利证据双链图和其余模块报告；如需完整分析，请将 `research_scope.json` 的 `depth` 改为 `standard_analysis` 或 `deep_review` 后重新运行本脚本。")
+    else:
+        index_lines += ["- [打开专利证据双链图](knowledge-graph.html)", "- [打开交互式统计总览](report-visuals.html)", "- [查看图表数据清单](visuals/manifest.json)", "- [查看图谱质量报告](graph-quality.json)"]
+    index_lines += ["", "## 报告清单", ""]
+    for filename, title, _ in active_reports:
         index_lines.append(f"- [{title}]({filename})")
     index_lines += ["", "## 输入与过程数据", "", "- `research_scope.json` / `identity.json`：研究范围和实体消歧", "- `*-patent-families.csv`：族级数据", "- `*-claim-elements.csv`：权利要求要素", "- `*-evidence.csv`：证据链", "- `case-output.json`：稳定 ID 和一等关系边", "- `graph-data.json` / `graph-quality.json`：图谱数据和质量缺口", "- `fto-search-plan.json`：FTO 特征、检索轮次和来源目录", "- `fto-candidate-ranking.csv`：候选排序", "- `source-log.jsonl`：实际访问日志", "- `visuals/`：依赖无外部图库的 SVG 统计图和 manifest", "", "## 总体限制", "", "报告将未核验的国家阶段、聚合状态、缺失 claim 和未采集结构明确标出；不把模块报告升级为法律意见。"]
     outputs["report-index.md"] = "\n".join(index_lines) + "\n"
     for filename, content in outputs.items():
         (project / filename).write_text(content, encoding="utf-8")
-    if build_pages:
-        build_pages(project)
     graph_quality = {}
-    if build_case_output and build_graph_data and build_knowledge_graph:
+    if not quick_scan and build_case_output and build_graph_data and build_knowledge_graph:
         build_case_output(project)
         _, graph_quality = build_graph_data(project)
         build_knowledge_graph(project)
         build_case_output(project)
+    # build_pages() must run after the knowledge-graph build above: it checks
+    # knowledge-graph.html on disk to decide whether to link/embed it.
+    if build_pages:
+        build_pages(project)
     state_path = project / "state.json"
     state = load_json(state_path, {})
     state.setdefault("reports", {})
     for _, _, key in REPORTS:
-        state["reports"][key] = "complete"
+        state["reports"][key] = "complete" if (key == "summary" or not quick_scan) else "skipped_by_depth"
     state["reports"]["index"] = "complete"
     state["reports"]["visuals"] = "complete"
     state["reports"]["html_pages"] = "complete"
-    state["reports"]["knowledge_graph"] = "complete" if (project / "knowledge-graph.html").exists() else "partial"
+    if quick_scan:
+        state["reports"]["knowledge_graph"] = "skipped_by_depth"
+    else:
+        state["reports"]["knowledge_graph"] = "complete" if (project / "knowledge-graph.html").exists() else "partial"
     state["graph_quality"] = graph_quality.get("status", "not_generated")
     state["reports_generated_at"] = generated
     state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -552,9 +596,10 @@ def build_reports(project):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-dir", required=True)
+    parser.add_argument("--jurisdiction-map", action="store_true", help="Render the 法域覆盖 chart as a world choropleth instead of the default bar chart (passthrough to build_report_visuals.py).")
     args = parser.parse_args()
     project = Path(args.project_dir).expanduser().resolve()
-    outputs = build_reports(project)
+    outputs = build_reports(project, jurisdiction_map=args.jurisdiction_map)
     for filename in outputs:
         print(f"Generated {project / filename}")
     print(json.dumps({"report_count": len(outputs), "case": project.name}, ensure_ascii=False))

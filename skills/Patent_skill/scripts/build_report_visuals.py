@@ -16,6 +16,7 @@ import argparse
 import csv
 import html
 import json
+import math
 import re
 import sys
 from collections import Counter
@@ -29,6 +30,9 @@ import _world_geo_data as geo
 # chart_id -> render form
 LINE_CHARTS = {"priority-year"}
 STATUS_CHARTS = {"status", "risk-priority", "evidence-confidence"}
+# Jurisdictions in a case are usually a handful of discrete codes (CN/US/EP/WO/...),
+# so a bar chart already reads cleanly - the world choropleth is opt-in decoration,
+# not the default (see render_chart's jurisdiction_map param / --jurisdiction-map).
 MAP_CHARTS = {"jurisdiction"}
 
 
@@ -159,12 +163,33 @@ def bar_chart_svg(title, values, *, chart_id="", width=760, label_width=210, not
     return "\n".join(lines)
 
 
+def _nice_axis_ticks(max_v, target_ticks=4):
+    """Round gridline values (dataviz marks-and-anatomy.md: 'round to clean
+    numbers'). Returns ascending ints from 0 to a ceiling >= max_v, spaced by
+    a step from the 1/2/5-per-decade family - never duplicate labels like
+    two gridlines both rounding to "0" or "1" for a small max_v."""
+    if max_v <= 0:
+        return [0]
+    step = max(1, max_v / target_ticks)
+    magnitude = 10 ** math.floor(math.log10(step))
+    for mult in (1, 2, 5, 10):
+        candidate = mult * magnitude
+        if candidate >= step:
+            step = candidate
+            break
+    ticks, v = [], 0
+    while v < max_v + step:
+        ticks.append(v)
+        v += step
+    return ticks
+
+
 def line_chart_svg(title, values, *, chart_id="", width=760, note="", svg_id=None):
     """Trend over time: one series, sequential-blue line + dots, direct end label."""
     pairs = [(str(k), int(v)) for k, v in values if str(k).strip()]
     safe_title = html.escape(title)
     height = 260
-    top, bottom, left, right = 70, 42, 46, 40
+    top, bottom, left, right = 70, 42, 54, 40
     plot_w = width - left - right
     plot_h = height - top - bottom
     lines = [
@@ -183,17 +208,27 @@ def line_chart_svg(title, values, *, chart_id="", width=760, note="", svg_id=Non
     n = len(pairs)
     step = plot_w / max(1, n - 1) if n > 1 else 0
     baseline = top + plot_h
-    lines.append(f'<line x1="{left}" y1="{baseline}" x2="{width - right}" y2="{baseline}" stroke="var(--axis,#c3c2b7)" stroke-width="1"/>')
+    ticks = _nice_axis_ticks(max_v)
+    axis_ceiling = ticks[-1]
+    # Hairline, one-step-off-surface, recessive gridlines give the plot a
+    # structure to sit in - without them a sparse series (e.g. 2 points) reads
+    # as an empty card with one oversized shape floating in it.
+    for tick in ticks:
+        y = baseline - (tick / axis_ceiling) * plot_h
+        lines.append(f'<line x1="{left}" y1="{y:.1f}" x2="{width - right}" y2="{y:.1f}" stroke="var(--line,#dfe5ec)" stroke-width="1"/>')
+        lines.append(f'<text x="{left - 10}" y="{y + 4:.1f}" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="var(--muted,#71809a)">{tick}</text>')
     points = []
     for idx, (label, value) in enumerate(pairs):
         x = left + (step * idx if n > 1 else plot_w / 2)
-        y = baseline - (value / max_v) * plot_h
+        y = baseline - (value / axis_ceiling) * plot_h
         points.append((x, y, label, value))
     path_d = " ".join(f"{'M' if i == 0 else 'L'}{x:.1f},{y:.1f}" for i, (x, y, _, _) in enumerate(points))
     area_d = path_d + f" L{points[-1][0]:.1f},{baseline} L{points[0][0]:.1f},{baseline} Z"
     accent = theme.ACCENT
-    lines.append(f'<path d="{area_d}" fill="{theme.SEQUENTIAL[150]}" opacity=".55"/>')
-    lines.append(f'<path d="{path_d}" fill="none" stroke="{accent}" stroke-width="2.5"/>')
+    # Area fill is a wash, not a block: ~10% opacity per the mark spec, so it
+    # reads as shading under the line instead of a saturated slab of color.
+    lines.append(f'<path d="{area_d}" fill="{accent}" opacity=".1"/>')
+    lines.append(f'<path d="{path_d}" fill="none" stroke="{accent}" stroke-width="2"/>')
     for idx, (x, y, label, value) in enumerate(points):
         lines.append(f'<g class="rv-row"><title>{html.escape(label)}: {value}</title><circle cx="{x:.1f}" cy="{y:.1f}" r="7" fill="{accent}" stroke="var(--surface,#fff)" stroke-width="2"/></g>')
         if idx == 0 or idx == len(points) - 1 or value == max_v:
@@ -239,6 +274,76 @@ def status_bars_svg(title, values, *, chart_id="", width=760, label_width=210, n
             f'<text x="{width - 54}" y="{y + 16}" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="var(--ink,#17233b)">{value}</text>',
         ])
         lines.append("</g>")
+    lines.append("</svg>")
+    return "\n".join(lines)
+
+
+def concentration_matrix_values(families, row_limit=6, col_limit=8):
+    """技术主题 (family_stage) x top-N 申请人 density grid, flattened to the same
+    "label -> count" pairs every other chart uses (incl. explicit 0 cells so the
+    grid shape survives serialization) - this is the same signal borghei-style
+    patent-landscape mappers compute as a classification x assignee heatmap
+    (crowded cells = multiple families/applicants; near-empty cells = white-space
+    candidates), just grounded in the fields this case actually has."""
+    # Applicant names routinely contain "," (Co., Ltd.) or "/" (Novo Nordisk A/S) as
+    # part of the legal name itself, so this axis deliberately skips split_values()
+    # (built for genuinely multi-value fields like jurisdictions) and keeps each
+    # family's applicant_or_assignee as one whole label.
+    applicants = [family.get("applicant_or_assignee", "").strip() for family in families]
+    rows = [r for r, _ in Counter(family_stage(f) for f in families).most_common(row_limit)]
+    cols = [c for c, _ in Counter(a for a in applicants if a).most_common(col_limit)]
+    cells = Counter()
+    for family, applicant in zip(families, applicants):
+        stage = family_stage(family)
+        if stage in rows and applicant in cols:
+            cells[(stage, applicant)] += 1
+    return [(f"{r} × {c}", cells.get((r, c), 0)) for r in rows for c in cols]
+
+
+def heatmap_svg(title, values, *, chart_id="", width=760, note=""):
+    """Crowded vs. white-space density grid: darker cell = more families sharing
+    that technology-theme/applicant combination, near-blank cell = thin coverage."""
+    cells, row_order, col_order = {}, [], []
+    for key, count in values:
+        if " × " not in key:
+            continue
+        row, col = key.split(" × ", 1)
+        if row not in row_order:
+            row_order.append(row)
+        if col not in col_order:
+            col_order.append(col)
+        cells[(row, col)] = int(count)
+    safe_title = html.escape(title)
+    row_label_w = 190
+    top = 96
+    cell_h = 30
+    cell_w = max(60, (width - row_label_w - 24) // max(1, len(col_order)))
+    height = top + max(1, len(row_order)) * cell_h + 40
+    lines = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{safe_title}" class="rv-svg">',
+        f"<title>{safe_title}</title>",
+        f'<rect width="{width}" height="{height}" rx="16" fill="var(--surface,#fff)"/>',
+        f'<text x="28" y="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="var(--ink,#17233b)">{safe_title}</text>',
+    ]
+    if note:
+        lines.append(f'<text x="28" y="56" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="var(--muted,#71809a)">{html.escape(note)}</text>')
+    if not cells:
+        lines.append('<text x="28" y="105" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="var(--muted,#71809a)">当前数据集暂无可绘制记录</text>')
+        lines.append("</svg>")
+        return "\n".join(lines)
+    max_count = max(cells.values()) or 1
+    for c_idx, col in enumerate(col_order):
+        x = row_label_w + c_idx * cell_w + cell_w / 2
+        lines.append(f'<text x="{x:.1f}" y="{top - 10}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="10" fill="var(--muted,#71809a)">{html.escape(compact(col, 16))}</text>')
+    for r_idx, row in enumerate(row_order):
+        y = top + r_idx * cell_h
+        lines.append(f'<text x="24" y="{y + cell_h / 2 + 4:.1f}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12" fill="var(--secondary,#44536c)">{html.escape(compact(row, 24))}</text>')
+        for c_idx, col in enumerate(col_order):
+            n = cells.get((row, col), 0)
+            x = row_label_w + c_idx * cell_w
+            fill = _geo_shade(n, max_count)
+            label = f'<text x="{x + (cell_w - 4) / 2:.1f}" y="{y + cell_h / 2 + 4:.1f}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" font-weight="700" fill="var(--ink,#17233b)">{n}</text>' if n else ""
+            lines.append(f'<g class="rv-row"><title>{html.escape(row)} × {html.escape(col)}：{n} 族</title><rect x="{x}" y="{y + 3}" width="{cell_w - 4}" height="{cell_h - 6}" rx="6" fill="{fill}"/>{label}</g>')
     lines.append("</svg>")
     return "\n".join(lines)
 
@@ -301,9 +406,14 @@ def geo_map_svg(title, values, *, chart_id="", note="", width=760):
     return "\n".join(lines)
 
 
-def render_chart(chart_id, title, values, note):
-    if chart_id in MAP_CHARTS:
+HEATMAP_CHARTS = {"family-applicant-heatmap"}
+
+
+def render_chart(chart_id, title, values, note, jurisdiction_map=False):
+    if jurisdiction_map and chart_id in MAP_CHARTS:
         return geo_map_svg(title, values, chart_id=chart_id, note=note), "map"
+    if chart_id in HEATMAP_CHARTS:
+        return heatmap_svg(title, values, chart_id=chart_id, note=note), "heatmap"
     if chart_id in LINE_CHARTS:
         return line_chart_svg(title, values, chart_id=chart_id, note=note), "line"
     if chart_id in STATUS_CHARTS:
@@ -360,6 +470,11 @@ def build_dataset(project):
             "source_fields": ["jurisdictions"], "values": sorted(count_values(families, "jurisdictions").items(), key=lambda x: (-x[1], x[0])),
         },
         {
+            "id": "family-applicant-heatmap", "title": "技术主题 × 申请人密度矩阵", "metric_definition": "按族 family_stage（技术主题）与 applicant_or_assignee（各取样本内最多 6 主题 × 8 申请人）交叉计数；深色格＝拥挤区（多族多申请人重叠），空白/浅色格＝白空间候选，不代表市场占有率或专利有效性。",
+            "source_fields": ["claim_theme", "claim_categories", "key_claim_elements", "applicant_or_assignee"],
+            "values": concentration_matrix_values(families),
+        },
+        {
             "id": "claim-category", "title": "权利要求类别分布", "metric_definition": "按 claim-elements.csv 的 claim_category 记录数统计。",
             "source_fields": ["claim_category"], "values": sorted(count_values(claims, "claim_category").items(), key=lambda x: (-x[1], x[0])),
         },
@@ -399,7 +514,7 @@ def build_dataset(project):
     return families, claims, evidence, ranking, plan, catalog, source_log, chart_defs, metrics
 
 
-def build_html(project, chart_defs, metrics, scope, manifest):
+def build_html(project, chart_defs, metrics, scope, manifest, jurisdiction_map=False):
     obj = scope.get("research_object", {})
     title = f"{obj.get('molecule', project.name)} · 专利分析统计总览"
     chart_map = {c["id"]: c for c in chart_defs}
@@ -419,6 +534,7 @@ def build_html(project, chart_defs, metrics, scope, manifest):
     step_html = "".join(f'<a class="step" href="{href}"><span>{num}</span><b>{label}</b></a>' for num, label, href in steps)
     sections = [
         ("核心布局", ["family-theme", "priority-year", "applicant", "jurisdiction"]),
+        ("创新空间信号", ["family-applicant-heatmap"]),
         ("权利要求与路线", ["claim-category", "status", "search-round"]),
         ("FTO、证据与来源", ["risk-priority", "evidence-confidence", "evidence-type", "source-kind"]),
     ]
@@ -429,8 +545,8 @@ def build_html(project, chart_defs, metrics, scope, manifest):
             chart = chart_map.get(chart_id)
             if not chart:
                 continue
-            svg, form = render_chart(chart_id, chart["title"], chart["values"], chart["metric_definition"])
-            form_label = {"line": "趋势折线", "status": "状态色板", "bar": "顺序色阶条形图", "map": "真实世界地图"}[form]
+            svg, form = render_chart(chart_id, chart["title"], chart["values"], chart["metric_definition"], jurisdiction_map=jurisdiction_map)
+            form_label = {"line": "趋势折线", "status": "状态色板", "bar": "顺序色阶条形图", "map": "真实世界地图", "heatmap": "技术主题×申请人密度矩阵"}[form]
             chart_html.append(
                 f'<article class="chart-card">{svg}'
                 f'<div class="chart-note">口径：{html.escape(chart["metric_definition"])} · 形式：{form_label}</div>'
@@ -460,7 +576,7 @@ h1 {{ margin:10px 0 8px; font-size:32px; }}
 </main></body></html>'''
 
 
-def build_visuals(project):
+def build_visuals(project, jurisdiction_map=False):
     project = Path(project).expanduser().resolve()
     scope = load_json(project / "research_scope.json")
     families, claims, evidence, ranking, plan, catalog, source_log, chart_defs, metrics = build_dataset(project)
@@ -483,7 +599,7 @@ def build_visuals(project):
     for chart in chart_defs:
         svg_name = f"{chart['id']}-distribution.svg"
         svg_path = visuals_dir / svg_name
-        svg_markup, form = render_chart(chart["id"], chart["title"], chart["values"], chart["metric_definition"])
+        svg_markup, form = render_chart(chart["id"], chart["title"], chart["values"], chart["metric_definition"], jurisdiction_map=jurisdiction_map)
         svg_path.write_text(svg_markup, encoding="utf-8")
         manifest["charts"].append({
             "id": chart["id"], "title": chart["title"], "filename": svg_name, "form": form,
@@ -491,16 +607,17 @@ def build_visuals(project):
             "values": [[str(k), int(v)] for k, v in chart["values"]],
         })
     (visuals_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (project / "report-visuals.html").write_text(build_html(project, chart_defs, metrics, scope, manifest), encoding="utf-8")
+    (project / "report-visuals.html").write_text(build_html(project, chart_defs, metrics, scope, manifest, jurisdiction_map=jurisdiction_map), encoding="utf-8")
     return manifest
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-dir", required=True)
+    parser.add_argument("--jurisdiction-map", action="store_true", help="Render the 法域覆盖 chart as a world choropleth instead of the default bar chart.")
     args = parser.parse_args()
     project = Path(args.project_dir).expanduser().resolve()
-    manifest = build_visuals(project)
+    manifest = build_visuals(project, jurisdiction_map=args.jurisdiction_map)
     print(f"Generated {project / 'report-visuals.html'}")
     print(f"Generated {len(manifest['charts'])} SVG charts under {project / 'visuals'}")
     print(json.dumps({"case": project.name, "chart_count": len(manifest["charts"]), "metrics": manifest["metrics"]}, ensure_ascii=False))

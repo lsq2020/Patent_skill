@@ -109,6 +109,9 @@ def main():
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(render(args.title, args.as_of, families), encoding="utf-8")
     print(f"Generated {out} from {len(families)} patent families")
+    print("Deprecated: this V1 landscape view is superseded by build_landscape_v2.py "
+          "(protection-layer matrix + priority timeline + jurisdiction matrix + detail panel). "
+          "Kept only for existing links; prefer V2 for new cases.", file=sys.stderr)
 
 
 if __name__ == "__main__":
